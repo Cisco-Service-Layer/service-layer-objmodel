@@ -19,7 +19,7 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace service_layer {
 constexpr SLSrExplicitCP::SLSrExplicitCP(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : segmentlist_(){}
+  : segment_list_(){}
 struct SLSrExplicitCPDefaultTypeInternal {
   constexpr SLSrExplicitCPDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -33,7 +33,7 @@ constexpr SLSrConstraints_SegmentConstraints::SLSrConstraints_SegmentConstraints
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : protection_(0)
 
-  , sidalgo_(0u)
+  , sid_algo_(0u)
   , maximum_sid_depth_(0u){}
 struct SLSrConstraints_SegmentConstraintsDefaultTypeInternal {
   constexpr SLSrConstraints_SegmentConstraintsDefaultTypeInternal()
@@ -61,8 +61,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrConstraintsDefaultTypeInter
 constexpr SLSrDynamicCP::SLSrDynamicCP(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : constraints_(nullptr)
-  , metricmargin_(nullptr)
-  , ometric_(0)
+  , metric_margin_(nullptr)
+  , o_metric_(0)
 
   , delegate_(false){}
 struct SLSrDynamicCPDefaultTypeInternal {
@@ -93,7 +93,7 @@ struct SLSrCandidatePathDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrCandidatePathDefaultTypeInternal _SLSrCandidatePath_default_instance_;
 constexpr SLSrv6BindingSID::SLSrv6BindingSID(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : locatorname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : locator_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , behavior_(0u){}
 struct SLSrv6BindingSIDDefaultTypeInternal {
   constexpr SLSrv6BindingSIDDefaultTypeInternal()
@@ -106,10 +106,10 @@ struct SLSrv6BindingSIDDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrv6BindingSIDDefaultTypeInternal _SLSrv6BindingSID_default_instance_;
 constexpr SLSrBindingSID::SLSrBindingSID(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : srv6bindingsid_(nullptr)
-  , bindingsidallocation_(0)
+  : srv6_bsid_(nullptr)
+  , allocation_mode_(0)
 
-  , mplsbindingsid_(0u){}
+  , mpls_bsid_(0u){}
 struct SLSrBindingSIDDefaultTypeInternal {
   constexpr SLSrBindingSIDDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -124,8 +124,8 @@ constexpr SLSrPolicy::SLSrPolicy(
   : cps_()
   , key_(nullptr)
   , bsid_(nullptr)
-  , transiteligible_(false)
-  , profileid_(0u){}
+  , transit_eligible_(false)
+  , profile_id_(0u){}
 struct SLSrPolicyDefaultTypeInternal {
   constexpr SLSrPolicyDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -184,7 +184,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrExplicitCP, segmentlist_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrExplicitCP, segment_list_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrConstraints_SegmentConstraints, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -192,7 +192,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrConstraints_SegmentConstraints, protection_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrConstraints_SegmentConstraints, sidalgo_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrConstraints_SegmentConstraints, sid_algo_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrConstraints_SegmentConstraints, maximum_sid_depth_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrConstraints, _internal_metadata_),
@@ -209,9 +209,9 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrDynamicCP, ometric_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrDynamicCP, o_metric_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrDynamicCP, constraints_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrDynamicCP, metricmargin_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrDynamicCP, metric_margin_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrDynamicCP, delegate_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrCandidatePath, _internal_metadata_),
@@ -232,7 +232,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSID, locatorname_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSID, locator_name_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSID, behavior_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrBindingSID, _internal_metadata_),
@@ -240,9 +240,9 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrBindingSID, bindingsidallocation_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrBindingSID, mplsbindingsid_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrBindingSID, srv6bindingsid_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrBindingSID, allocation_mode_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrBindingSID, mpls_bsid_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrBindingSID, srv6_bsid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -250,10 +250,10 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, key_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, transiteligible_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, transit_eligible_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, cps_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, bsid_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, profileid_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, profile_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -308,57 +308,57 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\024sl_srte_policy.proto\022\rservice_layer\032\025s"
   "l_common_types.proto\032\022sl_sr_common.proto"
-  "\"E\n\016SLSrExplicitCP\0223\n\013segmentList\030\001 \003(\0132"
-  "\036.service_layer.SLSrSegmentList\"\324\003\n\017SLSr"
-  "Constraints\0221\n\naffinities\030\001 \001(\0132\035.servic"
-  "e_layer.SLSrAffinities\0225\n\014metricBounds\030\002"
-  " \001(\0132\037.service_layer.SLSrMetricBounds\022N\n"
-  "\023segment_constraints\030\003 \001(\01321.service_lay"
-  "er.SLSrConstraints.SegmentConstraints\032\206\002"
-  "\n\022SegmentConstraints\022T\n\nprotection\030\001 \001(\016"
-  "2@.service_layer.SLSrConstraints.Segment"
-  "Constraints.ProtectionType\022\017\n\007sidalgo\030\002 "
-  "\001(\r\022\031\n\021maximum_sid_depth\030\003 \001(\r\"n\n\016Protec"
-  "tionType\022\027\n\023PROTECTED_PREFERRED\020\000\022\022\n\016PRO"
-  "TECTED_ONLY\020\001\022\031\n\025UNPROTECTED_PREFERRED\020\002"
-  "\022\024\n\020UNPROTECTED_ONLY\020\003\"\275\001\n\rSLSrDynamicCP"
-  "\022.\n\007ometric\030\001 \001(\0162\035.service_layer.SLSrMe"
-  "tricType\0223\n\013constraints\030\002 \001(\0132\036.service_"
-  "layer.SLSrConstraints\0225\n\014metricMargin\030\003 "
-  "\001(\0132\037.service_layer.SLSrMetricMargin\022\020\n\010"
-  "delegate\030\004 \001(\010\"\202\002\n\021SLSrCandidatePath\0220\n\003"
-  "key\030\001 \001(\0132#.service_layer.SLSrCandidateP"
-  "athKey\022\014\n\004name\030\002 \001(\t\022\022\n\npreference\030\003 \001(\r"
-  "\022/\n\tdataplane\030\004 \001(\0162\034.service_layer.SLSr"
-  "Dataplane\022/\n\007dynamic\030\005 \001(\0132\034.service_lay"
-  "er.SLSrDynamicCPH\000\0221\n\010explicit\030\006 \001(\0132\035.s"
-  "ervice_layer.SLSrExplicitCPH\000B\004\n\002CP\"9\n\020S"
-  "LSrv6BindingSID\022\023\n\013locatorName\030\001 \001(\t\022\020\n\010"
-  "behavior\030\002 \001(\r\"\254\001\n\016SLSrBindingSID\022I\n\024bin"
-  "dingSIDAllocation\030\001 \001(\0162+.service_layer."
-  "SLSrBindingSIDAllocationMode\022\026\n\016mplsBind"
-  "ingSID\030\002 \001(\r\0227\n\016srv6BindingSID\030\003 \001(\0132\037.s"
-  "ervice_layer.SLSrv6BindingSID\"\277\001\n\nSLSrPo"
-  "licy\022)\n\003key\030\001 \001(\0132\034.service_layer.SLSrPo"
-  "licyKey\022\027\n\017transitEligible\030\002 \001(\010\022-\n\003CPs\030"
-  "\003 \003(\0132 .service_layer.SLSrCandidatePath\022"
-  "+\n\004bsid\030\004 \001(\0132\035.service_layer.SLSrBindin"
-  "gSID\022\021\n\tprofileID\030\005 \001(\r\"<\n\rSLSrPolicyMsg"
-  "\022+\n\010policies\030\001 \003(\0132\031.service_layer.SLSrP"
-  "olicy\"\270\001\n\017SLSrPolicyOpRsp\022;\n\tresponses\030\001"
-  " \003(\0132(.service_layer.SLSrPolicyOpRsp.Pol"
-  "icyRsp\032h\n\tPolicyRsp\0220\n\nreturnCode\030\001 \001(\0132"
-  "\034.service_layer.SLErrorStatus\022)\n\003key\030\002 \001"
-  "(\0132\034.service_layer.SLSrPolicyKey*C\n\034SLSr"
-  "BindingSIDAllocationMode\022\021\n\rBSID_EXPLICI"
-  "T\020\000\022\020\n\014BSID_DYNAMIC\020\0012\257\001\n\014SLSrtePolicy\022M"
-  "\n\rSLSrPolicyAdd\022\034.service_layer.SLSrPoli"
-  "cyMsg\032\036.service_layer.SLSrPolicyOpRsp\022P\n"
-  "\020SLSrPolicyDelete\022\034.service_layer.SLSrPo"
-  "licyMsg\032\036.service_layer.SLSrPolicyOpRspB"
-  "QZOgithub.com/Cisco-service-layer/servic"
-  "e-layer-objmodel/grpc/protos;service_lay"
-  "erb\006proto3"
+  "\"F\n\016SLSrExplicitCP\0224\n\014segment_list\030\001 \003(\013"
+  "2\036.service_layer.SLSrSegmentList\"\356\003\n\017SLS"
+  "rConstraints\0221\n\naffinities\030\001 \001(\0132\035.servi"
+  "ce_layer.SLSrAffinities\0225\n\014metricBounds\030"
+  "\002 \001(\0132\037.service_layer.SLSrMetricBounds\022N"
+  "\n\023segment_constraints\030\003 \001(\01321.service_la"
+  "yer.SLSrConstraints.SegmentConstraints\032\240"
+  "\002\n\022SegmentConstraints\022T\n\nprotection\030\001 \001("
+  "\0162@.service_layer.SLSrConstraints.Segmen"
+  "tConstraints.ProtectionType\022\020\n\010sid_algo\030"
+  "\002 \001(\r\022\031\n\021maximum_sid_depth\030\003 \001(\r\"\206\001\n\016Pro"
+  "tectionType\022\035\n\031SL_SR_PROTECTED_PREFERRED"
+  "\020\000\022\030\n\024SL_SR_PROTECTED_ONLY\020\001\022\037\n\033SL_SR_UN"
+  "PROTECTED_PREFERRED\020\002\022\032\n\026SL_SR_UNPROTECT"
+  "ED_ONLY\020\003\"\277\001\n\rSLSrDynamicCP\022/\n\010o_metric\030"
+  "\001 \001(\0162\035.service_layer.SLSrMetricType\0223\n\013"
+  "constraints\030\002 \001(\0132\036.service_layer.SLSrCo"
+  "nstraints\0226\n\rmetric_margin\030\003 \001(\0132\037.servi"
+  "ce_layer.SLSrMetricMargin\022\020\n\010delegate\030\004 "
+  "\001(\010\"\202\002\n\021SLSrCandidatePath\0220\n\003key\030\001 \001(\0132#"
+  ".service_layer.SLSrCandidatePathKey\022\014\n\004n"
+  "ame\030\002 \001(\t\022\022\n\npreference\030\003 \001(\r\022/\n\tdatapla"
+  "ne\030\004 \001(\0162\034.service_layer.SLSrDataplane\022/"
+  "\n\007dynamic\030\005 \001(\0132\034.service_layer.SLSrDyna"
+  "micCPH\000\0221\n\010explicit\030\006 \001(\0132\035.service_laye"
+  "r.SLSrExplicitCPH\000B\004\n\002CP\":\n\020SLSrv6Bindin"
+  "gSID\022\024\n\014locator_name\030\001 \001(\t\022\020\n\010behavior\030\002"
+  " \001(\r\"\235\001\n\016SLSrBindingSID\022D\n\017allocation_mo"
+  "de\030\001 \001(\0162+.service_layer.SLSrBindingSIDA"
+  "llocationMode\022\021\n\tmpls_bsid\030\002 \001(\r\0222\n\tsrv6"
+  "_bsid\030\003 \001(\0132\037.service_layer.SLSrv6Bindin"
+  "gSID\"\301\001\n\nSLSrPolicy\022)\n\003key\030\001 \001(\0132\034.servi"
+  "ce_layer.SLSrPolicyKey\022\030\n\020transit_eligib"
+  "le\030\002 \001(\010\022-\n\003CPs\030\003 \003(\0132 .service_layer.SL"
+  "SrCandidatePath\022+\n\004bsid\030\004 \001(\0132\035.service_"
+  "layer.SLSrBindingSID\022\022\n\nprofile_id\030\005 \001(\r"
+  "\"<\n\rSLSrPolicyMsg\022+\n\010policies\030\001 \003(\0132\031.se"
+  "rvice_layer.SLSrPolicy\"\270\001\n\017SLSrPolicyOpR"
+  "sp\022;\n\tresponses\030\001 \003(\0132(.service_layer.SL"
+  "SrPolicyOpRsp.PolicyRsp\032h\n\tPolicyRsp\0220\n\n"
+  "returnCode\030\001 \001(\0132\034.service_layer.SLError"
+  "Status\022)\n\003key\030\002 \001(\0132\034.service_layer.SLSr"
+  "PolicyKey*O\n\034SLSrBindingSIDAllocationMod"
+  "e\022\027\n\023SL_SR_BSID_EXPLICIT\020\000\022\026\n\022SL_SR_BSID"
+  "_DYNAMIC\020\0012\257\001\n\014SLSrtePolicy\022M\n\rSLSrPolic"
+  "yAdd\022\034.service_layer.SLSrPolicyMsg\032\036.ser"
+  "vice_layer.SLSrPolicyOpRsp\022P\n\020SLSrPolicy"
+  "Delete\022\034.service_layer.SLSrPolicyMsg\032\036.s"
+  "ervice_layer.SLSrPolicyOpRspBQZOgithub.c"
+  "om/Cisco-service-layer/service-layer-obj"
+  "model/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps[2] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -366,7 +366,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpolicy_2eproto = {
-  false, false, 2090, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
+  false, false, 2119, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
   &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 2, 11,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto, file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto,
@@ -395,10 +395,10 @@ bool SLSrConstraints_SegmentConstraints_ProtectionType_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::PROTECTED_PREFERRED;
-constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::PROTECTED_ONLY;
-constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::UNPROTECTED_PREFERRED;
-constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::UNPROTECTED_ONLY;
+constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::SL_SR_PROTECTED_PREFERRED;
+constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::SL_SR_PROTECTED_ONLY;
+constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::SL_SR_UNPROTECTED_PREFERRED;
+constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::SL_SR_UNPROTECTED_ONLY;
 constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::ProtectionType_MIN;
 constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints::ProtectionType_MAX;
 constexpr int SLSrConstraints_SegmentConstraints::ProtectionType_ARRAYSIZE;
@@ -424,13 +424,13 @@ class SLSrExplicitCP::_Internal {
  public:
 };
 
-void SLSrExplicitCP::clear_segmentlist() {
-  segmentlist_.Clear();
+void SLSrExplicitCP::clear_segment_list() {
+  segment_list_.Clear();
 }
 SLSrExplicitCP::SLSrExplicitCP(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  segmentlist_(arena) {
+  segment_list_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -439,7 +439,7 @@ SLSrExplicitCP::SLSrExplicitCP(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 SLSrExplicitCP::SLSrExplicitCP(const SLSrExplicitCP& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      segmentlist_(from.segmentlist_) {
+      segment_list_(from.segment_list_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrExplicitCP)
 }
@@ -474,7 +474,7 @@ void SLSrExplicitCP::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  segmentlist_.Clear();
+  segment_list_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -484,13 +484,13 @@ const char* SLSrExplicitCP::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .service_layer.SLSrSegmentList segmentList = 1;
+      // repeated .service_layer.SLSrSegmentList segment_list = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_segmentlist(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_segment_list(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
@@ -526,12 +526,12 @@ uint8_t* SLSrExplicitCP::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrSegmentList segmentList = 1;
+  // repeated .service_layer.SLSrSegmentList segment_list = 1;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_segmentlist_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->_internal_segment_list_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_segmentlist(i), target, stream);
+      InternalWriteMessage(1, this->_internal_segment_list(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -550,9 +550,9 @@ size_t SLSrExplicitCP::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrSegmentList segmentList = 1;
-  total_size += 1UL * this->_internal_segmentlist_size();
-  for (const auto& msg : this->segmentlist_) {
+  // repeated .service_layer.SLSrSegmentList segment_list = 1;
+  total_size += 1UL * this->_internal_segment_list_size();
+  for (const auto& msg : this->segment_list_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -579,7 +579,7 @@ void SLSrExplicitCP::MergeFrom(const SLSrExplicitCP& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  segmentlist_.MergeFrom(from.segmentlist_);
+  segment_list_.MergeFrom(from.segment_list_);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -597,7 +597,7 @@ bool SLSrExplicitCP::IsInitialized() const {
 void SLSrExplicitCP::InternalSwap(SLSrExplicitCP* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  segmentlist_.InternalSwap(&other->segmentlist_);
+  segment_list_.InternalSwap(&other->segment_list_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrExplicitCP::GetMetadata() const {
@@ -685,10 +685,10 @@ const char* SLSrConstraints_SegmentConstraints::_InternalParse(const char* ptr, 
         } else
           goto handle_unusual;
         continue;
-      // uint32 sidalgo = 2;
+      // uint32 sid_algo = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          sidalgo_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          sid_algo_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -737,10 +737,10 @@ uint8_t* SLSrConstraints_SegmentConstraints::_InternalSerialize(
       1, this->_internal_protection(), target);
   }
 
-  // uint32 sidalgo = 2;
-  if (this->_internal_sidalgo() != 0) {
+  // uint32 sid_algo = 2;
+  if (this->_internal_sid_algo() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_sidalgo(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_sid_algo(), target);
   }
 
   // uint32 maximum_sid_depth = 3;
@@ -771,9 +771,9 @@ size_t SLSrConstraints_SegmentConstraints::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_protection());
   }
 
-  // uint32 sidalgo = 2;
-  if (this->_internal_sidalgo() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_sidalgo());
+  // uint32 sid_algo = 2;
+  if (this->_internal_sid_algo() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_sid_algo());
   }
 
   // uint32 maximum_sid_depth = 3;
@@ -806,8 +806,8 @@ void SLSrConstraints_SegmentConstraints::MergeFrom(const SLSrConstraints_Segment
   if (from._internal_protection() != 0) {
     _internal_set_protection(from._internal_protection());
   }
-  if (from._internal_sidalgo() != 0) {
-    _internal_set_sidalgo(from._internal_sidalgo());
+  if (from._internal_sid_algo() != 0) {
+    _internal_set_sid_algo(from._internal_sid_algo());
   }
   if (from._internal_maximum_sid_depth() != 0) {
     _internal_set_maximum_sid_depth(from._internal_maximum_sid_depth());
@@ -1145,7 +1145,7 @@ void SLSrConstraints::InternalSwap(SLSrConstraints* other) {
 class SLSrDynamicCP::_Internal {
  public:
   static const ::service_layer::SLSrConstraints& constraints(const SLSrDynamicCP* msg);
-  static const ::service_layer::SLSrMetricMargin& metricmargin(const SLSrDynamicCP* msg);
+  static const ::service_layer::SLSrMetricMargin& metric_margin(const SLSrDynamicCP* msg);
 };
 
 const ::service_layer::SLSrConstraints&
@@ -1153,14 +1153,14 @@ SLSrDynamicCP::_Internal::constraints(const SLSrDynamicCP* msg) {
   return *msg->constraints_;
 }
 const ::service_layer::SLSrMetricMargin&
-SLSrDynamicCP::_Internal::metricmargin(const SLSrDynamicCP* msg) {
-  return *msg->metricmargin_;
+SLSrDynamicCP::_Internal::metric_margin(const SLSrDynamicCP* msg) {
+  return *msg->metric_margin_;
 }
-void SLSrDynamicCP::clear_metricmargin() {
-  if (GetArenaForAllocation() == nullptr && metricmargin_ != nullptr) {
-    delete metricmargin_;
+void SLSrDynamicCP::clear_metric_margin() {
+  if (GetArenaForAllocation() == nullptr && metric_margin_ != nullptr) {
+    delete metric_margin_;
   }
-  metricmargin_ = nullptr;
+  metric_margin_ = nullptr;
 }
 SLSrDynamicCP::SLSrDynamicCP(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1179,14 +1179,14 @@ SLSrDynamicCP::SLSrDynamicCP(const SLSrDynamicCP& from)
   } else {
     constraints_ = nullptr;
   }
-  if (from._internal_has_metricmargin()) {
-    metricmargin_ = new ::service_layer::SLSrMetricMargin(*from.metricmargin_);
+  if (from._internal_has_metric_margin()) {
+    metric_margin_ = new ::service_layer::SLSrMetricMargin(*from.metric_margin_);
   } else {
-    metricmargin_ = nullptr;
+    metric_margin_ = nullptr;
   }
-  ::memcpy(&ometric_, &from.ometric_,
+  ::memcpy(&o_metric_, &from.o_metric_,
     static_cast<size_t>(reinterpret_cast<char*>(&delegate_) -
-    reinterpret_cast<char*>(&ometric_)) + sizeof(delegate_));
+    reinterpret_cast<char*>(&o_metric_)) + sizeof(delegate_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrDynamicCP)
 }
 
@@ -1207,7 +1207,7 @@ SLSrDynamicCP::~SLSrDynamicCP() {
 inline void SLSrDynamicCP::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete constraints_;
-  if (this != internal_default_instance()) delete metricmargin_;
+  if (this != internal_default_instance()) delete metric_margin_;
 }
 
 void SLSrDynamicCP::ArenaDtor(void* object) {
@@ -1230,13 +1230,13 @@ void SLSrDynamicCP::Clear() {
     delete constraints_;
   }
   constraints_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && metricmargin_ != nullptr) {
-    delete metricmargin_;
+  if (GetArenaForAllocation() == nullptr && metric_margin_ != nullptr) {
+    delete metric_margin_;
   }
-  metricmargin_ = nullptr;
-  ::memset(&ometric_, 0, static_cast<size_t>(
+  metric_margin_ = nullptr;
+  ::memset(&o_metric_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&delegate_) -
-      reinterpret_cast<char*>(&ometric_)) + sizeof(delegate_));
+      reinterpret_cast<char*>(&o_metric_)) + sizeof(delegate_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1246,12 +1246,12 @@ const char* SLSrDynamicCP::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .service_layer.SLSrMetricType ometric = 1;
+      // .service_layer.SLSrMetricType o_metric = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_ometric(static_cast<::service_layer::SLSrMetricType>(val));
+          _internal_set_o_metric(static_cast<::service_layer::SLSrMetricType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1263,10 +1263,10 @@ const char* SLSrDynamicCP::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLSrMetricMargin metricMargin = 3;
+      // .service_layer.SLSrMetricMargin metric_margin = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_metricmargin(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_metric_margin(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1308,11 +1308,11 @@ uint8_t* SLSrDynamicCP::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .service_layer.SLSrMetricType ometric = 1;
-  if (this->_internal_ometric() != 0) {
+  // .service_layer.SLSrMetricType o_metric = 1;
+  if (this->_internal_o_metric() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_ometric(), target);
+      1, this->_internal_o_metric(), target);
   }
 
   // .service_layer.SLSrConstraints constraints = 2;
@@ -1323,12 +1323,12 @@ uint8_t* SLSrDynamicCP::_InternalSerialize(
         2, _Internal::constraints(this), target, stream);
   }
 
-  // .service_layer.SLSrMetricMargin metricMargin = 3;
-  if (this->_internal_has_metricmargin()) {
+  // .service_layer.SLSrMetricMargin metric_margin = 3;
+  if (this->_internal_has_metric_margin()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::metricmargin(this), target, stream);
+        3, _Internal::metric_margin(this), target, stream);
   }
 
   // bool delegate = 4;
@@ -1360,17 +1360,17 @@ size_t SLSrDynamicCP::ByteSizeLong() const {
         *constraints_);
   }
 
-  // .service_layer.SLSrMetricMargin metricMargin = 3;
-  if (this->_internal_has_metricmargin()) {
+  // .service_layer.SLSrMetricMargin metric_margin = 3;
+  if (this->_internal_has_metric_margin()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *metricmargin_);
+        *metric_margin_);
   }
 
-  // .service_layer.SLSrMetricType ometric = 1;
-  if (this->_internal_ometric() != 0) {
+  // .service_layer.SLSrMetricType o_metric = 1;
+  if (this->_internal_o_metric() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_ometric());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_o_metric());
   }
 
   // bool delegate = 4;
@@ -1403,11 +1403,11 @@ void SLSrDynamicCP::MergeFrom(const SLSrDynamicCP& from) {
   if (from._internal_has_constraints()) {
     _internal_mutable_constraints()->::service_layer::SLSrConstraints::MergeFrom(from._internal_constraints());
   }
-  if (from._internal_has_metricmargin()) {
-    _internal_mutable_metricmargin()->::service_layer::SLSrMetricMargin::MergeFrom(from._internal_metricmargin());
+  if (from._internal_has_metric_margin()) {
+    _internal_mutable_metric_margin()->::service_layer::SLSrMetricMargin::MergeFrom(from._internal_metric_margin());
   }
-  if (from._internal_ometric() != 0) {
-    _internal_set_ometric(from._internal_ometric());
+  if (from._internal_o_metric() != 0) {
+    _internal_set_o_metric(from._internal_o_metric());
   }
   if (from._internal_delegate() != 0) {
     _internal_set_delegate(from._internal_delegate());
@@ -1922,12 +1922,12 @@ SLSrv6BindingSID::SLSrv6BindingSID(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 SLSrv6BindingSID::SLSrv6BindingSID(const SLSrv6BindingSID& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  locatorname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  locator_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    locatorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    locator_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_locatorname().empty()) {
-    locatorname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_locatorname(), 
+  if (!from._internal_locator_name().empty()) {
+    locator_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_locator_name(), 
       GetArenaForAllocation());
   }
   behavior_ = from.behavior_;
@@ -1935,9 +1935,9 @@ SLSrv6BindingSID::SLSrv6BindingSID(const SLSrv6BindingSID& from)
 }
 
 inline void SLSrv6BindingSID::SharedCtor() {
-locatorname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+locator_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  locatorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  locator_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 behavior_ = 0u;
 }
@@ -1951,7 +1951,7 @@ SLSrv6BindingSID::~SLSrv6BindingSID() {
 
 inline void SLSrv6BindingSID::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  locatorname_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  locator_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLSrv6BindingSID::ArenaDtor(void* object) {
@@ -1970,7 +1970,7 @@ void SLSrv6BindingSID::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  locatorname_.ClearToEmpty();
+  locator_name_.ClearToEmpty();
   behavior_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1981,12 +1981,12 @@ const char* SLSrv6BindingSID::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string locatorName = 1;
+      // string locator_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_locatorname();
+          auto str = _internal_mutable_locator_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLSrv6BindingSID.locatorName"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLSrv6BindingSID.locator_name"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2028,14 +2028,14 @@ uint8_t* SLSrv6BindingSID::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string locatorName = 1;
-  if (!this->_internal_locatorname().empty()) {
+  // string locator_name = 1;
+  if (!this->_internal_locator_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_locatorname().data(), static_cast<int>(this->_internal_locatorname().length()),
+      this->_internal_locator_name().data(), static_cast<int>(this->_internal_locator_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "service_layer.SLSrv6BindingSID.locatorName");
+      "service_layer.SLSrv6BindingSID.locator_name");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_locatorname(), target);
+        1, this->_internal_locator_name(), target);
   }
 
   // uint32 behavior = 2;
@@ -2060,11 +2060,11 @@ size_t SLSrv6BindingSID::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string locatorName = 1;
-  if (!this->_internal_locatorname().empty()) {
+  // string locator_name = 1;
+  if (!this->_internal_locator_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_locatorname());
+        this->_internal_locator_name());
   }
 
   // uint32 behavior = 2;
@@ -2094,8 +2094,8 @@ void SLSrv6BindingSID::MergeFrom(const SLSrv6BindingSID& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_locatorname().empty()) {
-    _internal_set_locatorname(from._internal_locatorname());
+  if (!from._internal_locator_name().empty()) {
+    _internal_set_locator_name(from._internal_locator_name());
   }
   if (from._internal_behavior() != 0) {
     _internal_set_behavior(from._internal_behavior());
@@ -2121,8 +2121,8 @@ void SLSrv6BindingSID::InternalSwap(SLSrv6BindingSID* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &locatorname_, lhs_arena,
-      &other->locatorname_, rhs_arena
+      &locator_name_, lhs_arena,
+      &other->locator_name_, rhs_arena
   );
   swap(behavior_, other->behavior_);
 }
@@ -2137,12 +2137,12 @@ void SLSrv6BindingSID::InternalSwap(SLSrv6BindingSID* other) {
 
 class SLSrBindingSID::_Internal {
  public:
-  static const ::service_layer::SLSrv6BindingSID& srv6bindingsid(const SLSrBindingSID* msg);
+  static const ::service_layer::SLSrv6BindingSID& srv6_bsid(const SLSrBindingSID* msg);
 };
 
 const ::service_layer::SLSrv6BindingSID&
-SLSrBindingSID::_Internal::srv6bindingsid(const SLSrBindingSID* msg) {
-  return *msg->srv6bindingsid_;
+SLSrBindingSID::_Internal::srv6_bsid(const SLSrBindingSID* msg) {
+  return *msg->srv6_bsid_;
 }
 SLSrBindingSID::SLSrBindingSID(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -2156,22 +2156,22 @@ SLSrBindingSID::SLSrBindingSID(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 SLSrBindingSID::SLSrBindingSID(const SLSrBindingSID& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_srv6bindingsid()) {
-    srv6bindingsid_ = new ::service_layer::SLSrv6BindingSID(*from.srv6bindingsid_);
+  if (from._internal_has_srv6_bsid()) {
+    srv6_bsid_ = new ::service_layer::SLSrv6BindingSID(*from.srv6_bsid_);
   } else {
-    srv6bindingsid_ = nullptr;
+    srv6_bsid_ = nullptr;
   }
-  ::memcpy(&bindingsidallocation_, &from.bindingsidallocation_,
-    static_cast<size_t>(reinterpret_cast<char*>(&mplsbindingsid_) -
-    reinterpret_cast<char*>(&bindingsidallocation_)) + sizeof(mplsbindingsid_));
+  ::memcpy(&allocation_mode_, &from.allocation_mode_,
+    static_cast<size_t>(reinterpret_cast<char*>(&mpls_bsid_) -
+    reinterpret_cast<char*>(&allocation_mode_)) + sizeof(mpls_bsid_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrBindingSID)
 }
 
 inline void SLSrBindingSID::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&srv6bindingsid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&mplsbindingsid_) -
-    reinterpret_cast<char*>(&srv6bindingsid_)) + sizeof(mplsbindingsid_));
+    reinterpret_cast<char*>(&srv6_bsid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&mpls_bsid_) -
+    reinterpret_cast<char*>(&srv6_bsid_)) + sizeof(mpls_bsid_));
 }
 
 SLSrBindingSID::~SLSrBindingSID() {
@@ -2183,7 +2183,7 @@ SLSrBindingSID::~SLSrBindingSID() {
 
 inline void SLSrBindingSID::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete srv6bindingsid_;
+  if (this != internal_default_instance()) delete srv6_bsid_;
 }
 
 void SLSrBindingSID::ArenaDtor(void* object) {
@@ -2202,13 +2202,13 @@ void SLSrBindingSID::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && srv6bindingsid_ != nullptr) {
-    delete srv6bindingsid_;
+  if (GetArenaForAllocation() == nullptr && srv6_bsid_ != nullptr) {
+    delete srv6_bsid_;
   }
-  srv6bindingsid_ = nullptr;
-  ::memset(&bindingsidallocation_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&mplsbindingsid_) -
-      reinterpret_cast<char*>(&bindingsidallocation_)) + sizeof(mplsbindingsid_));
+  srv6_bsid_ = nullptr;
+  ::memset(&allocation_mode_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&mpls_bsid_) -
+      reinterpret_cast<char*>(&allocation_mode_)) + sizeof(mpls_bsid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2218,27 +2218,27 @@ const char* SLSrBindingSID::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .service_layer.SLSrBindingSIDAllocationMode bindingSIDAllocation = 1;
+      // .service_layer.SLSrBindingSIDAllocationMode allocation_mode = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_bindingsidallocation(static_cast<::service_layer::SLSrBindingSIDAllocationMode>(val));
+          _internal_set_allocation_mode(static_cast<::service_layer::SLSrBindingSIDAllocationMode>(val));
         } else
           goto handle_unusual;
         continue;
-      // uint32 mplsBindingSID = 2;
+      // uint32 mpls_bsid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          mplsbindingsid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          mpls_bsid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLSrv6BindingSID srv6BindingSID = 3;
+      // .service_layer.SLSrv6BindingSID srv6_bsid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_srv6bindingsid(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_srv6_bsid(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2272,25 +2272,25 @@ uint8_t* SLSrBindingSID::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .service_layer.SLSrBindingSIDAllocationMode bindingSIDAllocation = 1;
-  if (this->_internal_bindingsidallocation() != 0) {
+  // .service_layer.SLSrBindingSIDAllocationMode allocation_mode = 1;
+  if (this->_internal_allocation_mode() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_bindingsidallocation(), target);
+      1, this->_internal_allocation_mode(), target);
   }
 
-  // uint32 mplsBindingSID = 2;
-  if (this->_internal_mplsbindingsid() != 0) {
+  // uint32 mpls_bsid = 2;
+  if (this->_internal_mpls_bsid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_mplsbindingsid(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_mpls_bsid(), target);
   }
 
-  // .service_layer.SLSrv6BindingSID srv6BindingSID = 3;
-  if (this->_internal_has_srv6bindingsid()) {
+  // .service_layer.SLSrv6BindingSID srv6_bsid = 3;
+  if (this->_internal_has_srv6_bsid()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::srv6bindingsid(this), target, stream);
+        3, _Internal::srv6_bsid(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2309,22 +2309,22 @@ size_t SLSrBindingSID::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .service_layer.SLSrv6BindingSID srv6BindingSID = 3;
-  if (this->_internal_has_srv6bindingsid()) {
+  // .service_layer.SLSrv6BindingSID srv6_bsid = 3;
+  if (this->_internal_has_srv6_bsid()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *srv6bindingsid_);
+        *srv6_bsid_);
   }
 
-  // .service_layer.SLSrBindingSIDAllocationMode bindingSIDAllocation = 1;
-  if (this->_internal_bindingsidallocation() != 0) {
+  // .service_layer.SLSrBindingSIDAllocationMode allocation_mode = 1;
+  if (this->_internal_allocation_mode() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_bindingsidallocation());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_allocation_mode());
   }
 
-  // uint32 mplsBindingSID = 2;
-  if (this->_internal_mplsbindingsid() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_mplsbindingsid());
+  // uint32 mpls_bsid = 2;
+  if (this->_internal_mpls_bsid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_mpls_bsid());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2349,14 +2349,14 @@ void SLSrBindingSID::MergeFrom(const SLSrBindingSID& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_srv6bindingsid()) {
-    _internal_mutable_srv6bindingsid()->::service_layer::SLSrv6BindingSID::MergeFrom(from._internal_srv6bindingsid());
+  if (from._internal_has_srv6_bsid()) {
+    _internal_mutable_srv6_bsid()->::service_layer::SLSrv6BindingSID::MergeFrom(from._internal_srv6_bsid());
   }
-  if (from._internal_bindingsidallocation() != 0) {
-    _internal_set_bindingsidallocation(from._internal_bindingsidallocation());
+  if (from._internal_allocation_mode() != 0) {
+    _internal_set_allocation_mode(from._internal_allocation_mode());
   }
-  if (from._internal_mplsbindingsid() != 0) {
-    _internal_set_mplsbindingsid(from._internal_mplsbindingsid());
+  if (from._internal_mpls_bsid() != 0) {
+    _internal_set_mpls_bsid(from._internal_mpls_bsid());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2376,11 +2376,11 @@ void SLSrBindingSID::InternalSwap(SLSrBindingSID* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrBindingSID, mplsbindingsid_)
-      + sizeof(SLSrBindingSID::mplsbindingsid_)
-      - PROTOBUF_FIELD_OFFSET(SLSrBindingSID, srv6bindingsid_)>(
-          reinterpret_cast<char*>(&srv6bindingsid_),
-          reinterpret_cast<char*>(&other->srv6bindingsid_));
+      PROTOBUF_FIELD_OFFSET(SLSrBindingSID, mpls_bsid_)
+      + sizeof(SLSrBindingSID::mpls_bsid_)
+      - PROTOBUF_FIELD_OFFSET(SLSrBindingSID, srv6_bsid_)>(
+          reinterpret_cast<char*>(&srv6_bsid_),
+          reinterpret_cast<char*>(&other->srv6_bsid_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrBindingSID::GetMetadata() const {
@@ -2435,17 +2435,17 @@ SLSrPolicy::SLSrPolicy(const SLSrPolicy& from)
   } else {
     bsid_ = nullptr;
   }
-  ::memcpy(&transiteligible_, &from.transiteligible_,
-    static_cast<size_t>(reinterpret_cast<char*>(&profileid_) -
-    reinterpret_cast<char*>(&transiteligible_)) + sizeof(profileid_));
+  ::memcpy(&transit_eligible_, &from.transit_eligible_,
+    static_cast<size_t>(reinterpret_cast<char*>(&profile_id_) -
+    reinterpret_cast<char*>(&transit_eligible_)) + sizeof(profile_id_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrPolicy)
 }
 
 inline void SLSrPolicy::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&key_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&profileid_) -
-    reinterpret_cast<char*>(&key_)) + sizeof(profileid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&profile_id_) -
+    reinterpret_cast<char*>(&key_)) + sizeof(profile_id_));
 }
 
 SLSrPolicy::~SLSrPolicy() {
@@ -2486,9 +2486,9 @@ void SLSrPolicy::Clear() {
     delete bsid_;
   }
   bsid_ = nullptr;
-  ::memset(&transiteligible_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&profileid_) -
-      reinterpret_cast<char*>(&transiteligible_)) + sizeof(profileid_));
+  ::memset(&transit_eligible_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&profile_id_) -
+      reinterpret_cast<char*>(&transit_eligible_)) + sizeof(profile_id_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2506,10 +2506,10 @@ const char* SLSrPolicy::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         } else
           goto handle_unusual;
         continue;
-      // bool transitEligible = 2;
+      // bool transit_eligible = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          transiteligible_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          transit_eligible_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2535,10 +2535,10 @@ const char* SLSrPolicy::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         } else
           goto handle_unusual;
         continue;
-      // uint32 profileID = 5;
+      // uint32 profile_id = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          profileid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          profile_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2580,10 +2580,10 @@ uint8_t* SLSrPolicy::_InternalSerialize(
         1, _Internal::key(this), target, stream);
   }
 
-  // bool transitEligible = 2;
-  if (this->_internal_transiteligible() != 0) {
+  // bool transit_eligible = 2;
+  if (this->_internal_transit_eligible() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_transiteligible(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_transit_eligible(), target);
   }
 
   // repeated .service_layer.SLSrCandidatePath CPs = 3;
@@ -2602,10 +2602,10 @@ uint8_t* SLSrPolicy::_InternalSerialize(
         4, _Internal::bsid(this), target, stream);
   }
 
-  // uint32 profileID = 5;
-  if (this->_internal_profileid() != 0) {
+  // uint32 profile_id = 5;
+  if (this->_internal_profile_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_profileid(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_profile_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2645,14 +2645,14 @@ size_t SLSrPolicy::ByteSizeLong() const {
         *bsid_);
   }
 
-  // bool transitEligible = 2;
-  if (this->_internal_transiteligible() != 0) {
+  // bool transit_eligible = 2;
+  if (this->_internal_transit_eligible() != 0) {
     total_size += 1 + 1;
   }
 
-  // uint32 profileID = 5;
-  if (this->_internal_profileid() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_profileid());
+  // uint32 profile_id = 5;
+  if (this->_internal_profile_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_profile_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2684,11 +2684,11 @@ void SLSrPolicy::MergeFrom(const SLSrPolicy& from) {
   if (from._internal_has_bsid()) {
     _internal_mutable_bsid()->::service_layer::SLSrBindingSID::MergeFrom(from._internal_bsid());
   }
-  if (from._internal_transiteligible() != 0) {
-    _internal_set_transiteligible(from._internal_transiteligible());
+  if (from._internal_transit_eligible() != 0) {
+    _internal_set_transit_eligible(from._internal_transit_eligible());
   }
-  if (from._internal_profileid() != 0) {
-    _internal_set_profileid(from._internal_profileid());
+  if (from._internal_profile_id() != 0) {
+    _internal_set_profile_id(from._internal_profile_id());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2709,8 +2709,8 @@ void SLSrPolicy::InternalSwap(SLSrPolicy* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   cps_.InternalSwap(&other->cps_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrPolicy, profileid_)
-      + sizeof(SLSrPolicy::profileid_)
+      PROTOBUF_FIELD_OFFSET(SLSrPolicy, profile_id_)
+      + sizeof(SLSrPolicy::profile_id_)
       - PROTOBUF_FIELD_OFFSET(SLSrPolicy, key_)>(
           reinterpret_cast<char*>(&key_),
           reinterpret_cast<char*>(&other->key_));

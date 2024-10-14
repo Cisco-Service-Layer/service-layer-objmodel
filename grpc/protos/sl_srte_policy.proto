@@ -52,7 +52,7 @@ service SLSrtePolicy {
 // Candidate path with explicitly defined set/s of segment-lists
 message SLSrExplicitCP {
     // The set of weighted segment lists in the explicit candidate path.
-    repeated SLSrSegmentList segmentList = 1;
+    repeated SLSrSegmentList segment_list = 1;
 }
 
 // A set of constraints for an SR path.
@@ -79,19 +79,19 @@ message SLSrConstraints {
     message SegmentConstraints {
         enum ProtectionType {
             // Protected segments are preferred over unprotected ones.
-            PROTECTED_PREFERRED = 0;
+            SL_SR_PROTECTED_PREFERRED = 0;
 
             // Segment list is made only of protected (i.e., FRR-protected) segments
-            PROTECTED_ONLY = 1;
+            SL_SR_PROTECTED_ONLY = 1;
 
             // Unprotected segments are preferred over protected ones.
-            UNPROTECTED_PREFERRED = 2;
+            SL_SR_UNPROTECTED_PREFERRED = 2;
 
             // Segment list is made only of unprotected (i.e., non FRR-protected) segments
-            UNPROTECTED_ONLY = 3;
+            SL_SR_UNPROTECTED_ONLY = 3;
         }
         ProtectionType protection = 1;
-        uint32 sidalgo = 2;
+        uint32 sid_algo = 2;
 
         // Maximum number of segments in any of the candidate path segment lists.
         //
@@ -113,14 +113,14 @@ message SLSrDynamicCP {
     //
     // The objective function of the optimization problem is to minimize the
     // accumulated value of this additive link metric along the path.
-    SLSrMetricType ometric = 1;
+    SLSrMetricType o_metric = 1;
 
     // The set of constraints that the candidate path must satisfy.
     SLSrConstraints constraints = 2;
 
     // The margin by which two paths with similar metric-type
     // would be considered equal
-    SLSrMetricMargin metricMargin = 3;
+    SLSrMetricMargin metric_margin = 3;
 
     // This flag is to turn on path computation delegation.
     // When this flag is set, the router delegates to whatever
@@ -139,6 +139,9 @@ message SLSrCandidatePath {
     SLSrCandidatePathKey key = 1;
 
     // Candidate path name
+    // CP Symbolic name is derived from this name if set.
+    // For a given policy, CP name + discriminator should be unique to avoid
+    // conflict of symbolic name.
     string name = 2;
 
     // The Preference of the candidate path is used to select the
@@ -158,31 +161,28 @@ message SLSrCandidatePath {
 // SRv6 Binding SID properties
 message SLSrv6BindingSID {
     // Locator name used to allocate SRv6 binding SID
-    string locatorName = 1;
+    string locator_name = 1;
     uint32 behavior = 2;
-    // Binding segment ID, for Explicit BSID mode
-    // Explicit SRv6 BSID is not supported in this version
-    // SLIpv6Address SID = 3;
 }
 
 // Binding SID allocation mode
 enum SLSrBindingSIDAllocationMode {
     // Explicitly specified BSID
-    BSID_EXPLICIT = 0;
+    SL_SR_BSID_EXPLICIT = 0;
     // Dynamically allocated BSID
-    BSID_DYNAMIC  = 1;
+    SL_SR_BSID_DYNAMIC  = 1;
 }
 
 // (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.1).
 message SLSrBindingSID {
     // Binding SID allocation mode, explicit or dynamic
-    SLSrBindingSIDAllocationMode bindingSIDAllocation = 1;
+    SLSrBindingSIDAllocationMode allocation_mode = 1;
 
     // Expected to be filled when mode is explicit and dataplane is MPLS
-    uint32 mplsBindingSID = 2;
+    uint32 mpls_bsid = 2;
 
     // SRv6 binding SID, expected when dataplane is SRv6
-    SLSrv6BindingSID srv6BindingSID = 3;
+    SLSrv6BindingSID srv6_bsid = 3;
 }
 
 // (https://www.rfc-editor.org/rfc/rfc9256.html#section-2).
@@ -190,15 +190,15 @@ message SLSrPolicy {
     // Globally unique SR policy identifier.
     SLSrPolicyKey key = 1;
 
-    bool transitEligible = 2;
+    bool transit_eligible = 2;
 
     repeated SLSrCandidatePath CPs = 3;
 
     SLSrBindingSID bsid = 4;
 
-    // ID of the profile with which policy can be assiciated with,
+    // ID of the profile with which policy can be associated with,
     // a non-zero value.
-    uint32 profileID = 5;
+    uint32 profile_id = 5;
 }
 
 // Set of Policies to acted on

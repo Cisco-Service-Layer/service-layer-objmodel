@@ -118,10 +118,10 @@ struct SLSrv6EndPointBehaviorDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrv6EndPointBehaviorDefaultTypeInternal _SLSrv6EndPointBehavior_default_instance_;
 constexpr SLSrv6SidStruct::SLSrv6SidStruct(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : locatorblocklen_(0u)
-  , locatornodelen_(0u)
-  , functionlen_(0u)
-  , arglen_(0u){}
+  : locator_block_len_(0u)
+  , locator_node_len_(0u)
+  , function_len_(0u)
+  , arg_len_(0u){}
 struct SLSrv6SidStructDefaultTypeInternal {
   constexpr SLSrv6SidStructDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -217,7 +217,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrteSegmentDefaultTypeInterna
 constexpr SLSrSegmentList::SLSrSegmentList(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : segments_()
-  , weight_(0u){}
+  , weight_(0u)
+  , path_cost_(0u){}
 struct SLSrSegmentListDefaultTypeInternal {
   constexpr SLSrSegmentListDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -351,10 +352,10 @@ const uint32_t TableStruct_sl_5fsr_5fcommon_2eproto::offsets[] PROTOBUF_SECTION_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, locatorblocklen_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, locatornodelen_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, functionlen_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, arglen_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, locator_block_len_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, locator_node_len_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, function_len_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6SidStruct, arg_len_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrMetricBounds, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -414,8 +415,10 @@ const uint32_t TableStruct_sl_5fsr_5fcommon_2eproto::offsets[] PROTOBUF_SECTION_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegmentList, segments_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegmentList, weight_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegmentList, path_cost_),
   ~0u,
   0,
+  ~0u,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyKey, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -457,10 +460,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 108, -1, -1, sizeof(::service_layer::SLSrteSegment_TypeA)},
   { 115, -1, -1, sizeof(::service_layer::SLSrteSegment_TypeB)},
   { 124, -1, -1, sizeof(::service_layer::SLSrteSegment)},
-  { 133, 141, -1, sizeof(::service_layer::SLSrSegmentList)},
-  { 143, -1, -1, sizeof(::service_layer::SLSrPolicyKey)},
-  { 152, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey_Originator)},
-  { 160, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey)},
+  { 133, 142, -1, sizeof(::service_layer::SLSrSegmentList)},
+  { 145, -1, -1, sizeof(::service_layer::SLSrPolicyKey)},
+  { 154, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey_Originator)},
+  { 162, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -509,92 +512,94 @@ const char descriptor_table_protodef_sl_5fsr_5fcommon_2eproto[] PROTOBUF_SECTION
   "SidStruct\030\005 \001(\0132\036.service_layer.SLSrv6Si"
   "dStruct\"T\n\026SLSrv6EndPointBehavior\022\030\n\020End"
   "PointBehavior\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\r\022\021\n\tAl"
-  "gorithm\030\003 \001(\r\"g\n\017SLSrv6SidStruct\022\027\n\017Loca"
-  "torBlockLen\030\001 \001(\r\022\026\n\016LocatorNodeLen\030\002 \001("
-  "\r\022\023\n\013FunctionLen\030\003 \001(\r\022\016\n\006ArgLen\030\004 \001(\r\"<"
-  "\n\020SLSrMetricBounds\022\013\n\003igp\030\001 \001(\r\022\n\n\002te\030\002 "
-  "\001(\r\022\017\n\007latency\030\003 \001(\r\"\205\001\n\020SLSrMetricMargi"
-  "n\0228\n\004type\030\001 \001(\0162*.service_layer.SLSrMetr"
-  "icMargin.MarginType\022\r\n\005value\030\002 \001(\r\"(\n\nMa"
-  "rginType\022\014\n\010RELATIVE\020\000\022\014\n\010ABSOLUTE\020\001\"L\n\016"
-  "SLSrAffinities\022\022\n\nincludeAny\030\001 \003(\r\022\022\n\nin"
-  "cludeAll\030\002 \003(\r\022\022\n\nexcludeAny\030\003 \003(\r\"\245\002\n\rS"
-  "LSrteSegment\0224\n\006type_a\030\001 \001(\0132\".service_l"
-  "ayer.SLSrteSegment.TypeAH\000\0224\n\006type_b\030\002 \001"
-  "(\0132\".service_layer.SLSrteSegment.TypeBH\000"
-  "\032\026\n\005TypeA\022\r\n\005label\030\001 \001(\r\032\204\001\n\005TypeB\0226\n\020ip"
-  "v6_sid_address\030\001 \001(\0132\034.service_layer.SLI"
-  "pv6Address\022\020\n\010behavior\030\002 \001(\r\0221\n\tstructur"
-  "e\030\003 \001(\0132\036.service_layer.SLSrv6SidStructB"
-  "\t\n\007segment\"a\n\017SLSrSegmentList\022.\n\010segment"
-  "s\030\001 \003(\0132\034.service_layer.SLSrteSegment\022\023\n"
-  "\006weight\030\002 \001(\rH\000\210\001\001B\t\n\007_weight\"y\n\rSLSrPol"
-  "icyKey\022+\n\007headend\030\001 \001(\0132\032.service_layer."
-  "SLIpAddress\022\r\n\005color\030\002 \001(\r\022,\n\010endpoint\030\003"
-  " \001(\0132\032.service_layer.SLIpAddress\"\270\001\n\024SLS"
-  "rCandidatePathKey\022B\n\noriginator\030\001 \001(\0132.."
-  "service_layer.SLSrCandidatePathKey.Origi"
-  "nator\022\025\n\rdiscriminator\030\003 \001(\r\032E\n\nOriginat"
-  "or\022\013\n\003ASN\030\001 \001(\r\022*\n\006nodeID\030\002 \001(\0132\032.servic"
-  "e_layer.SLIpAddress*\220\003\n\030SLSrPolicyProtoc"
-  "olOrigin\022)\n%SL_SR_POLICY_PROTOCOL_ORIGIN"
-  "_RESERVED\020\000\022%\n!SL_SR_POLICY_PROTOCOL_ORI"
-  "GIN_PCEP\020\001\022.\n*SL_SR_POLICY_PROTOCOL_ORIG"
-  "IN_BGP_SR_POLICY\020\002\022\'\n#SL_SR_POLICY_PROTO"
-  "COL_ORIGIN_CONFIG\020\003\022-\n)SL_SR_POLICY_PROT"
-  "OCOL_ORIGIN_PCEP_VIA_PCE\020\n\0226\n2SL_SR_POLI"
-  "CY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE"
-  "\020\024\022/\n+SL_SR_POLICY_PROTOCOL_ORIGIN_CONFI"
-  "G_VIA_PCE\020\036\0221\n,SL_SR_POLICY_PROTOCOL_ORI"
-  "GIN_CONFIG_VIA_GRPC\020\373\001*}\n\022SLSrPolicyFlag"
-  "sDef\022\036\n\032SL_SR_POLICY_FLAG_RESERVED\020\000\022\"\n\035"
-  "SL_SR_POLICY_FLAG_ENDPOINT_V6\020\200\001\022#\n\037SL_S"
-  "R_POLICY_FLAG_ORIGINATOR_V6\020@*\233\004\n\017SLSrSe"
-  "gmentType\022\033\n\027SL_SR_SEG_TYPE_RESERVED\020\000\022\035"
-  "\n\031SL_SR_SEG_TYPE_MPLS_LABEL\020\001\022\036\n\032SL_SR_S"
-  "EG_TYPE_SRV6_SID_V6\020\002\022\"\n\036SL_SR_SEG_TYPE_"
-  "MPLS_PFX_SID_V4\020\003\022\"\n\036SL_SR_SEG_TYPE_MPLS"
-  "_PFX_SID_V6\020\004\0223\n/SL_SR_SEG_TYPE_MPLS_ADJ"
-  "_SID_V4_NODE_ADDR_LOC_ID\020\005\022/\n+SL_SR_SEG_"
-  "TYPE_MPLS_ADJ_SID_V4_LOC_REM_ADDR\020\006\0226\n2S"
-  "L_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_AD"
-  "DR_AND_ID\020\007\022/\n+SL_SR_SEG_TYPE_MPLS_ADJ_S"
-  "ID_V6_LOC_REM_ADDR\020\010\022,\n(SL_SR_SEG_TYPE_S"
-  "RV6_END_SID_V6_NODE_ADDR\020\t\0226\n2SL_SR_SEG_"
-  "TYPE_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID"
-  "\020\n\022/\n+SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC"
-  "_REM_ADDR\020\013*\200\002\n\020SLSrSegmentFlags\022\037\n\033SL_S"
-  "R_SEGMENT_FLAG_RESERVED\020\000\022$\n\036SL_SR_SEGME"
-  "NT_FLAG_SID_PRESENT\020\200\200\002\0221\n+SL_SR_SEGMENT"
-  "_FLAG_SID_EXPLICIT_PROVISIONED\020\200\200\001\022$\n\037SL"
-  "_SR_SEGMENT_FLAG_SID_VERIFIED\020\200@\022$\n\037SL_S"
-  "R_SEGMENT_FLAG_SID_RESOLVED\020\200 \022&\n!SL_SR_"
-  "SEGMENT_FLAG_SID_ALGO_VALID\020\200\020*\233\001\n\025SLSrv"
-  "6BindingSidFlags\022\036\n\032SL_SRV6_BSID_FLAG_RE"
-  "SERVED\020\000\022!\n\033SL_SRV6_BSID_FLAG_ALLOCATED\020"
-  "\200\200\002\022\037\n\031SL_SRV6_BSID_FLAG_UNAVAIL\020\200\200\001\022\036\n\031"
-  "SL_SRV6_BSID_FLAG_DYNAMIC\020\200@*[\n\rSLSrData"
-  "plane\022\034\n\030SR_DATAPLANE_UNSPECIFIED\020\000\022\025\n\021S"
-  "R_DATAPLANE_MPLS\020\001\022\025\n\021SR_DATAPLANE_SRV6\020"
-  "\002*\302\001\n\016SLSrMetricType\022\033\n\027METRIC_TYPE_UNSP"
-  "ECIFIED\020\000\022\023\n\017METRIC_TYPE_IGP\020\000\022\025\n\021METRIC"
-  "_TYPE_DELAY\020\001\022\022\n\016METRIC_TYPE_TE\020\002\022\023\n\017MET"
-  "RIC_TYPE_HOP\020\003\022\037\n\033METRIC_TYPE_SID_LIST_L"
-  "ENGTH\020\004\022\031\n\025METRIC_TYPE_BANDWIDTH\020\005\032\002\020\001*\235"
-  "\001\n\024SLSrteDiversityLevel\022\030\n\024DIVERSITY_LEV"
-  "EL_NONE\020\000\022\030\n\024DIVERSITY_LEVEL_LINK\020\001\022\030\n\024D"
-  "IVERSITY_LEVEL_NODE\020\002\022\030\n\024DIVERSITY_LEVEL"
-  "_SRLG\020\003\022\035\n\031DIVERSITY_LEVEL_SRLG_NODE\020\004BQ"
-  "ZOgithub.com/Cisco-service-layer/service"
-  "-layer-objmodel/grpc/protos;service_laye"
-  "rb\006proto3"
+  "gorithm\030\003 \001(\r\"m\n\017SLSrv6SidStruct\022\031\n\021loca"
+  "tor_block_len\030\001 \001(\r\022\030\n\020locator_node_len\030"
+  "\002 \001(\r\022\024\n\014function_len\030\003 \001(\r\022\017\n\007arg_len\030\004"
+  " \001(\r\"<\n\020SLSrMetricBounds\022\013\n\003igp\030\001 \001(\r\022\n\n"
+  "\002te\030\002 \001(\r\022\017\n\007latency\030\003 \001(\r\"\213\001\n\020SLSrMetri"
+  "cMargin\0228\n\004type\030\001 \001(\0162*.service_layer.SL"
+  "SrMetricMargin.MarginType\022\r\n\005value\030\002 \001(\r"
+  "\".\n\nMarginType\022\017\n\013SL_RELATIVE\020\000\022\017\n\013SL_AB"
+  "SOLUTE\020\001\"L\n\016SLSrAffinities\022\022\n\nincludeAny"
+  "\030\001 \003(\r\022\022\n\nincludeAll\030\002 \003(\r\022\022\n\nexcludeAny"
+  "\030\003 \003(\r\"\245\002\n\rSLSrteSegment\0224\n\006type_a\030\001 \001(\013"
+  "2\".service_layer.SLSrteSegment.TypeAH\000\0224"
+  "\n\006type_b\030\002 \001(\0132\".service_layer.SLSrteSeg"
+  "ment.TypeBH\000\032\026\n\005TypeA\022\r\n\005label\030\001 \001(\r\032\204\001\n"
+  "\005TypeB\0226\n\020ipv6_sid_address\030\001 \001(\0132\034.servi"
+  "ce_layer.SLIpv6Address\022\020\n\010behavior\030\002 \001(\r"
+  "\0221\n\tstructure\030\003 \001(\0132\036.service_layer.SLSr"
+  "v6SidStructB\t\n\007segment\"t\n\017SLSrSegmentLis"
+  "t\022.\n\010segments\030\001 \003(\0132\034.service_layer.SLSr"
+  "teSegment\022\023\n\006weight\030\002 \001(\rH\000\210\001\001\022\021\n\tpath_c"
+  "ost\030\003 \001(\rB\t\n\007_weight\"y\n\rSLSrPolicyKey\022+\n"
+  "\007headend\030\001 \001(\0132\032.service_layer.SLIpAddre"
+  "ss\022\r\n\005color\030\002 \001(\r\022,\n\010endpoint\030\003 \001(\0132\032.se"
+  "rvice_layer.SLIpAddress\"\270\001\n\024SLSrCandidat"
+  "ePathKey\022B\n\noriginator\030\001 \001(\0132..service_l"
+  "ayer.SLSrCandidatePathKey.Originator\022\025\n\r"
+  "discriminator\030\003 \001(\r\032E\n\nOriginator\022\013\n\003asn"
+  "\030\001 \001(\r\022*\n\006nodeID\030\002 \001(\0132\032.service_layer.S"
+  "LIpAddress*\220\003\n\030SLSrPolicyProtocolOrigin\022"
+  ")\n%SL_SR_POLICY_PROTOCOL_ORIGIN_RESERVED"
+  "\020\000\022%\n!SL_SR_POLICY_PROTOCOL_ORIGIN_PCEP\020"
+  "\001\022.\n*SL_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR"
+  "_POLICY\020\002\022\'\n#SL_SR_POLICY_PROTOCOL_ORIGI"
+  "N_CONFIG\020\003\022-\n)SL_SR_POLICY_PROTOCOL_ORIG"
+  "IN_PCEP_VIA_PCE\020\n\0226\n2SL_SR_POLICY_PROTOC"
+  "OL_ORIGIN_BGP_SR_POLICY_VIA_PCE\020\024\022/\n+SL_"
+  "SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE"
+  "\020\036\0221\n,SL_SR_POLICY_PROTOCOL_ORIGIN_CONFI"
+  "G_VIA_GRPC\020\373\001*}\n\022SLSrPolicyFlagsDef\022\036\n\032S"
+  "L_SR_POLICY_FLAG_RESERVED\020\000\022\"\n\035SL_SR_POL"
+  "ICY_FLAG_ENDPOINT_V6\020\200\001\022#\n\037SL_SR_POLICY_"
+  "FLAG_ORIGINATOR_V6\020@*\233\004\n\017SLSrSegmentType"
+  "\022\033\n\027SL_SR_SEG_TYPE_RESERVED\020\000\022\035\n\031SL_SR_S"
+  "EG_TYPE_MPLS_LABEL\020\001\022\036\n\032SL_SR_SEG_TYPE_S"
+  "RV6_SID_V6\020\002\022\"\n\036SL_SR_SEG_TYPE_MPLS_PFX_"
+  "SID_V4\020\003\022\"\n\036SL_SR_SEG_TYPE_MPLS_PFX_SID_"
+  "V6\020\004\0223\n/SL_SR_SEG_TYPE_MPLS_ADJ_SID_V4_N"
+  "ODE_ADDR_LOC_ID\020\005\022/\n+SL_SR_SEG_TYPE_MPLS"
+  "_ADJ_SID_V4_LOC_REM_ADDR\020\006\0226\n2SL_SR_SEG_"
+  "TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_AND_ID"
+  "\020\007\022/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC"
+  "_REM_ADDR\020\010\022,\n(SL_SR_SEG_TYPE_SRV6_END_S"
+  "ID_V6_NODE_ADDR\020\t\0226\n2SL_SR_SEG_TYPE_SRV6"
+  "_END_SID_V6_LOC_REM_ADDR_AND_ID\020\n\022/\n+SL_"
+  "SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR"
+  "\020\013*\200\002\n\020SLSrSegmentFlags\022\037\n\033SL_SR_SEGMENT"
+  "_FLAG_RESERVED\020\000\022$\n\036SL_SR_SEGMENT_FLAG_S"
+  "ID_PRESENT\020\200\200\002\0221\n+SL_SR_SEGMENT_FLAG_SID"
+  "_EXPLICIT_PROVISIONED\020\200\200\001\022$\n\037SL_SR_SEGME"
+  "NT_FLAG_SID_VERIFIED\020\200@\022$\n\037SL_SR_SEGMENT"
+  "_FLAG_SID_RESOLVED\020\200 \022&\n!SL_SR_SEGMENT_F"
+  "LAG_SID_ALGO_VALID\020\200\020*\233\001\n\025SLSrv6BindingS"
+  "idFlags\022\036\n\032SL_SRV6_BSID_FLAG_RESERVED\020\000\022"
+  "!\n\033SL_SRV6_BSID_FLAG_ALLOCATED\020\200\200\002\022\037\n\031SL"
+  "_SRV6_BSID_FLAG_UNAVAIL\020\200\200\001\022\036\n\031SL_SRV6_B"
+  "SID_FLAG_DYNAMIC\020\200@*d\n\rSLSrDataplane\022\037\n\033"
+  "SL_SR_DATAPLANE_UNSPECIFIED\020\000\022\030\n\024SL_SR_D"
+  "ATAPLANE_MPLS\020\001\022\030\n\024SL_SR_DATAPLANE_SRV6\020"
+  "\002*\327\001\n\016SLSrMetricType\022\036\n\032SL_METRIC_TYPE_U"
+  "NSPECIFIED\020\000\022\026\n\022SL_METRIC_TYPE_IGP\020\000\022\030\n\024"
+  "SL_METRIC_TYPE_DELAY\020\001\022\025\n\021SL_METRIC_TYPE"
+  "_TE\020\002\022\026\n\022SL_METRIC_TYPE_HOP\020\003\022\"\n\036SL_METR"
+  "IC_TYPE_SID_LIST_LENGTH\020\004\022\034\n\030SL_METRIC_T"
+  "YPE_BANDWIDTH\020\005\032\002\020\001*\252\001\n\022SLSrDiversityLev"
+  "el\022\033\n\027SL_DIVERSITY_LEVEL_NONE\020\000\022\033\n\027SL_DI"
+  "VERSITY_LEVEL_LINK\020\001\022\033\n\027SL_DIVERSITY_LEV"
+  "EL_NODE\020\002\022\033\n\027SL_DIVERSITY_LEVEL_SRLG\020\003\022 "
+  "\n\034SL_DIVERSITY_LEVEL_SRLG_NODE\020\004BQZOgith"
+  "ub.com/Cisco-service-layer/service-layer"
+  "-objmodel/grpc/protos;service_layerb\006pro"
+  "to3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsr_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsr_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto = {
-  false, false, 4089, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
+  false, false, 4163, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
   &descriptor_table_sl_5fsr_5fcommon_2eproto_once, descriptor_table_sl_5fsr_5fcommon_2eproto_deps, 1, 18,
   schemas, file_default_instances, TableStruct_sl_5fsr_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5fsr_5fcommon_2eproto, file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto, file_level_service_descriptors_sl_5fsr_5fcommon_2eproto,
@@ -621,8 +626,8 @@ bool SLSrMetricMargin_MarginType_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr SLSrMetricMargin_MarginType SLSrMetricMargin::RELATIVE;
-constexpr SLSrMetricMargin_MarginType SLSrMetricMargin::ABSOLUTE;
+constexpr SLSrMetricMargin_MarginType SLSrMetricMargin::SL_RELATIVE;
+constexpr SLSrMetricMargin_MarginType SLSrMetricMargin::SL_ABSOLUTE;
 constexpr SLSrMetricMargin_MarginType SLSrMetricMargin::MarginType_MIN;
 constexpr SLSrMetricMargin_MarginType SLSrMetricMargin::MarginType_MAX;
 constexpr int SLSrMetricMargin::MarginType_ARRAYSIZE;
@@ -753,11 +758,11 @@ bool SLSrMetricType_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrteDiversityLevel_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrDiversityLevel_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fsr_5fcommon_2eproto);
   return file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto[8];
 }
-bool SLSrteDiversityLevel_IsValid(int value) {
+bool SLSrDiversityLevel_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -2887,17 +2892,17 @@ SLSrv6SidStruct::SLSrv6SidStruct(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 SLSrv6SidStruct::SLSrv6SidStruct(const SLSrv6SidStruct& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&locatorblocklen_, &from.locatorblocklen_,
-    static_cast<size_t>(reinterpret_cast<char*>(&arglen_) -
-    reinterpret_cast<char*>(&locatorblocklen_)) + sizeof(arglen_));
+  ::memcpy(&locator_block_len_, &from.locator_block_len_,
+    static_cast<size_t>(reinterpret_cast<char*>(&arg_len_) -
+    reinterpret_cast<char*>(&locator_block_len_)) + sizeof(arg_len_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrv6SidStruct)
 }
 
 inline void SLSrv6SidStruct::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&locatorblocklen_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&arglen_) -
-    reinterpret_cast<char*>(&locatorblocklen_)) + sizeof(arglen_));
+    reinterpret_cast<char*>(&locator_block_len_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&arg_len_) -
+    reinterpret_cast<char*>(&locator_block_len_)) + sizeof(arg_len_));
 }
 
 SLSrv6SidStruct::~SLSrv6SidStruct() {
@@ -2927,9 +2932,9 @@ void SLSrv6SidStruct::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&locatorblocklen_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&arglen_) -
-      reinterpret_cast<char*>(&locatorblocklen_)) + sizeof(arglen_));
+  ::memset(&locator_block_len_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&arg_len_) -
+      reinterpret_cast<char*>(&locator_block_len_)) + sizeof(arg_len_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2939,34 +2944,34 @@ const char* SLSrv6SidStruct::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 LocatorBlockLen = 1;
+      // uint32 locator_block_len = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          locatorblocklen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          locator_block_len_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 LocatorNodeLen = 2;
+      // uint32 locator_node_len = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          locatornodelen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          locator_node_len_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 FunctionLen = 3;
+      // uint32 function_len = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          functionlen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          function_len_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 ArgLen = 4;
+      // uint32 arg_len = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          arglen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          arg_len_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3000,28 +3005,28 @@ uint8_t* SLSrv6SidStruct::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 LocatorBlockLen = 1;
-  if (this->_internal_locatorblocklen() != 0) {
+  // uint32 locator_block_len = 1;
+  if (this->_internal_locator_block_len() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_locatorblocklen(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_locator_block_len(), target);
   }
 
-  // uint32 LocatorNodeLen = 2;
-  if (this->_internal_locatornodelen() != 0) {
+  // uint32 locator_node_len = 2;
+  if (this->_internal_locator_node_len() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_locatornodelen(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_locator_node_len(), target);
   }
 
-  // uint32 FunctionLen = 3;
-  if (this->_internal_functionlen() != 0) {
+  // uint32 function_len = 3;
+  if (this->_internal_function_len() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_functionlen(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_function_len(), target);
   }
 
-  // uint32 ArgLen = 4;
-  if (this->_internal_arglen() != 0) {
+  // uint32 arg_len = 4;
+  if (this->_internal_arg_len() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_arglen(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_arg_len(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3040,24 +3045,24 @@ size_t SLSrv6SidStruct::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 LocatorBlockLen = 1;
-  if (this->_internal_locatorblocklen() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_locatorblocklen());
+  // uint32 locator_block_len = 1;
+  if (this->_internal_locator_block_len() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_locator_block_len());
   }
 
-  // uint32 LocatorNodeLen = 2;
-  if (this->_internal_locatornodelen() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_locatornodelen());
+  // uint32 locator_node_len = 2;
+  if (this->_internal_locator_node_len() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_locator_node_len());
   }
 
-  // uint32 FunctionLen = 3;
-  if (this->_internal_functionlen() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_functionlen());
+  // uint32 function_len = 3;
+  if (this->_internal_function_len() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_function_len());
   }
 
-  // uint32 ArgLen = 4;
-  if (this->_internal_arglen() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_arglen());
+  // uint32 arg_len = 4;
+  if (this->_internal_arg_len() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_arg_len());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -3082,17 +3087,17 @@ void SLSrv6SidStruct::MergeFrom(const SLSrv6SidStruct& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_locatorblocklen() != 0) {
-    _internal_set_locatorblocklen(from._internal_locatorblocklen());
+  if (from._internal_locator_block_len() != 0) {
+    _internal_set_locator_block_len(from._internal_locator_block_len());
   }
-  if (from._internal_locatornodelen() != 0) {
-    _internal_set_locatornodelen(from._internal_locatornodelen());
+  if (from._internal_locator_node_len() != 0) {
+    _internal_set_locator_node_len(from._internal_locator_node_len());
   }
-  if (from._internal_functionlen() != 0) {
-    _internal_set_functionlen(from._internal_functionlen());
+  if (from._internal_function_len() != 0) {
+    _internal_set_function_len(from._internal_function_len());
   }
-  if (from._internal_arglen() != 0) {
-    _internal_set_arglen(from._internal_arglen());
+  if (from._internal_arg_len() != 0) {
+    _internal_set_arg_len(from._internal_arg_len());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -3112,11 +3117,11 @@ void SLSrv6SidStruct::InternalSwap(SLSrv6SidStruct* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrv6SidStruct, arglen_)
-      + sizeof(SLSrv6SidStruct::arglen_)
-      - PROTOBUF_FIELD_OFFSET(SLSrv6SidStruct, locatorblocklen_)>(
-          reinterpret_cast<char*>(&locatorblocklen_),
-          reinterpret_cast<char*>(&other->locatorblocklen_));
+      PROTOBUF_FIELD_OFFSET(SLSrv6SidStruct, arg_len_)
+      + sizeof(SLSrv6SidStruct::arg_len_)
+      - PROTOBUF_FIELD_OFFSET(SLSrv6SidStruct, locator_block_len_)>(
+          reinterpret_cast<char*>(&locator_block_len_),
+          reinterpret_cast<char*>(&other->locator_block_len_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrv6SidStruct::GetMetadata() const {
@@ -4623,12 +4628,17 @@ SLSrSegmentList::SLSrSegmentList(const SLSrSegmentList& from)
       _has_bits_(from._has_bits_),
       segments_(from.segments_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  weight_ = from.weight_;
+  ::memcpy(&weight_, &from.weight_,
+    static_cast<size_t>(reinterpret_cast<char*>(&path_cost_) -
+    reinterpret_cast<char*>(&weight_)) + sizeof(path_cost_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrSegmentList)
 }
 
 inline void SLSrSegmentList::SharedCtor() {
-weight_ = 0u;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&weight_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&path_cost_) -
+    reinterpret_cast<char*>(&weight_)) + sizeof(path_cost_));
 }
 
 SLSrSegmentList::~SLSrSegmentList() {
@@ -4660,6 +4670,7 @@ void SLSrSegmentList::Clear() {
 
   segments_.Clear();
   weight_ = 0u;
+  path_cost_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -4689,6 +4700,14 @@ const char* SLSrSegmentList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_weight(&has_bits);
           weight_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 path_cost = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          path_cost_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4737,6 +4756,12 @@ uint8_t* SLSrSegmentList::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_weight(), target);
   }
 
+  // uint32 path_cost = 3;
+  if (this->_internal_path_cost() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_path_cost(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4766,6 +4791,11 @@ size_t SLSrSegmentList::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_weight());
   }
 
+  // uint32 path_cost = 3;
+  if (this->_internal_path_cost() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_path_cost());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -4792,6 +4822,9 @@ void SLSrSegmentList::MergeFrom(const SLSrSegmentList& from) {
   if (from._internal_has_weight()) {
     _internal_set_weight(from._internal_weight());
   }
+  if (from._internal_path_cost() != 0) {
+    _internal_set_path_cost(from._internal_path_cost());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4811,7 +4844,12 @@ void SLSrSegmentList::InternalSwap(SLSrSegmentList* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   segments_.InternalSwap(&other->segments_);
-  swap(weight_, other->weight_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLSrSegmentList, path_cost_)
+      + sizeof(SLSrSegmentList::path_cost_)
+      - PROTOBUF_FIELD_OFFSET(SLSrSegmentList, weight_)>(
+          reinterpret_cast<char*>(&weight_),
+          reinterpret_cast<char*>(&other->weight_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrSegmentList::GetMetadata() const {
@@ -5187,7 +5225,7 @@ const char* SLSrCandidatePathKey_Originator::_InternalParse(const char* ptr, ::P
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 ASN = 1;
+      // uint32 asn = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           asn_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -5232,7 +5270,7 @@ uint8_t* SLSrCandidatePathKey_Originator::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 ASN = 1;
+  // uint32 asn = 1;
   if (this->_internal_asn() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_asn(), target);
@@ -5269,7 +5307,7 @@ size_t SLSrCandidatePathKey_Originator::ByteSizeLong() const {
         *nodeid_);
   }
 
-  // uint32 ASN = 1;
+  // uint32 asn = 1;
   if (this->_internal_asn() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_asn());
   }

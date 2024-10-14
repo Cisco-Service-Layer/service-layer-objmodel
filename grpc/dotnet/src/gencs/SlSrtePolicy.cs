@@ -25,62 +25,63 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRzbF9zcnRlX3BvbGljeS5wcm90bxINc2VydmljZV9sYXllchoVc2xfY29t",
-            "bW9uX3R5cGVzLnByb3RvGhJzbF9zcl9jb21tb24ucHJvdG8iRQoOU0xTckV4",
-            "cGxpY2l0Q1ASMwoLc2VnbWVudExpc3QYASADKAsyHi5zZXJ2aWNlX2xheWVy",
-            "LlNMU3JTZWdtZW50TGlzdCLUAwoPU0xTckNvbnN0cmFpbnRzEjEKCmFmZmlu",
-            "aXRpZXMYASABKAsyHS5zZXJ2aWNlX2xheWVyLlNMU3JBZmZpbml0aWVzEjUK",
-            "DG1ldHJpY0JvdW5kcxgCIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xTck1ldHJp",
-            "Y0JvdW5kcxJOChNzZWdtZW50X2NvbnN0cmFpbnRzGAMgASgLMjEuc2Vydmlj",
-            "ZV9sYXllci5TTFNyQ29uc3RyYWludHMuU2VnbWVudENvbnN0cmFpbnRzGoYC",
-            "ChJTZWdtZW50Q29uc3RyYWludHMSVAoKcHJvdGVjdGlvbhgBIAEoDjJALnNl",
-            "cnZpY2VfbGF5ZXIuU0xTckNvbnN0cmFpbnRzLlNlZ21lbnRDb25zdHJhaW50",
-            "cy5Qcm90ZWN0aW9uVHlwZRIPCgdzaWRhbGdvGAIgASgNEhkKEW1heGltdW1f",
-            "c2lkX2RlcHRoGAMgASgNIm4KDlByb3RlY3Rpb25UeXBlEhcKE1BST1RFQ1RF",
-            "RF9QUkVGRVJSRUQQABISCg5QUk9URUNURURfT05MWRABEhkKFVVOUFJPVEVD",
-            "VEVEX1BSRUZFUlJFRBACEhQKEFVOUFJPVEVDVEVEX09OTFkQAyK9AQoNU0xT",
-            "ckR5bmFtaWNDUBIuCgdvbWV0cmljGAEgASgOMh0uc2VydmljZV9sYXllci5T",
-            "TFNyTWV0cmljVHlwZRIzCgtjb25zdHJhaW50cxgCIAEoCzIeLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xTckNvbnN0cmFpbnRzEjUKDG1ldHJpY01hcmdpbhgDIAEoCzIf",
-            "LnNlcnZpY2VfbGF5ZXIuU0xTck1ldHJpY01hcmdpbhIQCghkZWxlZ2F0ZRgE",
-            "IAEoCCKCAgoRU0xTckNhbmRpZGF0ZVBhdGgSMAoDa2V5GAEgASgLMiMuc2Vy",
-            "dmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aEtleRIMCgRuYW1lGAIgASgJ",
-            "EhIKCnByZWZlcmVuY2UYAyABKA0SLwoJZGF0YXBsYW5lGAQgASgOMhwuc2Vy",
-            "dmljZV9sYXllci5TTFNyRGF0YXBsYW5lEi8KB2R5bmFtaWMYBSABKAsyHC5z",
-            "ZXJ2aWNlX2xheWVyLlNMU3JEeW5hbWljQ1BIABIxCghleHBsaWNpdBgGIAEo",
-            "CzIdLnNlcnZpY2VfbGF5ZXIuU0xTckV4cGxpY2l0Q1BIAEIECgJDUCI5ChBT",
-            "TFNydjZCaW5kaW5nU0lEEhMKC2xvY2F0b3JOYW1lGAEgASgJEhAKCGJlaGF2",
-            "aW9yGAIgASgNIqwBCg5TTFNyQmluZGluZ1NJRBJJChRiaW5kaW5nU0lEQWxs",
-            "b2NhdGlvbhgBIAEoDjIrLnNlcnZpY2VfbGF5ZXIuU0xTckJpbmRpbmdTSURB",
-            "bGxvY2F0aW9uTW9kZRIWCg5tcGxzQmluZGluZ1NJRBgCIAEoDRI3Cg5zcnY2",
-            "QmluZGluZ1NJRBgDIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xTcnY2QmluZGlu",
-            "Z1NJRCK/AQoKU0xTclBvbGljeRIpCgNrZXkYASABKAsyHC5zZXJ2aWNlX2xh",
-            "eWVyLlNMU3JQb2xpY3lLZXkSFwoPdHJhbnNpdEVsaWdpYmxlGAIgASgIEi0K",
-            "A0NQcxgDIAMoCzIgLnNlcnZpY2VfbGF5ZXIuU0xTckNhbmRpZGF0ZVBhdGgS",
-            "KwoEYnNpZBgEIAEoCzIdLnNlcnZpY2VfbGF5ZXIuU0xTckJpbmRpbmdTSUQS",
-            "EQoJcHJvZmlsZUlEGAUgASgNIjwKDVNMU3JQb2xpY3lNc2cSKwoIcG9saWNp",
-            "ZXMYASADKAsyGS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3kiuAEKD1NMU3JQ",
-            "b2xpY3lPcFJzcBI7CglyZXNwb25zZXMYASADKAsyKC5zZXJ2aWNlX2xheWVy",
-            "LlNMU3JQb2xpY3lPcFJzcC5Qb2xpY3lSc3AaaAoJUG9saWN5UnNwEjAKCnJl",
-            "dHVybkNvZGUYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
-            "KQoDa2V5GAIgASgLMhwuc2VydmljZV9sYXllci5TTFNyUG9saWN5S2V5KkMK",
-            "HFNMU3JCaW5kaW5nU0lEQWxsb2NhdGlvbk1vZGUSEQoNQlNJRF9FWFBMSUNJ",
-            "VBAAEhAKDEJTSURfRFlOQU1JQxABMq8BCgxTTFNydGVQb2xpY3kSTQoNU0xT",
-            "clBvbGljeUFkZBIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU1zZxoeLnNl",
-            "cnZpY2VfbGF5ZXIuU0xTclBvbGljeU9wUnNwElAKEFNMU3JQb2xpY3lEZWxl",
-            "dGUSHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lNc2caHi5zZXJ2aWNlX2xh",
-            "eWVyLlNMU3JQb2xpY3lPcFJzcEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZp",
-            "Y2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rvcztz",
-            "ZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "bW9uX3R5cGVzLnByb3RvGhJzbF9zcl9jb21tb24ucHJvdG8iRgoOU0xTckV4",
+            "cGxpY2l0Q1ASNAoMc2VnbWVudF9saXN0GAEgAygLMh4uc2VydmljZV9sYXll",
+            "ci5TTFNyU2VnbWVudExpc3Qi7gMKD1NMU3JDb25zdHJhaW50cxIxCgphZmZp",
+            "bml0aWVzGAEgASgLMh0uc2VydmljZV9sYXllci5TTFNyQWZmaW5pdGllcxI1",
+            "CgxtZXRyaWNCb3VuZHMYAiABKAsyHy5zZXJ2aWNlX2xheWVyLlNMU3JNZXRy",
+            "aWNCb3VuZHMSTgoTc2VnbWVudF9jb25zdHJhaW50cxgDIAEoCzIxLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTckNvbnN0cmFpbnRzLlNlZ21lbnRDb25zdHJhaW50cxqg",
+            "AgoSU2VnbWVudENvbnN0cmFpbnRzElQKCnByb3RlY3Rpb24YASABKA4yQC5z",
+            "ZXJ2aWNlX2xheWVyLlNMU3JDb25zdHJhaW50cy5TZWdtZW50Q29uc3RyYWlu",
+            "dHMuUHJvdGVjdGlvblR5cGUSEAoIc2lkX2FsZ28YAiABKA0SGQoRbWF4aW11",
+            "bV9zaWRfZGVwdGgYAyABKA0ihgEKDlByb3RlY3Rpb25UeXBlEh0KGVNMX1NS",
+            "X1BST1RFQ1RFRF9QUkVGRVJSRUQQABIYChRTTF9TUl9QUk9URUNURURfT05M",
+            "WRABEh8KG1NMX1NSX1VOUFJPVEVDVEVEX1BSRUZFUlJFRBACEhoKFlNMX1NS",
+            "X1VOUFJPVEVDVEVEX09OTFkQAyK/AQoNU0xTckR5bmFtaWNDUBIvCghvX21l",
+            "dHJpYxgBIAEoDjIdLnNlcnZpY2VfbGF5ZXIuU0xTck1ldHJpY1R5cGUSMwoL",
+            "Y29uc3RyYWludHMYAiABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3JDb25zdHJh",
+            "aW50cxI2Cg1tZXRyaWNfbWFyZ2luGAMgASgLMh8uc2VydmljZV9sYXllci5T",
+            "TFNyTWV0cmljTWFyZ2luEhAKCGRlbGVnYXRlGAQgASgIIoICChFTTFNyQ2Fu",
+            "ZGlkYXRlUGF0aBIwCgNrZXkYASABKAsyIy5zZXJ2aWNlX2xheWVyLlNMU3JD",
+            "YW5kaWRhdGVQYXRoS2V5EgwKBG5hbWUYAiABKAkSEgoKcHJlZmVyZW5jZRgD",
+            "IAEoDRIvCglkYXRhcGxhbmUYBCABKA4yHC5zZXJ2aWNlX2xheWVyLlNMU3JE",
+            "YXRhcGxhbmUSLwoHZHluYW1pYxgFIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "ckR5bmFtaWNDUEgAEjEKCGV4cGxpY2l0GAYgASgLMh0uc2VydmljZV9sYXll",
+            "ci5TTFNyRXhwbGljaXRDUEgAQgQKAkNQIjoKEFNMU3J2NkJpbmRpbmdTSUQS",
+            "FAoMbG9jYXRvcl9uYW1lGAEgASgJEhAKCGJlaGF2aW9yGAIgASgNIp0BCg5T",
+            "TFNyQmluZGluZ1NJRBJECg9hbGxvY2F0aW9uX21vZGUYASABKA4yKy5zZXJ2",
+            "aWNlX2xheWVyLlNMU3JCaW5kaW5nU0lEQWxsb2NhdGlvbk1vZGUSEQoJbXBs",
+            "c19ic2lkGAIgASgNEjIKCXNydjZfYnNpZBgDIAEoCzIfLnNlcnZpY2VfbGF5",
+            "ZXIuU0xTcnY2QmluZGluZ1NJRCLBAQoKU0xTclBvbGljeRIpCgNrZXkYASAB",
+            "KAsyHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lLZXkSGAoQdHJhbnNpdF9l",
+            "bGlnaWJsZRgCIAEoCBItCgNDUHMYAyADKAsyIC5zZXJ2aWNlX2xheWVyLlNM",
+            "U3JDYW5kaWRhdGVQYXRoEisKBGJzaWQYBCABKAsyHS5zZXJ2aWNlX2xheWVy",
+            "LlNMU3JCaW5kaW5nU0lEEhIKCnByb2ZpbGVfaWQYBSABKA0iPAoNU0xTclBv",
+            "bGljeU1zZxIrCghwb2xpY2llcxgBIAMoCzIZLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "clBvbGljeSK4AQoPU0xTclBvbGljeU9wUnNwEjsKCXJlc3BvbnNlcxgBIAMo",
+            "CzIoLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU9wUnNwLlBvbGljeVJzcBpo",
+            "CglQb2xpY3lSc3ASMAoKcmV0dXJuQ29kZRgBIAEoCzIcLnNlcnZpY2VfbGF5",
+            "ZXIuU0xFcnJvclN0YXR1cxIpCgNrZXkYAiABKAsyHC5zZXJ2aWNlX2xheWVy",
+            "LlNMU3JQb2xpY3lLZXkqTwocU0xTckJpbmRpbmdTSURBbGxvY2F0aW9uTW9k",
+            "ZRIXChNTTF9TUl9CU0lEX0VYUExJQ0lUEAASFgoSU0xfU1JfQlNJRF9EWU5B",
+            "TUlDEAEyrwEKDFNMU3J0ZVBvbGljeRJNCg1TTFNyUG9saWN5QWRkEhwuc2Vy",
+            "dmljZV9sYXllci5TTFNyUG9saWN5TXNnGh4uc2VydmljZV9sYXllci5TTFNy",
+            "UG9saWN5T3BSc3ASUAoQU0xTclBvbGljeURlbGV0ZRIcLnNlcnZpY2VfbGF5",
+            "ZXIuU0xTclBvbGljeU1zZxoeLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU9w",
+            "UnNwQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNl",
+            "LWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrBindingSIDAllocationMode), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "MetricBounds", "SegmentConstraints" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints), global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Parser, new[]{ "Protection", "Sidalgo", "MaximumSidDepth" }, null, new[]{ typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType) }, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "Ometric", "Constraints", "MetricMargin", "Delegate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "MetricBounds", "SegmentConstraints" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints), global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Parser, new[]{ "Protection", "SidAlgo", "MaximumSidDepth" }, null, new[]{ typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType) }, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "OMetric", "Constraints", "MetricMargin", "Delegate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCandidatePath), global::ServiceLayer.SLSrCandidatePath.Parser, new[]{ "Key", "Name", "Preference", "Dataplane", "Dynamic", "Explicit" }, new[]{ "CP" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6BindingSID), global::ServiceLayer.SLSrv6BindingSID.Parser, new[]{ "LocatorName", "Behavior" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrBindingSID), global::ServiceLayer.SLSrBindingSID.Parser, new[]{ "BindingSIDAllocation", "MplsBindingSID", "Srv6BindingSID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicy), global::ServiceLayer.SLSrPolicy.Parser, new[]{ "Key", "TransitEligible", "CPs", "Bsid", "ProfileID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrBindingSID), global::ServiceLayer.SLSrBindingSID.Parser, new[]{ "AllocationMode", "MplsBsid", "Srv6Bsid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicy), global::ServiceLayer.SLSrPolicy.Parser, new[]{ "Key", "TransitEligible", "CPs", "Bsid", "ProfileId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyMsg), global::ServiceLayer.SLSrPolicyMsg.Parser, new[]{ "Policies" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyOpRsp), global::ServiceLayer.SLSrPolicyOpRsp.Parser, new[]{ "Responses" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyOpRsp.Types.PolicyRsp), global::ServiceLayer.SLSrPolicyOpRsp.Types.PolicyRsp.Parser, new[]{ "ReturnCode", "Key" }, null, null, null, null)})
           }));
@@ -96,11 +97,11 @@ namespace ServiceLayer {
     /// <summary>
     /// Explicitly specified BSID
     /// </summary>
-    [pbr::OriginalName("BSID_EXPLICIT")] BsidExplicit = 0,
+    [pbr::OriginalName("SL_SR_BSID_EXPLICIT")] SlSrBsidExplicit = 0,
     /// <summary>
     /// Dynamically allocated BSID
     /// </summary>
-    [pbr::OriginalName("BSID_DYNAMIC")] BsidDynamic = 1,
+    [pbr::OriginalName("SL_SR_BSID_DYNAMIC")] SlSrBsidDynamic = 1,
   }
 
   #endregion
@@ -153,7 +154,7 @@ namespace ServiceLayer {
       return new SLSrExplicitCP(this);
     }
 
-    /// <summary>Field number for the "segmentList" field.</summary>
+    /// <summary>Field number for the "segment_list" field.</summary>
     public const int SegmentListFieldNumber = 1;
     private static readonly pb::FieldCodec<global::ServiceLayer.SLSrSegmentList> _repeated_segmentList_codec
         = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrSegmentList.Parser);
@@ -632,7 +633,7 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public SegmentConstraints(SegmentConstraints other) : this() {
           protection_ = other.protection_;
-          sidalgo_ = other.sidalgo_;
+          sidAlgo_ = other.sidAlgo_;
           maximumSidDepth_ = other.maximumSidDepth_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -645,7 +646,7 @@ namespace ServiceLayer {
 
         /// <summary>Field number for the "protection" field.</summary>
         public const int ProtectionFieldNumber = 1;
-        private global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType protection_ = global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.ProtectedPreferred;
+        private global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType protection_ = global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.SlSrProtectedPreferred;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType Protection {
@@ -655,15 +656,15 @@ namespace ServiceLayer {
           }
         }
 
-        /// <summary>Field number for the "sidalgo" field.</summary>
-        public const int SidalgoFieldNumber = 2;
-        private uint sidalgo_;
+        /// <summary>Field number for the "sid_algo" field.</summary>
+        public const int SidAlgoFieldNumber = 2;
+        private uint sidAlgo_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public uint Sidalgo {
-          get { return sidalgo_; }
+        public uint SidAlgo {
+          get { return sidAlgo_; }
           set {
-            sidalgo_ = value;
+            sidAlgo_ = value;
           }
         }
 
@@ -706,7 +707,7 @@ namespace ServiceLayer {
             return true;
           }
           if (Protection != other.Protection) return false;
-          if (Sidalgo != other.Sidalgo) return false;
+          if (SidAlgo != other.SidAlgo) return false;
           if (MaximumSidDepth != other.MaximumSidDepth) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -715,8 +716,8 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
-          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.ProtectedPreferred) hash ^= Protection.GetHashCode();
-          if (Sidalgo != 0) hash ^= Sidalgo.GetHashCode();
+          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.SlSrProtectedPreferred) hash ^= Protection.GetHashCode();
+          if (SidAlgo != 0) hash ^= SidAlgo.GetHashCode();
           if (MaximumSidDepth != 0) hash ^= MaximumSidDepth.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -736,13 +737,13 @@ namespace ServiceLayer {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
-          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.ProtectedPreferred) {
+          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.SlSrProtectedPreferred) {
             output.WriteRawTag(8);
             output.WriteEnum((int) Protection);
           }
-          if (Sidalgo != 0) {
+          if (SidAlgo != 0) {
             output.WriteRawTag(16);
-            output.WriteUInt32(Sidalgo);
+            output.WriteUInt32(SidAlgo);
           }
           if (MaximumSidDepth != 0) {
             output.WriteRawTag(24);
@@ -758,13 +759,13 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.ProtectedPreferred) {
+          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.SlSrProtectedPreferred) {
             output.WriteRawTag(8);
             output.WriteEnum((int) Protection);
           }
-          if (Sidalgo != 0) {
+          if (SidAlgo != 0) {
             output.WriteRawTag(16);
-            output.WriteUInt32(Sidalgo);
+            output.WriteUInt32(SidAlgo);
           }
           if (MaximumSidDepth != 0) {
             output.WriteRawTag(24);
@@ -780,11 +781,11 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
-          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.ProtectedPreferred) {
+          if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.SlSrProtectedPreferred) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Protection);
           }
-          if (Sidalgo != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Sidalgo);
+          if (SidAlgo != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SidAlgo);
           }
           if (MaximumSidDepth != 0) {
             size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaximumSidDepth);
@@ -801,11 +802,11 @@ namespace ServiceLayer {
           if (other == null) {
             return;
           }
-          if (other.Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.ProtectedPreferred) {
+          if (other.Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.SlSrProtectedPreferred) {
             Protection = other.Protection;
           }
-          if (other.Sidalgo != 0) {
-            Sidalgo = other.Sidalgo;
+          if (other.SidAlgo != 0) {
+            SidAlgo = other.SidAlgo;
           }
           if (other.MaximumSidDepth != 0) {
             MaximumSidDepth = other.MaximumSidDepth;
@@ -830,7 +831,7 @@ namespace ServiceLayer {
                 break;
               }
               case 16: {
-                Sidalgo = input.ReadUInt32();
+                SidAlgo = input.ReadUInt32();
                 break;
               }
               case 24: {
@@ -857,7 +858,7 @@ namespace ServiceLayer {
                 break;
               }
               case 16: {
-                Sidalgo = input.ReadUInt32();
+                SidAlgo = input.ReadUInt32();
                 break;
               }
               case 24: {
@@ -878,19 +879,19 @@ namespace ServiceLayer {
             /// <summary>
             /// Protected segments are preferred over unprotected ones.
             /// </summary>
-            [pbr::OriginalName("PROTECTED_PREFERRED")] ProtectedPreferred = 0,
+            [pbr::OriginalName("SL_SR_PROTECTED_PREFERRED")] SlSrProtectedPreferred = 0,
             /// <summary>
             /// Segment list is made only of protected (i.e., FRR-protected) segments
             /// </summary>
-            [pbr::OriginalName("PROTECTED_ONLY")] ProtectedOnly = 1,
+            [pbr::OriginalName("SL_SR_PROTECTED_ONLY")] SlSrProtectedOnly = 1,
             /// <summary>
             /// Unprotected segments are preferred over protected ones.
             /// </summary>
-            [pbr::OriginalName("UNPROTECTED_PREFERRED")] UnprotectedPreferred = 2,
+            [pbr::OriginalName("SL_SR_UNPROTECTED_PREFERRED")] SlSrUnprotectedPreferred = 2,
             /// <summary>
             /// Segment list is made only of unprotected (i.e., non FRR-protected) segments
             /// </summary>
-            [pbr::OriginalName("UNPROTECTED_ONLY")] UnprotectedOnly = 3,
+            [pbr::OriginalName("SL_SR_UNPROTECTED_ONLY")] SlSrUnprotectedOnly = 3,
           }
 
         }
@@ -940,7 +941,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrDynamicCP(SLSrDynamicCP other) : this() {
-      ometric_ = other.ometric_;
+      oMetric_ = other.oMetric_;
       constraints_ = other.constraints_ != null ? other.constraints_.Clone() : null;
       metricMargin_ = other.metricMargin_ != null ? other.metricMargin_.Clone() : null;
       delegate_ = other.delegate_;
@@ -953,9 +954,9 @@ namespace ServiceLayer {
       return new SLSrDynamicCP(this);
     }
 
-    /// <summary>Field number for the "ometric" field.</summary>
-    public const int OmetricFieldNumber = 1;
-    private global::ServiceLayer.SLSrMetricType ometric_ = global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified;
+    /// <summary>Field number for the "o_metric" field.</summary>
+    public const int OMetricFieldNumber = 1;
+    private global::ServiceLayer.SLSrMetricType oMetric_ = global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified;
     /// <summary>
     /// The optimization metric of the dynamic candidate path.
     ///
@@ -964,10 +965,10 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrMetricType Ometric {
-      get { return ometric_; }
+    public global::ServiceLayer.SLSrMetricType OMetric {
+      get { return oMetric_; }
       set {
-        ometric_ = value;
+        oMetric_ = value;
       }
     }
 
@@ -986,7 +987,7 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "metricMargin" field.</summary>
+    /// <summary>Field number for the "metric_margin" field.</summary>
     public const int MetricMarginFieldNumber = 3;
     private global::ServiceLayer.SLSrMetricMargin metricMargin_;
     /// <summary>
@@ -1034,7 +1035,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Ometric != other.Ometric) return false;
+      if (OMetric != other.OMetric) return false;
       if (!object.Equals(Constraints, other.Constraints)) return false;
       if (!object.Equals(MetricMargin, other.MetricMargin)) return false;
       if (Delegate != other.Delegate) return false;
@@ -1045,7 +1046,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Ometric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) hash ^= Ometric.GetHashCode();
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) hash ^= OMetric.GetHashCode();
       if (constraints_ != null) hash ^= Constraints.GetHashCode();
       if (metricMargin_ != null) hash ^= MetricMargin.GetHashCode();
       if (Delegate != false) hash ^= Delegate.GetHashCode();
@@ -1067,9 +1068,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Ometric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Ometric);
+        output.WriteEnum((int) OMetric);
       }
       if (constraints_ != null) {
         output.WriteRawTag(18);
@@ -1093,9 +1094,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Ometric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Ometric);
+        output.WriteEnum((int) OMetric);
       }
       if (constraints_ != null) {
         output.WriteRawTag(18);
@@ -1119,8 +1120,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Ometric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Ometric);
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) OMetric);
       }
       if (constraints_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Constraints);
@@ -1143,8 +1144,8 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Ometric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-        Ometric = other.Ometric;
+      if (other.OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
+        OMetric = other.OMetric;
       }
       if (other.constraints_ != null) {
         if (constraints_ == null) {
@@ -1177,7 +1178,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Ometric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
+            OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1214,7 +1215,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Ometric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
+            OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1326,6 +1327,9 @@ namespace ServiceLayer {
     private string name_ = "";
     /// <summary>
     /// Candidate path name
+    /// CP Symbolic name is derived from this name if set.
+    /// For a given policy, CP name + discriminator should be unique to avoid
+    /// conflict of symbolic name.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1354,7 +1358,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "dataplane" field.</summary>
     public const int DataplaneFieldNumber = 4;
-    private global::ServiceLayer.SLSrDataplane dataplane_ = global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified;
+    private global::ServiceLayer.SLSrDataplane dataplane_ = global::ServiceLayer.SLSrDataplane.Unspecified;
     /// <summary>
     /// The segment routing dataplane.
     /// </summary>
@@ -1450,7 +1454,7 @@ namespace ServiceLayer {
       if (key_ != null) hash ^= Key.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Preference != 0) hash ^= Preference.GetHashCode();
-      if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) hash ^= Dataplane.GetHashCode();
+      if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) hash ^= Dataplane.GetHashCode();
       if (cPCase_ == CPOneofCase.Dynamic) hash ^= Dynamic.GetHashCode();
       if (cPCase_ == CPOneofCase.Explicit) hash ^= Explicit.GetHashCode();
       hash ^= (int) cPCase_;
@@ -1484,7 +1488,7 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteUInt32(Preference);
       }
-      if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+      if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Dataplane);
       }
@@ -1518,7 +1522,7 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteUInt32(Preference);
       }
-      if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+      if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Dataplane);
       }
@@ -1549,7 +1553,7 @@ namespace ServiceLayer {
       if (Preference != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Preference);
       }
-      if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+      if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Dataplane);
       }
       if (cPCase_ == CPOneofCase.Dynamic) {
@@ -1582,7 +1586,7 @@ namespace ServiceLayer {
       if (other.Preference != 0) {
         Preference = other.Preference;
       }
-      if (other.Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+      if (other.Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
         Dataplane = other.Dataplane;
       }
       switch (other.CPCase) {
@@ -1759,7 +1763,7 @@ namespace ServiceLayer {
       return new SLSrv6BindingSID(this);
     }
 
-    /// <summary>Field number for the "locatorName" field.</summary>
+    /// <summary>Field number for the "locator_name" field.</summary>
     public const int LocatorNameFieldNumber = 1;
     private string locatorName_ = "";
     /// <summary>
@@ -1777,11 +1781,6 @@ namespace ServiceLayer {
     /// <summary>Field number for the "behavior" field.</summary>
     public const int BehaviorFieldNumber = 2;
     private uint behavior_;
-    /// <summary>
-    /// Binding segment ID, for Explicit BSID mode
-    /// Explicit SRv6 BSID is not supported in this version
-    /// SLIpv6Address SID = 3;
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint Behavior {
@@ -1985,9 +1984,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrBindingSID(SLSrBindingSID other) : this() {
-      bindingSIDAllocation_ = other.bindingSIDAllocation_;
-      mplsBindingSID_ = other.mplsBindingSID_;
-      srv6BindingSID_ = other.srv6BindingSID_ != null ? other.srv6BindingSID_.Clone() : null;
+      allocationMode_ = other.allocationMode_;
+      mplsBsid_ = other.mplsBsid_;
+      srv6Bsid_ = other.srv6Bsid_ != null ? other.srv6Bsid_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1997,48 +1996,48 @@ namespace ServiceLayer {
       return new SLSrBindingSID(this);
     }
 
-    /// <summary>Field number for the "bindingSIDAllocation" field.</summary>
-    public const int BindingSIDAllocationFieldNumber = 1;
-    private global::ServiceLayer.SLSrBindingSIDAllocationMode bindingSIDAllocation_ = global::ServiceLayer.SLSrBindingSIDAllocationMode.BsidExplicit;
+    /// <summary>Field number for the "allocation_mode" field.</summary>
+    public const int AllocationModeFieldNumber = 1;
+    private global::ServiceLayer.SLSrBindingSIDAllocationMode allocationMode_ = global::ServiceLayer.SLSrBindingSIDAllocationMode.SlSrBsidExplicit;
     /// <summary>
     /// Binding SID allocation mode, explicit or dynamic
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrBindingSIDAllocationMode BindingSIDAllocation {
-      get { return bindingSIDAllocation_; }
+    public global::ServiceLayer.SLSrBindingSIDAllocationMode AllocationMode {
+      get { return allocationMode_; }
       set {
-        bindingSIDAllocation_ = value;
+        allocationMode_ = value;
       }
     }
 
-    /// <summary>Field number for the "mplsBindingSID" field.</summary>
-    public const int MplsBindingSIDFieldNumber = 2;
-    private uint mplsBindingSID_;
+    /// <summary>Field number for the "mpls_bsid" field.</summary>
+    public const int MplsBsidFieldNumber = 2;
+    private uint mplsBsid_;
     /// <summary>
     /// Expected to be filled when mode is explicit and dataplane is MPLS
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MplsBindingSID {
-      get { return mplsBindingSID_; }
+    public uint MplsBsid {
+      get { return mplsBsid_; }
       set {
-        mplsBindingSID_ = value;
+        mplsBsid_ = value;
       }
     }
 
-    /// <summary>Field number for the "srv6BindingSID" field.</summary>
-    public const int Srv6BindingSIDFieldNumber = 3;
-    private global::ServiceLayer.SLSrv6BindingSID srv6BindingSID_;
+    /// <summary>Field number for the "srv6_bsid" field.</summary>
+    public const int Srv6BsidFieldNumber = 3;
+    private global::ServiceLayer.SLSrv6BindingSID srv6Bsid_;
     /// <summary>
     /// SRv6 binding SID, expected when dataplane is SRv6
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrv6BindingSID Srv6BindingSID {
-      get { return srv6BindingSID_; }
+    public global::ServiceLayer.SLSrv6BindingSID Srv6Bsid {
+      get { return srv6Bsid_; }
       set {
-        srv6BindingSID_ = value;
+        srv6Bsid_ = value;
       }
     }
 
@@ -2057,9 +2056,9 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (BindingSIDAllocation != other.BindingSIDAllocation) return false;
-      if (MplsBindingSID != other.MplsBindingSID) return false;
-      if (!object.Equals(Srv6BindingSID, other.Srv6BindingSID)) return false;
+      if (AllocationMode != other.AllocationMode) return false;
+      if (MplsBsid != other.MplsBsid) return false;
+      if (!object.Equals(Srv6Bsid, other.Srv6Bsid)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2067,9 +2066,9 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (BindingSIDAllocation != global::ServiceLayer.SLSrBindingSIDAllocationMode.BsidExplicit) hash ^= BindingSIDAllocation.GetHashCode();
-      if (MplsBindingSID != 0) hash ^= MplsBindingSID.GetHashCode();
-      if (srv6BindingSID_ != null) hash ^= Srv6BindingSID.GetHashCode();
+      if (AllocationMode != global::ServiceLayer.SLSrBindingSIDAllocationMode.SlSrBsidExplicit) hash ^= AllocationMode.GetHashCode();
+      if (MplsBsid != 0) hash ^= MplsBsid.GetHashCode();
+      if (srv6Bsid_ != null) hash ^= Srv6Bsid.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2088,17 +2087,17 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (BindingSIDAllocation != global::ServiceLayer.SLSrBindingSIDAllocationMode.BsidExplicit) {
+      if (AllocationMode != global::ServiceLayer.SLSrBindingSIDAllocationMode.SlSrBsidExplicit) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) BindingSIDAllocation);
+        output.WriteEnum((int) AllocationMode);
       }
-      if (MplsBindingSID != 0) {
+      if (MplsBsid != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(MplsBindingSID);
+        output.WriteUInt32(MplsBsid);
       }
-      if (srv6BindingSID_ != null) {
+      if (srv6Bsid_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(Srv6BindingSID);
+        output.WriteMessage(Srv6Bsid);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2110,17 +2109,17 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (BindingSIDAllocation != global::ServiceLayer.SLSrBindingSIDAllocationMode.BsidExplicit) {
+      if (AllocationMode != global::ServiceLayer.SLSrBindingSIDAllocationMode.SlSrBsidExplicit) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) BindingSIDAllocation);
+        output.WriteEnum((int) AllocationMode);
       }
-      if (MplsBindingSID != 0) {
+      if (MplsBsid != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(MplsBindingSID);
+        output.WriteUInt32(MplsBsid);
       }
-      if (srv6BindingSID_ != null) {
+      if (srv6Bsid_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(Srv6BindingSID);
+        output.WriteMessage(Srv6Bsid);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2132,14 +2131,14 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (BindingSIDAllocation != global::ServiceLayer.SLSrBindingSIDAllocationMode.BsidExplicit) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) BindingSIDAllocation);
+      if (AllocationMode != global::ServiceLayer.SLSrBindingSIDAllocationMode.SlSrBsidExplicit) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AllocationMode);
       }
-      if (MplsBindingSID != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MplsBindingSID);
+      if (MplsBsid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MplsBsid);
       }
-      if (srv6BindingSID_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6BindingSID);
+      if (srv6Bsid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6Bsid);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2153,17 +2152,17 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.BindingSIDAllocation != global::ServiceLayer.SLSrBindingSIDAllocationMode.BsidExplicit) {
-        BindingSIDAllocation = other.BindingSIDAllocation;
+      if (other.AllocationMode != global::ServiceLayer.SLSrBindingSIDAllocationMode.SlSrBsidExplicit) {
+        AllocationMode = other.AllocationMode;
       }
-      if (other.MplsBindingSID != 0) {
-        MplsBindingSID = other.MplsBindingSID;
+      if (other.MplsBsid != 0) {
+        MplsBsid = other.MplsBsid;
       }
-      if (other.srv6BindingSID_ != null) {
-        if (srv6BindingSID_ == null) {
-          Srv6BindingSID = new global::ServiceLayer.SLSrv6BindingSID();
+      if (other.srv6Bsid_ != null) {
+        if (srv6Bsid_ == null) {
+          Srv6Bsid = new global::ServiceLayer.SLSrv6BindingSID();
         }
-        Srv6BindingSID.MergeFrom(other.Srv6BindingSID);
+        Srv6Bsid.MergeFrom(other.Srv6Bsid);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2181,18 +2180,18 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            BindingSIDAllocation = (global::ServiceLayer.SLSrBindingSIDAllocationMode) input.ReadEnum();
+            AllocationMode = (global::ServiceLayer.SLSrBindingSIDAllocationMode) input.ReadEnum();
             break;
           }
           case 16: {
-            MplsBindingSID = input.ReadUInt32();
+            MplsBsid = input.ReadUInt32();
             break;
           }
           case 26: {
-            if (srv6BindingSID_ == null) {
-              Srv6BindingSID = new global::ServiceLayer.SLSrv6BindingSID();
+            if (srv6Bsid_ == null) {
+              Srv6Bsid = new global::ServiceLayer.SLSrv6BindingSID();
             }
-            input.ReadMessage(Srv6BindingSID);
+            input.ReadMessage(Srv6Bsid);
             break;
           }
         }
@@ -2211,18 +2210,18 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            BindingSIDAllocation = (global::ServiceLayer.SLSrBindingSIDAllocationMode) input.ReadEnum();
+            AllocationMode = (global::ServiceLayer.SLSrBindingSIDAllocationMode) input.ReadEnum();
             break;
           }
           case 16: {
-            MplsBindingSID = input.ReadUInt32();
+            MplsBsid = input.ReadUInt32();
             break;
           }
           case 26: {
-            if (srv6BindingSID_ == null) {
-              Srv6BindingSID = new global::ServiceLayer.SLSrv6BindingSID();
+            if (srv6Bsid_ == null) {
+              Srv6Bsid = new global::ServiceLayer.SLSrv6BindingSID();
             }
-            input.ReadMessage(Srv6BindingSID);
+            input.ReadMessage(Srv6Bsid);
             break;
           }
         }
@@ -2273,7 +2272,7 @@ namespace ServiceLayer {
       transitEligible_ = other.transitEligible_;
       cPs_ = other.cPs_.Clone();
       bsid_ = other.bsid_ != null ? other.bsid_.Clone() : null;
-      profileID_ = other.profileID_;
+      profileId_ = other.profileId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2298,7 +2297,7 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "transitEligible" field.</summary>
+    /// <summary>Field number for the "transit_eligible" field.</summary>
     public const int TransitEligibleFieldNumber = 2;
     private bool transitEligible_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2333,19 +2332,19 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "profileID" field.</summary>
-    public const int ProfileIDFieldNumber = 5;
-    private uint profileID_;
+    /// <summary>Field number for the "profile_id" field.</summary>
+    public const int ProfileIdFieldNumber = 5;
+    private uint profileId_;
     /// <summary>
-    /// ID of the profile with which policy can be assiciated with,
+    /// ID of the profile with which policy can be associated with,
     /// a non-zero value.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ProfileID {
-      get { return profileID_; }
+    public uint ProfileId {
+      get { return profileId_; }
       set {
-        profileID_ = value;
+        profileId_ = value;
       }
     }
 
@@ -2368,7 +2367,7 @@ namespace ServiceLayer {
       if (TransitEligible != other.TransitEligible) return false;
       if(!cPs_.Equals(other.cPs_)) return false;
       if (!object.Equals(Bsid, other.Bsid)) return false;
-      if (ProfileID != other.ProfileID) return false;
+      if (ProfileId != other.ProfileId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2380,7 +2379,7 @@ namespace ServiceLayer {
       if (TransitEligible != false) hash ^= TransitEligible.GetHashCode();
       hash ^= cPs_.GetHashCode();
       if (bsid_ != null) hash ^= Bsid.GetHashCode();
-      if (ProfileID != 0) hash ^= ProfileID.GetHashCode();
+      if (ProfileId != 0) hash ^= ProfileId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2412,9 +2411,9 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteMessage(Bsid);
       }
-      if (ProfileID != 0) {
+      if (ProfileId != 0) {
         output.WriteRawTag(40);
-        output.WriteUInt32(ProfileID);
+        output.WriteUInt32(ProfileId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2439,9 +2438,9 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteMessage(Bsid);
       }
-      if (ProfileID != 0) {
+      if (ProfileId != 0) {
         output.WriteRawTag(40);
-        output.WriteUInt32(ProfileID);
+        output.WriteUInt32(ProfileId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2463,8 +2462,8 @@ namespace ServiceLayer {
       if (bsid_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bsid);
       }
-      if (ProfileID != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ProfileID);
+      if (ProfileId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ProfileId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2494,8 +2493,8 @@ namespace ServiceLayer {
         }
         Bsid.MergeFrom(other.Bsid);
       }
-      if (other.ProfileID != 0) {
-        ProfileID = other.ProfileID;
+      if (other.ProfileId != 0) {
+        ProfileId = other.ProfileId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2535,7 +2534,7 @@ namespace ServiceLayer {
             break;
           }
           case 40: {
-            ProfileID = input.ReadUInt32();
+            ProfileId = input.ReadUInt32();
             break;
           }
         }
@@ -2576,7 +2575,7 @@ namespace ServiceLayer {
             break;
           }
           case 40: {
-            ProfileID = input.ReadUInt32();
+            ProfileId = input.ReadUInt32();
             break;
           }
         }

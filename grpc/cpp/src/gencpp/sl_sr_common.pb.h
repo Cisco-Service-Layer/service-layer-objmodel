@@ -134,14 +134,14 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
 enum SLSrMetricMargin_MarginType : int {
-  SLSrMetricMargin_MarginType_RELATIVE = 0,
-  SLSrMetricMargin_MarginType_ABSOLUTE = 1,
+  SLSrMetricMargin_MarginType_SL_RELATIVE = 0,
+  SLSrMetricMargin_MarginType_SL_ABSOLUTE = 1,
   SLSrMetricMargin_MarginType_SLSrMetricMargin_MarginType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrMetricMargin_MarginType_SLSrMetricMargin_MarginType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrMetricMargin_MarginType_IsValid(int value);
-constexpr SLSrMetricMargin_MarginType SLSrMetricMargin_MarginType_MarginType_MIN = SLSrMetricMargin_MarginType_RELATIVE;
-constexpr SLSrMetricMargin_MarginType SLSrMetricMargin_MarginType_MarginType_MAX = SLSrMetricMargin_MarginType_ABSOLUTE;
+constexpr SLSrMetricMargin_MarginType SLSrMetricMargin_MarginType_MarginType_MIN = SLSrMetricMargin_MarginType_SL_RELATIVE;
+constexpr SLSrMetricMargin_MarginType SLSrMetricMargin_MarginType_MarginType_MAX = SLSrMetricMargin_MarginType_SL_ABSOLUTE;
 constexpr int SLSrMetricMargin_MarginType_MarginType_ARRAYSIZE = SLSrMetricMargin_MarginType_MarginType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrMetricMargin_MarginType_descriptor();
@@ -307,15 +307,15 @@ inline bool SLSrv6BindingSidFlags_Parse(
     SLSrv6BindingSidFlags_descriptor(), name, value);
 }
 enum SLSrDataplane : int {
-  SR_DATAPLANE_UNSPECIFIED = 0,
-  SR_DATAPLANE_MPLS = 1,
-  SR_DATAPLANE_SRV6 = 2,
+  SL_SR_DATAPLANE_UNSPECIFIED = 0,
+  SL_SR_DATAPLANE_MPLS = 1,
+  SL_SR_DATAPLANE_SRV6 = 2,
   SLSrDataplane_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrDataplane_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrDataplane_IsValid(int value);
-constexpr SLSrDataplane SLSrDataplane_MIN = SR_DATAPLANE_UNSPECIFIED;
-constexpr SLSrDataplane SLSrDataplane_MAX = SR_DATAPLANE_SRV6;
+constexpr SLSrDataplane SLSrDataplane_MIN = SL_SR_DATAPLANE_UNSPECIFIED;
+constexpr SLSrDataplane SLSrDataplane_MAX = SL_SR_DATAPLANE_SRV6;
 constexpr int SLSrDataplane_ARRAYSIZE = SLSrDataplane_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrDataplane_descriptor();
@@ -333,19 +333,19 @@ inline bool SLSrDataplane_Parse(
     SLSrDataplane_descriptor(), name, value);
 }
 enum SLSrMetricType : int {
-  METRIC_TYPE_UNSPECIFIED = 0,
-  METRIC_TYPE_IGP = 0,
-  METRIC_TYPE_DELAY = 1,
-  METRIC_TYPE_TE = 2,
-  METRIC_TYPE_HOP = 3,
-  METRIC_TYPE_SID_LIST_LENGTH = 4,
-  METRIC_TYPE_BANDWIDTH = 5,
+  SL_METRIC_TYPE_UNSPECIFIED = 0,
+  SL_METRIC_TYPE_IGP = 0,
+  SL_METRIC_TYPE_DELAY = 1,
+  SL_METRIC_TYPE_TE = 2,
+  SL_METRIC_TYPE_HOP = 3,
+  SL_METRIC_TYPE_SID_LIST_LENGTH = 4,
+  SL_METRIC_TYPE_BANDWIDTH = 5,
   SLSrMetricType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrMetricType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrMetricType_IsValid(int value);
-constexpr SLSrMetricType SLSrMetricType_MIN = METRIC_TYPE_UNSPECIFIED;
-constexpr SLSrMetricType SLSrMetricType_MAX = METRIC_TYPE_BANDWIDTH;
+constexpr SLSrMetricType SLSrMetricType_MIN = SL_METRIC_TYPE_UNSPECIFIED;
+constexpr SLSrMetricType SLSrMetricType_MAX = SL_METRIC_TYPE_BANDWIDTH;
 constexpr int SLSrMetricType_ARRAYSIZE = SLSrMetricType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrMetricType_descriptor();
@@ -362,33 +362,33 @@ inline bool SLSrMetricType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrMetricType>(
     SLSrMetricType_descriptor(), name, value);
 }
-enum SLSrteDiversityLevel : int {
-  DIVERSITY_LEVEL_NONE = 0,
-  DIVERSITY_LEVEL_LINK = 1,
-  DIVERSITY_LEVEL_NODE = 2,
-  DIVERSITY_LEVEL_SRLG = 3,
-  DIVERSITY_LEVEL_SRLG_NODE = 4,
-  SLSrteDiversityLevel_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLSrteDiversityLevel_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+enum SLSrDiversityLevel : int {
+  SL_DIVERSITY_LEVEL_NONE = 0,
+  SL_DIVERSITY_LEVEL_LINK = 1,
+  SL_DIVERSITY_LEVEL_NODE = 2,
+  SL_DIVERSITY_LEVEL_SRLG = 3,
+  SL_DIVERSITY_LEVEL_SRLG_NODE = 4,
+  SLSrDiversityLevel_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLSrDiversityLevel_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
-bool SLSrteDiversityLevel_IsValid(int value);
-constexpr SLSrteDiversityLevel SLSrteDiversityLevel_MIN = DIVERSITY_LEVEL_NONE;
-constexpr SLSrteDiversityLevel SLSrteDiversityLevel_MAX = DIVERSITY_LEVEL_SRLG_NODE;
-constexpr int SLSrteDiversityLevel_ARRAYSIZE = SLSrteDiversityLevel_MAX + 1;
+bool SLSrDiversityLevel_IsValid(int value);
+constexpr SLSrDiversityLevel SLSrDiversityLevel_MIN = SL_DIVERSITY_LEVEL_NONE;
+constexpr SLSrDiversityLevel SLSrDiversityLevel_MAX = SL_DIVERSITY_LEVEL_SRLG_NODE;
+constexpr int SLSrDiversityLevel_ARRAYSIZE = SLSrDiversityLevel_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrteDiversityLevel_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrDiversityLevel_descriptor();
 template<typename T>
-inline const std::string& SLSrteDiversityLevel_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLSrteDiversityLevel>::value ||
+inline const std::string& SLSrDiversityLevel_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLSrDiversityLevel>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLSrteDiversityLevel_Name.");
+    "Incorrect type passed to function SLSrDiversityLevel_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLSrteDiversityLevel_descriptor(), enum_t_value);
+    SLSrDiversityLevel_descriptor(), enum_t_value);
 }
-inline bool SLSrteDiversityLevel_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLSrteDiversityLevel* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrteDiversityLevel>(
-    SLSrteDiversityLevel_descriptor(), name, value);
+inline bool SLSrDiversityLevel_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLSrDiversityLevel* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrDiversityLevel>(
+    SLSrDiversityLevel_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1946,40 +1946,40 @@ class SLSrv6SidStruct final :
     kFunctionLenFieldNumber = 3,
     kArgLenFieldNumber = 4,
   };
-  // uint32 LocatorBlockLen = 1;
-  void clear_locatorblocklen();
-  uint32_t locatorblocklen() const;
-  void set_locatorblocklen(uint32_t value);
+  // uint32 locator_block_len = 1;
+  void clear_locator_block_len();
+  uint32_t locator_block_len() const;
+  void set_locator_block_len(uint32_t value);
   private:
-  uint32_t _internal_locatorblocklen() const;
-  void _internal_set_locatorblocklen(uint32_t value);
+  uint32_t _internal_locator_block_len() const;
+  void _internal_set_locator_block_len(uint32_t value);
   public:
 
-  // uint32 LocatorNodeLen = 2;
-  void clear_locatornodelen();
-  uint32_t locatornodelen() const;
-  void set_locatornodelen(uint32_t value);
+  // uint32 locator_node_len = 2;
+  void clear_locator_node_len();
+  uint32_t locator_node_len() const;
+  void set_locator_node_len(uint32_t value);
   private:
-  uint32_t _internal_locatornodelen() const;
-  void _internal_set_locatornodelen(uint32_t value);
+  uint32_t _internal_locator_node_len() const;
+  void _internal_set_locator_node_len(uint32_t value);
   public:
 
-  // uint32 FunctionLen = 3;
-  void clear_functionlen();
-  uint32_t functionlen() const;
-  void set_functionlen(uint32_t value);
+  // uint32 function_len = 3;
+  void clear_function_len();
+  uint32_t function_len() const;
+  void set_function_len(uint32_t value);
   private:
-  uint32_t _internal_functionlen() const;
-  void _internal_set_functionlen(uint32_t value);
+  uint32_t _internal_function_len() const;
+  void _internal_set_function_len(uint32_t value);
   public:
 
-  // uint32 ArgLen = 4;
-  void clear_arglen();
-  uint32_t arglen() const;
-  void set_arglen(uint32_t value);
+  // uint32 arg_len = 4;
+  void clear_arg_len();
+  uint32_t arg_len() const;
+  void set_arg_len(uint32_t value);
   private:
-  uint32_t _internal_arglen() const;
-  void _internal_set_arglen(uint32_t value);
+  uint32_t _internal_arg_len() const;
+  void _internal_set_arg_len(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrv6SidStruct)
@@ -1989,10 +1989,10 @@ class SLSrv6SidStruct final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t locatorblocklen_;
-  uint32_t locatornodelen_;
-  uint32_t functionlen_;
-  uint32_t arglen_;
+  uint32_t locator_block_len_;
+  uint32_t locator_node_len_;
+  uint32_t function_len_;
+  uint32_t arg_len_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
@@ -2286,10 +2286,10 @@ class SLSrMetricMargin final :
   // nested types ----------------------------------------------------
 
   typedef SLSrMetricMargin_MarginType MarginType;
-  static constexpr MarginType RELATIVE =
-    SLSrMetricMargin_MarginType_RELATIVE;
-  static constexpr MarginType ABSOLUTE =
-    SLSrMetricMargin_MarginType_ABSOLUTE;
+  static constexpr MarginType SL_RELATIVE =
+    SLSrMetricMargin_MarginType_SL_RELATIVE;
+  static constexpr MarginType SL_ABSOLUTE =
+    SLSrMetricMargin_MarginType_SL_ABSOLUTE;
   static inline bool MarginType_IsValid(int value) {
     return SLSrMetricMargin_MarginType_IsValid(value);
   }
@@ -3216,6 +3216,7 @@ class SLSrSegmentList final :
   enum : int {
     kSegmentsFieldNumber = 1,
     kWeightFieldNumber = 2,
+    kPathCostFieldNumber = 3,
   };
   // repeated .service_layer.SLSrteSegment segments = 1;
   int segments_size() const;
@@ -3248,6 +3249,15 @@ class SLSrSegmentList final :
   void _internal_set_weight(uint32_t value);
   public:
 
+  // uint32 path_cost = 3;
+  void clear_path_cost();
+  uint32_t path_cost() const;
+  void set_path_cost(uint32_t value);
+  private:
+  uint32_t _internal_path_cost() const;
+  void _internal_set_path_cost(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLSrSegmentList)
  private:
   class _Internal;
@@ -3259,6 +3269,7 @@ class SLSrSegmentList final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrteSegment > segments_;
   uint32_t weight_;
+  uint32_t path_cost_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3572,7 +3583,7 @@ class SLSrCandidatePathKey_Originator final :
 
   enum : int {
     kNodeIDFieldNumber = 2,
-    kASNFieldNumber = 1,
+    kAsnFieldNumber = 1,
   };
   // .service_layer.SLIpAddress nodeID = 2;
   bool has_nodeid() const;
@@ -3592,7 +3603,7 @@ class SLSrCandidatePathKey_Originator final :
       ::service_layer::SLIpAddress* nodeid);
   ::service_layer::SLIpAddress* unsafe_arena_release_nodeid();
 
-  // uint32 ASN = 1;
+  // uint32 asn = 1;
   void clear_asn();
   uint32_t asn() const;
   void set_asn(uint32_t value);
@@ -5227,84 +5238,84 @@ inline void SLSrv6EndPointBehavior::set_algorithm(uint32_t value) {
 
 // SLSrv6SidStruct
 
-// uint32 LocatorBlockLen = 1;
-inline void SLSrv6SidStruct::clear_locatorblocklen() {
-  locatorblocklen_ = 0u;
+// uint32 locator_block_len = 1;
+inline void SLSrv6SidStruct::clear_locator_block_len() {
+  locator_block_len_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_locatorblocklen() const {
-  return locatorblocklen_;
+inline uint32_t SLSrv6SidStruct::_internal_locator_block_len() const {
+  return locator_block_len_;
 }
-inline uint32_t SLSrv6SidStruct::locatorblocklen() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.LocatorBlockLen)
-  return _internal_locatorblocklen();
+inline uint32_t SLSrv6SidStruct::locator_block_len() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.locator_block_len)
+  return _internal_locator_block_len();
 }
-inline void SLSrv6SidStruct::_internal_set_locatorblocklen(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_locator_block_len(uint32_t value) {
   
-  locatorblocklen_ = value;
+  locator_block_len_ = value;
 }
-inline void SLSrv6SidStruct::set_locatorblocklen(uint32_t value) {
-  _internal_set_locatorblocklen(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.LocatorBlockLen)
+inline void SLSrv6SidStruct::set_locator_block_len(uint32_t value) {
+  _internal_set_locator_block_len(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.locator_block_len)
 }
 
-// uint32 LocatorNodeLen = 2;
-inline void SLSrv6SidStruct::clear_locatornodelen() {
-  locatornodelen_ = 0u;
+// uint32 locator_node_len = 2;
+inline void SLSrv6SidStruct::clear_locator_node_len() {
+  locator_node_len_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_locatornodelen() const {
-  return locatornodelen_;
+inline uint32_t SLSrv6SidStruct::_internal_locator_node_len() const {
+  return locator_node_len_;
 }
-inline uint32_t SLSrv6SidStruct::locatornodelen() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.LocatorNodeLen)
-  return _internal_locatornodelen();
+inline uint32_t SLSrv6SidStruct::locator_node_len() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.locator_node_len)
+  return _internal_locator_node_len();
 }
-inline void SLSrv6SidStruct::_internal_set_locatornodelen(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_locator_node_len(uint32_t value) {
   
-  locatornodelen_ = value;
+  locator_node_len_ = value;
 }
-inline void SLSrv6SidStruct::set_locatornodelen(uint32_t value) {
-  _internal_set_locatornodelen(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.LocatorNodeLen)
+inline void SLSrv6SidStruct::set_locator_node_len(uint32_t value) {
+  _internal_set_locator_node_len(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.locator_node_len)
 }
 
-// uint32 FunctionLen = 3;
-inline void SLSrv6SidStruct::clear_functionlen() {
-  functionlen_ = 0u;
+// uint32 function_len = 3;
+inline void SLSrv6SidStruct::clear_function_len() {
+  function_len_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_functionlen() const {
-  return functionlen_;
+inline uint32_t SLSrv6SidStruct::_internal_function_len() const {
+  return function_len_;
 }
-inline uint32_t SLSrv6SidStruct::functionlen() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.FunctionLen)
-  return _internal_functionlen();
+inline uint32_t SLSrv6SidStruct::function_len() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.function_len)
+  return _internal_function_len();
 }
-inline void SLSrv6SidStruct::_internal_set_functionlen(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_function_len(uint32_t value) {
   
-  functionlen_ = value;
+  function_len_ = value;
 }
-inline void SLSrv6SidStruct::set_functionlen(uint32_t value) {
-  _internal_set_functionlen(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.FunctionLen)
+inline void SLSrv6SidStruct::set_function_len(uint32_t value) {
+  _internal_set_function_len(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.function_len)
 }
 
-// uint32 ArgLen = 4;
-inline void SLSrv6SidStruct::clear_arglen() {
-  arglen_ = 0u;
+// uint32 arg_len = 4;
+inline void SLSrv6SidStruct::clear_arg_len() {
+  arg_len_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_arglen() const {
-  return arglen_;
+inline uint32_t SLSrv6SidStruct::_internal_arg_len() const {
+  return arg_len_;
 }
-inline uint32_t SLSrv6SidStruct::arglen() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.ArgLen)
-  return _internal_arglen();
+inline uint32_t SLSrv6SidStruct::arg_len() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.arg_len)
+  return _internal_arg_len();
 }
-inline void SLSrv6SidStruct::_internal_set_arglen(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_arg_len(uint32_t value) {
   
-  arglen_ = value;
+  arg_len_ = value;
 }
-inline void SLSrv6SidStruct::set_arglen(uint32_t value) {
-  _internal_set_arglen(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.ArgLen)
+inline void SLSrv6SidStruct::set_arg_len(uint32_t value) {
+  _internal_set_arg_len(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.arg_len)
 }
 
 // -------------------------------------------------------------------
@@ -6017,6 +6028,26 @@ inline void SLSrSegmentList::set_weight(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentList.weight)
 }
 
+// uint32 path_cost = 3;
+inline void SLSrSegmentList::clear_path_cost() {
+  path_cost_ = 0u;
+}
+inline uint32_t SLSrSegmentList::_internal_path_cost() const {
+  return path_cost_;
+}
+inline uint32_t SLSrSegmentList::path_cost() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentList.path_cost)
+  return _internal_path_cost();
+}
+inline void SLSrSegmentList::_internal_set_path_cost(uint32_t value) {
+  
+  path_cost_ = value;
+}
+inline void SLSrSegmentList::set_path_cost(uint32_t value) {
+  _internal_set_path_cost(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentList.path_cost)
+}
+
 // -------------------------------------------------------------------
 
 // SLSrPolicyKey
@@ -6217,7 +6248,7 @@ inline void SLSrPolicyKey::set_allocated_endpoint(::service_layer::SLIpAddress* 
 
 // SLSrCandidatePathKey_Originator
 
-// uint32 ASN = 1;
+// uint32 asn = 1;
 inline void SLSrCandidatePathKey_Originator::clear_asn() {
   asn_ = 0u;
 }
@@ -6225,7 +6256,7 @@ inline uint32_t SLSrCandidatePathKey_Originator::_internal_asn() const {
   return asn_;
 }
 inline uint32_t SLSrCandidatePathKey_Originator::asn() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrCandidatePathKey.Originator.ASN)
+  // @@protoc_insertion_point(field_get:service_layer.SLSrCandidatePathKey.Originator.asn)
   return _internal_asn();
 }
 inline void SLSrCandidatePathKey_Originator::_internal_set_asn(uint32_t value) {
@@ -6234,7 +6265,7 @@ inline void SLSrCandidatePathKey_Originator::_internal_set_asn(uint32_t value) {
 }
 inline void SLSrCandidatePathKey_Originator::set_asn(uint32_t value) {
   _internal_set_asn(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrCandidatePathKey.Originator.ASN)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrCandidatePathKey.Originator.asn)
 }
 
 // .service_layer.SLIpAddress nodeID = 2;
@@ -6521,10 +6552,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrMetricType>() {
   return ::service_layer::SLSrMetricType_descriptor();
 }
-template <> struct is_proto_enum< ::service_layer::SLSrteDiversityLevel> : ::std::true_type {};
+template <> struct is_proto_enum< ::service_layer::SLSrDiversityLevel> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrteDiversityLevel>() {
-  return ::service_layer::SLSrteDiversityLevel_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrDiversityLevel>() {
+  return ::service_layer::SLSrDiversityLevel_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

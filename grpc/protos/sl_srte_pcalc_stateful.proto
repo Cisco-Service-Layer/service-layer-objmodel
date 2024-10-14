@@ -29,18 +29,17 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // [RFC 9256](https://datatracker.ietf.org/doc/rfc9256/).
 service SLSrteCalcStateful {
     // Opens a bidirectional streaming channel to initiate, manage, and serve
-    // stateful path calculation requests.<br><br>
-    //
+    // stateful path calculation requests.
     //
     // A single `PathCompute` channel can support any number of path requests and
     // it is recommended that a client maintains only one channel per server that
-    // it is connected to.<br><br>
+    // it is connected to.
     //
     // The client uses this channel to initiate new path calculation requests,
     // update the attributes (e.g., optimization metric or constraints) of an
     // active request, and withdraw obsolete ones. The client must maintain the
     // channel open as long as it requires stateful path calculation service from
-    // the server.<br><br>
+    // the server.
     //
     // The server uses this channel to respond to the active path calculation
     // requests of the client. The server sends a path response after receiving a
@@ -48,29 +47,29 @@ service SLSrteCalcStateful {
     // request, or after a routing event in the network required a modification
     // of the path. The server is responsible for monitoring the network topology
     // and providing updated responses to the active path requests such that the
-    // response continuously meets the requirements of the path request.<br><br>
+    // response continuously meets the requirements of the path request.
     //
     // When the channel is closed, the server marks any active path request (that
     // was managed through this channel) as *stale* and starts a timer. Another
     // client may claim ownership of a stale path request in a new or existing
     // channel. When the timer expires, any stale path request that was not
     // claimed by another client is deleted.
-    rpc SLSrtePathCompute (stream SLSrtePathComputeRequests) returns (stream SLSrtePathComputeResponses);
+    rpc SLSrtePathCompute (stream SLSrtePathComputeReqs) returns (stream SLSrtePathComputeRsps);
 }
 
 // Enables client-side batching.
-message SLSrtePathComputeRequests {
-    repeated SLSrtePathComputeRequest requests = 1; // A batch of request messages.
+message SLSrtePathComputeReqs {
+    repeated SLSrtePathComputeReq requests = 1; // A batch of request messages.
 }
 
 // Enables server-side batching.
-message SLSrtePathComputeResponses {
-    repeated SLSrtePathComputeResponse responses = 1; // A batch of reponse messages.
+message SLSrtePathComputeRsps {
+    repeated SLSrtePathComputeRes responses = 1; // A batch of response messages.
 }
 
 // Initiate a new path request or manage an active one that was initiated or
 // claimed in this channel.
-message SLSrtePathComputeRequest {
+message SLSrtePathComputeReq {
     // Globally unique SR policy identifier.
     SLSrPolicyKey policy_key = 1;
 
@@ -89,6 +88,9 @@ message SLSrtePathComputeRequest {
     // The sequence number **must** be strictly increasing in path request
     // messages relative to a particular candidate path (i.e., same `policy_key`
     // and `candidate_path_key`).
+    // Server is expected to ignore the request if sequence number in the request
+    // is lower than the last received request for a given policy key,
+    // candidate_path key
     uint64 seq_num = 3;
 
     // Type of request message.
@@ -102,40 +104,19 @@ message SLSrtePathComputeRequest {
     //
     // - For a dynamic candidate path, this means computing and updating a set of
     // SID-lists in order to continuously comply with the path specifications.
-    // - For an explicit candidate path, this means continously validating the
+    // - For an explicit candidate path, this means continuously validating the
     // set of SID-lists with respect to the path specification and reporting
     // the validity of SID-list.
     message SLSrtePathInit {
         // The segment routing dataplane.
         //
-        // The dataplane of a candidate path is an **unmutable path attribute**. It
+        // The dataplane of a candidate path is an **immutable path attribute**. It
         // cannot be modified after the initial path request.
         SLSrDataplane dataplane = 1;
 
         oneof path_init_type {
-            SLSrtePathInitDynamic dynamic = 2;
-            SLSrtePathInitExplicit explicit = 3;
-        }
-
-        // The specific attributes for initializing a dynamic path request.
-        message SLSrtePathInitDynamic {
-            // The optimization metric of the dynamic candidate path.
-            //
-            // The objective function of the optimization problem is to minimize the
-            // accumulated value of this additive link metric along the path.
-            SLSrMetricType o_metric = 1;
-
-            // The set of constraints that the candidate path must satisfy.
-            ConstraintSet constraints = 2;
-        }
-
-        // The specific attributes for initializing an explicit path request.
-        message SLSrtePathInitExplicit {
-            // The set of weighted segment lists in the explicit candidate path.
-            repeated SLSrSegmentList segment_lists = 1;
-
-            // The set of constraints that the candidate path must satisfy.
-            ConstraintSet constraints = 2;
+            SLSrtePathAttrDynamic dynamic = 2;
+            SLSrtePathAttrExplicit explicit = 3;
         }
     }
 
@@ -145,40 +126,22 @@ message SLSrtePathComputeRequest {
     // (e.g., endpoint) nor any unmutable path attributes (e.g., dataplane).
     message SLSrtePathUpdate {
         oneof path_update_type {
-            SLSrtePathUpdateDynamic dynamic = 1;
-            SLSrtePathUpdateExplicit explicit = 2;
-        }
-
-        // The specific attributes for updating a dynamic path request.
-        message SLSrtePathUpdateDynamic {
-            // The new optimization metric of the dynamic candidate path.
-            SLSrMetricType o_metric = 1;
-
-            // The new set of constraints that the candidate path must satisfy.
-            ConstraintSet constraints = 2;
-        }
-
-        // The specific attributes for updating an explicit path request.
-        message SLSrtePathUpdateExplicit {
-            // The new set of weighted segment lists in the explicit candidate path.
-            repeated SLSrSegmentList segment_lists = 1;
-
-            // The new set of constraints that the candidate path must satisfy.
-            ConstraintSet constraints = 2;
+            SLSrtePathAttrDynamic dynamic = 1;
+            SLSrtePathAttrExplicit explicit = 2;
         }
     }
 
     // Withdraw a path request.
     //
     // Upon receiving this message, the server immediately deletes the path from
-    // the its path request database and frees any resource allocated for this
-    // path. It the candidate path was using any transit policies, the server
+    // its path request database and frees any resource allocated for this
+    // path. If the candidate path was using any transit policies, the server
     // unregisters this path from the list of parents of those transit policies,
     // which may lead to unprovisioning of some transit policies.
     message SLSrtePathWithdraw {}
 }
 
-message SLSrtePathComputeResponse {
+message SLSrtePathComputeRes {
     // Globally unique SR policy identifier.
     SLSrPolicyKey policy_key = 1;
 
@@ -205,9 +168,6 @@ message SLSrtePathComputeResponse {
         // Set of weighted segment lists.
         repeated SLSrSegmentList segment_lists = 1;
 
-        // Total path *cost*, i.e., the accumulated o-metric values along the path.
-        uint32 path_cost = 2;
-
         // Effective level of diversity achieved in the response paths.
         //
         // If the `min_diversity_level` field was set in the request, then the
@@ -216,7 +176,7 @@ message SLSrtePathComputeResponse {
         //
         // Otherwise, the effective diversity level is equal to the requested
         // `diversity_level`.
-        optional SLSrteDiversityLevel effective_diversity_level = 3;
+        optional SLSrDiversityLevel effective_diversity_level = 3;
     }
 
     // An error message.
@@ -224,6 +184,27 @@ message SLSrtePathComputeResponse {
         SLErrorStatus type = 1; // Type of error.
         string description = 2; // Text description of the error.
     }
+}
+
+// The specific attributes for dynamic path request.
+message SLSrtePathAttrDynamic {
+    // The optimization metric of the dynamic candidate path.
+    //
+    // The objective function of the optimization problem is to minimize the
+    // accumulated value of this additive link metric along the path.
+    SLSrMetricType o_metric = 1;
+
+    // The set of constraints that the candidate path must satisfy.
+    ConstraintSet constraints = 2;
+}
+
+// The specific attributes for initializing an explicit path request.
+message SLSrtePathAttrExplicit {
+    // The set of weighted segment lists in the explicit candidate path.
+    repeated SLSrSegmentList segment_lists = 1;
+
+    // The set of constraints that the candidate path must satisfy.
+    ConstraintSet constraints = 2;
 }
 
 // A set of constraints for an SR path.
@@ -261,7 +242,7 @@ message ConstraintSet {
         //
         // Values `DIVERSITY_LEVEL_UNSPECIFIED` and `DIVERSITY_LEVEL_NONE` are
         // **invalid** for this field.
-        SLSrteDiversityLevel diversity_level = 2;
+        SLSrDiversityLevel diversity_level = 2;
 
         // Minimum fallback level of diversity for the disjoint paths
         //
@@ -280,7 +261,7 @@ message ConstraintSet {
         // If this field is unset, or if it is set to an equal or higher level than
         // `diversity_level`, the diversity level is considered strict and no
         // fallback is performed.
-        optional SLSrteDiversityLevel min_diversity_level = 3;
+        optional SLSrDiversityLevel min_diversity_level = 3;
 
         // Pin this path to the shortest path.
         bool shortest_path = 4;
@@ -292,9 +273,6 @@ message ConstraintSet {
     // Guaranteed bandwidth.
     //
     // When set to the default value (0), this attribute is ignored.
-    //
-    // For an explicit candidate path, should the server perform the bandwidth
-    // reservation?
     uint32 guaranteed_bandwidth = 103;
 
     // ======================== Segment-List Constraints ========================
@@ -337,5 +315,8 @@ message ConstraintSet {
 }
 
 message AssociationGroup {
+    // Association group ID
+    // The values 0xffff and 0x0 are reserved.
+    // The value 0xffff is used to indicate all association groups.
     uint32 association_id = 1;
 }

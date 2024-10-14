@@ -107,16 +107,16 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
 enum SLSrConstraints_SegmentConstraints_ProtectionType : int {
-  SLSrConstraints_SegmentConstraints_ProtectionType_PROTECTED_PREFERRED = 0,
-  SLSrConstraints_SegmentConstraints_ProtectionType_PROTECTED_ONLY = 1,
-  SLSrConstraints_SegmentConstraints_ProtectionType_UNPROTECTED_PREFERRED = 2,
-  SLSrConstraints_SegmentConstraints_ProtectionType_UNPROTECTED_ONLY = 3,
+  SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_PROTECTED_PREFERRED = 0,
+  SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_PROTECTED_ONLY = 1,
+  SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_UNPROTECTED_PREFERRED = 2,
+  SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_UNPROTECTED_ONLY = 3,
   SLSrConstraints_SegmentConstraints_ProtectionType_SLSrConstraints_SegmentConstraints_ProtectionType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrConstraints_SegmentConstraints_ProtectionType_SLSrConstraints_SegmentConstraints_ProtectionType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrConstraints_SegmentConstraints_ProtectionType_IsValid(int value);
-constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints_ProtectionType_ProtectionType_MIN = SLSrConstraints_SegmentConstraints_ProtectionType_PROTECTED_PREFERRED;
-constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints_ProtectionType_ProtectionType_MAX = SLSrConstraints_SegmentConstraints_ProtectionType_UNPROTECTED_ONLY;
+constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints_ProtectionType_ProtectionType_MIN = SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_PROTECTED_PREFERRED;
+constexpr SLSrConstraints_SegmentConstraints_ProtectionType SLSrConstraints_SegmentConstraints_ProtectionType_ProtectionType_MAX = SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_UNPROTECTED_ONLY;
 constexpr int SLSrConstraints_SegmentConstraints_ProtectionType_ProtectionType_ARRAYSIZE = SLSrConstraints_SegmentConstraints_ProtectionType_ProtectionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrConstraints_SegmentConstraints_ProtectionType_descriptor();
@@ -134,14 +134,14 @@ inline bool SLSrConstraints_SegmentConstraints_ProtectionType_Parse(
     SLSrConstraints_SegmentConstraints_ProtectionType_descriptor(), name, value);
 }
 enum SLSrBindingSIDAllocationMode : int {
-  BSID_EXPLICIT = 0,
-  BSID_DYNAMIC = 1,
+  SL_SR_BSID_EXPLICIT = 0,
+  SL_SR_BSID_DYNAMIC = 1,
   SLSrBindingSIDAllocationMode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrBindingSIDAllocationMode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrBindingSIDAllocationMode_IsValid(int value);
-constexpr SLSrBindingSIDAllocationMode SLSrBindingSIDAllocationMode_MIN = BSID_EXPLICIT;
-constexpr SLSrBindingSIDAllocationMode SLSrBindingSIDAllocationMode_MAX = BSID_DYNAMIC;
+constexpr SLSrBindingSIDAllocationMode SLSrBindingSIDAllocationMode_MIN = SL_SR_BSID_EXPLICIT;
+constexpr SLSrBindingSIDAllocationMode SLSrBindingSIDAllocationMode_MAX = SL_SR_BSID_DYNAMIC;
 constexpr int SLSrBindingSIDAllocationMode_ARRAYSIZE = SLSrBindingSIDAllocationMode_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrBindingSIDAllocationMode_descriptor();
@@ -284,23 +284,23 @@ class SLSrExplicitCP final :
   enum : int {
     kSegmentListFieldNumber = 1,
   };
-  // repeated .service_layer.SLSrSegmentList segmentList = 1;
-  int segmentlist_size() const;
+  // repeated .service_layer.SLSrSegmentList segment_list = 1;
+  int segment_list_size() const;
   private:
-  int _internal_segmentlist_size() const;
+  int _internal_segment_list_size() const;
   public:
-  void clear_segmentlist();
-  ::service_layer::SLSrSegmentList* mutable_segmentlist(int index);
+  void clear_segment_list();
+  ::service_layer::SLSrSegmentList* mutable_segment_list(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
-      mutable_segmentlist();
+      mutable_segment_list();
   private:
-  const ::service_layer::SLSrSegmentList& _internal_segmentlist(int index) const;
-  ::service_layer::SLSrSegmentList* _internal_add_segmentlist();
+  const ::service_layer::SLSrSegmentList& _internal_segment_list(int index) const;
+  ::service_layer::SLSrSegmentList* _internal_add_segment_list();
   public:
-  const ::service_layer::SLSrSegmentList& segmentlist(int index) const;
-  ::service_layer::SLSrSegmentList* add_segmentlist();
+  const ::service_layer::SLSrSegmentList& segment_list(int index) const;
+  ::service_layer::SLSrSegmentList* add_segment_list();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
-      segmentlist() const;
+      segment_list() const;
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrExplicitCP)
  private:
@@ -309,7 +309,7 @@ class SLSrExplicitCP final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList > segmentlist_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList > segment_list_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -435,14 +435,14 @@ class SLSrConstraints_SegmentConstraints final :
   // nested types ----------------------------------------------------
 
   typedef SLSrConstraints_SegmentConstraints_ProtectionType ProtectionType;
-  static constexpr ProtectionType PROTECTED_PREFERRED =
-    SLSrConstraints_SegmentConstraints_ProtectionType_PROTECTED_PREFERRED;
-  static constexpr ProtectionType PROTECTED_ONLY =
-    SLSrConstraints_SegmentConstraints_ProtectionType_PROTECTED_ONLY;
-  static constexpr ProtectionType UNPROTECTED_PREFERRED =
-    SLSrConstraints_SegmentConstraints_ProtectionType_UNPROTECTED_PREFERRED;
-  static constexpr ProtectionType UNPROTECTED_ONLY =
-    SLSrConstraints_SegmentConstraints_ProtectionType_UNPROTECTED_ONLY;
+  static constexpr ProtectionType SL_SR_PROTECTED_PREFERRED =
+    SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_PROTECTED_PREFERRED;
+  static constexpr ProtectionType SL_SR_PROTECTED_ONLY =
+    SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_PROTECTED_ONLY;
+  static constexpr ProtectionType SL_SR_UNPROTECTED_PREFERRED =
+    SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_UNPROTECTED_PREFERRED;
+  static constexpr ProtectionType SL_SR_UNPROTECTED_ONLY =
+    SLSrConstraints_SegmentConstraints_ProtectionType_SL_SR_UNPROTECTED_ONLY;
   static inline bool ProtectionType_IsValid(int value) {
     return SLSrConstraints_SegmentConstraints_ProtectionType_IsValid(value);
   }
@@ -472,7 +472,7 @@ class SLSrConstraints_SegmentConstraints final :
 
   enum : int {
     kProtectionFieldNumber = 1,
-    kSidalgoFieldNumber = 2,
+    kSidAlgoFieldNumber = 2,
     kMaximumSidDepthFieldNumber = 3,
   };
   // .service_layer.SLSrConstraints.SegmentConstraints.ProtectionType protection = 1;
@@ -484,13 +484,13 @@ class SLSrConstraints_SegmentConstraints final :
   void _internal_set_protection(::service_layer::SLSrConstraints_SegmentConstraints_ProtectionType value);
   public:
 
-  // uint32 sidalgo = 2;
-  void clear_sidalgo();
-  uint32_t sidalgo() const;
-  void set_sidalgo(uint32_t value);
+  // uint32 sid_algo = 2;
+  void clear_sid_algo();
+  uint32_t sid_algo() const;
+  void set_sid_algo(uint32_t value);
   private:
-  uint32_t _internal_sidalgo() const;
-  void _internal_set_sidalgo(uint32_t value);
+  uint32_t _internal_sid_algo() const;
+  void _internal_set_sid_algo(uint32_t value);
   public:
 
   // uint32 maximum_sid_depth = 3;
@@ -510,7 +510,7 @@ class SLSrConstraints_SegmentConstraints final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   int protection_;
-  uint32_t sidalgo_;
+  uint32_t sid_algo_;
   uint32_t maximum_sid_depth_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
@@ -838,7 +838,7 @@ class SLSrDynamicCP final :
   enum : int {
     kConstraintsFieldNumber = 2,
     kMetricMarginFieldNumber = 3,
-    kOmetricFieldNumber = 1,
+    kOMetricFieldNumber = 1,
     kDelegateFieldNumber = 4,
   };
   // .service_layer.SLSrConstraints constraints = 2;
@@ -859,31 +859,31 @@ class SLSrDynamicCP final :
       ::service_layer::SLSrConstraints* constraints);
   ::service_layer::SLSrConstraints* unsafe_arena_release_constraints();
 
-  // .service_layer.SLSrMetricMargin metricMargin = 3;
-  bool has_metricmargin() const;
+  // .service_layer.SLSrMetricMargin metric_margin = 3;
+  bool has_metric_margin() const;
   private:
-  bool _internal_has_metricmargin() const;
+  bool _internal_has_metric_margin() const;
   public:
-  void clear_metricmargin();
-  const ::service_layer::SLSrMetricMargin& metricmargin() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrMetricMargin* release_metricmargin();
-  ::service_layer::SLSrMetricMargin* mutable_metricmargin();
-  void set_allocated_metricmargin(::service_layer::SLSrMetricMargin* metricmargin);
+  void clear_metric_margin();
+  const ::service_layer::SLSrMetricMargin& metric_margin() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrMetricMargin* release_metric_margin();
+  ::service_layer::SLSrMetricMargin* mutable_metric_margin();
+  void set_allocated_metric_margin(::service_layer::SLSrMetricMargin* metric_margin);
   private:
-  const ::service_layer::SLSrMetricMargin& _internal_metricmargin() const;
-  ::service_layer::SLSrMetricMargin* _internal_mutable_metricmargin();
+  const ::service_layer::SLSrMetricMargin& _internal_metric_margin() const;
+  ::service_layer::SLSrMetricMargin* _internal_mutable_metric_margin();
   public:
-  void unsafe_arena_set_allocated_metricmargin(
-      ::service_layer::SLSrMetricMargin* metricmargin);
-  ::service_layer::SLSrMetricMargin* unsafe_arena_release_metricmargin();
+  void unsafe_arena_set_allocated_metric_margin(
+      ::service_layer::SLSrMetricMargin* metric_margin);
+  ::service_layer::SLSrMetricMargin* unsafe_arena_release_metric_margin();
 
-  // .service_layer.SLSrMetricType ometric = 1;
-  void clear_ometric();
-  ::service_layer::SLSrMetricType ometric() const;
-  void set_ometric(::service_layer::SLSrMetricType value);
+  // .service_layer.SLSrMetricType o_metric = 1;
+  void clear_o_metric();
+  ::service_layer::SLSrMetricType o_metric() const;
+  void set_o_metric(::service_layer::SLSrMetricType value);
   private:
-  ::service_layer::SLSrMetricType _internal_ometric() const;
-  void _internal_set_ometric(::service_layer::SLSrMetricType value);
+  ::service_layer::SLSrMetricType _internal_o_metric() const;
+  void _internal_set_o_metric(::service_layer::SLSrMetricType value);
   public:
 
   // bool delegate = 4;
@@ -903,8 +903,8 @@ class SLSrDynamicCP final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLSrConstraints* constraints_;
-  ::service_layer::SLSrMetricMargin* metricmargin_;
-  int ometric_;
+  ::service_layer::SLSrMetricMargin* metric_margin_;
+  int o_metric_;
   bool delegate_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
@@ -1288,18 +1288,18 @@ class SLSrv6BindingSID final :
     kLocatorNameFieldNumber = 1,
     kBehaviorFieldNumber = 2,
   };
-  // string locatorName = 1;
-  void clear_locatorname();
-  const std::string& locatorname() const;
+  // string locator_name = 1;
+  void clear_locator_name();
+  const std::string& locator_name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_locatorname(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_locatorname();
-  PROTOBUF_NODISCARD std::string* release_locatorname();
-  void set_allocated_locatorname(std::string* locatorname);
+  void set_locator_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_locator_name();
+  PROTOBUF_NODISCARD std::string* release_locator_name();
+  void set_allocated_locator_name(std::string* locator_name);
   private:
-  const std::string& _internal_locatorname() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_locatorname(const std::string& value);
-  std::string* _internal_mutable_locatorname();
+  const std::string& _internal_locator_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_locator_name(const std::string& value);
+  std::string* _internal_mutable_locator_name();
   public:
 
   // uint32 behavior = 2;
@@ -1318,7 +1318,7 @@ class SLSrv6BindingSID final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr locatorname_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr locator_name_;
   uint32_t behavior_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
@@ -1447,44 +1447,44 @@ class SLSrBindingSID final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSrv6BindingSIDFieldNumber = 3,
-    kBindingSIDAllocationFieldNumber = 1,
-    kMplsBindingSIDFieldNumber = 2,
+    kSrv6BsidFieldNumber = 3,
+    kAllocationModeFieldNumber = 1,
+    kMplsBsidFieldNumber = 2,
   };
-  // .service_layer.SLSrv6BindingSID srv6BindingSID = 3;
-  bool has_srv6bindingsid() const;
+  // .service_layer.SLSrv6BindingSID srv6_bsid = 3;
+  bool has_srv6_bsid() const;
   private:
-  bool _internal_has_srv6bindingsid() const;
+  bool _internal_has_srv6_bsid() const;
   public:
-  void clear_srv6bindingsid();
-  const ::service_layer::SLSrv6BindingSID& srv6bindingsid() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrv6BindingSID* release_srv6bindingsid();
-  ::service_layer::SLSrv6BindingSID* mutable_srv6bindingsid();
-  void set_allocated_srv6bindingsid(::service_layer::SLSrv6BindingSID* srv6bindingsid);
+  void clear_srv6_bsid();
+  const ::service_layer::SLSrv6BindingSID& srv6_bsid() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrv6BindingSID* release_srv6_bsid();
+  ::service_layer::SLSrv6BindingSID* mutable_srv6_bsid();
+  void set_allocated_srv6_bsid(::service_layer::SLSrv6BindingSID* srv6_bsid);
   private:
-  const ::service_layer::SLSrv6BindingSID& _internal_srv6bindingsid() const;
-  ::service_layer::SLSrv6BindingSID* _internal_mutable_srv6bindingsid();
+  const ::service_layer::SLSrv6BindingSID& _internal_srv6_bsid() const;
+  ::service_layer::SLSrv6BindingSID* _internal_mutable_srv6_bsid();
   public:
-  void unsafe_arena_set_allocated_srv6bindingsid(
-      ::service_layer::SLSrv6BindingSID* srv6bindingsid);
-  ::service_layer::SLSrv6BindingSID* unsafe_arena_release_srv6bindingsid();
+  void unsafe_arena_set_allocated_srv6_bsid(
+      ::service_layer::SLSrv6BindingSID* srv6_bsid);
+  ::service_layer::SLSrv6BindingSID* unsafe_arena_release_srv6_bsid();
 
-  // .service_layer.SLSrBindingSIDAllocationMode bindingSIDAllocation = 1;
-  void clear_bindingsidallocation();
-  ::service_layer::SLSrBindingSIDAllocationMode bindingsidallocation() const;
-  void set_bindingsidallocation(::service_layer::SLSrBindingSIDAllocationMode value);
+  // .service_layer.SLSrBindingSIDAllocationMode allocation_mode = 1;
+  void clear_allocation_mode();
+  ::service_layer::SLSrBindingSIDAllocationMode allocation_mode() const;
+  void set_allocation_mode(::service_layer::SLSrBindingSIDAllocationMode value);
   private:
-  ::service_layer::SLSrBindingSIDAllocationMode _internal_bindingsidallocation() const;
-  void _internal_set_bindingsidallocation(::service_layer::SLSrBindingSIDAllocationMode value);
+  ::service_layer::SLSrBindingSIDAllocationMode _internal_allocation_mode() const;
+  void _internal_set_allocation_mode(::service_layer::SLSrBindingSIDAllocationMode value);
   public:
 
-  // uint32 mplsBindingSID = 2;
-  void clear_mplsbindingsid();
-  uint32_t mplsbindingsid() const;
-  void set_mplsbindingsid(uint32_t value);
+  // uint32 mpls_bsid = 2;
+  void clear_mpls_bsid();
+  uint32_t mpls_bsid() const;
+  void set_mpls_bsid(uint32_t value);
   private:
-  uint32_t _internal_mplsbindingsid() const;
-  void _internal_set_mplsbindingsid(uint32_t value);
+  uint32_t _internal_mpls_bsid() const;
+  void _internal_set_mpls_bsid(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrBindingSID)
@@ -1494,9 +1494,9 @@ class SLSrBindingSID final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::service_layer::SLSrv6BindingSID* srv6bindingsid_;
-  int bindingsidallocation_;
-  uint32_t mplsbindingsid_;
+  ::service_layer::SLSrv6BindingSID* srv6_bsid_;
+  int allocation_mode_;
+  uint32_t mpls_bsid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -1628,7 +1628,7 @@ class SLSrPolicy final :
     kKeyFieldNumber = 1,
     kBsidFieldNumber = 4,
     kTransitEligibleFieldNumber = 2,
-    kProfileIDFieldNumber = 5,
+    kProfileIdFieldNumber = 5,
   };
   // repeated .service_layer.SLSrCandidatePath CPs = 3;
   int cps_size() const;
@@ -1684,22 +1684,22 @@ class SLSrPolicy final :
       ::service_layer::SLSrBindingSID* bsid);
   ::service_layer::SLSrBindingSID* unsafe_arena_release_bsid();
 
-  // bool transitEligible = 2;
-  void clear_transiteligible();
-  bool transiteligible() const;
-  void set_transiteligible(bool value);
+  // bool transit_eligible = 2;
+  void clear_transit_eligible();
+  bool transit_eligible() const;
+  void set_transit_eligible(bool value);
   private:
-  bool _internal_transiteligible() const;
-  void _internal_set_transiteligible(bool value);
+  bool _internal_transit_eligible() const;
+  void _internal_set_transit_eligible(bool value);
   public:
 
-  // uint32 profileID = 5;
-  void clear_profileid();
-  uint32_t profileid() const;
-  void set_profileid(uint32_t value);
+  // uint32 profile_id = 5;
+  void clear_profile_id();
+  uint32_t profile_id() const;
+  void set_profile_id(uint32_t value);
   private:
-  uint32_t _internal_profileid() const;
-  void _internal_set_profileid(uint32_t value);
+  uint32_t _internal_profile_id() const;
+  void _internal_set_profile_id(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrPolicy)
@@ -1712,8 +1712,8 @@ class SLSrPolicy final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrCandidatePath > cps_;
   ::service_layer::SLSrPolicyKey* key_;
   ::service_layer::SLSrBindingSID* bsid_;
-  bool transiteligible_;
-  uint32_t profileid_;
+  bool transit_eligible_;
+  uint32_t profile_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -2215,41 +2215,41 @@ class SLSrPolicyOpRsp final :
 #endif  // __GNUC__
 // SLSrExplicitCP
 
-// repeated .service_layer.SLSrSegmentList segmentList = 1;
-inline int SLSrExplicitCP::_internal_segmentlist_size() const {
-  return segmentlist_.size();
+// repeated .service_layer.SLSrSegmentList segment_list = 1;
+inline int SLSrExplicitCP::_internal_segment_list_size() const {
+  return segment_list_.size();
 }
-inline int SLSrExplicitCP::segmentlist_size() const {
-  return _internal_segmentlist_size();
+inline int SLSrExplicitCP::segment_list_size() const {
+  return _internal_segment_list_size();
 }
-inline ::service_layer::SLSrSegmentList* SLSrExplicitCP::mutable_segmentlist(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrExplicitCP.segmentList)
-  return segmentlist_.Mutable(index);
+inline ::service_layer::SLSrSegmentList* SLSrExplicitCP::mutable_segment_list(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrExplicitCP.segment_list)
+  return segment_list_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
-SLSrExplicitCP::mutable_segmentlist() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrExplicitCP.segmentList)
-  return &segmentlist_;
+SLSrExplicitCP::mutable_segment_list() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrExplicitCP.segment_list)
+  return &segment_list_;
 }
-inline const ::service_layer::SLSrSegmentList& SLSrExplicitCP::_internal_segmentlist(int index) const {
-  return segmentlist_.Get(index);
+inline const ::service_layer::SLSrSegmentList& SLSrExplicitCP::_internal_segment_list(int index) const {
+  return segment_list_.Get(index);
 }
-inline const ::service_layer::SLSrSegmentList& SLSrExplicitCP::segmentlist(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrExplicitCP.segmentList)
-  return _internal_segmentlist(index);
+inline const ::service_layer::SLSrSegmentList& SLSrExplicitCP::segment_list(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrExplicitCP.segment_list)
+  return _internal_segment_list(index);
 }
-inline ::service_layer::SLSrSegmentList* SLSrExplicitCP::_internal_add_segmentlist() {
-  return segmentlist_.Add();
+inline ::service_layer::SLSrSegmentList* SLSrExplicitCP::_internal_add_segment_list() {
+  return segment_list_.Add();
 }
-inline ::service_layer::SLSrSegmentList* SLSrExplicitCP::add_segmentlist() {
-  ::service_layer::SLSrSegmentList* _add = _internal_add_segmentlist();
-  // @@protoc_insertion_point(field_add:service_layer.SLSrExplicitCP.segmentList)
+inline ::service_layer::SLSrSegmentList* SLSrExplicitCP::add_segment_list() {
+  ::service_layer::SLSrSegmentList* _add = _internal_add_segment_list();
+  // @@protoc_insertion_point(field_add:service_layer.SLSrExplicitCP.segment_list)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
-SLSrExplicitCP::segmentlist() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLSrExplicitCP.segmentList)
-  return segmentlist_;
+SLSrExplicitCP::segment_list() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLSrExplicitCP.segment_list)
+  return segment_list_;
 }
 
 // -------------------------------------------------------------------
@@ -2276,24 +2276,24 @@ inline void SLSrConstraints_SegmentConstraints::set_protection(::service_layer::
   // @@protoc_insertion_point(field_set:service_layer.SLSrConstraints.SegmentConstraints.protection)
 }
 
-// uint32 sidalgo = 2;
-inline void SLSrConstraints_SegmentConstraints::clear_sidalgo() {
-  sidalgo_ = 0u;
+// uint32 sid_algo = 2;
+inline void SLSrConstraints_SegmentConstraints::clear_sid_algo() {
+  sid_algo_ = 0u;
 }
-inline uint32_t SLSrConstraints_SegmentConstraints::_internal_sidalgo() const {
-  return sidalgo_;
+inline uint32_t SLSrConstraints_SegmentConstraints::_internal_sid_algo() const {
+  return sid_algo_;
 }
-inline uint32_t SLSrConstraints_SegmentConstraints::sidalgo() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrConstraints.SegmentConstraints.sidalgo)
-  return _internal_sidalgo();
+inline uint32_t SLSrConstraints_SegmentConstraints::sid_algo() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrConstraints.SegmentConstraints.sid_algo)
+  return _internal_sid_algo();
 }
-inline void SLSrConstraints_SegmentConstraints::_internal_set_sidalgo(uint32_t value) {
+inline void SLSrConstraints_SegmentConstraints::_internal_set_sid_algo(uint32_t value) {
   
-  sidalgo_ = value;
+  sid_algo_ = value;
 }
-inline void SLSrConstraints_SegmentConstraints::set_sidalgo(uint32_t value) {
-  _internal_set_sidalgo(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrConstraints.SegmentConstraints.sidalgo)
+inline void SLSrConstraints_SegmentConstraints::set_sid_algo(uint32_t value) {
+  _internal_set_sid_algo(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrConstraints.SegmentConstraints.sid_algo)
 }
 
 // uint32 maximum_sid_depth = 3;
@@ -2586,24 +2586,24 @@ inline void SLSrConstraints::set_allocated_segment_constraints(::service_layer::
 
 // SLSrDynamicCP
 
-// .service_layer.SLSrMetricType ometric = 1;
-inline void SLSrDynamicCP::clear_ometric() {
-  ometric_ = 0;
+// .service_layer.SLSrMetricType o_metric = 1;
+inline void SLSrDynamicCP::clear_o_metric() {
+  o_metric_ = 0;
 }
-inline ::service_layer::SLSrMetricType SLSrDynamicCP::_internal_ometric() const {
-  return static_cast< ::service_layer::SLSrMetricType >(ometric_);
+inline ::service_layer::SLSrMetricType SLSrDynamicCP::_internal_o_metric() const {
+  return static_cast< ::service_layer::SLSrMetricType >(o_metric_);
 }
-inline ::service_layer::SLSrMetricType SLSrDynamicCP::ometric() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrDynamicCP.ometric)
-  return _internal_ometric();
+inline ::service_layer::SLSrMetricType SLSrDynamicCP::o_metric() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrDynamicCP.o_metric)
+  return _internal_o_metric();
 }
-inline void SLSrDynamicCP::_internal_set_ometric(::service_layer::SLSrMetricType value) {
+inline void SLSrDynamicCP::_internal_set_o_metric(::service_layer::SLSrMetricType value) {
   
-  ometric_ = value;
+  o_metric_ = value;
 }
-inline void SLSrDynamicCP::set_ometric(::service_layer::SLSrMetricType value) {
-  _internal_set_ometric(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrDynamicCP.ometric)
+inline void SLSrDynamicCP::set_o_metric(::service_layer::SLSrMetricType value) {
+  _internal_set_o_metric(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrDynamicCP.o_metric)
 }
 
 // .service_layer.SLSrConstraints constraints = 2;
@@ -2696,39 +2696,39 @@ inline void SLSrDynamicCP::set_allocated_constraints(::service_layer::SLSrConstr
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrDynamicCP.constraints)
 }
 
-// .service_layer.SLSrMetricMargin metricMargin = 3;
-inline bool SLSrDynamicCP::_internal_has_metricmargin() const {
-  return this != internal_default_instance() && metricmargin_ != nullptr;
+// .service_layer.SLSrMetricMargin metric_margin = 3;
+inline bool SLSrDynamicCP::_internal_has_metric_margin() const {
+  return this != internal_default_instance() && metric_margin_ != nullptr;
 }
-inline bool SLSrDynamicCP::has_metricmargin() const {
-  return _internal_has_metricmargin();
+inline bool SLSrDynamicCP::has_metric_margin() const {
+  return _internal_has_metric_margin();
 }
-inline const ::service_layer::SLSrMetricMargin& SLSrDynamicCP::_internal_metricmargin() const {
-  const ::service_layer::SLSrMetricMargin* p = metricmargin_;
+inline const ::service_layer::SLSrMetricMargin& SLSrDynamicCP::_internal_metric_margin() const {
+  const ::service_layer::SLSrMetricMargin* p = metric_margin_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrMetricMargin&>(
       ::service_layer::_SLSrMetricMargin_default_instance_);
 }
-inline const ::service_layer::SLSrMetricMargin& SLSrDynamicCP::metricmargin() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrDynamicCP.metricMargin)
-  return _internal_metricmargin();
+inline const ::service_layer::SLSrMetricMargin& SLSrDynamicCP::metric_margin() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrDynamicCP.metric_margin)
+  return _internal_metric_margin();
 }
-inline void SLSrDynamicCP::unsafe_arena_set_allocated_metricmargin(
-    ::service_layer::SLSrMetricMargin* metricmargin) {
+inline void SLSrDynamicCP::unsafe_arena_set_allocated_metric_margin(
+    ::service_layer::SLSrMetricMargin* metric_margin) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(metricmargin_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(metric_margin_);
   }
-  metricmargin_ = metricmargin;
-  if (metricmargin) {
+  metric_margin_ = metric_margin;
+  if (metric_margin) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrDynamicCP.metricMargin)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrDynamicCP.metric_margin)
 }
-inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::release_metricmargin() {
+inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::release_metric_margin() {
   
-  ::service_layer::SLSrMetricMargin* temp = metricmargin_;
-  metricmargin_ = nullptr;
+  ::service_layer::SLSrMetricMargin* temp = metric_margin_;
+  metric_margin_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -2740,46 +2740,46 @@ inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::release_metricmargin() 
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::unsafe_arena_release_metricmargin() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrDynamicCP.metricMargin)
+inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::unsafe_arena_release_metric_margin() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrDynamicCP.metric_margin)
   
-  ::service_layer::SLSrMetricMargin* temp = metricmargin_;
-  metricmargin_ = nullptr;
+  ::service_layer::SLSrMetricMargin* temp = metric_margin_;
+  metric_margin_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::_internal_mutable_metricmargin() {
+inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::_internal_mutable_metric_margin() {
   
-  if (metricmargin_ == nullptr) {
+  if (metric_margin_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrMetricMargin>(GetArenaForAllocation());
-    metricmargin_ = p;
+    metric_margin_ = p;
   }
-  return metricmargin_;
+  return metric_margin_;
 }
-inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::mutable_metricmargin() {
-  ::service_layer::SLSrMetricMargin* _msg = _internal_mutable_metricmargin();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrDynamicCP.metricMargin)
+inline ::service_layer::SLSrMetricMargin* SLSrDynamicCP::mutable_metric_margin() {
+  ::service_layer::SLSrMetricMargin* _msg = _internal_mutable_metric_margin();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrDynamicCP.metric_margin)
   return _msg;
 }
-inline void SLSrDynamicCP::set_allocated_metricmargin(::service_layer::SLSrMetricMargin* metricmargin) {
+inline void SLSrDynamicCP::set_allocated_metric_margin(::service_layer::SLSrMetricMargin* metric_margin) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(metricmargin_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(metric_margin_);
   }
-  if (metricmargin) {
+  if (metric_margin) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
             ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(metricmargin));
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(metric_margin));
     if (message_arena != submessage_arena) {
-      metricmargin = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, metricmargin, submessage_arena);
+      metric_margin = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, metric_margin, submessage_arena);
     }
     
   } else {
     
   }
-  metricmargin_ = metricmargin;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrDynamicCP.metricMargin)
+  metric_margin_ = metric_margin;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrDynamicCP.metric_margin)
 }
 
 // bool delegate = 4;
@@ -3144,55 +3144,55 @@ inline SLSrCandidatePath::CPCase SLSrCandidatePath::CP_case() const {
 
 // SLSrv6BindingSID
 
-// string locatorName = 1;
-inline void SLSrv6BindingSID::clear_locatorname() {
-  locatorname_.ClearToEmpty();
+// string locator_name = 1;
+inline void SLSrv6BindingSID::clear_locator_name() {
+  locator_name_.ClearToEmpty();
 }
-inline const std::string& SLSrv6BindingSID::locatorname() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6BindingSID.locatorName)
-  return _internal_locatorname();
+inline const std::string& SLSrv6BindingSID::locator_name() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6BindingSID.locator_name)
+  return _internal_locator_name();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void SLSrv6BindingSID::set_locatorname(ArgT0&& arg0, ArgT... args) {
+void SLSrv6BindingSID::set_locator_name(ArgT0&& arg0, ArgT... args) {
  
- locatorname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6BindingSID.locatorName)
+ locator_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6BindingSID.locator_name)
 }
-inline std::string* SLSrv6BindingSID::mutable_locatorname() {
-  std::string* _s = _internal_mutable_locatorname();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6BindingSID.locatorName)
+inline std::string* SLSrv6BindingSID::mutable_locator_name() {
+  std::string* _s = _internal_mutable_locator_name();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6BindingSID.locator_name)
   return _s;
 }
-inline const std::string& SLSrv6BindingSID::_internal_locatorname() const {
-  return locatorname_.Get();
+inline const std::string& SLSrv6BindingSID::_internal_locator_name() const {
+  return locator_name_.Get();
 }
-inline void SLSrv6BindingSID::_internal_set_locatorname(const std::string& value) {
+inline void SLSrv6BindingSID::_internal_set_locator_name(const std::string& value) {
   
-  locatorname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  locator_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SLSrv6BindingSID::_internal_mutable_locatorname() {
+inline std::string* SLSrv6BindingSID::_internal_mutable_locator_name() {
   
-  return locatorname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+  return locator_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SLSrv6BindingSID::release_locatorname() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrv6BindingSID.locatorName)
-  return locatorname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+inline std::string* SLSrv6BindingSID::release_locator_name() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrv6BindingSID.locator_name)
+  return locator_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void SLSrv6BindingSID::set_allocated_locatorname(std::string* locatorname) {
-  if (locatorname != nullptr) {
+inline void SLSrv6BindingSID::set_allocated_locator_name(std::string* locator_name) {
+  if (locator_name != nullptr) {
     
   } else {
     
   }
-  locatorname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), locatorname,
+  locator_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), locator_name,
       GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (locatorname_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    locatorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  if (locator_name_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    locator_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6BindingSID.locatorName)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6BindingSID.locator_name)
 }
 
 // uint32 behavior = 2;
@@ -3219,85 +3219,85 @@ inline void SLSrv6BindingSID::set_behavior(uint32_t value) {
 
 // SLSrBindingSID
 
-// .service_layer.SLSrBindingSIDAllocationMode bindingSIDAllocation = 1;
-inline void SLSrBindingSID::clear_bindingsidallocation() {
-  bindingsidallocation_ = 0;
+// .service_layer.SLSrBindingSIDAllocationMode allocation_mode = 1;
+inline void SLSrBindingSID::clear_allocation_mode() {
+  allocation_mode_ = 0;
 }
-inline ::service_layer::SLSrBindingSIDAllocationMode SLSrBindingSID::_internal_bindingsidallocation() const {
-  return static_cast< ::service_layer::SLSrBindingSIDAllocationMode >(bindingsidallocation_);
+inline ::service_layer::SLSrBindingSIDAllocationMode SLSrBindingSID::_internal_allocation_mode() const {
+  return static_cast< ::service_layer::SLSrBindingSIDAllocationMode >(allocation_mode_);
 }
-inline ::service_layer::SLSrBindingSIDAllocationMode SLSrBindingSID::bindingsidallocation() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrBindingSID.bindingSIDAllocation)
-  return _internal_bindingsidallocation();
+inline ::service_layer::SLSrBindingSIDAllocationMode SLSrBindingSID::allocation_mode() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrBindingSID.allocation_mode)
+  return _internal_allocation_mode();
 }
-inline void SLSrBindingSID::_internal_set_bindingsidallocation(::service_layer::SLSrBindingSIDAllocationMode value) {
+inline void SLSrBindingSID::_internal_set_allocation_mode(::service_layer::SLSrBindingSIDAllocationMode value) {
   
-  bindingsidallocation_ = value;
+  allocation_mode_ = value;
 }
-inline void SLSrBindingSID::set_bindingsidallocation(::service_layer::SLSrBindingSIDAllocationMode value) {
-  _internal_set_bindingsidallocation(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrBindingSID.bindingSIDAllocation)
+inline void SLSrBindingSID::set_allocation_mode(::service_layer::SLSrBindingSIDAllocationMode value) {
+  _internal_set_allocation_mode(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrBindingSID.allocation_mode)
 }
 
-// uint32 mplsBindingSID = 2;
-inline void SLSrBindingSID::clear_mplsbindingsid() {
-  mplsbindingsid_ = 0u;
+// uint32 mpls_bsid = 2;
+inline void SLSrBindingSID::clear_mpls_bsid() {
+  mpls_bsid_ = 0u;
 }
-inline uint32_t SLSrBindingSID::_internal_mplsbindingsid() const {
-  return mplsbindingsid_;
+inline uint32_t SLSrBindingSID::_internal_mpls_bsid() const {
+  return mpls_bsid_;
 }
-inline uint32_t SLSrBindingSID::mplsbindingsid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrBindingSID.mplsBindingSID)
-  return _internal_mplsbindingsid();
+inline uint32_t SLSrBindingSID::mpls_bsid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrBindingSID.mpls_bsid)
+  return _internal_mpls_bsid();
 }
-inline void SLSrBindingSID::_internal_set_mplsbindingsid(uint32_t value) {
+inline void SLSrBindingSID::_internal_set_mpls_bsid(uint32_t value) {
   
-  mplsbindingsid_ = value;
+  mpls_bsid_ = value;
 }
-inline void SLSrBindingSID::set_mplsbindingsid(uint32_t value) {
-  _internal_set_mplsbindingsid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrBindingSID.mplsBindingSID)
+inline void SLSrBindingSID::set_mpls_bsid(uint32_t value) {
+  _internal_set_mpls_bsid(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrBindingSID.mpls_bsid)
 }
 
-// .service_layer.SLSrv6BindingSID srv6BindingSID = 3;
-inline bool SLSrBindingSID::_internal_has_srv6bindingsid() const {
-  return this != internal_default_instance() && srv6bindingsid_ != nullptr;
+// .service_layer.SLSrv6BindingSID srv6_bsid = 3;
+inline bool SLSrBindingSID::_internal_has_srv6_bsid() const {
+  return this != internal_default_instance() && srv6_bsid_ != nullptr;
 }
-inline bool SLSrBindingSID::has_srv6bindingsid() const {
-  return _internal_has_srv6bindingsid();
+inline bool SLSrBindingSID::has_srv6_bsid() const {
+  return _internal_has_srv6_bsid();
 }
-inline void SLSrBindingSID::clear_srv6bindingsid() {
-  if (GetArenaForAllocation() == nullptr && srv6bindingsid_ != nullptr) {
-    delete srv6bindingsid_;
+inline void SLSrBindingSID::clear_srv6_bsid() {
+  if (GetArenaForAllocation() == nullptr && srv6_bsid_ != nullptr) {
+    delete srv6_bsid_;
   }
-  srv6bindingsid_ = nullptr;
+  srv6_bsid_ = nullptr;
 }
-inline const ::service_layer::SLSrv6BindingSID& SLSrBindingSID::_internal_srv6bindingsid() const {
-  const ::service_layer::SLSrv6BindingSID* p = srv6bindingsid_;
+inline const ::service_layer::SLSrv6BindingSID& SLSrBindingSID::_internal_srv6_bsid() const {
+  const ::service_layer::SLSrv6BindingSID* p = srv6_bsid_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrv6BindingSID&>(
       ::service_layer::_SLSrv6BindingSID_default_instance_);
 }
-inline const ::service_layer::SLSrv6BindingSID& SLSrBindingSID::srv6bindingsid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrBindingSID.srv6BindingSID)
-  return _internal_srv6bindingsid();
+inline const ::service_layer::SLSrv6BindingSID& SLSrBindingSID::srv6_bsid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrBindingSID.srv6_bsid)
+  return _internal_srv6_bsid();
 }
-inline void SLSrBindingSID::unsafe_arena_set_allocated_srv6bindingsid(
-    ::service_layer::SLSrv6BindingSID* srv6bindingsid) {
+inline void SLSrBindingSID::unsafe_arena_set_allocated_srv6_bsid(
+    ::service_layer::SLSrv6BindingSID* srv6_bsid) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(srv6bindingsid_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(srv6_bsid_);
   }
-  srv6bindingsid_ = srv6bindingsid;
-  if (srv6bindingsid) {
+  srv6_bsid_ = srv6_bsid;
+  if (srv6_bsid) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrBindingSID.srv6BindingSID)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrBindingSID.srv6_bsid)
 }
-inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::release_srv6bindingsid() {
+inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::release_srv6_bsid() {
   
-  ::service_layer::SLSrv6BindingSID* temp = srv6bindingsid_;
-  srv6bindingsid_ = nullptr;
+  ::service_layer::SLSrv6BindingSID* temp = srv6_bsid_;
+  srv6_bsid_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -3309,44 +3309,44 @@ inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::release_srv6bindingsid
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::unsafe_arena_release_srv6bindingsid() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrBindingSID.srv6BindingSID)
+inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::unsafe_arena_release_srv6_bsid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrBindingSID.srv6_bsid)
   
-  ::service_layer::SLSrv6BindingSID* temp = srv6bindingsid_;
-  srv6bindingsid_ = nullptr;
+  ::service_layer::SLSrv6BindingSID* temp = srv6_bsid_;
+  srv6_bsid_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::_internal_mutable_srv6bindingsid() {
+inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::_internal_mutable_srv6_bsid() {
   
-  if (srv6bindingsid_ == nullptr) {
+  if (srv6_bsid_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrv6BindingSID>(GetArenaForAllocation());
-    srv6bindingsid_ = p;
+    srv6_bsid_ = p;
   }
-  return srv6bindingsid_;
+  return srv6_bsid_;
 }
-inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::mutable_srv6bindingsid() {
-  ::service_layer::SLSrv6BindingSID* _msg = _internal_mutable_srv6bindingsid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrBindingSID.srv6BindingSID)
+inline ::service_layer::SLSrv6BindingSID* SLSrBindingSID::mutable_srv6_bsid() {
+  ::service_layer::SLSrv6BindingSID* _msg = _internal_mutable_srv6_bsid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrBindingSID.srv6_bsid)
   return _msg;
 }
-inline void SLSrBindingSID::set_allocated_srv6bindingsid(::service_layer::SLSrv6BindingSID* srv6bindingsid) {
+inline void SLSrBindingSID::set_allocated_srv6_bsid(::service_layer::SLSrv6BindingSID* srv6_bsid) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete srv6bindingsid_;
+    delete srv6_bsid_;
   }
-  if (srv6bindingsid) {
+  if (srv6_bsid) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrv6BindingSID>::GetOwningArena(srv6bindingsid);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrv6BindingSID>::GetOwningArena(srv6_bsid);
     if (message_arena != submessage_arena) {
-      srv6bindingsid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, srv6bindingsid, submessage_arena);
+      srv6_bsid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, srv6_bsid, submessage_arena);
     }
     
   } else {
     
   }
-  srv6bindingsid_ = srv6bindingsid;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrBindingSID.srv6BindingSID)
+  srv6_bsid_ = srv6_bsid;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrBindingSID.srv6_bsid)
 }
 
 // -------------------------------------------------------------------
@@ -3439,24 +3439,24 @@ inline void SLSrPolicy::set_allocated_key(::service_layer::SLSrPolicyKey* key) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicy.key)
 }
 
-// bool transitEligible = 2;
-inline void SLSrPolicy::clear_transiteligible() {
-  transiteligible_ = false;
+// bool transit_eligible = 2;
+inline void SLSrPolicy::clear_transit_eligible() {
+  transit_eligible_ = false;
 }
-inline bool SLSrPolicy::_internal_transiteligible() const {
-  return transiteligible_;
+inline bool SLSrPolicy::_internal_transit_eligible() const {
+  return transit_eligible_;
 }
-inline bool SLSrPolicy::transiteligible() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicy.transitEligible)
-  return _internal_transiteligible();
+inline bool SLSrPolicy::transit_eligible() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicy.transit_eligible)
+  return _internal_transit_eligible();
 }
-inline void SLSrPolicy::_internal_set_transiteligible(bool value) {
+inline void SLSrPolicy::_internal_set_transit_eligible(bool value) {
   
-  transiteligible_ = value;
+  transit_eligible_ = value;
 }
-inline void SLSrPolicy::set_transiteligible(bool value) {
-  _internal_set_transiteligible(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicy.transitEligible)
+inline void SLSrPolicy::set_transit_eligible(bool value) {
+  _internal_set_transit_eligible(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicy.transit_eligible)
 }
 
 // repeated .service_layer.SLSrCandidatePath CPs = 3;
@@ -3589,24 +3589,24 @@ inline void SLSrPolicy::set_allocated_bsid(::service_layer::SLSrBindingSID* bsid
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicy.bsid)
 }
 
-// uint32 profileID = 5;
-inline void SLSrPolicy::clear_profileid() {
-  profileid_ = 0u;
+// uint32 profile_id = 5;
+inline void SLSrPolicy::clear_profile_id() {
+  profile_id_ = 0u;
 }
-inline uint32_t SLSrPolicy::_internal_profileid() const {
-  return profileid_;
+inline uint32_t SLSrPolicy::_internal_profile_id() const {
+  return profile_id_;
 }
-inline uint32_t SLSrPolicy::profileid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicy.profileID)
-  return _internal_profileid();
+inline uint32_t SLSrPolicy::profile_id() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicy.profile_id)
+  return _internal_profile_id();
 }
-inline void SLSrPolicy::_internal_set_profileid(uint32_t value) {
+inline void SLSrPolicy::_internal_set_profile_id(uint32_t value) {
   
-  profileid_ = value;
+  profile_id_ = value;
 }
-inline void SLSrPolicy::set_profileid(uint32_t value) {
-  _internal_set_profileid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicy.profileID)
+inline void SLSrPolicy::set_profile_id(uint32_t value) {
+  _internal_set_profile_id(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicy.profile_id)
 }
 
 // -------------------------------------------------------------------

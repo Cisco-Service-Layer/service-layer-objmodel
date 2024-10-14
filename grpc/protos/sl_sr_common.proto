@@ -356,28 +356,28 @@ message SLSrv6EndPointBehavior {
 // Section 8 of [RFC9514]
 message SLSrv6SidStruct {
     // Locator block length in bits
-    uint32 LocatorBlockLen = 1;
+    uint32 locator_block_len = 1;
 
     // Locator node length in bits
-    uint32 LocatorNodeLen = 2;
+    uint32 locator_node_len = 2;
 
     // Function length in bits
-    uint32 FunctionLen = 3;
+    uint32 function_len = 3;
 
     // Argument length in bits
-    uint32 ArgLen = 4;
+    uint32 arg_len = 4;
 }
 
 // SR dataplane.
 enum SLSrDataplane {
     // Unspecified dataplane (invalid).
-    SR_DATAPLANE_UNSPECIFIED = 0;
+    SL_SR_DATAPLANE_UNSPECIFIED = 0;
 
     // MPLS dataplane.
-    SR_DATAPLANE_MPLS = 1;
+    SL_SR_DATAPLANE_MPLS = 1;
 
     // SRv6 dataplane.
-    SR_DATAPLANE_SRV6 = 2;
+    SL_SR_DATAPLANE_SRV6 = 2;
 }
 
 // Metric type.
@@ -387,25 +387,25 @@ enum SLSrDataplane {
 enum SLSrMetricType {
     option allow_alias = true;
     // Unspecified metric type, defaults to IGP metric.
-    METRIC_TYPE_UNSPECIFIED = 0;
+    SL_METRIC_TYPE_UNSPECIFIED = 0;
 
     // IGP metric type.
-    METRIC_TYPE_IGP = 0;
+    SL_METRIC_TYPE_IGP = 0;
 
     // Minimum unidirectional link delay metric type [RFC7471].
-    METRIC_TYPE_DELAY = 1;
+    SL_METRIC_TYPE_DELAY = 1;
 
     // Traffic engineering default metric type [RFC3630].
-    METRIC_TYPE_TE = 2;
+    SL_METRIC_TYPE_TE = 2;
 
     // Hop count metric type [RFC5440].
-    METRIC_TYPE_HOP = 3;
+    SL_METRIC_TYPE_HOP = 3;
 
     // SID List Length
-    METRIC_TYPE_SID_LIST_LENGTH = 4;
+    SL_METRIC_TYPE_SID_LIST_LENGTH = 4;
 
     // Bandwidth Metric [I-D.ietf-lsr-flex-algo-bw-con]
-    METRIC_TYPE_BANDWIDTH = 5;
+    SL_METRIC_TYPE_BANDWIDTH = 5;
 }
 
 // Maximum metric that is allowed for given metric type
@@ -419,21 +419,21 @@ message SLSrMetricMargin {
     enum MarginType {
         // Indicates that the metric margin is specified as percentage of
         // minimum metric
-        RELATIVE = 0;
+        SL_RELATIVE = 0;
         // Indicates that the metric margin is specified as an absolute value
-        ABSOLUTE = 1;
+        SL_ABSOLUTE = 1;
     }
     MarginType type = 1;
     uint32 value = 2;
 }
 
 // Diversity level.
-enum SLSrteDiversityLevel {
-    DIVERSITY_LEVEL_NONE = 0;
-    DIVERSITY_LEVEL_LINK = 1;
-    DIVERSITY_LEVEL_NODE = 2;
-    DIVERSITY_LEVEL_SRLG = 3;
-    DIVERSITY_LEVEL_SRLG_NODE = 4;
+enum SLSrDiversityLevel {
+    SL_DIVERSITY_LEVEL_NONE = 0;
+    SL_DIVERSITY_LEVEL_LINK = 1;
+    SL_DIVERSITY_LEVEL_NODE = 2;
+    SL_DIVERSITY_LEVEL_SRLG = 3;
+    SL_DIVERSITY_LEVEL_SRLG_NODE = 4;
 }
 
 // Extended Administrative Group.
@@ -488,16 +488,19 @@ message SLSrteSegment {
 
 // A (weighted) segment list.
 message SLSrSegmentList {
-  // Ordered list of segments.
-  repeated SLSrteSegment segments = 1;
+    // Ordered list of segments.
+    repeated SLSrteSegment segments = 1;
 
-  // Load balancing weight factor.
-  //
-  // As per [RFC 9256](https://www.rfc-editor.org/rfc/rfc9256.html):
-  //
-  // - the default weight is 1; and
-  // - a segment list with a weight of 0 is invalid.
-  optional uint32 weight = 2;
+    // Load balancing weight factor.
+    //
+    // As per [RFC 9256](https://www.rfc-editor.org/rfc/rfc9256.html):
+    //
+    // - the default weight is 1; and
+    // - a segment list with a weight of 0 is invalid.
+    optional uint32 weight = 2;
+
+    // Total path *cost*, i.e., the accumulated o-metric values along the path.
+    uint32 path_cost = 3;
 }
 
 // Identifier of an SR Policy as defined in [section 2.1 of RFC
@@ -528,7 +531,7 @@ message SLSrCandidatePathKey {
         // Autonomous System Number (ASN)
         // If 2-byte ASNs are in use, the low-order 16 bits MUST be used,
         // and the high-order bits MUST be set to 0.
-        uint32 ASN = 1;
+        uint32 asn = 1;
 
         // Originator Node Address
         SLIpAddress nodeID = 2;

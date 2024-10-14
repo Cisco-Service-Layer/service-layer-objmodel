@@ -49,7 +49,7 @@ struct TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[16]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -66,86 +66,78 @@ extern ConstraintSetDefaultTypeInternal _ConstraintSet_default_instance_;
 class ConstraintSet_PathDiversity;
 struct ConstraintSet_PathDiversityDefaultTypeInternal;
 extern ConstraintSet_PathDiversityDefaultTypeInternal _ConstraintSet_PathDiversity_default_instance_;
-class SLSrtePathComputeRequest;
-struct SLSrtePathComputeRequestDefaultTypeInternal;
-extern SLSrtePathComputeRequestDefaultTypeInternal _SLSrtePathComputeRequest_default_instance_;
-class SLSrtePathComputeRequest_SLSrtePathInit;
-struct SLSrtePathComputeRequest_SLSrtePathInitDefaultTypeInternal;
-extern SLSrtePathComputeRequest_SLSrtePathInitDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathInit_default_instance_;
-class SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic;
-struct SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamicDefaultTypeInternal;
-extern SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamicDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic_default_instance_;
-class SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit;
-struct SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicitDefaultTypeInternal;
-extern SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicitDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit_default_instance_;
-class SLSrtePathComputeRequest_SLSrtePathUpdate;
-struct SLSrtePathComputeRequest_SLSrtePathUpdateDefaultTypeInternal;
-extern SLSrtePathComputeRequest_SLSrtePathUpdateDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathUpdate_default_instance_;
-class SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic;
-struct SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamicDefaultTypeInternal;
-extern SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamicDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic_default_instance_;
-class SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit;
-struct SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicitDefaultTypeInternal;
-extern SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicitDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit_default_instance_;
-class SLSrtePathComputeRequest_SLSrtePathWithdraw;
-struct SLSrtePathComputeRequest_SLSrtePathWithdrawDefaultTypeInternal;
-extern SLSrtePathComputeRequest_SLSrtePathWithdrawDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathWithdraw_default_instance_;
-class SLSrtePathComputeRequests;
-struct SLSrtePathComputeRequestsDefaultTypeInternal;
-extern SLSrtePathComputeRequestsDefaultTypeInternal _SLSrtePathComputeRequests_default_instance_;
-class SLSrtePathComputeResponse;
-struct SLSrtePathComputeResponseDefaultTypeInternal;
-extern SLSrtePathComputeResponseDefaultTypeInternal _SLSrtePathComputeResponse_default_instance_;
-class SLSrtePathComputeResponse_SLSrteDynamicPathResult;
-struct SLSrtePathComputeResponse_SLSrteDynamicPathResultDefaultTypeInternal;
-extern SLSrtePathComputeResponse_SLSrteDynamicPathResultDefaultTypeInternal _SLSrtePathComputeResponse_SLSrteDynamicPathResult_default_instance_;
-class SLSrtePathComputeResponse_SLSrtePathError;
-struct SLSrtePathComputeResponse_SLSrtePathErrorDefaultTypeInternal;
-extern SLSrtePathComputeResponse_SLSrtePathErrorDefaultTypeInternal _SLSrtePathComputeResponse_SLSrtePathError_default_instance_;
-class SLSrtePathComputeResponses;
-struct SLSrtePathComputeResponsesDefaultTypeInternal;
-extern SLSrtePathComputeResponsesDefaultTypeInternal _SLSrtePathComputeResponses_default_instance_;
+class SLSrtePathAttrDynamic;
+struct SLSrtePathAttrDynamicDefaultTypeInternal;
+extern SLSrtePathAttrDynamicDefaultTypeInternal _SLSrtePathAttrDynamic_default_instance_;
+class SLSrtePathAttrExplicit;
+struct SLSrtePathAttrExplicitDefaultTypeInternal;
+extern SLSrtePathAttrExplicitDefaultTypeInternal _SLSrtePathAttrExplicit_default_instance_;
+class SLSrtePathComputeReq;
+struct SLSrtePathComputeReqDefaultTypeInternal;
+extern SLSrtePathComputeReqDefaultTypeInternal _SLSrtePathComputeReq_default_instance_;
+class SLSrtePathComputeReq_SLSrtePathInit;
+struct SLSrtePathComputeReq_SLSrtePathInitDefaultTypeInternal;
+extern SLSrtePathComputeReq_SLSrtePathInitDefaultTypeInternal _SLSrtePathComputeReq_SLSrtePathInit_default_instance_;
+class SLSrtePathComputeReq_SLSrtePathUpdate;
+struct SLSrtePathComputeReq_SLSrtePathUpdateDefaultTypeInternal;
+extern SLSrtePathComputeReq_SLSrtePathUpdateDefaultTypeInternal _SLSrtePathComputeReq_SLSrtePathUpdate_default_instance_;
+class SLSrtePathComputeReq_SLSrtePathWithdraw;
+struct SLSrtePathComputeReq_SLSrtePathWithdrawDefaultTypeInternal;
+extern SLSrtePathComputeReq_SLSrtePathWithdrawDefaultTypeInternal _SLSrtePathComputeReq_SLSrtePathWithdraw_default_instance_;
+class SLSrtePathComputeReqs;
+struct SLSrtePathComputeReqsDefaultTypeInternal;
+extern SLSrtePathComputeReqsDefaultTypeInternal _SLSrtePathComputeReqs_default_instance_;
+class SLSrtePathComputeRes;
+struct SLSrtePathComputeResDefaultTypeInternal;
+extern SLSrtePathComputeResDefaultTypeInternal _SLSrtePathComputeRes_default_instance_;
+class SLSrtePathComputeRes_SLSrteDynamicPathResult;
+struct SLSrtePathComputeRes_SLSrteDynamicPathResultDefaultTypeInternal;
+extern SLSrtePathComputeRes_SLSrteDynamicPathResultDefaultTypeInternal _SLSrtePathComputeRes_SLSrteDynamicPathResult_default_instance_;
+class SLSrtePathComputeRes_SLSrtePathError;
+struct SLSrtePathComputeRes_SLSrtePathErrorDefaultTypeInternal;
+extern SLSrtePathComputeRes_SLSrtePathErrorDefaultTypeInternal _SLSrtePathComputeRes_SLSrtePathError_default_instance_;
+class SLSrtePathComputeRsps;
+struct SLSrtePathComputeRspsDefaultTypeInternal;
+extern SLSrtePathComputeRspsDefaultTypeInternal _SLSrtePathComputeRsps_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
 template<> ::service_layer::AssociationGroup* Arena::CreateMaybeMessage<::service_layer::AssociationGroup>(Arena*);
 template<> ::service_layer::ConstraintSet* Arena::CreateMaybeMessage<::service_layer::ConstraintSet>(Arena*);
 template<> ::service_layer::ConstraintSet_PathDiversity* Arena::CreateMaybeMessage<::service_layer::ConstraintSet_PathDiversity>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest_SLSrtePathInit>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw>(Arena*);
-template<> ::service_layer::SLSrtePathComputeRequests* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRequests>(Arena*);
-template<> ::service_layer::SLSrtePathComputeResponse* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeResponse>(Arena*);
-template<> ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult>(Arena*);
-template<> ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeResponse_SLSrtePathError>(Arena*);
-template<> ::service_layer::SLSrtePathComputeResponses* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeResponses>(Arena*);
+template<> ::service_layer::SLSrtePathAttrDynamic* Arena::CreateMaybeMessage<::service_layer::SLSrtePathAttrDynamic>(Arena*);
+template<> ::service_layer::SLSrtePathAttrExplicit* Arena::CreateMaybeMessage<::service_layer::SLSrtePathAttrExplicit>(Arena*);
+template<> ::service_layer::SLSrtePathComputeReq* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeReq>(Arena*);
+template<> ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeReq_SLSrtePathInit>(Arena*);
+template<> ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate>(Arena*);
+template<> ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw>(Arena*);
+template<> ::service_layer::SLSrtePathComputeReqs* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeReqs>(Arena*);
+template<> ::service_layer::SLSrtePathComputeRes* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRes>(Arena*);
+template<> ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult>(Arena*);
+template<> ::service_layer::SLSrtePathComputeRes_SLSrtePathError* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRes_SLSrtePathError>(Arena*);
+template<> ::service_layer::SLSrtePathComputeRsps* Arena::CreateMaybeMessage<::service_layer::SLSrtePathComputeRsps>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
 // ===================================================================
 
-class SLSrtePathComputeRequests final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequests) */ {
+class SLSrtePathComputeReqs final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeReqs) */ {
  public:
-  inline SLSrtePathComputeRequests() : SLSrtePathComputeRequests(nullptr) {}
-  ~SLSrtePathComputeRequests() override;
-  explicit constexpr SLSrtePathComputeRequests(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeReqs() : SLSrtePathComputeReqs(nullptr) {}
+  ~SLSrtePathComputeReqs() override;
+  explicit constexpr SLSrtePathComputeReqs(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeRequests(const SLSrtePathComputeRequests& from);
-  SLSrtePathComputeRequests(SLSrtePathComputeRequests&& from) noexcept
-    : SLSrtePathComputeRequests() {
+  SLSrtePathComputeReqs(const SLSrtePathComputeReqs& from);
+  SLSrtePathComputeReqs(SLSrtePathComputeReqs&& from) noexcept
+    : SLSrtePathComputeReqs() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeRequests& operator=(const SLSrtePathComputeRequests& from) {
+  inline SLSrtePathComputeReqs& operator=(const SLSrtePathComputeReqs& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeRequests& operator=(SLSrtePathComputeRequests&& from) noexcept {
+  inline SLSrtePathComputeReqs& operator=(SLSrtePathComputeReqs&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -168,20 +160,20 @@ class SLSrtePathComputeRequests final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeRequests& default_instance() {
+  static const SLSrtePathComputeReqs& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLSrtePathComputeRequests* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequests*>(
-               &_SLSrtePathComputeRequests_default_instance_);
+  static inline const SLSrtePathComputeReqs* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeReqs*>(
+               &_SLSrtePathComputeReqs_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(SLSrtePathComputeRequests& a, SLSrtePathComputeRequests& b) {
+  friend void swap(SLSrtePathComputeReqs& a, SLSrtePathComputeReqs& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeRequests* other) {
+  inline void Swap(SLSrtePathComputeReqs* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -194,7 +186,7 @@ class SLSrtePathComputeRequests final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeRequests* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeReqs* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -202,13 +194,13 @@ class SLSrtePathComputeRequests final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeRequests* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequests>(arena);
+  SLSrtePathComputeReqs* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeReqs>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequests& from);
+  void CopyFrom(const SLSrtePathComputeReqs& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequests& from);
+  void MergeFrom(const SLSrtePathComputeReqs& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -225,15 +217,15 @@ class SLSrtePathComputeRequests final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequests* other);
+  void InternalSwap(SLSrtePathComputeReqs* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequests";
+    return "service_layer.SLSrtePathComputeReqs";
   }
   protected:
-  explicit SLSrtePathComputeRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeReqs(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -252,55 +244,55 @@ class SLSrtePathComputeRequests final :
   enum : int {
     kRequestsFieldNumber = 1,
   };
-  // repeated .service_layer.SLSrtePathComputeRequest requests = 1;
+  // repeated .service_layer.SLSrtePathComputeReq requests = 1;
   int requests_size() const;
   private:
   int _internal_requests_size() const;
   public:
   void clear_requests();
-  ::service_layer::SLSrtePathComputeRequest* mutable_requests(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRequest >*
+  ::service_layer::SLSrtePathComputeReq* mutable_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeReq >*
       mutable_requests();
   private:
-  const ::service_layer::SLSrtePathComputeRequest& _internal_requests(int index) const;
-  ::service_layer::SLSrtePathComputeRequest* _internal_add_requests();
+  const ::service_layer::SLSrtePathComputeReq& _internal_requests(int index) const;
+  ::service_layer::SLSrtePathComputeReq* _internal_add_requests();
   public:
-  const ::service_layer::SLSrtePathComputeRequest& requests(int index) const;
-  ::service_layer::SLSrtePathComputeRequest* add_requests();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRequest >&
+  const ::service_layer::SLSrtePathComputeReq& requests(int index) const;
+  ::service_layer::SLSrtePathComputeReq* add_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeReq >&
       requests() const;
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequests)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeReqs)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRequest > requests_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeReq > requests_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeResponses final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeResponses) */ {
+class SLSrtePathComputeRsps final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRsps) */ {
  public:
-  inline SLSrtePathComputeResponses() : SLSrtePathComputeResponses(nullptr) {}
-  ~SLSrtePathComputeResponses() override;
-  explicit constexpr SLSrtePathComputeResponses(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeRsps() : SLSrtePathComputeRsps(nullptr) {}
+  ~SLSrtePathComputeRsps() override;
+  explicit constexpr SLSrtePathComputeRsps(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeResponses(const SLSrtePathComputeResponses& from);
-  SLSrtePathComputeResponses(SLSrtePathComputeResponses&& from) noexcept
-    : SLSrtePathComputeResponses() {
+  SLSrtePathComputeRsps(const SLSrtePathComputeRsps& from);
+  SLSrtePathComputeRsps(SLSrtePathComputeRsps&& from) noexcept
+    : SLSrtePathComputeRsps() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeResponses& operator=(const SLSrtePathComputeResponses& from) {
+  inline SLSrtePathComputeRsps& operator=(const SLSrtePathComputeRsps& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeResponses& operator=(SLSrtePathComputeResponses&& from) noexcept {
+  inline SLSrtePathComputeRsps& operator=(SLSrtePathComputeRsps&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -323,20 +315,20 @@ class SLSrtePathComputeResponses final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeResponses& default_instance() {
+  static const SLSrtePathComputeRsps& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLSrtePathComputeResponses* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeResponses*>(
-               &_SLSrtePathComputeResponses_default_instance_);
+  static inline const SLSrtePathComputeRsps* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeRsps*>(
+               &_SLSrtePathComputeRsps_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(SLSrtePathComputeResponses& a, SLSrtePathComputeResponses& b) {
+  friend void swap(SLSrtePathComputeRsps& a, SLSrtePathComputeRsps& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeResponses* other) {
+  inline void Swap(SLSrtePathComputeRsps* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -349,7 +341,7 @@ class SLSrtePathComputeResponses final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeResponses* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeRsps* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -357,13 +349,13 @@ class SLSrtePathComputeResponses final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeResponses* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeResponses>(arena);
+  SLSrtePathComputeRsps* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeRsps>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeResponses& from);
+  void CopyFrom(const SLSrtePathComputeRsps& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeResponses& from);
+  void MergeFrom(const SLSrtePathComputeRsps& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -380,15 +372,15 @@ class SLSrtePathComputeResponses final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeResponses* other);
+  void InternalSwap(SLSrtePathComputeRsps* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeResponses";
+    return "service_layer.SLSrtePathComputeRsps";
   }
   protected:
-  explicit SLSrtePathComputeResponses(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeRsps(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -407,55 +399,55 @@ class SLSrtePathComputeResponses final :
   enum : int {
     kResponsesFieldNumber = 1,
   };
-  // repeated .service_layer.SLSrtePathComputeResponse responses = 1;
+  // repeated .service_layer.SLSrtePathComputeRes responses = 1;
   int responses_size() const;
   private:
   int _internal_responses_size() const;
   public:
   void clear_responses();
-  ::service_layer::SLSrtePathComputeResponse* mutable_responses(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeResponse >*
+  ::service_layer::SLSrtePathComputeRes* mutable_responses(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRes >*
       mutable_responses();
   private:
-  const ::service_layer::SLSrtePathComputeResponse& _internal_responses(int index) const;
-  ::service_layer::SLSrtePathComputeResponse* _internal_add_responses();
+  const ::service_layer::SLSrtePathComputeRes& _internal_responses(int index) const;
+  ::service_layer::SLSrtePathComputeRes* _internal_add_responses();
   public:
-  const ::service_layer::SLSrtePathComputeResponse& responses(int index) const;
-  ::service_layer::SLSrtePathComputeResponse* add_responses();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeResponse >&
+  const ::service_layer::SLSrtePathComputeRes& responses(int index) const;
+  ::service_layer::SLSrtePathComputeRes* add_responses();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRes >&
       responses() const;
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeResponses)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRsps)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeResponse > responses_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRes > responses_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic) */ {
+class SLSrtePathComputeReq_SLSrtePathInit final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeReq.SLSrtePathInit) */ {
  public:
-  inline SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic() : SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(nullptr) {}
-  ~SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic() override;
-  explicit constexpr SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeReq_SLSrtePathInit() : SLSrtePathComputeReq_SLSrtePathInit(nullptr) {}
+  ~SLSrtePathComputeReq_SLSrtePathInit() override;
+  explicit constexpr SLSrtePathComputeReq_SLSrtePathInit(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& from);
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic&& from) noexcept
-    : SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic() {
+  SLSrtePathComputeReq_SLSrtePathInit(const SLSrtePathComputeReq_SLSrtePathInit& from);
+  SLSrtePathComputeReq_SLSrtePathInit(SLSrtePathComputeReq_SLSrtePathInit&& from) noexcept
+    : SLSrtePathComputeReq_SLSrtePathInit() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& operator=(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& from) {
+  inline SLSrtePathComputeReq_SLSrtePathInit& operator=(const SLSrtePathComputeReq_SLSrtePathInit& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& operator=(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic&& from) noexcept {
+  inline SLSrtePathComputeReq_SLSrtePathInit& operator=(SLSrtePathComputeReq_SLSrtePathInit&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -478,348 +470,7 @@ class SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic*>(
-               &_SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& a, SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic";
-  }
-  protected:
-  explicit SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kConstraintsFieldNumber = 2,
-    kOMetricFieldNumber = 1,
-  };
-  // .service_layer.ConstraintSet constraints = 2;
-  bool has_constraints() const;
-  private:
-  bool _internal_has_constraints() const;
-  public:
-  void clear_constraints();
-  const ::service_layer::ConstraintSet& constraints() const;
-  PROTOBUF_NODISCARD ::service_layer::ConstraintSet* release_constraints();
-  ::service_layer::ConstraintSet* mutable_constraints();
-  void set_allocated_constraints(::service_layer::ConstraintSet* constraints);
-  private:
-  const ::service_layer::ConstraintSet& _internal_constraints() const;
-  ::service_layer::ConstraintSet* _internal_mutable_constraints();
-  public:
-  void unsafe_arena_set_allocated_constraints(
-      ::service_layer::ConstraintSet* constraints);
-  ::service_layer::ConstraintSet* unsafe_arena_release_constraints();
-
-  // .service_layer.SLSrMetricType o_metric = 1;
-  void clear_o_metric();
-  ::service_layer::SLSrMetricType o_metric() const;
-  void set_o_metric(::service_layer::SLSrMetricType value);
-  private:
-  ::service_layer::SLSrMetricType _internal_o_metric() const;
-  void _internal_set_o_metric(::service_layer::SLSrMetricType value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::service_layer::ConstraintSet* constraints_;
-  int o_metric_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit) */ {
- public:
-  inline SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit() : SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(nullptr) {}
-  ~SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit() override;
-  explicit constexpr SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& from);
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit&& from) noexcept
-    : SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit() {
-    *this = ::std::move(from);
-  }
-
-  inline SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& operator=(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& operator=(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit*>(
-               &_SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& a, SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit";
-  }
-  protected:
-  explicit SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSegmentListsFieldNumber = 1,
-    kConstraintsFieldNumber = 2,
-  };
-  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-  int segment_lists_size() const;
-  private:
-  int _internal_segment_lists_size() const;
-  public:
-  void clear_segment_lists();
-  ::service_layer::SLSrSegmentList* mutable_segment_lists(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
-      mutable_segment_lists();
-  private:
-  const ::service_layer::SLSrSegmentList& _internal_segment_lists(int index) const;
-  ::service_layer::SLSrSegmentList* _internal_add_segment_lists();
-  public:
-  const ::service_layer::SLSrSegmentList& segment_lists(int index) const;
-  ::service_layer::SLSrSegmentList* add_segment_lists();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
-      segment_lists() const;
-
-  // .service_layer.ConstraintSet constraints = 2;
-  bool has_constraints() const;
-  private:
-  bool _internal_has_constraints() const;
-  public:
-  void clear_constraints();
-  const ::service_layer::ConstraintSet& constraints() const;
-  PROTOBUF_NODISCARD ::service_layer::ConstraintSet* release_constraints();
-  ::service_layer::ConstraintSet* mutable_constraints();
-  void set_allocated_constraints(::service_layer::ConstraintSet* constraints);
-  private:
-  const ::service_layer::ConstraintSet& _internal_constraints() const;
-  ::service_layer::ConstraintSet* _internal_mutable_constraints();
-  public:
-  void unsafe_arena_set_allocated_constraints(
-      ::service_layer::ConstraintSet* constraints);
-  ::service_layer::ConstraintSet* unsafe_arena_release_constraints();
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList > segment_lists_;
-  ::service_layer::ConstraintSet* constraints_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLSrtePathComputeRequest_SLSrtePathInit final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest.SLSrtePathInit) */ {
- public:
-  inline SLSrtePathComputeRequest_SLSrtePathInit() : SLSrtePathComputeRequest_SLSrtePathInit(nullptr) {}
-  ~SLSrtePathComputeRequest_SLSrtePathInit() override;
-  explicit constexpr SLSrtePathComputeRequest_SLSrtePathInit(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLSrtePathComputeRequest_SLSrtePathInit(const SLSrtePathComputeRequest_SLSrtePathInit& from);
-  SLSrtePathComputeRequest_SLSrtePathInit(SLSrtePathComputeRequest_SLSrtePathInit&& from) noexcept
-    : SLSrtePathComputeRequest_SLSrtePathInit() {
-    *this = ::std::move(from);
-  }
-
-  inline SLSrtePathComputeRequest_SLSrtePathInit& operator=(const SLSrtePathComputeRequest_SLSrtePathInit& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLSrtePathComputeRequest_SLSrtePathInit& operator=(SLSrtePathComputeRequest_SLSrtePathInit&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLSrtePathComputeRequest_SLSrtePathInit& default_instance() {
+  static const SLSrtePathComputeReq_SLSrtePathInit& default_instance() {
     return *internal_default_instance();
   }
   enum PathInitTypeCase {
@@ -828,17 +479,17 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
     PATH_INIT_TYPE_NOT_SET = 0,
   };
 
-  static inline const SLSrtePathComputeRequest_SLSrtePathInit* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest_SLSrtePathInit*>(
-               &_SLSrtePathComputeRequest_SLSrtePathInit_default_instance_);
+  static inline const SLSrtePathComputeReq_SLSrtePathInit* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeReq_SLSrtePathInit*>(
+               &_SLSrtePathComputeReq_SLSrtePathInit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    2;
 
-  friend void swap(SLSrtePathComputeRequest_SLSrtePathInit& a, SLSrtePathComputeRequest_SLSrtePathInit& b) {
+  friend void swap(SLSrtePathComputeReq_SLSrtePathInit& a, SLSrtePathComputeReq_SLSrtePathInit& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeRequest_SLSrtePathInit* other) {
+  inline void Swap(SLSrtePathComputeReq_SLSrtePathInit* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -851,7 +502,7 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest_SLSrtePathInit* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeReq_SLSrtePathInit* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -859,13 +510,13 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeRequest_SLSrtePathInit* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest_SLSrtePathInit>(arena);
+  SLSrtePathComputeReq_SLSrtePathInit* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeReq_SLSrtePathInit>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequest_SLSrtePathInit& from);
+  void CopyFrom(const SLSrtePathComputeReq_SLSrtePathInit& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest_SLSrtePathInit& from);
+  void MergeFrom(const SLSrtePathComputeReq_SLSrtePathInit& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -882,15 +533,15 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequest_SLSrtePathInit* other);
+  void InternalSwap(SLSrtePathComputeReq_SLSrtePathInit* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest.SLSrtePathInit";
+    return "service_layer.SLSrtePathComputeReq.SLSrtePathInit";
   }
   protected:
-  explicit SLSrtePathComputeRequest_SLSrtePathInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeReq_SLSrtePathInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -903,9 +554,6 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
-
-  typedef SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic SLSrtePathInitDynamic;
-  typedef SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit SLSrtePathInitExplicit;
 
   // accessors -------------------------------------------------------
 
@@ -923,45 +571,45 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
   void _internal_set_dataplane(::service_layer::SLSrDataplane value);
   public:
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic dynamic = 2;
+  // .service_layer.SLSrtePathAttrDynamic dynamic = 2;
   bool has_dynamic() const;
   private:
   bool _internal_has_dynamic() const;
   public:
   void clear_dynamic();
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& dynamic() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* release_dynamic();
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* mutable_dynamic();
-  void set_allocated_dynamic(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* dynamic);
+  const ::service_layer::SLSrtePathAttrDynamic& dynamic() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathAttrDynamic* release_dynamic();
+  ::service_layer::SLSrtePathAttrDynamic* mutable_dynamic();
+  void set_allocated_dynamic(::service_layer::SLSrtePathAttrDynamic* dynamic);
   private:
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& _internal_dynamic() const;
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* _internal_mutable_dynamic();
+  const ::service_layer::SLSrtePathAttrDynamic& _internal_dynamic() const;
+  ::service_layer::SLSrtePathAttrDynamic* _internal_mutable_dynamic();
   public:
   void unsafe_arena_set_allocated_dynamic(
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* dynamic);
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* unsafe_arena_release_dynamic();
+      ::service_layer::SLSrtePathAttrDynamic* dynamic);
+  ::service_layer::SLSrtePathAttrDynamic* unsafe_arena_release_dynamic();
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit explicit = 3;
+  // .service_layer.SLSrtePathAttrExplicit explicit = 3;
   bool has_explicit_() const;
   private:
   bool _internal_has_explicit_() const;
   public:
   void clear_explicit_();
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& explicit_() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* release_explicit_();
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* mutable_explicit_();
-  void set_allocated_explicit_(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* explicit_);
+  const ::service_layer::SLSrtePathAttrExplicit& explicit_() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathAttrExplicit* release_explicit_();
+  ::service_layer::SLSrtePathAttrExplicit* mutable_explicit_();
+  void set_allocated_explicit_(::service_layer::SLSrtePathAttrExplicit* explicit_);
   private:
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& _internal_explicit_() const;
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* _internal_mutable_explicit_();
+  const ::service_layer::SLSrtePathAttrExplicit& _internal_explicit_() const;
+  ::service_layer::SLSrtePathAttrExplicit* _internal_mutable_explicit_();
   public:
   void unsafe_arena_set_allocated_explicit_(
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* explicit_);
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* unsafe_arena_release_explicit_();
+      ::service_layer::SLSrtePathAttrExplicit* explicit_);
+  ::service_layer::SLSrtePathAttrExplicit* unsafe_arena_release_explicit_();
 
   void clear_path_init_type();
   PathInitTypeCase path_init_type_case() const;
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
  private:
   class _Internal;
   void set_has_dynamic();
@@ -977,8 +625,8 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
   union PathInitTypeUnion {
     constexpr PathInitTypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* dynamic_;
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* explicit__;
+    ::service_layer::SLSrtePathAttrDynamic* dynamic_;
+    ::service_layer::SLSrtePathAttrExplicit* explicit__;
   } path_init_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -987,24 +635,24 @@ class SLSrtePathComputeRequest_SLSrtePathInit final :
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic) */ {
+class SLSrtePathComputeReq_SLSrtePathUpdate final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate) */ {
  public:
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic() : SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(nullptr) {}
-  ~SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic() override;
-  explicit constexpr SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeReq_SLSrtePathUpdate() : SLSrtePathComputeReq_SLSrtePathUpdate(nullptr) {}
+  ~SLSrtePathComputeReq_SLSrtePathUpdate() override;
+  explicit constexpr SLSrtePathComputeReq_SLSrtePathUpdate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& from);
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic&& from) noexcept
-    : SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic() {
+  SLSrtePathComputeReq_SLSrtePathUpdate(const SLSrtePathComputeReq_SLSrtePathUpdate& from);
+  SLSrtePathComputeReq_SLSrtePathUpdate(SLSrtePathComputeReq_SLSrtePathUpdate&& from) noexcept
+    : SLSrtePathComputeReq_SLSrtePathUpdate() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& operator=(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& from) {
+  inline SLSrtePathComputeReq_SLSrtePathUpdate& operator=(const SLSrtePathComputeReq_SLSrtePathUpdate& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& operator=(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic&& from) noexcept {
+  inline SLSrtePathComputeReq_SLSrtePathUpdate& operator=(SLSrtePathComputeReq_SLSrtePathUpdate&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1027,348 +675,7 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic*>(
-               &_SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& a, SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic";
-  }
-  protected:
-  explicit SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kConstraintsFieldNumber = 2,
-    kOMetricFieldNumber = 1,
-  };
-  // .service_layer.ConstraintSet constraints = 2;
-  bool has_constraints() const;
-  private:
-  bool _internal_has_constraints() const;
-  public:
-  void clear_constraints();
-  const ::service_layer::ConstraintSet& constraints() const;
-  PROTOBUF_NODISCARD ::service_layer::ConstraintSet* release_constraints();
-  ::service_layer::ConstraintSet* mutable_constraints();
-  void set_allocated_constraints(::service_layer::ConstraintSet* constraints);
-  private:
-  const ::service_layer::ConstraintSet& _internal_constraints() const;
-  ::service_layer::ConstraintSet* _internal_mutable_constraints();
-  public:
-  void unsafe_arena_set_allocated_constraints(
-      ::service_layer::ConstraintSet* constraints);
-  ::service_layer::ConstraintSet* unsafe_arena_release_constraints();
-
-  // .service_layer.SLSrMetricType o_metric = 1;
-  void clear_o_metric();
-  ::service_layer::SLSrMetricType o_metric() const;
-  void set_o_metric(::service_layer::SLSrMetricType value);
-  private:
-  ::service_layer::SLSrMetricType _internal_o_metric() const;
-  void _internal_set_o_metric(::service_layer::SLSrMetricType value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::service_layer::ConstraintSet* constraints_;
-  int o_metric_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit) */ {
- public:
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit() : SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(nullptr) {}
-  ~SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit() override;
-  explicit constexpr SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& from);
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit&& from) noexcept
-    : SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit() {
-    *this = ::std::move(from);
-  }
-
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& operator=(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& operator=(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit*>(
-               &_SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    6;
-
-  friend void swap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& a, SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit";
-  }
-  protected:
-  explicit SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSegmentListsFieldNumber = 1,
-    kConstraintsFieldNumber = 2,
-  };
-  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-  int segment_lists_size() const;
-  private:
-  int _internal_segment_lists_size() const;
-  public:
-  void clear_segment_lists();
-  ::service_layer::SLSrSegmentList* mutable_segment_lists(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
-      mutable_segment_lists();
-  private:
-  const ::service_layer::SLSrSegmentList& _internal_segment_lists(int index) const;
-  ::service_layer::SLSrSegmentList* _internal_add_segment_lists();
-  public:
-  const ::service_layer::SLSrSegmentList& segment_lists(int index) const;
-  ::service_layer::SLSrSegmentList* add_segment_lists();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
-      segment_lists() const;
-
-  // .service_layer.ConstraintSet constraints = 2;
-  bool has_constraints() const;
-  private:
-  bool _internal_has_constraints() const;
-  public:
-  void clear_constraints();
-  const ::service_layer::ConstraintSet& constraints() const;
-  PROTOBUF_NODISCARD ::service_layer::ConstraintSet* release_constraints();
-  ::service_layer::ConstraintSet* mutable_constraints();
-  void set_allocated_constraints(::service_layer::ConstraintSet* constraints);
-  private:
-  const ::service_layer::ConstraintSet& _internal_constraints() const;
-  ::service_layer::ConstraintSet* _internal_mutable_constraints();
-  public:
-  void unsafe_arena_set_allocated_constraints(
-      ::service_layer::ConstraintSet* constraints);
-  ::service_layer::ConstraintSet* unsafe_arena_release_constraints();
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList > segment_lists_;
-  ::service_layer::ConstraintSet* constraints_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLSrtePathComputeRequest_SLSrtePathUpdate final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate) */ {
- public:
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate() : SLSrtePathComputeRequest_SLSrtePathUpdate(nullptr) {}
-  ~SLSrtePathComputeRequest_SLSrtePathUpdate() override;
-  explicit constexpr SLSrtePathComputeRequest_SLSrtePathUpdate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLSrtePathComputeRequest_SLSrtePathUpdate(const SLSrtePathComputeRequest_SLSrtePathUpdate& from);
-  SLSrtePathComputeRequest_SLSrtePathUpdate(SLSrtePathComputeRequest_SLSrtePathUpdate&& from) noexcept
-    : SLSrtePathComputeRequest_SLSrtePathUpdate() {
-    *this = ::std::move(from);
-  }
-
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate& operator=(const SLSrtePathComputeRequest_SLSrtePathUpdate& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLSrtePathComputeRequest_SLSrtePathUpdate& operator=(SLSrtePathComputeRequest_SLSrtePathUpdate&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLSrtePathComputeRequest_SLSrtePathUpdate& default_instance() {
+  static const SLSrtePathComputeReq_SLSrtePathUpdate& default_instance() {
     return *internal_default_instance();
   }
   enum PathUpdateTypeCase {
@@ -1377,17 +684,17 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate final :
     PATH_UPDATE_TYPE_NOT_SET = 0,
   };
 
-  static inline const SLSrtePathComputeRequest_SLSrtePathUpdate* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest_SLSrtePathUpdate*>(
-               &_SLSrtePathComputeRequest_SLSrtePathUpdate_default_instance_);
+  static inline const SLSrtePathComputeReq_SLSrtePathUpdate* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeReq_SLSrtePathUpdate*>(
+               &_SLSrtePathComputeReq_SLSrtePathUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    3;
 
-  friend void swap(SLSrtePathComputeRequest_SLSrtePathUpdate& a, SLSrtePathComputeRequest_SLSrtePathUpdate& b) {
+  friend void swap(SLSrtePathComputeReq_SLSrtePathUpdate& a, SLSrtePathComputeReq_SLSrtePathUpdate& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeRequest_SLSrtePathUpdate* other) {
+  inline void Swap(SLSrtePathComputeReq_SLSrtePathUpdate* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1400,7 +707,7 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest_SLSrtePathUpdate* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeReq_SLSrtePathUpdate* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1408,13 +715,13 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeRequest_SLSrtePathUpdate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest_SLSrtePathUpdate>(arena);
+  SLSrtePathComputeReq_SLSrtePathUpdate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeReq_SLSrtePathUpdate>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate& from);
+  void CopyFrom(const SLSrtePathComputeReq_SLSrtePathUpdate& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate& from);
+  void MergeFrom(const SLSrtePathComputeReq_SLSrtePathUpdate& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -1431,15 +738,15 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequest_SLSrtePathUpdate* other);
+  void InternalSwap(SLSrtePathComputeReq_SLSrtePathUpdate* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate";
+    return "service_layer.SLSrtePathComputeReq.SLSrtePathUpdate";
   }
   protected:
-  explicit SLSrtePathComputeRequest_SLSrtePathUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeReq_SLSrtePathUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -1453,54 +760,51 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate final :
 
   // nested types ----------------------------------------------------
 
-  typedef SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic SLSrtePathUpdateDynamic;
-  typedef SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit SLSrtePathUpdateExplicit;
-
   // accessors -------------------------------------------------------
 
   enum : int {
     kDynamicFieldNumber = 1,
     kExplicitFieldNumber = 2,
   };
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic dynamic = 1;
+  // .service_layer.SLSrtePathAttrDynamic dynamic = 1;
   bool has_dynamic() const;
   private:
   bool _internal_has_dynamic() const;
   public:
   void clear_dynamic();
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& dynamic() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* release_dynamic();
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* mutable_dynamic();
-  void set_allocated_dynamic(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* dynamic);
+  const ::service_layer::SLSrtePathAttrDynamic& dynamic() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathAttrDynamic* release_dynamic();
+  ::service_layer::SLSrtePathAttrDynamic* mutable_dynamic();
+  void set_allocated_dynamic(::service_layer::SLSrtePathAttrDynamic* dynamic);
   private:
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& _internal_dynamic() const;
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* _internal_mutable_dynamic();
+  const ::service_layer::SLSrtePathAttrDynamic& _internal_dynamic() const;
+  ::service_layer::SLSrtePathAttrDynamic* _internal_mutable_dynamic();
   public:
   void unsafe_arena_set_allocated_dynamic(
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* dynamic);
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* unsafe_arena_release_dynamic();
+      ::service_layer::SLSrtePathAttrDynamic* dynamic);
+  ::service_layer::SLSrtePathAttrDynamic* unsafe_arena_release_dynamic();
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit explicit = 2;
+  // .service_layer.SLSrtePathAttrExplicit explicit = 2;
   bool has_explicit_() const;
   private:
   bool _internal_has_explicit_() const;
   public:
   void clear_explicit_();
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& explicit_() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* release_explicit_();
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* mutable_explicit_();
-  void set_allocated_explicit_(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* explicit_);
+  const ::service_layer::SLSrtePathAttrExplicit& explicit_() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathAttrExplicit* release_explicit_();
+  ::service_layer::SLSrtePathAttrExplicit* mutable_explicit_();
+  void set_allocated_explicit_(::service_layer::SLSrtePathAttrExplicit* explicit_);
   private:
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& _internal_explicit_() const;
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* _internal_mutable_explicit_();
+  const ::service_layer::SLSrtePathAttrExplicit& _internal_explicit_() const;
+  ::service_layer::SLSrtePathAttrExplicit* _internal_mutable_explicit_();
   public:
   void unsafe_arena_set_allocated_explicit_(
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* explicit_);
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* unsafe_arena_release_explicit_();
+      ::service_layer::SLSrtePathAttrExplicit* explicit_);
+  ::service_layer::SLSrtePathAttrExplicit* unsafe_arena_release_explicit_();
 
   void clear_path_update_type();
   PathUpdateTypeCase path_update_type_case() const;
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
  private:
   class _Internal;
   void set_has_dynamic();
@@ -1515,8 +819,8 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate final :
   union PathUpdateTypeUnion {
     constexpr PathUpdateTypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* dynamic_;
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* explicit__;
+    ::service_layer::SLSrtePathAttrDynamic* dynamic_;
+    ::service_layer::SLSrtePathAttrExplicit* explicit__;
   } path_update_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -1525,23 +829,23 @@ class SLSrtePathComputeRequest_SLSrtePathUpdate final :
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeRequest_SLSrtePathWithdraw final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw) */ {
+class SLSrtePathComputeReq_SLSrtePathWithdraw final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw) */ {
  public:
-  inline SLSrtePathComputeRequest_SLSrtePathWithdraw() : SLSrtePathComputeRequest_SLSrtePathWithdraw(nullptr) {}
-  explicit constexpr SLSrtePathComputeRequest_SLSrtePathWithdraw(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeReq_SLSrtePathWithdraw() : SLSrtePathComputeReq_SLSrtePathWithdraw(nullptr) {}
+  explicit constexpr SLSrtePathComputeReq_SLSrtePathWithdraw(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeRequest_SLSrtePathWithdraw(const SLSrtePathComputeRequest_SLSrtePathWithdraw& from);
-  SLSrtePathComputeRequest_SLSrtePathWithdraw(SLSrtePathComputeRequest_SLSrtePathWithdraw&& from) noexcept
-    : SLSrtePathComputeRequest_SLSrtePathWithdraw() {
+  SLSrtePathComputeReq_SLSrtePathWithdraw(const SLSrtePathComputeReq_SLSrtePathWithdraw& from);
+  SLSrtePathComputeReq_SLSrtePathWithdraw(SLSrtePathComputeReq_SLSrtePathWithdraw&& from) noexcept
+    : SLSrtePathComputeReq_SLSrtePathWithdraw() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeRequest_SLSrtePathWithdraw& operator=(const SLSrtePathComputeRequest_SLSrtePathWithdraw& from) {
+  inline SLSrtePathComputeReq_SLSrtePathWithdraw& operator=(const SLSrtePathComputeReq_SLSrtePathWithdraw& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeRequest_SLSrtePathWithdraw& operator=(SLSrtePathComputeRequest_SLSrtePathWithdraw&& from) noexcept {
+  inline SLSrtePathComputeReq_SLSrtePathWithdraw& operator=(SLSrtePathComputeReq_SLSrtePathWithdraw&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1564,20 +868,20 @@ class SLSrtePathComputeRequest_SLSrtePathWithdraw final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeRequest_SLSrtePathWithdraw& default_instance() {
+  static const SLSrtePathComputeReq_SLSrtePathWithdraw& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLSrtePathComputeRequest_SLSrtePathWithdraw* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest_SLSrtePathWithdraw*>(
-               &_SLSrtePathComputeRequest_SLSrtePathWithdraw_default_instance_);
+  static inline const SLSrtePathComputeReq_SLSrtePathWithdraw* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeReq_SLSrtePathWithdraw*>(
+               &_SLSrtePathComputeReq_SLSrtePathWithdraw_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    4;
 
-  friend void swap(SLSrtePathComputeRequest_SLSrtePathWithdraw& a, SLSrtePathComputeRequest_SLSrtePathWithdraw& b) {
+  friend void swap(SLSrtePathComputeReq_SLSrtePathWithdraw& a, SLSrtePathComputeReq_SLSrtePathWithdraw& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeRequest_SLSrtePathWithdraw* other) {
+  inline void Swap(SLSrtePathComputeReq_SLSrtePathWithdraw* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1590,7 +894,7 @@ class SLSrtePathComputeRequest_SLSrtePathWithdraw final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest_SLSrtePathWithdraw* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeReq_SLSrtePathWithdraw* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1598,15 +902,15 @@ class SLSrtePathComputeRequest_SLSrtePathWithdraw final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeRequest_SLSrtePathWithdraw* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest_SLSrtePathWithdraw>(arena);
+  SLSrtePathComputeReq_SLSrtePathWithdraw* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeReq_SLSrtePathWithdraw>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const SLSrtePathComputeRequest_SLSrtePathWithdraw& from) {
+  inline void CopyFrom(const SLSrtePathComputeReq_SLSrtePathWithdraw& from) {
     ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
   }
   using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest_SLSrtePathWithdraw& from) {
+  void MergeFrom(const SLSrtePathComputeReq_SLSrtePathWithdraw& from) {
     ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
   }
   public:
@@ -1614,10 +918,10 @@ class SLSrtePathComputeRequest_SLSrtePathWithdraw final :
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw";
+    return "service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw";
   }
   protected:
-  explicit SLSrtePathComputeRequest_SLSrtePathWithdraw(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeReq_SLSrtePathWithdraw(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   public:
@@ -1631,7 +935,7 @@ class SLSrtePathComputeRequest_SLSrtePathWithdraw final :
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw)
  private:
   class _Internal;
 
@@ -1643,24 +947,24 @@ class SLSrtePathComputeRequest_SLSrtePathWithdraw final :
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRequest) */ {
+class SLSrtePathComputeReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeReq) */ {
  public:
-  inline SLSrtePathComputeRequest() : SLSrtePathComputeRequest(nullptr) {}
-  ~SLSrtePathComputeRequest() override;
-  explicit constexpr SLSrtePathComputeRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeReq() : SLSrtePathComputeReq(nullptr) {}
+  ~SLSrtePathComputeReq() override;
+  explicit constexpr SLSrtePathComputeReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeRequest(const SLSrtePathComputeRequest& from);
-  SLSrtePathComputeRequest(SLSrtePathComputeRequest&& from) noexcept
-    : SLSrtePathComputeRequest() {
+  SLSrtePathComputeReq(const SLSrtePathComputeReq& from);
+  SLSrtePathComputeReq(SLSrtePathComputeReq&& from) noexcept
+    : SLSrtePathComputeReq() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeRequest& operator=(const SLSrtePathComputeRequest& from) {
+  inline SLSrtePathComputeReq& operator=(const SLSrtePathComputeReq& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeRequest& operator=(SLSrtePathComputeRequest&& from) noexcept {
+  inline SLSrtePathComputeReq& operator=(SLSrtePathComputeReq&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1683,7 +987,7 @@ class SLSrtePathComputeRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeRequest& default_instance() {
+  static const SLSrtePathComputeReq& default_instance() {
     return *internal_default_instance();
   }
   enum RequestTypeCase {
@@ -1693,17 +997,17 @@ class SLSrtePathComputeRequest final :
     REQUEST_TYPE_NOT_SET = 0,
   };
 
-  static inline const SLSrtePathComputeRequest* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeRequest*>(
-               &_SLSrtePathComputeRequest_default_instance_);
+  static inline const SLSrtePathComputeReq* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeReq*>(
+               &_SLSrtePathComputeReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    5;
 
-  friend void swap(SLSrtePathComputeRequest& a, SLSrtePathComputeRequest& b) {
+  friend void swap(SLSrtePathComputeReq& a, SLSrtePathComputeReq& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeRequest* other) {
+  inline void Swap(SLSrtePathComputeReq* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1716,7 +1020,7 @@ class SLSrtePathComputeRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeRequest* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeReq* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1724,13 +1028,13 @@ class SLSrtePathComputeRequest final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeRequest>(arena);
+  SLSrtePathComputeReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeReq>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeRequest& from);
+  void CopyFrom(const SLSrtePathComputeReq& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeRequest& from);
+  void MergeFrom(const SLSrtePathComputeReq& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -1747,15 +1051,15 @@ class SLSrtePathComputeRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeRequest* other);
+  void InternalSwap(SLSrtePathComputeReq* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeRequest";
+    return "service_layer.SLSrtePathComputeReq";
   }
   protected:
-  explicit SLSrtePathComputeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -1769,9 +1073,9 @@ class SLSrtePathComputeRequest final :
 
   // nested types ----------------------------------------------------
 
-  typedef SLSrtePathComputeRequest_SLSrtePathInit SLSrtePathInit;
-  typedef SLSrtePathComputeRequest_SLSrtePathUpdate SLSrtePathUpdate;
-  typedef SLSrtePathComputeRequest_SLSrtePathWithdraw SLSrtePathWithdraw;
+  typedef SLSrtePathComputeReq_SLSrtePathInit SLSrtePathInit;
+  typedef SLSrtePathComputeReq_SLSrtePathUpdate SLSrtePathUpdate;
+  typedef SLSrtePathComputeReq_SLSrtePathWithdraw SLSrtePathWithdraw;
 
   // accessors -------------------------------------------------------
 
@@ -1828,63 +1132,63 @@ class SLSrtePathComputeRequest final :
   void _internal_set_seq_num(uint64_t value);
   public:
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit init = 4;
+  // .service_layer.SLSrtePathComputeReq.SLSrtePathInit init = 4;
   bool has_init() const;
   private:
   bool _internal_has_init() const;
   public:
   void clear_init();
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit& init() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* release_init();
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* mutable_init();
-  void set_allocated_init(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* init);
+  const ::service_layer::SLSrtePathComputeReq_SLSrtePathInit& init() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* release_init();
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* mutable_init();
+  void set_allocated_init(::service_layer::SLSrtePathComputeReq_SLSrtePathInit* init);
   private:
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit& _internal_init() const;
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* _internal_mutable_init();
+  const ::service_layer::SLSrtePathComputeReq_SLSrtePathInit& _internal_init() const;
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* _internal_mutable_init();
   public:
   void unsafe_arena_set_allocated_init(
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* init);
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* unsafe_arena_release_init();
+      ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* init);
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* unsafe_arena_release_init();
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate update = 5;
+  // .service_layer.SLSrtePathComputeReq.SLSrtePathUpdate update = 5;
   bool has_update() const;
   private:
   bool _internal_has_update() const;
   public:
   void clear_update();
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate& update() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* release_update();
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* mutable_update();
-  void set_allocated_update(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* update);
+  const ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate& update() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* release_update();
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* mutable_update();
+  void set_allocated_update(::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* update);
   private:
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate& _internal_update() const;
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* _internal_mutable_update();
+  const ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate& _internal_update() const;
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* _internal_mutable_update();
   public:
   void unsafe_arena_set_allocated_update(
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* update);
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* unsafe_arena_release_update();
+      ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* update);
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* unsafe_arena_release_update();
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw withdraw = 6;
+  // .service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw withdraw = 6;
   bool has_withdraw() const;
   private:
   bool _internal_has_withdraw() const;
   public:
   void clear_withdraw();
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw& withdraw() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* release_withdraw();
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* mutable_withdraw();
-  void set_allocated_withdraw(::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* withdraw);
+  const ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw& withdraw() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* release_withdraw();
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* mutable_withdraw();
+  void set_allocated_withdraw(::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* withdraw);
   private:
-  const ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw& _internal_withdraw() const;
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* _internal_mutable_withdraw();
+  const ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw& _internal_withdraw() const;
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* _internal_mutable_withdraw();
   public:
   void unsafe_arena_set_allocated_withdraw(
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* withdraw);
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* unsafe_arena_release_withdraw();
+      ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* withdraw);
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* unsafe_arena_release_withdraw();
 
   void clear_request_type();
   RequestTypeCase request_type_case() const;
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRequest)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeReq)
  private:
   class _Internal;
   void set_has_init();
@@ -1903,9 +1207,9 @@ class SLSrtePathComputeRequest final :
   union RequestTypeUnion {
     constexpr RequestTypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* init_;
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* update_;
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* withdraw_;
+    ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* init_;
+    ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* update_;
+    ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* withdraw_;
   } request_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -1914,24 +1218,24 @@ class SLSrtePathComputeRequest final :
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult) */ {
+class SLSrtePathComputeRes_SLSrteDynamicPathResult final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult) */ {
  public:
-  inline SLSrtePathComputeResponse_SLSrteDynamicPathResult() : SLSrtePathComputeResponse_SLSrteDynamicPathResult(nullptr) {}
-  ~SLSrtePathComputeResponse_SLSrteDynamicPathResult() override;
-  explicit constexpr SLSrtePathComputeResponse_SLSrteDynamicPathResult(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeRes_SLSrteDynamicPathResult() : SLSrtePathComputeRes_SLSrteDynamicPathResult(nullptr) {}
+  ~SLSrtePathComputeRes_SLSrteDynamicPathResult() override;
+  explicit constexpr SLSrtePathComputeRes_SLSrteDynamicPathResult(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeResponse_SLSrteDynamicPathResult(const SLSrtePathComputeResponse_SLSrteDynamicPathResult& from);
-  SLSrtePathComputeResponse_SLSrteDynamicPathResult(SLSrtePathComputeResponse_SLSrteDynamicPathResult&& from) noexcept
-    : SLSrtePathComputeResponse_SLSrteDynamicPathResult() {
+  SLSrtePathComputeRes_SLSrteDynamicPathResult(const SLSrtePathComputeRes_SLSrteDynamicPathResult& from);
+  SLSrtePathComputeRes_SLSrteDynamicPathResult(SLSrtePathComputeRes_SLSrteDynamicPathResult&& from) noexcept
+    : SLSrtePathComputeRes_SLSrteDynamicPathResult() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeResponse_SLSrteDynamicPathResult& operator=(const SLSrtePathComputeResponse_SLSrteDynamicPathResult& from) {
+  inline SLSrtePathComputeRes_SLSrteDynamicPathResult& operator=(const SLSrtePathComputeRes_SLSrteDynamicPathResult& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeResponse_SLSrteDynamicPathResult& operator=(SLSrtePathComputeResponse_SLSrteDynamicPathResult&& from) noexcept {
+  inline SLSrtePathComputeRes_SLSrteDynamicPathResult& operator=(SLSrtePathComputeRes_SLSrteDynamicPathResult&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1954,20 +1258,20 @@ class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeResponse_SLSrteDynamicPathResult& default_instance() {
+  static const SLSrtePathComputeRes_SLSrteDynamicPathResult& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLSrtePathComputeResponse_SLSrteDynamicPathResult* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeResponse_SLSrteDynamicPathResult*>(
-               &_SLSrtePathComputeResponse_SLSrteDynamicPathResult_default_instance_);
+  static inline const SLSrtePathComputeRes_SLSrteDynamicPathResult* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeRes_SLSrteDynamicPathResult*>(
+               &_SLSrtePathComputeRes_SLSrteDynamicPathResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    6;
 
-  friend void swap(SLSrtePathComputeResponse_SLSrteDynamicPathResult& a, SLSrtePathComputeResponse_SLSrteDynamicPathResult& b) {
+  friend void swap(SLSrtePathComputeRes_SLSrteDynamicPathResult& a, SLSrtePathComputeRes_SLSrteDynamicPathResult& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeResponse_SLSrteDynamicPathResult* other) {
+  inline void Swap(SLSrtePathComputeRes_SLSrteDynamicPathResult* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1980,7 +1284,7 @@ class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeResponse_SLSrteDynamicPathResult* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeRes_SLSrteDynamicPathResult* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1988,13 +1292,13 @@ class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeResponse_SLSrteDynamicPathResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeResponse_SLSrteDynamicPathResult>(arena);
+  SLSrtePathComputeRes_SLSrteDynamicPathResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeRes_SLSrteDynamicPathResult>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeResponse_SLSrteDynamicPathResult& from);
+  void CopyFrom(const SLSrtePathComputeRes_SLSrteDynamicPathResult& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeResponse_SLSrteDynamicPathResult& from);
+  void MergeFrom(const SLSrtePathComputeRes_SLSrteDynamicPathResult& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -2011,15 +1315,15 @@ class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeResponse_SLSrteDynamicPathResult* other);
+  void InternalSwap(SLSrtePathComputeRes_SLSrteDynamicPathResult* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult";
+    return "service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult";
   }
   protected:
-  explicit SLSrtePathComputeResponse_SLSrteDynamicPathResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeRes_SLSrteDynamicPathResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -2037,7 +1341,6 @@ class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
 
   enum : int {
     kSegmentListsFieldNumber = 1,
-    kPathCostFieldNumber = 2,
     kEffectiveDiversityLevelFieldNumber = 3,
   };
   // repeated .service_layer.SLSrSegmentList segment_lists = 1;
@@ -2058,29 +1361,20 @@ class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
       segment_lists() const;
 
-  // uint32 path_cost = 2;
-  void clear_path_cost();
-  uint32_t path_cost() const;
-  void set_path_cost(uint32_t value);
-  private:
-  uint32_t _internal_path_cost() const;
-  void _internal_set_path_cost(uint32_t value);
-  public:
-
-  // optional .service_layer.SLSrteDiversityLevel effective_diversity_level = 3;
+  // optional .service_layer.SLSrDiversityLevel effective_diversity_level = 3;
   bool has_effective_diversity_level() const;
   private:
   bool _internal_has_effective_diversity_level() const;
   public:
   void clear_effective_diversity_level();
-  ::service_layer::SLSrteDiversityLevel effective_diversity_level() const;
-  void set_effective_diversity_level(::service_layer::SLSrteDiversityLevel value);
+  ::service_layer::SLSrDiversityLevel effective_diversity_level() const;
+  void set_effective_diversity_level(::service_layer::SLSrDiversityLevel value);
   private:
-  ::service_layer::SLSrteDiversityLevel _internal_effective_diversity_level() const;
-  void _internal_set_effective_diversity_level(::service_layer::SLSrteDiversityLevel value);
+  ::service_layer::SLSrDiversityLevel _internal_effective_diversity_level() const;
+  void _internal_set_effective_diversity_level(::service_layer::SLSrDiversityLevel value);
   public:
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
  private:
   class _Internal;
 
@@ -2090,30 +1384,29 @@ class SLSrtePathComputeResponse_SLSrteDynamicPathResult final :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList > segment_lists_;
-  uint32_t path_cost_;
   int effective_diversity_level_;
   friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeResponse_SLSrtePathError final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeResponse.SLSrtePathError) */ {
+class SLSrtePathComputeRes_SLSrtePathError final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRes.SLSrtePathError) */ {
  public:
-  inline SLSrtePathComputeResponse_SLSrtePathError() : SLSrtePathComputeResponse_SLSrtePathError(nullptr) {}
-  ~SLSrtePathComputeResponse_SLSrtePathError() override;
-  explicit constexpr SLSrtePathComputeResponse_SLSrtePathError(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeRes_SLSrtePathError() : SLSrtePathComputeRes_SLSrtePathError(nullptr) {}
+  ~SLSrtePathComputeRes_SLSrtePathError() override;
+  explicit constexpr SLSrtePathComputeRes_SLSrtePathError(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeResponse_SLSrtePathError(const SLSrtePathComputeResponse_SLSrtePathError& from);
-  SLSrtePathComputeResponse_SLSrtePathError(SLSrtePathComputeResponse_SLSrtePathError&& from) noexcept
-    : SLSrtePathComputeResponse_SLSrtePathError() {
+  SLSrtePathComputeRes_SLSrtePathError(const SLSrtePathComputeRes_SLSrtePathError& from);
+  SLSrtePathComputeRes_SLSrtePathError(SLSrtePathComputeRes_SLSrtePathError&& from) noexcept
+    : SLSrtePathComputeRes_SLSrtePathError() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeResponse_SLSrtePathError& operator=(const SLSrtePathComputeResponse_SLSrtePathError& from) {
+  inline SLSrtePathComputeRes_SLSrtePathError& operator=(const SLSrtePathComputeRes_SLSrtePathError& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeResponse_SLSrtePathError& operator=(SLSrtePathComputeResponse_SLSrtePathError&& from) noexcept {
+  inline SLSrtePathComputeRes_SLSrtePathError& operator=(SLSrtePathComputeRes_SLSrtePathError&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -2136,20 +1429,20 @@ class SLSrtePathComputeResponse_SLSrtePathError final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeResponse_SLSrtePathError& default_instance() {
+  static const SLSrtePathComputeRes_SLSrtePathError& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLSrtePathComputeResponse_SLSrtePathError* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeResponse_SLSrtePathError*>(
-               &_SLSrtePathComputeResponse_SLSrtePathError_default_instance_);
+  static inline const SLSrtePathComputeRes_SLSrtePathError* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeRes_SLSrtePathError*>(
+               &_SLSrtePathComputeRes_SLSrtePathError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    7;
 
-  friend void swap(SLSrtePathComputeResponse_SLSrtePathError& a, SLSrtePathComputeResponse_SLSrtePathError& b) {
+  friend void swap(SLSrtePathComputeRes_SLSrtePathError& a, SLSrtePathComputeRes_SLSrtePathError& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeResponse_SLSrtePathError* other) {
+  inline void Swap(SLSrtePathComputeRes_SLSrtePathError* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -2162,7 +1455,7 @@ class SLSrtePathComputeResponse_SLSrtePathError final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeResponse_SLSrtePathError* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeRes_SLSrtePathError* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -2170,13 +1463,13 @@ class SLSrtePathComputeResponse_SLSrtePathError final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeResponse_SLSrtePathError* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeResponse_SLSrtePathError>(arena);
+  SLSrtePathComputeRes_SLSrtePathError* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeRes_SLSrtePathError>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeResponse_SLSrtePathError& from);
+  void CopyFrom(const SLSrtePathComputeRes_SLSrtePathError& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeResponse_SLSrtePathError& from);
+  void MergeFrom(const SLSrtePathComputeRes_SLSrtePathError& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -2193,15 +1486,15 @@ class SLSrtePathComputeResponse_SLSrtePathError final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeResponse_SLSrtePathError* other);
+  void InternalSwap(SLSrtePathComputeRes_SLSrtePathError* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeResponse.SLSrtePathError";
+    return "service_layer.SLSrtePathComputeRes.SLSrtePathError";
   }
   protected:
-  explicit SLSrtePathComputeResponse_SLSrtePathError(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeRes_SLSrtePathError(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -2253,7 +1546,7 @@ class SLSrtePathComputeResponse_SLSrtePathError final :
       ::service_layer::SLErrorStatus* type);
   ::service_layer::SLErrorStatus* unsafe_arena_release_type();
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRes.SLSrtePathError)
  private:
   class _Internal;
 
@@ -2267,24 +1560,24 @@ class SLSrtePathComputeResponse_SLSrtePathError final :
 };
 // -------------------------------------------------------------------
 
-class SLSrtePathComputeResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeResponse) */ {
+class SLSrtePathComputeRes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathComputeRes) */ {
  public:
-  inline SLSrtePathComputeResponse() : SLSrtePathComputeResponse(nullptr) {}
-  ~SLSrtePathComputeResponse() override;
-  explicit constexpr SLSrtePathComputeResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrtePathComputeRes() : SLSrtePathComputeRes(nullptr) {}
+  ~SLSrtePathComputeRes() override;
+  explicit constexpr SLSrtePathComputeRes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLSrtePathComputeResponse(const SLSrtePathComputeResponse& from);
-  SLSrtePathComputeResponse(SLSrtePathComputeResponse&& from) noexcept
-    : SLSrtePathComputeResponse() {
+  SLSrtePathComputeRes(const SLSrtePathComputeRes& from);
+  SLSrtePathComputeRes(SLSrtePathComputeRes&& from) noexcept
+    : SLSrtePathComputeRes() {
     *this = ::std::move(from);
   }
 
-  inline SLSrtePathComputeResponse& operator=(const SLSrtePathComputeResponse& from) {
+  inline SLSrtePathComputeRes& operator=(const SLSrtePathComputeRes& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLSrtePathComputeResponse& operator=(SLSrtePathComputeResponse&& from) noexcept {
+  inline SLSrtePathComputeRes& operator=(SLSrtePathComputeRes&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -2307,7 +1600,7 @@ class SLSrtePathComputeResponse final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLSrtePathComputeResponse& default_instance() {
+  static const SLSrtePathComputeRes& default_instance() {
     return *internal_default_instance();
   }
   enum ResponseTypeCase {
@@ -2316,17 +1609,17 @@ class SLSrtePathComputeResponse final :
     RESPONSE_TYPE_NOT_SET = 0,
   };
 
-  static inline const SLSrtePathComputeResponse* internal_default_instance() {
-    return reinterpret_cast<const SLSrtePathComputeResponse*>(
-               &_SLSrtePathComputeResponse_default_instance_);
+  static inline const SLSrtePathComputeRes* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathComputeRes*>(
+               &_SLSrtePathComputeRes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    8;
 
-  friend void swap(SLSrtePathComputeResponse& a, SLSrtePathComputeResponse& b) {
+  friend void swap(SLSrtePathComputeRes& a, SLSrtePathComputeRes& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLSrtePathComputeResponse* other) {
+  inline void Swap(SLSrtePathComputeRes* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -2339,7 +1632,7 @@ class SLSrtePathComputeResponse final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLSrtePathComputeResponse* other) {
+  void UnsafeArenaSwap(SLSrtePathComputeRes* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -2347,13 +1640,13 @@ class SLSrtePathComputeResponse final :
 
   // implements Message ----------------------------------------------
 
-  SLSrtePathComputeResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLSrtePathComputeResponse>(arena);
+  SLSrtePathComputeRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathComputeRes>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLSrtePathComputeResponse& from);
+  void CopyFrom(const SLSrtePathComputeRes& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLSrtePathComputeResponse& from);
+  void MergeFrom(const SLSrtePathComputeRes& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -2370,15 +1663,15 @@ class SLSrtePathComputeResponse final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLSrtePathComputeResponse* other);
+  void InternalSwap(SLSrtePathComputeRes* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLSrtePathComputeResponse";
+    return "service_layer.SLSrtePathComputeRes";
   }
   protected:
-  explicit SLSrtePathComputeResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrtePathComputeRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -2392,8 +1685,8 @@ class SLSrtePathComputeResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef SLSrtePathComputeResponse_SLSrteDynamicPathResult SLSrteDynamicPathResult;
-  typedef SLSrtePathComputeResponse_SLSrtePathError SLSrtePathError;
+  typedef SLSrtePathComputeRes_SLSrteDynamicPathResult SLSrteDynamicPathResult;
+  typedef SLSrtePathComputeRes_SLSrtePathError SLSrtePathError;
 
   // accessors -------------------------------------------------------
 
@@ -2449,45 +1742,45 @@ class SLSrtePathComputeResponse final :
   void _internal_set_req_seq_num(uint64_t value);
   public:
 
-  // .service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult path_result = 4;
+  // .service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult path_result = 4;
   bool has_path_result() const;
   private:
   bool _internal_has_path_result() const;
   public:
   void clear_path_result();
-  const ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult& path_result() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* release_path_result();
-  ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* mutable_path_result();
-  void set_allocated_path_result(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* path_result);
+  const ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult& path_result() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* release_path_result();
+  ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* mutable_path_result();
+  void set_allocated_path_result(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* path_result);
   private:
-  const ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult& _internal_path_result() const;
-  ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* _internal_mutable_path_result();
+  const ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult& _internal_path_result() const;
+  ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* _internal_mutable_path_result();
   public:
   void unsafe_arena_set_allocated_path_result(
-      ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* path_result);
-  ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* unsafe_arena_release_path_result();
+      ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* path_result);
+  ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* unsafe_arena_release_path_result();
 
-  // .service_layer.SLSrtePathComputeResponse.SLSrtePathError error = 6;
+  // .service_layer.SLSrtePathComputeRes.SLSrtePathError error = 6;
   bool has_error() const;
   private:
   bool _internal_has_error() const;
   public:
   void clear_error();
-  const ::service_layer::SLSrtePathComputeResponse_SLSrtePathError& error() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* release_error();
-  ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* mutable_error();
-  void set_allocated_error(::service_layer::SLSrtePathComputeResponse_SLSrtePathError* error);
+  const ::service_layer::SLSrtePathComputeRes_SLSrtePathError& error() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrtePathComputeRes_SLSrtePathError* release_error();
+  ::service_layer::SLSrtePathComputeRes_SLSrtePathError* mutable_error();
+  void set_allocated_error(::service_layer::SLSrtePathComputeRes_SLSrtePathError* error);
   private:
-  const ::service_layer::SLSrtePathComputeResponse_SLSrtePathError& _internal_error() const;
-  ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* _internal_mutable_error();
+  const ::service_layer::SLSrtePathComputeRes_SLSrtePathError& _internal_error() const;
+  ::service_layer::SLSrtePathComputeRes_SLSrtePathError* _internal_mutable_error();
   public:
   void unsafe_arena_set_allocated_error(
-      ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* error);
-  ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* unsafe_arena_release_error();
+      ::service_layer::SLSrtePathComputeRes_SLSrtePathError* error);
+  ::service_layer::SLSrtePathComputeRes_SLSrtePathError* unsafe_arena_release_error();
 
   void clear_response_type();
   ResponseTypeCase response_type_case() const;
-  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeResponse)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathComputeRes)
  private:
   class _Internal;
   void set_has_path_result();
@@ -2505,12 +1798,353 @@ class SLSrtePathComputeResponse final :
   union ResponseTypeUnion {
     constexpr ResponseTypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* path_result_;
-    ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* error_;
+    ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* path_result_;
+    ::service_layer::SLSrtePathComputeRes_SLSrtePathError* error_;
   } response_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
 
+  friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLSrtePathAttrDynamic final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathAttrDynamic) */ {
+ public:
+  inline SLSrtePathAttrDynamic() : SLSrtePathAttrDynamic(nullptr) {}
+  ~SLSrtePathAttrDynamic() override;
+  explicit constexpr SLSrtePathAttrDynamic(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLSrtePathAttrDynamic(const SLSrtePathAttrDynamic& from);
+  SLSrtePathAttrDynamic(SLSrtePathAttrDynamic&& from) noexcept
+    : SLSrtePathAttrDynamic() {
+    *this = ::std::move(from);
+  }
+
+  inline SLSrtePathAttrDynamic& operator=(const SLSrtePathAttrDynamic& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLSrtePathAttrDynamic& operator=(SLSrtePathAttrDynamic&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLSrtePathAttrDynamic& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLSrtePathAttrDynamic* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathAttrDynamic*>(
+               &_SLSrtePathAttrDynamic_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(SLSrtePathAttrDynamic& a, SLSrtePathAttrDynamic& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLSrtePathAttrDynamic* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLSrtePathAttrDynamic* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLSrtePathAttrDynamic* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathAttrDynamic>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLSrtePathAttrDynamic& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLSrtePathAttrDynamic& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLSrtePathAttrDynamic* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLSrtePathAttrDynamic";
+  }
+  protected:
+  explicit SLSrtePathAttrDynamic(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kConstraintsFieldNumber = 2,
+    kOMetricFieldNumber = 1,
+  };
+  // .service_layer.ConstraintSet constraints = 2;
+  bool has_constraints() const;
+  private:
+  bool _internal_has_constraints() const;
+  public:
+  void clear_constraints();
+  const ::service_layer::ConstraintSet& constraints() const;
+  PROTOBUF_NODISCARD ::service_layer::ConstraintSet* release_constraints();
+  ::service_layer::ConstraintSet* mutable_constraints();
+  void set_allocated_constraints(::service_layer::ConstraintSet* constraints);
+  private:
+  const ::service_layer::ConstraintSet& _internal_constraints() const;
+  ::service_layer::ConstraintSet* _internal_mutable_constraints();
+  public:
+  void unsafe_arena_set_allocated_constraints(
+      ::service_layer::ConstraintSet* constraints);
+  ::service_layer::ConstraintSet* unsafe_arena_release_constraints();
+
+  // .service_layer.SLSrMetricType o_metric = 1;
+  void clear_o_metric();
+  ::service_layer::SLSrMetricType o_metric() const;
+  void set_o_metric(::service_layer::SLSrMetricType value);
+  private:
+  ::service_layer::SLSrMetricType _internal_o_metric() const;
+  void _internal_set_o_metric(::service_layer::SLSrMetricType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathAttrDynamic)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::ConstraintSet* constraints_;
+  int o_metric_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLSrtePathAttrExplicit final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrtePathAttrExplicit) */ {
+ public:
+  inline SLSrtePathAttrExplicit() : SLSrtePathAttrExplicit(nullptr) {}
+  ~SLSrtePathAttrExplicit() override;
+  explicit constexpr SLSrtePathAttrExplicit(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLSrtePathAttrExplicit(const SLSrtePathAttrExplicit& from);
+  SLSrtePathAttrExplicit(SLSrtePathAttrExplicit&& from) noexcept
+    : SLSrtePathAttrExplicit() {
+    *this = ::std::move(from);
+  }
+
+  inline SLSrtePathAttrExplicit& operator=(const SLSrtePathAttrExplicit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLSrtePathAttrExplicit& operator=(SLSrtePathAttrExplicit&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLSrtePathAttrExplicit& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLSrtePathAttrExplicit* internal_default_instance() {
+    return reinterpret_cast<const SLSrtePathAttrExplicit*>(
+               &_SLSrtePathAttrExplicit_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(SLSrtePathAttrExplicit& a, SLSrtePathAttrExplicit& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLSrtePathAttrExplicit* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLSrtePathAttrExplicit* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLSrtePathAttrExplicit* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrtePathAttrExplicit>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLSrtePathAttrExplicit& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLSrtePathAttrExplicit& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLSrtePathAttrExplicit* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLSrtePathAttrExplicit";
+  }
+  protected:
+  explicit SLSrtePathAttrExplicit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSegmentListsFieldNumber = 1,
+    kConstraintsFieldNumber = 2,
+  };
+  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
+  int segment_lists_size() const;
+  private:
+  int _internal_segment_lists_size() const;
+  public:
+  void clear_segment_lists();
+  ::service_layer::SLSrSegmentList* mutable_segment_lists(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
+      mutable_segment_lists();
+  private:
+  const ::service_layer::SLSrSegmentList& _internal_segment_lists(int index) const;
+  ::service_layer::SLSrSegmentList* _internal_add_segment_lists();
+  public:
+  const ::service_layer::SLSrSegmentList& segment_lists(int index) const;
+  ::service_layer::SLSrSegmentList* add_segment_lists();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
+      segment_lists() const;
+
+  // .service_layer.ConstraintSet constraints = 2;
+  bool has_constraints() const;
+  private:
+  bool _internal_has_constraints() const;
+  public:
+  void clear_constraints();
+  const ::service_layer::ConstraintSet& constraints() const;
+  PROTOBUF_NODISCARD ::service_layer::ConstraintSet* release_constraints();
+  ::service_layer::ConstraintSet* mutable_constraints();
+  void set_allocated_constraints(::service_layer::ConstraintSet* constraints);
+  private:
+  const ::service_layer::ConstraintSet& _internal_constraints() const;
+  ::service_layer::ConstraintSet* _internal_mutable_constraints();
+  public:
+  void unsafe_arena_set_allocated_constraints(
+      ::service_layer::ConstraintSet* constraints);
+  ::service_layer::ConstraintSet* unsafe_arena_release_constraints();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrtePathAttrExplicit)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList > segment_lists_;
+  ::service_layer::ConstraintSet* constraints_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2563,7 +2197,7 @@ class ConstraintSet_PathDiversity final :
                &_ConstraintSet_PathDiversity_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    11;
 
   friend void swap(ConstraintSet_PathDiversity& a, ConstraintSet_PathDiversity& b) {
     a.Swap(&b);
@@ -2660,26 +2294,26 @@ class ConstraintSet_PathDiversity final :
       ::service_layer::AssociationGroup* association);
   ::service_layer::AssociationGroup* unsafe_arena_release_association();
 
-  // .service_layer.SLSrteDiversityLevel diversity_level = 2;
+  // .service_layer.SLSrDiversityLevel diversity_level = 2;
   void clear_diversity_level();
-  ::service_layer::SLSrteDiversityLevel diversity_level() const;
-  void set_diversity_level(::service_layer::SLSrteDiversityLevel value);
+  ::service_layer::SLSrDiversityLevel diversity_level() const;
+  void set_diversity_level(::service_layer::SLSrDiversityLevel value);
   private:
-  ::service_layer::SLSrteDiversityLevel _internal_diversity_level() const;
-  void _internal_set_diversity_level(::service_layer::SLSrteDiversityLevel value);
+  ::service_layer::SLSrDiversityLevel _internal_diversity_level() const;
+  void _internal_set_diversity_level(::service_layer::SLSrDiversityLevel value);
   public:
 
-  // optional .service_layer.SLSrteDiversityLevel min_diversity_level = 3;
+  // optional .service_layer.SLSrDiversityLevel min_diversity_level = 3;
   bool has_min_diversity_level() const;
   private:
   bool _internal_has_min_diversity_level() const;
   public:
   void clear_min_diversity_level();
-  ::service_layer::SLSrteDiversityLevel min_diversity_level() const;
-  void set_min_diversity_level(::service_layer::SLSrteDiversityLevel value);
+  ::service_layer::SLSrDiversityLevel min_diversity_level() const;
+  void set_min_diversity_level(::service_layer::SLSrDiversityLevel value);
   private:
-  ::service_layer::SLSrteDiversityLevel _internal_min_diversity_level() const;
-  void _internal_set_min_diversity_level(::service_layer::SLSrteDiversityLevel value);
+  ::service_layer::SLSrDiversityLevel _internal_min_diversity_level() const;
+  void _internal_set_min_diversity_level(::service_layer::SLSrDiversityLevel value);
   public:
 
   // bool shortest_path = 4;
@@ -2756,7 +2390,7 @@ class ConstraintSet final :
                &_ConstraintSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    12;
 
   friend void swap(ConstraintSet& a, ConstraintSet& b) {
     a.Swap(&b);
@@ -3054,7 +2688,7 @@ class AssociationGroup final :
                &_AssociationGroup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    13;
 
   friend void swap(AssociationGroup& a, AssociationGroup& b) {
     a.Swap(&b);
@@ -3159,372 +2793,127 @@ class AssociationGroup final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// SLSrtePathComputeRequests
+// SLSrtePathComputeReqs
 
-// repeated .service_layer.SLSrtePathComputeRequest requests = 1;
-inline int SLSrtePathComputeRequests::_internal_requests_size() const {
+// repeated .service_layer.SLSrtePathComputeReq requests = 1;
+inline int SLSrtePathComputeReqs::_internal_requests_size() const {
   return requests_.size();
 }
-inline int SLSrtePathComputeRequests::requests_size() const {
+inline int SLSrtePathComputeReqs::requests_size() const {
   return _internal_requests_size();
 }
-inline void SLSrtePathComputeRequests::clear_requests() {
+inline void SLSrtePathComputeReqs::clear_requests() {
   requests_.Clear();
 }
-inline ::service_layer::SLSrtePathComputeRequest* SLSrtePathComputeRequests::mutable_requests(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequests.requests)
+inline ::service_layer::SLSrtePathComputeReq* SLSrtePathComputeReqs::mutable_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReqs.requests)
   return requests_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRequest >*
-SLSrtePathComputeRequests::mutable_requests() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeRequests.requests)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeReq >*
+SLSrtePathComputeReqs::mutable_requests() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeReqs.requests)
   return &requests_;
 }
-inline const ::service_layer::SLSrtePathComputeRequest& SLSrtePathComputeRequests::_internal_requests(int index) const {
+inline const ::service_layer::SLSrtePathComputeReq& SLSrtePathComputeReqs::_internal_requests(int index) const {
   return requests_.Get(index);
 }
-inline const ::service_layer::SLSrtePathComputeRequest& SLSrtePathComputeRequests::requests(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequests.requests)
+inline const ::service_layer::SLSrtePathComputeReq& SLSrtePathComputeReqs::requests(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReqs.requests)
   return _internal_requests(index);
 }
-inline ::service_layer::SLSrtePathComputeRequest* SLSrtePathComputeRequests::_internal_add_requests() {
+inline ::service_layer::SLSrtePathComputeReq* SLSrtePathComputeReqs::_internal_add_requests() {
   return requests_.Add();
 }
-inline ::service_layer::SLSrtePathComputeRequest* SLSrtePathComputeRequests::add_requests() {
-  ::service_layer::SLSrtePathComputeRequest* _add = _internal_add_requests();
-  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeRequests.requests)
+inline ::service_layer::SLSrtePathComputeReq* SLSrtePathComputeReqs::add_requests() {
+  ::service_layer::SLSrtePathComputeReq* _add = _internal_add_requests();
+  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeReqs.requests)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRequest >&
-SLSrtePathComputeRequests::requests() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeRequests.requests)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeReq >&
+SLSrtePathComputeReqs::requests() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeReqs.requests)
   return requests_;
 }
 
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeResponses
+// SLSrtePathComputeRsps
 
-// repeated .service_layer.SLSrtePathComputeResponse responses = 1;
-inline int SLSrtePathComputeResponses::_internal_responses_size() const {
+// repeated .service_layer.SLSrtePathComputeRes responses = 1;
+inline int SLSrtePathComputeRsps::_internal_responses_size() const {
   return responses_.size();
 }
-inline int SLSrtePathComputeResponses::responses_size() const {
+inline int SLSrtePathComputeRsps::responses_size() const {
   return _internal_responses_size();
 }
-inline void SLSrtePathComputeResponses::clear_responses() {
+inline void SLSrtePathComputeRsps::clear_responses() {
   responses_.Clear();
 }
-inline ::service_layer::SLSrtePathComputeResponse* SLSrtePathComputeResponses::mutable_responses(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponses.responses)
+inline ::service_layer::SLSrtePathComputeRes* SLSrtePathComputeRsps::mutable_responses(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRsps.responses)
   return responses_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeResponse >*
-SLSrtePathComputeResponses::mutable_responses() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeResponses.responses)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRes >*
+SLSrtePathComputeRsps::mutable_responses() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeRsps.responses)
   return &responses_;
 }
-inline const ::service_layer::SLSrtePathComputeResponse& SLSrtePathComputeResponses::_internal_responses(int index) const {
+inline const ::service_layer::SLSrtePathComputeRes& SLSrtePathComputeRsps::_internal_responses(int index) const {
   return responses_.Get(index);
 }
-inline const ::service_layer::SLSrtePathComputeResponse& SLSrtePathComputeResponses::responses(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponses.responses)
+inline const ::service_layer::SLSrtePathComputeRes& SLSrtePathComputeRsps::responses(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRsps.responses)
   return _internal_responses(index);
 }
-inline ::service_layer::SLSrtePathComputeResponse* SLSrtePathComputeResponses::_internal_add_responses() {
+inline ::service_layer::SLSrtePathComputeRes* SLSrtePathComputeRsps::_internal_add_responses() {
   return responses_.Add();
 }
-inline ::service_layer::SLSrtePathComputeResponse* SLSrtePathComputeResponses::add_responses() {
-  ::service_layer::SLSrtePathComputeResponse* _add = _internal_add_responses();
-  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeResponses.responses)
+inline ::service_layer::SLSrtePathComputeRes* SLSrtePathComputeRsps::add_responses() {
+  ::service_layer::SLSrtePathComputeRes* _add = _internal_add_responses();
+  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeRsps.responses)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeResponse >&
-SLSrtePathComputeResponses::responses() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeResponses.responses)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrtePathComputeRes >&
+SLSrtePathComputeRsps::responses() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeRsps.responses)
   return responses_;
 }
 
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic
-
-// .service_layer.SLSrMetricType o_metric = 1;
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::clear_o_metric() {
-  o_metric_ = 0;
-}
-inline ::service_layer::SLSrMetricType SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_internal_o_metric() const {
-  return static_cast< ::service_layer::SLSrMetricType >(o_metric_);
-}
-inline ::service_layer::SLSrMetricType SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::o_metric() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic.o_metric)
-  return _internal_o_metric();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_internal_set_o_metric(::service_layer::SLSrMetricType value) {
-  
-  o_metric_ = value;
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::set_o_metric(::service_layer::SLSrMetricType value) {
-  _internal_set_o_metric(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic.o_metric)
-}
-
-// .service_layer.ConstraintSet constraints = 2;
-inline bool SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_internal_has_constraints() const {
-  return this != internal_default_instance() && constraints_ != nullptr;
-}
-inline bool SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::has_constraints() const {
-  return _internal_has_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::clear_constraints() {
-  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
-    delete constraints_;
-  }
-  constraints_ = nullptr;
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_internal_constraints() const {
-  const ::service_layer::ConstraintSet* p = constraints_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::ConstraintSet&>(
-      ::service_layer::_ConstraintSet_default_instance_);
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::constraints() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic.constraints)
-  return _internal_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::unsafe_arena_set_allocated_constraints(
-    ::service_layer::ConstraintSet* constraints) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(constraints_);
-  }
-  constraints_ = constraints;
-  if (constraints) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic.constraints)
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::release_constraints() {
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::unsafe_arena_release_constraints() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic.constraints)
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_internal_mutable_constraints() {
-  
-  if (constraints_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::ConstraintSet>(GetArenaForAllocation());
-    constraints_ = p;
-  }
-  return constraints_;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::mutable_constraints() {
-  ::service_layer::ConstraintSet* _msg = _internal_mutable_constraints();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic.constraints)
-  return _msg;
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::set_allocated_constraints(::service_layer::ConstraintSet* constraints) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete constraints_;
-  }
-  if (constraints) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::ConstraintSet>::GetOwningArena(constraints);
-    if (message_arena != submessage_arena) {
-      constraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, constraints, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  constraints_ = constraints;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic.constraints)
-}
-
-// -------------------------------------------------------------------
-
-// SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit
-
-// repeated .service_layer.SLSrSegmentList segment_lists = 1;
-inline int SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_internal_segment_lists_size() const {
-  return segment_lists_.size();
-}
-inline int SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::segment_lists_size() const {
-  return _internal_segment_lists_size();
-}
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::mutable_segment_lists(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.segment_lists)
-  return segment_lists_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::mutable_segment_lists() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.segment_lists)
-  return &segment_lists_;
-}
-inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_internal_segment_lists(int index) const {
-  return segment_lists_.Get(index);
-}
-inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::segment_lists(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.segment_lists)
-  return _internal_segment_lists(index);
-}
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_internal_add_segment_lists() {
-  return segment_lists_.Add();
-}
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::add_segment_lists() {
-  ::service_layer::SLSrSegmentList* _add = _internal_add_segment_lists();
-  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.segment_lists)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::segment_lists() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.segment_lists)
-  return segment_lists_;
-}
-
-// .service_layer.ConstraintSet constraints = 2;
-inline bool SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_internal_has_constraints() const {
-  return this != internal_default_instance() && constraints_ != nullptr;
-}
-inline bool SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::has_constraints() const {
-  return _internal_has_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::clear_constraints() {
-  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
-    delete constraints_;
-  }
-  constraints_ = nullptr;
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_internal_constraints() const {
-  const ::service_layer::ConstraintSet* p = constraints_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::ConstraintSet&>(
-      ::service_layer::_ConstraintSet_default_instance_);
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::constraints() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.constraints)
-  return _internal_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::unsafe_arena_set_allocated_constraints(
-    ::service_layer::ConstraintSet* constraints) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(constraints_);
-  }
-  constraints_ = constraints;
-  if (constraints) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.constraints)
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::release_constraints() {
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::unsafe_arena_release_constraints() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.constraints)
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_internal_mutable_constraints() {
-  
-  if (constraints_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::ConstraintSet>(GetArenaForAllocation());
-    constraints_ = p;
-  }
-  return constraints_;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::mutable_constraints() {
-  ::service_layer::ConstraintSet* _msg = _internal_mutable_constraints();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.constraints)
-  return _msg;
-}
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::set_allocated_constraints(::service_layer::ConstraintSet* constraints) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete constraints_;
-  }
-  if (constraints) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::ConstraintSet>::GetOwningArena(constraints);
-    if (message_arena != submessage_arena) {
-      constraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, constraints, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  constraints_ = constraints;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit.constraints)
-}
-
-// -------------------------------------------------------------------
-
-// SLSrtePathComputeRequest_SLSrtePathInit
+// SLSrtePathComputeReq_SLSrtePathInit
 
 // .service_layer.SLSrDataplane dataplane = 1;
-inline void SLSrtePathComputeRequest_SLSrtePathInit::clear_dataplane() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::clear_dataplane() {
   dataplane_ = 0;
 }
-inline ::service_layer::SLSrDataplane SLSrtePathComputeRequest_SLSrtePathInit::_internal_dataplane() const {
+inline ::service_layer::SLSrDataplane SLSrtePathComputeReq_SLSrtePathInit::_internal_dataplane() const {
   return static_cast< ::service_layer::SLSrDataplane >(dataplane_);
 }
-inline ::service_layer::SLSrDataplane SLSrtePathComputeRequest_SLSrtePathInit::dataplane() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dataplane)
+inline ::service_layer::SLSrDataplane SLSrtePathComputeReq_SLSrtePathInit::dataplane() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dataplane)
   return _internal_dataplane();
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::_internal_set_dataplane(::service_layer::SLSrDataplane value) {
+inline void SLSrtePathComputeReq_SLSrtePathInit::_internal_set_dataplane(::service_layer::SLSrDataplane value) {
   
   dataplane_ = value;
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::set_dataplane(::service_layer::SLSrDataplane value) {
+inline void SLSrtePathComputeReq_SLSrtePathInit::set_dataplane(::service_layer::SLSrDataplane value) {
   _internal_set_dataplane(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dataplane)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dataplane)
 }
 
-// .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic dynamic = 2;
-inline bool SLSrtePathComputeRequest_SLSrtePathInit::_internal_has_dynamic() const {
+// .service_layer.SLSrtePathAttrDynamic dynamic = 2;
+inline bool SLSrtePathComputeReq_SLSrtePathInit::_internal_has_dynamic() const {
   return path_init_type_case() == kDynamic;
 }
-inline bool SLSrtePathComputeRequest_SLSrtePathInit::has_dynamic() const {
+inline bool SLSrtePathComputeReq_SLSrtePathInit::has_dynamic() const {
   return _internal_has_dynamic();
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::set_has_dynamic() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::set_has_dynamic() {
   _oneof_case_[0] = kDynamic;
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::clear_dynamic() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::clear_dynamic() {
   if (_internal_has_dynamic()) {
     if (GetArenaForAllocation() == nullptr) {
       delete path_init_type_.dynamic_;
@@ -3532,11 +2921,11 @@ inline void SLSrtePathComputeRequest_SLSrtePathInit::clear_dynamic() {
     clear_has_path_init_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* SLSrtePathComputeRequest_SLSrtePathInit::release_dynamic() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dynamic)
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathInit::release_dynamic() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dynamic)
   if (_internal_has_dynamic()) {
     clear_has_path_init_type();
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* temp = path_init_type_.dynamic_;
+      ::service_layer::SLSrtePathAttrDynamic* temp = path_init_type_.dynamic_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3546,59 +2935,59 @@ inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDy
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& SLSrtePathComputeRequest_SLSrtePathInit::_internal_dynamic() const {
+inline const ::service_layer::SLSrtePathAttrDynamic& SLSrtePathComputeReq_SLSrtePathInit::_internal_dynamic() const {
   return _internal_has_dynamic()
       ? *path_init_type_.dynamic_
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic&>(::service_layer::_SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathAttrDynamic&>(::service_layer::_SLSrtePathAttrDynamic_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& SLSrtePathComputeRequest_SLSrtePathInit::dynamic() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dynamic)
+inline const ::service_layer::SLSrtePathAttrDynamic& SLSrtePathComputeReq_SLSrtePathInit::dynamic() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dynamic)
   return _internal_dynamic();
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* SLSrtePathComputeRequest_SLSrtePathInit::unsafe_arena_release_dynamic() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dynamic)
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathInit::unsafe_arena_release_dynamic() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dynamic)
   if (_internal_has_dynamic()) {
     clear_has_path_init_type();
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* temp = path_init_type_.dynamic_;
+    ::service_layer::SLSrtePathAttrDynamic* temp = path_init_type_.dynamic_;
     path_init_type_.dynamic_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::unsafe_arena_set_allocated_dynamic(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* dynamic) {
+inline void SLSrtePathComputeReq_SLSrtePathInit::unsafe_arena_set_allocated_dynamic(::service_layer::SLSrtePathAttrDynamic* dynamic) {
   clear_path_init_type();
   if (dynamic) {
     set_has_dynamic();
     path_init_type_.dynamic_ = dynamic;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dynamic)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dynamic)
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* SLSrtePathComputeRequest_SLSrtePathInit::_internal_mutable_dynamic() {
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathInit::_internal_mutable_dynamic() {
   if (!_internal_has_dynamic()) {
     clear_path_init_type();
     set_has_dynamic();
-    path_init_type_.dynamic_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic >(GetArenaForAllocation());
+    path_init_type_.dynamic_ = CreateMaybeMessage< ::service_layer::SLSrtePathAttrDynamic >(GetArenaForAllocation());
   }
   return path_init_type_.dynamic_;
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* SLSrtePathComputeRequest_SLSrtePathInit::mutable_dynamic() {
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* _msg = _internal_mutable_dynamic();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dynamic)
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathInit::mutable_dynamic() {
+  ::service_layer::SLSrtePathAttrDynamic* _msg = _internal_mutable_dynamic();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dynamic)
   return _msg;
 }
 
-// .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit explicit = 3;
-inline bool SLSrtePathComputeRequest_SLSrtePathInit::_internal_has_explicit_() const {
+// .service_layer.SLSrtePathAttrExplicit explicit = 3;
+inline bool SLSrtePathComputeReq_SLSrtePathInit::_internal_has_explicit_() const {
   return path_init_type_case() == kExplicit;
 }
-inline bool SLSrtePathComputeRequest_SLSrtePathInit::has_explicit_() const {
+inline bool SLSrtePathComputeReq_SLSrtePathInit::has_explicit_() const {
   return _internal_has_explicit_();
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::set_has_explicit_() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::set_has_explicit_() {
   _oneof_case_[0] = kExplicit;
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::clear_explicit_() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::clear_explicit_() {
   if (_internal_has_explicit_()) {
     if (GetArenaForAllocation() == nullptr) {
       delete path_init_type_.explicit__;
@@ -3606,11 +2995,11 @@ inline void SLSrtePathComputeRequest_SLSrtePathInit::clear_explicit_() {
     clear_has_path_init_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* SLSrtePathComputeRequest_SLSrtePathInit::release_explicit_() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.explicit)
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathInit::release_explicit_() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.SLSrtePathInit.explicit)
   if (_internal_has_explicit_()) {
     clear_has_path_init_type();
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* temp = path_init_type_.explicit__;
+      ::service_layer::SLSrtePathAttrExplicit* temp = path_init_type_.explicit__;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3620,317 +3009,72 @@ inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitEx
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& SLSrtePathComputeRequest_SLSrtePathInit::_internal_explicit_() const {
+inline const ::service_layer::SLSrtePathAttrExplicit& SLSrtePathComputeReq_SLSrtePathInit::_internal_explicit_() const {
   return _internal_has_explicit_()
       ? *path_init_type_.explicit__
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit&>(::service_layer::_SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathAttrExplicit&>(::service_layer::_SLSrtePathAttrExplicit_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& SLSrtePathComputeRequest_SLSrtePathInit::explicit_() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.explicit)
+inline const ::service_layer::SLSrtePathAttrExplicit& SLSrtePathComputeReq_SLSrtePathInit::explicit_() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.SLSrtePathInit.explicit)
   return _internal_explicit_();
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* SLSrtePathComputeRequest_SLSrtePathInit::unsafe_arena_release_explicit_() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.explicit)
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathInit::unsafe_arena_release_explicit_() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeReq.SLSrtePathInit.explicit)
   if (_internal_has_explicit_()) {
     clear_has_path_init_type();
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* temp = path_init_type_.explicit__;
+    ::service_layer::SLSrtePathAttrExplicit* temp = path_init_type_.explicit__;
     path_init_type_.explicit__ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::unsafe_arena_set_allocated_explicit_(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* explicit_) {
+inline void SLSrtePathComputeReq_SLSrtePathInit::unsafe_arena_set_allocated_explicit_(::service_layer::SLSrtePathAttrExplicit* explicit_) {
   clear_path_init_type();
   if (explicit_) {
     set_has_explicit_();
     path_init_type_.explicit__ = explicit_;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.explicit)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathInit.explicit)
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* SLSrtePathComputeRequest_SLSrtePathInit::_internal_mutable_explicit_() {
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathInit::_internal_mutable_explicit_() {
   if (!_internal_has_explicit_()) {
     clear_path_init_type();
     set_has_explicit_();
-    path_init_type_.explicit__ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit >(GetArenaForAllocation());
+    path_init_type_.explicit__ = CreateMaybeMessage< ::service_layer::SLSrtePathAttrExplicit >(GetArenaForAllocation());
   }
   return path_init_type_.explicit__;
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* SLSrtePathComputeRequest_SLSrtePathInit::mutable_explicit_() {
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* _msg = _internal_mutable_explicit_();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.explicit)
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathInit::mutable_explicit_() {
+  ::service_layer::SLSrtePathAttrExplicit* _msg = _internal_mutable_explicit_();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.SLSrtePathInit.explicit)
   return _msg;
 }
 
-inline bool SLSrtePathComputeRequest_SLSrtePathInit::has_path_init_type() const {
+inline bool SLSrtePathComputeReq_SLSrtePathInit::has_path_init_type() const {
   return path_init_type_case() != PATH_INIT_TYPE_NOT_SET;
 }
-inline void SLSrtePathComputeRequest_SLSrtePathInit::clear_has_path_init_type() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::clear_has_path_init_type() {
   _oneof_case_[0] = PATH_INIT_TYPE_NOT_SET;
 }
-inline SLSrtePathComputeRequest_SLSrtePathInit::PathInitTypeCase SLSrtePathComputeRequest_SLSrtePathInit::path_init_type_case() const {
-  return SLSrtePathComputeRequest_SLSrtePathInit::PathInitTypeCase(_oneof_case_[0]);
+inline SLSrtePathComputeReq_SLSrtePathInit::PathInitTypeCase SLSrtePathComputeReq_SLSrtePathInit::path_init_type_case() const {
+  return SLSrtePathComputeReq_SLSrtePathInit::PathInitTypeCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic
+// SLSrtePathComputeReq_SLSrtePathUpdate
 
-// .service_layer.SLSrMetricType o_metric = 1;
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::clear_o_metric() {
-  o_metric_ = 0;
-}
-inline ::service_layer::SLSrMetricType SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_internal_o_metric() const {
-  return static_cast< ::service_layer::SLSrMetricType >(o_metric_);
-}
-inline ::service_layer::SLSrMetricType SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::o_metric() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic.o_metric)
-  return _internal_o_metric();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_internal_set_o_metric(::service_layer::SLSrMetricType value) {
-  
-  o_metric_ = value;
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::set_o_metric(::service_layer::SLSrMetricType value) {
-  _internal_set_o_metric(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic.o_metric)
-}
-
-// .service_layer.ConstraintSet constraints = 2;
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_internal_has_constraints() const {
-  return this != internal_default_instance() && constraints_ != nullptr;
-}
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::has_constraints() const {
-  return _internal_has_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::clear_constraints() {
-  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
-    delete constraints_;
-  }
-  constraints_ = nullptr;
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_internal_constraints() const {
-  const ::service_layer::ConstraintSet* p = constraints_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::ConstraintSet&>(
-      ::service_layer::_ConstraintSet_default_instance_);
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::constraints() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic.constraints)
-  return _internal_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::unsafe_arena_set_allocated_constraints(
-    ::service_layer::ConstraintSet* constraints) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(constraints_);
-  }
-  constraints_ = constraints;
-  if (constraints) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic.constraints)
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::release_constraints() {
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::unsafe_arena_release_constraints() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic.constraints)
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_internal_mutable_constraints() {
-  
-  if (constraints_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::ConstraintSet>(GetArenaForAllocation());
-    constraints_ = p;
-  }
-  return constraints_;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::mutable_constraints() {
-  ::service_layer::ConstraintSet* _msg = _internal_mutable_constraints();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic.constraints)
-  return _msg;
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::set_allocated_constraints(::service_layer::ConstraintSet* constraints) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete constraints_;
-  }
-  if (constraints) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::ConstraintSet>::GetOwningArena(constraints);
-    if (message_arena != submessage_arena) {
-      constraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, constraints, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  constraints_ = constraints;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic.constraints)
-}
-
-// -------------------------------------------------------------------
-
-// SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit
-
-// repeated .service_layer.SLSrSegmentList segment_lists = 1;
-inline int SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_internal_segment_lists_size() const {
-  return segment_lists_.size();
-}
-inline int SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::segment_lists_size() const {
-  return _internal_segment_lists_size();
-}
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::mutable_segment_lists(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.segment_lists)
-  return segment_lists_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::mutable_segment_lists() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.segment_lists)
-  return &segment_lists_;
-}
-inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_internal_segment_lists(int index) const {
-  return segment_lists_.Get(index);
-}
-inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::segment_lists(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.segment_lists)
-  return _internal_segment_lists(index);
-}
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_internal_add_segment_lists() {
-  return segment_lists_.Add();
-}
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::add_segment_lists() {
-  ::service_layer::SLSrSegmentList* _add = _internal_add_segment_lists();
-  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.segment_lists)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::segment_lists() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.segment_lists)
-  return segment_lists_;
-}
-
-// .service_layer.ConstraintSet constraints = 2;
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_internal_has_constraints() const {
-  return this != internal_default_instance() && constraints_ != nullptr;
-}
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::has_constraints() const {
-  return _internal_has_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::clear_constraints() {
-  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
-    delete constraints_;
-  }
-  constraints_ = nullptr;
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_internal_constraints() const {
-  const ::service_layer::ConstraintSet* p = constraints_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::ConstraintSet&>(
-      ::service_layer::_ConstraintSet_default_instance_);
-}
-inline const ::service_layer::ConstraintSet& SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::constraints() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.constraints)
-  return _internal_constraints();
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::unsafe_arena_set_allocated_constraints(
-    ::service_layer::ConstraintSet* constraints) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(constraints_);
-  }
-  constraints_ = constraints;
-  if (constraints) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.constraints)
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::release_constraints() {
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::unsafe_arena_release_constraints() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.constraints)
-  
-  ::service_layer::ConstraintSet* temp = constraints_;
-  constraints_ = nullptr;
-  return temp;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_internal_mutable_constraints() {
-  
-  if (constraints_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::ConstraintSet>(GetArenaForAllocation());
-    constraints_ = p;
-  }
-  return constraints_;
-}
-inline ::service_layer::ConstraintSet* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::mutable_constraints() {
-  ::service_layer::ConstraintSet* _msg = _internal_mutable_constraints();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.constraints)
-  return _msg;
-}
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::set_allocated_constraints(::service_layer::ConstraintSet* constraints) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete constraints_;
-  }
-  if (constraints) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::ConstraintSet>::GetOwningArena(constraints);
-    if (message_arena != submessage_arena) {
-      constraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, constraints, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  constraints_ = constraints;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit.constraints)
-}
-
-// -------------------------------------------------------------------
-
-// SLSrtePathComputeRequest_SLSrtePathUpdate
-
-// .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic dynamic = 1;
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate::_internal_has_dynamic() const {
+// .service_layer.SLSrtePathAttrDynamic dynamic = 1;
+inline bool SLSrtePathComputeReq_SLSrtePathUpdate::_internal_has_dynamic() const {
   return path_update_type_case() == kDynamic;
 }
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate::has_dynamic() const {
+inline bool SLSrtePathComputeReq_SLSrtePathUpdate::has_dynamic() const {
   return _internal_has_dynamic();
 }
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::set_has_dynamic() {
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::set_has_dynamic() {
   _oneof_case_[0] = kDynamic;
 }
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::clear_dynamic() {
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::clear_dynamic() {
   if (_internal_has_dynamic()) {
     if (GetArenaForAllocation() == nullptr) {
       delete path_update_type_.dynamic_;
@@ -3938,11 +3082,11 @@ inline void SLSrtePathComputeRequest_SLSrtePathUpdate::clear_dynamic() {
     clear_has_path_update_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* SLSrtePathComputeRequest_SLSrtePathUpdate::release_dynamic() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.dynamic)
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathUpdate::release_dynamic() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.dynamic)
   if (_internal_has_dynamic()) {
     clear_has_path_update_type();
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* temp = path_update_type_.dynamic_;
+      ::service_layer::SLSrtePathAttrDynamic* temp = path_update_type_.dynamic_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3952,59 +3096,59 @@ inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpda
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& SLSrtePathComputeRequest_SLSrtePathUpdate::_internal_dynamic() const {
+inline const ::service_layer::SLSrtePathAttrDynamic& SLSrtePathComputeReq_SLSrtePathUpdate::_internal_dynamic() const {
   return _internal_has_dynamic()
       ? *path_update_type_.dynamic_
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic&>(::service_layer::_SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathAttrDynamic&>(::service_layer::_SLSrtePathAttrDynamic_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& SLSrtePathComputeRequest_SLSrtePathUpdate::dynamic() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.dynamic)
+inline const ::service_layer::SLSrtePathAttrDynamic& SLSrtePathComputeReq_SLSrtePathUpdate::dynamic() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.dynamic)
   return _internal_dynamic();
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* SLSrtePathComputeRequest_SLSrtePathUpdate::unsafe_arena_release_dynamic() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.dynamic)
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathUpdate::unsafe_arena_release_dynamic() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.dynamic)
   if (_internal_has_dynamic()) {
     clear_has_path_update_type();
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* temp = path_update_type_.dynamic_;
+    ::service_layer::SLSrtePathAttrDynamic* temp = path_update_type_.dynamic_;
     path_update_type_.dynamic_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::unsafe_arena_set_allocated_dynamic(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* dynamic) {
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::unsafe_arena_set_allocated_dynamic(::service_layer::SLSrtePathAttrDynamic* dynamic) {
   clear_path_update_type();
   if (dynamic) {
     set_has_dynamic();
     path_update_type_.dynamic_ = dynamic;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.dynamic)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.dynamic)
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* SLSrtePathComputeRequest_SLSrtePathUpdate::_internal_mutable_dynamic() {
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathUpdate::_internal_mutable_dynamic() {
   if (!_internal_has_dynamic()) {
     clear_path_update_type();
     set_has_dynamic();
-    path_update_type_.dynamic_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic >(GetArenaForAllocation());
+    path_update_type_.dynamic_ = CreateMaybeMessage< ::service_layer::SLSrtePathAttrDynamic >(GetArenaForAllocation());
   }
   return path_update_type_.dynamic_;
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* SLSrtePathComputeRequest_SLSrtePathUpdate::mutable_dynamic() {
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* _msg = _internal_mutable_dynamic();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.dynamic)
+inline ::service_layer::SLSrtePathAttrDynamic* SLSrtePathComputeReq_SLSrtePathUpdate::mutable_dynamic() {
+  ::service_layer::SLSrtePathAttrDynamic* _msg = _internal_mutable_dynamic();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.dynamic)
   return _msg;
 }
 
-// .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit explicit = 2;
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate::_internal_has_explicit_() const {
+// .service_layer.SLSrtePathAttrExplicit explicit = 2;
+inline bool SLSrtePathComputeReq_SLSrtePathUpdate::_internal_has_explicit_() const {
   return path_update_type_case() == kExplicit;
 }
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate::has_explicit_() const {
+inline bool SLSrtePathComputeReq_SLSrtePathUpdate::has_explicit_() const {
   return _internal_has_explicit_();
 }
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::set_has_explicit_() {
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::set_has_explicit_() {
   _oneof_case_[0] = kExplicit;
 }
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::clear_explicit_() {
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::clear_explicit_() {
   if (_internal_has_explicit_()) {
     if (GetArenaForAllocation() == nullptr) {
       delete path_update_type_.explicit__;
@@ -4012,11 +3156,11 @@ inline void SLSrtePathComputeRequest_SLSrtePathUpdate::clear_explicit_() {
     clear_has_path_update_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* SLSrtePathComputeRequest_SLSrtePathUpdate::release_explicit_() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.explicit)
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathUpdate::release_explicit_() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.explicit)
   if (_internal_has_explicit_()) {
     clear_has_path_update_type();
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* temp = path_update_type_.explicit__;
+      ::service_layer::SLSrtePathAttrExplicit* temp = path_update_type_.explicit__;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4026,82 +3170,82 @@ inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpda
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& SLSrtePathComputeRequest_SLSrtePathUpdate::_internal_explicit_() const {
+inline const ::service_layer::SLSrtePathAttrExplicit& SLSrtePathComputeReq_SLSrtePathUpdate::_internal_explicit_() const {
   return _internal_has_explicit_()
       ? *path_update_type_.explicit__
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit&>(::service_layer::_SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathAttrExplicit&>(::service_layer::_SLSrtePathAttrExplicit_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& SLSrtePathComputeRequest_SLSrtePathUpdate::explicit_() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.explicit)
+inline const ::service_layer::SLSrtePathAttrExplicit& SLSrtePathComputeReq_SLSrtePathUpdate::explicit_() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.explicit)
   return _internal_explicit_();
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* SLSrtePathComputeRequest_SLSrtePathUpdate::unsafe_arena_release_explicit_() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.explicit)
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathUpdate::unsafe_arena_release_explicit_() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.explicit)
   if (_internal_has_explicit_()) {
     clear_has_path_update_type();
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* temp = path_update_type_.explicit__;
+    ::service_layer::SLSrtePathAttrExplicit* temp = path_update_type_.explicit__;
     path_update_type_.explicit__ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::unsafe_arena_set_allocated_explicit_(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* explicit_) {
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::unsafe_arena_set_allocated_explicit_(::service_layer::SLSrtePathAttrExplicit* explicit_) {
   clear_path_update_type();
   if (explicit_) {
     set_has_explicit_();
     path_update_type_.explicit__ = explicit_;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.explicit)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.explicit)
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* SLSrtePathComputeRequest_SLSrtePathUpdate::_internal_mutable_explicit_() {
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathUpdate::_internal_mutable_explicit_() {
   if (!_internal_has_explicit_()) {
     clear_path_update_type();
     set_has_explicit_();
-    path_update_type_.explicit__ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit >(GetArenaForAllocation());
+    path_update_type_.explicit__ = CreateMaybeMessage< ::service_layer::SLSrtePathAttrExplicit >(GetArenaForAllocation());
   }
   return path_update_type_.explicit__;
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* SLSrtePathComputeRequest_SLSrtePathUpdate::mutable_explicit_() {
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* _msg = _internal_mutable_explicit_();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.explicit)
+inline ::service_layer::SLSrtePathAttrExplicit* SLSrtePathComputeReq_SLSrtePathUpdate::mutable_explicit_() {
+  ::service_layer::SLSrtePathAttrExplicit* _msg = _internal_mutable_explicit_();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.explicit)
   return _msg;
 }
 
-inline bool SLSrtePathComputeRequest_SLSrtePathUpdate::has_path_update_type() const {
+inline bool SLSrtePathComputeReq_SLSrtePathUpdate::has_path_update_type() const {
   return path_update_type_case() != PATH_UPDATE_TYPE_NOT_SET;
 }
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::clear_has_path_update_type() {
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::clear_has_path_update_type() {
   _oneof_case_[0] = PATH_UPDATE_TYPE_NOT_SET;
 }
-inline SLSrtePathComputeRequest_SLSrtePathUpdate::PathUpdateTypeCase SLSrtePathComputeRequest_SLSrtePathUpdate::path_update_type_case() const {
-  return SLSrtePathComputeRequest_SLSrtePathUpdate::PathUpdateTypeCase(_oneof_case_[0]);
+inline SLSrtePathComputeReq_SLSrtePathUpdate::PathUpdateTypeCase SLSrtePathComputeReq_SLSrtePathUpdate::path_update_type_case() const {
+  return SLSrtePathComputeReq_SLSrtePathUpdate::PathUpdateTypeCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeRequest_SLSrtePathWithdraw
+// SLSrtePathComputeReq_SLSrtePathWithdraw
 
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeRequest
+// SLSrtePathComputeReq
 
 // .service_layer.SLSrPolicyKey policy_key = 1;
-inline bool SLSrtePathComputeRequest::_internal_has_policy_key() const {
+inline bool SLSrtePathComputeReq::_internal_has_policy_key() const {
   return this != internal_default_instance() && policy_key_ != nullptr;
 }
-inline bool SLSrtePathComputeRequest::has_policy_key() const {
+inline bool SLSrtePathComputeReq::has_policy_key() const {
   return _internal_has_policy_key();
 }
-inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeRequest::_internal_policy_key() const {
+inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeReq::_internal_policy_key() const {
   const ::service_layer::SLSrPolicyKey* p = policy_key_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrPolicyKey&>(
       ::service_layer::_SLSrPolicyKey_default_instance_);
 }
-inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeRequest::policy_key() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.policy_key)
+inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeReq::policy_key() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.policy_key)
   return _internal_policy_key();
 }
-inline void SLSrtePathComputeRequest::unsafe_arena_set_allocated_policy_key(
+inline void SLSrtePathComputeReq::unsafe_arena_set_allocated_policy_key(
     ::service_layer::SLSrPolicyKey* policy_key) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(policy_key_);
@@ -4112,9 +3256,9 @@ inline void SLSrtePathComputeRequest::unsafe_arena_set_allocated_policy_key(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.policy_key)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.policy_key)
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRequest::release_policy_key() {
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeReq::release_policy_key() {
   
   ::service_layer::SLSrPolicyKey* temp = policy_key_;
   policy_key_ = nullptr;
@@ -4129,14 +3273,14 @@ inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRequest::release_policy_
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRequest::unsafe_arena_release_policy_key() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.policy_key)
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeReq::unsafe_arena_release_policy_key() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.policy_key)
   
   ::service_layer::SLSrPolicyKey* temp = policy_key_;
   policy_key_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRequest::_internal_mutable_policy_key() {
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeReq::_internal_mutable_policy_key() {
   
   if (policy_key_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrPolicyKey>(GetArenaForAllocation());
@@ -4144,12 +3288,12 @@ inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRequest::_internal_mutab
   }
   return policy_key_;
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRequest::mutable_policy_key() {
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeReq::mutable_policy_key() {
   ::service_layer::SLSrPolicyKey* _msg = _internal_mutable_policy_key();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.policy_key)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.policy_key)
   return _msg;
 }
-inline void SLSrtePathComputeRequest::set_allocated_policy_key(::service_layer::SLSrPolicyKey* policy_key) {
+inline void SLSrtePathComputeReq::set_allocated_policy_key(::service_layer::SLSrPolicyKey* policy_key) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(policy_key_);
@@ -4168,26 +3312,26 @@ inline void SLSrtePathComputeRequest::set_allocated_policy_key(::service_layer::
     
   }
   policy_key_ = policy_key;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.policy_key)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.policy_key)
 }
 
 // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-inline bool SLSrtePathComputeRequest::_internal_has_candidate_path_key() const {
+inline bool SLSrtePathComputeReq::_internal_has_candidate_path_key() const {
   return this != internal_default_instance() && candidate_path_key_ != nullptr;
 }
-inline bool SLSrtePathComputeRequest::has_candidate_path_key() const {
+inline bool SLSrtePathComputeReq::has_candidate_path_key() const {
   return _internal_has_candidate_path_key();
 }
-inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeRequest::_internal_candidate_path_key() const {
+inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeReq::_internal_candidate_path_key() const {
   const ::service_layer::SLSrCandidatePathKey* p = candidate_path_key_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrCandidatePathKey&>(
       ::service_layer::_SLSrCandidatePathKey_default_instance_);
 }
-inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeRequest::candidate_path_key() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.candidate_path_key)
+inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeReq::candidate_path_key() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.candidate_path_key)
   return _internal_candidate_path_key();
 }
-inline void SLSrtePathComputeRequest::unsafe_arena_set_allocated_candidate_path_key(
+inline void SLSrtePathComputeReq::unsafe_arena_set_allocated_candidate_path_key(
     ::service_layer::SLSrCandidatePathKey* candidate_path_key) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(candidate_path_key_);
@@ -4198,9 +3342,9 @@ inline void SLSrtePathComputeRequest::unsafe_arena_set_allocated_candidate_path_
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.candidate_path_key)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.candidate_path_key)
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRequest::release_candidate_path_key() {
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeReq::release_candidate_path_key() {
   
   ::service_layer::SLSrCandidatePathKey* temp = candidate_path_key_;
   candidate_path_key_ = nullptr;
@@ -4215,14 +3359,14 @@ inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRequest::release_
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRequest::unsafe_arena_release_candidate_path_key() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.candidate_path_key)
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeReq::unsafe_arena_release_candidate_path_key() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.candidate_path_key)
   
   ::service_layer::SLSrCandidatePathKey* temp = candidate_path_key_;
   candidate_path_key_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRequest::_internal_mutable_candidate_path_key() {
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeReq::_internal_mutable_candidate_path_key() {
   
   if (candidate_path_key_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrCandidatePathKey>(GetArenaForAllocation());
@@ -4230,12 +3374,12 @@ inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRequest::_interna
   }
   return candidate_path_key_;
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRequest::mutable_candidate_path_key() {
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeReq::mutable_candidate_path_key() {
   ::service_layer::SLSrCandidatePathKey* _msg = _internal_mutable_candidate_path_key();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.candidate_path_key)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.candidate_path_key)
   return _msg;
 }
-inline void SLSrtePathComputeRequest::set_allocated_candidate_path_key(::service_layer::SLSrCandidatePathKey* candidate_path_key) {
+inline void SLSrtePathComputeReq::set_allocated_candidate_path_key(::service_layer::SLSrCandidatePathKey* candidate_path_key) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(candidate_path_key_);
@@ -4254,40 +3398,40 @@ inline void SLSrtePathComputeRequest::set_allocated_candidate_path_key(::service
     
   }
   candidate_path_key_ = candidate_path_key;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.candidate_path_key)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.candidate_path_key)
 }
 
 // uint64 seq_num = 3;
-inline void SLSrtePathComputeRequest::clear_seq_num() {
+inline void SLSrtePathComputeReq::clear_seq_num() {
   seq_num_ = uint64_t{0u};
 }
-inline uint64_t SLSrtePathComputeRequest::_internal_seq_num() const {
+inline uint64_t SLSrtePathComputeReq::_internal_seq_num() const {
   return seq_num_;
 }
-inline uint64_t SLSrtePathComputeRequest::seq_num() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.seq_num)
+inline uint64_t SLSrtePathComputeReq::seq_num() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.seq_num)
   return _internal_seq_num();
 }
-inline void SLSrtePathComputeRequest::_internal_set_seq_num(uint64_t value) {
+inline void SLSrtePathComputeReq::_internal_set_seq_num(uint64_t value) {
   
   seq_num_ = value;
 }
-inline void SLSrtePathComputeRequest::set_seq_num(uint64_t value) {
+inline void SLSrtePathComputeReq::set_seq_num(uint64_t value) {
   _internal_set_seq_num(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeRequest.seq_num)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeReq.seq_num)
 }
 
-// .service_layer.SLSrtePathComputeRequest.SLSrtePathInit init = 4;
-inline bool SLSrtePathComputeRequest::_internal_has_init() const {
+// .service_layer.SLSrtePathComputeReq.SLSrtePathInit init = 4;
+inline bool SLSrtePathComputeReq::_internal_has_init() const {
   return request_type_case() == kInit;
 }
-inline bool SLSrtePathComputeRequest::has_init() const {
+inline bool SLSrtePathComputeReq::has_init() const {
   return _internal_has_init();
 }
-inline void SLSrtePathComputeRequest::set_has_init() {
+inline void SLSrtePathComputeReq::set_has_init() {
   _oneof_case_[0] = kInit;
 }
-inline void SLSrtePathComputeRequest::clear_init() {
+inline void SLSrtePathComputeReq::clear_init() {
   if (_internal_has_init()) {
     if (GetArenaForAllocation() == nullptr) {
       delete request_type_.init_;
@@ -4295,11 +3439,11 @@ inline void SLSrtePathComputeRequest::clear_init() {
     clear_has_request_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* SLSrtePathComputeRequest::release_init() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.init)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* SLSrtePathComputeReq::release_init() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.init)
   if (_internal_has_init()) {
     clear_has_request_type();
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* temp = request_type_.init_;
+      ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* temp = request_type_.init_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4309,59 +3453,59 @@ inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* SLSrtePathCompu
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit& SLSrtePathComputeRequest::_internal_init() const {
+inline const ::service_layer::SLSrtePathComputeReq_SLSrtePathInit& SLSrtePathComputeReq::_internal_init() const {
   return _internal_has_init()
       ? *request_type_.init_
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit&>(::service_layer::_SLSrtePathComputeRequest_SLSrtePathInit_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathComputeReq_SLSrtePathInit&>(::service_layer::_SLSrtePathComputeReq_SLSrtePathInit_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit& SLSrtePathComputeRequest::init() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.init)
+inline const ::service_layer::SLSrtePathComputeReq_SLSrtePathInit& SLSrtePathComputeReq::init() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.init)
   return _internal_init();
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* SLSrtePathComputeRequest::unsafe_arena_release_init() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRequest.init)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* SLSrtePathComputeReq::unsafe_arena_release_init() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeReq.init)
   if (_internal_has_init()) {
     clear_has_request_type();
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* temp = request_type_.init_;
+    ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* temp = request_type_.init_;
     request_type_.init_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeRequest::unsafe_arena_set_allocated_init(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* init) {
+inline void SLSrtePathComputeReq::unsafe_arena_set_allocated_init(::service_layer::SLSrtePathComputeReq_SLSrtePathInit* init) {
   clear_request_type();
   if (init) {
     set_has_init();
     request_type_.init_ = init;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.init)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.init)
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* SLSrtePathComputeRequest::_internal_mutable_init() {
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* SLSrtePathComputeReq::_internal_mutable_init() {
   if (!_internal_has_init()) {
     clear_request_type();
     set_has_init();
-    request_type_.init_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit >(GetArenaForAllocation());
+    request_type_.init_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeReq_SLSrtePathInit >(GetArenaForAllocation());
   }
   return request_type_.init_;
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* SLSrtePathComputeRequest::mutable_init() {
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* _msg = _internal_mutable_init();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.init)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* SLSrtePathComputeReq::mutable_init() {
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* _msg = _internal_mutable_init();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.init)
   return _msg;
 }
 
-// .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate update = 5;
-inline bool SLSrtePathComputeRequest::_internal_has_update() const {
+// .service_layer.SLSrtePathComputeReq.SLSrtePathUpdate update = 5;
+inline bool SLSrtePathComputeReq::_internal_has_update() const {
   return request_type_case() == kUpdate;
 }
-inline bool SLSrtePathComputeRequest::has_update() const {
+inline bool SLSrtePathComputeReq::has_update() const {
   return _internal_has_update();
 }
-inline void SLSrtePathComputeRequest::set_has_update() {
+inline void SLSrtePathComputeReq::set_has_update() {
   _oneof_case_[0] = kUpdate;
 }
-inline void SLSrtePathComputeRequest::clear_update() {
+inline void SLSrtePathComputeReq::clear_update() {
   if (_internal_has_update()) {
     if (GetArenaForAllocation() == nullptr) {
       delete request_type_.update_;
@@ -4369,11 +3513,11 @@ inline void SLSrtePathComputeRequest::clear_update() {
     clear_has_request_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* SLSrtePathComputeRequest::release_update() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.update)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* SLSrtePathComputeReq::release_update() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.update)
   if (_internal_has_update()) {
     clear_has_request_type();
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* temp = request_type_.update_;
+      ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* temp = request_type_.update_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4383,59 +3527,59 @@ inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* SLSrtePathCom
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate& SLSrtePathComputeRequest::_internal_update() const {
+inline const ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate& SLSrtePathComputeReq::_internal_update() const {
   return _internal_has_update()
       ? *request_type_.update_
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate&>(::service_layer::_SLSrtePathComputeRequest_SLSrtePathUpdate_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate&>(::service_layer::_SLSrtePathComputeReq_SLSrtePathUpdate_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate& SLSrtePathComputeRequest::update() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.update)
+inline const ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate& SLSrtePathComputeReq::update() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.update)
   return _internal_update();
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* SLSrtePathComputeRequest::unsafe_arena_release_update() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRequest.update)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* SLSrtePathComputeReq::unsafe_arena_release_update() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeReq.update)
   if (_internal_has_update()) {
     clear_has_request_type();
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* temp = request_type_.update_;
+    ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* temp = request_type_.update_;
     request_type_.update_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeRequest::unsafe_arena_set_allocated_update(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* update) {
+inline void SLSrtePathComputeReq::unsafe_arena_set_allocated_update(::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* update) {
   clear_request_type();
   if (update) {
     set_has_update();
     request_type_.update_ = update;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.update)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.update)
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* SLSrtePathComputeRequest::_internal_mutable_update() {
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* SLSrtePathComputeReq::_internal_mutable_update() {
   if (!_internal_has_update()) {
     clear_request_type();
     set_has_update();
-    request_type_.update_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate >(GetArenaForAllocation());
+    request_type_.update_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate >(GetArenaForAllocation());
   }
   return request_type_.update_;
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* SLSrtePathComputeRequest::mutable_update() {
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* _msg = _internal_mutable_update();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.update)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* SLSrtePathComputeReq::mutable_update() {
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* _msg = _internal_mutable_update();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.update)
   return _msg;
 }
 
-// .service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw withdraw = 6;
-inline bool SLSrtePathComputeRequest::_internal_has_withdraw() const {
+// .service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw withdraw = 6;
+inline bool SLSrtePathComputeReq::_internal_has_withdraw() const {
   return request_type_case() == kWithdraw;
 }
-inline bool SLSrtePathComputeRequest::has_withdraw() const {
+inline bool SLSrtePathComputeReq::has_withdraw() const {
   return _internal_has_withdraw();
 }
-inline void SLSrtePathComputeRequest::set_has_withdraw() {
+inline void SLSrtePathComputeReq::set_has_withdraw() {
   _oneof_case_[0] = kWithdraw;
 }
-inline void SLSrtePathComputeRequest::clear_withdraw() {
+inline void SLSrtePathComputeReq::clear_withdraw() {
   if (_internal_has_withdraw()) {
     if (GetArenaForAllocation() == nullptr) {
       delete request_type_.withdraw_;
@@ -4443,11 +3587,11 @@ inline void SLSrtePathComputeRequest::clear_withdraw() {
     clear_has_request_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* SLSrtePathComputeRequest::release_withdraw() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRequest.withdraw)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* SLSrtePathComputeReq::release_withdraw() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeReq.withdraw)
   if (_internal_has_withdraw()) {
     clear_has_request_type();
-      ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* temp = request_type_.withdraw_;
+      ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* temp = request_type_.withdraw_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4457,167 +3601,147 @@ inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* SLSrtePathC
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw& SLSrtePathComputeRequest::_internal_withdraw() const {
+inline const ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw& SLSrtePathComputeReq::_internal_withdraw() const {
   return _internal_has_withdraw()
       ? *request_type_.withdraw_
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw&>(::service_layer::_SLSrtePathComputeRequest_SLSrtePathWithdraw_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw&>(::service_layer::_SLSrtePathComputeReq_SLSrtePathWithdraw_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw& SLSrtePathComputeRequest::withdraw() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRequest.withdraw)
+inline const ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw& SLSrtePathComputeReq::withdraw() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeReq.withdraw)
   return _internal_withdraw();
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* SLSrtePathComputeRequest::unsafe_arena_release_withdraw() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRequest.withdraw)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* SLSrtePathComputeReq::unsafe_arena_release_withdraw() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeReq.withdraw)
   if (_internal_has_withdraw()) {
     clear_has_request_type();
-    ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* temp = request_type_.withdraw_;
+    ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* temp = request_type_.withdraw_;
     request_type_.withdraw_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeRequest::unsafe_arena_set_allocated_withdraw(::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* withdraw) {
+inline void SLSrtePathComputeReq::unsafe_arena_set_allocated_withdraw(::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* withdraw) {
   clear_request_type();
   if (withdraw) {
     set_has_withdraw();
     request_type_.withdraw_ = withdraw;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRequest.withdraw)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeReq.withdraw)
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* SLSrtePathComputeRequest::_internal_mutable_withdraw() {
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* SLSrtePathComputeReq::_internal_mutable_withdraw() {
   if (!_internal_has_withdraw()) {
     clear_request_type();
     set_has_withdraw();
-    request_type_.withdraw_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw >(GetArenaForAllocation());
+    request_type_.withdraw_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw >(GetArenaForAllocation());
   }
   return request_type_.withdraw_;
 }
-inline ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* SLSrtePathComputeRequest::mutable_withdraw() {
-  ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* _msg = _internal_mutable_withdraw();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRequest.withdraw)
+inline ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* SLSrtePathComputeReq::mutable_withdraw() {
+  ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* _msg = _internal_mutable_withdraw();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeReq.withdraw)
   return _msg;
 }
 
-inline bool SLSrtePathComputeRequest::has_request_type() const {
+inline bool SLSrtePathComputeReq::has_request_type() const {
   return request_type_case() != REQUEST_TYPE_NOT_SET;
 }
-inline void SLSrtePathComputeRequest::clear_has_request_type() {
+inline void SLSrtePathComputeReq::clear_has_request_type() {
   _oneof_case_[0] = REQUEST_TYPE_NOT_SET;
 }
-inline SLSrtePathComputeRequest::RequestTypeCase SLSrtePathComputeRequest::request_type_case() const {
-  return SLSrtePathComputeRequest::RequestTypeCase(_oneof_case_[0]);
+inline SLSrtePathComputeReq::RequestTypeCase SLSrtePathComputeReq::request_type_case() const {
+  return SLSrtePathComputeReq::RequestTypeCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeResponse_SLSrteDynamicPathResult
+// SLSrtePathComputeRes_SLSrteDynamicPathResult
 
 // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-inline int SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_segment_lists_size() const {
+inline int SLSrtePathComputeRes_SLSrteDynamicPathResult::_internal_segment_lists_size() const {
   return segment_lists_.size();
 }
-inline int SLSrtePathComputeResponse_SLSrteDynamicPathResult::segment_lists_size() const {
+inline int SLSrtePathComputeRes_SLSrteDynamicPathResult::segment_lists_size() const {
   return _internal_segment_lists_size();
 }
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeResponse_SLSrteDynamicPathResult::mutable_segment_lists(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.segment_lists)
+inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRes_SLSrteDynamicPathResult::mutable_segment_lists(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult.segment_lists)
   return segment_lists_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
-SLSrtePathComputeResponse_SLSrteDynamicPathResult::mutable_segment_lists() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.segment_lists)
+SLSrtePathComputeRes_SLSrteDynamicPathResult::mutable_segment_lists() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult.segment_lists)
   return &segment_lists_;
 }
-inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_segment_lists(int index) const {
+inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeRes_SLSrteDynamicPathResult::_internal_segment_lists(int index) const {
   return segment_lists_.Get(index);
 }
-inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeResponse_SLSrteDynamicPathResult::segment_lists(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.segment_lists)
+inline const ::service_layer::SLSrSegmentList& SLSrtePathComputeRes_SLSrteDynamicPathResult::segment_lists(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult.segment_lists)
   return _internal_segment_lists(index);
 }
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_add_segment_lists() {
+inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRes_SLSrteDynamicPathResult::_internal_add_segment_lists() {
   return segment_lists_.Add();
 }
-inline ::service_layer::SLSrSegmentList* SLSrtePathComputeResponse_SLSrteDynamicPathResult::add_segment_lists() {
+inline ::service_layer::SLSrSegmentList* SLSrtePathComputeRes_SLSrteDynamicPathResult::add_segment_lists() {
   ::service_layer::SLSrSegmentList* _add = _internal_add_segment_lists();
-  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.segment_lists)
+  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult.segment_lists)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
-SLSrtePathComputeResponse_SLSrteDynamicPathResult::segment_lists() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.segment_lists)
+SLSrtePathComputeRes_SLSrteDynamicPathResult::segment_lists() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult.segment_lists)
   return segment_lists_;
 }
 
-// uint32 path_cost = 2;
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::clear_path_cost() {
-  path_cost_ = 0u;
-}
-inline uint32_t SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_path_cost() const {
-  return path_cost_;
-}
-inline uint32_t SLSrtePathComputeResponse_SLSrteDynamicPathResult::path_cost() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.path_cost)
-  return _internal_path_cost();
-}
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_set_path_cost(uint32_t value) {
-  
-  path_cost_ = value;
-}
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::set_path_cost(uint32_t value) {
-  _internal_set_path_cost(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.path_cost)
-}
-
-// optional .service_layer.SLSrteDiversityLevel effective_diversity_level = 3;
-inline bool SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_has_effective_diversity_level() const {
+// optional .service_layer.SLSrDiversityLevel effective_diversity_level = 3;
+inline bool SLSrtePathComputeRes_SLSrteDynamicPathResult::_internal_has_effective_diversity_level() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool SLSrtePathComputeResponse_SLSrteDynamicPathResult::has_effective_diversity_level() const {
+inline bool SLSrtePathComputeRes_SLSrteDynamicPathResult::has_effective_diversity_level() const {
   return _internal_has_effective_diversity_level();
 }
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::clear_effective_diversity_level() {
+inline void SLSrtePathComputeRes_SLSrteDynamicPathResult::clear_effective_diversity_level() {
   effective_diversity_level_ = 0;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::service_layer::SLSrteDiversityLevel SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_effective_diversity_level() const {
-  return static_cast< ::service_layer::SLSrteDiversityLevel >(effective_diversity_level_);
+inline ::service_layer::SLSrDiversityLevel SLSrtePathComputeRes_SLSrteDynamicPathResult::_internal_effective_diversity_level() const {
+  return static_cast< ::service_layer::SLSrDiversityLevel >(effective_diversity_level_);
 }
-inline ::service_layer::SLSrteDiversityLevel SLSrtePathComputeResponse_SLSrteDynamicPathResult::effective_diversity_level() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.effective_diversity_level)
+inline ::service_layer::SLSrDiversityLevel SLSrtePathComputeRes_SLSrteDynamicPathResult::effective_diversity_level() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult.effective_diversity_level)
   return _internal_effective_diversity_level();
 }
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::_internal_set_effective_diversity_level(::service_layer::SLSrteDiversityLevel value) {
+inline void SLSrtePathComputeRes_SLSrteDynamicPathResult::_internal_set_effective_diversity_level(::service_layer::SLSrDiversityLevel value) {
   _has_bits_[0] |= 0x00000001u;
   effective_diversity_level_ = value;
 }
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::set_effective_diversity_level(::service_layer::SLSrteDiversityLevel value) {
+inline void SLSrtePathComputeRes_SLSrteDynamicPathResult::set_effective_diversity_level(::service_layer::SLSrDiversityLevel value) {
   _internal_set_effective_diversity_level(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult.effective_diversity_level)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult.effective_diversity_level)
 }
 
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeResponse_SLSrtePathError
+// SLSrtePathComputeRes_SLSrtePathError
 
 // .service_layer.SLErrorStatus type = 1;
-inline bool SLSrtePathComputeResponse_SLSrtePathError::_internal_has_type() const {
+inline bool SLSrtePathComputeRes_SLSrtePathError::_internal_has_type() const {
   return this != internal_default_instance() && type_ != nullptr;
 }
-inline bool SLSrtePathComputeResponse_SLSrtePathError::has_type() const {
+inline bool SLSrtePathComputeRes_SLSrtePathError::has_type() const {
   return _internal_has_type();
 }
-inline const ::service_layer::SLErrorStatus& SLSrtePathComputeResponse_SLSrtePathError::_internal_type() const {
+inline const ::service_layer::SLErrorStatus& SLSrtePathComputeRes_SLSrtePathError::_internal_type() const {
   const ::service_layer::SLErrorStatus* p = type_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLErrorStatus&>(
       ::service_layer::_SLErrorStatus_default_instance_);
 }
-inline const ::service_layer::SLErrorStatus& SLSrtePathComputeResponse_SLSrtePathError::type() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.SLSrtePathError.type)
+inline const ::service_layer::SLErrorStatus& SLSrtePathComputeRes_SLSrtePathError::type() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.SLSrtePathError.type)
   return _internal_type();
 }
-inline void SLSrtePathComputeResponse_SLSrtePathError::unsafe_arena_set_allocated_type(
+inline void SLSrtePathComputeRes_SLSrtePathError::unsafe_arena_set_allocated_type(
     ::service_layer::SLErrorStatus* type) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(type_);
@@ -4628,9 +3752,9 @@ inline void SLSrtePathComputeResponse_SLSrtePathError::unsafe_arena_set_allocate
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeResponse.SLSrtePathError.type)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRes.SLSrtePathError.type)
 }
-inline ::service_layer::SLErrorStatus* SLSrtePathComputeResponse_SLSrtePathError::release_type() {
+inline ::service_layer::SLErrorStatus* SLSrtePathComputeRes_SLSrtePathError::release_type() {
   
   ::service_layer::SLErrorStatus* temp = type_;
   type_ = nullptr;
@@ -4645,14 +3769,14 @@ inline ::service_layer::SLErrorStatus* SLSrtePathComputeResponse_SLSrtePathError
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLErrorStatus* SLSrtePathComputeResponse_SLSrtePathError::unsafe_arena_release_type() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeResponse.SLSrtePathError.type)
+inline ::service_layer::SLErrorStatus* SLSrtePathComputeRes_SLSrtePathError::unsafe_arena_release_type() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRes.SLSrtePathError.type)
   
   ::service_layer::SLErrorStatus* temp = type_;
   type_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLErrorStatus* SLSrtePathComputeResponse_SLSrtePathError::_internal_mutable_type() {
+inline ::service_layer::SLErrorStatus* SLSrtePathComputeRes_SLSrtePathError::_internal_mutable_type() {
   
   if (type_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLErrorStatus>(GetArenaForAllocation());
@@ -4660,12 +3784,12 @@ inline ::service_layer::SLErrorStatus* SLSrtePathComputeResponse_SLSrtePathError
   }
   return type_;
 }
-inline ::service_layer::SLErrorStatus* SLSrtePathComputeResponse_SLSrtePathError::mutable_type() {
+inline ::service_layer::SLErrorStatus* SLSrtePathComputeRes_SLSrtePathError::mutable_type() {
   ::service_layer::SLErrorStatus* _msg = _internal_mutable_type();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponse.SLSrtePathError.type)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRes.SLSrtePathError.type)
   return _msg;
 }
-inline void SLSrtePathComputeResponse_SLSrtePathError::set_allocated_type(::service_layer::SLErrorStatus* type) {
+inline void SLSrtePathComputeRes_SLSrtePathError::set_allocated_type(::service_layer::SLErrorStatus* type) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(type_);
@@ -4684,45 +3808,45 @@ inline void SLSrtePathComputeResponse_SLSrtePathError::set_allocated_type(::serv
     
   }
   type_ = type;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeResponse.SLSrtePathError.type)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRes.SLSrtePathError.type)
 }
 
 // string description = 2;
-inline void SLSrtePathComputeResponse_SLSrtePathError::clear_description() {
+inline void SLSrtePathComputeRes_SLSrtePathError::clear_description() {
   description_.ClearToEmpty();
 }
-inline const std::string& SLSrtePathComputeResponse_SLSrtePathError::description() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.SLSrtePathError.description)
+inline const std::string& SLSrtePathComputeRes_SLSrtePathError::description() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.SLSrtePathError.description)
   return _internal_description();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void SLSrtePathComputeResponse_SLSrtePathError::set_description(ArgT0&& arg0, ArgT... args) {
+void SLSrtePathComputeRes_SLSrtePathError::set_description(ArgT0&& arg0, ArgT... args) {
  
  description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeResponse.SLSrtePathError.description)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeRes.SLSrtePathError.description)
 }
-inline std::string* SLSrtePathComputeResponse_SLSrtePathError::mutable_description() {
+inline std::string* SLSrtePathComputeRes_SLSrtePathError::mutable_description() {
   std::string* _s = _internal_mutable_description();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponse.SLSrtePathError.description)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRes.SLSrtePathError.description)
   return _s;
 }
-inline const std::string& SLSrtePathComputeResponse_SLSrtePathError::_internal_description() const {
+inline const std::string& SLSrtePathComputeRes_SLSrtePathError::_internal_description() const {
   return description_.Get();
 }
-inline void SLSrtePathComputeResponse_SLSrtePathError::_internal_set_description(const std::string& value) {
+inline void SLSrtePathComputeRes_SLSrtePathError::_internal_set_description(const std::string& value) {
   
   description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SLSrtePathComputeResponse_SLSrtePathError::_internal_mutable_description() {
+inline std::string* SLSrtePathComputeRes_SLSrtePathError::_internal_mutable_description() {
   
   return description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SLSrtePathComputeResponse_SLSrtePathError::release_description() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeResponse.SLSrtePathError.description)
+inline std::string* SLSrtePathComputeRes_SLSrtePathError::release_description() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRes.SLSrtePathError.description)
   return description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void SLSrtePathComputeResponse_SLSrtePathError::set_allocated_description(std::string* description) {
+inline void SLSrtePathComputeRes_SLSrtePathError::set_allocated_description(std::string* description) {
   if (description != nullptr) {
     
   } else {
@@ -4735,30 +3859,30 @@ inline void SLSrtePathComputeResponse_SLSrtePathError::set_allocated_description
     description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeResponse.SLSrtePathError.description)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRes.SLSrtePathError.description)
 }
 
 // -------------------------------------------------------------------
 
-// SLSrtePathComputeResponse
+// SLSrtePathComputeRes
 
 // .service_layer.SLSrPolicyKey policy_key = 1;
-inline bool SLSrtePathComputeResponse::_internal_has_policy_key() const {
+inline bool SLSrtePathComputeRes::_internal_has_policy_key() const {
   return this != internal_default_instance() && policy_key_ != nullptr;
 }
-inline bool SLSrtePathComputeResponse::has_policy_key() const {
+inline bool SLSrtePathComputeRes::has_policy_key() const {
   return _internal_has_policy_key();
 }
-inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeResponse::_internal_policy_key() const {
+inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeRes::_internal_policy_key() const {
   const ::service_layer::SLSrPolicyKey* p = policy_key_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrPolicyKey&>(
       ::service_layer::_SLSrPolicyKey_default_instance_);
 }
-inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeResponse::policy_key() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.policy_key)
+inline const ::service_layer::SLSrPolicyKey& SLSrtePathComputeRes::policy_key() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.policy_key)
   return _internal_policy_key();
 }
-inline void SLSrtePathComputeResponse::unsafe_arena_set_allocated_policy_key(
+inline void SLSrtePathComputeRes::unsafe_arena_set_allocated_policy_key(
     ::service_layer::SLSrPolicyKey* policy_key) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(policy_key_);
@@ -4769,9 +3893,9 @@ inline void SLSrtePathComputeResponse::unsafe_arena_set_allocated_policy_key(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeResponse.policy_key)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRes.policy_key)
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeResponse::release_policy_key() {
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRes::release_policy_key() {
   
   ::service_layer::SLSrPolicyKey* temp = policy_key_;
   policy_key_ = nullptr;
@@ -4786,14 +3910,14 @@ inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeResponse::release_policy
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeResponse::unsafe_arena_release_policy_key() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeResponse.policy_key)
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRes::unsafe_arena_release_policy_key() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRes.policy_key)
   
   ::service_layer::SLSrPolicyKey* temp = policy_key_;
   policy_key_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeResponse::_internal_mutable_policy_key() {
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRes::_internal_mutable_policy_key() {
   
   if (policy_key_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrPolicyKey>(GetArenaForAllocation());
@@ -4801,12 +3925,12 @@ inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeResponse::_internal_muta
   }
   return policy_key_;
 }
-inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeResponse::mutable_policy_key() {
+inline ::service_layer::SLSrPolicyKey* SLSrtePathComputeRes::mutable_policy_key() {
   ::service_layer::SLSrPolicyKey* _msg = _internal_mutable_policy_key();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponse.policy_key)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRes.policy_key)
   return _msg;
 }
-inline void SLSrtePathComputeResponse::set_allocated_policy_key(::service_layer::SLSrPolicyKey* policy_key) {
+inline void SLSrtePathComputeRes::set_allocated_policy_key(::service_layer::SLSrPolicyKey* policy_key) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(policy_key_);
@@ -4825,26 +3949,26 @@ inline void SLSrtePathComputeResponse::set_allocated_policy_key(::service_layer:
     
   }
   policy_key_ = policy_key;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeResponse.policy_key)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRes.policy_key)
 }
 
 // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-inline bool SLSrtePathComputeResponse::_internal_has_candidate_path_key() const {
+inline bool SLSrtePathComputeRes::_internal_has_candidate_path_key() const {
   return this != internal_default_instance() && candidate_path_key_ != nullptr;
 }
-inline bool SLSrtePathComputeResponse::has_candidate_path_key() const {
+inline bool SLSrtePathComputeRes::has_candidate_path_key() const {
   return _internal_has_candidate_path_key();
 }
-inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeResponse::_internal_candidate_path_key() const {
+inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeRes::_internal_candidate_path_key() const {
   const ::service_layer::SLSrCandidatePathKey* p = candidate_path_key_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrCandidatePathKey&>(
       ::service_layer::_SLSrCandidatePathKey_default_instance_);
 }
-inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeResponse::candidate_path_key() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.candidate_path_key)
+inline const ::service_layer::SLSrCandidatePathKey& SLSrtePathComputeRes::candidate_path_key() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.candidate_path_key)
   return _internal_candidate_path_key();
 }
-inline void SLSrtePathComputeResponse::unsafe_arena_set_allocated_candidate_path_key(
+inline void SLSrtePathComputeRes::unsafe_arena_set_allocated_candidate_path_key(
     ::service_layer::SLSrCandidatePathKey* candidate_path_key) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(candidate_path_key_);
@@ -4855,9 +3979,9 @@ inline void SLSrtePathComputeResponse::unsafe_arena_set_allocated_candidate_path
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeResponse.candidate_path_key)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRes.candidate_path_key)
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeResponse::release_candidate_path_key() {
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRes::release_candidate_path_key() {
   
   ::service_layer::SLSrCandidatePathKey* temp = candidate_path_key_;
   candidate_path_key_ = nullptr;
@@ -4872,14 +3996,14 @@ inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeResponse::release
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeResponse::unsafe_arena_release_candidate_path_key() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeResponse.candidate_path_key)
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRes::unsafe_arena_release_candidate_path_key() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRes.candidate_path_key)
   
   ::service_layer::SLSrCandidatePathKey* temp = candidate_path_key_;
   candidate_path_key_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeResponse::_internal_mutable_candidate_path_key() {
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRes::_internal_mutable_candidate_path_key() {
   
   if (candidate_path_key_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrCandidatePathKey>(GetArenaForAllocation());
@@ -4887,12 +4011,12 @@ inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeResponse::_intern
   }
   return candidate_path_key_;
 }
-inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeResponse::mutable_candidate_path_key() {
+inline ::service_layer::SLSrCandidatePathKey* SLSrtePathComputeRes::mutable_candidate_path_key() {
   ::service_layer::SLSrCandidatePathKey* _msg = _internal_mutable_candidate_path_key();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponse.candidate_path_key)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRes.candidate_path_key)
   return _msg;
 }
-inline void SLSrtePathComputeResponse::set_allocated_candidate_path_key(::service_layer::SLSrCandidatePathKey* candidate_path_key) {
+inline void SLSrtePathComputeRes::set_allocated_candidate_path_key(::service_layer::SLSrCandidatePathKey* candidate_path_key) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(candidate_path_key_);
@@ -4911,40 +4035,40 @@ inline void SLSrtePathComputeResponse::set_allocated_candidate_path_key(::servic
     
   }
   candidate_path_key_ = candidate_path_key;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeResponse.candidate_path_key)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRes.candidate_path_key)
 }
 
 // uint64 req_seq_num = 3;
-inline void SLSrtePathComputeResponse::clear_req_seq_num() {
+inline void SLSrtePathComputeRes::clear_req_seq_num() {
   req_seq_num_ = uint64_t{0u};
 }
-inline uint64_t SLSrtePathComputeResponse::_internal_req_seq_num() const {
+inline uint64_t SLSrtePathComputeRes::_internal_req_seq_num() const {
   return req_seq_num_;
 }
-inline uint64_t SLSrtePathComputeResponse::req_seq_num() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.req_seq_num)
+inline uint64_t SLSrtePathComputeRes::req_seq_num() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.req_seq_num)
   return _internal_req_seq_num();
 }
-inline void SLSrtePathComputeResponse::_internal_set_req_seq_num(uint64_t value) {
+inline void SLSrtePathComputeRes::_internal_set_req_seq_num(uint64_t value) {
   
   req_seq_num_ = value;
 }
-inline void SLSrtePathComputeResponse::set_req_seq_num(uint64_t value) {
+inline void SLSrtePathComputeRes::set_req_seq_num(uint64_t value) {
   _internal_set_req_seq_num(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeResponse.req_seq_num)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathComputeRes.req_seq_num)
 }
 
-// .service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult path_result = 4;
-inline bool SLSrtePathComputeResponse::_internal_has_path_result() const {
+// .service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult path_result = 4;
+inline bool SLSrtePathComputeRes::_internal_has_path_result() const {
   return response_type_case() == kPathResult;
 }
-inline bool SLSrtePathComputeResponse::has_path_result() const {
+inline bool SLSrtePathComputeRes::has_path_result() const {
   return _internal_has_path_result();
 }
-inline void SLSrtePathComputeResponse::set_has_path_result() {
+inline void SLSrtePathComputeRes::set_has_path_result() {
   _oneof_case_[0] = kPathResult;
 }
-inline void SLSrtePathComputeResponse::clear_path_result() {
+inline void SLSrtePathComputeRes::clear_path_result() {
   if (_internal_has_path_result()) {
     if (GetArenaForAllocation() == nullptr) {
       delete response_type_.path_result_;
@@ -4952,11 +4076,11 @@ inline void SLSrtePathComputeResponse::clear_path_result() {
     clear_has_response_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* SLSrtePathComputeResponse::release_path_result() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeResponse.path_result)
+inline ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* SLSrtePathComputeRes::release_path_result() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRes.path_result)
   if (_internal_has_path_result()) {
     clear_has_response_type();
-      ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* temp = response_type_.path_result_;
+      ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* temp = response_type_.path_result_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4966,59 +4090,59 @@ inline ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* SLSrt
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult& SLSrtePathComputeResponse::_internal_path_result() const {
+inline const ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult& SLSrtePathComputeRes::_internal_path_result() const {
   return _internal_has_path_result()
       ? *response_type_.path_result_
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult&>(::service_layer::_SLSrtePathComputeResponse_SLSrteDynamicPathResult_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult&>(::service_layer::_SLSrtePathComputeRes_SLSrteDynamicPathResult_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult& SLSrtePathComputeResponse::path_result() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.path_result)
+inline const ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult& SLSrtePathComputeRes::path_result() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.path_result)
   return _internal_path_result();
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* SLSrtePathComputeResponse::unsafe_arena_release_path_result() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeResponse.path_result)
+inline ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* SLSrtePathComputeRes::unsafe_arena_release_path_result() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRes.path_result)
   if (_internal_has_path_result()) {
     clear_has_response_type();
-    ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* temp = response_type_.path_result_;
+    ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* temp = response_type_.path_result_;
     response_type_.path_result_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeResponse::unsafe_arena_set_allocated_path_result(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* path_result) {
+inline void SLSrtePathComputeRes::unsafe_arena_set_allocated_path_result(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* path_result) {
   clear_response_type();
   if (path_result) {
     set_has_path_result();
     response_type_.path_result_ = path_result;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeResponse.path_result)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRes.path_result)
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* SLSrtePathComputeResponse::_internal_mutable_path_result() {
+inline ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* SLSrtePathComputeRes::_internal_mutable_path_result() {
   if (!_internal_has_path_result()) {
     clear_response_type();
     set_has_path_result();
-    response_type_.path_result_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult >(GetArenaForAllocation());
+    response_type_.path_result_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult >(GetArenaForAllocation());
   }
   return response_type_.path_result_;
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* SLSrtePathComputeResponse::mutable_path_result() {
-  ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* _msg = _internal_mutable_path_result();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponse.path_result)
+inline ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* SLSrtePathComputeRes::mutable_path_result() {
+  ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* _msg = _internal_mutable_path_result();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRes.path_result)
   return _msg;
 }
 
-// .service_layer.SLSrtePathComputeResponse.SLSrtePathError error = 6;
-inline bool SLSrtePathComputeResponse::_internal_has_error() const {
+// .service_layer.SLSrtePathComputeRes.SLSrtePathError error = 6;
+inline bool SLSrtePathComputeRes::_internal_has_error() const {
   return response_type_case() == kError;
 }
-inline bool SLSrtePathComputeResponse::has_error() const {
+inline bool SLSrtePathComputeRes::has_error() const {
   return _internal_has_error();
 }
-inline void SLSrtePathComputeResponse::set_has_error() {
+inline void SLSrtePathComputeRes::set_has_error() {
   _oneof_case_[0] = kError;
 }
-inline void SLSrtePathComputeResponse::clear_error() {
+inline void SLSrtePathComputeRes::clear_error() {
   if (_internal_has_error()) {
     if (GetArenaForAllocation() == nullptr) {
       delete response_type_.error_;
@@ -5026,11 +4150,11 @@ inline void SLSrtePathComputeResponse::clear_error() {
     clear_has_response_type();
   }
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* SLSrtePathComputeResponse::release_error() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeResponse.error)
+inline ::service_layer::SLSrtePathComputeRes_SLSrtePathError* SLSrtePathComputeRes::release_error() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathComputeRes.error)
   if (_internal_has_error()) {
     clear_has_response_type();
-      ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* temp = response_type_.error_;
+      ::service_layer::SLSrtePathComputeRes_SLSrtePathError* temp = response_type_.error_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -5040,57 +4164,302 @@ inline ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* SLSrtePathCom
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrtePathComputeResponse_SLSrtePathError& SLSrtePathComputeResponse::_internal_error() const {
+inline const ::service_layer::SLSrtePathComputeRes_SLSrtePathError& SLSrtePathComputeRes::_internal_error() const {
   return _internal_has_error()
       ? *response_type_.error_
-      : reinterpret_cast< ::service_layer::SLSrtePathComputeResponse_SLSrtePathError&>(::service_layer::_SLSrtePathComputeResponse_SLSrtePathError_default_instance_);
+      : reinterpret_cast< ::service_layer::SLSrtePathComputeRes_SLSrtePathError&>(::service_layer::_SLSrtePathComputeRes_SLSrtePathError_default_instance_);
 }
-inline const ::service_layer::SLSrtePathComputeResponse_SLSrtePathError& SLSrtePathComputeResponse::error() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeResponse.error)
+inline const ::service_layer::SLSrtePathComputeRes_SLSrtePathError& SLSrtePathComputeRes::error() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathComputeRes.error)
   return _internal_error();
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* SLSrtePathComputeResponse::unsafe_arena_release_error() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeResponse.error)
+inline ::service_layer::SLSrtePathComputeRes_SLSrtePathError* SLSrtePathComputeRes::unsafe_arena_release_error() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrtePathComputeRes.error)
   if (_internal_has_error()) {
     clear_has_response_type();
-    ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* temp = response_type_.error_;
+    ::service_layer::SLSrtePathComputeRes_SLSrtePathError* temp = response_type_.error_;
     response_type_.error_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrtePathComputeResponse::unsafe_arena_set_allocated_error(::service_layer::SLSrtePathComputeResponse_SLSrtePathError* error) {
+inline void SLSrtePathComputeRes::unsafe_arena_set_allocated_error(::service_layer::SLSrtePathComputeRes_SLSrtePathError* error) {
   clear_response_type();
   if (error) {
     set_has_error();
     response_type_.error_ = error;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeResponse.error)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathComputeRes.error)
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* SLSrtePathComputeResponse::_internal_mutable_error() {
+inline ::service_layer::SLSrtePathComputeRes_SLSrtePathError* SLSrtePathComputeRes::_internal_mutable_error() {
   if (!_internal_has_error()) {
     clear_response_type();
     set_has_error();
-    response_type_.error_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeResponse_SLSrtePathError >(GetArenaForAllocation());
+    response_type_.error_ = CreateMaybeMessage< ::service_layer::SLSrtePathComputeRes_SLSrtePathError >(GetArenaForAllocation());
   }
   return response_type_.error_;
 }
-inline ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* SLSrtePathComputeResponse::mutable_error() {
-  ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* _msg = _internal_mutable_error();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeResponse.error)
+inline ::service_layer::SLSrtePathComputeRes_SLSrtePathError* SLSrtePathComputeRes::mutable_error() {
+  ::service_layer::SLSrtePathComputeRes_SLSrtePathError* _msg = _internal_mutable_error();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathComputeRes.error)
   return _msg;
 }
 
-inline bool SLSrtePathComputeResponse::has_response_type() const {
+inline bool SLSrtePathComputeRes::has_response_type() const {
   return response_type_case() != RESPONSE_TYPE_NOT_SET;
 }
-inline void SLSrtePathComputeResponse::clear_has_response_type() {
+inline void SLSrtePathComputeRes::clear_has_response_type() {
   _oneof_case_[0] = RESPONSE_TYPE_NOT_SET;
 }
-inline SLSrtePathComputeResponse::ResponseTypeCase SLSrtePathComputeResponse::response_type_case() const {
-  return SLSrtePathComputeResponse::ResponseTypeCase(_oneof_case_[0]);
+inline SLSrtePathComputeRes::ResponseTypeCase SLSrtePathComputeRes::response_type_case() const {
+  return SLSrtePathComputeRes::ResponseTypeCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// SLSrtePathAttrDynamic
+
+// .service_layer.SLSrMetricType o_metric = 1;
+inline void SLSrtePathAttrDynamic::clear_o_metric() {
+  o_metric_ = 0;
+}
+inline ::service_layer::SLSrMetricType SLSrtePathAttrDynamic::_internal_o_metric() const {
+  return static_cast< ::service_layer::SLSrMetricType >(o_metric_);
+}
+inline ::service_layer::SLSrMetricType SLSrtePathAttrDynamic::o_metric() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathAttrDynamic.o_metric)
+  return _internal_o_metric();
+}
+inline void SLSrtePathAttrDynamic::_internal_set_o_metric(::service_layer::SLSrMetricType value) {
+  
+  o_metric_ = value;
+}
+inline void SLSrtePathAttrDynamic::set_o_metric(::service_layer::SLSrMetricType value) {
+  _internal_set_o_metric(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrtePathAttrDynamic.o_metric)
+}
+
+// .service_layer.ConstraintSet constraints = 2;
+inline bool SLSrtePathAttrDynamic::_internal_has_constraints() const {
+  return this != internal_default_instance() && constraints_ != nullptr;
+}
+inline bool SLSrtePathAttrDynamic::has_constraints() const {
+  return _internal_has_constraints();
+}
+inline void SLSrtePathAttrDynamic::clear_constraints() {
+  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
+    delete constraints_;
+  }
+  constraints_ = nullptr;
+}
+inline const ::service_layer::ConstraintSet& SLSrtePathAttrDynamic::_internal_constraints() const {
+  const ::service_layer::ConstraintSet* p = constraints_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::ConstraintSet&>(
+      ::service_layer::_ConstraintSet_default_instance_);
+}
+inline const ::service_layer::ConstraintSet& SLSrtePathAttrDynamic::constraints() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathAttrDynamic.constraints)
+  return _internal_constraints();
+}
+inline void SLSrtePathAttrDynamic::unsafe_arena_set_allocated_constraints(
+    ::service_layer::ConstraintSet* constraints) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(constraints_);
+  }
+  constraints_ = constraints;
+  if (constraints) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathAttrDynamic.constraints)
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrDynamic::release_constraints() {
+  
+  ::service_layer::ConstraintSet* temp = constraints_;
+  constraints_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrDynamic::unsafe_arena_release_constraints() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathAttrDynamic.constraints)
+  
+  ::service_layer::ConstraintSet* temp = constraints_;
+  constraints_ = nullptr;
+  return temp;
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrDynamic::_internal_mutable_constraints() {
+  
+  if (constraints_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::ConstraintSet>(GetArenaForAllocation());
+    constraints_ = p;
+  }
+  return constraints_;
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrDynamic::mutable_constraints() {
+  ::service_layer::ConstraintSet* _msg = _internal_mutable_constraints();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathAttrDynamic.constraints)
+  return _msg;
+}
+inline void SLSrtePathAttrDynamic::set_allocated_constraints(::service_layer::ConstraintSet* constraints) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete constraints_;
+  }
+  if (constraints) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::ConstraintSet>::GetOwningArena(constraints);
+    if (message_arena != submessage_arena) {
+      constraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, constraints, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  constraints_ = constraints;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathAttrDynamic.constraints)
+}
+
+// -------------------------------------------------------------------
+
+// SLSrtePathAttrExplicit
+
+// repeated .service_layer.SLSrSegmentList segment_lists = 1;
+inline int SLSrtePathAttrExplicit::_internal_segment_lists_size() const {
+  return segment_lists_.size();
+}
+inline int SLSrtePathAttrExplicit::segment_lists_size() const {
+  return _internal_segment_lists_size();
+}
+inline ::service_layer::SLSrSegmentList* SLSrtePathAttrExplicit::mutable_segment_lists(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathAttrExplicit.segment_lists)
+  return segment_lists_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >*
+SLSrtePathAttrExplicit::mutable_segment_lists() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrtePathAttrExplicit.segment_lists)
+  return &segment_lists_;
+}
+inline const ::service_layer::SLSrSegmentList& SLSrtePathAttrExplicit::_internal_segment_lists(int index) const {
+  return segment_lists_.Get(index);
+}
+inline const ::service_layer::SLSrSegmentList& SLSrtePathAttrExplicit::segment_lists(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathAttrExplicit.segment_lists)
+  return _internal_segment_lists(index);
+}
+inline ::service_layer::SLSrSegmentList* SLSrtePathAttrExplicit::_internal_add_segment_lists() {
+  return segment_lists_.Add();
+}
+inline ::service_layer::SLSrSegmentList* SLSrtePathAttrExplicit::add_segment_lists() {
+  ::service_layer::SLSrSegmentList* _add = _internal_add_segment_lists();
+  // @@protoc_insertion_point(field_add:service_layer.SLSrtePathAttrExplicit.segment_lists)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegmentList >&
+SLSrtePathAttrExplicit::segment_lists() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLSrtePathAttrExplicit.segment_lists)
+  return segment_lists_;
+}
+
+// .service_layer.ConstraintSet constraints = 2;
+inline bool SLSrtePathAttrExplicit::_internal_has_constraints() const {
+  return this != internal_default_instance() && constraints_ != nullptr;
+}
+inline bool SLSrtePathAttrExplicit::has_constraints() const {
+  return _internal_has_constraints();
+}
+inline void SLSrtePathAttrExplicit::clear_constraints() {
+  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
+    delete constraints_;
+  }
+  constraints_ = nullptr;
+}
+inline const ::service_layer::ConstraintSet& SLSrtePathAttrExplicit::_internal_constraints() const {
+  const ::service_layer::ConstraintSet* p = constraints_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::ConstraintSet&>(
+      ::service_layer::_ConstraintSet_default_instance_);
+}
+inline const ::service_layer::ConstraintSet& SLSrtePathAttrExplicit::constraints() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrtePathAttrExplicit.constraints)
+  return _internal_constraints();
+}
+inline void SLSrtePathAttrExplicit::unsafe_arena_set_allocated_constraints(
+    ::service_layer::ConstraintSet* constraints) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(constraints_);
+  }
+  constraints_ = constraints;
+  if (constraints) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrtePathAttrExplicit.constraints)
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrExplicit::release_constraints() {
+  
+  ::service_layer::ConstraintSet* temp = constraints_;
+  constraints_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrExplicit::unsafe_arena_release_constraints() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrtePathAttrExplicit.constraints)
+  
+  ::service_layer::ConstraintSet* temp = constraints_;
+  constraints_ = nullptr;
+  return temp;
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrExplicit::_internal_mutable_constraints() {
+  
+  if (constraints_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::ConstraintSet>(GetArenaForAllocation());
+    constraints_ = p;
+  }
+  return constraints_;
+}
+inline ::service_layer::ConstraintSet* SLSrtePathAttrExplicit::mutable_constraints() {
+  ::service_layer::ConstraintSet* _msg = _internal_mutable_constraints();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrtePathAttrExplicit.constraints)
+  return _msg;
+}
+inline void SLSrtePathAttrExplicit::set_allocated_constraints(::service_layer::ConstraintSet* constraints) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete constraints_;
+  }
+  if (constraints) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::ConstraintSet>::GetOwningArena(constraints);
+    if (message_arena != submessage_arena) {
+      constraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, constraints, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  constraints_ = constraints;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathAttrExplicit.constraints)
+}
+
 // -------------------------------------------------------------------
 
 // ConstraintSet_PathDiversity
@@ -5185,27 +4554,27 @@ inline void ConstraintSet_PathDiversity::set_allocated_association(::service_lay
   // @@protoc_insertion_point(field_set_allocated:service_layer.ConstraintSet.PathDiversity.association)
 }
 
-// .service_layer.SLSrteDiversityLevel diversity_level = 2;
+// .service_layer.SLSrDiversityLevel diversity_level = 2;
 inline void ConstraintSet_PathDiversity::clear_diversity_level() {
   diversity_level_ = 0;
 }
-inline ::service_layer::SLSrteDiversityLevel ConstraintSet_PathDiversity::_internal_diversity_level() const {
-  return static_cast< ::service_layer::SLSrteDiversityLevel >(diversity_level_);
+inline ::service_layer::SLSrDiversityLevel ConstraintSet_PathDiversity::_internal_diversity_level() const {
+  return static_cast< ::service_layer::SLSrDiversityLevel >(diversity_level_);
 }
-inline ::service_layer::SLSrteDiversityLevel ConstraintSet_PathDiversity::diversity_level() const {
+inline ::service_layer::SLSrDiversityLevel ConstraintSet_PathDiversity::diversity_level() const {
   // @@protoc_insertion_point(field_get:service_layer.ConstraintSet.PathDiversity.diversity_level)
   return _internal_diversity_level();
 }
-inline void ConstraintSet_PathDiversity::_internal_set_diversity_level(::service_layer::SLSrteDiversityLevel value) {
+inline void ConstraintSet_PathDiversity::_internal_set_diversity_level(::service_layer::SLSrDiversityLevel value) {
   
   diversity_level_ = value;
 }
-inline void ConstraintSet_PathDiversity::set_diversity_level(::service_layer::SLSrteDiversityLevel value) {
+inline void ConstraintSet_PathDiversity::set_diversity_level(::service_layer::SLSrDiversityLevel value) {
   _internal_set_diversity_level(value);
   // @@protoc_insertion_point(field_set:service_layer.ConstraintSet.PathDiversity.diversity_level)
 }
 
-// optional .service_layer.SLSrteDiversityLevel min_diversity_level = 3;
+// optional .service_layer.SLSrDiversityLevel min_diversity_level = 3;
 inline bool ConstraintSet_PathDiversity::_internal_has_min_diversity_level() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -5217,18 +4586,18 @@ inline void ConstraintSet_PathDiversity::clear_min_diversity_level() {
   min_diversity_level_ = 0;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::service_layer::SLSrteDiversityLevel ConstraintSet_PathDiversity::_internal_min_diversity_level() const {
-  return static_cast< ::service_layer::SLSrteDiversityLevel >(min_diversity_level_);
+inline ::service_layer::SLSrDiversityLevel ConstraintSet_PathDiversity::_internal_min_diversity_level() const {
+  return static_cast< ::service_layer::SLSrDiversityLevel >(min_diversity_level_);
 }
-inline ::service_layer::SLSrteDiversityLevel ConstraintSet_PathDiversity::min_diversity_level() const {
+inline ::service_layer::SLSrDiversityLevel ConstraintSet_PathDiversity::min_diversity_level() const {
   // @@protoc_insertion_point(field_get:service_layer.ConstraintSet.PathDiversity.min_diversity_level)
   return _internal_min_diversity_level();
 }
-inline void ConstraintSet_PathDiversity::_internal_set_min_diversity_level(::service_layer::SLSrteDiversityLevel value) {
+inline void ConstraintSet_PathDiversity::_internal_set_min_diversity_level(::service_layer::SLSrDiversityLevel value) {
   _has_bits_[0] |= 0x00000001u;
   min_diversity_level_ = value;
 }
-inline void ConstraintSet_PathDiversity::set_min_diversity_level(::service_layer::SLSrteDiversityLevel value) {
+inline void ConstraintSet_PathDiversity::set_min_diversity_level(::service_layer::SLSrDiversityLevel value) {
   _internal_set_min_diversity_level(value);
   // @@protoc_insertion_point(field_set:service_layer.ConstraintSet.PathDiversity.min_diversity_level)
 }
@@ -5734,10 +5103,6 @@ inline void AssociationGroup::set_association_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

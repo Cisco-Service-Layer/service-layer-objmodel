@@ -17,179 +17,151 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 namespace service_layer {
-constexpr SLSrtePathComputeRequests::SLSrtePathComputeRequests(
+constexpr SLSrtePathComputeReqs::SLSrtePathComputeReqs(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : requests_(){}
-struct SLSrtePathComputeRequestsDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequestsDefaultTypeInternal()
+struct SLSrtePathComputeReqsDefaultTypeInternal {
+  constexpr SLSrtePathComputeReqsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequestsDefaultTypeInternal() {}
+  ~SLSrtePathComputeReqsDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeRequests _instance;
+    SLSrtePathComputeReqs _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequestsDefaultTypeInternal _SLSrtePathComputeRequests_default_instance_;
-constexpr SLSrtePathComputeResponses::SLSrtePathComputeResponses(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeReqsDefaultTypeInternal _SLSrtePathComputeReqs_default_instance_;
+constexpr SLSrtePathComputeRsps::SLSrtePathComputeRsps(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : responses_(){}
-struct SLSrtePathComputeResponsesDefaultTypeInternal {
-  constexpr SLSrtePathComputeResponsesDefaultTypeInternal()
+struct SLSrtePathComputeRspsDefaultTypeInternal {
+  constexpr SLSrtePathComputeRspsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeResponsesDefaultTypeInternal() {}
+  ~SLSrtePathComputeRspsDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeResponses _instance;
+    SLSrtePathComputeRsps _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeResponsesDefaultTypeInternal _SLSrtePathComputeResponses_default_instance_;
-constexpr SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : constraints_(nullptr)
-  , o_metric_(0)
-{}
-struct SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamicDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamicDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamicDefaultTypeInternal() {}
-  union {
-    SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamicDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic_default_instance_;
-constexpr SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : segment_lists_()
-  , constraints_(nullptr){}
-struct SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicitDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicitDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicitDefaultTypeInternal() {}
-  union {
-    SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicitDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit_default_instance_;
-constexpr SLSrtePathComputeRequest_SLSrtePathInit::SLSrtePathComputeRequest_SLSrtePathInit(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRspsDefaultTypeInternal _SLSrtePathComputeRsps_default_instance_;
+constexpr SLSrtePathComputeReq_SLSrtePathInit::SLSrtePathComputeReq_SLSrtePathInit(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : dataplane_(0)
 
   , _oneof_case_{}{}
-struct SLSrtePathComputeRequest_SLSrtePathInitDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequest_SLSrtePathInitDefaultTypeInternal()
+struct SLSrtePathComputeReq_SLSrtePathInitDefaultTypeInternal {
+  constexpr SLSrtePathComputeReq_SLSrtePathInitDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequest_SLSrtePathInitDefaultTypeInternal() {}
+  ~SLSrtePathComputeReq_SLSrtePathInitDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeRequest_SLSrtePathInit _instance;
+    SLSrtePathComputeReq_SLSrtePathInit _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequest_SLSrtePathInitDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathInit_default_instance_;
-constexpr SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : constraints_(nullptr)
-  , o_metric_(0)
-{}
-struct SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamicDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamicDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamicDefaultTypeInternal() {}
-  union {
-    SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamicDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic_default_instance_;
-constexpr SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : segment_lists_()
-  , constraints_(nullptr){}
-struct SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicitDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicitDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicitDefaultTypeInternal() {}
-  union {
-    SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicitDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit_default_instance_;
-constexpr SLSrtePathComputeRequest_SLSrtePathUpdate::SLSrtePathComputeRequest_SLSrtePathUpdate(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeReq_SLSrtePathInitDefaultTypeInternal _SLSrtePathComputeReq_SLSrtePathInit_default_instance_;
+constexpr SLSrtePathComputeReq_SLSrtePathUpdate::SLSrtePathComputeReq_SLSrtePathUpdate(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : _oneof_case_{}{}
-struct SLSrtePathComputeRequest_SLSrtePathUpdateDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequest_SLSrtePathUpdateDefaultTypeInternal()
+struct SLSrtePathComputeReq_SLSrtePathUpdateDefaultTypeInternal {
+  constexpr SLSrtePathComputeReq_SLSrtePathUpdateDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequest_SLSrtePathUpdateDefaultTypeInternal() {}
+  ~SLSrtePathComputeReq_SLSrtePathUpdateDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeRequest_SLSrtePathUpdate _instance;
+    SLSrtePathComputeReq_SLSrtePathUpdate _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequest_SLSrtePathUpdateDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathUpdate_default_instance_;
-constexpr SLSrtePathComputeRequest_SLSrtePathWithdraw::SLSrtePathComputeRequest_SLSrtePathWithdraw(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeReq_SLSrtePathUpdateDefaultTypeInternal _SLSrtePathComputeReq_SLSrtePathUpdate_default_instance_;
+constexpr SLSrtePathComputeReq_SLSrtePathWithdraw::SLSrtePathComputeReq_SLSrtePathWithdraw(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct SLSrtePathComputeRequest_SLSrtePathWithdrawDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequest_SLSrtePathWithdrawDefaultTypeInternal()
+struct SLSrtePathComputeReq_SLSrtePathWithdrawDefaultTypeInternal {
+  constexpr SLSrtePathComputeReq_SLSrtePathWithdrawDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequest_SLSrtePathWithdrawDefaultTypeInternal() {}
+  ~SLSrtePathComputeReq_SLSrtePathWithdrawDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeRequest_SLSrtePathWithdraw _instance;
+    SLSrtePathComputeReq_SLSrtePathWithdraw _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequest_SLSrtePathWithdrawDefaultTypeInternal _SLSrtePathComputeRequest_SLSrtePathWithdraw_default_instance_;
-constexpr SLSrtePathComputeRequest::SLSrtePathComputeRequest(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeReq_SLSrtePathWithdrawDefaultTypeInternal _SLSrtePathComputeReq_SLSrtePathWithdraw_default_instance_;
+constexpr SLSrtePathComputeReq::SLSrtePathComputeReq(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : policy_key_(nullptr)
   , candidate_path_key_(nullptr)
   , seq_num_(uint64_t{0u})
   , _oneof_case_{}{}
-struct SLSrtePathComputeRequestDefaultTypeInternal {
-  constexpr SLSrtePathComputeRequestDefaultTypeInternal()
+struct SLSrtePathComputeReqDefaultTypeInternal {
+  constexpr SLSrtePathComputeReqDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeRequestDefaultTypeInternal() {}
+  ~SLSrtePathComputeReqDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeRequest _instance;
+    SLSrtePathComputeReq _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRequestDefaultTypeInternal _SLSrtePathComputeRequest_default_instance_;
-constexpr SLSrtePathComputeResponse_SLSrteDynamicPathResult::SLSrtePathComputeResponse_SLSrteDynamicPathResult(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeReqDefaultTypeInternal _SLSrtePathComputeReq_default_instance_;
+constexpr SLSrtePathComputeRes_SLSrteDynamicPathResult::SLSrtePathComputeRes_SLSrteDynamicPathResult(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : segment_lists_()
-  , path_cost_(0u)
   , effective_diversity_level_(0)
 {}
-struct SLSrtePathComputeResponse_SLSrteDynamicPathResultDefaultTypeInternal {
-  constexpr SLSrtePathComputeResponse_SLSrteDynamicPathResultDefaultTypeInternal()
+struct SLSrtePathComputeRes_SLSrteDynamicPathResultDefaultTypeInternal {
+  constexpr SLSrtePathComputeRes_SLSrteDynamicPathResultDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeResponse_SLSrteDynamicPathResultDefaultTypeInternal() {}
+  ~SLSrtePathComputeRes_SLSrteDynamicPathResultDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeResponse_SLSrteDynamicPathResult _instance;
+    SLSrtePathComputeRes_SLSrteDynamicPathResult _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeResponse_SLSrteDynamicPathResultDefaultTypeInternal _SLSrtePathComputeResponse_SLSrteDynamicPathResult_default_instance_;
-constexpr SLSrtePathComputeResponse_SLSrtePathError::SLSrtePathComputeResponse_SLSrtePathError(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRes_SLSrteDynamicPathResultDefaultTypeInternal _SLSrtePathComputeRes_SLSrteDynamicPathResult_default_instance_;
+constexpr SLSrtePathComputeRes_SLSrtePathError::SLSrtePathComputeRes_SLSrtePathError(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : description_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , type_(nullptr){}
-struct SLSrtePathComputeResponse_SLSrtePathErrorDefaultTypeInternal {
-  constexpr SLSrtePathComputeResponse_SLSrtePathErrorDefaultTypeInternal()
+struct SLSrtePathComputeRes_SLSrtePathErrorDefaultTypeInternal {
+  constexpr SLSrtePathComputeRes_SLSrtePathErrorDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeResponse_SLSrtePathErrorDefaultTypeInternal() {}
+  ~SLSrtePathComputeRes_SLSrtePathErrorDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeResponse_SLSrtePathError _instance;
+    SLSrtePathComputeRes_SLSrtePathError _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeResponse_SLSrtePathErrorDefaultTypeInternal _SLSrtePathComputeResponse_SLSrtePathError_default_instance_;
-constexpr SLSrtePathComputeResponse::SLSrtePathComputeResponse(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeRes_SLSrtePathErrorDefaultTypeInternal _SLSrtePathComputeRes_SLSrtePathError_default_instance_;
+constexpr SLSrtePathComputeRes::SLSrtePathComputeRes(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : policy_key_(nullptr)
   , candidate_path_key_(nullptr)
   , req_seq_num_(uint64_t{0u})
   , _oneof_case_{}{}
-struct SLSrtePathComputeResponseDefaultTypeInternal {
-  constexpr SLSrtePathComputeResponseDefaultTypeInternal()
+struct SLSrtePathComputeResDefaultTypeInternal {
+  constexpr SLSrtePathComputeResDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLSrtePathComputeResponseDefaultTypeInternal() {}
+  ~SLSrtePathComputeResDefaultTypeInternal() {}
   union {
-    SLSrtePathComputeResponse _instance;
+    SLSrtePathComputeRes _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeResponseDefaultTypeInternal _SLSrtePathComputeResponse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathComputeResDefaultTypeInternal _SLSrtePathComputeRes_default_instance_;
+constexpr SLSrtePathAttrDynamic::SLSrtePathAttrDynamic(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : constraints_(nullptr)
+  , o_metric_(0)
+{}
+struct SLSrtePathAttrDynamicDefaultTypeInternal {
+  constexpr SLSrtePathAttrDynamicDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLSrtePathAttrDynamicDefaultTypeInternal() {}
+  union {
+    SLSrtePathAttrDynamic _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathAttrDynamicDefaultTypeInternal _SLSrtePathAttrDynamic_default_instance_;
+constexpr SLSrtePathAttrExplicit::SLSrtePathAttrExplicit(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : segment_lists_()
+  , constraints_(nullptr){}
+struct SLSrtePathAttrExplicitDefaultTypeInternal {
+  constexpr SLSrtePathAttrExplicitDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLSrtePathAttrExplicitDefaultTypeInternal() {}
+  union {
+    SLSrtePathAttrExplicit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrtePathAttrExplicitDefaultTypeInternal _SLSrtePathAttrExplicit_default_instance_;
 constexpr ConstraintSet_PathDiversity::ConstraintSet_PathDiversity(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : association_(nullptr)
@@ -242,127 +214,109 @@ struct AssociationGroupDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT AssociationGroupDefaultTypeInternal _AssociationGroup_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[16];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[14];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_sl_5fsrte_5fpcalc_5fstateful_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fsrte_5fpcalc_5fstateful_2eproto = nullptr;
 
 const uint32_t TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequests, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReqs, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequests, requests_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReqs, requests_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponses, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRsps, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponses, responses_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRsps, responses_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathInit, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathInit, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic, o_metric_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic, constraints_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit, segment_lists_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit, constraints_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit, dataplane_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathInit, dataplane_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit, path_init_type_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathInit, path_init_type_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic, o_metric_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic, constraints_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit, segment_lists_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit, constraints_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate, path_update_type_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate, path_update_type_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest, policy_key_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest, candidate_path_key_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest, seq_num_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq, policy_key_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq, candidate_path_key_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq, seq_num_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRequest, request_type_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeReq, request_type_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult, segment_lists_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult, path_cost_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult, effective_diversity_level_),
-  ~0u,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult, segment_lists_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult, effective_diversity_level_),
   ~0u,
   0,
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrtePathError, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes_SLSrtePathError, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrtePathError, type_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse_SLSrtePathError, description_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes_SLSrtePathError, type_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes_SLSrtePathError, description_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse, policy_key_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse, candidate_path_key_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse, req_seq_num_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes, policy_key_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes, candidate_path_key_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes, req_seq_num_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeResponse, response_type_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathComputeRes, response_type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathAttrDynamic, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathAttrDynamic, o_metric_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathAttrDynamic, constraints_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathAttrExplicit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathAttrExplicit, segment_lists_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrtePathAttrExplicit, constraints_),
   PROTOBUF_FIELD_OFFSET(::service_layer::ConstraintSet_PathDiversity, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::service_layer::ConstraintSet_PathDiversity, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -412,38 +366,34 @@ const uint32_t TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::service_layer::AssociationGroup, association_id_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequests)},
-  { 7, -1, -1, sizeof(::service_layer::SLSrtePathComputeResponses)},
-  { 14, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic)},
-  { 22, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit)},
-  { 30, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit)},
-  { 40, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic)},
-  { 48, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit)},
-  { 56, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate)},
-  { 65, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw)},
-  { 71, -1, -1, sizeof(::service_layer::SLSrtePathComputeRequest)},
-  { 84, 93, -1, sizeof(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult)},
-  { 96, -1, -1, sizeof(::service_layer::SLSrtePathComputeResponse_SLSrtePathError)},
-  { 104, -1, -1, sizeof(::service_layer::SLSrtePathComputeResponse)},
-  { 116, 126, -1, sizeof(::service_layer::ConstraintSet_PathDiversity)},
-  { 130, 146, -1, sizeof(::service_layer::ConstraintSet)},
-  { 156, -1, -1, sizeof(::service_layer::AssociationGroup)},
+  { 0, -1, -1, sizeof(::service_layer::SLSrtePathComputeReqs)},
+  { 7, -1, -1, sizeof(::service_layer::SLSrtePathComputeRsps)},
+  { 14, -1, -1, sizeof(::service_layer::SLSrtePathComputeReq_SLSrtePathInit)},
+  { 24, -1, -1, sizeof(::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate)},
+  { 33, -1, -1, sizeof(::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw)},
+  { 39, -1, -1, sizeof(::service_layer::SLSrtePathComputeReq)},
+  { 52, 60, -1, sizeof(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult)},
+  { 62, -1, -1, sizeof(::service_layer::SLSrtePathComputeRes_SLSrtePathError)},
+  { 70, -1, -1, sizeof(::service_layer::SLSrtePathComputeRes)},
+  { 82, -1, -1, sizeof(::service_layer::SLSrtePathAttrDynamic)},
+  { 90, -1, -1, sizeof(::service_layer::SLSrtePathAttrExplicit)},
+  { 98, 108, -1, sizeof(::service_layer::ConstraintSet_PathDiversity)},
+  { 112, 128, -1, sizeof(::service_layer::ConstraintSet)},
+  { 138, -1, -1, sizeof(::service_layer::AssociationGroup)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequests_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeResponses_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_SLSrtePathInit_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_SLSrtePathUpdate_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_SLSrtePathWithdraw_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeResponse_SLSrteDynamicPathResult_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeResponse_SLSrtePathError_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeReqs_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRsps_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeReq_SLSrtePathInit_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeReq_SLSrtePathUpdate_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeReq_SLSrtePathWithdraw_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeReq_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRes_SLSrteDynamicPathResult_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRes_SLSrtePathError_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathComputeRes_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathAttrDynamic_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrtePathAttrExplicit_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_ConstraintSet_PathDiversity_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_ConstraintSet_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_AssociationGroup_default_instance_),
@@ -452,89 +402,76 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_sl_5fsrte_5fpcalc_5fstateful_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034sl_srte_pcalc_stateful.proto\022\rservice_"
   "layer\032\025sl_common_types.proto\032\022sl_sr_comm"
-  "on.proto\"V\n\031SLSrtePathComputeRequests\0229\n"
-  "\010requests\030\001 \003(\0132\'.service_layer.SLSrtePa"
-  "thComputeRequest\"Y\n\032SLSrtePathComputeRes"
-  "ponses\022;\n\tresponses\030\001 \003(\0132(.service_laye"
-  "r.SLSrtePathComputeResponse\"\277\013\n\030SLSrtePa"
-  "thComputeRequest\0220\n\npolicy_key\030\001 \001(\0132\034.s"
-  "ervice_layer.SLSrPolicyKey\022\?\n\022candidate_"
-  "path_key\030\002 \001(\0132#.service_layer.SLSrCandi"
-  "datePathKey\022\017\n\007seq_num\030\003 \001(\004\022F\n\004init\030\004 \001"
-  "(\01326.service_layer.SLSrtePathComputeRequ"
-  "est.SLSrtePathInitH\000\022J\n\006update\030\005 \001(\01328.s"
-  "ervice_layer.SLSrtePathComputeRequest.SL"
-  "SrtePathUpdateH\000\022N\n\010withdraw\030\006 \001(\0132:.ser"
-  "vice_layer.SLSrtePathComputeRequest.SLSr"
-  "tePathWithdrawH\000\032\231\004\n\016SLSrtePathInit\022/\n\td"
-  "ataplane\030\001 \001(\0162\034.service_layer.SLSrDatap"
-  "lane\022_\n\007dynamic\030\002 \001(\0132L.service_layer.SL"
-  "SrtePathComputeRequest.SLSrtePathInit.SL"
-  "SrtePathInitDynamicH\000\022a\n\010explicit\030\003 \001(\0132"
-  "M.service_layer.SLSrtePathComputeRequest"
-  ".SLSrtePathInit.SLSrtePathInitExplicitH\000"
-  "\032{\n\025SLSrtePathInitDynamic\022/\n\010o_metric\030\001 "
-  "\001(\0162\035.service_layer.SLSrMetricType\0221\n\013co"
-  "nstraints\030\002 \001(\0132\034.service_layer.Constrai"
-  "ntSet\032\202\001\n\026SLSrtePathInitExplicit\0225\n\rsegm"
-  "ent_lists\030\001 \003(\0132\036.service_layer.SLSrSegm"
-  "entList\0221\n\013constraints\030\002 \001(\0132\034.service_l"
-  "ayer.ConstraintSetB\020\n\016path_init_type\032\370\003\n"
-  "\020SLSrtePathUpdate\022c\n\007dynamic\030\001 \001(\0132P.ser"
-  "vice_layer.SLSrtePathComputeRequest.SLSr"
-  "tePathUpdate.SLSrtePathUpdateDynamicH\000\022e"
-  "\n\010explicit\030\002 \001(\0132Q.service_layer.SLSrteP"
-  "athComputeRequest.SLSrtePathUpdate.SLSrt"
-  "ePathUpdateExplicitH\000\032}\n\027SLSrtePathUpdat"
-  "eDynamic\022/\n\010o_metric\030\001 \001(\0162\035.service_lay"
+  "on.proto\"N\n\025SLSrtePathComputeReqs\0225\n\010req"
+  "uests\030\001 \003(\0132#.service_layer.SLSrtePathCo"
+  "mputeReq\"O\n\025SLSrtePathComputeRsps\0226\n\tres"
+  "ponses\030\001 \003(\0132#.service_layer.SLSrtePathC"
+  "omputeRes\"\377\005\n\024SLSrtePathComputeReq\0220\n\npo"
+  "licy_key\030\001 \001(\0132\034.service_layer.SLSrPolic"
+  "yKey\022\?\n\022candidate_path_key\030\002 \001(\0132#.servi"
+  "ce_layer.SLSrCandidatePathKey\022\017\n\007seq_num"
+  "\030\003 \001(\004\022B\n\004init\030\004 \001(\01322.service_layer.SLS"
+  "rtePathComputeReq.SLSrtePathInitH\000\022F\n\006up"
+  "date\030\005 \001(\01324.service_layer.SLSrtePathCom"
+  "puteReq.SLSrtePathUpdateH\000\022J\n\010withdraw\030\006"
+  " \001(\01326.service_layer.SLSrtePathComputeRe"
+  "q.SLSrtePathWithdrawH\000\032\307\001\n\016SLSrtePathIni"
+  "t\022/\n\tdataplane\030\001 \001(\0162\034.service_layer.SLS"
+  "rDataplane\0227\n\007dynamic\030\002 \001(\0132$.service_la"
+  "yer.SLSrtePathAttrDynamicH\000\0229\n\010explicit\030"
+  "\003 \001(\0132%.service_layer.SLSrtePathAttrExpl"
+  "icitH\000B\020\n\016path_init_type\032\232\001\n\020SLSrtePathU"
+  "pdate\0227\n\007dynamic\030\001 \001(\0132$.service_layer.S"
+  "LSrtePathAttrDynamicH\000\0229\n\010explicit\030\002 \001(\013"
+  "2%.service_layer.SLSrtePathAttrExplicitH"
+  "\000B\022\n\020path_update_type\032\024\n\022SLSrtePathWithd"
+  "rawB\016\n\014request_type\"\331\004\n\024SLSrtePathComput"
+  "eRes\0220\n\npolicy_key\030\001 \001(\0132\034.service_layer"
+  ".SLSrPolicyKey\022\?\n\022candidate_path_key\030\002 \001"
+  "(\0132#.service_layer.SLSrCandidatePathKey\022"
+  "\023\n\013req_seq_num\030\003 \001(\004\022R\n\013path_result\030\004 \001("
+  "\0132;.service_layer.SLSrtePathComputeRes.S"
+  "LSrteDynamicPathResultH\000\022D\n\005error\030\006 \001(\0132"
+  "3.service_layer.SLSrtePathComputeRes.SLS"
+  "rtePathErrorH\000\032\271\001\n\027SLSrteDynamicPathResu"
+  "lt\0225\n\rsegment_lists\030\001 \003(\0132\036.service_laye"
+  "r.SLSrSegmentList\022I\n\031effective_diversity"
+  "_level\030\003 \001(\0162!.service_layer.SLSrDiversi"
+  "tyLevelH\000\210\001\001B\034\n\032_effective_diversity_lev"
+  "el\032R\n\017SLSrtePathError\022*\n\004type\030\001 \001(\0132\034.se"
+  "rvice_layer.SLErrorStatus\022\023\n\013description"
+  "\030\002 \001(\tB\017\n\rresponse_type\"{\n\025SLSrtePathAtt"
+  "rDynamic\022/\n\010o_metric\030\001 \001(\0162\035.service_lay"
   "er.SLSrMetricType\0221\n\013constraints\030\002 \001(\0132\034"
-  ".service_layer.ConstraintSet\032\204\001\n\030SLSrteP"
-  "athUpdateExplicit\0225\n\rsegment_lists\030\001 \003(\013"
-  "2\036.service_layer.SLSrSegmentList\0221\n\013cons"
-  "traints\030\002 \001(\0132\034.service_layer.Constraint"
-  "SetB\022\n\020path_update_type\032\024\n\022SLSrtePathWit"
-  "hdrawB\016\n\014request_type\"\375\004\n\031SLSrtePathComp"
-  "uteResponse\0220\n\npolicy_key\030\001 \001(\0132\034.servic"
-  "e_layer.SLSrPolicyKey\022\?\n\022candidate_path_"
-  "key\030\002 \001(\0132#.service_layer.SLSrCandidateP"
-  "athKey\022\023\n\013req_seq_num\030\003 \001(\004\022W\n\013path_resu"
-  "lt\030\004 \001(\0132@.service_layer.SLSrtePathCompu"
-  "teResponse.SLSrteDynamicPathResultH\000\022I\n\005"
-  "error\030\006 \001(\01328.service_layer.SLSrtePathCo"
-  "mputeResponse.SLSrtePathErrorH\000\032\316\001\n\027SLSr"
-  "teDynamicPathResult\0225\n\rsegment_lists\030\001 \003"
-  "(\0132\036.service_layer.SLSrSegmentList\022\021\n\tpa"
-  "th_cost\030\002 \001(\r\022K\n\031effective_diversity_lev"
-  "el\030\003 \001(\0162#.service_layer.SLSrteDiversity"
-  "LevelH\000\210\001\001B\034\n\032_effective_diversity_level"
-  "\032R\n\017SLSrtePathError\022*\n\004type\030\001 \001(\0132\034.serv"
-  "ice_layer.SLErrorStatus\022\023\n\013description\030\002"
-  " \001(\tB\017\n\rresponse_type\"\323\005\n\rConstraintSet\022"
-  "1\n\naffinities\030\001 \001(\0132\035.service_layer.SLSr"
-  "Affinities\022\024\n\014srlg_exclude\030\004 \003(\r\022.\n\nip_e"
-  "xclude\030\005 \003(\0132\032.service_layer.SLIpAddress"
-  "\022G\n\016path_diversity\030e \001(\0132*.service_layer"
-  ".ConstraintSet.PathDiversityH\000\210\001\001\022B\n\024cor"
-  "outed_association\030f \001(\0132\037.service_layer."
-  "AssociationGroupH\001\210\001\001\022\034\n\024guaranteed_band"
-  "width\030g \001(\r\022\035\n\024strict_path_segments\030\311\001 \001"
-  "(\010\022\035\n\024unprotected_segments\030\312\001 \001(\010\022\034\n\023per"
-  "sistent_segments\030\313\001 \001(\010\022\032\n\021maximum_sid_d"
-  "epth\030\314\001 \001(\r\032\371\001\n\rPathDiversity\0224\n\013associa"
-  "tion\030\001 \001(\0132\037.service_layer.AssociationGr"
-  "oup\022<\n\017diversity_level\030\002 \001(\0162#.service_l"
-  "ayer.SLSrteDiversityLevel\022E\n\023min_diversi"
-  "ty_level\030\003 \001(\0162#.service_layer.SLSrteDiv"
-  "ersityLevelH\000\210\001\001\022\025\n\rshortest_path\030\004 \001(\010B"
-  "\026\n\024_min_diversity_levelB\021\n\017_path_diversi"
-  "tyB\027\n\025_corouted_association\"*\n\020Associati"
-  "onGroup\022\026\n\016association_id\030\001 \001(\r2\202\001\n\022SLSr"
-  "teCalcStateful\022l\n\021SLSrtePathCompute\022(.se"
-  "rvice_layer.SLSrtePathComputeRequests\032)."
-  "service_layer.SLSrtePathComputeResponses"
-  "(\0010\001BQZOgithub.com/Cisco-service-layer/s"
-  "ervice-layer-objmodel/grpc/protos;servic"
-  "e_layerb\006proto3"
+  ".service_layer.ConstraintSet\"\202\001\n\026SLSrteP"
+  "athAttrExplicit\0225\n\rsegment_lists\030\001 \003(\0132\036"
+  ".service_layer.SLSrSegmentList\0221\n\013constr"
+  "aints\030\002 \001(\0132\034.service_layer.ConstraintSe"
+  "t\"\317\005\n\rConstraintSet\0221\n\naffinities\030\001 \001(\0132"
+  "\035.service_layer.SLSrAffinities\022\024\n\014srlg_e"
+  "xclude\030\004 \003(\r\022.\n\nip_exclude\030\005 \003(\0132\032.servi"
+  "ce_layer.SLIpAddress\022G\n\016path_diversity\030e"
+  " \001(\0132*.service_layer.ConstraintSet.PathD"
+  "iversityH\000\210\001\001\022B\n\024corouted_association\030f "
+  "\001(\0132\037.service_layer.AssociationGroupH\001\210\001"
+  "\001\022\034\n\024guaranteed_bandwidth\030g \001(\r\022\035\n\024stric"
+  "t_path_segments\030\311\001 \001(\010\022\035\n\024unprotected_se"
+  "gments\030\312\001 \001(\010\022\034\n\023persistent_segments\030\313\001 "
+  "\001(\010\022\032\n\021maximum_sid_depth\030\314\001 \001(\r\032\365\001\n\rPath"
+  "Diversity\0224\n\013association\030\001 \001(\0132\037.service"
+  "_layer.AssociationGroup\022:\n\017diversity_lev"
+  "el\030\002 \001(\0162!.service_layer.SLSrDiversityLe"
+  "vel\022C\n\023min_diversity_level\030\003 \001(\0162!.servi"
+  "ce_layer.SLSrDiversityLevelH\000\210\001\001\022\025\n\rshor"
+  "test_path\030\004 \001(\010B\026\n\024_min_diversity_levelB"
+  "\021\n\017_path_diversityB\027\n\025_corouted_associat"
+  "ion\"*\n\020AssociationGroup\022\026\n\016association_i"
+  "d\030\001 \001(\r2y\n\022SLSrteCalcStateful\022c\n\021SLSrteP"
+  "athCompute\022$.service_layer.SLSrtePathCom"
+  "puteReqs\032$.service_layer.SLSrtePathCompu"
+  "teRsps(\0010\001BQZOgithub.com/Cisco-service-l"
+  "ayer/service-layer-objmodel/grpc/protos;"
+  "service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_deps[2] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -542,8 +479,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto = {
-  false, false, 3375, descriptor_table_protodef_sl_5fsrte_5fpcalc_5fstateful_2eproto, "sl_srte_pcalc_stateful.proto", 
-  &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once, descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_deps, 2, 16,
+  false, false, 2861, descriptor_table_protodef_sl_5fsrte_5fpcalc_5fstateful_2eproto, "sl_srte_pcalc_stateful.proto", 
+  &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once, descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_deps, 2, 14,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpcalc_5fstateful_2eproto, file_level_service_descriptors_sl_5fsrte_5fpcalc_5fstateful_2eproto,
 };
@@ -557,11 +494,11 @@ namespace service_layer {
 
 // ===================================================================
 
-class SLSrtePathComputeRequests::_Internal {
+class SLSrtePathComputeReqs::_Internal {
  public:
 };
 
-SLSrtePathComputeRequests::SLSrtePathComputeRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SLSrtePathComputeReqs::SLSrtePathComputeReqs(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   requests_(arena) {
@@ -569,41 +506,41 @@ SLSrtePathComputeRequests::SLSrtePathComputeRequests(::PROTOBUF_NAMESPACE_ID::Ar
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequests)
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeReqs)
 }
-SLSrtePathComputeRequests::SLSrtePathComputeRequests(const SLSrtePathComputeRequests& from)
+SLSrtePathComputeReqs::SLSrtePathComputeReqs(const SLSrtePathComputeReqs& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       requests_(from.requests_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequests)
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeReqs)
 }
 
-inline void SLSrtePathComputeRequests::SharedCtor() {
+inline void SLSrtePathComputeReqs::SharedCtor() {
 }
 
-SLSrtePathComputeRequests::~SLSrtePathComputeRequests() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequests)
+SLSrtePathComputeReqs::~SLSrtePathComputeReqs() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeReqs)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLSrtePathComputeRequests::SharedDtor() {
+inline void SLSrtePathComputeReqs::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void SLSrtePathComputeRequests::ArenaDtor(void* object) {
-  SLSrtePathComputeRequests* _this = reinterpret_cast< SLSrtePathComputeRequests* >(object);
+void SLSrtePathComputeReqs::ArenaDtor(void* object) {
+  SLSrtePathComputeReqs* _this = reinterpret_cast< SLSrtePathComputeReqs* >(object);
   (void)_this;
 }
-void SLSrtePathComputeRequests::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SLSrtePathComputeReqs::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void SLSrtePathComputeRequests::SetCachedSize(int size) const {
+void SLSrtePathComputeReqs::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLSrtePathComputeRequests::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequests)
+void SLSrtePathComputeReqs::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeReqs)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -612,13 +549,13 @@ void SLSrtePathComputeRequests::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SLSrtePathComputeRequests::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SLSrtePathComputeReqs::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .service_layer.SLSrtePathComputeRequest requests = 1;
+      // repeated .service_layer.SLSrtePathComputeReq requests = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
@@ -654,13 +591,13 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SLSrtePathComputeRequests::_InternalSerialize(
+uint8_t* SLSrtePathComputeReqs::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequests)
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeReqs)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrtePathComputeRequest requests = 1;
+  // repeated .service_layer.SLSrtePathComputeReq requests = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_requests_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -672,19 +609,19 @@ uint8_t* SLSrtePathComputeRequests::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequests)
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeReqs)
   return target;
 }
 
-size_t SLSrtePathComputeRequests::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequests)
+size_t SLSrtePathComputeReqs::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeReqs)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrtePathComputeRequest requests = 1;
+  // repeated .service_layer.SLSrtePathComputeReq requests = 1;
   total_size += 1UL * this->_internal_requests_size();
   for (const auto& msg : this->requests_) {
     total_size +=
@@ -694,21 +631,21 @@ size_t SLSrtePathComputeRequests::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequests::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeReqs::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequests::MergeImpl
+    SLSrtePathComputeReqs::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequests::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeReqs::GetClassData() const { return &_class_data_; }
 
-void SLSrtePathComputeRequests::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void SLSrtePathComputeReqs::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequests *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequests &>(from));
+  static_cast<SLSrtePathComputeReqs *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeReqs &>(from));
 }
 
 
-void SLSrtePathComputeRequests::MergeFrom(const SLSrtePathComputeRequests& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequests)
+void SLSrtePathComputeReqs::MergeFrom(const SLSrtePathComputeReqs& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeReqs)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -717,24 +654,24 @@ void SLSrtePathComputeRequests::MergeFrom(const SLSrtePathComputeRequests& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SLSrtePathComputeRequests::CopyFrom(const SLSrtePathComputeRequests& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequests)
+void SLSrtePathComputeReqs::CopyFrom(const SLSrtePathComputeReqs& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeReqs)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SLSrtePathComputeRequests::IsInitialized() const {
+bool SLSrtePathComputeReqs::IsInitialized() const {
   return true;
 }
 
-void SLSrtePathComputeRequests::InternalSwap(SLSrtePathComputeRequests* other) {
+void SLSrtePathComputeReqs::InternalSwap(SLSrtePathComputeReqs* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   requests_.InternalSwap(&other->requests_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequests::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeReqs::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
       file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[0]);
@@ -742,11 +679,11 @@ void SLSrtePathComputeRequests::InternalSwap(SLSrtePathComputeRequests* other) {
 
 // ===================================================================
 
-class SLSrtePathComputeResponses::_Internal {
+class SLSrtePathComputeRsps::_Internal {
  public:
 };
 
-SLSrtePathComputeResponses::SLSrtePathComputeResponses(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SLSrtePathComputeRsps::SLSrtePathComputeRsps(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   responses_(arena) {
@@ -754,41 +691,41 @@ SLSrtePathComputeResponses::SLSrtePathComputeResponses(::PROTOBUF_NAMESPACE_ID::
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeResponses)
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRsps)
 }
-SLSrtePathComputeResponses::SLSrtePathComputeResponses(const SLSrtePathComputeResponses& from)
+SLSrtePathComputeRsps::SLSrtePathComputeRsps(const SLSrtePathComputeRsps& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       responses_(from.responses_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeResponses)
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRsps)
 }
 
-inline void SLSrtePathComputeResponses::SharedCtor() {
+inline void SLSrtePathComputeRsps::SharedCtor() {
 }
 
-SLSrtePathComputeResponses::~SLSrtePathComputeResponses() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeResponses)
+SLSrtePathComputeRsps::~SLSrtePathComputeRsps() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRsps)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLSrtePathComputeResponses::SharedDtor() {
+inline void SLSrtePathComputeRsps::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void SLSrtePathComputeResponses::ArenaDtor(void* object) {
-  SLSrtePathComputeResponses* _this = reinterpret_cast< SLSrtePathComputeResponses* >(object);
+void SLSrtePathComputeRsps::ArenaDtor(void* object) {
+  SLSrtePathComputeRsps* _this = reinterpret_cast< SLSrtePathComputeRsps* >(object);
   (void)_this;
 }
-void SLSrtePathComputeResponses::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SLSrtePathComputeRsps::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void SLSrtePathComputeResponses::SetCachedSize(int size) const {
+void SLSrtePathComputeRsps::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLSrtePathComputeResponses::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeResponses)
+void SLSrtePathComputeRsps::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRsps)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -797,13 +734,13 @@ void SLSrtePathComputeResponses::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SLSrtePathComputeResponses::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SLSrtePathComputeRsps::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .service_layer.SLSrtePathComputeResponse responses = 1;
+      // repeated .service_layer.SLSrtePathComputeRes responses = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
@@ -839,13 +776,13 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SLSrtePathComputeResponses::_InternalSerialize(
+uint8_t* SLSrtePathComputeRsps::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeResponses)
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRsps)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrtePathComputeResponse responses = 1;
+  // repeated .service_layer.SLSrtePathComputeRes responses = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_responses_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -857,19 +794,19 @@ uint8_t* SLSrtePathComputeResponses::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeResponses)
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRsps)
   return target;
 }
 
-size_t SLSrtePathComputeResponses::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeResponses)
+size_t SLSrtePathComputeRsps::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRsps)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrtePathComputeResponse responses = 1;
+  // repeated .service_layer.SLSrtePathComputeRes responses = 1;
   total_size += 1UL * this->_internal_responses_size();
   for (const auto& msg : this->responses_) {
     total_size +=
@@ -879,21 +816,21 @@ size_t SLSrtePathComputeResponses::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeResponses::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRsps::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeResponses::MergeImpl
+    SLSrtePathComputeRsps::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeResponses::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRsps::GetClassData() const { return &_class_data_; }
 
-void SLSrtePathComputeResponses::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void SLSrtePathComputeRsps::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeResponses *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeResponses &>(from));
+  static_cast<SLSrtePathComputeRsps *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeRsps &>(from));
 }
 
 
-void SLSrtePathComputeResponses::MergeFrom(const SLSrtePathComputeResponses& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeResponses)
+void SLSrtePathComputeRsps::MergeFrom(const SLSrtePathComputeRsps& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRsps)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -902,24 +839,24 @@ void SLSrtePathComputeResponses::MergeFrom(const SLSrtePathComputeResponses& fro
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SLSrtePathComputeResponses::CopyFrom(const SLSrtePathComputeResponses& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeResponses)
+void SLSrtePathComputeRsps::CopyFrom(const SLSrtePathComputeRsps& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRsps)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SLSrtePathComputeResponses::IsInitialized() const {
+bool SLSrtePathComputeRsps::IsInitialized() const {
   return true;
 }
 
-void SLSrtePathComputeResponses::InternalSwap(SLSrtePathComputeResponses* other) {
+void SLSrtePathComputeRsps::InternalSwap(SLSrtePathComputeRsps* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   responses_.InternalSwap(&other->responses_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeResponses::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRsps::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
       file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[1]);
@@ -927,487 +864,26 @@ void SLSrtePathComputeResponses::InternalSwap(SLSrtePathComputeResponses* other)
 
 // ===================================================================
 
-class SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_Internal {
+class SLSrtePathComputeReq_SLSrtePathInit::_Internal {
  public:
-  static const ::service_layer::ConstraintSet& constraints(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* msg);
+  static const ::service_layer::SLSrtePathAttrDynamic& dynamic(const SLSrtePathComputeReq_SLSrtePathInit* msg);
+  static const ::service_layer::SLSrtePathAttrExplicit& explicit_(const SLSrtePathComputeReq_SLSrtePathInit* msg);
 };
 
-const ::service_layer::ConstraintSet&
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_Internal::constraints(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* msg) {
-  return *msg->constraints_;
-}
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-}
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_constraints()) {
-    constraints_ = new ::service_layer::ConstraintSet(*from.constraints_);
-  } else {
-    constraints_ = nullptr;
-  }
-  o_metric_ = from.o_metric_;
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-}
-
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&constraints_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&o_metric_) -
-    reinterpret_cast<char*>(&constraints_)) + sizeof(o_metric_));
-}
-
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::~SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete constraints_;
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::ArenaDtor(void* object) {
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* _this = reinterpret_cast< SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* >(object);
-  (void)_this;
-}
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
-    delete constraints_;
-  }
-  constraints_ = nullptr;
-  o_metric_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .service_layer.SLSrMetricType o_metric = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_o_metric(static_cast<::service_layer::SLSrMetricType>(val));
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.ConstraintSet constraints = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_constraints(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .service_layer.SLSrMetricType o_metric = 1;
-  if (this->_internal_o_metric() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_o_metric(), target);
-  }
-
-  // .service_layer.ConstraintSet constraints = 2;
-  if (this->_internal_has_constraints()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::constraints(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-  return target;
-}
-
-size_t SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .service_layer.ConstraintSet constraints = 2;
-  if (this->_internal_has_constraints()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *constraints_);
-  }
-
-  // .service_layer.SLSrMetricType o_metric = 1;
-  if (this->_internal_o_metric() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_o_metric());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::GetClassData() const { return &_class_data_; }
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic &>(from));
-}
-
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::MergeFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_constraints()) {
-    _internal_mutable_constraints()->::service_layer::ConstraintSet::MergeFrom(from._internal_constraints());
-  }
-  if (from._internal_o_metric() != 0) {
-    _internal_set_o_metric(from._internal_o_metric());
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::CopyFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::IsInitialized() const {
-  return true;
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::InternalSwap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic, o_metric_)
-      + sizeof(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::o_metric_)
-      - PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic, constraints_)>(
-          reinterpret_cast<char*>(&constraints_),
-          reinterpret_cast<char*>(&other->constraints_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[2]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_Internal {
- public:
-  static const ::service_layer::ConstraintSet& constraints(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* msg);
-};
-
-const ::service_layer::ConstraintSet&
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_Internal::constraints(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* msg) {
-  return *msg->constraints_;
-}
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::clear_segment_lists() {
-  segment_lists_.Clear();
-}
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  segment_lists_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-}
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      segment_lists_(from.segment_lists_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_constraints()) {
-    constraints_ = new ::service_layer::ConstraintSet(*from.constraints_);
-  } else {
-    constraints_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-}
-
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::SharedCtor() {
-constraints_ = nullptr;
-}
-
-SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::~SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete constraints_;
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::ArenaDtor(void* object) {
-  SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* _this = reinterpret_cast< SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* >(object);
-  (void)_this;
-}
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  segment_lists_.Clear();
-  if (GetArenaForAllocation() == nullptr && constraints_ != nullptr) {
-    delete constraints_;
-  }
-  constraints_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_segment_lists(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.ConstraintSet constraints = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_constraints(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_segment_lists_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_segment_lists(i), target, stream);
-  }
-
-  // .service_layer.ConstraintSet constraints = 2;
-  if (this->_internal_has_constraints()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::constraints(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-  return target;
-}
-
-size_t SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-  total_size += 1UL * this->_internal_segment_lists_size();
-  for (const auto& msg : this->segment_lists_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // .service_layer.ConstraintSet constraints = 2;
-  if (this->_internal_has_constraints()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *constraints_);
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::GetClassData() const { return &_class_data_; }
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit &>(from));
-}
-
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::MergeFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  segment_lists_.MergeFrom(from.segment_lists_);
-  if (from._internal_has_constraints()) {
-    _internal_mutable_constraints()->::service_layer::ConstraintSet::MergeFrom(from._internal_constraints());
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::CopyFrom(const SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::IsInitialized() const {
-  return true;
-}
-
-void SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::InternalSwap(SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  segment_lists_.InternalSwap(&other->segment_lists_);
-  swap(constraints_, other->constraints_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[3]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeRequest_SLSrtePathInit::_Internal {
- public:
-  static const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic& dynamic(const SLSrtePathComputeRequest_SLSrtePathInit* msg);
-  static const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit& explicit_(const SLSrtePathComputeRequest_SLSrtePathInit* msg);
-};
-
-const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic&
-SLSrtePathComputeRequest_SLSrtePathInit::_Internal::dynamic(const SLSrtePathComputeRequest_SLSrtePathInit* msg) {
+const ::service_layer::SLSrtePathAttrDynamic&
+SLSrtePathComputeReq_SLSrtePathInit::_Internal::dynamic(const SLSrtePathComputeReq_SLSrtePathInit* msg) {
   return *msg->path_init_type_.dynamic_;
 }
-const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit&
-SLSrtePathComputeRequest_SLSrtePathInit::_Internal::explicit_(const SLSrtePathComputeRequest_SLSrtePathInit* msg) {
+const ::service_layer::SLSrtePathAttrExplicit&
+SLSrtePathComputeReq_SLSrtePathInit::_Internal::explicit_(const SLSrtePathComputeReq_SLSrtePathInit* msg) {
   return *msg->path_init_type_.explicit__;
 }
-void SLSrtePathComputeRequest_SLSrtePathInit::set_allocated_dynamic(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* dynamic) {
+void SLSrtePathComputeReq_SLSrtePathInit::set_allocated_dynamic(::service_layer::SLSrtePathAttrDynamic* dynamic) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_path_init_type();
   if (dynamic) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic>::GetOwningArena(dynamic);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathAttrDynamic>::GetOwningArena(dynamic);
     if (message_arena != submessage_arena) {
       dynamic = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, dynamic, submessage_arena);
@@ -1415,14 +891,14 @@ void SLSrtePathComputeRequest_SLSrtePathInit::set_allocated_dynamic(::service_la
     set_has_dynamic();
     path_init_type_.dynamic_ = dynamic;
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.dynamic)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathInit.dynamic)
 }
-void SLSrtePathComputeRequest_SLSrtePathInit::set_allocated_explicit_(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* explicit_) {
+void SLSrtePathComputeReq_SLSrtePathInit::set_allocated_explicit_(::service_layer::SLSrtePathAttrExplicit* explicit_) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_path_init_type();
   if (explicit_) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit>::GetOwningArena(explicit_);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathAttrExplicit>::GetOwningArena(explicit_);
     if (message_arena != submessage_arena) {
       explicit_ = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, explicit_, submessage_arena);
@@ -1430,69 +906,69 @@ void SLSrtePathComputeRequest_SLSrtePathInit::set_allocated_explicit_(::service_
     set_has_explicit_();
     path_init_type_.explicit__ = explicit_;
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathInit.explicit)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathInit.explicit)
 }
-SLSrtePathComputeRequest_SLSrtePathInit::SLSrtePathComputeRequest_SLSrtePathInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SLSrtePathComputeReq_SLSrtePathInit::SLSrtePathComputeReq_SLSrtePathInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
 }
-SLSrtePathComputeRequest_SLSrtePathInit::SLSrtePathComputeRequest_SLSrtePathInit(const SLSrtePathComputeRequest_SLSrtePathInit& from)
+SLSrtePathComputeReq_SLSrtePathInit::SLSrtePathComputeReq_SLSrtePathInit(const SLSrtePathComputeReq_SLSrtePathInit& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   dataplane_ = from.dataplane_;
   clear_has_path_init_type();
   switch (from.path_init_type_case()) {
     case kDynamic: {
-      _internal_mutable_dynamic()->::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::MergeFrom(from._internal_dynamic());
+      _internal_mutable_dynamic()->::service_layer::SLSrtePathAttrDynamic::MergeFrom(from._internal_dynamic());
       break;
     }
     case kExplicit: {
-      _internal_mutable_explicit_()->::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::MergeFrom(from._internal_explicit_());
+      _internal_mutable_explicit_()->::service_layer::SLSrtePathAttrExplicit::MergeFrom(from._internal_explicit_());
       break;
     }
     case PATH_INIT_TYPE_NOT_SET: {
       break;
     }
   }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
 }
 
-inline void SLSrtePathComputeRequest_SLSrtePathInit::SharedCtor() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::SharedCtor() {
 dataplane_ = 0;
 clear_has_path_init_type();
 }
 
-SLSrtePathComputeRequest_SLSrtePathInit::~SLSrtePathComputeRequest_SLSrtePathInit() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+SLSrtePathComputeReq_SLSrtePathInit::~SLSrtePathComputeReq_SLSrtePathInit() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLSrtePathComputeRequest_SLSrtePathInit::SharedDtor() {
+inline void SLSrtePathComputeReq_SLSrtePathInit::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (has_path_init_type()) {
     clear_path_init_type();
   }
 }
 
-void SLSrtePathComputeRequest_SLSrtePathInit::ArenaDtor(void* object) {
-  SLSrtePathComputeRequest_SLSrtePathInit* _this = reinterpret_cast< SLSrtePathComputeRequest_SLSrtePathInit* >(object);
+void SLSrtePathComputeReq_SLSrtePathInit::ArenaDtor(void* object) {
+  SLSrtePathComputeReq_SLSrtePathInit* _this = reinterpret_cast< SLSrtePathComputeReq_SLSrtePathInit* >(object);
   (void)_this;
 }
-void SLSrtePathComputeRequest_SLSrtePathInit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SLSrtePathComputeReq_SLSrtePathInit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void SLSrtePathComputeRequest_SLSrtePathInit::SetCachedSize(int size) const {
+void SLSrtePathComputeReq_SLSrtePathInit::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLSrtePathComputeRequest_SLSrtePathInit::clear_path_init_type() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+void SLSrtePathComputeReq_SLSrtePathInit::clear_path_init_type() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   switch (path_init_type_case()) {
     case kDynamic: {
       if (GetArenaForAllocation() == nullptr) {
@@ -1514,8 +990,8 @@ void SLSrtePathComputeRequest_SLSrtePathInit::clear_path_init_type() {
 }
 
 
-void SLSrtePathComputeRequest_SLSrtePathInit::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+void SLSrtePathComputeReq_SLSrtePathInit::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1525,7 +1001,7 @@ void SLSrtePathComputeRequest_SLSrtePathInit::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SLSrtePathComputeRequest_SLSrtePathInit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SLSrtePathComputeReq_SLSrtePathInit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -1540,7 +1016,7 @@ const char* SLSrtePathComputeRequest_SLSrtePathInit::_InternalParse(const char* 
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic dynamic = 2;
+      // .service_layer.SLSrtePathAttrDynamic dynamic = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_dynamic(), ptr);
@@ -1548,7 +1024,7 @@ const char* SLSrtePathComputeRequest_SLSrtePathInit::_InternalParse(const char* 
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit explicit = 3;
+      // .service_layer.SLSrtePathAttrExplicit explicit = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_explicit_(), ptr);
@@ -1579,9 +1055,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SLSrtePathComputeRequest_SLSrtePathInit::_InternalSerialize(
+uint8_t* SLSrtePathComputeReq_SLSrtePathInit::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1592,7 +1068,7 @@ uint8_t* SLSrtePathComputeRequest_SLSrtePathInit::_InternalSerialize(
       1, this->_internal_dataplane(), target);
   }
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic dynamic = 2;
+  // .service_layer.SLSrtePathAttrDynamic dynamic = 2;
   if (_internal_has_dynamic()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1600,7 +1076,7 @@ uint8_t* SLSrtePathComputeRequest_SLSrtePathInit::_InternalSerialize(
         2, _Internal::dynamic(this), target, stream);
   }
 
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit explicit = 3;
+  // .service_layer.SLSrtePathAttrExplicit explicit = 3;
   if (_internal_has_explicit_()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1612,12 +1088,12 @@ uint8_t* SLSrtePathComputeRequest_SLSrtePathInit::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   return target;
 }
 
-size_t SLSrtePathComputeRequest_SLSrtePathInit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+size_t SLSrtePathComputeReq_SLSrtePathInit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -1631,14 +1107,14 @@ size_t SLSrtePathComputeRequest_SLSrtePathInit::ByteSizeLong() const {
   }
 
   switch (path_init_type_case()) {
-    // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitDynamic dynamic = 2;
+    // .service_layer.SLSrtePathAttrDynamic dynamic = 2;
     case kDynamic: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *path_init_type_.dynamic_);
       break;
     }
-    // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit.SLSrtePathInitExplicit explicit = 3;
+    // .service_layer.SLSrtePathAttrExplicit explicit = 3;
     case kExplicit: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1652,21 +1128,21 @@ size_t SLSrtePathComputeRequest_SLSrtePathInit::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest_SLSrtePathInit::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeReq_SLSrtePathInit::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequest_SLSrtePathInit::MergeImpl
+    SLSrtePathComputeReq_SLSrtePathInit::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest_SLSrtePathInit::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeReq_SLSrtePathInit::GetClassData() const { return &_class_data_; }
 
-void SLSrtePathComputeRequest_SLSrtePathInit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void SLSrtePathComputeReq_SLSrtePathInit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequest_SLSrtePathInit *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequest_SLSrtePathInit &>(from));
+  static_cast<SLSrtePathComputeReq_SLSrtePathInit *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeReq_SLSrtePathInit &>(from));
 }
 
 
-void SLSrtePathComputeRequest_SLSrtePathInit::MergeFrom(const SLSrtePathComputeRequest_SLSrtePathInit& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+void SLSrtePathComputeReq_SLSrtePathInit::MergeFrom(const SLSrtePathComputeReq_SLSrtePathInit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1676,11 +1152,11 @@ void SLSrtePathComputeRequest_SLSrtePathInit::MergeFrom(const SLSrtePathComputeR
   }
   switch (from.path_init_type_case()) {
     case kDynamic: {
-      _internal_mutable_dynamic()->::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic::MergeFrom(from._internal_dynamic());
+      _internal_mutable_dynamic()->::service_layer::SLSrtePathAttrDynamic::MergeFrom(from._internal_dynamic());
       break;
     }
     case kExplicit: {
-      _internal_mutable_explicit_()->::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit::MergeFrom(from._internal_explicit_());
+      _internal_mutable_explicit_()->::service_layer::SLSrtePathAttrExplicit::MergeFrom(from._internal_explicit_());
       break;
     }
     case PATH_INIT_TYPE_NOT_SET: {
@@ -1690,18 +1166,18 @@ void SLSrtePathComputeRequest_SLSrtePathInit::MergeFrom(const SLSrtePathComputeR
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SLSrtePathComputeRequest_SLSrtePathInit::CopyFrom(const SLSrtePathComputeRequest_SLSrtePathInit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathInit)
+void SLSrtePathComputeReq_SLSrtePathInit::CopyFrom(const SLSrtePathComputeReq_SLSrtePathInit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeReq.SLSrtePathInit)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SLSrtePathComputeRequest_SLSrtePathInit::IsInitialized() const {
+bool SLSrtePathComputeReq_SLSrtePathInit::IsInitialized() const {
   return true;
 }
 
-void SLSrtePathComputeRequest_SLSrtePathInit::InternalSwap(SLSrtePathComputeRequest_SLSrtePathInit* other) {
+void SLSrtePathComputeReq_SLSrtePathInit::InternalSwap(SLSrtePathComputeReq_SLSrtePathInit* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(dataplane_, other->dataplane_);
@@ -1709,7 +1185,346 @@ void SLSrtePathComputeRequest_SLSrtePathInit::InternalSwap(SLSrtePathComputeRequ
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest_SLSrtePathInit::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeReq_SLSrtePathInit::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[2]);
+}
+
+// ===================================================================
+
+class SLSrtePathComputeReq_SLSrtePathUpdate::_Internal {
+ public:
+  static const ::service_layer::SLSrtePathAttrDynamic& dynamic(const SLSrtePathComputeReq_SLSrtePathUpdate* msg);
+  static const ::service_layer::SLSrtePathAttrExplicit& explicit_(const SLSrtePathComputeReq_SLSrtePathUpdate* msg);
+};
+
+const ::service_layer::SLSrtePathAttrDynamic&
+SLSrtePathComputeReq_SLSrtePathUpdate::_Internal::dynamic(const SLSrtePathComputeReq_SLSrtePathUpdate* msg) {
+  return *msg->path_update_type_.dynamic_;
+}
+const ::service_layer::SLSrtePathAttrExplicit&
+SLSrtePathComputeReq_SLSrtePathUpdate::_Internal::explicit_(const SLSrtePathComputeReq_SLSrtePathUpdate* msg) {
+  return *msg->path_update_type_.explicit__;
+}
+void SLSrtePathComputeReq_SLSrtePathUpdate::set_allocated_dynamic(::service_layer::SLSrtePathAttrDynamic* dynamic) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_path_update_type();
+  if (dynamic) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathAttrDynamic>::GetOwningArena(dynamic);
+    if (message_arena != submessage_arena) {
+      dynamic = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, dynamic, submessage_arena);
+    }
+    set_has_dynamic();
+    path_update_type_.dynamic_ = dynamic;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.dynamic)
+}
+void SLSrtePathComputeReq_SLSrtePathUpdate::set_allocated_explicit_(::service_layer::SLSrtePathAttrExplicit* explicit_) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_path_update_type();
+  if (explicit_) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathAttrExplicit>::GetOwningArena(explicit_);
+    if (message_arena != submessage_arena) {
+      explicit_ = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, explicit_, submessage_arena);
+    }
+    set_has_explicit_();
+    path_update_type_.explicit__ = explicit_;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate.explicit)
+}
+SLSrtePathComputeReq_SLSrtePathUpdate::SLSrtePathComputeReq_SLSrtePathUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+}
+SLSrtePathComputeReq_SLSrtePathUpdate::SLSrtePathComputeReq_SLSrtePathUpdate(const SLSrtePathComputeReq_SLSrtePathUpdate& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  clear_has_path_update_type();
+  switch (from.path_update_type_case()) {
+    case kDynamic: {
+      _internal_mutable_dynamic()->::service_layer::SLSrtePathAttrDynamic::MergeFrom(from._internal_dynamic());
+      break;
+    }
+    case kExplicit: {
+      _internal_mutable_explicit_()->::service_layer::SLSrtePathAttrExplicit::MergeFrom(from._internal_explicit_());
+      break;
+    }
+    case PATH_UPDATE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+}
+
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::SharedCtor() {
+clear_has_path_update_type();
+}
+
+SLSrtePathComputeReq_SLSrtePathUpdate::~SLSrtePathComputeReq_SLSrtePathUpdate() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLSrtePathComputeReq_SLSrtePathUpdate::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (has_path_update_type()) {
+    clear_path_update_type();
+  }
+}
+
+void SLSrtePathComputeReq_SLSrtePathUpdate::ArenaDtor(void* object) {
+  SLSrtePathComputeReq_SLSrtePathUpdate* _this = reinterpret_cast< SLSrtePathComputeReq_SLSrtePathUpdate* >(object);
+  (void)_this;
+}
+void SLSrtePathComputeReq_SLSrtePathUpdate::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLSrtePathComputeReq_SLSrtePathUpdate::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLSrtePathComputeReq_SLSrtePathUpdate::clear_path_update_type() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  switch (path_update_type_case()) {
+    case kDynamic: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete path_update_type_.dynamic_;
+      }
+      break;
+    }
+    case kExplicit: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete path_update_type_.explicit__;
+      }
+      break;
+    }
+    case PATH_UPDATE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = PATH_UPDATE_TYPE_NOT_SET;
+}
+
+
+void SLSrtePathComputeReq_SLSrtePathUpdate::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_path_update_type();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLSrtePathComputeReq_SLSrtePathUpdate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLSrtePathAttrDynamic dynamic = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_dynamic(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrtePathAttrExplicit explicit = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_explicit_(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLSrtePathComputeReq_SLSrtePathUpdate::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLSrtePathAttrDynamic dynamic = 1;
+  if (_internal_has_dynamic()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::dynamic(this), target, stream);
+  }
+
+  // .service_layer.SLSrtePathAttrExplicit explicit = 2;
+  if (_internal_has_explicit_()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::explicit_(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  return target;
+}
+
+size_t SLSrtePathComputeReq_SLSrtePathUpdate::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (path_update_type_case()) {
+    // .service_layer.SLSrtePathAttrDynamic dynamic = 1;
+    case kDynamic: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *path_update_type_.dynamic_);
+      break;
+    }
+    // .service_layer.SLSrtePathAttrExplicit explicit = 2;
+    case kExplicit: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *path_update_type_.explicit__);
+      break;
+    }
+    case PATH_UPDATE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeReq_SLSrtePathUpdate::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLSrtePathComputeReq_SLSrtePathUpdate::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeReq_SLSrtePathUpdate::GetClassData() const { return &_class_data_; }
+
+void SLSrtePathComputeReq_SLSrtePathUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLSrtePathComputeReq_SLSrtePathUpdate *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeReq_SLSrtePathUpdate &>(from));
+}
+
+
+void SLSrtePathComputeReq_SLSrtePathUpdate::MergeFrom(const SLSrtePathComputeReq_SLSrtePathUpdate& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.path_update_type_case()) {
+    case kDynamic: {
+      _internal_mutable_dynamic()->::service_layer::SLSrtePathAttrDynamic::MergeFrom(from._internal_dynamic());
+      break;
+    }
+    case kExplicit: {
+      _internal_mutable_explicit_()->::service_layer::SLSrtePathAttrExplicit::MergeFrom(from._internal_explicit_());
+      break;
+    }
+    case PATH_UPDATE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLSrtePathComputeReq_SLSrtePathUpdate::CopyFrom(const SLSrtePathComputeReq_SLSrtePathUpdate& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeReq.SLSrtePathUpdate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLSrtePathComputeReq_SLSrtePathUpdate::IsInitialized() const {
+  return true;
+}
+
+void SLSrtePathComputeReq_SLSrtePathUpdate::InternalSwap(SLSrtePathComputeReq_SLSrtePathUpdate* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(path_update_type_, other->path_update_type_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeReq_SLSrtePathUpdate::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[3]);
+}
+
+// ===================================================================
+
+class SLSrtePathComputeReq_SLSrtePathWithdraw::_Internal {
+ public:
+};
+
+SLSrtePathComputeReq_SLSrtePathWithdraw::SLSrtePathComputeReq_SLSrtePathWithdraw(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw)
+}
+SLSrtePathComputeReq_SLSrtePathWithdraw::SLSrtePathComputeReq_SLSrtePathWithdraw(const SLSrtePathComputeReq_SLSrtePathWithdraw& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeReq_SLSrtePathWithdraw::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeReq_SLSrtePathWithdraw::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeReq_SLSrtePathWithdraw::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
       file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[4]);
@@ -1717,25 +1532,1417 @@ void SLSrtePathComputeRequest_SLSrtePathInit::InternalSwap(SLSrtePathComputeRequ
 
 // ===================================================================
 
-class SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_Internal {
+class SLSrtePathComputeReq::_Internal {
  public:
-  static const ::service_layer::ConstraintSet& constraints(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* msg);
+  static const ::service_layer::SLSrPolicyKey& policy_key(const SLSrtePathComputeReq* msg);
+  static const ::service_layer::SLSrCandidatePathKey& candidate_path_key(const SLSrtePathComputeReq* msg);
+  static const ::service_layer::SLSrtePathComputeReq_SLSrtePathInit& init(const SLSrtePathComputeReq* msg);
+  static const ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate& update(const SLSrtePathComputeReq* msg);
+  static const ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw& withdraw(const SLSrtePathComputeReq* msg);
 };
 
-const ::service_layer::ConstraintSet&
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_Internal::constraints(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* msg) {
-  return *msg->constraints_;
+const ::service_layer::SLSrPolicyKey&
+SLSrtePathComputeReq::_Internal::policy_key(const SLSrtePathComputeReq* msg) {
+  return *msg->policy_key_;
 }
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+const ::service_layer::SLSrCandidatePathKey&
+SLSrtePathComputeReq::_Internal::candidate_path_key(const SLSrtePathComputeReq* msg) {
+  return *msg->candidate_path_key_;
+}
+const ::service_layer::SLSrtePathComputeReq_SLSrtePathInit&
+SLSrtePathComputeReq::_Internal::init(const SLSrtePathComputeReq* msg) {
+  return *msg->request_type_.init_;
+}
+const ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate&
+SLSrtePathComputeReq::_Internal::update(const SLSrtePathComputeReq* msg) {
+  return *msg->request_type_.update_;
+}
+const ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw&
+SLSrtePathComputeReq::_Internal::withdraw(const SLSrtePathComputeReq* msg) {
+  return *msg->request_type_.withdraw_;
+}
+void SLSrtePathComputeReq::clear_policy_key() {
+  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
+    delete policy_key_;
+  }
+  policy_key_ = nullptr;
+}
+void SLSrtePathComputeReq::clear_candidate_path_key() {
+  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
+    delete candidate_path_key_;
+  }
+  candidate_path_key_ = nullptr;
+}
+void SLSrtePathComputeReq::set_allocated_init(::service_layer::SLSrtePathComputeReq_SLSrtePathInit* init) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_request_type();
+  if (init) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeReq_SLSrtePathInit>::GetOwningArena(init);
+    if (message_arena != submessage_arena) {
+      init = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, init, submessage_arena);
+    }
+    set_has_init();
+    request_type_.init_ = init;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.init)
+}
+void SLSrtePathComputeReq::set_allocated_update(::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* update) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_request_type();
+  if (update) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate>::GetOwningArena(update);
+    if (message_arena != submessage_arena) {
+      update = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, update, submessage_arena);
+    }
+    set_has_update();
+    request_type_.update_ = update;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.update)
+}
+void SLSrtePathComputeReq::set_allocated_withdraw(::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* withdraw) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_request_type();
+  if (withdraw) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw>::GetOwningArena(withdraw);
+    if (message_arena != submessage_arena) {
+      withdraw = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, withdraw, submessage_arena);
+    }
+    set_has_withdraw();
+    request_type_.withdraw_ = withdraw;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeReq.withdraw)
+}
+SLSrtePathComputeReq::SLSrtePathComputeReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeReq)
 }
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& from)
+SLSrtePathComputeReq::SLSrtePathComputeReq(const SLSrtePathComputeReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_policy_key()) {
+    policy_key_ = new ::service_layer::SLSrPolicyKey(*from.policy_key_);
+  } else {
+    policy_key_ = nullptr;
+  }
+  if (from._internal_has_candidate_path_key()) {
+    candidate_path_key_ = new ::service_layer::SLSrCandidatePathKey(*from.candidate_path_key_);
+  } else {
+    candidate_path_key_ = nullptr;
+  }
+  seq_num_ = from.seq_num_;
+  clear_has_request_type();
+  switch (from.request_type_case()) {
+    case kInit: {
+      _internal_mutable_init()->::service_layer::SLSrtePathComputeReq_SLSrtePathInit::MergeFrom(from._internal_init());
+      break;
+    }
+    case kUpdate: {
+      _internal_mutable_update()->::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate::MergeFrom(from._internal_update());
+      break;
+    }
+    case kWithdraw: {
+      _internal_mutable_withdraw()->::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw::MergeFrom(from._internal_withdraw());
+      break;
+    }
+    case REQUEST_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeReq)
+}
+
+inline void SLSrtePathComputeReq::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&policy_key_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&seq_num_) -
+    reinterpret_cast<char*>(&policy_key_)) + sizeof(seq_num_));
+clear_has_request_type();
+}
+
+SLSrtePathComputeReq::~SLSrtePathComputeReq() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeReq)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLSrtePathComputeReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete policy_key_;
+  if (this != internal_default_instance()) delete candidate_path_key_;
+  if (has_request_type()) {
+    clear_request_type();
+  }
+}
+
+void SLSrtePathComputeReq::ArenaDtor(void* object) {
+  SLSrtePathComputeReq* _this = reinterpret_cast< SLSrtePathComputeReq* >(object);
+  (void)_this;
+}
+void SLSrtePathComputeReq::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLSrtePathComputeReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLSrtePathComputeReq::clear_request_type() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeReq)
+  switch (request_type_case()) {
+    case kInit: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete request_type_.init_;
+      }
+      break;
+    }
+    case kUpdate: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete request_type_.update_;
+      }
+      break;
+    }
+    case kWithdraw: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete request_type_.withdraw_;
+      }
+      break;
+    }
+    case REQUEST_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = REQUEST_TYPE_NOT_SET;
+}
+
+
+void SLSrtePathComputeReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
+    delete policy_key_;
+  }
+  policy_key_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
+    delete candidate_path_key_;
+  }
+  candidate_path_key_ = nullptr;
+  seq_num_ = uint64_t{0u};
+  clear_request_type();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLSrtePathComputeReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLSrPolicyKey policy_key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_policy_key(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_candidate_path_key(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 seq_num = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          seq_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrtePathComputeReq.SLSrtePathInit init = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_init(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrtePathComputeReq.SLSrtePathUpdate update = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_update(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw withdraw = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_withdraw(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLSrtePathComputeReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLSrPolicyKey policy_key = 1;
+  if (this->_internal_has_policy_key()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::policy_key(this), target, stream);
+  }
+
+  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
+  if (this->_internal_has_candidate_path_key()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::candidate_path_key(this), target, stream);
+  }
+
+  // uint64 seq_num = 3;
+  if (this->_internal_seq_num() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_seq_num(), target);
+  }
+
+  // .service_layer.SLSrtePathComputeReq.SLSrtePathInit init = 4;
+  if (_internal_has_init()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::init(this), target, stream);
+  }
+
+  // .service_layer.SLSrtePathComputeReq.SLSrtePathUpdate update = 5;
+  if (_internal_has_update()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::update(this), target, stream);
+  }
+
+  // .service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw withdraw = 6;
+  if (_internal_has_withdraw()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::withdraw(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeReq)
+  return target;
+}
+
+size_t SLSrtePathComputeReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .service_layer.SLSrPolicyKey policy_key = 1;
+  if (this->_internal_has_policy_key()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *policy_key_);
+  }
+
+  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
+  if (this->_internal_has_candidate_path_key()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *candidate_path_key_);
+  }
+
+  // uint64 seq_num = 3;
+  if (this->_internal_seq_num() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_seq_num());
+  }
+
+  switch (request_type_case()) {
+    // .service_layer.SLSrtePathComputeReq.SLSrtePathInit init = 4;
+    case kInit: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *request_type_.init_);
+      break;
+    }
+    // .service_layer.SLSrtePathComputeReq.SLSrtePathUpdate update = 5;
+    case kUpdate: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *request_type_.update_);
+      break;
+    }
+    // .service_layer.SLSrtePathComputeReq.SLSrtePathWithdraw withdraw = 6;
+    case kWithdraw: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *request_type_.withdraw_);
+      break;
+    }
+    case REQUEST_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLSrtePathComputeReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeReq::GetClassData() const { return &_class_data_; }
+
+void SLSrtePathComputeReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLSrtePathComputeReq *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeReq &>(from));
+}
+
+
+void SLSrtePathComputeReq::MergeFrom(const SLSrtePathComputeReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_policy_key()) {
+    _internal_mutable_policy_key()->::service_layer::SLSrPolicyKey::MergeFrom(from._internal_policy_key());
+  }
+  if (from._internal_has_candidate_path_key()) {
+    _internal_mutable_candidate_path_key()->::service_layer::SLSrCandidatePathKey::MergeFrom(from._internal_candidate_path_key());
+  }
+  if (from._internal_seq_num() != 0) {
+    _internal_set_seq_num(from._internal_seq_num());
+  }
+  switch (from.request_type_case()) {
+    case kInit: {
+      _internal_mutable_init()->::service_layer::SLSrtePathComputeReq_SLSrtePathInit::MergeFrom(from._internal_init());
+      break;
+    }
+    case kUpdate: {
+      _internal_mutable_update()->::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate::MergeFrom(from._internal_update());
+      break;
+    }
+    case kWithdraw: {
+      _internal_mutable_withdraw()->::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw::MergeFrom(from._internal_withdraw());
+      break;
+    }
+    case REQUEST_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLSrtePathComputeReq::CopyFrom(const SLSrtePathComputeReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLSrtePathComputeReq::IsInitialized() const {
+  return true;
+}
+
+void SLSrtePathComputeReq::InternalSwap(SLSrtePathComputeReq* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLSrtePathComputeReq, seq_num_)
+      + sizeof(SLSrtePathComputeReq::seq_num_)
+      - PROTOBUF_FIELD_OFFSET(SLSrtePathComputeReq, policy_key_)>(
+          reinterpret_cast<char*>(&policy_key_),
+          reinterpret_cast<char*>(&other->policy_key_));
+  swap(request_type_, other->request_type_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeReq::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[5]);
+}
+
+// ===================================================================
+
+class SLSrtePathComputeRes_SLSrteDynamicPathResult::_Internal {
+ public:
+  using HasBits = decltype(std::declval<SLSrtePathComputeRes_SLSrteDynamicPathResult>()._has_bits_);
+  static void set_has_effective_diversity_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::clear_segment_lists() {
+  segment_lists_.Clear();
+}
+SLSrtePathComputeRes_SLSrteDynamicPathResult::SLSrtePathComputeRes_SLSrteDynamicPathResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  segment_lists_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+}
+SLSrtePathComputeRes_SLSrteDynamicPathResult::SLSrtePathComputeRes_SLSrteDynamicPathResult(const SLSrtePathComputeRes_SLSrteDynamicPathResult& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      segment_lists_(from.segment_lists_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  effective_diversity_level_ = from.effective_diversity_level_;
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+}
+
+inline void SLSrtePathComputeRes_SLSrteDynamicPathResult::SharedCtor() {
+effective_diversity_level_ = 0;
+}
+
+SLSrtePathComputeRes_SLSrteDynamicPathResult::~SLSrtePathComputeRes_SLSrteDynamicPathResult() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLSrtePathComputeRes_SLSrteDynamicPathResult::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::ArenaDtor(void* object) {
+  SLSrtePathComputeRes_SLSrteDynamicPathResult* _this = reinterpret_cast< SLSrtePathComputeRes_SLSrteDynamicPathResult* >(object);
+  (void)_this;
+}
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  segment_lists_.Clear();
+  effective_diversity_level_ = 0;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLSrtePathComputeRes_SLSrteDynamicPathResult::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .service_layer.SLSrSegmentList segment_lists = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_segment_lists(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .service_layer.SLSrDiversityLevel effective_diversity_level = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_effective_diversity_level(static_cast<::service_layer::SLSrDiversityLevel>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLSrtePathComputeRes_SLSrteDynamicPathResult::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_segment_lists_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_segment_lists(i), target, stream);
+  }
+
+  // optional .service_layer.SLSrDiversityLevel effective_diversity_level = 3;
+  if (_internal_has_effective_diversity_level()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_effective_diversity_level(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+  return target;
+}
+
+size_t SLSrtePathComputeRes_SLSrteDynamicPathResult::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
+  total_size += 1UL * this->_internal_segment_lists_size();
+  for (const auto& msg : this->segment_lists_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // optional .service_layer.SLSrDiversityLevel effective_diversity_level = 3;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_effective_diversity_level());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRes_SLSrteDynamicPathResult::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLSrtePathComputeRes_SLSrteDynamicPathResult::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRes_SLSrteDynamicPathResult::GetClassData() const { return &_class_data_; }
+
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLSrtePathComputeRes_SLSrteDynamicPathResult *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeRes_SLSrteDynamicPathResult &>(from));
+}
+
+
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::MergeFrom(const SLSrtePathComputeRes_SLSrteDynamicPathResult& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  segment_lists_.MergeFrom(from.segment_lists_);
+  if (from._internal_has_effective_diversity_level()) {
+    _internal_set_effective_diversity_level(from._internal_effective_diversity_level());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::CopyFrom(const SLSrtePathComputeRes_SLSrteDynamicPathResult& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLSrtePathComputeRes_SLSrteDynamicPathResult::IsInitialized() const {
+  return true;
+}
+
+void SLSrtePathComputeRes_SLSrteDynamicPathResult::InternalSwap(SLSrtePathComputeRes_SLSrteDynamicPathResult* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  segment_lists_.InternalSwap(&other->segment_lists_);
+  swap(effective_diversity_level_, other->effective_diversity_level_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRes_SLSrteDynamicPathResult::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[6]);
+}
+
+// ===================================================================
+
+class SLSrtePathComputeRes_SLSrtePathError::_Internal {
+ public:
+  static const ::service_layer::SLErrorStatus& type(const SLSrtePathComputeRes_SLSrtePathError* msg);
+};
+
+const ::service_layer::SLErrorStatus&
+SLSrtePathComputeRes_SLSrtePathError::_Internal::type(const SLSrtePathComputeRes_SLSrtePathError* msg) {
+  return *msg->type_;
+}
+void SLSrtePathComputeRes_SLSrtePathError::clear_type() {
+  if (GetArenaForAllocation() == nullptr && type_ != nullptr) {
+    delete type_;
+  }
+  type_ = nullptr;
+}
+SLSrtePathComputeRes_SLSrtePathError::SLSrtePathComputeRes_SLSrtePathError(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+}
+SLSrtePathComputeRes_SLSrtePathError::SLSrtePathComputeRes_SLSrtePathError(const SLSrtePathComputeRes_SLSrtePathError& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_description().empty()) {
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
+      GetArenaForAllocation());
+  }
+  if (from._internal_has_type()) {
+    type_ = new ::service_layer::SLErrorStatus(*from.type_);
+  } else {
+    type_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+}
+
+inline void SLSrtePathComputeRes_SLSrtePathError::SharedCtor() {
+description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+type_ = nullptr;
+}
+
+SLSrtePathComputeRes_SLSrtePathError::~SLSrtePathComputeRes_SLSrtePathError() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLSrtePathComputeRes_SLSrtePathError::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete type_;
+}
+
+void SLSrtePathComputeRes_SLSrtePathError::ArenaDtor(void* object) {
+  SLSrtePathComputeRes_SLSrtePathError* _this = reinterpret_cast< SLSrtePathComputeRes_SLSrtePathError* >(object);
+  (void)_this;
+}
+void SLSrtePathComputeRes_SLSrtePathError::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLSrtePathComputeRes_SLSrtePathError::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLSrtePathComputeRes_SLSrtePathError::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  description_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && type_ != nullptr) {
+    delete type_;
+  }
+  type_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLSrtePathComputeRes_SLSrtePathError::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLErrorStatus type = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_type(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string description = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_description();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLSrtePathComputeRes.SLSrtePathError.description"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLSrtePathComputeRes_SLSrtePathError::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLErrorStatus type = 1;
+  if (this->_internal_has_type()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::type(this), target, stream);
+  }
+
+  // string description = 2;
+  if (!this->_internal_description().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_description().data(), static_cast<int>(this->_internal_description().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "service_layer.SLSrtePathComputeRes.SLSrtePathError.description");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_description(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+  return target;
+}
+
+size_t SLSrtePathComputeRes_SLSrtePathError::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string description = 2;
+  if (!this->_internal_description().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_description());
+  }
+
+  // .service_layer.SLErrorStatus type = 1;
+  if (this->_internal_has_type()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *type_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRes_SLSrtePathError::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLSrtePathComputeRes_SLSrtePathError::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRes_SLSrtePathError::GetClassData() const { return &_class_data_; }
+
+void SLSrtePathComputeRes_SLSrtePathError::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLSrtePathComputeRes_SLSrtePathError *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeRes_SLSrtePathError &>(from));
+}
+
+
+void SLSrtePathComputeRes_SLSrtePathError::MergeFrom(const SLSrtePathComputeRes_SLSrtePathError& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_description().empty()) {
+    _internal_set_description(from._internal_description());
+  }
+  if (from._internal_has_type()) {
+    _internal_mutable_type()->::service_layer::SLErrorStatus::MergeFrom(from._internal_type());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLSrtePathComputeRes_SLSrtePathError::CopyFrom(const SLSrtePathComputeRes_SLSrtePathError& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRes.SLSrtePathError)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLSrtePathComputeRes_SLSrtePathError::IsInitialized() const {
+  return true;
+}
+
+void SLSrtePathComputeRes_SLSrtePathError::InternalSwap(SLSrtePathComputeRes_SLSrtePathError* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &description_, lhs_arena,
+      &other->description_, rhs_arena
+  );
+  swap(type_, other->type_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRes_SLSrtePathError::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[7]);
+}
+
+// ===================================================================
+
+class SLSrtePathComputeRes::_Internal {
+ public:
+  static const ::service_layer::SLSrPolicyKey& policy_key(const SLSrtePathComputeRes* msg);
+  static const ::service_layer::SLSrCandidatePathKey& candidate_path_key(const SLSrtePathComputeRes* msg);
+  static const ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult& path_result(const SLSrtePathComputeRes* msg);
+  static const ::service_layer::SLSrtePathComputeRes_SLSrtePathError& error(const SLSrtePathComputeRes* msg);
+};
+
+const ::service_layer::SLSrPolicyKey&
+SLSrtePathComputeRes::_Internal::policy_key(const SLSrtePathComputeRes* msg) {
+  return *msg->policy_key_;
+}
+const ::service_layer::SLSrCandidatePathKey&
+SLSrtePathComputeRes::_Internal::candidate_path_key(const SLSrtePathComputeRes* msg) {
+  return *msg->candidate_path_key_;
+}
+const ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult&
+SLSrtePathComputeRes::_Internal::path_result(const SLSrtePathComputeRes* msg) {
+  return *msg->response_type_.path_result_;
+}
+const ::service_layer::SLSrtePathComputeRes_SLSrtePathError&
+SLSrtePathComputeRes::_Internal::error(const SLSrtePathComputeRes* msg) {
+  return *msg->response_type_.error_;
+}
+void SLSrtePathComputeRes::clear_policy_key() {
+  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
+    delete policy_key_;
+  }
+  policy_key_ = nullptr;
+}
+void SLSrtePathComputeRes::clear_candidate_path_key() {
+  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
+    delete candidate_path_key_;
+  }
+  candidate_path_key_ = nullptr;
+}
+void SLSrtePathComputeRes::set_allocated_path_result(::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* path_result) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_response_type();
+  if (path_result) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult>::GetOwningArena(path_result);
+    if (message_arena != submessage_arena) {
+      path_result = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, path_result, submessage_arena);
+    }
+    set_has_path_result();
+    response_type_.path_result_ = path_result;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRes.path_result)
+}
+void SLSrtePathComputeRes::set_allocated_error(::service_layer::SLSrtePathComputeRes_SLSrtePathError* error) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_response_type();
+  if (error) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRes_SLSrtePathError>::GetOwningArena(error);
+    if (message_arena != submessage_arena) {
+      error = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, error, submessage_arena);
+    }
+    set_has_error();
+    response_type_.error_ = error;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRes.error)
+}
+SLSrtePathComputeRes::SLSrtePathComputeRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRes)
+}
+SLSrtePathComputeRes::SLSrtePathComputeRes(const SLSrtePathComputeRes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_policy_key()) {
+    policy_key_ = new ::service_layer::SLSrPolicyKey(*from.policy_key_);
+  } else {
+    policy_key_ = nullptr;
+  }
+  if (from._internal_has_candidate_path_key()) {
+    candidate_path_key_ = new ::service_layer::SLSrCandidatePathKey(*from.candidate_path_key_);
+  } else {
+    candidate_path_key_ = nullptr;
+  }
+  req_seq_num_ = from.req_seq_num_;
+  clear_has_response_type();
+  switch (from.response_type_case()) {
+    case kPathResult: {
+      _internal_mutable_path_result()->::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult::MergeFrom(from._internal_path_result());
+      break;
+    }
+    case kError: {
+      _internal_mutable_error()->::service_layer::SLSrtePathComputeRes_SLSrtePathError::MergeFrom(from._internal_error());
+      break;
+    }
+    case RESPONSE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRes)
+}
+
+inline void SLSrtePathComputeRes::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&policy_key_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&req_seq_num_) -
+    reinterpret_cast<char*>(&policy_key_)) + sizeof(req_seq_num_));
+clear_has_response_type();
+}
+
+SLSrtePathComputeRes::~SLSrtePathComputeRes() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRes)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLSrtePathComputeRes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete policy_key_;
+  if (this != internal_default_instance()) delete candidate_path_key_;
+  if (has_response_type()) {
+    clear_response_type();
+  }
+}
+
+void SLSrtePathComputeRes::ArenaDtor(void* object) {
+  SLSrtePathComputeRes* _this = reinterpret_cast< SLSrtePathComputeRes* >(object);
+  (void)_this;
+}
+void SLSrtePathComputeRes::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLSrtePathComputeRes::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLSrtePathComputeRes::clear_response_type() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeRes)
+  switch (response_type_case()) {
+    case kPathResult: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete response_type_.path_result_;
+      }
+      break;
+    }
+    case kError: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete response_type_.error_;
+      }
+      break;
+    }
+    case RESPONSE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = RESPONSE_TYPE_NOT_SET;
+}
+
+
+void SLSrtePathComputeRes::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
+    delete policy_key_;
+  }
+  policy_key_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
+    delete candidate_path_key_;
+  }
+  candidate_path_key_ = nullptr;
+  req_seq_num_ = uint64_t{0u};
+  clear_response_type();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLSrtePathComputeRes::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLSrPolicyKey policy_key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_policy_key(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_candidate_path_key(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 req_seq_num = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          req_seq_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult path_result = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_path_result(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrtePathComputeRes.SLSrtePathError error = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_error(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLSrtePathComputeRes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLSrPolicyKey policy_key = 1;
+  if (this->_internal_has_policy_key()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::policy_key(this), target, stream);
+  }
+
+  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
+  if (this->_internal_has_candidate_path_key()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::candidate_path_key(this), target, stream);
+  }
+
+  // uint64 req_seq_num = 3;
+  if (this->_internal_req_seq_num() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_req_seq_num(), target);
+  }
+
+  // .service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult path_result = 4;
+  if (_internal_has_path_result()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::path_result(this), target, stream);
+  }
+
+  // .service_layer.SLSrtePathComputeRes.SLSrtePathError error = 6;
+  if (_internal_has_error()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::error(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRes)
+  return target;
+}
+
+size_t SLSrtePathComputeRes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .service_layer.SLSrPolicyKey policy_key = 1;
+  if (this->_internal_has_policy_key()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *policy_key_);
+  }
+
+  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
+  if (this->_internal_has_candidate_path_key()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *candidate_path_key_);
+  }
+
+  // uint64 req_seq_num = 3;
+  if (this->_internal_req_seq_num() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_req_seq_num());
+  }
+
+  switch (response_type_case()) {
+    // .service_layer.SLSrtePathComputeRes.SLSrteDynamicPathResult path_result = 4;
+    case kPathResult: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *response_type_.path_result_);
+      break;
+    }
+    // .service_layer.SLSrtePathComputeRes.SLSrtePathError error = 6;
+    case kError: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *response_type_.error_);
+      break;
+    }
+    case RESPONSE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLSrtePathComputeRes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRes::GetClassData() const { return &_class_data_; }
+
+void SLSrtePathComputeRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLSrtePathComputeRes *>(to)->MergeFrom(
+      static_cast<const SLSrtePathComputeRes &>(from));
+}
+
+
+void SLSrtePathComputeRes::MergeFrom(const SLSrtePathComputeRes& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRes)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_policy_key()) {
+    _internal_mutable_policy_key()->::service_layer::SLSrPolicyKey::MergeFrom(from._internal_policy_key());
+  }
+  if (from._internal_has_candidate_path_key()) {
+    _internal_mutable_candidate_path_key()->::service_layer::SLSrCandidatePathKey::MergeFrom(from._internal_candidate_path_key());
+  }
+  if (from._internal_req_seq_num() != 0) {
+    _internal_set_req_seq_num(from._internal_req_seq_num());
+  }
+  switch (from.response_type_case()) {
+    case kPathResult: {
+      _internal_mutable_path_result()->::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult::MergeFrom(from._internal_path_result());
+      break;
+    }
+    case kError: {
+      _internal_mutable_error()->::service_layer::SLSrtePathComputeRes_SLSrtePathError::MergeFrom(from._internal_error());
+      break;
+    }
+    case RESPONSE_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLSrtePathComputeRes::CopyFrom(const SLSrtePathComputeRes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLSrtePathComputeRes::IsInitialized() const {
+  return true;
+}
+
+void SLSrtePathComputeRes::InternalSwap(SLSrtePathComputeRes* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRes, req_seq_num_)
+      + sizeof(SLSrtePathComputeRes::req_seq_num_)
+      - PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRes, policy_key_)>(
+          reinterpret_cast<char*>(&policy_key_),
+          reinterpret_cast<char*>(&other->policy_key_));
+  swap(response_type_, other->response_type_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRes::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[8]);
+}
+
+// ===================================================================
+
+class SLSrtePathAttrDynamic::_Internal {
+ public:
+  static const ::service_layer::ConstraintSet& constraints(const SLSrtePathAttrDynamic* msg);
+};
+
+const ::service_layer::ConstraintSet&
+SLSrtePathAttrDynamic::_Internal::constraints(const SLSrtePathAttrDynamic* msg) {
+  return *msg->constraints_;
+}
+SLSrtePathAttrDynamic::SLSrtePathAttrDynamic(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathAttrDynamic)
+}
+SLSrtePathAttrDynamic::SLSrtePathAttrDynamic(const SLSrtePathAttrDynamic& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_constraints()) {
@@ -1744,40 +2951,40 @@ SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::SLSrtePathCom
     constraints_ = nullptr;
   }
   o_metric_ = from.o_metric_;
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathAttrDynamic)
 }
 
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::SharedCtor() {
+inline void SLSrtePathAttrDynamic::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&constraints_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&o_metric_) -
     reinterpret_cast<char*>(&constraints_)) + sizeof(o_metric_));
 }
 
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::~SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+SLSrtePathAttrDynamic::~SLSrtePathAttrDynamic() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathAttrDynamic)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::SharedDtor() {
+inline void SLSrtePathAttrDynamic::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete constraints_;
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::ArenaDtor(void* object) {
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* _this = reinterpret_cast< SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* >(object);
+void SLSrtePathAttrDynamic::ArenaDtor(void* object) {
+  SLSrtePathAttrDynamic* _this = reinterpret_cast< SLSrtePathAttrDynamic* >(object);
   (void)_this;
 }
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SLSrtePathAttrDynamic::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::SetCachedSize(int size) const {
+void SLSrtePathAttrDynamic::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+void SLSrtePathAttrDynamic::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathAttrDynamic)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1790,7 +2997,7 @@ void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::Clear() 
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SLSrtePathAttrDynamic::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -1836,9 +3043,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_InternalSerialize(
+uint8_t* SLSrtePathAttrDynamic::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathAttrDynamic)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1861,12 +3068,12 @@ uint8_t* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_Int
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathAttrDynamic)
   return target;
 }
 
-size_t SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+size_t SLSrtePathAttrDynamic::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathAttrDynamic)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -1889,21 +3096,21 @@ size_t SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::ByteSi
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathAttrDynamic::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::MergeImpl
+    SLSrtePathAttrDynamic::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathAttrDynamic::GetClassData() const { return &_class_data_; }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void SLSrtePathAttrDynamic::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic &>(from));
+  static_cast<SLSrtePathAttrDynamic *>(to)->MergeFrom(
+      static_cast<const SLSrtePathAttrDynamic &>(from));
 }
 
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::MergeFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+void SLSrtePathAttrDynamic::MergeFrom(const SLSrtePathAttrDynamic& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathAttrDynamic)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1917,49 +3124,49 @@ void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::MergeFro
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::CopyFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic)
+void SLSrtePathAttrDynamic::CopyFrom(const SLSrtePathAttrDynamic& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathAttrDynamic)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::IsInitialized() const {
+bool SLSrtePathAttrDynamic::IsInitialized() const {
   return true;
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::InternalSwap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* other) {
+void SLSrtePathAttrDynamic::InternalSwap(SLSrtePathAttrDynamic* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic, o_metric_)
-      + sizeof(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::o_metric_)
-      - PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic, constraints_)>(
+      PROTOBUF_FIELD_OFFSET(SLSrtePathAttrDynamic, o_metric_)
+      + sizeof(SLSrtePathAttrDynamic::o_metric_)
+      - PROTOBUF_FIELD_OFFSET(SLSrtePathAttrDynamic, constraints_)>(
           reinterpret_cast<char*>(&constraints_),
           reinterpret_cast<char*>(&other->constraints_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathAttrDynamic::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[5]);
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[9]);
 }
 
 // ===================================================================
 
-class SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_Internal {
+class SLSrtePathAttrExplicit::_Internal {
  public:
-  static const ::service_layer::ConstraintSet& constraints(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* msg);
+  static const ::service_layer::ConstraintSet& constraints(const SLSrtePathAttrExplicit* msg);
 };
 
 const ::service_layer::ConstraintSet&
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_Internal::constraints(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* msg) {
+SLSrtePathAttrExplicit::_Internal::constraints(const SLSrtePathAttrExplicit* msg) {
   return *msg->constraints_;
 }
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::clear_segment_lists() {
+void SLSrtePathAttrExplicit::clear_segment_lists() {
   segment_lists_.Clear();
 }
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SLSrtePathAttrExplicit::SLSrtePathAttrExplicit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   segment_lists_(arena) {
@@ -1967,9 +3174,9 @@ SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SLSrtePathCo
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathAttrExplicit)
 }
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& from)
+SLSrtePathAttrExplicit::SLSrtePathAttrExplicit(const SLSrtePathAttrExplicit& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       segment_lists_(from.segment_lists_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1978,37 +3185,37 @@ SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SLSrtePathCo
   } else {
     constraints_ = nullptr;
   }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathAttrExplicit)
 }
 
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SharedCtor() {
+inline void SLSrtePathAttrExplicit::SharedCtor() {
 constraints_ = nullptr;
 }
 
-SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::~SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+SLSrtePathAttrExplicit::~SLSrtePathAttrExplicit() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathAttrExplicit)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SharedDtor() {
+inline void SLSrtePathAttrExplicit::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete constraints_;
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::ArenaDtor(void* object) {
-  SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* _this = reinterpret_cast< SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* >(object);
+void SLSrtePathAttrExplicit::ArenaDtor(void* object) {
+  SLSrtePathAttrExplicit* _this = reinterpret_cast< SLSrtePathAttrExplicit* >(object);
   (void)_this;
 }
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SLSrtePathAttrExplicit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::SetCachedSize(int size) const {
+void SLSrtePathAttrExplicit::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+void SLSrtePathAttrExplicit::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathAttrExplicit)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -2021,7 +3228,7 @@ void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::Clear()
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SLSrtePathAttrExplicit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -2071,9 +3278,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_InternalSerialize(
+uint8_t* SLSrtePathAttrExplicit::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathAttrExplicit)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2097,12 +3304,12 @@ uint8_t* SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_In
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathAttrExplicit)
   return target;
 }
 
-size_t SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+size_t SLSrtePathAttrExplicit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathAttrExplicit)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -2126,21 +3333,21 @@ size_t SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::ByteS
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathAttrExplicit::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::MergeImpl
+    SLSrtePathAttrExplicit::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathAttrExplicit::GetClassData() const { return &_class_data_; }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void SLSrtePathAttrExplicit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit &>(from));
+  static_cast<SLSrtePathAttrExplicit *>(to)->MergeFrom(
+      static_cast<const SLSrtePathAttrExplicit &>(from));
 }
 
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::MergeFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+void SLSrtePathAttrExplicit::MergeFrom(const SLSrtePathAttrExplicit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathAttrExplicit)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2152,1792 +3359,28 @@ void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::MergeFr
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::CopyFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit)
+void SLSrtePathAttrExplicit::CopyFrom(const SLSrtePathAttrExplicit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathAttrExplicit)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::IsInitialized() const {
+bool SLSrtePathAttrExplicit::IsInitialized() const {
   return true;
 }
 
-void SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::InternalSwap(SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* other) {
+void SLSrtePathAttrExplicit::InternalSwap(SLSrtePathAttrExplicit* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   segment_lists_.InternalSwap(&other->segment_lists_);
   swap(constraints_, other->constraints_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[6]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeRequest_SLSrtePathUpdate::_Internal {
- public:
-  static const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic& dynamic(const SLSrtePathComputeRequest_SLSrtePathUpdate* msg);
-  static const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit& explicit_(const SLSrtePathComputeRequest_SLSrtePathUpdate* msg);
-};
-
-const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic&
-SLSrtePathComputeRequest_SLSrtePathUpdate::_Internal::dynamic(const SLSrtePathComputeRequest_SLSrtePathUpdate* msg) {
-  return *msg->path_update_type_.dynamic_;
-}
-const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit&
-SLSrtePathComputeRequest_SLSrtePathUpdate::_Internal::explicit_(const SLSrtePathComputeRequest_SLSrtePathUpdate* msg) {
-  return *msg->path_update_type_.explicit__;
-}
-void SLSrtePathComputeRequest_SLSrtePathUpdate::set_allocated_dynamic(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* dynamic) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_path_update_type();
-  if (dynamic) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic>::GetOwningArena(dynamic);
-    if (message_arena != submessage_arena) {
-      dynamic = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, dynamic, submessage_arena);
-    }
-    set_has_dynamic();
-    path_update_type_.dynamic_ = dynamic;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.dynamic)
-}
-void SLSrtePathComputeRequest_SLSrtePathUpdate::set_allocated_explicit_(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* explicit_) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_path_update_type();
-  if (explicit_) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit>::GetOwningArena(explicit_);
-    if (message_arena != submessage_arena) {
-      explicit_ = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, explicit_, submessage_arena);
-    }
-    set_has_explicit_();
-    path_update_type_.explicit__ = explicit_;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.explicit)
-}
-SLSrtePathComputeRequest_SLSrtePathUpdate::SLSrtePathComputeRequest_SLSrtePathUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-}
-SLSrtePathComputeRequest_SLSrtePathUpdate::SLSrtePathComputeRequest_SLSrtePathUpdate(const SLSrtePathComputeRequest_SLSrtePathUpdate& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_path_update_type();
-  switch (from.path_update_type_case()) {
-    case kDynamic: {
-      _internal_mutable_dynamic()->::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::MergeFrom(from._internal_dynamic());
-      break;
-    }
-    case kExplicit: {
-      _internal_mutable_explicit_()->::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::MergeFrom(from._internal_explicit_());
-      break;
-    }
-    case PATH_UPDATE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-}
-
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::SharedCtor() {
-clear_has_path_update_type();
-}
-
-SLSrtePathComputeRequest_SLSrtePathUpdate::~SLSrtePathComputeRequest_SLSrtePathUpdate() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLSrtePathComputeRequest_SLSrtePathUpdate::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_path_update_type()) {
-    clear_path_update_type();
-  }
-}
-
-void SLSrtePathComputeRequest_SLSrtePathUpdate::ArenaDtor(void* object) {
-  SLSrtePathComputeRequest_SLSrtePathUpdate* _this = reinterpret_cast< SLSrtePathComputeRequest_SLSrtePathUpdate* >(object);
-  (void)_this;
-}
-void SLSrtePathComputeRequest_SLSrtePathUpdate::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLSrtePathComputeRequest_SLSrtePathUpdate::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLSrtePathComputeRequest_SLSrtePathUpdate::clear_path_update_type() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  switch (path_update_type_case()) {
-    case kDynamic: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete path_update_type_.dynamic_;
-      }
-      break;
-    }
-    case kExplicit: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete path_update_type_.explicit__;
-      }
-      break;
-    }
-    case PATH_UPDATE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = PATH_UPDATE_TYPE_NOT_SET;
-}
-
-
-void SLSrtePathComputeRequest_SLSrtePathUpdate::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  clear_path_update_type();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLSrtePathComputeRequest_SLSrtePathUpdate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic dynamic = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_dynamic(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit explicit = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_explicit_(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLSrtePathComputeRequest_SLSrtePathUpdate::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic dynamic = 1;
-  if (_internal_has_dynamic()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::dynamic(this), target, stream);
-  }
-
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit explicit = 2;
-  if (_internal_has_explicit_()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::explicit_(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  return target;
-}
-
-size_t SLSrtePathComputeRequest_SLSrtePathUpdate::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  switch (path_update_type_case()) {
-    // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateDynamic dynamic = 1;
-    case kDynamic: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *path_update_type_.dynamic_);
-      break;
-    }
-    // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate.SLSrtePathUpdateExplicit explicit = 2;
-    case kExplicit: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *path_update_type_.explicit__);
-      break;
-    }
-    case PATH_UPDATE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest_SLSrtePathUpdate::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequest_SLSrtePathUpdate::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest_SLSrtePathUpdate::GetClassData() const { return &_class_data_; }
-
-void SLSrtePathComputeRequest_SLSrtePathUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequest_SLSrtePathUpdate *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequest_SLSrtePathUpdate &>(from));
-}
-
-
-void SLSrtePathComputeRequest_SLSrtePathUpdate::MergeFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  switch (from.path_update_type_case()) {
-    case kDynamic: {
-      _internal_mutable_dynamic()->::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic::MergeFrom(from._internal_dynamic());
-      break;
-    }
-    case kExplicit: {
-      _internal_mutable_explicit_()->::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit::MergeFrom(from._internal_explicit_());
-      break;
-    }
-    case PATH_UPDATE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLSrtePathComputeRequest_SLSrtePathUpdate::CopyFrom(const SLSrtePathComputeRequest_SLSrtePathUpdate& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLSrtePathComputeRequest_SLSrtePathUpdate::IsInitialized() const {
-  return true;
-}
-
-void SLSrtePathComputeRequest_SLSrtePathUpdate::InternalSwap(SLSrtePathComputeRequest_SLSrtePathUpdate* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(path_update_type_, other->path_update_type_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest_SLSrtePathUpdate::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[7]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeRequest_SLSrtePathWithdraw::_Internal {
- public:
-};
-
-SLSrtePathComputeRequest_SLSrtePathWithdraw::SLSrtePathComputeRequest_SLSrtePathWithdraw(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw)
-}
-SLSrtePathComputeRequest_SLSrtePathWithdraw::SLSrtePathComputeRequest_SLSrtePathWithdraw(const SLSrtePathComputeRequest_SLSrtePathWithdraw& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw)
-}
-
-
-
-
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest_SLSrtePathWithdraw::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest_SLSrtePathWithdraw::GetClassData() const { return &_class_data_; }
-
-
-
-
-
-
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest_SLSrtePathWithdraw::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[8]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeRequest::_Internal {
- public:
-  static const ::service_layer::SLSrPolicyKey& policy_key(const SLSrtePathComputeRequest* msg);
-  static const ::service_layer::SLSrCandidatePathKey& candidate_path_key(const SLSrtePathComputeRequest* msg);
-  static const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit& init(const SLSrtePathComputeRequest* msg);
-  static const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate& update(const SLSrtePathComputeRequest* msg);
-  static const ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw& withdraw(const SLSrtePathComputeRequest* msg);
-};
-
-const ::service_layer::SLSrPolicyKey&
-SLSrtePathComputeRequest::_Internal::policy_key(const SLSrtePathComputeRequest* msg) {
-  return *msg->policy_key_;
-}
-const ::service_layer::SLSrCandidatePathKey&
-SLSrtePathComputeRequest::_Internal::candidate_path_key(const SLSrtePathComputeRequest* msg) {
-  return *msg->candidate_path_key_;
-}
-const ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit&
-SLSrtePathComputeRequest::_Internal::init(const SLSrtePathComputeRequest* msg) {
-  return *msg->request_type_.init_;
-}
-const ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate&
-SLSrtePathComputeRequest::_Internal::update(const SLSrtePathComputeRequest* msg) {
-  return *msg->request_type_.update_;
-}
-const ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw&
-SLSrtePathComputeRequest::_Internal::withdraw(const SLSrtePathComputeRequest* msg) {
-  return *msg->request_type_.withdraw_;
-}
-void SLSrtePathComputeRequest::clear_policy_key() {
-  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
-    delete policy_key_;
-  }
-  policy_key_ = nullptr;
-}
-void SLSrtePathComputeRequest::clear_candidate_path_key() {
-  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
-    delete candidate_path_key_;
-  }
-  candidate_path_key_ = nullptr;
-}
-void SLSrtePathComputeRequest::set_allocated_init(::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* init) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_request_type();
-  if (init) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRequest_SLSrtePathInit>::GetOwningArena(init);
-    if (message_arena != submessage_arena) {
-      init = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, init, submessage_arena);
-    }
-    set_has_init();
-    request_type_.init_ = init;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.init)
-}
-void SLSrtePathComputeRequest::set_allocated_update(::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* update) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_request_type();
-  if (update) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate>::GetOwningArena(update);
-    if (message_arena != submessage_arena) {
-      update = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, update, submessage_arena);
-    }
-    set_has_update();
-    request_type_.update_ = update;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.update)
-}
-void SLSrtePathComputeRequest::set_allocated_withdraw(::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* withdraw) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_request_type();
-  if (withdraw) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw>::GetOwningArena(withdraw);
-    if (message_arena != submessage_arena) {
-      withdraw = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, withdraw, submessage_arena);
-    }
-    set_has_withdraw();
-    request_type_.withdraw_ = withdraw;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeRequest.withdraw)
-}
-SLSrtePathComputeRequest::SLSrtePathComputeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeRequest)
-}
-SLSrtePathComputeRequest::SLSrtePathComputeRequest(const SLSrtePathComputeRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_policy_key()) {
-    policy_key_ = new ::service_layer::SLSrPolicyKey(*from.policy_key_);
-  } else {
-    policy_key_ = nullptr;
-  }
-  if (from._internal_has_candidate_path_key()) {
-    candidate_path_key_ = new ::service_layer::SLSrCandidatePathKey(*from.candidate_path_key_);
-  } else {
-    candidate_path_key_ = nullptr;
-  }
-  seq_num_ = from.seq_num_;
-  clear_has_request_type();
-  switch (from.request_type_case()) {
-    case kInit: {
-      _internal_mutable_init()->::service_layer::SLSrtePathComputeRequest_SLSrtePathInit::MergeFrom(from._internal_init());
-      break;
-    }
-    case kUpdate: {
-      _internal_mutable_update()->::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate::MergeFrom(from._internal_update());
-      break;
-    }
-    case kWithdraw: {
-      _internal_mutable_withdraw()->::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw::MergeFrom(from._internal_withdraw());
-      break;
-    }
-    case REQUEST_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeRequest)
-}
-
-inline void SLSrtePathComputeRequest::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&policy_key_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&seq_num_) -
-    reinterpret_cast<char*>(&policy_key_)) + sizeof(seq_num_));
-clear_has_request_type();
-}
-
-SLSrtePathComputeRequest::~SLSrtePathComputeRequest() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeRequest)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLSrtePathComputeRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete policy_key_;
-  if (this != internal_default_instance()) delete candidate_path_key_;
-  if (has_request_type()) {
-    clear_request_type();
-  }
-}
-
-void SLSrtePathComputeRequest::ArenaDtor(void* object) {
-  SLSrtePathComputeRequest* _this = reinterpret_cast< SLSrtePathComputeRequest* >(object);
-  (void)_this;
-}
-void SLSrtePathComputeRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLSrtePathComputeRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLSrtePathComputeRequest::clear_request_type() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeRequest)
-  switch (request_type_case()) {
-    case kInit: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete request_type_.init_;
-      }
-      break;
-    }
-    case kUpdate: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete request_type_.update_;
-      }
-      break;
-    }
-    case kWithdraw: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete request_type_.withdraw_;
-      }
-      break;
-    }
-    case REQUEST_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = REQUEST_TYPE_NOT_SET;
-}
-
-
-void SLSrtePathComputeRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeRequest)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
-    delete policy_key_;
-  }
-  policy_key_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
-    delete candidate_path_key_;
-  }
-  candidate_path_key_ = nullptr;
-  seq_num_ = uint64_t{0u};
-  clear_request_type();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLSrtePathComputeRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .service_layer.SLSrPolicyKey policy_key = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_policy_key(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_candidate_path_key(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 seq_num = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          seq_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit init = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_init(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate update = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_update(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw withdraw = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_withdraw(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLSrtePathComputeRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeRequest)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .service_layer.SLSrPolicyKey policy_key = 1;
-  if (this->_internal_has_policy_key()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::policy_key(this), target, stream);
-  }
-
-  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-  if (this->_internal_has_candidate_path_key()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::candidate_path_key(this), target, stream);
-  }
-
-  // uint64 seq_num = 3;
-  if (this->_internal_seq_num() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_seq_num(), target);
-  }
-
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit init = 4;
-  if (_internal_has_init()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::init(this), target, stream);
-  }
-
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate update = 5;
-  if (_internal_has_update()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::update(this), target, stream);
-  }
-
-  // .service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw withdraw = 6;
-  if (_internal_has_withdraw()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::withdraw(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeRequest)
-  return target;
-}
-
-size_t SLSrtePathComputeRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeRequest)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .service_layer.SLSrPolicyKey policy_key = 1;
-  if (this->_internal_has_policy_key()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *policy_key_);
-  }
-
-  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-  if (this->_internal_has_candidate_path_key()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *candidate_path_key_);
-  }
-
-  // uint64 seq_num = 3;
-  if (this->_internal_seq_num() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_seq_num());
-  }
-
-  switch (request_type_case()) {
-    // .service_layer.SLSrtePathComputeRequest.SLSrtePathInit init = 4;
-    case kInit: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *request_type_.init_);
-      break;
-    }
-    // .service_layer.SLSrtePathComputeRequest.SLSrtePathUpdate update = 5;
-    case kUpdate: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *request_type_.update_);
-      break;
-    }
-    // .service_layer.SLSrtePathComputeRequest.SLSrtePathWithdraw withdraw = 6;
-    case kWithdraw: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *request_type_.withdraw_);
-      break;
-    }
-    case REQUEST_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeRequest::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeRequest::GetClassData() const { return &_class_data_; }
-
-void SLSrtePathComputeRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeRequest *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeRequest &>(from));
-}
-
-
-void SLSrtePathComputeRequest::MergeFrom(const SLSrtePathComputeRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_policy_key()) {
-    _internal_mutable_policy_key()->::service_layer::SLSrPolicyKey::MergeFrom(from._internal_policy_key());
-  }
-  if (from._internal_has_candidate_path_key()) {
-    _internal_mutable_candidate_path_key()->::service_layer::SLSrCandidatePathKey::MergeFrom(from._internal_candidate_path_key());
-  }
-  if (from._internal_seq_num() != 0) {
-    _internal_set_seq_num(from._internal_seq_num());
-  }
-  switch (from.request_type_case()) {
-    case kInit: {
-      _internal_mutable_init()->::service_layer::SLSrtePathComputeRequest_SLSrtePathInit::MergeFrom(from._internal_init());
-      break;
-    }
-    case kUpdate: {
-      _internal_mutable_update()->::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate::MergeFrom(from._internal_update());
-      break;
-    }
-    case kWithdraw: {
-      _internal_mutable_withdraw()->::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw::MergeFrom(from._internal_withdraw());
-      break;
-    }
-    case REQUEST_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLSrtePathComputeRequest::CopyFrom(const SLSrtePathComputeRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLSrtePathComputeRequest::IsInitialized() const {
-  return true;
-}
-
-void SLSrtePathComputeRequest::InternalSwap(SLSrtePathComputeRequest* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRequest, seq_num_)
-      + sizeof(SLSrtePathComputeRequest::seq_num_)
-      - PROTOBUF_FIELD_OFFSET(SLSrtePathComputeRequest, policy_key_)>(
-          reinterpret_cast<char*>(&policy_key_),
-          reinterpret_cast<char*>(&other->policy_key_));
-  swap(request_type_, other->request_type_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[9]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeResponse_SLSrteDynamicPathResult::_Internal {
- public:
-  using HasBits = decltype(std::declval<SLSrtePathComputeResponse_SLSrteDynamicPathResult>()._has_bits_);
-  static void set_has_effective_diversity_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::clear_segment_lists() {
-  segment_lists_.Clear();
-}
-SLSrtePathComputeResponse_SLSrteDynamicPathResult::SLSrtePathComputeResponse_SLSrteDynamicPathResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  segment_lists_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-}
-SLSrtePathComputeResponse_SLSrteDynamicPathResult::SLSrtePathComputeResponse_SLSrteDynamicPathResult(const SLSrtePathComputeResponse_SLSrteDynamicPathResult& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      segment_lists_(from.segment_lists_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&path_cost_, &from.path_cost_,
-    static_cast<size_t>(reinterpret_cast<char*>(&effective_diversity_level_) -
-    reinterpret_cast<char*>(&path_cost_)) + sizeof(effective_diversity_level_));
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-}
-
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&path_cost_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&effective_diversity_level_) -
-    reinterpret_cast<char*>(&path_cost_)) + sizeof(effective_diversity_level_));
-}
-
-SLSrtePathComputeResponse_SLSrteDynamicPathResult::~SLSrtePathComputeResponse_SLSrteDynamicPathResult() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLSrtePathComputeResponse_SLSrteDynamicPathResult::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::ArenaDtor(void* object) {
-  SLSrtePathComputeResponse_SLSrteDynamicPathResult* _this = reinterpret_cast< SLSrtePathComputeResponse_SLSrteDynamicPathResult* >(object);
-  (void)_this;
-}
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  segment_lists_.Clear();
-  path_cost_ = 0u;
-  effective_diversity_level_ = 0;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLSrtePathComputeResponse_SLSrteDynamicPathResult::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_segment_lists(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 path_cost = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          path_cost_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional .service_layer.SLSrteDiversityLevel effective_diversity_level = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_effective_diversity_level(static_cast<::service_layer::SLSrteDiversityLevel>(val));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLSrtePathComputeResponse_SLSrteDynamicPathResult::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_segment_lists_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_segment_lists(i), target, stream);
-  }
-
-  // uint32 path_cost = 2;
-  if (this->_internal_path_cost() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_path_cost(), target);
-  }
-
-  // optional .service_layer.SLSrteDiversityLevel effective_diversity_level = 3;
-  if (_internal_has_effective_diversity_level()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      3, this->_internal_effective_diversity_level(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-  return target;
-}
-
-size_t SLSrtePathComputeResponse_SLSrteDynamicPathResult::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .service_layer.SLSrSegmentList segment_lists = 1;
-  total_size += 1UL * this->_internal_segment_lists_size();
-  for (const auto& msg : this->segment_lists_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // uint32 path_cost = 2;
-  if (this->_internal_path_cost() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_path_cost());
-  }
-
-  // optional .service_layer.SLSrteDiversityLevel effective_diversity_level = 3;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_effective_diversity_level());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeResponse_SLSrteDynamicPathResult::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeResponse_SLSrteDynamicPathResult::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeResponse_SLSrteDynamicPathResult::GetClassData() const { return &_class_data_; }
-
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeResponse_SLSrteDynamicPathResult *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeResponse_SLSrteDynamicPathResult &>(from));
-}
-
-
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::MergeFrom(const SLSrtePathComputeResponse_SLSrteDynamicPathResult& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  segment_lists_.MergeFrom(from.segment_lists_);
-  if (from._internal_path_cost() != 0) {
-    _internal_set_path_cost(from._internal_path_cost());
-  }
-  if (from._internal_has_effective_diversity_level()) {
-    _internal_set_effective_diversity_level(from._internal_effective_diversity_level());
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::CopyFrom(const SLSrtePathComputeResponse_SLSrteDynamicPathResult& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLSrtePathComputeResponse_SLSrteDynamicPathResult::IsInitialized() const {
-  return true;
-}
-
-void SLSrtePathComputeResponse_SLSrteDynamicPathResult::InternalSwap(SLSrtePathComputeResponse_SLSrteDynamicPathResult* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  segment_lists_.InternalSwap(&other->segment_lists_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrtePathComputeResponse_SLSrteDynamicPathResult, effective_diversity_level_)
-      + sizeof(SLSrtePathComputeResponse_SLSrteDynamicPathResult::effective_diversity_level_)
-      - PROTOBUF_FIELD_OFFSET(SLSrtePathComputeResponse_SLSrteDynamicPathResult, path_cost_)>(
-          reinterpret_cast<char*>(&path_cost_),
-          reinterpret_cast<char*>(&other->path_cost_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeResponse_SLSrteDynamicPathResult::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathAttrExplicit::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
       file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[10]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeResponse_SLSrtePathError::_Internal {
- public:
-  static const ::service_layer::SLErrorStatus& type(const SLSrtePathComputeResponse_SLSrtePathError* msg);
-};
-
-const ::service_layer::SLErrorStatus&
-SLSrtePathComputeResponse_SLSrtePathError::_Internal::type(const SLSrtePathComputeResponse_SLSrtePathError* msg) {
-  return *msg->type_;
-}
-void SLSrtePathComputeResponse_SLSrtePathError::clear_type() {
-  if (GetArenaForAllocation() == nullptr && type_ != nullptr) {
-    delete type_;
-  }
-  type_ = nullptr;
-}
-SLSrtePathComputeResponse_SLSrtePathError::SLSrtePathComputeResponse_SLSrtePathError(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-}
-SLSrtePathComputeResponse_SLSrtePathError::SLSrtePathComputeResponse_SLSrtePathError(const SLSrtePathComputeResponse_SLSrtePathError& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_description().empty()) {
-    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
-      GetArenaForAllocation());
-  }
-  if (from._internal_has_type()) {
-    type_ = new ::service_layer::SLErrorStatus(*from.type_);
-  } else {
-    type_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-}
-
-inline void SLSrtePathComputeResponse_SLSrtePathError::SharedCtor() {
-description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-type_ = nullptr;
-}
-
-SLSrtePathComputeResponse_SLSrtePathError::~SLSrtePathComputeResponse_SLSrtePathError() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLSrtePathComputeResponse_SLSrtePathError::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete type_;
-}
-
-void SLSrtePathComputeResponse_SLSrtePathError::ArenaDtor(void* object) {
-  SLSrtePathComputeResponse_SLSrtePathError* _this = reinterpret_cast< SLSrtePathComputeResponse_SLSrtePathError* >(object);
-  (void)_this;
-}
-void SLSrtePathComputeResponse_SLSrtePathError::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLSrtePathComputeResponse_SLSrtePathError::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLSrtePathComputeResponse_SLSrtePathError::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  description_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && type_ != nullptr) {
-    delete type_;
-  }
-  type_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLSrtePathComputeResponse_SLSrtePathError::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .service_layer.SLErrorStatus type = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_type(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string description = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_description();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLSrtePathComputeResponse.SLSrtePathError.description"));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLSrtePathComputeResponse_SLSrtePathError::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .service_layer.SLErrorStatus type = 1;
-  if (this->_internal_has_type()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::type(this), target, stream);
-  }
-
-  // string description = 2;
-  if (!this->_internal_description().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_description().data(), static_cast<int>(this->_internal_description().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "service_layer.SLSrtePathComputeResponse.SLSrtePathError.description");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_description(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-  return target;
-}
-
-size_t SLSrtePathComputeResponse_SLSrtePathError::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string description = 2;
-  if (!this->_internal_description().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_description());
-  }
-
-  // .service_layer.SLErrorStatus type = 1;
-  if (this->_internal_has_type()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *type_);
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeResponse_SLSrtePathError::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeResponse_SLSrtePathError::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeResponse_SLSrtePathError::GetClassData() const { return &_class_data_; }
-
-void SLSrtePathComputeResponse_SLSrtePathError::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeResponse_SLSrtePathError *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeResponse_SLSrtePathError &>(from));
-}
-
-
-void SLSrtePathComputeResponse_SLSrtePathError::MergeFrom(const SLSrtePathComputeResponse_SLSrtePathError& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_description().empty()) {
-    _internal_set_description(from._internal_description());
-  }
-  if (from._internal_has_type()) {
-    _internal_mutable_type()->::service_layer::SLErrorStatus::MergeFrom(from._internal_type());
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLSrtePathComputeResponse_SLSrtePathError::CopyFrom(const SLSrtePathComputeResponse_SLSrtePathError& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeResponse.SLSrtePathError)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLSrtePathComputeResponse_SLSrtePathError::IsInitialized() const {
-  return true;
-}
-
-void SLSrtePathComputeResponse_SLSrtePathError::InternalSwap(SLSrtePathComputeResponse_SLSrtePathError* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &description_, lhs_arena,
-      &other->description_, rhs_arena
-  );
-  swap(type_, other->type_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeResponse_SLSrtePathError::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[11]);
-}
-
-// ===================================================================
-
-class SLSrtePathComputeResponse::_Internal {
- public:
-  static const ::service_layer::SLSrPolicyKey& policy_key(const SLSrtePathComputeResponse* msg);
-  static const ::service_layer::SLSrCandidatePathKey& candidate_path_key(const SLSrtePathComputeResponse* msg);
-  static const ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult& path_result(const SLSrtePathComputeResponse* msg);
-  static const ::service_layer::SLSrtePathComputeResponse_SLSrtePathError& error(const SLSrtePathComputeResponse* msg);
-};
-
-const ::service_layer::SLSrPolicyKey&
-SLSrtePathComputeResponse::_Internal::policy_key(const SLSrtePathComputeResponse* msg) {
-  return *msg->policy_key_;
-}
-const ::service_layer::SLSrCandidatePathKey&
-SLSrtePathComputeResponse::_Internal::candidate_path_key(const SLSrtePathComputeResponse* msg) {
-  return *msg->candidate_path_key_;
-}
-const ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult&
-SLSrtePathComputeResponse::_Internal::path_result(const SLSrtePathComputeResponse* msg) {
-  return *msg->response_type_.path_result_;
-}
-const ::service_layer::SLSrtePathComputeResponse_SLSrtePathError&
-SLSrtePathComputeResponse::_Internal::error(const SLSrtePathComputeResponse* msg) {
-  return *msg->response_type_.error_;
-}
-void SLSrtePathComputeResponse::clear_policy_key() {
-  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
-    delete policy_key_;
-  }
-  policy_key_ = nullptr;
-}
-void SLSrtePathComputeResponse::clear_candidate_path_key() {
-  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
-    delete candidate_path_key_;
-  }
-  candidate_path_key_ = nullptr;
-}
-void SLSrtePathComputeResponse::set_allocated_path_result(::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* path_result) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_response_type();
-  if (path_result) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult>::GetOwningArena(path_result);
-    if (message_arena != submessage_arena) {
-      path_result = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, path_result, submessage_arena);
-    }
-    set_has_path_result();
-    response_type_.path_result_ = path_result;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeResponse.path_result)
-}
-void SLSrtePathComputeResponse::set_allocated_error(::service_layer::SLSrtePathComputeResponse_SLSrtePathError* error) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_response_type();
-  if (error) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrtePathComputeResponse_SLSrtePathError>::GetOwningArena(error);
-    if (message_arena != submessage_arena) {
-      error = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, error, submessage_arena);
-    }
-    set_has_error();
-    response_type_.error_ = error;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrtePathComputeResponse.error)
-}
-SLSrtePathComputeResponse::SLSrtePathComputeResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrtePathComputeResponse)
-}
-SLSrtePathComputeResponse::SLSrtePathComputeResponse(const SLSrtePathComputeResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_policy_key()) {
-    policy_key_ = new ::service_layer::SLSrPolicyKey(*from.policy_key_);
-  } else {
-    policy_key_ = nullptr;
-  }
-  if (from._internal_has_candidate_path_key()) {
-    candidate_path_key_ = new ::service_layer::SLSrCandidatePathKey(*from.candidate_path_key_);
-  } else {
-    candidate_path_key_ = nullptr;
-  }
-  req_seq_num_ = from.req_seq_num_;
-  clear_has_response_type();
-  switch (from.response_type_case()) {
-    case kPathResult: {
-      _internal_mutable_path_result()->::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult::MergeFrom(from._internal_path_result());
-      break;
-    }
-    case kError: {
-      _internal_mutable_error()->::service_layer::SLSrtePathComputeResponse_SLSrtePathError::MergeFrom(from._internal_error());
-      break;
-    }
-    case RESPONSE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrtePathComputeResponse)
-}
-
-inline void SLSrtePathComputeResponse::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&policy_key_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&req_seq_num_) -
-    reinterpret_cast<char*>(&policy_key_)) + sizeof(req_seq_num_));
-clear_has_response_type();
-}
-
-SLSrtePathComputeResponse::~SLSrtePathComputeResponse() {
-  // @@protoc_insertion_point(destructor:service_layer.SLSrtePathComputeResponse)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLSrtePathComputeResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete policy_key_;
-  if (this != internal_default_instance()) delete candidate_path_key_;
-  if (has_response_type()) {
-    clear_response_type();
-  }
-}
-
-void SLSrtePathComputeResponse::ArenaDtor(void* object) {
-  SLSrtePathComputeResponse* _this = reinterpret_cast< SLSrtePathComputeResponse* >(object);
-  (void)_this;
-}
-void SLSrtePathComputeResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLSrtePathComputeResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLSrtePathComputeResponse::clear_response_type() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrtePathComputeResponse)
-  switch (response_type_case()) {
-    case kPathResult: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete response_type_.path_result_;
-      }
-      break;
-    }
-    case kError: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete response_type_.error_;
-      }
-      break;
-    }
-    case RESPONSE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = RESPONSE_TYPE_NOT_SET;
-}
-
-
-void SLSrtePathComputeResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLSrtePathComputeResponse)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaForAllocation() == nullptr && policy_key_ != nullptr) {
-    delete policy_key_;
-  }
-  policy_key_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && candidate_path_key_ != nullptr) {
-    delete candidate_path_key_;
-  }
-  candidate_path_key_ = nullptr;
-  req_seq_num_ = uint64_t{0u};
-  clear_response_type();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLSrtePathComputeResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .service_layer.SLSrPolicyKey policy_key = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_policy_key(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_candidate_path_key(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 req_seq_num = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          req_seq_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult path_result = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_path_result(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrtePathComputeResponse.SLSrtePathError error = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_error(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLSrtePathComputeResponse::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrtePathComputeResponse)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .service_layer.SLSrPolicyKey policy_key = 1;
-  if (this->_internal_has_policy_key()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::policy_key(this), target, stream);
-  }
-
-  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-  if (this->_internal_has_candidate_path_key()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::candidate_path_key(this), target, stream);
-  }
-
-  // uint64 req_seq_num = 3;
-  if (this->_internal_req_seq_num() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_req_seq_num(), target);
-  }
-
-  // .service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult path_result = 4;
-  if (_internal_has_path_result()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::path_result(this), target, stream);
-  }
-
-  // .service_layer.SLSrtePathComputeResponse.SLSrtePathError error = 6;
-  if (_internal_has_error()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::error(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrtePathComputeResponse)
-  return target;
-}
-
-size_t SLSrtePathComputeResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrtePathComputeResponse)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .service_layer.SLSrPolicyKey policy_key = 1;
-  if (this->_internal_has_policy_key()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *policy_key_);
-  }
-
-  // .service_layer.SLSrCandidatePathKey candidate_path_key = 2;
-  if (this->_internal_has_candidate_path_key()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *candidate_path_key_);
-  }
-
-  // uint64 req_seq_num = 3;
-  if (this->_internal_req_seq_num() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_req_seq_num());
-  }
-
-  switch (response_type_case()) {
-    // .service_layer.SLSrtePathComputeResponse.SLSrteDynamicPathResult path_result = 4;
-    case kPathResult: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *response_type_.path_result_);
-      break;
-    }
-    // .service_layer.SLSrtePathComputeResponse.SLSrtePathError error = 6;
-    case kError: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *response_type_.error_);
-      break;
-    }
-    case RESPONSE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrtePathComputeResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLSrtePathComputeResponse::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrtePathComputeResponse::GetClassData() const { return &_class_data_; }
-
-void SLSrtePathComputeResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLSrtePathComputeResponse *>(to)->MergeFrom(
-      static_cast<const SLSrtePathComputeResponse &>(from));
-}
-
-
-void SLSrtePathComputeResponse::MergeFrom(const SLSrtePathComputeResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrtePathComputeResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_policy_key()) {
-    _internal_mutable_policy_key()->::service_layer::SLSrPolicyKey::MergeFrom(from._internal_policy_key());
-  }
-  if (from._internal_has_candidate_path_key()) {
-    _internal_mutable_candidate_path_key()->::service_layer::SLSrCandidatePathKey::MergeFrom(from._internal_candidate_path_key());
-  }
-  if (from._internal_req_seq_num() != 0) {
-    _internal_set_req_seq_num(from._internal_req_seq_num());
-  }
-  switch (from.response_type_case()) {
-    case kPathResult: {
-      _internal_mutable_path_result()->::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult::MergeFrom(from._internal_path_result());
-      break;
-    }
-    case kError: {
-      _internal_mutable_error()->::service_layer::SLSrtePathComputeResponse_SLSrtePathError::MergeFrom(from._internal_error());
-      break;
-    }
-    case RESPONSE_TYPE_NOT_SET: {
-      break;
-    }
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLSrtePathComputeResponse::CopyFrom(const SLSrtePathComputeResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrtePathComputeResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLSrtePathComputeResponse::IsInitialized() const {
-  return true;
-}
-
-void SLSrtePathComputeResponse::InternalSwap(SLSrtePathComputeResponse* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrtePathComputeResponse, req_seq_num_)
-      + sizeof(SLSrtePathComputeResponse::req_seq_num_)
-      - PROTOBUF_FIELD_OFFSET(SLSrtePathComputeResponse, policy_key_)>(
-          reinterpret_cast<char*>(&policy_key_),
-          reinterpret_cast<char*>(&other->policy_key_));
-  swap(response_type_, other->response_type_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLSrtePathComputeResponse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[12]);
 }
 
 // ===================================================================
@@ -4040,21 +3483,21 @@ const char* ConstraintSet_PathDiversity::_InternalParse(const char* ptr, ::PROTO
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLSrteDiversityLevel diversity_level = 2;
+      // .service_layer.SLSrDiversityLevel diversity_level = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_diversity_level(static_cast<::service_layer::SLSrteDiversityLevel>(val));
+          _internal_set_diversity_level(static_cast<::service_layer::SLSrDiversityLevel>(val));
         } else
           goto handle_unusual;
         continue;
-      // optional .service_layer.SLSrteDiversityLevel min_diversity_level = 3;
+      // optional .service_layer.SLSrDiversityLevel min_diversity_level = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_min_diversity_level(static_cast<::service_layer::SLSrteDiversityLevel>(val));
+          _internal_set_min_diversity_level(static_cast<::service_layer::SLSrDiversityLevel>(val));
         } else
           goto handle_unusual;
         continue;
@@ -4104,14 +3547,14 @@ uint8_t* ConstraintSet_PathDiversity::_InternalSerialize(
         1, _Internal::association(this), target, stream);
   }
 
-  // .service_layer.SLSrteDiversityLevel diversity_level = 2;
+  // .service_layer.SLSrDiversityLevel diversity_level = 2;
   if (this->_internal_diversity_level() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_diversity_level(), target);
   }
 
-  // optional .service_layer.SLSrteDiversityLevel min_diversity_level = 3;
+  // optional .service_layer.SLSrDiversityLevel min_diversity_level = 3;
   if (_internal_has_min_diversity_level()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -4147,13 +3590,13 @@ size_t ConstraintSet_PathDiversity::ByteSizeLong() const {
         *association_);
   }
 
-  // .service_layer.SLSrteDiversityLevel diversity_level = 2;
+  // .service_layer.SLSrDiversityLevel diversity_level = 2;
   if (this->_internal_diversity_level() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_diversity_level());
   }
 
-  // optional .service_layer.SLSrteDiversityLevel min_diversity_level = 3;
+  // optional .service_layer.SLSrDiversityLevel min_diversity_level = 3;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -4228,7 +3671,7 @@ void ConstraintSet_PathDiversity::InternalSwap(ConstraintSet_PathDiversity* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata ConstraintSet_PathDiversity::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[13]);
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[11]);
 }
 
 // ===================================================================
@@ -4736,7 +4179,7 @@ void ConstraintSet::InternalSwap(ConstraintSet* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ConstraintSet::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[14]);
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[12]);
 }
 
 // ===================================================================
@@ -4914,50 +4357,44 @@ void AssociationGroup::InternalSwap(AssociationGroup* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AssociationGroup::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_getter, &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once,
-      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[15]);
+      file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto[13]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequests* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequests >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequests >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeReqs* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeReqs >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeReqs >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeResponses* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeResponses >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeResponses >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRsps* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRsps >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRsps >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitDynamic >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeReq_SLSrtePathInit* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeReq_SLSrtePathInit >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeReq_SLSrtePathInit >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit_SLSrtePathInitExplicit >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeReq_SLSrtePathUpdate >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest_SLSrtePathInit >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeReq_SLSrtePathWithdraw >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateDynamic >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeReq* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeReq >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate_SLSrtePathUpdateExplicit >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRes_SLSrteDynamicPathResult >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest_SLSrtePathUpdate >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRes_SLSrtePathError* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRes_SLSrtePathError >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRes_SLSrtePathError >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest_SLSrtePathWithdraw >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRes* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRes >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeRequest* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeRequest >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathAttrDynamic* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathAttrDynamic >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathAttrDynamic >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeResponse_SLSrteDynamicPathResult >(arena);
-}
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeResponse_SLSrtePathError* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeResponse_SLSrtePathError >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeResponse_SLSrtePathError >(arena);
-}
-template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathComputeResponse* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathComputeResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathComputeResponse >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrtePathAttrExplicit* Arena::CreateMaybeMessage< ::service_layer::SLSrtePathAttrExplicit >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrtePathAttrExplicit >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::ConstraintSet_PathDiversity* Arena::CreateMaybeMessage< ::service_layer::ConstraintSet_PathDiversity >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::ConstraintSet_PathDiversity >(arena);

@@ -66,17 +66,17 @@ namespace ServiceLayer {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ServiceLayer.SLSrtePathComputeRequests> __Marshaller_service_layer_SLSrtePathComputeRequests = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLSrtePathComputeRequests.Parser));
+    static readonly grpc::Marshaller<global::ServiceLayer.SLSrtePathComputeReqs> __Marshaller_service_layer_SLSrtePathComputeReqs = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLSrtePathComputeReqs.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ServiceLayer.SLSrtePathComputeResponses> __Marshaller_service_layer_SLSrtePathComputeResponses = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLSrtePathComputeResponses.Parser));
+    static readonly grpc::Marshaller<global::ServiceLayer.SLSrtePathComputeRsps> __Marshaller_service_layer_SLSrtePathComputeRsps = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLSrtePathComputeRsps.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::ServiceLayer.SLSrtePathComputeRequests, global::ServiceLayer.SLSrtePathComputeResponses> __Method_SLSrtePathCompute = new grpc::Method<global::ServiceLayer.SLSrtePathComputeRequests, global::ServiceLayer.SLSrtePathComputeResponses>(
+    static readonly grpc::Method<global::ServiceLayer.SLSrtePathComputeReqs, global::ServiceLayer.SLSrtePathComputeRsps> __Method_SLSrtePathCompute = new grpc::Method<global::ServiceLayer.SLSrtePathComputeReqs, global::ServiceLayer.SLSrtePathComputeRsps>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "SLSrtePathCompute",
-        __Marshaller_service_layer_SLSrtePathComputeRequests,
-        __Marshaller_service_layer_SLSrtePathComputeResponses);
+        __Marshaller_service_layer_SLSrtePathComputeReqs,
+        __Marshaller_service_layer_SLSrtePathComputeRsps);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -90,17 +90,17 @@ namespace ServiceLayer {
     {
       /// <summary>
       /// Opens a bidirectional streaming channel to initiate, manage, and serve
-      /// stateful path calculation requests.&lt;br>&lt;br>
+      /// stateful path calculation requests.
       ///
       /// A single `PathCompute` channel can support any number of path requests and
       /// it is recommended that a client maintains only one channel per server that
-      /// it is connected to.&lt;br>&lt;br>
+      /// it is connected to.
       ///
       /// The client uses this channel to initiate new path calculation requests,
       /// update the attributes (e.g., optimization metric or constraints) of an
       /// active request, and withdraw obsolete ones. The client must maintain the
       /// channel open as long as it requires stateful path calculation service from
-      /// the server.&lt;br>&lt;br>
+      /// the server.
       ///
       /// The server uses this channel to respond to the active path calculation
       /// requests of the client. The server sends a path response after receiving a
@@ -108,7 +108,7 @@ namespace ServiceLayer {
       /// request, or after a routing event in the network required a modification
       /// of the path. The server is responsible for monitoring the network topology
       /// and providing updated responses to the active path requests such that the
-      /// response continuously meets the requirements of the path request.&lt;br>&lt;br>
+      /// response continuously meets the requirements of the path request.
       ///
       /// When the channel is closed, the server marks any active path request (that
       /// was managed through this channel) as *stale* and starts a timer. Another
@@ -121,7 +121,7 @@ namespace ServiceLayer {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task SLSrtePathCompute(grpc::IAsyncStreamReader<global::ServiceLayer.SLSrtePathComputeRequests> requestStream, grpc::IServerStreamWriter<global::ServiceLayer.SLSrtePathComputeResponses> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task SLSrtePathCompute(grpc::IAsyncStreamReader<global::ServiceLayer.SLSrtePathComputeReqs> requestStream, grpc::IServerStreamWriter<global::ServiceLayer.SLSrtePathComputeRsps> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -157,17 +157,17 @@ namespace ServiceLayer {
 
       /// <summary>
       /// Opens a bidirectional streaming channel to initiate, manage, and serve
-      /// stateful path calculation requests.&lt;br>&lt;br>
+      /// stateful path calculation requests.
       ///
       /// A single `PathCompute` channel can support any number of path requests and
       /// it is recommended that a client maintains only one channel per server that
-      /// it is connected to.&lt;br>&lt;br>
+      /// it is connected to.
       ///
       /// The client uses this channel to initiate new path calculation requests,
       /// update the attributes (e.g., optimization metric or constraints) of an
       /// active request, and withdraw obsolete ones. The client must maintain the
       /// channel open as long as it requires stateful path calculation service from
-      /// the server.&lt;br>&lt;br>
+      /// the server.
       ///
       /// The server uses this channel to respond to the active path calculation
       /// requests of the client. The server sends a path response after receiving a
@@ -175,7 +175,7 @@ namespace ServiceLayer {
       /// request, or after a routing event in the network required a modification
       /// of the path. The server is responsible for monitoring the network topology
       /// and providing updated responses to the active path requests such that the
-      /// response continuously meets the requirements of the path request.&lt;br>&lt;br>
+      /// response continuously meets the requirements of the path request.
       ///
       /// When the channel is closed, the server marks any active path request (that
       /// was managed through this channel) as *stale* and starts a timer. Another
@@ -188,23 +188,23 @@ namespace ServiceLayer {
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLSrtePathComputeRequests, global::ServiceLayer.SLSrtePathComputeResponses> SLSrtePathCompute(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLSrtePathComputeReqs, global::ServiceLayer.SLSrtePathComputeRsps> SLSrtePathCompute(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SLSrtePathCompute(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       /// Opens a bidirectional streaming channel to initiate, manage, and serve
-      /// stateful path calculation requests.&lt;br>&lt;br>
+      /// stateful path calculation requests.
       ///
       /// A single `PathCompute` channel can support any number of path requests and
       /// it is recommended that a client maintains only one channel per server that
-      /// it is connected to.&lt;br>&lt;br>
+      /// it is connected to.
       ///
       /// The client uses this channel to initiate new path calculation requests,
       /// update the attributes (e.g., optimization metric or constraints) of an
       /// active request, and withdraw obsolete ones. The client must maintain the
       /// channel open as long as it requires stateful path calculation service from
-      /// the server.&lt;br>&lt;br>
+      /// the server.
       ///
       /// The server uses this channel to respond to the active path calculation
       /// requests of the client. The server sends a path response after receiving a
@@ -212,7 +212,7 @@ namespace ServiceLayer {
       /// request, or after a routing event in the network required a modification
       /// of the path. The server is responsible for monitoring the network topology
       /// and providing updated responses to the active path requests such that the
-      /// response continuously meets the requirements of the path request.&lt;br>&lt;br>
+      /// response continuously meets the requirements of the path request.
       ///
       /// When the channel is closed, the server marks any active path request (that
       /// was managed through this channel) as *stale* and starts a timer. Another
@@ -223,7 +223,7 @@ namespace ServiceLayer {
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLSrtePathComputeRequests, global::ServiceLayer.SLSrtePathComputeResponses> SLSrtePathCompute(grpc::CallOptions options)
+      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLSrtePathComputeReqs, global::ServiceLayer.SLSrtePathComputeRsps> SLSrtePathCompute(grpc::CallOptions options)
       {
         return CallInvoker.AsyncDuplexStreamingCall(__Method_SLSrtePathCompute, null, options);
       }
@@ -251,7 +251,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, SLSrteCalcStatefulBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SLSrtePathCompute, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLSrtePathComputeRequests, global::ServiceLayer.SLSrtePathComputeResponses>(serviceImpl.SLSrtePathCompute));
+      serviceBinder.AddMethod(__Method_SLSrtePathCompute, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLSrtePathComputeReqs, global::ServiceLayer.SLSrtePathComputeRsps>(serviceImpl.SLSrtePathCompute));
     }
 
   }

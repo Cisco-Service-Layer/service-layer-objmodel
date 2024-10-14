@@ -35,31 +35,31 @@ SLSrteCalcStateful::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>&
   : channel_(channel), rpcmethod_SLSrtePathCompute_(SLSrteCalcStateful_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
-::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* SLSrteCalcStateful::Stub::SLSrtePathComputeRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>::Create(channel_.get(), rpcmethod_SLSrtePathCompute_, context);
+::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* SLSrteCalcStateful::Stub::SLSrtePathComputeRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>::Create(channel_.get(), rpcmethod_SLSrtePathCompute_, context);
 }
 
-void SLSrteCalcStateful::Stub::async::SLSrtePathCompute(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLSrtePathComputeRequests,::service_layer::SLSrtePathComputeResponses>* reactor) {
-  ::grpc::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLSrtePathComputeRequests,::service_layer::SLSrtePathComputeResponses>::Create(stub_->channel_.get(), stub_->rpcmethod_SLSrtePathCompute_, context, reactor);
+void SLSrteCalcStateful::Stub::async::SLSrtePathCompute(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLSrtePathComputeReqs,::service_layer::SLSrtePathComputeRsps>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLSrtePathComputeReqs,::service_layer::SLSrtePathComputeRsps>::Create(stub_->channel_.get(), stub_->rpcmethod_SLSrtePathCompute_, context, reactor);
 }
 
-::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* SLSrteCalcStateful::Stub::AsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>::Create(channel_.get(), cq, rpcmethod_SLSrtePathCompute_, context, true, tag);
+::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* SLSrteCalcStateful::Stub::AsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>::Create(channel_.get(), cq, rpcmethod_SLSrtePathCompute_, context, true, tag);
 }
 
-::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* SLSrteCalcStateful::Stub::PrepareAsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>::Create(channel_.get(), cq, rpcmethod_SLSrtePathCompute_, context, false, nullptr);
+::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* SLSrteCalcStateful::Stub::PrepareAsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>::Create(channel_.get(), cq, rpcmethod_SLSrtePathCompute_, context, false, nullptr);
 }
 
 SLSrteCalcStateful::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLSrteCalcStateful_method_names[0],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
-      new ::grpc::internal::BidiStreamingHandler< SLSrteCalcStateful::Service, ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>(
+      new ::grpc::internal::BidiStreamingHandler< SLSrteCalcStateful::Service, ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>(
           [](SLSrteCalcStateful::Service* service,
              ::grpc::ServerContext* ctx,
-             ::grpc::ServerReaderWriter<::service_layer::SLSrtePathComputeResponses,
-             ::service_layer::SLSrtePathComputeRequests>* stream) {
+             ::grpc::ServerReaderWriter<::service_layer::SLSrtePathComputeRsps,
+             ::service_layer::SLSrtePathComputeReqs>* stream) {
                return service->SLSrtePathCompute(ctx, stream);
              }, this)));
 }
@@ -67,7 +67,7 @@ SLSrteCalcStateful::Service::Service() {
 SLSrteCalcStateful::Service::~Service() {
 }
 
-::grpc::Status SLSrteCalcStateful::Service::SLSrtePathCompute(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* stream) {
+::grpc::Status SLSrteCalcStateful::Service::SLSrtePathCompute(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* stream) {
   (void) context;
   (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");

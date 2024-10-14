@@ -58,18 +58,17 @@ class SLSrteCalcStateful final {
    public:
     virtual ~StubInterface() {}
     // Opens a bidirectional streaming channel to initiate, manage, and serve
-    // stateful path calculation requests.<br><br>
-    //
+    // stateful path calculation requests.
     //
     // A single `PathCompute` channel can support any number of path requests and
     // it is recommended that a client maintains only one channel per server that
-    // it is connected to.<br><br>
+    // it is connected to.
     //
     // The client uses this channel to initiate new path calculation requests,
     // update the attributes (e.g., optimization metric or constraints) of an
     // active request, and withdraw obsolete ones. The client must maintain the
     // channel open as long as it requires stateful path calculation service from
-    // the server.<br><br>
+    // the server.
     //
     // The server uses this channel to respond to the active path calculation
     // requests of the client. The server sends a path response after receiving a
@@ -77,38 +76,37 @@ class SLSrteCalcStateful final {
     // request, or after a routing event in the network required a modification
     // of the path. The server is responsible for monitoring the network topology
     // and providing updated responses to the active path requests such that the
-    // response continuously meets the requirements of the path request.<br><br>
+    // response continuously meets the requirements of the path request.
     //
     // When the channel is closed, the server marks any active path request (that
     // was managed through this channel) as *stale* and starts a timer. Another
     // client may claim ownership of a stale path request in a new or existing
     // channel. When the timer expires, any stale path request that was not
     // claimed by another client is deleted.
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>> SLSrtePathCompute(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>>(SLSrtePathComputeRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>> SLSrtePathCompute(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>>(SLSrtePathComputeRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>> AsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>>(AsyncSLSrtePathComputeRaw(context, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>> AsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>>(AsyncSLSrtePathComputeRaw(context, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>> PrepareAsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>>(PrepareAsyncSLSrtePathComputeRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>> PrepareAsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>>(PrepareAsyncSLSrtePathComputeRaw(context, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
       // Opens a bidirectional streaming channel to initiate, manage, and serve
-      // stateful path calculation requests.<br><br>
-      //
+      // stateful path calculation requests.
       //
       // A single `PathCompute` channel can support any number of path requests and
       // it is recommended that a client maintains only one channel per server that
-      // it is connected to.<br><br>
+      // it is connected to.
       //
       // The client uses this channel to initiate new path calculation requests,
       // update the attributes (e.g., optimization metric or constraints) of an
       // active request, and withdraw obsolete ones. The client must maintain the
       // channel open as long as it requires stateful path calculation service from
-      // the server.<br><br>
+      // the server.
       //
       // The server uses this channel to respond to the active path calculation
       // requests of the client. The server sends a path response after receiving a
@@ -116,39 +114,39 @@ class SLSrteCalcStateful final {
       // request, or after a routing event in the network required a modification
       // of the path. The server is responsible for monitoring the network topology
       // and providing updated responses to the active path requests such that the
-      // response continuously meets the requirements of the path request.<br><br>
+      // response continuously meets the requirements of the path request.
       //
       // When the channel is closed, the server marks any active path request (that
       // was managed through this channel) as *stale* and starts a timer. Another
       // client may claim ownership of a stale path request in a new or existing
       // channel. When the timer expires, any stale path request that was not
       // claimed by another client is deleted.
-      virtual void SLSrtePathCompute(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLSrtePathComputeRequests,::service_layer::SLSrtePathComputeResponses>* reactor) = 0;
+      virtual void SLSrtePathCompute(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLSrtePathComputeReqs,::service_layer::SLSrtePathComputeRsps>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* SLSrtePathComputeRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* AsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* PrepareAsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* SLSrtePathComputeRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* AsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* PrepareAsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>> SLSrtePathCompute(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>>(SLSrtePathComputeRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>> SLSrtePathCompute(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>>(SLSrtePathComputeRaw(context));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>> AsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>>(AsyncSLSrtePathComputeRaw(context, cq, tag));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>> AsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>>(AsyncSLSrtePathComputeRaw(context, cq, tag));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>> PrepareAsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>>(PrepareAsyncSLSrtePathComputeRaw(context, cq));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>> PrepareAsyncSLSrtePathCompute(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>>(PrepareAsyncSLSrtePathComputeRaw(context, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void SLSrtePathCompute(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLSrtePathComputeRequests,::service_layer::SLSrtePathComputeResponses>* reactor) override;
+      void SLSrtePathCompute(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLSrtePathComputeReqs,::service_layer::SLSrtePathComputeRsps>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -160,9 +158,9 @@ class SLSrteCalcStateful final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* SLSrtePathComputeRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* AsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* PrepareAsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* SLSrtePathComputeRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* AsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* PrepareAsyncSLSrtePathComputeRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SLSrtePathCompute_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -172,18 +170,17 @@ class SLSrteCalcStateful final {
     Service();
     virtual ~Service();
     // Opens a bidirectional streaming channel to initiate, manage, and serve
-    // stateful path calculation requests.<br><br>
-    //
+    // stateful path calculation requests.
     //
     // A single `PathCompute` channel can support any number of path requests and
     // it is recommended that a client maintains only one channel per server that
-    // it is connected to.<br><br>
+    // it is connected to.
     //
     // The client uses this channel to initiate new path calculation requests,
     // update the attributes (e.g., optimization metric or constraints) of an
     // active request, and withdraw obsolete ones. The client must maintain the
     // channel open as long as it requires stateful path calculation service from
-    // the server.<br><br>
+    // the server.
     //
     // The server uses this channel to respond to the active path calculation
     // requests of the client. The server sends a path response after receiving a
@@ -191,14 +188,14 @@ class SLSrteCalcStateful final {
     // request, or after a routing event in the network required a modification
     // of the path. The server is responsible for monitoring the network topology
     // and providing updated responses to the active path requests such that the
-    // response continuously meets the requirements of the path request.<br><br>
+    // response continuously meets the requirements of the path request.
     //
     // When the channel is closed, the server marks any active path request (that
     // was managed through this channel) as *stale* and starts a timer. Another
     // client may claim ownership of a stale path request in a new or existing
     // channel. When the timer expires, any stale path request that was not
     // claimed by another client is deleted.
-    virtual ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* stream);
+    virtual ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* stream);
   };
   template <class BaseClass>
   class WithAsyncMethod_SLSrtePathCompute : public BaseClass {
@@ -212,11 +209,11 @@ class SLSrteCalcStateful final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* /*stream*/)  override {
+    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSLSrtePathCompute(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSLSrtePathCompute(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
     }
   };
@@ -228,7 +225,7 @@ class SLSrteCalcStateful final {
    public:
     WithCallbackMethod_SLSrtePathCompute() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackBidiHandler< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>(
+          new ::grpc::internal::CallbackBidiHandler< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>(
             [this](
                    ::grpc::CallbackServerContext* context) { return this->SLSrtePathCompute(context); }));
     }
@@ -236,11 +233,11 @@ class SLSrteCalcStateful final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* /*stream*/)  override {
+    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerBidiReactor< ::service_layer::SLSrtePathComputeRequests, ::service_layer::SLSrtePathComputeResponses>* SLSrtePathCompute(
+    virtual ::grpc::ServerBidiReactor< ::service_layer::SLSrtePathComputeReqs, ::service_layer::SLSrtePathComputeRsps>* SLSrtePathCompute(
       ::grpc::CallbackServerContext* /*context*/)
       { return nullptr; }
   };
@@ -258,7 +255,7 @@ class SLSrteCalcStateful final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* /*stream*/)  override {
+    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -275,7 +272,7 @@ class SLSrteCalcStateful final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* /*stream*/)  override {
+    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -298,7 +295,7 @@ class SLSrteCalcStateful final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeResponses, ::service_layer::SLSrtePathComputeRequests>* /*stream*/)  override {
+    ::grpc::Status SLSrtePathCompute(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLSrtePathComputeRsps, ::service_layer::SLSrtePathComputeReqs>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

@@ -25,92 +25,81 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxzbF9zcnRlX3BjYWxjX3N0YXRlZnVsLnByb3RvEg1zZXJ2aWNlX2xheWVy",
-            "GhVzbF9jb21tb25fdHlwZXMucHJvdG8aEnNsX3NyX2NvbW1vbi5wcm90byJW",
-            "ChlTTFNydGVQYXRoQ29tcHV0ZVJlcXVlc3RzEjkKCHJlcXVlc3RzGAEgAygL",
-            "Micuc2VydmljZV9sYXllci5TTFNydGVQYXRoQ29tcHV0ZVJlcXVlc3QiWQoa",
-            "U0xTcnRlUGF0aENvbXB1dGVSZXNwb25zZXMSOwoJcmVzcG9uc2VzGAEgAygL",
-            "Miguc2VydmljZV9sYXllci5TTFNydGVQYXRoQ29tcHV0ZVJlc3BvbnNlIr8L",
-            "ChhTTFNydGVQYXRoQ29tcHV0ZVJlcXVlc3QSMAoKcG9saWN5X2tleRgBIAEo",
-            "CzIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeUtleRI/ChJjYW5kaWRhdGVf",
-            "cGF0aF9rZXkYAiABKAsyIy5zZXJ2aWNlX2xheWVyLlNMU3JDYW5kaWRhdGVQ",
-            "YXRoS2V5Eg8KB3NlcV9udW0YAyABKAQSRgoEaW5pdBgEIAEoCzI2LnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTcnRlUGF0aENvbXB1dGVSZXF1ZXN0LlNMU3J0ZVBhdGhJ",
-            "bml0SAASSgoGdXBkYXRlGAUgASgLMjguc2VydmljZV9sYXllci5TTFNydGVQ",
-            "YXRoQ29tcHV0ZVJlcXVlc3QuU0xTcnRlUGF0aFVwZGF0ZUgAEk4KCHdpdGhk",
-            "cmF3GAYgASgLMjouc2VydmljZV9sYXllci5TTFNydGVQYXRoQ29tcHV0ZVJl",
-            "cXVlc3QuU0xTcnRlUGF0aFdpdGhkcmF3SAAamQQKDlNMU3J0ZVBhdGhJbml0",
-            "Ei8KCWRhdGFwbGFuZRgBIAEoDjIcLnNlcnZpY2VfbGF5ZXIuU0xTckRhdGFw",
-            "bGFuZRJfCgdkeW5hbWljGAIgASgLMkwuc2VydmljZV9sYXllci5TTFNydGVQ",
-            "YXRoQ29tcHV0ZVJlcXVlc3QuU0xTcnRlUGF0aEluaXQuU0xTcnRlUGF0aElu",
-            "aXREeW5hbWljSAASYQoIZXhwbGljaXQYAyABKAsyTS5zZXJ2aWNlX2xheWVy",
-            "LlNMU3J0ZVBhdGhDb21wdXRlUmVxdWVzdC5TTFNydGVQYXRoSW5pdC5TTFNy",
-            "dGVQYXRoSW5pdEV4cGxpY2l0SAAaewoVU0xTcnRlUGF0aEluaXREeW5hbWlj",
-            "Ei8KCG9fbWV0cmljGAEgASgOMh0uc2VydmljZV9sYXllci5TTFNyTWV0cmlj",
-            "VHlwZRIxCgtjb25zdHJhaW50cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuQ29u",
-            "c3RyYWludFNldBqCAQoWU0xTcnRlUGF0aEluaXRFeHBsaWNpdBI1Cg1zZWdt",
-            "ZW50X2xpc3RzGAEgAygLMh4uc2VydmljZV9sYXllci5TTFNyU2VnbWVudExp",
-            "c3QSMQoLY29uc3RyYWludHMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLkNvbnN0",
-            "cmFpbnRTZXRCEAoOcGF0aF9pbml0X3R5cGUa+AMKEFNMU3J0ZVBhdGhVcGRh",
-            "dGUSYwoHZHluYW1pYxgBIAEoCzJQLnNlcnZpY2VfbGF5ZXIuU0xTcnRlUGF0",
-            "aENvbXB1dGVSZXF1ZXN0LlNMU3J0ZVBhdGhVcGRhdGUuU0xTcnRlUGF0aFVw",
-            "ZGF0ZUR5bmFtaWNIABJlCghleHBsaWNpdBgCIAEoCzJRLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTcnRlUGF0aENvbXB1dGVSZXF1ZXN0LlNMU3J0ZVBhdGhVcGRhdGUu",
-            "U0xTcnRlUGF0aFVwZGF0ZUV4cGxpY2l0SAAafQoXU0xTcnRlUGF0aFVwZGF0",
-            "ZUR5bmFtaWMSLwoIb19tZXRyaWMYASABKA4yHS5zZXJ2aWNlX2xheWVyLlNM",
-            "U3JNZXRyaWNUeXBlEjEKC2NvbnN0cmFpbnRzGAIgASgLMhwuc2VydmljZV9s",
-            "YXllci5Db25zdHJhaW50U2V0GoQBChhTTFNydGVQYXRoVXBkYXRlRXhwbGlj",
-            "aXQSNQoNc2VnbWVudF9saXN0cxgBIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xT",
-            "clNlZ21lbnRMaXN0EjEKC2NvbnN0cmFpbnRzGAIgASgLMhwuc2VydmljZV9s",
-            "YXllci5Db25zdHJhaW50U2V0QhIKEHBhdGhfdXBkYXRlX3R5cGUaFAoSU0xT",
-            "cnRlUGF0aFdpdGhkcmF3Qg4KDHJlcXVlc3RfdHlwZSL9BAoZU0xTcnRlUGF0",
-            "aENvbXB1dGVSZXNwb25zZRIwCgpwb2xpY3lfa2V5GAEgASgLMhwuc2Vydmlj",
-            "ZV9sYXllci5TTFNyUG9saWN5S2V5Ej8KEmNhbmRpZGF0ZV9wYXRoX2tleRgC",
-            "IAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xTckNhbmRpZGF0ZVBhdGhLZXkSEwoL",
-            "cmVxX3NlcV9udW0YAyABKAQSVwoLcGF0aF9yZXN1bHQYBCABKAsyQC5zZXJ2",
-            "aWNlX2xheWVyLlNMU3J0ZVBhdGhDb21wdXRlUmVzcG9uc2UuU0xTcnRlRHlu",
-            "YW1pY1BhdGhSZXN1bHRIABJJCgVlcnJvchgGIAEoCzI4LnNlcnZpY2VfbGF5",
-            "ZXIuU0xTcnRlUGF0aENvbXB1dGVSZXNwb25zZS5TTFNydGVQYXRoRXJyb3JI",
-            "ABrOAQoXU0xTcnRlRHluYW1pY1BhdGhSZXN1bHQSNQoNc2VnbWVudF9saXN0",
-            "cxgBIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTclNlZ21lbnRMaXN0EhEKCXBh",
-            "dGhfY29zdBgCIAEoDRJLChllZmZlY3RpdmVfZGl2ZXJzaXR5X2xldmVsGAMg",
-            "ASgOMiMuc2VydmljZV9sYXllci5TTFNydGVEaXZlcnNpdHlMZXZlbEgAiAEB",
-            "QhwKGl9lZmZlY3RpdmVfZGl2ZXJzaXR5X2xldmVsGlIKD1NMU3J0ZVBhdGhF",
-            "cnJvchIqCgR0eXBlGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3Rh",
-            "dHVzEhMKC2Rlc2NyaXB0aW9uGAIgASgJQg8KDXJlc3BvbnNlX3R5cGUi0wUK",
-            "DUNvbnN0cmFpbnRTZXQSMQoKYWZmaW5pdGllcxgBIAEoCzIdLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xTckFmZmluaXRpZXMSFAoMc3JsZ19leGNsdWRlGAQgAygNEi4K",
-            "CmlwX2V4Y2x1ZGUYBSADKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNz",
-            "EkcKDnBhdGhfZGl2ZXJzaXR5GGUgASgLMiouc2VydmljZV9sYXllci5Db25z",
-            "dHJhaW50U2V0LlBhdGhEaXZlcnNpdHlIAIgBARJCChRjb3JvdXRlZF9hc3Nv",
-            "Y2lhdGlvbhhmIAEoCzIfLnNlcnZpY2VfbGF5ZXIuQXNzb2NpYXRpb25Hcm91",
-            "cEgBiAEBEhwKFGd1YXJhbnRlZWRfYmFuZHdpZHRoGGcgASgNEh0KFHN0cmlj",
-            "dF9wYXRoX3NlZ21lbnRzGMkBIAEoCBIdChR1bnByb3RlY3RlZF9zZWdtZW50",
-            "cxjKASABKAgSHAoTcGVyc2lzdGVudF9zZWdtZW50cxjLASABKAgSGgoRbWF4",
-            "aW11bV9zaWRfZGVwdGgYzAEgASgNGvkBCg1QYXRoRGl2ZXJzaXR5EjQKC2Fz",
-            "c29jaWF0aW9uGAEgASgLMh8uc2VydmljZV9sYXllci5Bc3NvY2lhdGlvbkdy",
-            "b3VwEjwKD2RpdmVyc2l0eV9sZXZlbBgCIAEoDjIjLnNlcnZpY2VfbGF5ZXIu",
-            "U0xTcnRlRGl2ZXJzaXR5TGV2ZWwSRQoTbWluX2RpdmVyc2l0eV9sZXZlbBgD",
-            "IAEoDjIjLnNlcnZpY2VfbGF5ZXIuU0xTcnRlRGl2ZXJzaXR5TGV2ZWxIAIgB",
-            "ARIVCg1zaG9ydGVzdF9wYXRoGAQgASgIQhYKFF9taW5fZGl2ZXJzaXR5X2xl",
-            "dmVsQhEKD19wYXRoX2RpdmVyc2l0eUIXChVfY29yb3V0ZWRfYXNzb2NpYXRp",
-            "b24iKgoQQXNzb2NpYXRpb25Hcm91cBIWCg5hc3NvY2lhdGlvbl9pZBgBIAEo",
-            "DTKCAQoSU0xTcnRlQ2FsY1N0YXRlZnVsEmwKEVNMU3J0ZVBhdGhDb21wdXRl",
-            "Eiguc2VydmljZV9sYXllci5TTFNydGVQYXRoQ29tcHV0ZVJlcXVlc3RzGiku",
-            "c2VydmljZV9sYXllci5TTFNydGVQYXRoQ29tcHV0ZVJlc3BvbnNlcygBMAFC",
-            "UVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5",
-            "ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "GhVzbF9jb21tb25fdHlwZXMucHJvdG8aEnNsX3NyX2NvbW1vbi5wcm90byJO",
+            "ChVTTFNydGVQYXRoQ29tcHV0ZVJlcXMSNQoIcmVxdWVzdHMYASADKAsyIy5z",
+            "ZXJ2aWNlX2xheWVyLlNMU3J0ZVBhdGhDb21wdXRlUmVxIk8KFVNMU3J0ZVBh",
+            "dGhDb21wdXRlUnNwcxI2CglyZXNwb25zZXMYASADKAsyIy5zZXJ2aWNlX2xh",
+            "eWVyLlNMU3J0ZVBhdGhDb21wdXRlUmVzIv8FChRTTFNydGVQYXRoQ29tcHV0",
+            "ZVJlcRIwCgpwb2xpY3lfa2V5GAEgASgLMhwuc2VydmljZV9sYXllci5TTFNy",
+            "UG9saWN5S2V5Ej8KEmNhbmRpZGF0ZV9wYXRoX2tleRgCIAEoCzIjLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTckNhbmRpZGF0ZVBhdGhLZXkSDwoHc2VxX251bRgDIAEo",
+            "BBJCCgRpbml0GAQgASgLMjIuc2VydmljZV9sYXllci5TTFNydGVQYXRoQ29t",
+            "cHV0ZVJlcS5TTFNydGVQYXRoSW5pdEgAEkYKBnVwZGF0ZRgFIAEoCzI0LnNl",
+            "cnZpY2VfbGF5ZXIuU0xTcnRlUGF0aENvbXB1dGVSZXEuU0xTcnRlUGF0aFVw",
+            "ZGF0ZUgAEkoKCHdpdGhkcmF3GAYgASgLMjYuc2VydmljZV9sYXllci5TTFNy",
+            "dGVQYXRoQ29tcHV0ZVJlcS5TTFNydGVQYXRoV2l0aGRyYXdIABrHAQoOU0xT",
+            "cnRlUGF0aEluaXQSLwoJZGF0YXBsYW5lGAEgASgOMhwuc2VydmljZV9sYXll",
+            "ci5TTFNyRGF0YXBsYW5lEjcKB2R5bmFtaWMYAiABKAsyJC5zZXJ2aWNlX2xh",
+            "eWVyLlNMU3J0ZVBhdGhBdHRyRHluYW1pY0gAEjkKCGV4cGxpY2l0GAMgASgL",
+            "MiUuc2VydmljZV9sYXllci5TTFNydGVQYXRoQXR0ckV4cGxpY2l0SABCEAoO",
+            "cGF0aF9pbml0X3R5cGUamgEKEFNMU3J0ZVBhdGhVcGRhdGUSNwoHZHluYW1p",
+            "YxgBIAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xTcnRlUGF0aEF0dHJEeW5hbWlj",
+            "SAASOQoIZXhwbGljaXQYAiABKAsyJS5zZXJ2aWNlX2xheWVyLlNMU3J0ZVBh",
+            "dGhBdHRyRXhwbGljaXRIAEISChBwYXRoX3VwZGF0ZV90eXBlGhQKElNMU3J0",
+            "ZVBhdGhXaXRoZHJhd0IOCgxyZXF1ZXN0X3R5cGUi2QQKFFNMU3J0ZVBhdGhD",
+            "b21wdXRlUmVzEjAKCnBvbGljeV9rZXkYASABKAsyHC5zZXJ2aWNlX2xheWVy",
+            "LlNMU3JQb2xpY3lLZXkSPwoSY2FuZGlkYXRlX3BhdGhfa2V5GAIgASgLMiMu",
+            "c2VydmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aEtleRITCgtyZXFfc2Vx",
+            "X251bRgDIAEoBBJSCgtwYXRoX3Jlc3VsdBgEIAEoCzI7LnNlcnZpY2VfbGF5",
+            "ZXIuU0xTcnRlUGF0aENvbXB1dGVSZXMuU0xTcnRlRHluYW1pY1BhdGhSZXN1",
+            "bHRIABJECgVlcnJvchgGIAEoCzIzLnNlcnZpY2VfbGF5ZXIuU0xTcnRlUGF0",
+            "aENvbXB1dGVSZXMuU0xTcnRlUGF0aEVycm9ySAAauQEKF1NMU3J0ZUR5bmFt",
+            "aWNQYXRoUmVzdWx0EjUKDXNlZ21lbnRfbGlzdHMYASADKAsyHi5zZXJ2aWNl",
+            "X2xheWVyLlNMU3JTZWdtZW50TGlzdBJJChllZmZlY3RpdmVfZGl2ZXJzaXR5",
+            "X2xldmVsGAMgASgOMiEuc2VydmljZV9sYXllci5TTFNyRGl2ZXJzaXR5TGV2",
+            "ZWxIAIgBAUIcChpfZWZmZWN0aXZlX2RpdmVyc2l0eV9sZXZlbBpSCg9TTFNy",
+            "dGVQYXRoRXJyb3ISKgoEdHlwZRgBIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xF",
+            "cnJvclN0YXR1cxITCgtkZXNjcmlwdGlvbhgCIAEoCUIPCg1yZXNwb25zZV90",
+            "eXBlInsKFVNMU3J0ZVBhdGhBdHRyRHluYW1pYxIvCghvX21ldHJpYxgBIAEo",
+            "DjIdLnNlcnZpY2VfbGF5ZXIuU0xTck1ldHJpY1R5cGUSMQoLY29uc3RyYWlu",
+            "dHMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLkNvbnN0cmFpbnRTZXQiggEKFlNM",
+            "U3J0ZVBhdGhBdHRyRXhwbGljaXQSNQoNc2VnbWVudF9saXN0cxgBIAMoCzIe",
+            "LnNlcnZpY2VfbGF5ZXIuU0xTclNlZ21lbnRMaXN0EjEKC2NvbnN0cmFpbnRz",
+            "GAIgASgLMhwuc2VydmljZV9sYXllci5Db25zdHJhaW50U2V0Is8FCg1Db25z",
+            "dHJhaW50U2V0EjEKCmFmZmluaXRpZXMYASABKAsyHS5zZXJ2aWNlX2xheWVy",
+            "LlNMU3JBZmZpbml0aWVzEhQKDHNybGdfZXhjbHVkZRgEIAMoDRIuCgppcF9l",
+            "eGNsdWRlGAUgAygLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxJHCg5w",
+            "YXRoX2RpdmVyc2l0eRhlIAEoCzIqLnNlcnZpY2VfbGF5ZXIuQ29uc3RyYWlu",
+            "dFNldC5QYXRoRGl2ZXJzaXR5SACIAQESQgoUY29yb3V0ZWRfYXNzb2NpYXRp",
+            "b24YZiABKAsyHy5zZXJ2aWNlX2xheWVyLkFzc29jaWF0aW9uR3JvdXBIAYgB",
+            "ARIcChRndWFyYW50ZWVkX2JhbmR3aWR0aBhnIAEoDRIdChRzdHJpY3RfcGF0",
+            "aF9zZWdtZW50cxjJASABKAgSHQoUdW5wcm90ZWN0ZWRfc2VnbWVudHMYygEg",
+            "ASgIEhwKE3BlcnNpc3RlbnRfc2VnbWVudHMYywEgASgIEhoKEW1heGltdW1f",
+            "c2lkX2RlcHRoGMwBIAEoDRr1AQoNUGF0aERpdmVyc2l0eRI0Cgthc3NvY2lh",
+            "dGlvbhgBIAEoCzIfLnNlcnZpY2VfbGF5ZXIuQXNzb2NpYXRpb25Hcm91cBI6",
+            "Cg9kaXZlcnNpdHlfbGV2ZWwYAiABKA4yIS5zZXJ2aWNlX2xheWVyLlNMU3JE",
+            "aXZlcnNpdHlMZXZlbBJDChNtaW5fZGl2ZXJzaXR5X2xldmVsGAMgASgOMiEu",
+            "c2VydmljZV9sYXllci5TTFNyRGl2ZXJzaXR5TGV2ZWxIAIgBARIVCg1zaG9y",
+            "dGVzdF9wYXRoGAQgASgIQhYKFF9taW5fZGl2ZXJzaXR5X2xldmVsQhEKD19w",
+            "YXRoX2RpdmVyc2l0eUIXChVfY29yb3V0ZWRfYXNzb2NpYXRpb24iKgoQQXNz",
+            "b2NpYXRpb25Hcm91cBIWCg5hc3NvY2lhdGlvbl9pZBgBIAEoDTJ5ChJTTFNy",
+            "dGVDYWxjU3RhdGVmdWwSYwoRU0xTcnRlUGF0aENvbXB1dGUSJC5zZXJ2aWNl",
+            "X2xheWVyLlNMU3J0ZVBhdGhDb21wdXRlUmVxcxokLnNlcnZpY2VfbGF5ZXIu",
+            "U0xTcnRlUGF0aENvbXB1dGVSc3BzKAEwAUJRWk9naXRodWIuY29tL0Npc2Nv",
+            "LXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3By",
+            "b3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequests), global::ServiceLayer.SLSrtePathComputeRequests.Parser, new[]{ "Requests" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeResponses), global::ServiceLayer.SLSrtePathComputeResponses.Parser, new[]{ "Responses" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest), global::ServiceLayer.SLSrtePathComputeRequest.Parser, new[]{ "PolicyKey", "CandidatePathKey", "SeqNum", "Init", "Update", "Withdraw" }, new[]{ "RequestType" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Parser, new[]{ "Dataplane", "Dynamic", "Explicit" }, new[]{ "PathInitType" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic.Parser, new[]{ "OMetric", "Constraints" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit.Parser, new[]{ "SegmentLists", "Constraints" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Parser, new[]{ "Dynamic", "Explicit" }, new[]{ "PathUpdateType" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic.Parser, new[]{ "OMetric", "Constraints" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit.Parser, new[]{ "SegmentLists", "Constraints" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw.Parser, null, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeResponse), global::ServiceLayer.SLSrtePathComputeResponse.Parser, new[]{ "PolicyKey", "CandidatePathKey", "ReqSeqNum", "PathResult", "Error" }, new[]{ "ResponseType" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult), global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult.Parser, new[]{ "SegmentLists", "PathCost", "EffectiveDiversityLevel" }, new[]{ "EffectiveDiversityLevel" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError), global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError.Parser, new[]{ "Type", "Description" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeReqs), global::ServiceLayer.SLSrtePathComputeReqs.Parser, new[]{ "Requests" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRsps), global::ServiceLayer.SLSrtePathComputeRsps.Parser, new[]{ "Responses" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeReq), global::ServiceLayer.SLSrtePathComputeReq.Parser, new[]{ "PolicyKey", "CandidatePathKey", "SeqNum", "Init", "Update", "Withdraw" }, new[]{ "RequestType" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit), global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit.Parser, new[]{ "Dataplane", "Dynamic", "Explicit" }, new[]{ "PathInitType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate), global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate.Parser, new[]{ "Dynamic", "Explicit" }, new[]{ "PathUpdateType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw), global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw.Parser, null, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRes), global::ServiceLayer.SLSrtePathComputeRes.Parser, new[]{ "PolicyKey", "CandidatePathKey", "ReqSeqNum", "PathResult", "Error" }, new[]{ "ResponseType" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult), global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult.Parser, new[]{ "SegmentLists", "EffectiveDiversityLevel" }, new[]{ "EffectiveDiversityLevel" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError), global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError.Parser, new[]{ "Type", "Description" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathAttrDynamic), global::ServiceLayer.SLSrtePathAttrDynamic.Parser, new[]{ "OMetric", "Constraints" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathAttrExplicit), global::ServiceLayer.SLSrtePathAttrExplicit.Parser, new[]{ "SegmentLists", "Constraints" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.ConstraintSet), global::ServiceLayer.ConstraintSet.Parser, new[]{ "Affinities", "SrlgExclude", "IpExclude", "PathDiversity", "CoroutedAssociation", "GuaranteedBandwidth", "StrictPathSegments", "UnprotectedSegments", "PersistentSegments", "MaximumSidDepth" }, new[]{ "PathDiversity", "CoroutedAssociation" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.ConstraintSet.Types.PathDiversity), global::ServiceLayer.ConstraintSet.Types.PathDiversity.Parser, new[]{ "Association", "DiversityLevel", "MinDiversityLevel", "ShortestPath" }, new[]{ "MinDiversityLevel" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.AssociationGroup), global::ServiceLayer.AssociationGroup.Parser, new[]{ "AssociationId" }, null, null, null, null)
           }));
@@ -122,16 +111,16 @@ namespace ServiceLayer {
   /// <summary>
   /// Enables client-side batching.
   /// </summary>
-  public sealed partial class SLSrtePathComputeRequests : pb::IMessage<SLSrtePathComputeRequests>
+  public sealed partial class SLSrtePathComputeReqs : pb::IMessage<SLSrtePathComputeReqs>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLSrtePathComputeRequests> _parser = new pb::MessageParser<SLSrtePathComputeRequests>(() => new SLSrtePathComputeRequests());
+    private static readonly pb::MessageParser<SLSrtePathComputeReqs> _parser = new pb::MessageParser<SLSrtePathComputeReqs>(() => new SLSrtePathComputeReqs());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLSrtePathComputeRequests> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLSrtePathComputeReqs> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -147,7 +136,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeRequests() {
+    public SLSrtePathComputeReqs() {
       OnConstruction();
     }
 
@@ -155,40 +144,40 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeRequests(SLSrtePathComputeRequests other) : this() {
+    public SLSrtePathComputeReqs(SLSrtePathComputeReqs other) : this() {
       requests_ = other.requests_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeRequests Clone() {
-      return new SLSrtePathComputeRequests(this);
+    public SLSrtePathComputeReqs Clone() {
+      return new SLSrtePathComputeReqs(this);
     }
 
     /// <summary>Field number for the "requests" field.</summary>
     public const int RequestsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLSrtePathComputeRequest> _repeated_requests_codec
-        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrtePathComputeRequest.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeRequest> requests_ = new pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeRequest>();
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLSrtePathComputeReq> _repeated_requests_codec
+        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrtePathComputeReq.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeReq> requests_ = new pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeReq>();
     /// <summary>
     /// A batch of request messages.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeRequest> Requests {
+    public pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeReq> Requests {
       get { return requests_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLSrtePathComputeRequests);
+      return Equals(other as SLSrtePathComputeReqs);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLSrtePathComputeRequests other) {
+    public bool Equals(SLSrtePathComputeReqs other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -253,7 +242,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLSrtePathComputeRequests other) {
+    public void MergeFrom(SLSrtePathComputeReqs other) {
       if (other == null) {
         return;
       }
@@ -306,16 +295,16 @@ namespace ServiceLayer {
   /// <summary>
   /// Enables server-side batching.
   /// </summary>
-  public sealed partial class SLSrtePathComputeResponses : pb::IMessage<SLSrtePathComputeResponses>
+  public sealed partial class SLSrtePathComputeRsps : pb::IMessage<SLSrtePathComputeRsps>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLSrtePathComputeResponses> _parser = new pb::MessageParser<SLSrtePathComputeResponses>(() => new SLSrtePathComputeResponses());
+    private static readonly pb::MessageParser<SLSrtePathComputeRsps> _parser = new pb::MessageParser<SLSrtePathComputeRsps>(() => new SLSrtePathComputeRsps());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLSrtePathComputeResponses> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLSrtePathComputeRsps> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -331,7 +320,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeResponses() {
+    public SLSrtePathComputeRsps() {
       OnConstruction();
     }
 
@@ -339,40 +328,40 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeResponses(SLSrtePathComputeResponses other) : this() {
+    public SLSrtePathComputeRsps(SLSrtePathComputeRsps other) : this() {
       responses_ = other.responses_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeResponses Clone() {
-      return new SLSrtePathComputeResponses(this);
+    public SLSrtePathComputeRsps Clone() {
+      return new SLSrtePathComputeRsps(this);
     }
 
     /// <summary>Field number for the "responses" field.</summary>
     public const int ResponsesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLSrtePathComputeResponse> _repeated_responses_codec
-        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrtePathComputeResponse.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeResponse> responses_ = new pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeResponse>();
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLSrtePathComputeRes> _repeated_responses_codec
+        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrtePathComputeRes.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeRes> responses_ = new pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeRes>();
     /// <summary>
-    /// A batch of reponse messages.
+    /// A batch of response messages.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeResponse> Responses {
+    public pbc::RepeatedField<global::ServiceLayer.SLSrtePathComputeRes> Responses {
       get { return responses_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLSrtePathComputeResponses);
+      return Equals(other as SLSrtePathComputeRsps);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLSrtePathComputeResponses other) {
+    public bool Equals(SLSrtePathComputeRsps other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -437,7 +426,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLSrtePathComputeResponses other) {
+    public void MergeFrom(SLSrtePathComputeRsps other) {
       if (other == null) {
         return;
       }
@@ -491,16 +480,16 @@ namespace ServiceLayer {
   /// Initiate a new path request or manage an active one that was initiated or
   /// claimed in this channel.
   /// </summary>
-  public sealed partial class SLSrtePathComputeRequest : pb::IMessage<SLSrtePathComputeRequest>
+  public sealed partial class SLSrtePathComputeReq : pb::IMessage<SLSrtePathComputeReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLSrtePathComputeRequest> _parser = new pb::MessageParser<SLSrtePathComputeRequest>(() => new SLSrtePathComputeRequest());
+    private static readonly pb::MessageParser<SLSrtePathComputeReq> _parser = new pb::MessageParser<SLSrtePathComputeReq>(() => new SLSrtePathComputeReq());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLSrtePathComputeRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLSrtePathComputeReq> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -516,7 +505,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeRequest() {
+    public SLSrtePathComputeReq() {
       OnConstruction();
     }
 
@@ -524,7 +513,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeRequest(SLSrtePathComputeRequest other) : this() {
+    public SLSrtePathComputeReq(SLSrtePathComputeReq other) : this() {
       policyKey_ = other.policyKey_ != null ? other.policyKey_.Clone() : null;
       candidatePathKey_ = other.candidatePathKey_ != null ? other.candidatePathKey_.Clone() : null;
       seqNum_ = other.seqNum_;
@@ -545,8 +534,8 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeRequest Clone() {
-      return new SLSrtePathComputeRequest(this);
+    public SLSrtePathComputeReq Clone() {
+      return new SLSrtePathComputeReq(this);
     }
 
     /// <summary>Field number for the "policy_key" field.</summary>
@@ -595,6 +584,9 @@ namespace ServiceLayer {
     /// The sequence number **must** be strictly increasing in path request
     /// messages relative to a particular candidate path (i.e., same `policy_key`
     /// and `candidate_path_key`).
+    /// Server is expected to ignore the request if sequence number in the request
+    /// is lower than the last received request for a given policy key,
+    /// candidate_path key
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -609,8 +601,8 @@ namespace ServiceLayer {
     public const int InitFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit Init {
-      get { return requestTypeCase_ == RequestTypeOneofCase.Init ? (global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit) requestType_ : null; }
+    public global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit Init {
+      get { return requestTypeCase_ == RequestTypeOneofCase.Init ? (global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit) requestType_ : null; }
       set {
         requestType_ = value;
         requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.Init;
@@ -621,8 +613,8 @@ namespace ServiceLayer {
     public const int UpdateFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate Update {
-      get { return requestTypeCase_ == RequestTypeOneofCase.Update ? (global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate) requestType_ : null; }
+    public global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate Update {
+      get { return requestTypeCase_ == RequestTypeOneofCase.Update ? (global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate) requestType_ : null; }
       set {
         requestType_ = value;
         requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.Update;
@@ -633,8 +625,8 @@ namespace ServiceLayer {
     public const int WithdrawFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw Withdraw {
-      get { return requestTypeCase_ == RequestTypeOneofCase.Withdraw ? (global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw) requestType_ : null; }
+    public global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw Withdraw {
+      get { return requestTypeCase_ == RequestTypeOneofCase.Withdraw ? (global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw) requestType_ : null; }
       set {
         requestType_ = value;
         requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.Withdraw;
@@ -666,12 +658,12 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLSrtePathComputeRequest);
+      return Equals(other as SLSrtePathComputeReq);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLSrtePathComputeRequest other) {
+    public bool Equals(SLSrtePathComputeReq other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -811,7 +803,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLSrtePathComputeRequest other) {
+    public void MergeFrom(SLSrtePathComputeReq other) {
       if (other == null) {
         return;
       }
@@ -833,19 +825,19 @@ namespace ServiceLayer {
       switch (other.RequestTypeCase) {
         case RequestTypeOneofCase.Init:
           if (Init == null) {
-            Init = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit();
+            Init = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit();
           }
           Init.MergeFrom(other.Init);
           break;
         case RequestTypeOneofCase.Update:
           if (Update == null) {
-            Update = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate();
+            Update = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate();
           }
           Update.MergeFrom(other.Update);
           break;
         case RequestTypeOneofCase.Withdraw:
           if (Withdraw == null) {
-            Withdraw = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw();
+            Withdraw = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw();
           }
           Withdraw.MergeFrom(other.Withdraw);
           break;
@@ -885,7 +877,7 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit();
+            global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit subBuilder = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit();
             if (requestTypeCase_ == RequestTypeOneofCase.Init) {
               subBuilder.MergeFrom(Init);
             }
@@ -894,7 +886,7 @@ namespace ServiceLayer {
             break;
           }
           case 42: {
-            global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate();
+            global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate subBuilder = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate();
             if (requestTypeCase_ == RequestTypeOneofCase.Update) {
               subBuilder.MergeFrom(Update);
             }
@@ -903,7 +895,7 @@ namespace ServiceLayer {
             break;
           }
           case 50: {
-            global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw();
+            global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw subBuilder = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw();
             if (requestTypeCase_ == RequestTypeOneofCase.Withdraw) {
               subBuilder.MergeFrom(Withdraw);
             }
@@ -945,7 +937,7 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit();
+            global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit subBuilder = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathInit();
             if (requestTypeCase_ == RequestTypeOneofCase.Init) {
               subBuilder.MergeFrom(Init);
             }
@@ -954,7 +946,7 @@ namespace ServiceLayer {
             break;
           }
           case 42: {
-            global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate();
+            global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate subBuilder = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathUpdate();
             if (requestTypeCase_ == RequestTypeOneofCase.Update) {
               subBuilder.MergeFrom(Update);
             }
@@ -963,7 +955,7 @@ namespace ServiceLayer {
             break;
           }
           case 50: {
-            global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw();
+            global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw subBuilder = new global::ServiceLayer.SLSrtePathComputeReq.Types.SLSrtePathWithdraw();
             if (requestTypeCase_ == RequestTypeOneofCase.Withdraw) {
               subBuilder.MergeFrom(Withdraw);
             }
@@ -977,7 +969,7 @@ namespace ServiceLayer {
     #endif
 
     #region Nested types
-    /// <summary>Container for nested types declared in the SLSrtePathComputeRequest message type.</summary>
+    /// <summary>Container for nested types declared in the SLSrtePathComputeReq message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
@@ -986,7 +978,7 @@ namespace ServiceLayer {
       ///
       /// - For a dynamic candidate path, this means computing and updating a set of
       /// SID-lists in order to continuously comply with the path specifications.
-      /// - For an explicit candidate path, this means continously validating the
+      /// - For an explicit candidate path, this means continuously validating the
       /// set of SID-lists with respect to the path specification and reporting
       /// the validity of SID-list.
       /// </summary>
@@ -1004,7 +996,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::ServiceLayer.SLSrtePathComputeRequest.Descriptor.NestedTypes[0]; }
+          get { return global::ServiceLayer.SLSrtePathComputeReq.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1045,11 +1037,11 @@ namespace ServiceLayer {
 
         /// <summary>Field number for the "dataplane" field.</summary>
         public const int DataplaneFieldNumber = 1;
-        private global::ServiceLayer.SLSrDataplane dataplane_ = global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified;
+        private global::ServiceLayer.SLSrDataplane dataplane_ = global::ServiceLayer.SLSrDataplane.Unspecified;
         /// <summary>
         /// The segment routing dataplane.
         ///
-        /// The dataplane of a candidate path is an **unmutable path attribute**. It
+        /// The dataplane of a candidate path is an **immutable path attribute**. It
         /// cannot be modified after the initial path request.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1065,8 +1057,8 @@ namespace ServiceLayer {
         public const int DynamicFieldNumber = 2;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic Dynamic {
-          get { return pathInitTypeCase_ == PathInitTypeOneofCase.Dynamic ? (global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic) pathInitType_ : null; }
+        public global::ServiceLayer.SLSrtePathAttrDynamic Dynamic {
+          get { return pathInitTypeCase_ == PathInitTypeOneofCase.Dynamic ? (global::ServiceLayer.SLSrtePathAttrDynamic) pathInitType_ : null; }
           set {
             pathInitType_ = value;
             pathInitTypeCase_ = value == null ? PathInitTypeOneofCase.None : PathInitTypeOneofCase.Dynamic;
@@ -1077,8 +1069,8 @@ namespace ServiceLayer {
         public const int ExplicitFieldNumber = 3;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit Explicit {
-          get { return pathInitTypeCase_ == PathInitTypeOneofCase.Explicit ? (global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit) pathInitType_ : null; }
+        public global::ServiceLayer.SLSrtePathAttrExplicit Explicit {
+          get { return pathInitTypeCase_ == PathInitTypeOneofCase.Explicit ? (global::ServiceLayer.SLSrtePathAttrExplicit) pathInitType_ : null; }
           set {
             pathInitType_ = value;
             pathInitTypeCase_ = value == null ? PathInitTypeOneofCase.None : PathInitTypeOneofCase.Explicit;
@@ -1132,7 +1124,7 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
-          if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) hash ^= Dataplane.GetHashCode();
+          if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) hash ^= Dataplane.GetHashCode();
           if (pathInitTypeCase_ == PathInitTypeOneofCase.Dynamic) hash ^= Dynamic.GetHashCode();
           if (pathInitTypeCase_ == PathInitTypeOneofCase.Explicit) hash ^= Explicit.GetHashCode();
           hash ^= (int) pathInitTypeCase_;
@@ -1154,7 +1146,7 @@ namespace ServiceLayer {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
-          if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+          if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
             output.WriteRawTag(8);
             output.WriteEnum((int) Dataplane);
           }
@@ -1176,7 +1168,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+          if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
             output.WriteRawTag(8);
             output.WriteEnum((int) Dataplane);
           }
@@ -1198,7 +1190,7 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
-          if (Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+          if (Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Dataplane);
           }
           if (pathInitTypeCase_ == PathInitTypeOneofCase.Dynamic) {
@@ -1219,19 +1211,19 @@ namespace ServiceLayer {
           if (other == null) {
             return;
           }
-          if (other.Dataplane != global::ServiceLayer.SLSrDataplane.SrDataplaneUnspecified) {
+          if (other.Dataplane != global::ServiceLayer.SLSrDataplane.Unspecified) {
             Dataplane = other.Dataplane;
           }
           switch (other.PathInitTypeCase) {
             case PathInitTypeOneofCase.Dynamic:
               if (Dynamic == null) {
-                Dynamic = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic();
+                Dynamic = new global::ServiceLayer.SLSrtePathAttrDynamic();
               }
               Dynamic.MergeFrom(other.Dynamic);
               break;
             case PathInitTypeOneofCase.Explicit:
               if (Explicit == null) {
-                Explicit = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit();
+                Explicit = new global::ServiceLayer.SLSrtePathAttrExplicit();
               }
               Explicit.MergeFrom(other.Explicit);
               break;
@@ -1257,7 +1249,7 @@ namespace ServiceLayer {
                 break;
               }
               case 18: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic();
+                global::ServiceLayer.SLSrtePathAttrDynamic subBuilder = new global::ServiceLayer.SLSrtePathAttrDynamic();
                 if (pathInitTypeCase_ == PathInitTypeOneofCase.Dynamic) {
                   subBuilder.MergeFrom(Dynamic);
                 }
@@ -1266,7 +1258,7 @@ namespace ServiceLayer {
                 break;
               }
               case 26: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit();
+                global::ServiceLayer.SLSrtePathAttrExplicit subBuilder = new global::ServiceLayer.SLSrtePathAttrExplicit();
                 if (pathInitTypeCase_ == PathInitTypeOneofCase.Explicit) {
                   subBuilder.MergeFrom(Explicit);
                 }
@@ -1294,7 +1286,7 @@ namespace ServiceLayer {
                 break;
               }
               case 18: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitDynamic();
+                global::ServiceLayer.SLSrtePathAttrDynamic subBuilder = new global::ServiceLayer.SLSrtePathAttrDynamic();
                 if (pathInitTypeCase_ == PathInitTypeOneofCase.Dynamic) {
                   subBuilder.MergeFrom(Dynamic);
                 }
@@ -1303,7 +1295,7 @@ namespace ServiceLayer {
                 break;
               }
               case 26: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Types.SLSrtePathInitExplicit();
+                global::ServiceLayer.SLSrtePathAttrExplicit subBuilder = new global::ServiceLayer.SLSrtePathAttrExplicit();
                 if (pathInitTypeCase_ == PathInitTypeOneofCase.Explicit) {
                   subBuilder.MergeFrom(Explicit);
                 }
@@ -1315,494 +1307,6 @@ namespace ServiceLayer {
           }
         }
         #endif
-
-        #region Nested types
-        /// <summary>Container for nested types declared in the SLSrtePathInit message type.</summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static partial class Types {
-          /// <summary>
-          /// The specific attributes for initializing a dynamic path request.
-          /// </summary>
-          public sealed partial class SLSrtePathInitDynamic : pb::IMessage<SLSrtePathInitDynamic>
-          #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              , pb::IBufferMessage
-          #endif
-          {
-            private static readonly pb::MessageParser<SLSrtePathInitDynamic> _parser = new pb::MessageParser<SLSrtePathInitDynamic>(() => new SLSrtePathInitDynamic());
-            private pb::UnknownFieldSet _unknownFields;
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pb::MessageParser<SLSrtePathInitDynamic> Parser { get { return _parser; } }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pbr::MessageDescriptor Descriptor {
-              get { return global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Descriptor.NestedTypes[0]; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            pbr::MessageDescriptor pb::IMessage.Descriptor {
-              get { return Descriptor; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathInitDynamic() {
-              OnConstruction();
-            }
-
-            partial void OnConstruction();
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathInitDynamic(SLSrtePathInitDynamic other) : this() {
-              oMetric_ = other.oMetric_;
-              constraints_ = other.constraints_ != null ? other.constraints_.Clone() : null;
-              _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathInitDynamic Clone() {
-              return new SLSrtePathInitDynamic(this);
-            }
-
-            /// <summary>Field number for the "o_metric" field.</summary>
-            public const int OMetricFieldNumber = 1;
-            private global::ServiceLayer.SLSrMetricType oMetric_ = global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified;
-            /// <summary>
-            /// The optimization metric of the dynamic candidate path.
-            ///
-            /// The objective function of the optimization problem is to minimize the
-            /// accumulated value of this additive link metric along the path.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public global::ServiceLayer.SLSrMetricType OMetric {
-              get { return oMetric_; }
-              set {
-                oMetric_ = value;
-              }
-            }
-
-            /// <summary>Field number for the "constraints" field.</summary>
-            public const int ConstraintsFieldNumber = 2;
-            private global::ServiceLayer.ConstraintSet constraints_;
-            /// <summary>
-            /// The set of constraints that the candidate path must satisfy.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public global::ServiceLayer.ConstraintSet Constraints {
-              get { return constraints_; }
-              set {
-                constraints_ = value;
-              }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override bool Equals(object other) {
-              return Equals(other as SLSrtePathInitDynamic);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public bool Equals(SLSrtePathInitDynamic other) {
-              if (ReferenceEquals(other, null)) {
-                return false;
-              }
-              if (ReferenceEquals(other, this)) {
-                return true;
-              }
-              if (OMetric != other.OMetric) return false;
-              if (!object.Equals(Constraints, other.Constraints)) return false;
-              return Equals(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override int GetHashCode() {
-              int hash = 1;
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) hash ^= OMetric.GetHashCode();
-              if (constraints_ != null) hash ^= Constraints.GetHashCode();
-              if (_unknownFields != null) {
-                hash ^= _unknownFields.GetHashCode();
-              }
-              return hash;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override string ToString() {
-              return pb::JsonFormatter.ToDiagnosticString(this);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void WriteTo(pb::CodedOutputStream output) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              output.WriteRawMessage(this);
-            #else
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                output.WriteRawTag(8);
-                output.WriteEnum((int) OMetric);
-              }
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(output);
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                output.WriteRawTag(8);
-                output.WriteEnum((int) OMetric);
-              }
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(ref output);
-              }
-            }
-            #endif
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public int CalculateSize() {
-              int size = 0;
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) OMetric);
-              }
-              if (constraints_ != null) {
-                size += 1 + pb::CodedOutputStream.ComputeMessageSize(Constraints);
-              }
-              if (_unknownFields != null) {
-                size += _unknownFields.CalculateSize();
-              }
-              return size;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(SLSrtePathInitDynamic other) {
-              if (other == null) {
-                return;
-              }
-              if (other.OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                OMetric = other.OMetric;
-              }
-              if (other.constraints_ != null) {
-                if (constraints_ == null) {
-                  Constraints = new global::ServiceLayer.ConstraintSet();
-                }
-                Constraints.MergeFrom(other.Constraints);
-              }
-              _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(pb::CodedInputStream input) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              input.ReadRawMessage(this);
-            #else
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                    break;
-                  case 8: {
-                    OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                    break;
-                  case 8: {
-                    OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            }
-            #endif
-
-          }
-
-          /// <summary>
-          /// The specific attributes for initializing an explicit path request.
-          /// </summary>
-          public sealed partial class SLSrtePathInitExplicit : pb::IMessage<SLSrtePathInitExplicit>
-          #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              , pb::IBufferMessage
-          #endif
-          {
-            private static readonly pb::MessageParser<SLSrtePathInitExplicit> _parser = new pb::MessageParser<SLSrtePathInitExplicit>(() => new SLSrtePathInitExplicit());
-            private pb::UnknownFieldSet _unknownFields;
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pb::MessageParser<SLSrtePathInitExplicit> Parser { get { return _parser; } }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pbr::MessageDescriptor Descriptor {
-              get { return global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathInit.Descriptor.NestedTypes[1]; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            pbr::MessageDescriptor pb::IMessage.Descriptor {
-              get { return Descriptor; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathInitExplicit() {
-              OnConstruction();
-            }
-
-            partial void OnConstruction();
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathInitExplicit(SLSrtePathInitExplicit other) : this() {
-              segmentLists_ = other.segmentLists_.Clone();
-              constraints_ = other.constraints_ != null ? other.constraints_.Clone() : null;
-              _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathInitExplicit Clone() {
-              return new SLSrtePathInitExplicit(this);
-            }
-
-            /// <summary>Field number for the "segment_lists" field.</summary>
-            public const int SegmentListsFieldNumber = 1;
-            private static readonly pb::FieldCodec<global::ServiceLayer.SLSrSegmentList> _repeated_segmentLists_codec
-                = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrSegmentList.Parser);
-            private readonly pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList> segmentLists_ = new pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList>();
-            /// <summary>
-            /// The set of weighted segment lists in the explicit candidate path.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList> SegmentLists {
-              get { return segmentLists_; }
-            }
-
-            /// <summary>Field number for the "constraints" field.</summary>
-            public const int ConstraintsFieldNumber = 2;
-            private global::ServiceLayer.ConstraintSet constraints_;
-            /// <summary>
-            /// The set of constraints that the candidate path must satisfy.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public global::ServiceLayer.ConstraintSet Constraints {
-              get { return constraints_; }
-              set {
-                constraints_ = value;
-              }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override bool Equals(object other) {
-              return Equals(other as SLSrtePathInitExplicit);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public bool Equals(SLSrtePathInitExplicit other) {
-              if (ReferenceEquals(other, null)) {
-                return false;
-              }
-              if (ReferenceEquals(other, this)) {
-                return true;
-              }
-              if(!segmentLists_.Equals(other.segmentLists_)) return false;
-              if (!object.Equals(Constraints, other.Constraints)) return false;
-              return Equals(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override int GetHashCode() {
-              int hash = 1;
-              hash ^= segmentLists_.GetHashCode();
-              if (constraints_ != null) hash ^= Constraints.GetHashCode();
-              if (_unknownFields != null) {
-                hash ^= _unknownFields.GetHashCode();
-              }
-              return hash;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override string ToString() {
-              return pb::JsonFormatter.ToDiagnosticString(this);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void WriteTo(pb::CodedOutputStream output) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              output.WriteRawMessage(this);
-            #else
-              segmentLists_.WriteTo(output, _repeated_segmentLists_codec);
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(output);
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-              segmentLists_.WriteTo(ref output, _repeated_segmentLists_codec);
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(ref output);
-              }
-            }
-            #endif
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public int CalculateSize() {
-              int size = 0;
-              size += segmentLists_.CalculateSize(_repeated_segmentLists_codec);
-              if (constraints_ != null) {
-                size += 1 + pb::CodedOutputStream.ComputeMessageSize(Constraints);
-              }
-              if (_unknownFields != null) {
-                size += _unknownFields.CalculateSize();
-              }
-              return size;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(SLSrtePathInitExplicit other) {
-              if (other == null) {
-                return;
-              }
-              segmentLists_.Add(other.segmentLists_);
-              if (other.constraints_ != null) {
-                if (constraints_ == null) {
-                  Constraints = new global::ServiceLayer.ConstraintSet();
-                }
-                Constraints.MergeFrom(other.Constraints);
-              }
-              _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(pb::CodedInputStream input) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              input.ReadRawMessage(this);
-            #else
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                    break;
-                  case 10: {
-                    segmentLists_.AddEntriesFrom(input, _repeated_segmentLists_codec);
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                    break;
-                  case 10: {
-                    segmentLists_.AddEntriesFrom(ref input, _repeated_segmentLists_codec);
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            }
-            #endif
-
-          }
-
-        }
-        #endregion
 
       }
 
@@ -1826,7 +1330,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::ServiceLayer.SLSrtePathComputeRequest.Descriptor.NestedTypes[1]; }
+          get { return global::ServiceLayer.SLSrtePathComputeReq.Descriptor.NestedTypes[1]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1868,8 +1372,8 @@ namespace ServiceLayer {
         public const int DynamicFieldNumber = 1;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic Dynamic {
-          get { return pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Dynamic ? (global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic) pathUpdateType_ : null; }
+        public global::ServiceLayer.SLSrtePathAttrDynamic Dynamic {
+          get { return pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Dynamic ? (global::ServiceLayer.SLSrtePathAttrDynamic) pathUpdateType_ : null; }
           set {
             pathUpdateType_ = value;
             pathUpdateTypeCase_ = value == null ? PathUpdateTypeOneofCase.None : PathUpdateTypeOneofCase.Dynamic;
@@ -1880,8 +1384,8 @@ namespace ServiceLayer {
         public const int ExplicitFieldNumber = 2;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit Explicit {
-          get { return pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Explicit ? (global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit) pathUpdateType_ : null; }
+        public global::ServiceLayer.SLSrtePathAttrExplicit Explicit {
+          get { return pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Explicit ? (global::ServiceLayer.SLSrtePathAttrExplicit) pathUpdateType_ : null; }
           set {
             pathUpdateType_ = value;
             pathUpdateTypeCase_ = value == null ? PathUpdateTypeOneofCase.None : PathUpdateTypeOneofCase.Explicit;
@@ -2012,13 +1516,13 @@ namespace ServiceLayer {
           switch (other.PathUpdateTypeCase) {
             case PathUpdateTypeOneofCase.Dynamic:
               if (Dynamic == null) {
-                Dynamic = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic();
+                Dynamic = new global::ServiceLayer.SLSrtePathAttrDynamic();
               }
               Dynamic.MergeFrom(other.Dynamic);
               break;
             case PathUpdateTypeOneofCase.Explicit:
               if (Explicit == null) {
-                Explicit = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit();
+                Explicit = new global::ServiceLayer.SLSrtePathAttrExplicit();
               }
               Explicit.MergeFrom(other.Explicit);
               break;
@@ -2040,7 +1544,7 @@ namespace ServiceLayer {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
               case 10: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic();
+                global::ServiceLayer.SLSrtePathAttrDynamic subBuilder = new global::ServiceLayer.SLSrtePathAttrDynamic();
                 if (pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Dynamic) {
                   subBuilder.MergeFrom(Dynamic);
                 }
@@ -2049,7 +1553,7 @@ namespace ServiceLayer {
                 break;
               }
               case 18: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit();
+                global::ServiceLayer.SLSrtePathAttrExplicit subBuilder = new global::ServiceLayer.SLSrtePathAttrExplicit();
                 if (pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Explicit) {
                   subBuilder.MergeFrom(Explicit);
                 }
@@ -2073,7 +1577,7 @@ namespace ServiceLayer {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
               case 10: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateDynamic();
+                global::ServiceLayer.SLSrtePathAttrDynamic subBuilder = new global::ServiceLayer.SLSrtePathAttrDynamic();
                 if (pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Dynamic) {
                   subBuilder.MergeFrom(Dynamic);
                 }
@@ -2082,7 +1586,7 @@ namespace ServiceLayer {
                 break;
               }
               case 18: {
-                global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit subBuilder = new global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Types.SLSrtePathUpdateExplicit();
+                global::ServiceLayer.SLSrtePathAttrExplicit subBuilder = new global::ServiceLayer.SLSrtePathAttrExplicit();
                 if (pathUpdateTypeCase_ == PathUpdateTypeOneofCase.Explicit) {
                   subBuilder.MergeFrom(Explicit);
                 }
@@ -2095,499 +1599,14 @@ namespace ServiceLayer {
         }
         #endif
 
-        #region Nested types
-        /// <summary>Container for nested types declared in the SLSrtePathUpdate message type.</summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static partial class Types {
-          /// <summary>
-          /// The specific attributes for updating a dynamic path request.
-          /// </summary>
-          public sealed partial class SLSrtePathUpdateDynamic : pb::IMessage<SLSrtePathUpdateDynamic>
-          #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              , pb::IBufferMessage
-          #endif
-          {
-            private static readonly pb::MessageParser<SLSrtePathUpdateDynamic> _parser = new pb::MessageParser<SLSrtePathUpdateDynamic>(() => new SLSrtePathUpdateDynamic());
-            private pb::UnknownFieldSet _unknownFields;
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pb::MessageParser<SLSrtePathUpdateDynamic> Parser { get { return _parser; } }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pbr::MessageDescriptor Descriptor {
-              get { return global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Descriptor.NestedTypes[0]; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            pbr::MessageDescriptor pb::IMessage.Descriptor {
-              get { return Descriptor; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathUpdateDynamic() {
-              OnConstruction();
-            }
-
-            partial void OnConstruction();
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathUpdateDynamic(SLSrtePathUpdateDynamic other) : this() {
-              oMetric_ = other.oMetric_;
-              constraints_ = other.constraints_ != null ? other.constraints_.Clone() : null;
-              _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathUpdateDynamic Clone() {
-              return new SLSrtePathUpdateDynamic(this);
-            }
-
-            /// <summary>Field number for the "o_metric" field.</summary>
-            public const int OMetricFieldNumber = 1;
-            private global::ServiceLayer.SLSrMetricType oMetric_ = global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified;
-            /// <summary>
-            /// The new optimization metric of the dynamic candidate path.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public global::ServiceLayer.SLSrMetricType OMetric {
-              get { return oMetric_; }
-              set {
-                oMetric_ = value;
-              }
-            }
-
-            /// <summary>Field number for the "constraints" field.</summary>
-            public const int ConstraintsFieldNumber = 2;
-            private global::ServiceLayer.ConstraintSet constraints_;
-            /// <summary>
-            /// The new set of constraints that the candidate path must satisfy.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public global::ServiceLayer.ConstraintSet Constraints {
-              get { return constraints_; }
-              set {
-                constraints_ = value;
-              }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override bool Equals(object other) {
-              return Equals(other as SLSrtePathUpdateDynamic);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public bool Equals(SLSrtePathUpdateDynamic other) {
-              if (ReferenceEquals(other, null)) {
-                return false;
-              }
-              if (ReferenceEquals(other, this)) {
-                return true;
-              }
-              if (OMetric != other.OMetric) return false;
-              if (!object.Equals(Constraints, other.Constraints)) return false;
-              return Equals(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override int GetHashCode() {
-              int hash = 1;
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) hash ^= OMetric.GetHashCode();
-              if (constraints_ != null) hash ^= Constraints.GetHashCode();
-              if (_unknownFields != null) {
-                hash ^= _unknownFields.GetHashCode();
-              }
-              return hash;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override string ToString() {
-              return pb::JsonFormatter.ToDiagnosticString(this);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void WriteTo(pb::CodedOutputStream output) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              output.WriteRawMessage(this);
-            #else
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                output.WriteRawTag(8);
-                output.WriteEnum((int) OMetric);
-              }
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(output);
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                output.WriteRawTag(8);
-                output.WriteEnum((int) OMetric);
-              }
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(ref output);
-              }
-            }
-            #endif
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public int CalculateSize() {
-              int size = 0;
-              if (OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) OMetric);
-              }
-              if (constraints_ != null) {
-                size += 1 + pb::CodedOutputStream.ComputeMessageSize(Constraints);
-              }
-              if (_unknownFields != null) {
-                size += _unknownFields.CalculateSize();
-              }
-              return size;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(SLSrtePathUpdateDynamic other) {
-              if (other == null) {
-                return;
-              }
-              if (other.OMetric != global::ServiceLayer.SLSrMetricType.MetricTypeUnspecified) {
-                OMetric = other.OMetric;
-              }
-              if (other.constraints_ != null) {
-                if (constraints_ == null) {
-                  Constraints = new global::ServiceLayer.ConstraintSet();
-                }
-                Constraints.MergeFrom(other.Constraints);
-              }
-              _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(pb::CodedInputStream input) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              input.ReadRawMessage(this);
-            #else
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                    break;
-                  case 8: {
-                    OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                    break;
-                  case 8: {
-                    OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            }
-            #endif
-
-          }
-
-          /// <summary>
-          /// The specific attributes for updating an explicit path request.
-          /// </summary>
-          public sealed partial class SLSrtePathUpdateExplicit : pb::IMessage<SLSrtePathUpdateExplicit>
-          #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              , pb::IBufferMessage
-          #endif
-          {
-            private static readonly pb::MessageParser<SLSrtePathUpdateExplicit> _parser = new pb::MessageParser<SLSrtePathUpdateExplicit>(() => new SLSrtePathUpdateExplicit());
-            private pb::UnknownFieldSet _unknownFields;
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pb::MessageParser<SLSrtePathUpdateExplicit> Parser { get { return _parser; } }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pbr::MessageDescriptor Descriptor {
-              get { return global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathUpdate.Descriptor.NestedTypes[1]; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            pbr::MessageDescriptor pb::IMessage.Descriptor {
-              get { return Descriptor; }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathUpdateExplicit() {
-              OnConstruction();
-            }
-
-            partial void OnConstruction();
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathUpdateExplicit(SLSrtePathUpdateExplicit other) : this() {
-              segmentLists_ = other.segmentLists_.Clone();
-              constraints_ = other.constraints_ != null ? other.constraints_.Clone() : null;
-              _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public SLSrtePathUpdateExplicit Clone() {
-              return new SLSrtePathUpdateExplicit(this);
-            }
-
-            /// <summary>Field number for the "segment_lists" field.</summary>
-            public const int SegmentListsFieldNumber = 1;
-            private static readonly pb::FieldCodec<global::ServiceLayer.SLSrSegmentList> _repeated_segmentLists_codec
-                = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrSegmentList.Parser);
-            private readonly pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList> segmentLists_ = new pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList>();
-            /// <summary>
-            /// The new set of weighted segment lists in the explicit candidate path.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList> SegmentLists {
-              get { return segmentLists_; }
-            }
-
-            /// <summary>Field number for the "constraints" field.</summary>
-            public const int ConstraintsFieldNumber = 2;
-            private global::ServiceLayer.ConstraintSet constraints_;
-            /// <summary>
-            /// The new set of constraints that the candidate path must satisfy.
-            /// </summary>
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public global::ServiceLayer.ConstraintSet Constraints {
-              get { return constraints_; }
-              set {
-                constraints_ = value;
-              }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override bool Equals(object other) {
-              return Equals(other as SLSrtePathUpdateExplicit);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public bool Equals(SLSrtePathUpdateExplicit other) {
-              if (ReferenceEquals(other, null)) {
-                return false;
-              }
-              if (ReferenceEquals(other, this)) {
-                return true;
-              }
-              if(!segmentLists_.Equals(other.segmentLists_)) return false;
-              if (!object.Equals(Constraints, other.Constraints)) return false;
-              return Equals(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override int GetHashCode() {
-              int hash = 1;
-              hash ^= segmentLists_.GetHashCode();
-              if (constraints_ != null) hash ^= Constraints.GetHashCode();
-              if (_unknownFields != null) {
-                hash ^= _unknownFields.GetHashCode();
-              }
-              return hash;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public override string ToString() {
-              return pb::JsonFormatter.ToDiagnosticString(this);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void WriteTo(pb::CodedOutputStream output) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              output.WriteRawMessage(this);
-            #else
-              segmentLists_.WriteTo(output, _repeated_segmentLists_codec);
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(output);
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-              segmentLists_.WriteTo(ref output, _repeated_segmentLists_codec);
-              if (constraints_ != null) {
-                output.WriteRawTag(18);
-                output.WriteMessage(Constraints);
-              }
-              if (_unknownFields != null) {
-                _unknownFields.WriteTo(ref output);
-              }
-            }
-            #endif
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public int CalculateSize() {
-              int size = 0;
-              size += segmentLists_.CalculateSize(_repeated_segmentLists_codec);
-              if (constraints_ != null) {
-                size += 1 + pb::CodedOutputStream.ComputeMessageSize(Constraints);
-              }
-              if (_unknownFields != null) {
-                size += _unknownFields.CalculateSize();
-              }
-              return size;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(SLSrtePathUpdateExplicit other) {
-              if (other == null) {
-                return;
-              }
-              segmentLists_.Add(other.segmentLists_);
-              if (other.constraints_ != null) {
-                if (constraints_ == null) {
-                  Constraints = new global::ServiceLayer.ConstraintSet();
-                }
-                Constraints.MergeFrom(other.Constraints);
-              }
-              _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(pb::CodedInputStream input) {
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-              input.ReadRawMessage(this);
-            #else
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                    break;
-                  case 10: {
-                    segmentLists_.AddEntriesFrom(input, _repeated_segmentLists_codec);
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            #endif
-            }
-
-            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-              uint tag;
-              while ((tag = input.ReadTag()) != 0) {
-                switch(tag) {
-                  default:
-                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                    break;
-                  case 10: {
-                    segmentLists_.AddEntriesFrom(ref input, _repeated_segmentLists_codec);
-                    break;
-                  }
-                  case 18: {
-                    if (constraints_ == null) {
-                      Constraints = new global::ServiceLayer.ConstraintSet();
-                    }
-                    input.ReadMessage(Constraints);
-                    break;
-                  }
-                }
-              }
-            }
-            #endif
-
-          }
-
-        }
-        #endregion
-
       }
 
       /// <summary>
       /// Withdraw a path request.
       ///
       /// Upon receiving this message, the server immediately deletes the path from
-      /// the its path request database and frees any resource allocated for this
-      /// path. It the candidate path was using any transit policies, the server
+      /// its path request database and frees any resource allocated for this
+      /// path. If the candidate path was using any transit policies, the server
       /// unregisters this path from the list of parents of those transit policies,
       /// which may lead to unprovisioning of some transit policies.
       /// </summary>
@@ -2605,7 +1624,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::ServiceLayer.SLSrtePathComputeRequest.Descriptor.NestedTypes[2]; }
+          get { return global::ServiceLayer.SLSrtePathComputeReq.Descriptor.NestedTypes[2]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2748,16 +1767,16 @@ namespace ServiceLayer {
 
   }
 
-  public sealed partial class SLSrtePathComputeResponse : pb::IMessage<SLSrtePathComputeResponse>
+  public sealed partial class SLSrtePathComputeRes : pb::IMessage<SLSrtePathComputeRes>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLSrtePathComputeResponse> _parser = new pb::MessageParser<SLSrtePathComputeResponse>(() => new SLSrtePathComputeResponse());
+    private static readonly pb::MessageParser<SLSrtePathComputeRes> _parser = new pb::MessageParser<SLSrtePathComputeRes>(() => new SLSrtePathComputeRes());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLSrtePathComputeResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLSrtePathComputeRes> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2773,7 +1792,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeResponse() {
+    public SLSrtePathComputeRes() {
       OnConstruction();
     }
 
@@ -2781,7 +1800,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeResponse(SLSrtePathComputeResponse other) : this() {
+    public SLSrtePathComputeRes(SLSrtePathComputeRes other) : this() {
       policyKey_ = other.policyKey_ != null ? other.policyKey_.Clone() : null;
       candidatePathKey_ = other.candidatePathKey_ != null ? other.candidatePathKey_.Clone() : null;
       reqSeqNum_ = other.reqSeqNum_;
@@ -2799,8 +1818,8 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLSrtePathComputeResponse Clone() {
-      return new SLSrtePathComputeResponse(this);
+    public SLSrtePathComputeRes Clone() {
+      return new SLSrtePathComputeRes(this);
     }
 
     /// <summary>Field number for the "policy_key" field.</summary>
@@ -2858,8 +1877,8 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult PathResult {
-      get { return responseTypeCase_ == ResponseTypeOneofCase.PathResult ? (global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult) responseType_ : null; }
+    public global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult PathResult {
+      get { return responseTypeCase_ == ResponseTypeOneofCase.PathResult ? (global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult) responseType_ : null; }
       set {
         responseType_ = value;
         responseTypeCase_ = value == null ? ResponseTypeOneofCase.None : ResponseTypeOneofCase.PathResult;
@@ -2873,8 +1892,8 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError Error {
-      get { return responseTypeCase_ == ResponseTypeOneofCase.Error ? (global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError) responseType_ : null; }
+    public global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError Error {
+      get { return responseTypeCase_ == ResponseTypeOneofCase.Error ? (global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError) responseType_ : null; }
       set {
         responseType_ = value;
         responseTypeCase_ = value == null ? ResponseTypeOneofCase.None : ResponseTypeOneofCase.Error;
@@ -2905,12 +1924,12 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLSrtePathComputeResponse);
+      return Equals(other as SLSrtePathComputeRes);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLSrtePathComputeResponse other) {
+    public bool Equals(SLSrtePathComputeRes other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -3037,7 +2056,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLSrtePathComputeResponse other) {
+    public void MergeFrom(SLSrtePathComputeRes other) {
       if (other == null) {
         return;
       }
@@ -3059,13 +2078,13 @@ namespace ServiceLayer {
       switch (other.ResponseTypeCase) {
         case ResponseTypeOneofCase.PathResult:
           if (PathResult == null) {
-            PathResult = new global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult();
+            PathResult = new global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult();
           }
           PathResult.MergeFrom(other.PathResult);
           break;
         case ResponseTypeOneofCase.Error:
           if (Error == null) {
-            Error = new global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError();
+            Error = new global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError();
           }
           Error.MergeFrom(other.Error);
           break;
@@ -3105,7 +2124,7 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult subBuilder = new global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult();
+            global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult subBuilder = new global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult();
             if (responseTypeCase_ == ResponseTypeOneofCase.PathResult) {
               subBuilder.MergeFrom(PathResult);
             }
@@ -3114,7 +2133,7 @@ namespace ServiceLayer {
             break;
           }
           case 50: {
-            global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError subBuilder = new global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError();
+            global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError subBuilder = new global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError();
             if (responseTypeCase_ == ResponseTypeOneofCase.Error) {
               subBuilder.MergeFrom(Error);
             }
@@ -3156,7 +2175,7 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult subBuilder = new global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult();
+            global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult subBuilder = new global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrteDynamicPathResult();
             if (responseTypeCase_ == ResponseTypeOneofCase.PathResult) {
               subBuilder.MergeFrom(PathResult);
             }
@@ -3165,7 +2184,7 @@ namespace ServiceLayer {
             break;
           }
           case 50: {
-            global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError subBuilder = new global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError();
+            global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError subBuilder = new global::ServiceLayer.SLSrtePathComputeRes.Types.SLSrtePathError();
             if (responseTypeCase_ == ResponseTypeOneofCase.Error) {
               subBuilder.MergeFrom(Error);
             }
@@ -3179,7 +2198,7 @@ namespace ServiceLayer {
     #endif
 
     #region Nested types
-    /// <summary>Container for nested types declared in the SLSrtePathComputeResponse message type.</summary>
+    /// <summary>Container for nested types declared in the SLSrtePathComputeRes message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
@@ -3201,7 +2220,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::ServiceLayer.SLSrtePathComputeResponse.Descriptor.NestedTypes[0]; }
+          get { return global::ServiceLayer.SLSrtePathComputeRes.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3223,7 +2242,6 @@ namespace ServiceLayer {
         public SLSrteDynamicPathResult(SLSrteDynamicPathResult other) : this() {
           _hasBits0 = other._hasBits0;
           segmentLists_ = other.segmentLists_.Clone();
-          pathCost_ = other.pathCost_;
           effectiveDiversityLevel_ = other.effectiveDiversityLevel_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -3248,24 +2266,9 @@ namespace ServiceLayer {
           get { return segmentLists_; }
         }
 
-        /// <summary>Field number for the "path_cost" field.</summary>
-        public const int PathCostFieldNumber = 2;
-        private uint pathCost_;
-        /// <summary>
-        /// Total path *cost*, i.e., the accumulated o-metric values along the path.
-        /// </summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public uint PathCost {
-          get { return pathCost_; }
-          set {
-            pathCost_ = value;
-          }
-        }
-
         /// <summary>Field number for the "effective_diversity_level" field.</summary>
         public const int EffectiveDiversityLevelFieldNumber = 3;
-        private global::ServiceLayer.SLSrteDiversityLevel effectiveDiversityLevel_;
+        private global::ServiceLayer.SLSrDiversityLevel effectiveDiversityLevel_;
         /// <summary>
         /// Effective level of diversity achieved in the response paths.
         ///
@@ -3278,8 +2281,8 @@ namespace ServiceLayer {
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::ServiceLayer.SLSrteDiversityLevel EffectiveDiversityLevel {
-          get { if ((_hasBits0 & 1) != 0) { return effectiveDiversityLevel_; } else { return global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone; } }
+        public global::ServiceLayer.SLSrDiversityLevel EffectiveDiversityLevel {
+          get { if ((_hasBits0 & 1) != 0) { return effectiveDiversityLevel_; } else { return global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone; } }
           set {
             _hasBits0 |= 1;
             effectiveDiversityLevel_ = value;
@@ -3314,7 +2317,6 @@ namespace ServiceLayer {
             return true;
           }
           if(!segmentLists_.Equals(other.segmentLists_)) return false;
-          if (PathCost != other.PathCost) return false;
           if (EffectiveDiversityLevel != other.EffectiveDiversityLevel) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -3324,7 +2326,6 @@ namespace ServiceLayer {
         public override int GetHashCode() {
           int hash = 1;
           hash ^= segmentLists_.GetHashCode();
-          if (PathCost != 0) hash ^= PathCost.GetHashCode();
           if (HasEffectiveDiversityLevel) hash ^= EffectiveDiversityLevel.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -3345,10 +2346,6 @@ namespace ServiceLayer {
           output.WriteRawMessage(this);
         #else
           segmentLists_.WriteTo(output, _repeated_segmentLists_codec);
-          if (PathCost != 0) {
-            output.WriteRawTag(16);
-            output.WriteUInt32(PathCost);
-          }
           if (HasEffectiveDiversityLevel) {
             output.WriteRawTag(24);
             output.WriteEnum((int) EffectiveDiversityLevel);
@@ -3364,10 +2361,6 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           segmentLists_.WriteTo(ref output, _repeated_segmentLists_codec);
-          if (PathCost != 0) {
-            output.WriteRawTag(16);
-            output.WriteUInt32(PathCost);
-          }
           if (HasEffectiveDiversityLevel) {
             output.WriteRawTag(24);
             output.WriteEnum((int) EffectiveDiversityLevel);
@@ -3383,9 +2376,6 @@ namespace ServiceLayer {
         public int CalculateSize() {
           int size = 0;
           size += segmentLists_.CalculateSize(_repeated_segmentLists_codec);
-          if (PathCost != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PathCost);
-          }
           if (HasEffectiveDiversityLevel) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) EffectiveDiversityLevel);
           }
@@ -3402,9 +2392,6 @@ namespace ServiceLayer {
             return;
           }
           segmentLists_.Add(other.segmentLists_);
-          if (other.PathCost != 0) {
-            PathCost = other.PathCost;
-          }
           if (other.HasEffectiveDiversityLevel) {
             EffectiveDiversityLevel = other.EffectiveDiversityLevel;
           }
@@ -3427,12 +2414,8 @@ namespace ServiceLayer {
                 segmentLists_.AddEntriesFrom(input, _repeated_segmentLists_codec);
                 break;
               }
-              case 16: {
-                PathCost = input.ReadUInt32();
-                break;
-              }
               case 24: {
-                EffectiveDiversityLevel = (global::ServiceLayer.SLSrteDiversityLevel) input.ReadEnum();
+                EffectiveDiversityLevel = (global::ServiceLayer.SLSrDiversityLevel) input.ReadEnum();
                 break;
               }
             }
@@ -3454,12 +2437,8 @@ namespace ServiceLayer {
                 segmentLists_.AddEntriesFrom(ref input, _repeated_segmentLists_codec);
                 break;
               }
-              case 16: {
-                PathCost = input.ReadUInt32();
-                break;
-              }
               case 24: {
-                EffectiveDiversityLevel = (global::ServiceLayer.SLSrteDiversityLevel) input.ReadEnum();
+                EffectiveDiversityLevel = (global::ServiceLayer.SLSrDiversityLevel) input.ReadEnum();
                 break;
               }
             }
@@ -3486,7 +2465,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::ServiceLayer.SLSrtePathComputeResponse.Descriptor.NestedTypes[1]; }
+          get { return global::ServiceLayer.SLSrtePathComputeRes.Descriptor.NestedTypes[1]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3719,6 +2698,486 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// The specific attributes for dynamic path request.
+  /// </summary>
+  public sealed partial class SLSrtePathAttrDynamic : pb::IMessage<SLSrtePathAttrDynamic>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLSrtePathAttrDynamic> _parser = new pb::MessageParser<SLSrtePathAttrDynamic>(() => new SLSrtePathAttrDynamic());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLSrtePathAttrDynamic> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlSrtePcalcStatefulReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLSrtePathAttrDynamic() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLSrtePathAttrDynamic(SLSrtePathAttrDynamic other) : this() {
+      oMetric_ = other.oMetric_;
+      constraints_ = other.constraints_ != null ? other.constraints_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLSrtePathAttrDynamic Clone() {
+      return new SLSrtePathAttrDynamic(this);
+    }
+
+    /// <summary>Field number for the "o_metric" field.</summary>
+    public const int OMetricFieldNumber = 1;
+    private global::ServiceLayer.SLSrMetricType oMetric_ = global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified;
+    /// <summary>
+    /// The optimization metric of the dynamic candidate path.
+    ///
+    /// The objective function of the optimization problem is to minimize the
+    /// accumulated value of this additive link metric along the path.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLSrMetricType OMetric {
+      get { return oMetric_; }
+      set {
+        oMetric_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "constraints" field.</summary>
+    public const int ConstraintsFieldNumber = 2;
+    private global::ServiceLayer.ConstraintSet constraints_;
+    /// <summary>
+    /// The set of constraints that the candidate path must satisfy.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.ConstraintSet Constraints {
+      get { return constraints_; }
+      set {
+        constraints_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLSrtePathAttrDynamic);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLSrtePathAttrDynamic other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (OMetric != other.OMetric) return false;
+      if (!object.Equals(Constraints, other.Constraints)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) hash ^= OMetric.GetHashCode();
+      if (constraints_ != null) hash ^= Constraints.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) OMetric);
+      }
+      if (constraints_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Constraints);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) OMetric);
+      }
+      if (constraints_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Constraints);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) OMetric);
+      }
+      if (constraints_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Constraints);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLSrtePathAttrDynamic other) {
+      if (other == null) {
+        return;
+      }
+      if (other.OMetric != global::ServiceLayer.SLSrMetricType.SlMetricTypeUnspecified) {
+        OMetric = other.OMetric;
+      }
+      if (other.constraints_ != null) {
+        if (constraints_ == null) {
+          Constraints = new global::ServiceLayer.ConstraintSet();
+        }
+        Constraints.MergeFrom(other.Constraints);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            if (constraints_ == null) {
+              Constraints = new global::ServiceLayer.ConstraintSet();
+            }
+            input.ReadMessage(Constraints);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            OMetric = (global::ServiceLayer.SLSrMetricType) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            if (constraints_ == null) {
+              Constraints = new global::ServiceLayer.ConstraintSet();
+            }
+            input.ReadMessage(Constraints);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// The specific attributes for initializing an explicit path request.
+  /// </summary>
+  public sealed partial class SLSrtePathAttrExplicit : pb::IMessage<SLSrtePathAttrExplicit>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLSrtePathAttrExplicit> _parser = new pb::MessageParser<SLSrtePathAttrExplicit>(() => new SLSrtePathAttrExplicit());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLSrtePathAttrExplicit> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlSrtePcalcStatefulReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLSrtePathAttrExplicit() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLSrtePathAttrExplicit(SLSrtePathAttrExplicit other) : this() {
+      segmentLists_ = other.segmentLists_.Clone();
+      constraints_ = other.constraints_ != null ? other.constraints_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLSrtePathAttrExplicit Clone() {
+      return new SLSrtePathAttrExplicit(this);
+    }
+
+    /// <summary>Field number for the "segment_lists" field.</summary>
+    public const int SegmentListsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLSrSegmentList> _repeated_segmentLists_codec
+        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrSegmentList.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList> segmentLists_ = new pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList>();
+    /// <summary>
+    /// The set of weighted segment lists in the explicit candidate path.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList> SegmentLists {
+      get { return segmentLists_; }
+    }
+
+    /// <summary>Field number for the "constraints" field.</summary>
+    public const int ConstraintsFieldNumber = 2;
+    private global::ServiceLayer.ConstraintSet constraints_;
+    /// <summary>
+    /// The set of constraints that the candidate path must satisfy.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.ConstraintSet Constraints {
+      get { return constraints_; }
+      set {
+        constraints_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLSrtePathAttrExplicit);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLSrtePathAttrExplicit other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!segmentLists_.Equals(other.segmentLists_)) return false;
+      if (!object.Equals(Constraints, other.Constraints)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= segmentLists_.GetHashCode();
+      if (constraints_ != null) hash ^= Constraints.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      segmentLists_.WriteTo(output, _repeated_segmentLists_codec);
+      if (constraints_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Constraints);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      segmentLists_.WriteTo(ref output, _repeated_segmentLists_codec);
+      if (constraints_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Constraints);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += segmentLists_.CalculateSize(_repeated_segmentLists_codec);
+      if (constraints_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Constraints);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLSrtePathAttrExplicit other) {
+      if (other == null) {
+        return;
+      }
+      segmentLists_.Add(other.segmentLists_);
+      if (other.constraints_ != null) {
+        if (constraints_ == null) {
+          Constraints = new global::ServiceLayer.ConstraintSet();
+        }
+        Constraints.MergeFrom(other.Constraints);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            segmentLists_.AddEntriesFrom(input, _repeated_segmentLists_codec);
+            break;
+          }
+          case 18: {
+            if (constraints_ == null) {
+              Constraints = new global::ServiceLayer.ConstraintSet();
+            }
+            input.ReadMessage(Constraints);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            segmentLists_.AddEntriesFrom(ref input, _repeated_segmentLists_codec);
+            break;
+          }
+          case 18: {
+            if (constraints_ == null) {
+              Constraints = new global::ServiceLayer.ConstraintSet();
+            }
+            input.ReadMessage(Constraints);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// A set of constraints for an SR path.
   /// </summary>
   public sealed partial class ConstraintSet : pb::IMessage<ConstraintSet>
@@ -3735,7 +3194,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlSrtePcalcStatefulReflection.Descriptor.MessageTypes[4]; }
+      get { return global::ServiceLayer.SlSrtePcalcStatefulReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3856,9 +3315,6 @@ namespace ServiceLayer {
     /// Guaranteed bandwidth.
     ///
     /// When set to the default value (0), this attribute is ignored.
-    ///
-    /// For an explicit candidate path, should the server perform the bandwidth
-    /// reservation?
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4377,7 +3833,7 @@ namespace ServiceLayer {
 
         /// <summary>Field number for the "diversity_level" field.</summary>
         public const int DiversityLevelFieldNumber = 2;
-        private global::ServiceLayer.SLSrteDiversityLevel diversityLevel_ = global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone;
+        private global::ServiceLayer.SLSrDiversityLevel diversityLevel_ = global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone;
         /// <summary>
         /// Required level of diversity for the disjoint paths (e.g., link- or
         /// node-disjoint)
@@ -4387,7 +3843,7 @@ namespace ServiceLayer {
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::ServiceLayer.SLSrteDiversityLevel DiversityLevel {
+        public global::ServiceLayer.SLSrDiversityLevel DiversityLevel {
           get { return diversityLevel_; }
           set {
             diversityLevel_ = value;
@@ -4396,7 +3852,7 @@ namespace ServiceLayer {
 
         /// <summary>Field number for the "min_diversity_level" field.</summary>
         public const int MinDiversityLevelFieldNumber = 3;
-        private global::ServiceLayer.SLSrteDiversityLevel minDiversityLevel_;
+        private global::ServiceLayer.SLSrDiversityLevel minDiversityLevel_;
         /// <summary>
         /// Minimum fallback level of diversity for the disjoint paths
         ///
@@ -4418,8 +3874,8 @@ namespace ServiceLayer {
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::ServiceLayer.SLSrteDiversityLevel MinDiversityLevel {
-          get { if ((_hasBits0 & 1) != 0) { return minDiversityLevel_; } else { return global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone; } }
+        public global::ServiceLayer.SLSrDiversityLevel MinDiversityLevel {
+          get { if ((_hasBits0 & 1) != 0) { return minDiversityLevel_; } else { return global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone; } }
           set {
             _hasBits0 |= 1;
             minDiversityLevel_ = value;
@@ -4480,7 +3936,7 @@ namespace ServiceLayer {
         public override int GetHashCode() {
           int hash = 1;
           if (association_ != null) hash ^= Association.GetHashCode();
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) hash ^= DiversityLevel.GetHashCode();
+          if (DiversityLevel != global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone) hash ^= DiversityLevel.GetHashCode();
           if (HasMinDiversityLevel) hash ^= MinDiversityLevel.GetHashCode();
           if (ShortestPath != false) hash ^= ShortestPath.GetHashCode();
           if (_unknownFields != null) {
@@ -4505,7 +3961,7 @@ namespace ServiceLayer {
             output.WriteRawTag(10);
             output.WriteMessage(Association);
           }
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
+          if (DiversityLevel != global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone) {
             output.WriteRawTag(16);
             output.WriteEnum((int) DiversityLevel);
           }
@@ -4531,7 +3987,7 @@ namespace ServiceLayer {
             output.WriteRawTag(10);
             output.WriteMessage(Association);
           }
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
+          if (DiversityLevel != global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone) {
             output.WriteRawTag(16);
             output.WriteEnum((int) DiversityLevel);
           }
@@ -4556,7 +4012,7 @@ namespace ServiceLayer {
           if (association_ != null) {
             size += 1 + pb::CodedOutputStream.ComputeMessageSize(Association);
           }
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
+          if (DiversityLevel != global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DiversityLevel);
           }
           if (HasMinDiversityLevel) {
@@ -4583,7 +4039,7 @@ namespace ServiceLayer {
             }
             Association.MergeFrom(other.Association);
           }
-          if (other.DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
+          if (other.DiversityLevel != global::ServiceLayer.SLSrDiversityLevel.SlDiversityLevelNone) {
             DiversityLevel = other.DiversityLevel;
           }
           if (other.HasMinDiversityLevel) {
@@ -4615,11 +4071,11 @@ namespace ServiceLayer {
                 break;
               }
               case 16: {
-                DiversityLevel = (global::ServiceLayer.SLSrteDiversityLevel) input.ReadEnum();
+                DiversityLevel = (global::ServiceLayer.SLSrDiversityLevel) input.ReadEnum();
                 break;
               }
               case 24: {
-                MinDiversityLevel = (global::ServiceLayer.SLSrteDiversityLevel) input.ReadEnum();
+                MinDiversityLevel = (global::ServiceLayer.SLSrDiversityLevel) input.ReadEnum();
                 break;
               }
               case 32: {
@@ -4649,11 +4105,11 @@ namespace ServiceLayer {
                 break;
               }
               case 16: {
-                DiversityLevel = (global::ServiceLayer.SLSrteDiversityLevel) input.ReadEnum();
+                DiversityLevel = (global::ServiceLayer.SLSrDiversityLevel) input.ReadEnum();
                 break;
               }
               case 24: {
-                MinDiversityLevel = (global::ServiceLayer.SLSrteDiversityLevel) input.ReadEnum();
+                MinDiversityLevel = (global::ServiceLayer.SLSrDiversityLevel) input.ReadEnum();
                 break;
               }
               case 32: {
@@ -4686,7 +4142,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlSrtePcalcStatefulReflection.Descriptor.MessageTypes[5]; }
+      get { return global::ServiceLayer.SlSrtePcalcStatefulReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4719,6 +4175,11 @@ namespace ServiceLayer {
     /// <summary>Field number for the "association_id" field.</summary>
     public const int AssociationIdFieldNumber = 1;
     private uint associationId_;
+    /// <summary>
+    /// Association group ID
+    /// The values 0xffff and 0x0 are reserved.
+    /// The value 0xffff is used to indicate all association groups.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint AssociationId {

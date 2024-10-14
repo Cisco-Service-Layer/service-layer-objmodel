@@ -23,8 +23,8 @@ class SLSrteCalcStatefulStub(object):
         """
         self.SLSrtePathCompute = channel.stream_stream(
                 '/service_layer.SLSrteCalcStateful/SLSrtePathCompute',
-                request_serializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeRequests.SerializeToString,
-                response_deserializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeResponses.FromString,
+                request_serializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeReqs.SerializeToString,
+                response_deserializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeRsps.FromString,
                 )
 
 
@@ -40,18 +40,17 @@ class SLSrteCalcStatefulServicer(object):
 
     def SLSrtePathCompute(self, request_iterator, context):
         """Opens a bidirectional streaming channel to initiate, manage, and serve
-        stateful path calculation requests.<br><br>
-
+        stateful path calculation requests.
 
         A single `PathCompute` channel can support any number of path requests and
         it is recommended that a client maintains only one channel per server that
-        it is connected to.<br><br>
+        it is connected to.
 
         The client uses this channel to initiate new path calculation requests,
         update the attributes (e.g., optimization metric or constraints) of an
         active request, and withdraw obsolete ones. The client must maintain the
         channel open as long as it requires stateful path calculation service from
-        the server.<br><br>
+        the server.
 
         The server uses this channel to respond to the active path calculation
         requests of the client. The server sends a path response after receiving a
@@ -59,7 +58,7 @@ class SLSrteCalcStatefulServicer(object):
         request, or after a routing event in the network required a modification
         of the path. The server is responsible for monitoring the network topology
         and providing updated responses to the active path requests such that the
-        response continuously meets the requirements of the path request.<br><br>
+        response continuously meets the requirements of the path request.
 
         When the channel is closed, the server marks any active path request (that
         was managed through this channel) as *stale* and starts a timer. Another
@@ -76,8 +75,8 @@ def add_SLSrteCalcStatefulServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SLSrtePathCompute': grpc.stream_stream_rpc_method_handler(
                     servicer.SLSrtePathCompute,
-                    request_deserializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeRequests.FromString,
-                    response_serializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeResponses.SerializeToString,
+                    request_deserializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeReqs.FromString,
+                    response_serializer=sl__srte__pcalc__stateful__pb2.SLSrtePathComputeRsps.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -108,7 +107,7 @@ class SLSrteCalcStateful(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/service_layer.SLSrteCalcStateful/SLSrtePathCompute',
-            sl__srte__pcalc__stateful__pb2.SLSrtePathComputeRequests.SerializeToString,
-            sl__srte__pcalc__stateful__pb2.SLSrtePathComputeResponses.FromString,
+            sl__srte__pcalc__stateful__pb2.SLSrtePathComputeReqs.SerializeToString,
+            sl__srte__pcalc__stateful__pb2.SLSrtePathComputeRsps.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

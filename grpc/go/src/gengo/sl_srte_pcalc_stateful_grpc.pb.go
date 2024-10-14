@@ -23,17 +23,17 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SLSrteCalcStatefulClient interface {
 	// Opens a bidirectional streaming channel to initiate, manage, and serve
-	// stateful path calculation requests.<br><br>
+	// stateful path calculation requests.
 	//
 	// A single `PathCompute` channel can support any number of path requests and
 	// it is recommended that a client maintains only one channel per server that
-	// it is connected to.<br><br>
+	// it is connected to.
 	//
 	// The client uses this channel to initiate new path calculation requests,
 	// update the attributes (e.g., optimization metric or constraints) of an
 	// active request, and withdraw obsolete ones. The client must maintain the
 	// channel open as long as it requires stateful path calculation service from
-	// the server.<br><br>
+	// the server.
 	//
 	// The server uses this channel to respond to the active path calculation
 	// requests of the client. The server sends a path response after receiving a
@@ -41,7 +41,7 @@ type SLSrteCalcStatefulClient interface {
 	// request, or after a routing event in the network required a modification
 	// of the path. The server is responsible for monitoring the network topology
 	// and providing updated responses to the active path requests such that the
-	// response continuously meets the requirements of the path request.<br><br>
+	// response continuously meets the requirements of the path request.
 	//
 	// When the channel is closed, the server marks any active path request (that
 	// was managed through this channel) as *stale* and starts a timer. Another
@@ -69,8 +69,8 @@ func (c *sLSrteCalcStatefulClient) SLSrtePathCompute(ctx context.Context, opts .
 }
 
 type SLSrteCalcStateful_SLSrtePathComputeClient interface {
-	Send(*SLSrtePathComputeRequests) error
-	Recv() (*SLSrtePathComputeResponses, error)
+	Send(*SLSrtePathComputeReqs) error
+	Recv() (*SLSrtePathComputeRsps, error)
 	grpc.ClientStream
 }
 
@@ -78,12 +78,12 @@ type sLSrteCalcStatefulSLSrtePathComputeClient struct {
 	grpc.ClientStream
 }
 
-func (x *sLSrteCalcStatefulSLSrtePathComputeClient) Send(m *SLSrtePathComputeRequests) error {
+func (x *sLSrteCalcStatefulSLSrtePathComputeClient) Send(m *SLSrtePathComputeReqs) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *sLSrteCalcStatefulSLSrtePathComputeClient) Recv() (*SLSrtePathComputeResponses, error) {
-	m := new(SLSrtePathComputeResponses)
+func (x *sLSrteCalcStatefulSLSrtePathComputeClient) Recv() (*SLSrtePathComputeRsps, error) {
+	m := new(SLSrtePathComputeRsps)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -95,17 +95,17 @@ func (x *sLSrteCalcStatefulSLSrtePathComputeClient) Recv() (*SLSrtePathComputeRe
 // for forward compatibility
 type SLSrteCalcStatefulServer interface {
 	// Opens a bidirectional streaming channel to initiate, manage, and serve
-	// stateful path calculation requests.<br><br>
+	// stateful path calculation requests.
 	//
 	// A single `PathCompute` channel can support any number of path requests and
 	// it is recommended that a client maintains only one channel per server that
-	// it is connected to.<br><br>
+	// it is connected to.
 	//
 	// The client uses this channel to initiate new path calculation requests,
 	// update the attributes (e.g., optimization metric or constraints) of an
 	// active request, and withdraw obsolete ones. The client must maintain the
 	// channel open as long as it requires stateful path calculation service from
-	// the server.<br><br>
+	// the server.
 	//
 	// The server uses this channel to respond to the active path calculation
 	// requests of the client. The server sends a path response after receiving a
@@ -113,7 +113,7 @@ type SLSrteCalcStatefulServer interface {
 	// request, or after a routing event in the network required a modification
 	// of the path. The server is responsible for monitoring the network topology
 	// and providing updated responses to the active path requests such that the
-	// response continuously meets the requirements of the path request.<br><br>
+	// response continuously meets the requirements of the path request.
 	//
 	// When the channel is closed, the server marks any active path request (that
 	// was managed through this channel) as *stale* and starts a timer. Another
@@ -149,8 +149,8 @@ func _SLSrteCalcStateful_SLSrtePathCompute_Handler(srv interface{}, stream grpc.
 }
 
 type SLSrteCalcStateful_SLSrtePathComputeServer interface {
-	Send(*SLSrtePathComputeResponses) error
-	Recv() (*SLSrtePathComputeRequests, error)
+	Send(*SLSrtePathComputeRsps) error
+	Recv() (*SLSrtePathComputeReqs, error)
 	grpc.ServerStream
 }
 
@@ -158,12 +158,12 @@ type sLSrteCalcStatefulSLSrtePathComputeServer struct {
 	grpc.ServerStream
 }
 
-func (x *sLSrteCalcStatefulSLSrtePathComputeServer) Send(m *SLSrtePathComputeResponses) error {
+func (x *sLSrteCalcStatefulSLSrtePathComputeServer) Send(m *SLSrtePathComputeRsps) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *sLSrteCalcStatefulSLSrtePathComputeServer) Recv() (*SLSrtePathComputeRequests, error) {
-	m := new(SLSrtePathComputeRequests)
+func (x *sLSrteCalcStatefulSLSrtePathComputeServer) Recv() (*SLSrtePathComputeReqs, error) {
+	m := new(SLSrtePathComputeReqs)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
