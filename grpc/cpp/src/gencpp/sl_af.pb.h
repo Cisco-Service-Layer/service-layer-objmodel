@@ -2336,6 +2336,8 @@ class SLAFOp final :
     kAFObjectFieldNumber = 1,
     kOperationIDFieldNumber = 2,
     kAckTypeFieldNumber = 3,
+    kAckPermitFieldNumber = 4,
+    kAckCadenceFieldNumber = 5,
   };
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
@@ -2373,6 +2375,24 @@ class SLAFOp final :
   void _internal_set_acktype(::service_layer::SLRspACKType value);
   public:
 
+  // uint32 AckPermit = 4;
+  void clear_ackpermit();
+  uint32_t ackpermit() const;
+  void set_ackpermit(uint32_t value);
+  private:
+  uint32_t _internal_ackpermit() const;
+  void _internal_set_ackpermit(uint32_t value);
+  public:
+
+  // .service_layer.SLRspAckCadence AckCadence = 5;
+  void clear_ackcadence();
+  ::service_layer::SLRspAckCadence ackcadence() const;
+  void set_ackcadence(::service_layer::SLRspAckCadence value);
+  private:
+  ::service_layer::SLRspAckCadence _internal_ackcadence() const;
+  void _internal_set_ackcadence(::service_layer::SLRspAckCadence value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
  private:
   class _Internal;
@@ -2383,6 +2403,8 @@ class SLAFOp final :
   ::service_layer::SLAFObject* afobject_;
   uint64_t operationid_;
   int acktype_;
+  uint32_t ackpermit_;
+  int ackcadence_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -7629,6 +7651,46 @@ inline void SLAFOp::_internal_set_acktype(::service_layer::SLRspACKType value) {
 inline void SLAFOp::set_acktype(::service_layer::SLRspACKType value) {
   _internal_set_acktype(value);
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckType)
+}
+
+// uint32 AckPermit = 4;
+inline void SLAFOp::clear_ackpermit() {
+  ackpermit_ = 0u;
+}
+inline uint32_t SLAFOp::_internal_ackpermit() const {
+  return ackpermit_;
+}
+inline uint32_t SLAFOp::ackpermit() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckPermit)
+  return _internal_ackpermit();
+}
+inline void SLAFOp::_internal_set_ackpermit(uint32_t value) {
+  
+  ackpermit_ = value;
+}
+inline void SLAFOp::set_ackpermit(uint32_t value) {
+  _internal_set_ackpermit(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckPermit)
+}
+
+// .service_layer.SLRspAckCadence AckCadence = 5;
+inline void SLAFOp::clear_ackcadence() {
+  ackcadence_ = 0;
+}
+inline ::service_layer::SLRspAckCadence SLAFOp::_internal_ackcadence() const {
+  return static_cast< ::service_layer::SLRspAckCadence >(ackcadence_);
+}
+inline ::service_layer::SLRspAckCadence SLAFOp::ackcadence() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckCadence)
+  return _internal_ackcadence();
+}
+inline void SLAFOp::_internal_set_ackcadence(::service_layer::SLRspAckCadence value) {
+  
+  ackcadence_ = value;
+}
+inline void SLAFOp::set_ackcadence(::service_layer::SLRspAckCadence value) {
+  _internal_set_ackcadence(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckCadence)
 }
 
 // -------------------------------------------------------------------
