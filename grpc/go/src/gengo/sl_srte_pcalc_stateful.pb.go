@@ -153,7 +153,7 @@ type SLSrtePathComputeReq struct {
 	// The sequence number **must** be strictly increasing in path request
 	// messages relative to a particular candidate path (i.e., same `policy_key`
 	// and `candidate_path_key`).
-	// Server is expected to ignore the request if sequence number in the request
+	// Server is expected to return error if sequence number in the request
 	// is lower than the last received request for a given policy key,
 	// candidate_path key
 	SeqNum uint64 `protobuf:"varint,3,opt,name=seq_num,json=seqNum,proto3" json:"seq_num,omitempty"`

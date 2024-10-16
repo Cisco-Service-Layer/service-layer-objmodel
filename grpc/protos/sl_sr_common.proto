@@ -475,7 +475,7 @@ message SLSrteSegment {
 
     // Type B: SRv6 SID.
     message TypeB {
-        SLIpv6Address ipv6_sid_address = 1;
+        SLIpAddress ipv6_sid_address = 1;
         uint32 behavior = 2;
         SLSrv6SidStruct structure = 3;
     }

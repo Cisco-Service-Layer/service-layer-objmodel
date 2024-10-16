@@ -770,6 +770,10 @@
     SL_SRTE_POLICY_CPKEY_MISSING = 0x1a007,\
     /* CPKey Originator missing from request. 0x1a008 */\
     SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING = 0x1a008,\
+    /* srte policy service not up. 0x1a009 */\
+    SL_SRTE_POLICY_SERVICE_NOT_UP = 0x1a009,\
+    /* Request message bigger then supported size. 0x1a00a */\
+    SL_SRTE_POLICY_EXCEED_MSG_SIZE = 0x1a00a,\
     /* Invalid PathCompute request. 0x1a101 */\
     SL_SRTE_PCALC_INVALID_REQUEST = 0x1a101,\
     /* No path available for the requested end-point and constraints. 0x1a102 */\
@@ -1847,6 +1851,12 @@
         },\
     {SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING ,\
         " CPKey Originator missing from request.  "\
+        },\
+    {SL_SRTE_POLICY_SERVICE_NOT_UP ,\
+        " srte policy service not up.  "\
+        },\
+    {SL_SRTE_POLICY_EXCEED_MSG_SIZE ,\
+        " Request message bigger then supported size.  "\
         },\
     {SL_SRTE_PCALC_INVALID_REQUEST ,\
         " Invalid PathCompute request.  "\

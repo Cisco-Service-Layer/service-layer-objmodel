@@ -2835,23 +2835,23 @@ class SLSrteSegment_TypeB final :
     kStructureFieldNumber = 3,
     kBehaviorFieldNumber = 2,
   };
-  // .service_layer.SLIpv6Address ipv6_sid_address = 1;
+  // .service_layer.SLIpAddress ipv6_sid_address = 1;
   bool has_ipv6_sid_address() const;
   private:
   bool _internal_has_ipv6_sid_address() const;
   public:
   void clear_ipv6_sid_address();
-  const ::service_layer::SLIpv6Address& ipv6_sid_address() const;
-  PROTOBUF_NODISCARD ::service_layer::SLIpv6Address* release_ipv6_sid_address();
-  ::service_layer::SLIpv6Address* mutable_ipv6_sid_address();
-  void set_allocated_ipv6_sid_address(::service_layer::SLIpv6Address* ipv6_sid_address);
+  const ::service_layer::SLIpAddress& ipv6_sid_address() const;
+  PROTOBUF_NODISCARD ::service_layer::SLIpAddress* release_ipv6_sid_address();
+  ::service_layer::SLIpAddress* mutable_ipv6_sid_address();
+  void set_allocated_ipv6_sid_address(::service_layer::SLIpAddress* ipv6_sid_address);
   private:
-  const ::service_layer::SLIpv6Address& _internal_ipv6_sid_address() const;
-  ::service_layer::SLIpv6Address* _internal_mutable_ipv6_sid_address();
+  const ::service_layer::SLIpAddress& _internal_ipv6_sid_address() const;
+  ::service_layer::SLIpAddress* _internal_mutable_ipv6_sid_address();
   public:
   void unsafe_arena_set_allocated_ipv6_sid_address(
-      ::service_layer::SLIpv6Address* ipv6_sid_address);
-  ::service_layer::SLIpv6Address* unsafe_arena_release_ipv6_sid_address();
+      ::service_layer::SLIpAddress* ipv6_sid_address);
+  ::service_layer::SLIpAddress* unsafe_arena_release_ipv6_sid_address();
 
   // .service_layer.SLSrv6SidStruct structure = 3;
   bool has_structure() const;
@@ -2887,7 +2887,7 @@ class SLSrteSegment_TypeB final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::service_layer::SLIpv6Address* ipv6_sid_address_;
+  ::service_layer::SLIpAddress* ipv6_sid_address_;
   ::service_layer::SLSrv6SidStruct* structure_;
   uint32_t behavior_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5599,24 +5599,24 @@ inline void SLSrteSegment_TypeA::set_label(uint32_t value) {
 
 // SLSrteSegment_TypeB
 
-// .service_layer.SLIpv6Address ipv6_sid_address = 1;
+// .service_layer.SLIpAddress ipv6_sid_address = 1;
 inline bool SLSrteSegment_TypeB::_internal_has_ipv6_sid_address() const {
   return this != internal_default_instance() && ipv6_sid_address_ != nullptr;
 }
 inline bool SLSrteSegment_TypeB::has_ipv6_sid_address() const {
   return _internal_has_ipv6_sid_address();
 }
-inline const ::service_layer::SLIpv6Address& SLSrteSegment_TypeB::_internal_ipv6_sid_address() const {
-  const ::service_layer::SLIpv6Address* p = ipv6_sid_address_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpv6Address&>(
-      ::service_layer::_SLIpv6Address_default_instance_);
+inline const ::service_layer::SLIpAddress& SLSrteSegment_TypeB::_internal_ipv6_sid_address() const {
+  const ::service_layer::SLIpAddress* p = ipv6_sid_address_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpAddress&>(
+      ::service_layer::_SLIpAddress_default_instance_);
 }
-inline const ::service_layer::SLIpv6Address& SLSrteSegment_TypeB::ipv6_sid_address() const {
+inline const ::service_layer::SLIpAddress& SLSrteSegment_TypeB::ipv6_sid_address() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrteSegment.TypeB.ipv6_sid_address)
   return _internal_ipv6_sid_address();
 }
 inline void SLSrteSegment_TypeB::unsafe_arena_set_allocated_ipv6_sid_address(
-    ::service_layer::SLIpv6Address* ipv6_sid_address) {
+    ::service_layer::SLIpAddress* ipv6_sid_address) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(ipv6_sid_address_);
   }
@@ -5628,9 +5628,9 @@ inline void SLSrteSegment_TypeB::unsafe_arena_set_allocated_ipv6_sid_address(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrteSegment.TypeB.ipv6_sid_address)
 }
-inline ::service_layer::SLIpv6Address* SLSrteSegment_TypeB::release_ipv6_sid_address() {
+inline ::service_layer::SLIpAddress* SLSrteSegment_TypeB::release_ipv6_sid_address() {
   
-  ::service_layer::SLIpv6Address* temp = ipv6_sid_address_;
+  ::service_layer::SLIpAddress* temp = ipv6_sid_address_;
   ipv6_sid_address_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -5643,27 +5643,27 @@ inline ::service_layer::SLIpv6Address* SLSrteSegment_TypeB::release_ipv6_sid_add
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLIpv6Address* SLSrteSegment_TypeB::unsafe_arena_release_ipv6_sid_address() {
+inline ::service_layer::SLIpAddress* SLSrteSegment_TypeB::unsafe_arena_release_ipv6_sid_address() {
   // @@protoc_insertion_point(field_release:service_layer.SLSrteSegment.TypeB.ipv6_sid_address)
   
-  ::service_layer::SLIpv6Address* temp = ipv6_sid_address_;
+  ::service_layer::SLIpAddress* temp = ipv6_sid_address_;
   ipv6_sid_address_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLIpv6Address* SLSrteSegment_TypeB::_internal_mutable_ipv6_sid_address() {
+inline ::service_layer::SLIpAddress* SLSrteSegment_TypeB::_internal_mutable_ipv6_sid_address() {
   
   if (ipv6_sid_address_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLIpv6Address>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLIpAddress>(GetArenaForAllocation());
     ipv6_sid_address_ = p;
   }
   return ipv6_sid_address_;
 }
-inline ::service_layer::SLIpv6Address* SLSrteSegment_TypeB::mutable_ipv6_sid_address() {
-  ::service_layer::SLIpv6Address* _msg = _internal_mutable_ipv6_sid_address();
+inline ::service_layer::SLIpAddress* SLSrteSegment_TypeB::mutable_ipv6_sid_address() {
+  ::service_layer::SLIpAddress* _msg = _internal_mutable_ipv6_sid_address();
   // @@protoc_insertion_point(field_mutable:service_layer.SLSrteSegment.TypeB.ipv6_sid_address)
   return _msg;
 }
-inline void SLSrteSegment_TypeB::set_allocated_ipv6_sid_address(::service_layer::SLIpv6Address* ipv6_sid_address) {
+inline void SLSrteSegment_TypeB::set_allocated_ipv6_sid_address(::service_layer::SLIpAddress* ipv6_sid_address) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(ipv6_sid_address_);

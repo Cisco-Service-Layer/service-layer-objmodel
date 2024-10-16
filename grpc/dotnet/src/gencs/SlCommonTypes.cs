@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiqloKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi9VoKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i4lkKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8irVoKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -279,40 +279,40 @@ namespace ServiceLayer {
             "X1NSVEVfUE9MSUNZX1BPTElDWUtFWV9TUkNfTUlTU0lORxCFwAYSJAoeU0xf",
             "U1JURV9QT0xJQ1lfQ1BfUFJFRl9NSVNTSU5HEIbABhIiChxTTF9TUlRFX1BP",
             "TElDWV9DUEtFWV9NSVNTSU5HEIfABhItCidTTF9TUlRFX1BPTElDWV9DUEtF",
-            "WV9PUklHSU5BVE9SX01JU1NJTkcQiMAGEiMKHVNMX1NSVEVfUENBTENfSU5W",
-            "QUxJRF9SRVFVRVNUEIHCBhIhChtTTF9TUlRFX1BDQUxDX05PX1BBVEhfRk9V",
-            "TkQQgsIGEh4KGFNMX0lOVEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJ",
-            "bnRlcmZhY2USDgoETmFtZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsK",
-            "CUludGVyZmFjZSJCCgtTTElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1I",
-            "ABITCglWNkFkZHJlc3MYAiABKAxIAEIJCgdBZGRyZXNzIiIKDVNMSXB2NkFk",
-            "ZHJlc3MSEQoJVjZBZGRyZXNzGAEgASgMIiUKClNMT2JqZWN0SWQSDgoETmFt",
-            "ZRgBIAEoCUgAQgcKBWVudHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1Zy",
-            "Zk5hbWUYASABKAkSLgoLUGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xh",
-            "eWVyLlNMT2JqZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZF",
-            "RBAAEhUKEVNMX1JFR09QX1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJ",
-            "U1RFUhACEhAKDFNMX1JFR09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xf",
-            "T0JKT1BfUkVTRVJWRUQQABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpP",
-            "UF9VUERBVEUQAhITCg9TTF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3AS",
-            "FwoTU0xfTk9USUZPUF9SRVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxF",
-            "EAESFgoSU0xfTk9USUZPUF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3Jp",
-            "dHkSGAoUU0xfUFJJT1JJVFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9D",
-            "UklUSUNBTBAEEhQKEFNMX1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklU",
-            "WV9NRURJVU0QDBITCg9TTF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlw",
-            "ZRIVChFTTF9FTkNBUF9SRVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAES",
-            "EQoNU0xfRU5DQVBfTVBMUxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJM",
-            "RV9UWVBFX1JFU0VSVkVEEAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcK",
-            "E1NMX0lQdjZfUk9VVEVfVEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxF",
-            "EAMSFwoTU0xfUEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRIL",
-            "CgdSSUJfQUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0aHViLmNv",
-            "bS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwv",
-            "Z3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "WV9PUklHSU5BVE9SX01JU1NJTkcQiMAGEiMKHVNMX1NSVEVfUE9MSUNZX1NF",
+            "UlZJQ0VfTk9UX1VQEInABhIkCh5TTF9TUlRFX1BPTElDWV9FWENFRURfTVNH",
+            "X1NJWkUQisAGEiMKHVNMX1NSVEVfUENBTENfSU5WQUxJRF9SRVFVRVNUEIHC",
+            "BhIhChtTTF9TUlRFX1BDQUxDX05PX1BBVEhfRk9VTkQQgsIGEh4KGFNMX0lO",
+            "VEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoETmFt",
+            "ZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJCCgtT",
+            "TElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJlc3MY",
+            "AiABKAxIAEIJCgdBZGRyZXNzIiUKClNMT2JqZWN0SWQSDgoETmFtZRgBIAEo",
+            "CUgAQgcKBWVudHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1ZyZk5hbWUY",
+            "ASABKAkSLgoLUGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xheWVyLlNM",
+            "T2JqZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZFRBAAEhUK",
+            "EVNMX1JFR09QX1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJU1RFUhAC",
+            "EhAKDFNMX1JFR09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xfT0JKT1Bf",
+            "UkVTRVJWRUQQABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpPUF9VUERB",
+            "VEUQAhITCg9TTF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3ASFwoTU0xf",
+            "Tk9USUZPUF9SRVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxFEAESFgoS",
+            "U0xfTk9USUZPUF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3JpdHkSGAoU",
+            "U0xfUFJJT1JJVFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9DUklUSUNB",
+            "TBAEEhQKEFNMX1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklUWV9NRURJ",
+            "VU0QDBITCg9TTF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlwZRIVChFT",
+            "TF9FTkNBUF9SRVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAESEQoNU0xf",
+            "RU5DQVBfTVBMUxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJMRV9UWVBF",
+            "X1JFU0VSVkVEEAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQ",
+            "djZfUk9VVEVfVEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxFEAMSFwoT",
+            "U0xfUEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRILCgdSSUJf",
+            "QUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0aHViLmNvbS9DaXNj",
+            "by1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9w",
+            "cm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLErrorStatus), global::ServiceLayer.SLErrorStatus.Parser, new[]{ "Status" }, null, new[]{ typeof(global::ServiceLayer.SLErrorStatus.Types.SLErrno) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterface), global::ServiceLayer.SLInterface.Parser, new[]{ "Name", "Handle" }, new[]{ "Interface" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLIpAddress), global::ServiceLayer.SLIpAddress.Parser, new[]{ "V4Address", "V6Address" }, new[]{ "Address" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLIpv6Address), global::ServiceLayer.SLIpv6Address.Parser, new[]{ "V6Address" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLObjectId), global::ServiceLayer.SLObjectId.Parser, new[]{ "Name" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroupRefKey), global::ServiceLayer.SLPathGroupRefKey.Parser, new[]{ "VrfName", "PathGroupId" }, null, null, null, null)
           }));
@@ -2094,6 +2094,14 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING")] SlSrtePolicyCpkeyOriginatorMissing = 106504,
         /// <summary>
+        /// srte policy service not up. 0x1a009
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_SERVICE_NOT_UP")] SlSrtePolicyServiceNotUp = 106505,
+        /// <summary>
+        /// Request message bigger then supported size. 0x1a00a
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_EXCEED_MSG_SIZE")] SlSrtePolicyExceedMsgSize = 106506,
+        /// <summary>
         /// Invalid PathCompute request. 0x1a101
         /// </summary>
         [pbr::OriginalName("SL_SRTE_PCALC_INVALID_REQUEST")] SlSrtePcalcInvalidRequest = 106753,
@@ -2643,201 +2651,6 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// IPv6 addresses.
-  /// </summary>
-  public sealed partial class SLIpv6Address : pb::IMessage<SLIpv6Address>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLIpv6Address> _parser = new pb::MessageParser<SLIpv6Address>(() => new SLIpv6Address());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLIpv6Address> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlCommonTypesReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLIpv6Address() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLIpv6Address(SLIpv6Address other) : this() {
-      v6Address_ = other.v6Address_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLIpv6Address Clone() {
-      return new SLIpv6Address(this);
-    }
-
-    /// <summary>Field number for the "V6Address" field.</summary>
-    public const int V6AddressFieldNumber = 1;
-    private pb::ByteString v6Address_ = pb::ByteString.Empty;
-    /// <summary>
-    /// IPv6 address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString V6Address {
-      get { return v6Address_; }
-      set {
-        v6Address_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLIpv6Address);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLIpv6Address other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (V6Address != other.V6Address) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (V6Address.Length != 0) hash ^= V6Address.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (V6Address.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(V6Address);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (V6Address.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(V6Address);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (V6Address.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(V6Address);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLIpv6Address other) {
-      if (other == null) {
-        return;
-      }
-      if (other.V6Address.Length != 0) {
-        V6Address = other.V6Address;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            V6Address = input.ReadBytes();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            V6Address = input.ReadBytes();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
   /// Common Object Identifier.
   /// </summary>
   public sealed partial class SLObjectId : pb::IMessage<SLObjectId>
@@ -2854,7 +2667,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlCommonTypesReflection.Descriptor.MessageTypes[4]; }
+      get { return global::ServiceLayer.SlCommonTypesReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3081,7 +2894,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlCommonTypesReflection.Descriptor.MessageTypes[5]; }
+      get { return global::ServiceLayer.SlCommonTypesReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -47,7 +47,7 @@ struct TableStruct_sl_5fcommon_5ftypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -64,9 +64,6 @@ extern SLInterfaceDefaultTypeInternal _SLInterface_default_instance_;
 class SLIpAddress;
 struct SLIpAddressDefaultTypeInternal;
 extern SLIpAddressDefaultTypeInternal _SLIpAddress_default_instance_;
-class SLIpv6Address;
-struct SLIpv6AddressDefaultTypeInternal;
-extern SLIpv6AddressDefaultTypeInternal _SLIpv6Address_default_instance_;
 class SLObjectId;
 struct SLObjectIdDefaultTypeInternal;
 extern SLObjectIdDefaultTypeInternal _SLObjectId_default_instance_;
@@ -78,7 +75,6 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::service_layer::SLErrorStatus* Arena::CreateMaybeMessage<::service_layer::SLErrorStatus>(Arena*);
 template<> ::service_layer::SLInterface* Arena::CreateMaybeMessage<::service_layer::SLInterface>(Arena*);
 template<> ::service_layer::SLIpAddress* Arena::CreateMaybeMessage<::service_layer::SLIpAddress>(Arena*);
-template<> ::service_layer::SLIpv6Address* Arena::CreateMaybeMessage<::service_layer::SLIpv6Address>(Arena*);
 template<> ::service_layer::SLObjectId* Arena::CreateMaybeMessage<::service_layer::SLObjectId>(Arena*);
 template<> ::service_layer::SLPathGroupRefKey* Arena::CreateMaybeMessage<::service_layer::SLPathGroupRefKey>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -420,6 +416,8 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_SRTE_POLICY_CP_PREF_MISSING = 106502,
   SLErrorStatus_SLErrno_SL_SRTE_POLICY_CPKEY_MISSING = 106503,
   SLErrorStatus_SLErrno_SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING = 106504,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_SERVICE_NOT_UP = 106505,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_EXCEED_MSG_SIZE = 106506,
   SLErrorStatus_SLErrno_SL_SRTE_PCALC_INVALID_REQUEST = 106753,
   SLErrorStatus_SLErrno_SL_SRTE_PCALC_NO_PATH_FOUND = 106754,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
@@ -1424,6 +1422,10 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_SRTE_POLICY_CPKEY_MISSING;
   static constexpr SLErrno SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING =
     SLErrorStatus_SLErrno_SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING;
+  static constexpr SLErrno SL_SRTE_POLICY_SERVICE_NOT_UP =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_SERVICE_NOT_UP;
+  static constexpr SLErrno SL_SRTE_POLICY_EXCEED_MSG_SIZE =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_EXCEED_MSG_SIZE;
   static constexpr SLErrno SL_SRTE_PCALC_INVALID_REQUEST =
     SLErrorStatus_SLErrno_SL_SRTE_PCALC_INVALID_REQUEST;
   static constexpr SLErrno SL_SRTE_PCALC_NO_PATH_FOUND =
@@ -1860,157 +1862,6 @@ class SLIpAddress final :
 };
 // -------------------------------------------------------------------
 
-class SLIpv6Address final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLIpv6Address) */ {
- public:
-  inline SLIpv6Address() : SLIpv6Address(nullptr) {}
-  ~SLIpv6Address() override;
-  explicit constexpr SLIpv6Address(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLIpv6Address(const SLIpv6Address& from);
-  SLIpv6Address(SLIpv6Address&& from) noexcept
-    : SLIpv6Address() {
-    *this = ::std::move(from);
-  }
-
-  inline SLIpv6Address& operator=(const SLIpv6Address& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLIpv6Address& operator=(SLIpv6Address&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLIpv6Address& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLIpv6Address* internal_default_instance() {
-    return reinterpret_cast<const SLIpv6Address*>(
-               &_SLIpv6Address_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(SLIpv6Address& a, SLIpv6Address& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLIpv6Address* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLIpv6Address* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLIpv6Address* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLIpv6Address>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLIpv6Address& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLIpv6Address& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLIpv6Address* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLIpv6Address";
-  }
-  protected:
-  explicit SLIpv6Address(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kV6AddressFieldNumber = 1,
-  };
-  // bytes V6Address = 1;
-  void clear_v6address();
-  const std::string& v6address() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_v6address(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_v6address();
-  PROTOBUF_NODISCARD std::string* release_v6address();
-  void set_allocated_v6address(std::string* v6address);
-  private:
-  const std::string& _internal_v6address() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_v6address(const std::string& value);
-  std::string* _internal_mutable_v6address();
-  public:
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLIpv6Address)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr v6address_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fcommon_5ftypes_2eproto;
-};
-// -------------------------------------------------------------------
-
 class SLObjectId final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLObjectId) */ {
  public:
@@ -2064,7 +1915,7 @@ class SLObjectId final :
                &_SLObjectId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   friend void swap(SLObjectId& a, SLObjectId& b) {
     a.Swap(&b);
@@ -2231,7 +2082,7 @@ class SLPathGroupRefKey final :
                &_SLPathGroupRefKey_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   friend void swap(SLPathGroupRefKey& a, SLPathGroupRefKey& b) {
     a.Swap(&b);
@@ -2651,61 +2502,6 @@ inline SLIpAddress::AddressCase SLIpAddress::Address_case() const {
 }
 // -------------------------------------------------------------------
 
-// SLIpv6Address
-
-// bytes V6Address = 1;
-inline void SLIpv6Address::clear_v6address() {
-  v6address_.ClearToEmpty();
-}
-inline const std::string& SLIpv6Address::v6address() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLIpv6Address.V6Address)
-  return _internal_v6address();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLIpv6Address::set_v6address(ArgT0&& arg0, ArgT... args) {
- 
- v6address_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLIpv6Address.V6Address)
-}
-inline std::string* SLIpv6Address::mutable_v6address() {
-  std::string* _s = _internal_mutable_v6address();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLIpv6Address.V6Address)
-  return _s;
-}
-inline const std::string& SLIpv6Address::_internal_v6address() const {
-  return v6address_.Get();
-}
-inline void SLIpv6Address::_internal_set_v6address(const std::string& value) {
-  
-  v6address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLIpv6Address::_internal_mutable_v6address() {
-  
-  return v6address_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLIpv6Address::release_v6address() {
-  // @@protoc_insertion_point(field_release:service_layer.SLIpv6Address.V6Address)
-  return v6address_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLIpv6Address::set_allocated_v6address(std::string* v6address) {
-  if (v6address != nullptr) {
-    
-  } else {
-    
-  }
-  v6address_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), v6address,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (v6address_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    v6address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLIpv6Address.V6Address)
-}
-
-// -------------------------------------------------------------------
-
 // SLObjectId
 
 // string Name = 1;
@@ -2947,8 +2743,6 @@ inline void SLPathGroupRefKey::set_allocated_pathgroupid(::service_layer::SLObje
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
