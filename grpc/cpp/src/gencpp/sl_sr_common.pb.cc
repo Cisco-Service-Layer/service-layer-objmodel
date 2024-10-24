@@ -579,26 +579,25 @@ const char descriptor_table_protodef_sl_5fsr_5fcommon_2eproto[] PROTOBUF_SECTION
   "ID_FLAG_UNAVAIL\020\200\200\001\022\036\n\031SL_SRV6_BSID_FLAG"
   "_DYNAMIC\020\200@*d\n\rSLSrDataplane\022\037\n\033SL_SR_DA"
   "TAPLANE_UNSPECIFIED\020\000\022\030\n\024SL_SR_DATAPLANE"
-  "_MPLS\020\001\022\030\n\024SL_SR_DATAPLANE_SRV6\020\002*\327\001\n\016SL"
+  "_MPLS\020\001\022\030\n\024SL_SR_DATAPLANE_SRV6\020\002*\225\001\n\016SL"
   "SrMetricType\022\036\n\032SL_METRIC_TYPE_UNSPECIFI"
   "ED\020\000\022\026\n\022SL_METRIC_TYPE_IGP\020\000\022\030\n\024SL_METRI"
   "C_TYPE_DELAY\020\001\022\025\n\021SL_METRIC_TYPE_TE\020\002\022\026\n"
-  "\022SL_METRIC_TYPE_HOP\020\003\022\"\n\036SL_METRIC_TYPE_"
-  "SID_LIST_LENGTH\020\004\022\034\n\030SL_METRIC_TYPE_BAND"
-  "WIDTH\020\005\032\002\020\001*\252\001\n\022SLSrDiversityLevel\022\033\n\027SL"
-  "_DIVERSITY_LEVEL_NONE\020\000\022\033\n\027SL_DIVERSITY_"
-  "LEVEL_LINK\020\001\022\033\n\027SL_DIVERSITY_LEVEL_NODE\020"
-  "\002\022\033\n\027SL_DIVERSITY_LEVEL_SRLG\020\003\022 \n\034SL_DIV"
-  "ERSITY_LEVEL_SRLG_NODE\020\004BQZOgithub.com/C"
-  "isco-service-layer/service-layer-objmode"
-  "l/grpc/protos;service_layerb\006proto3"
+  "\022SL_METRIC_TYPE_HOP\020\003\032\002\020\001*\252\001\n\022SLSrDivers"
+  "ityLevel\022\033\n\027SL_DIVERSITY_LEVEL_NONE\020\000\022\033\n"
+  "\027SL_DIVERSITY_LEVEL_LINK\020\001\022\033\n\027SL_DIVERSI"
+  "TY_LEVEL_NODE\020\002\022\033\n\027SL_DIVERSITY_LEVEL_SR"
+  "LG\020\003\022 \n\034SL_DIVERSITY_LEVEL_SRLG_NODE\020\004BQ"
+  "ZOgithub.com/Cisco-service-layer/service"
+  "-layer-objmodel/grpc/protos;service_laye"
+  "rb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsr_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsr_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto = {
-  false, false, 4155, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
+  false, false, 4089, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
   &descriptor_table_sl_5fsr_5fcommon_2eproto_once, descriptor_table_sl_5fsr_5fcommon_2eproto_deps, 1, 18,
   schemas, file_default_instances, TableStruct_sl_5fsr_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5fsr_5fcommon_2eproto, file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto, file_level_service_descriptors_sl_5fsr_5fcommon_2eproto,
@@ -749,8 +748,6 @@ bool SLSrMetricType_IsValid(int value) {
     case 1:
     case 2:
     case 3:
-    case 4:
-    case 5:
       return true;
     default:
       return false;

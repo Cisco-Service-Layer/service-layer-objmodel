@@ -338,14 +338,12 @@ enum SLSrMetricType : int {
   SL_METRIC_TYPE_DELAY = 1,
   SL_METRIC_TYPE_TE = 2,
   SL_METRIC_TYPE_HOP = 3,
-  SL_METRIC_TYPE_SID_LIST_LENGTH = 4,
-  SL_METRIC_TYPE_BANDWIDTH = 5,
   SLSrMetricType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrMetricType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrMetricType_IsValid(int value);
 constexpr SLSrMetricType SLSrMetricType_MIN = SL_METRIC_TYPE_UNSPECIFIED;
-constexpr SLSrMetricType SLSrMetricType_MAX = SL_METRIC_TYPE_BANDWIDTH;
+constexpr SLSrMetricType SLSrMetricType_MAX = SL_METRIC_TYPE_HOP;
 constexpr int SLSrMetricType_ARRAYSIZE = SLSrMetricType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrMetricType_descriptor();

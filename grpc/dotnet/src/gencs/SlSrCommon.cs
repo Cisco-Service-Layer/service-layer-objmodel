@@ -105,18 +105,16 @@ namespace ServiceLayer {
             "U0xfU1JWNl9CU0lEX0ZMQUdfVU5BVkFJTBCAgAESHgoZU0xfU1JWNl9CU0lE",
             "X0ZMQUdfRFlOQU1JQxCAQCpkCg1TTFNyRGF0YXBsYW5lEh8KG1NMX1NSX0RB",
             "VEFQTEFORV9VTlNQRUNJRklFRBAAEhgKFFNMX1NSX0RBVEFQTEFORV9NUExT",
-            "EAESGAoUU0xfU1JfREFUQVBMQU5FX1NSVjYQAirXAQoOU0xTck1ldHJpY1R5",
+            "EAESGAoUU0xfU1JfREFUQVBMQU5FX1NSVjYQAiqVAQoOU0xTck1ldHJpY1R5",
             "cGUSHgoaU0xfTUVUUklDX1RZUEVfVU5TUEVDSUZJRUQQABIWChJTTF9NRVRS",
             "SUNfVFlQRV9JR1AQABIYChRTTF9NRVRSSUNfVFlQRV9ERUxBWRABEhUKEVNM",
-            "X01FVFJJQ19UWVBFX1RFEAISFgoSU0xfTUVUUklDX1RZUEVfSE9QEAMSIgoe",
-            "U0xfTUVUUklDX1RZUEVfU0lEX0xJU1RfTEVOR1RIEAQSHAoYU0xfTUVUUklD",
-            "X1RZUEVfQkFORFdJRFRIEAUaAhABKqoBChJTTFNyRGl2ZXJzaXR5TGV2ZWwS",
-            "GwoXU0xfRElWRVJTSVRZX0xFVkVMX05PTkUQABIbChdTTF9ESVZFUlNJVFlf",
-            "TEVWRUxfTElOSxABEhsKF1NMX0RJVkVSU0lUWV9MRVZFTF9OT0RFEAISGwoX",
-            "U0xfRElWRVJTSVRZX0xFVkVMX1NSTEcQAxIgChxTTF9ESVZFUlNJVFlfTEVW",
-            "RUxfU1JMR19OT0RFEARCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxh",
-            "eWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vydmlj",
-            "ZV9sYXllcmIGcHJvdG8z"));
+            "X01FVFJJQ19UWVBFX1RFEAISFgoSU0xfTUVUUklDX1RZUEVfSE9QEAMaAhAB",
+            "KqoBChJTTFNyRGl2ZXJzaXR5TGV2ZWwSGwoXU0xfRElWRVJTSVRZX0xFVkVM",
+            "X05PTkUQABIbChdTTF9ESVZFUlNJVFlfTEVWRUxfTElOSxABEhsKF1NMX0RJ",
+            "VkVSU0lUWV9MRVZFTF9OT0RFEAISGwoXU0xfRElWRVJTSVRZX0xFVkVMX1NS",
+            "TEcQAxIgChxTTF9ESVZFUlNJVFlfTEVWRUxfU1JMR19OT0RFEARCUVpPZ2l0",
+            "aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2Jq",
+            "bW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLSrPolicyFlagsDef), typeof(global::ServiceLayer.SLSrSegmentType), typeof(global::ServiceLayer.SLSrSegmentFlags), typeof(global::ServiceLayer.SLSrv6BindingSidFlags), typeof(global::ServiceLayer.SLSrDataplane), typeof(global::ServiceLayer.SLSrMetricType), typeof(global::ServiceLayer.SLSrDiversityLevel), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -353,14 +351,6 @@ namespace ServiceLayer {
     /// Hop count metric type [RFC5440].
     /// </summary>
     [pbr::OriginalName("SL_METRIC_TYPE_HOP")] SlMetricTypeHop = 3,
-    /// <summary>
-    /// SID List Length
-    /// </summary>
-    [pbr::OriginalName("SL_METRIC_TYPE_SID_LIST_LENGTH")] SlMetricTypeSidListLength = 4,
-    /// <summary>
-    /// Bandwidth Metric [I-D.ietf-lsr-flex-algo-bw-con]
-    /// </summary>
-    [pbr::OriginalName("SL_METRIC_TYPE_BANDWIDTH")] SlMetricTypeBandwidth = 5,
   }
 
   /// <summary>
