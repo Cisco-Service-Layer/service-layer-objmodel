@@ -1946,40 +1946,40 @@ class SLSrv6SidStruct final :
     kFunctionLenFieldNumber = 3,
     kArgLenFieldNumber = 4,
   };
-  // uint32 locator_block_len = 1;
-  void clear_locator_block_len();
-  uint32_t locator_block_len() const;
-  void set_locator_block_len(uint32_t value);
+  // uint32 LocatorBlockLen = 1;
+  void clear_locatorblocklen();
+  uint32_t locatorblocklen() const;
+  void set_locatorblocklen(uint32_t value);
   private:
-  uint32_t _internal_locator_block_len() const;
-  void _internal_set_locator_block_len(uint32_t value);
+  uint32_t _internal_locatorblocklen() const;
+  void _internal_set_locatorblocklen(uint32_t value);
   public:
 
-  // uint32 locator_node_len = 2;
-  void clear_locator_node_len();
-  uint32_t locator_node_len() const;
-  void set_locator_node_len(uint32_t value);
+  // uint32 LocatorNodeLen = 2;
+  void clear_locatornodelen();
+  uint32_t locatornodelen() const;
+  void set_locatornodelen(uint32_t value);
   private:
-  uint32_t _internal_locator_node_len() const;
-  void _internal_set_locator_node_len(uint32_t value);
+  uint32_t _internal_locatornodelen() const;
+  void _internal_set_locatornodelen(uint32_t value);
   public:
 
-  // uint32 function_len = 3;
-  void clear_function_len();
-  uint32_t function_len() const;
-  void set_function_len(uint32_t value);
+  // uint32 FunctionLen = 3;
+  void clear_functionlen();
+  uint32_t functionlen() const;
+  void set_functionlen(uint32_t value);
   private:
-  uint32_t _internal_function_len() const;
-  void _internal_set_function_len(uint32_t value);
+  uint32_t _internal_functionlen() const;
+  void _internal_set_functionlen(uint32_t value);
   public:
 
-  // uint32 arg_len = 4;
-  void clear_arg_len();
-  uint32_t arg_len() const;
-  void set_arg_len(uint32_t value);
+  // uint32 ArgLen = 4;
+  void clear_arglen();
+  uint32_t arglen() const;
+  void set_arglen(uint32_t value);
   private:
-  uint32_t _internal_arg_len() const;
-  void _internal_set_arg_len(uint32_t value);
+  uint32_t _internal_arglen() const;
+  void _internal_set_arglen(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrv6SidStruct)
@@ -1989,10 +1989,10 @@ class SLSrv6SidStruct final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t locator_block_len_;
-  uint32_t locator_node_len_;
-  uint32_t function_len_;
-  uint32_t arg_len_;
+  uint32_t locatorblocklen_;
+  uint32_t locatornodelen_;
+  uint32_t functionlen_;
+  uint32_t arglen_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
@@ -5238,84 +5238,84 @@ inline void SLSrv6EndPointBehavior::set_algorithm(uint32_t value) {
 
 // SLSrv6SidStruct
 
-// uint32 locator_block_len = 1;
-inline void SLSrv6SidStruct::clear_locator_block_len() {
-  locator_block_len_ = 0u;
+// uint32 LocatorBlockLen = 1;
+inline void SLSrv6SidStruct::clear_locatorblocklen() {
+  locatorblocklen_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_locator_block_len() const {
-  return locator_block_len_;
+inline uint32_t SLSrv6SidStruct::_internal_locatorblocklen() const {
+  return locatorblocklen_;
 }
-inline uint32_t SLSrv6SidStruct::locator_block_len() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.locator_block_len)
-  return _internal_locator_block_len();
+inline uint32_t SLSrv6SidStruct::locatorblocklen() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.LocatorBlockLen)
+  return _internal_locatorblocklen();
 }
-inline void SLSrv6SidStruct::_internal_set_locator_block_len(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_locatorblocklen(uint32_t value) {
   
-  locator_block_len_ = value;
+  locatorblocklen_ = value;
 }
-inline void SLSrv6SidStruct::set_locator_block_len(uint32_t value) {
-  _internal_set_locator_block_len(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.locator_block_len)
+inline void SLSrv6SidStruct::set_locatorblocklen(uint32_t value) {
+  _internal_set_locatorblocklen(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.LocatorBlockLen)
 }
 
-// uint32 locator_node_len = 2;
-inline void SLSrv6SidStruct::clear_locator_node_len() {
-  locator_node_len_ = 0u;
+// uint32 LocatorNodeLen = 2;
+inline void SLSrv6SidStruct::clear_locatornodelen() {
+  locatornodelen_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_locator_node_len() const {
-  return locator_node_len_;
+inline uint32_t SLSrv6SidStruct::_internal_locatornodelen() const {
+  return locatornodelen_;
 }
-inline uint32_t SLSrv6SidStruct::locator_node_len() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.locator_node_len)
-  return _internal_locator_node_len();
+inline uint32_t SLSrv6SidStruct::locatornodelen() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.LocatorNodeLen)
+  return _internal_locatornodelen();
 }
-inline void SLSrv6SidStruct::_internal_set_locator_node_len(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_locatornodelen(uint32_t value) {
   
-  locator_node_len_ = value;
+  locatornodelen_ = value;
 }
-inline void SLSrv6SidStruct::set_locator_node_len(uint32_t value) {
-  _internal_set_locator_node_len(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.locator_node_len)
+inline void SLSrv6SidStruct::set_locatornodelen(uint32_t value) {
+  _internal_set_locatornodelen(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.LocatorNodeLen)
 }
 
-// uint32 function_len = 3;
-inline void SLSrv6SidStruct::clear_function_len() {
-  function_len_ = 0u;
+// uint32 FunctionLen = 3;
+inline void SLSrv6SidStruct::clear_functionlen() {
+  functionlen_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_function_len() const {
-  return function_len_;
+inline uint32_t SLSrv6SidStruct::_internal_functionlen() const {
+  return functionlen_;
 }
-inline uint32_t SLSrv6SidStruct::function_len() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.function_len)
-  return _internal_function_len();
+inline uint32_t SLSrv6SidStruct::functionlen() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.FunctionLen)
+  return _internal_functionlen();
 }
-inline void SLSrv6SidStruct::_internal_set_function_len(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_functionlen(uint32_t value) {
   
-  function_len_ = value;
+  functionlen_ = value;
 }
-inline void SLSrv6SidStruct::set_function_len(uint32_t value) {
-  _internal_set_function_len(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.function_len)
+inline void SLSrv6SidStruct::set_functionlen(uint32_t value) {
+  _internal_set_functionlen(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.FunctionLen)
 }
 
-// uint32 arg_len = 4;
-inline void SLSrv6SidStruct::clear_arg_len() {
-  arg_len_ = 0u;
+// uint32 ArgLen = 4;
+inline void SLSrv6SidStruct::clear_arglen() {
+  arglen_ = 0u;
 }
-inline uint32_t SLSrv6SidStruct::_internal_arg_len() const {
-  return arg_len_;
+inline uint32_t SLSrv6SidStruct::_internal_arglen() const {
+  return arglen_;
 }
-inline uint32_t SLSrv6SidStruct::arg_len() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.arg_len)
-  return _internal_arg_len();
+inline uint32_t SLSrv6SidStruct::arglen() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6SidStruct.ArgLen)
+  return _internal_arglen();
 }
-inline void SLSrv6SidStruct::_internal_set_arg_len(uint32_t value) {
+inline void SLSrv6SidStruct::_internal_set_arglen(uint32_t value) {
   
-  arg_len_ = value;
+  arglen_ = value;
 }
-inline void SLSrv6SidStruct::set_arg_len(uint32_t value) {
-  _internal_set_arg_len(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.arg_len)
+inline void SLSrv6SidStruct::set_arglen(uint32_t value) {
+  _internal_set_arglen(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrv6SidStruct.ArgLen)
 }
 
 // -------------------------------------------------------------------
