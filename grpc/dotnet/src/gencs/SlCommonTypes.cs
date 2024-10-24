@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi9VoKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIivFsKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8irVoKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i9FoKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -239,77 +239,84 @@ namespace ServiceLayer {
             "RBCHwAUSJAoeU0xfUk9VVEVfUkVESVNUX1JJQl9BRERfRkFJTEVEEIjABRIZ",
             "ChNTTF9GSUJfU1RBUlRfT0ZGU0VUEIDgBRIUCg5TTF9GSUJfU1VDQ0VTUxCB",
             "4AUSEwoNU0xfRklCX0ZBSUxFRBCC4AUSFwoRU0xfRklCX0lORUxJR0lCTEUQ",
-            "g+AFEhwKFlNMX1BPTElDWV9TVEFSVF9PRkZTRVQQgIAGEhcKEVNMX1BPTElD",
-            "WV9BRERfRVJSEIGABhIaChRTTF9QT0xJQ1lfRVhJU1RTX0VSUhCCgAYSGgoU",
-            "U0xfUE9MSUNZX0RFTEVURV9FUlIQg4AGEhwKFlNMX1BPTElDWV9SVUxFX0FE",
-            "RF9FUlIQhIAGEh8KGVNMX1BPTElDWV9SVUxFX0VYSVNUU19FUlIQhYAGEh8K",
-            "GVNMX1BPTElDWV9SVUxFX0RFTEVURV9FUlIQhoAGEhkKE1NMX1BPTElDWV9B",
-            "UFBMWV9FUlIQh4AGEhsKFVNMX1BPTElDWV9VTkFQUExZX0VSUhCIgAYSIQob",
-            "U0xfUE9MSUNZX1RPT19NQU5ZX1BPTElDSUVTEImABhIdChdTTF9QT0xJQ1lf",
-            "TkFNRV9UT09fTE9ORxCKgAYSIgocU0xfUE9MSUNZX1JVTEVfTkFNRV9UT09f",
-            "TE9ORxCLgAYSKgokU0xfUE9MSUNZX0RVUExJQ0FURV9QUklPUklUWV9JTl9S",
-            "VUxFEIyABhIkCh5TTF9QT0xJQ1lfUlVMRV9NT0RfTk9UX0FMTE9XRUQQjYAG",
-            "EhwKFlNMX1BPTElDWV9JTlZBTElEX1JVTEUQjoAGEiEKG1NMX1BPTElDWV9S",
-            "VUxFX0FERF9OT19SVUxFUxCPgAYSKwolU0xfUE9MSUNZX0lOVkFMSURfTUFU",
-            "Q0hfQ09VTlRfSU5fUlVMRRCQgAYSLAomU0xfUE9MSUNZX0lOVkFMSURfQUNU",
-            "SU9OX0NPVU5UX0lOX1JVTEUQkYAGEhkKE1NMX1BPTElDWV9OT1RfRk9VTkQQ",
-            "koAGEhcKEVNMX1BPTElDWV9JTlZBTElEEJOABhIcChZTTF9QT0xJQ1lfTkFN",
-            "RV9NSVNTSU5HEJSABhIhChtTTF9QT0xJQ1lfUlVMRV9OQU1FX01JU1NJTkcQ",
-            "lYAGEigKIlNMX1BPTElDWV9QUklPUklUWV9NSVNTSU5HX0lOX1JVTEUQloAG",
-            "EhwKFlNMX1BPTElDWV9UWVBFX0lOVkFMSUQQl4AGEiEKG1NMX1BPTElDWV9J",
-            "TlZBTElEX0RJUkVDVElPThCYgAYSIQobU0xfUE9MSUNZX0lOVEZfTkFNRV9U",
-            "T09MT05HEJmABhIhChtTTF9QT0xJQ1lfSU5URl9OQU1FX01JU1NJTkcQmoAG",
-            "EiYKIFNMX1BPTElDWV9NQVhfUlVMRV9MSU1JVF9SRUFDSEVEEJuABhIhChtT",
-            "TF9QT0xJQ1lfVlJGX05BTUVfVE9PX0xPTkcQnIAGEiAKGlNMX1BPTElDWV9W",
-            "UkZfTkFNRV9NSVNTSU5HEJ2ABhImCiBTTF9QT0xJQ1lfUEFUSF9HUlBfTkFN",
-            "RV9UT09fTE9ORxCegAYSJQofU0xfUE9MSUNZX1BBVEhfR1JQX05BTUVfTUlT",
-            "U0lORxCfgAYSIgocU0xfUE9MSUNZX0lOVkFMSURfRFNDUF9WQUxVRRCggAYS",
-            "JQofU0xfUE9MSUNZX1BSSU9SSVRZX1NUUl9UT09fTE9ORxChgAYSJgogU0xf",
-            "UE9MSUNZX01BWF9JTlRGX0xJTUlUX1JFQUNIRUQQooAGEiQKHlNMX1BPTElD",
-            "WV9SVUxFX0RFTEVURV9OT19SVUxFUxCjgAYSHgoYU0xfUE9MSUNZX0FQUExZ",
-            "X05PX0lOVEZTEKSABhIgChpTTF9QT0xJQ1lfVU5BUFBMWV9OT19JTlRGUxCl",
-            "gAYSIAoaU0xfQkdQTFNfVE9QT19TVEFSVF9PRkZTRVQQgKAGEiMKHVNMX0JH",
-            "UExTX1NFUlZFUl9OT1RfQVZBSUxBQkxFEIGgBhIoCiJTTF9CR1BMU19NQVhf",
-            "TUFUQ0hfRklMVEVSX0VYQ0VFREVEEIKgBhIjCh1TTF9CR1BMU19NQVhfU1RS",
-            "RUFNU19FWENFRURFRBCDoAYSIQobU0xfU1JURV9QT0xJQ1lfU1RBUlRfT0ZG",
-            "U0VUEIDABhIkCh5TTF9TUlRFX1BPTElDWV9JTlZBTElEX1JFUVVFU1QQgcAG",
-            "EiYKIFNMX1NSVEVfUE9MSUNZX1BPTElDWUtFWV9NSVNTSU5HEILABhIsCiZT",
-            "TF9TUlRFX1BPTElDWV9QT0xJQ1lLRVlfQ09MT1JfTUlTU0lORxCDwAYSKQoj",
-            "U0xfU1JURV9QT0xJQ1lfUE9MSUNZS0VZX0VQX01JU1NJTkcQhMAGEioKJFNM",
-            "X1NSVEVfUE9MSUNZX1BPTElDWUtFWV9TUkNfTUlTU0lORxCFwAYSJAoeU0xf",
-            "U1JURV9QT0xJQ1lfQ1BfUFJFRl9NSVNTSU5HEIbABhIiChxTTF9TUlRFX1BP",
-            "TElDWV9DUEtFWV9NSVNTSU5HEIfABhItCidTTF9TUlRFX1BPTElDWV9DUEtF",
-            "WV9PUklHSU5BVE9SX01JU1NJTkcQiMAGEiMKHVNMX1NSVEVfUE9MSUNZX1NF",
-            "UlZJQ0VfTk9UX1VQEInABhIkCh5TTF9TUlRFX1BPTElDWV9FWENFRURfTVNH",
-            "X1NJWkUQisAGEiMKHVNMX1NSVEVfUENBTENfSU5WQUxJRF9SRVFVRVNUEIHC",
-            "BhIhChtTTF9TUlRFX1BDQUxDX05PX1BBVEhfRk9VTkQQgsIGEh4KGFNMX0lO",
-            "VEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoETmFt",
-            "ZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJCCgtT",
-            "TElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJlc3MY",
-            "AiABKAxIAEIJCgdBZGRyZXNzIiUKClNMT2JqZWN0SWQSDgoETmFtZRgBIAEo",
-            "CUgAQgcKBWVudHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1ZyZk5hbWUY",
-            "ASABKAkSLgoLUGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xheWVyLlNM",
-            "T2JqZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZFRBAAEhUK",
-            "EVNMX1JFR09QX1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJU1RFUhAC",
-            "EhAKDFNMX1JFR09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xfT0JKT1Bf",
-            "UkVTRVJWRUQQABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpPUF9VUERB",
-            "VEUQAhITCg9TTF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3ASFwoTU0xf",
-            "Tk9USUZPUF9SRVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxFEAESFgoS",
-            "U0xfTk9USUZPUF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3JpdHkSGAoU",
-            "U0xfUFJJT1JJVFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9DUklUSUNB",
-            "TBAEEhQKEFNMX1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklUWV9NRURJ",
-            "VU0QDBITCg9TTF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlwZRIVChFT",
-            "TF9FTkNBUF9SRVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAESEQoNU0xf",
-            "RU5DQVBfTVBMUxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJMRV9UWVBF",
-            "X1JFU0VSVkVEEAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQ",
-            "djZfUk9VVEVfVEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxFEAMSFwoT",
-            "U0xfUEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRILCgdSSUJf",
-            "QUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0aHViLmNvbS9DaXNj",
-            "by1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9w",
-            "cm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "g+AFEiEKG1NMX0FDS19QRVJNSVRfTk9UX1NVUFBPUlRFRBCE4AUSIgocU0xf",
+            "QUNLX0NBREVOQ0VfTk9UX1NVUFBPUlRFRBCF4AUSHAoWU0xfUE9MSUNZX1NU",
+            "QVJUX09GRlNFVBCAgAYSFwoRU0xfUE9MSUNZX0FERF9FUlIQgYAGEhoKFFNM",
+            "X1BPTElDWV9FWElTVFNfRVJSEIKABhIaChRTTF9QT0xJQ1lfREVMRVRFX0VS",
+            "UhCDgAYSHAoWU0xfUE9MSUNZX1JVTEVfQUREX0VSUhCEgAYSHwoZU0xfUE9M",
+            "SUNZX1JVTEVfRVhJU1RTX0VSUhCFgAYSHwoZU0xfUE9MSUNZX1JVTEVfREVM",
+            "RVRFX0VSUhCGgAYSGQoTU0xfUE9MSUNZX0FQUExZX0VSUhCHgAYSGwoVU0xf",
+            "UE9MSUNZX1VOQVBQTFlfRVJSEIiABhIhChtTTF9QT0xJQ1lfVE9PX01BTllf",
+            "UE9MSUNJRVMQiYAGEh0KF1NMX1BPTElDWV9OQU1FX1RPT19MT05HEIqABhIi",
+            "ChxTTF9QT0xJQ1lfUlVMRV9OQU1FX1RPT19MT05HEIuABhIqCiRTTF9QT0xJ",
+            "Q1lfRFVQTElDQVRFX1BSSU9SSVRZX0lOX1JVTEUQjIAGEiQKHlNMX1BPTElD",
+            "WV9SVUxFX01PRF9OT1RfQUxMT1dFRBCNgAYSHAoWU0xfUE9MSUNZX0lOVkFM",
+            "SURfUlVMRRCOgAYSIQobU0xfUE9MSUNZX1JVTEVfQUREX05PX1JVTEVTEI+A",
+            "BhIrCiVTTF9QT0xJQ1lfSU5WQUxJRF9NQVRDSF9DT1VOVF9JTl9SVUxFEJCA",
+            "BhIsCiZTTF9QT0xJQ1lfSU5WQUxJRF9BQ1RJT05fQ09VTlRfSU5fUlVMRRCR",
+            "gAYSGQoTU0xfUE9MSUNZX05PVF9GT1VORBCSgAYSFwoRU0xfUE9MSUNZX0lO",
+            "VkFMSUQQk4AGEhwKFlNMX1BPTElDWV9OQU1FX01JU1NJTkcQlIAGEiEKG1NM",
+            "X1BPTElDWV9SVUxFX05BTUVfTUlTU0lORxCVgAYSKAoiU0xfUE9MSUNZX1BS",
+            "SU9SSVRZX01JU1NJTkdfSU5fUlVMRRCWgAYSHAoWU0xfUE9MSUNZX1RZUEVf",
+            "SU5WQUxJRBCXgAYSIQobU0xfUE9MSUNZX0lOVkFMSURfRElSRUNUSU9OEJiA",
+            "BhIhChtTTF9QT0xJQ1lfSU5URl9OQU1FX1RPT0xPTkcQmYAGEiEKG1NMX1BP",
+            "TElDWV9JTlRGX05BTUVfTUlTU0lORxCagAYSJgogU0xfUE9MSUNZX01BWF9S",
+            "VUxFX0xJTUlUX1JFQUNIRUQQm4AGEiEKG1NMX1BPTElDWV9WUkZfTkFNRV9U",
+            "T09fTE9ORxCcgAYSIAoaU0xfUE9MSUNZX1ZSRl9OQU1FX01JU1NJTkcQnYAG",
+            "EiYKIFNMX1BPTElDWV9QQVRIX0dSUF9OQU1FX1RPT19MT05HEJ6ABhIlCh9T",
+            "TF9QT0xJQ1lfUEFUSF9HUlBfTkFNRV9NSVNTSU5HEJ+ABhIiChxTTF9QT0xJ",
+            "Q1lfSU5WQUxJRF9EU0NQX1ZBTFVFEKCABhIlCh9TTF9QT0xJQ1lfUFJJT1JJ",
+            "VFlfU1RSX1RPT19MT05HEKGABhImCiBTTF9QT0xJQ1lfTUFYX0lOVEZfTElN",
+            "SVRfUkVBQ0hFRBCigAYSJAoeU0xfUE9MSUNZX1JVTEVfREVMRVRFX05PX1JV",
+            "TEVTEKOABhIeChhTTF9QT0xJQ1lfQVBQTFlfTk9fSU5URlMQpIAGEiAKGlNM",
+            "X1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWABhIgChpTTF9CR1BMU19UT1BP",
+            "X1NUQVJUX09GRlNFVBCAoAYSIwodU0xfQkdQTFNfU0VSVkVSX05PVF9BVkFJ",
+            "TEFCTEUQgaAGEigKIlNMX0JHUExTX01BWF9NQVRDSF9GSUxURVJfRVhDRUVE",
+            "RUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIh",
+            "ChtTTF9TUlRFX1BPTElDWV9TVEFSVF9PRkZTRVQQgMAGEiQKHlNMX1NSVEVf",
+            "UE9MSUNZX0lOVkFMSURfUkVRVUVTVBCBwAYSJgogU0xfU1JURV9QT0xJQ1lf",
+            "UE9MSUNZS0VZX01JU1NJTkcQgsAGEiwKJlNMX1NSVEVfUE9MSUNZX1BPTElD",
+            "WUtFWV9DT0xPUl9NSVNTSU5HEIPABhIpCiNTTF9TUlRFX1BPTElDWV9QT0xJ",
+            "Q1lLRVlfRVBfTUlTU0lORxCEwAYSKgokU0xfU1JURV9QT0xJQ1lfUE9MSUNZ",
+            "S0VZX1NSQ19NSVNTSU5HEIXABhIkCh5TTF9TUlRFX1BPTElDWV9DUF9QUkVG",
+            "X01JU1NJTkcQhsAGEiIKHFNMX1NSVEVfUE9MSUNZX0NQS0VZX01JU1NJTkcQ",
+            "h8AGEi0KJ1NMX1NSVEVfUE9MSUNZX0NQS0VZX09SSUdJTkFUT1JfTUlTU0lO",
+            "RxCIwAYSIwodU0xfU1JURV9QT0xJQ1lfU0VSVklDRV9OT1RfVVAQicAGEiQK",
+            "HlNMX1NSVEVfUE9MSUNZX0VYQ0VFRF9NU0dfU0laRRCKwAYSIwodU0xfU1JU",
+            "RV9QQ0FMQ19JTlZBTElEX1JFUVVFU1QQgcIGEiEKG1NMX1NSVEVfUENBTENf",
+            "Tk9fUEFUSF9GT1VORBCCwgYSHgoYU0xfSU5URVJOQUxfU1RBUlRfT0ZGU0VU",
+            "EICAQCI8CgtTTEludGVyZmFjZRIOCgROYW1lGAEgASgJSAASEAoGSGFuZGxl",
+            "GAIgASgNSABCCwoJSW50ZXJmYWNlIkIKC1NMSXBBZGRyZXNzEhMKCVY0QWRk",
+            "cmVzcxgBIAEoDUgAEhMKCVY2QWRkcmVzcxgCIAEoDEgAQgkKB0FkZHJlc3Mi",
+            "JQoKU0xPYmplY3RJZBIOCgROYW1lGAEgASgJSABCBwoFZW50cnkiVAoRU0xQ",
+            "YXRoR3JvdXBSZWZLZXkSDwoHVnJmTmFtZRgBIAEoCRIuCgtQYXRoR3JvdXBJ",
+            "ZBgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xPYmplY3RJZCpiCgdTTFJlZ09w",
+            "EhUKEVNMX1JFR09QX1JFU0VSVkVEEAASFQoRU0xfUkVHT1BfUkVHSVNURVIQ",
+            "ARIXChNTTF9SRUdPUF9VTlJFR0lTVEVSEAISEAoMU0xfUkVHT1BfRU9GEAMq",
+            "XwoKU0xPYmplY3RPcBIVChFTTF9PQkpPUF9SRVNFUlZFRBAAEhAKDFNMX09C",
+            "Sk9QX0FERBABEhMKD1NMX09CSk9QX1VQREFURRACEhMKD1NMX09CSk9QX0RF",
+            "TEVURRADKlMKCVNMTm90aWZPcBIXChNTTF9OT1RJRk9QX1JFU0VSVkVEEAAS",
+            "FQoRU0xfTk9USUZPUF9FTkFCTEUQARIWChJTTF9OT1RJRk9QX0RJU0FCTEUQ",
+            "AiqJAQoQU0xVcGRhdGVQcmlvcml0eRIYChRTTF9QUklPUklUWV9SRVNFUlZF",
+            "RBAAEhgKFFNMX1BSSU9SSVRZX0NSSVRJQ0FMEAQSFAoQU0xfUFJJT1JJVFlf",
+            "SElHSBAIEhYKElNMX1BSSU9SSVRZX01FRElVTRAMEhMKD1NMX1BSSU9SSVRZ",
+            "X0xPVxAQKksKC1NMRW5jYXBUeXBlEhUKEVNMX0VOQ0FQX1JFU0VSVkVEEAAS",
+            "EgoOU0xfRU5DQVBfVlhMQU4QARIRCg1TTF9FTkNBUF9NUExTEAIqjQEKC1NM",
+            "VGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZUEVfUkVTRVJWRUQQABIXChNTTF9J",
+            "UHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9ST1VURV9UQUJMRRACEhcK",
+            "E1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9QQVRIX0dST1VQX1RBQkxF",
+            "EAQqMAoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJ",
+            "Ql9BQ0sQASqZAQoOU0xSc3BBQ0tQZXJtaXQSEQoNU0xfUEVSTUlUX0FMTBAA",
+            "EhgKFFNMX1BFUk1JVF9TTF9TVUNDRVNTEAESHAoYU0xfUEVSTUlUX1NMX0ZJ",
+            "Ql9TVUNDRVNTEAISGwoXU0xfUEVSTUlUX1NMX0ZJQl9GQUlMRUQQBBIfChtT",
+            "TF9QRVJNSVRfU0xfRklCX0lORUxJR0lCTEUQCCpUCg9TTFJzcEFja0NhZGVu",
+            "Y2USFQoRU0xfUlNQX0NPTlRJTlVPVVMQABIUChBTTF9SU1BfSlVTVF9PTkNF",
+            "EAESFAoQU0xfUlNQX09OQ0VfRUFDSBACQlFaT2dpdGh1Yi5jb20vQ2lzY28t",
+            "c2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJv",
+            "dG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLErrorStatus), global::ServiceLayer.SLErrorStatus.Parser, new[]{ "Status" }, null, new[]{ typeof(global::ServiceLayer.SLErrorStatus.Types.SLErrno) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterface), global::ServiceLayer.SLInterface.Parser, new[]{ "Name", "Handle" }, new[]{ "Interface" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLIpAddress), global::ServiceLayer.SLIpAddress.Parser, new[]{ "V4Address", "V6Address" }, new[]{ "Address" }, null, null, null),
@@ -459,43 +466,119 @@ namespace ServiceLayer {
     /// <summary>
     /// When the operating mode is RIB_AND_FIB_ACK,
     /// the first result returned for the operation is RIB's result.
-    /// If the object in the operation is successfully applied
-    /// to RIB, SL_SUCCESS is returned.
+    /// If the object in the operation is successfully applied to RIB,
+    /// SL_SUCCESS is returned.
     ///
-    /// If the object in the operation is not active and
-    /// cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned and
-    /// the operation is considered complete. If in this state of the object,
-    /// client sends more updates, and the object is still not active,
-    /// the operations are responded with SL_FIB_INELIGIBLE and are
+    /// If the object in the operation is not active and cannot be programmed to FIB,
+    /// SL_FIB_INELIGIBLE is returned as a second response and the operation is
     /// considered complete.
-    /// As a result of an operation on an object, if another
-    /// previously programmed object becomes ineligible to remain
-    /// programmed in FIB, a SL_FIB_INELIGIBLE will be returned for 
-    /// that object with the last known operation-id for that object.
     ///
-    /// Eventually, when the object becomes active,
-    /// the object is sent to FIB and result of the operation
-    /// is returned asynchronously to the client. The result is sent using
-    /// the last Operation ID that RIB is aware of.
+    /// As a result of an operation on an object, if another previously
+    /// programmed object becomes ineligible, previously programmed object will be
+    /// removed from FIB and SL_FIB_INELIGIBLE will be sent asynchronously with
+    /// the last known OperationID for that object. However, the object will
+    /// continue to remain in RIB.
     ///
-    /// A result from FIB includes hardware programming result.
+    /// Eventually, when the object becomes active, the object is sent to FIB
+    /// and result of the hardware programming is returned asynchronously with the last
+    /// known OperationID for that object.
     ///
-    /// It must be noted that while the object is waiting for
-    /// FIB programming, a client can send another update
-    /// on the object and the object remains active.
-    /// The network element may coalesce such back to back
-    /// operations. In this scenario, only the last operation
-    /// on the object is responded with either SL_FIB_SUCCESS
-    /// or SL_FIB_FAILED.
+    /// It must be noted that while the object is waiting for FIB programming,
+    /// client can send another update on the object and the object remains in-active.
+    /// The network element may coalesce such back to back operations.
+    /// In this scenario, only the last operation on the object is responded to
+    /// with corresponding hardware programming result
     /// </summary>
     [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
+  }
+
+  /// <summary>
+  /// SLRspACKPermit defines bit-field that control the types of hardware programming
+  /// responses that the client is interested in.
+  /// A set bit in the mask indicates PERMIT/ALLOW the corresponding response type.
+  /// If the SL-API client is interested in only a subset of possible responses
+  /// for hardware programming, then the corresponding bits are turned ON in the
+  /// bit-field.
+  /// Control of response type is supported ONLY when ACK type is
+  /// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK.
+  /// Errorcodes not listed in SLRspACKPermit such as parsing errors are
+  /// always permitted and will be relayed to the client even when SLRspACKPermit
+  /// is set to values other than SL_PERMIT_ALL.
+  /// When AckPermit is not set by the SL-API client, the SL-API server
+  /// will default to SL_PERMIT_ALL
+  /// </summary>
+  public enum SLRspACKPermit {
+    /// <summary>
+    /// An undefined or 0 value Permits all SLErrorStatus to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_ALL")] SlPermitAll = 0,
+    /// <summary>
+    /// Permits SL_SUCCESS to be relayed to client
+    /// Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_SUCCESS")] SlPermitSlSuccess = 1,
+    /// <summary>
+    /// Permits SL_FIB_SUCCESS to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_SUCCESS")] SlPermitSlFibSuccess = 2,
+    /// <summary>
+    /// Permits SL_FIB_FAILED to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_FAILED")] SlPermitSlFibFailed = 4,
+    /// <summary>
+    /// Permits SL_FIB_INELIGIBLE to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_INELIGIBLE")] SlPermitSlFibIneligible = 8,
+  }
+
+  /// <summary>
+  /// SLRspAckCadence controls the cadence of hardware programming responses.
+  /// When SLRspAckCadence is NOT set by the SL-API client, the SL-API server
+  /// will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
+  /// for all hardware programming events including events that are internal
+  /// to the router such as insertion or removal of line cards.
+  /// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
+  /// SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
+  /// </summary>
+  public enum SLRspAckCadence {
+    /// <summary>
+    /// Continuous relay of hardware programming/re-programming responses
+    /// </summary>
+    [pbr::OriginalName("SL_RSP_CONTINUOUS")] SlRspContinuous = 0,
+    /// <summary>
+    /// SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
+    /// programming among the response types defined by SLRspACKPermit
+    ///
+    /// For Example:
+    /// In the case where client sends
+    /// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+    /// Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
+    /// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+    /// There will no further notification when the object becomes viable and programmed in FIB.
+    /// </summary>
+    [pbr::OriginalName("SL_RSP_JUST_ONCE")] SlRspJustOnce = 1,
+    /// <summary>
+    /// SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
+    /// programming per response type defined by SLRspACKPermit
+    ///
+    /// For Example:
+    /// In the case where client sends
+    /// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+    /// and Cadence == SL_RSP_ONCE_EACH and at the time of programming if the object was not viable
+    /// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+    /// Later, whenever the route becomes viable and gets programmed in the FIB the 
+    /// corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
+    /// This  will be particularly useful in the case of out of order programming
+    /// where the prefix is ineligible until referenced PathGroup is programmed.
+    /// </summary>
+    [pbr::OriginalName("SL_RSP_ONCE_EACH")] SlRspOnceEach = 2,
   }
 
   #endregion
 
   #region Messages
   /// <summary>
-  /// Status codes, including errors and success codes.  
+  /// Status codes, including errors and success codes.
   /// All service layer errors are defined below.
   /// </summary>
   public sealed partial class SLErrorStatus : pb::IMessage<SLErrorStatus>
@@ -1888,6 +1971,14 @@ namespace ServiceLayer {
         /// The operation is not viable to be programmed in hardware at this time. 0x17003
         /// </summary>
         [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94211,
+        /// <summary>
+        /// Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004
+        /// </summary>
+        [pbr::OriginalName("SL_ACK_PERMIT_NOT_SUPPORTED")] SlAckPermitNotSupported = 94212,
+        /// <summary>
+        /// Ack cadence is not supported when ack permits are not set. 0x17005
+        /// </summary>
+        [pbr::OriginalName("SL_ACK_CADENCE_NOT_SUPPORTED")] SlAckCadenceNotSupported = 94213,
         /// <summary>
         /// Offset for policy object operations. 0x18000
         /// </summary>

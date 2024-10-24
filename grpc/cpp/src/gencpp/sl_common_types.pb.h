@@ -365,6 +365,8 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94209,
   SLErrorStatus_SLErrno_SL_FIB_FAILED = 94210,
   SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94211,
+  SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED = 94212,
+  SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED = 94213,
   SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET = 98304,
   SLErrorStatus_SLErrno_SL_POLICY_ADD_ERR = 98305,
   SLErrorStatus_SLErrno_SL_POLICY_EXISTS_ERR = 98306,
@@ -629,6 +631,60 @@ inline bool SLRspACKType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspACKType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKType>(
     SLRspACKType_descriptor(), name, value);
+}
+enum SLRspACKPermit : int {
+  SL_PERMIT_ALL = 0,
+  SL_PERMIT_SL_SUCCESS = 1,
+  SL_PERMIT_SL_FIB_SUCCESS = 2,
+  SL_PERMIT_SL_FIB_FAILED = 4,
+  SL_PERMIT_SL_FIB_INELIGIBLE = 8,
+  SLRspACKPermit_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLRspACKPermit_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLRspACKPermit_IsValid(int value);
+constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_ALL;
+constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_SL_FIB_INELIGIBLE;
+constexpr int SLRspACKPermit_ARRAYSIZE = SLRspACKPermit_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKPermit_descriptor();
+template<typename T>
+inline const std::string& SLRspACKPermit_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLRspACKPermit>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLRspACKPermit_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLRspACKPermit_descriptor(), enum_t_value);
+}
+inline bool SLRspACKPermit_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspACKPermit* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKPermit>(
+    SLRspACKPermit_descriptor(), name, value);
+}
+enum SLRspAckCadence : int {
+  SL_RSP_CONTINUOUS = 0,
+  SL_RSP_JUST_ONCE = 1,
+  SL_RSP_ONCE_EACH = 2,
+  SLRspAckCadence_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLRspAckCadence_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLRspAckCadence_IsValid(int value);
+constexpr SLRspAckCadence SLRspAckCadence_MIN = SL_RSP_CONTINUOUS;
+constexpr SLRspAckCadence SLRspAckCadence_MAX = SL_RSP_ONCE_EACH;
+constexpr int SLRspAckCadence_ARRAYSIZE = SLRspAckCadence_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspAckCadence_descriptor();
+template<typename T>
+inline const std::string& SLRspAckCadence_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLRspAckCadence>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLRspAckCadence_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLRspAckCadence_descriptor(), enum_t_value);
+}
+inline bool SLRspAckCadence_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspAckCadence* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspAckCadence>(
+    SLRspAckCadence_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1320,6 +1376,10 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_FIB_FAILED;
   static constexpr SLErrno SL_FIB_INELIGIBLE =
     SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE;
+  static constexpr SLErrno SL_ACK_PERMIT_NOT_SUPPORTED =
+    SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED;
+  static constexpr SLErrno SL_ACK_CADENCE_NOT_SUPPORTED =
+    SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED;
   static constexpr SLErrno SL_POLICY_START_OFFSET =
     SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET;
   static constexpr SLErrno SL_POLICY_ADD_ERR =
@@ -2797,6 +2857,16 @@ template <> struct is_proto_enum< ::service_layer::SLRspACKType> : ::std::true_t
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKType>() {
   return ::service_layer::SLRspACKType_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLRspACKPermit> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKPermit>() {
+  return ::service_layer::SLRspACKPermit_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLRspAckCadence> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspAckCadence>() {
+  return ::service_layer::SLRspAckCadence_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

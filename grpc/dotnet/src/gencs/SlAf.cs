@@ -56,79 +56,81 @@ namespace ServiceLayer {
             "TFJvdXRldjRIABItCglJUHY2Um91dGUYAiABKAsyGC5zZXJ2aWNlX2xheWVy",
             "LlNMUm91dGV2NkgAEi8KCU1wbHNMYWJlbBgDIAEoCzIaLnNlcnZpY2VfbGF5",
             "ZXIuU0xNcGxzRW50cnlIABIvCglQYXRoR3JvdXAYBCABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMUGF0aEdyb3VwSABCBwoFZW50cnkieAoGU0xBRk9wEisKCEFG",
-            "T2JqZWN0GAEgASgLMhkuc2VydmljZV9sYXllci5TTEFGT2JqZWN0EhMKC09w",
-            "ZXJhdGlvbklEGAIgASgEEiwKB0Fja1R5cGUYAyABKA4yGy5zZXJ2aWNlX2xh",
-            "eWVyLlNMUnNwQUNLVHlwZSKTAQoKU0xBRkdldE1zZxIPCgdWcmZOYW1lGAEg",
-            "ASgJEikKBVRhYmxlGAIgASgOMhouc2VydmljZV9sYXllci5TTFRhYmxlVHlw",
-            "ZRIVCg1HZXRBbGxDbGllbnRzGAMgASgIEjIKClJvdXRlTWF0Y2gYBCADKAsy",
-            "Hi5zZXJ2aWNlX2xheWVyLlNMUm91dGVHZXRNYXRjaCKsAQoQU0xBRkRlcEZp",
-            "YlN0YXR1cxIvCglFcnJvckNvZGUYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNM",
-            "RXJyb3JTdGF0dXMSEwoLT3BlcmF0aW9uSUQYAiABKAQSDwoHVmVyc2lvbhgD",
-            "IAEoBBI4CgxQYXRoR3JvdXBLZXkYBCABKAsyIC5zZXJ2aWNlX2xheWVyLlNM",
-            "UGF0aEdyb3VwUmVmS2V5SABCBwoFZW50cnkiVAoNU0xBRkZpYlN0YXR1cxIP",
-            "CgdWZXJzaW9uGAEgASgEEjIKCURlcFJlc3VsdBgCIAEoCzIfLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xBRkRlcEZpYlN0YXR1cyJ7ChJTTEFGR2V0TXNnUnNwRW50cnkS",
-            "IwoEQUZPcBgBIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wEi8KCUVycm9y",
-            "Q29kZRgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIPCgdW",
-            "ZXJzaW9uGAMgASgEIpYBCg1TTEFGR2V0TXNnUnNwEi8KCUVyclN0YXR1cxgB",
-            "IAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIPCgdWcmZOYW1l",
-            "GAIgASgJEhAKCENsaWVudElEGAMgASgEEjEKBkFGTGlzdBgEIAMoCzIhLnNl",
-            "cnZpY2VfbGF5ZXIuU0xBRkdldE1zZ1JzcEVudHJ5ImoKB1NMQUZNc2cSJwoE",
-            "T3BlchgBIAEoDjIZLnNlcnZpY2VfbGF5ZXIuU0xPYmplY3RPcBIPCgdWcmZO",
-            "YW1lGAIgASgJEiUKBk9wTGlzdBgDIAMoCzIVLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "Rk9wIqoBCgdTTEFGUmVzEi8KCUVyclN0YXR1cxgBIAEoCzIcLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xFcnJvclN0YXR1cxIoCglPcGVyYXRpb24YAiABKAsyFS5zZXJ2",
-            "aWNlX2xheWVyLlNMQUZPcBITCgtFcnJvclN0cmluZxgDIAEoCRIvCglGSUJT",
-            "dGF0dXMYBCABKAsyHC5zZXJ2aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMiRgoK",
-            "U0xBRk1zZ1JzcBIPCgdWcmZOYW1lGAEgASgJEicKB1Jlc3VsdHMYAiADKAsy",
-            "Fi5zZXJ2aWNlX2xheWVyLlNMQUZSZXMiZAoQU0xBRlJlZGlzdFJlZ01zZxIQ",
-            "CghTcmNQcm90bxgBIAEoCRITCgtTcmNQcm90b1RhZxgCIAEoCRIpCgVUYWJs",
-            "ZRgDIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xUYWJsZVR5cGUi8AEKEVNMQUZO",
-            "ZXh0SG9wUmVnS2V5EkAKB05leHRIb3AYASABKAsyLS5zZXJ2aWNlX2xheWVy",
-            "LlNMQUZOZXh0SG9wUmVnS2V5LlNMTmV4dEhvcEtleUgAGooBCgxTTE5leHRI",
-            "b3BLZXkSKwoHTmV4dEhvcBgBIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFk",
-            "ZHJlc3MSEgoKTmV4dEhvcExlbhgCIAEoDRISCgpFeGFjdE1hdGNoGAMgASgI",
-            "EhQKDEFsbG93RGVmYXVsdBgEIAEoCBIPCgdSZWN1cnNlGAUgASgIQgwKCm5l",
-            "eHRob3BrZXkiSQoRU0xBRk5leHRIb3BSZWdNc2cSNAoKTmV4dEhvcEtleRgB",
-            "IAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXkinwEKD1NM",
-            "QUZOb3RpZlJlZ1JlcRI0CglSZWRpc3RSZXEYASABKAsyHy5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZSZWRpc3RSZWdNc2dIABI2CgpOZXh0SG9wUmVxGAIgASgLMiAu",
-            "c2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJlZ01zZ0gAEhMKC09wZXJhdGlv",
-            "bklEGAMgASgEQgkKB3JlcXVlc3QieQoMU0xBRk5vdGlmUmVxEiYKBE9wZXIY",
-            "ASABKA4yGC5zZXJ2aWNlX2xheWVyLlNMTm90aWZPcBIPCgdWcmZOYW1lGAIg",
-            "ASgJEjAKCE5vdGlmUmVxGAMgAygLMh4uc2VydmljZV9sYXllci5TTEFGTm90",
-            "aWZSZWdSZXEicwoMU0xBRk5vdGlmUnNwEjAKCE5vdGlmUmVxGAEgASgLMh4u",
-            "c2VydmljZV9sYXllci5TTEFGTm90aWZSZWdSZXESMQoLTm90aWZTdGF0dXMY",
-            "AiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMiiQIKCVNMTmV4",
-            "dEhvcBI0CgpOZXh0SG9wS2V5GAEgASgLMiAuc2VydmljZV9sYXllci5TTEFG",
-            "TmV4dEhvcFJlZ0tleRIyCg5SZXNvbHZpbmdSb3V0ZRgCIAEoCzIaLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xJcEFkZHJlc3MSGQoRUmVzb2x2aW5nUm91dGVMZW4YAyAB",
-            "KA0SEAoIU3JjUHJvdG8YBCABKAkSEwoLU3JjUHJvdG9UYWcYBSABKAkSFQoN",
-            "QWRtaW5EaXN0YW5jZRgGIAEoDRIOCgZNZXRyaWMYByABKA0SKQoFUGF0aHMY",
-            "CCADKAsyGi5zZXJ2aWNlX2xheWVyLlNMUm91dGVQYXRoIuMCCglTTEFGTm90",
-            "aWYSMgoLTm90aWZTdGF0dXMYASABKAsyGy5zZXJ2aWNlX2xheWVyLlNMQUZO",
-            "b3RpZlJzcEgAEj4KC1N0YXJ0TWFya2VyGAIgASgLMicuc2VydmljZV9sYXll",
-            "ci5TTEFGTm90aWYuU0xSZWRpc3RNYXJrZXJIABI8CglFbmRNYXJrZXIYAyAB",
-            "KAsyJy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZi5TTFJlZGlzdE1hcmtlckgA",
-            "EjEKDFJlZGlzdE9iamVjdBgEIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9i",
-            "amVjdEgAEisKB05leHRIb3AYBSABKAsyGC5zZXJ2aWNlX2xheWVyLlNMTmV4",
-            "dEhvcEgAGjsKDlNMUmVkaXN0TWFya2VyEikKBVRhYmxlGAEgASgOMhouc2Vy",
-            "dmljZV9sYXllci5TTFRhYmxlVHlwZUIHCgVFdmVudCJLCgxTTEFGTm90aWZN",
-            "c2cSDwoHVnJmTmFtZRgBIAEoCRIqCghBRk5vdGlmcxgDIAMoCzIYLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xBRk5vdGlmMsgDCgRTTEFGEk0KDFNMQUZWcmZSZWdPcBIc",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZpY2VfbGF5ZXIu",
-            "U0xBRlZyZlJlZ01zZ1JzcBJWCg1TTEFGVnJmUmVnR2V0Eh8uc2VydmljZV9s",
-            "YXllci5TTEFGVnJmUmVnR2V0TXNnGiIuc2VydmljZV9sYXllci5TTEFGVnJm",
-            "UmVnR2V0TXNnUnNwMAESOwoGU0xBRk9wEhYuc2VydmljZV9sYXllci5TTEFG",
-            "TXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwEkUKDFNMQUZPcFN0cmVh",
-            "bRIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "Rk1zZ1JzcCgBMAESRAoHU0xBRkdldBIZLnNlcnZpY2VfbGF5ZXIuU0xBRkdl",
-            "dE1zZxocLnNlcnZpY2VfbGF5ZXIuU0xBRkdldE1zZ1JzcDABEk8KD1NMQUZO",
-            "b3RpZlN0cmVhbRIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVxGhsuc2Vy",
-            "dmljZV9sYXllci5TTEFGTm90aWZNc2coATABQlFaT2dpdGh1Yi5jb20vQ2lz",
-            "Y28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMv",
-            "cHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "X2xheWVyLlNMUGF0aEdyb3VwSABCBwoFZW50cnkivwEKBlNMQUZPcBIrCghB",
+            "Rk9iamVjdBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9iamVjdBITCgtP",
+            "cGVyYXRpb25JRBgCIAEoBBIsCgdBY2tUeXBlGAMgASgOMhsuc2VydmljZV9s",
+            "YXllci5TTFJzcEFDS1R5cGUSEQoJQWNrUGVybWl0GAQgASgNEjIKCkFja0Nh",
+            "ZGVuY2UYBSABKA4yHi5zZXJ2aWNlX2xheWVyLlNMUnNwQWNrQ2FkZW5jZSKT",
+            "AQoKU0xBRkdldE1zZxIPCgdWcmZOYW1lGAEgASgJEikKBVRhYmxlGAIgASgO",
+            "Mhouc2VydmljZV9sYXllci5TTFRhYmxlVHlwZRIVCg1HZXRBbGxDbGllbnRz",
+            "GAMgASgIEjIKClJvdXRlTWF0Y2gYBCADKAsyHi5zZXJ2aWNlX2xheWVyLlNM",
+            "Um91dGVHZXRNYXRjaCKsAQoQU0xBRkRlcEZpYlN0YXR1cxIvCglFcnJvckNv",
+            "ZGUYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSEwoLT3Bl",
+            "cmF0aW9uSUQYAiABKAQSDwoHVmVyc2lvbhgDIAEoBBI4CgxQYXRoR3JvdXBL",
+            "ZXkYBCABKAsyIC5zZXJ2aWNlX2xheWVyLlNMUGF0aEdyb3VwUmVmS2V5SABC",
+            "BwoFZW50cnkiVAoNU0xBRkZpYlN0YXR1cxIPCgdWZXJzaW9uGAEgASgEEjIK",
+            "CURlcFJlc3VsdBgCIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xBRkRlcEZpYlN0",
+            "YXR1cyJ7ChJTTEFGR2V0TXNnUnNwRW50cnkSIwoEQUZPcBgBIAEoCzIVLnNl",
+            "cnZpY2VfbGF5ZXIuU0xBRk9wEi8KCUVycm9yQ29kZRgCIAEoCzIcLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIPCgdWZXJzaW9uGAMgASgEIpYBCg1T",
+            "TEFGR2V0TXNnUnNwEi8KCUVyclN0YXR1cxgBIAEoCzIcLnNlcnZpY2VfbGF5",
+            "ZXIuU0xFcnJvclN0YXR1cxIPCgdWcmZOYW1lGAIgASgJEhAKCENsaWVudElE",
+            "GAMgASgEEjEKBkFGTGlzdBgEIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xBRkdl",
+            "dE1zZ1JzcEVudHJ5ImoKB1NMQUZNc2cSJwoET3BlchgBIAEoDjIZLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xPYmplY3RPcBIPCgdWcmZOYW1lGAIgASgJEiUKBk9wTGlz",
+            "dBgDIAMoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wIqoBCgdTTEFGUmVzEi8K",
+            "CUVyclN0YXR1cxgBIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1",
+            "cxIoCglPcGVyYXRpb24YAiABKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcBIT",
+            "CgtFcnJvclN0cmluZxgDIAEoCRIvCglGSUJTdGF0dXMYBCABKAsyHC5zZXJ2",
+            "aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMiRgoKU0xBRk1zZ1JzcBIPCgdWcmZO",
+            "YW1lGAEgASgJEicKB1Jlc3VsdHMYAiADKAsyFi5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZSZXMiZAoQU0xBRlJlZGlzdFJlZ01zZxIQCghTcmNQcm90bxgBIAEoCRIT",
+            "CgtTcmNQcm90b1RhZxgCIAEoCRIpCgVUYWJsZRgDIAEoDjIaLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xUYWJsZVR5cGUi8AEKEVNMQUZOZXh0SG9wUmVnS2V5EkAKB05l",
+            "eHRIb3AYASABKAsyLS5zZXJ2aWNlX2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5",
+            "LlNMTmV4dEhvcEtleUgAGooBCgxTTE5leHRIb3BLZXkSKwoHTmV4dEhvcBgB",
+            "IAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJlc3MSEgoKTmV4dEhvcExl",
+            "bhgCIAEoDRISCgpFeGFjdE1hdGNoGAMgASgIEhQKDEFsbG93RGVmYXVsdBgE",
+            "IAEoCBIPCgdSZWN1cnNlGAUgASgIQgwKCm5leHRob3BrZXkiSQoRU0xBRk5l",
+            "eHRIb3BSZWdNc2cSNAoKTmV4dEhvcEtleRgBIAEoCzIgLnNlcnZpY2VfbGF5",
+            "ZXIuU0xBRk5leHRIb3BSZWdLZXkinwEKD1NMQUZOb3RpZlJlZ1JlcRI0CglS",
+            "ZWRpc3RSZXEYASABKAsyHy5zZXJ2aWNlX2xheWVyLlNMQUZSZWRpc3RSZWdN",
+            "c2dIABI2CgpOZXh0SG9wUmVxGAIgASgLMiAuc2VydmljZV9sYXllci5TTEFG",
+            "TmV4dEhvcFJlZ01zZ0gAEhMKC09wZXJhdGlvbklEGAMgASgEQgkKB3JlcXVl",
+            "c3QieQoMU0xBRk5vdGlmUmVxEiYKBE9wZXIYASABKA4yGC5zZXJ2aWNlX2xh",
+            "eWVyLlNMTm90aWZPcBIPCgdWcmZOYW1lGAIgASgJEjAKCE5vdGlmUmVxGAMg",
+            "AygLMh4uc2VydmljZV9sYXllci5TTEFGTm90aWZSZWdSZXEicwoMU0xBRk5v",
+            "dGlmUnNwEjAKCE5vdGlmUmVxGAEgASgLMh4uc2VydmljZV9sYXllci5TTEFG",
+            "Tm90aWZSZWdSZXESMQoLTm90aWZTdGF0dXMYAiABKAsyHC5zZXJ2aWNlX2xh",
+            "eWVyLlNMRXJyb3JTdGF0dXMiiQIKCVNMTmV4dEhvcBI0CgpOZXh0SG9wS2V5",
+            "GAEgASgLMiAuc2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJlZ0tleRIyCg5S",
+            "ZXNvbHZpbmdSb3V0ZRgCIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJl",
+            "c3MSGQoRUmVzb2x2aW5nUm91dGVMZW4YAyABKA0SEAoIU3JjUHJvdG8YBCAB",
+            "KAkSEwoLU3JjUHJvdG9UYWcYBSABKAkSFQoNQWRtaW5EaXN0YW5jZRgGIAEo",
+            "DRIOCgZNZXRyaWMYByABKA0SKQoFUGF0aHMYCCADKAsyGi5zZXJ2aWNlX2xh",
+            "eWVyLlNMUm91dGVQYXRoIuMCCglTTEFGTm90aWYSMgoLTm90aWZTdGF0dXMY",
+            "ASABKAsyGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJzcEgAEj4KC1N0YXJ0",
+            "TWFya2VyGAIgASgLMicuc2VydmljZV9sYXllci5TTEFGTm90aWYuU0xSZWRp",
+            "c3RNYXJrZXJIABI8CglFbmRNYXJrZXIYAyABKAsyJy5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZOb3RpZi5TTFJlZGlzdE1hcmtlckgAEjEKDFJlZGlzdE9iamVjdBgE",
+            "IAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9iamVjdEgAEisKB05leHRIb3AY",
+            "BSABKAsyGC5zZXJ2aWNlX2xheWVyLlNMTmV4dEhvcEgAGjsKDlNMUmVkaXN0",
+            "TWFya2VyEikKBVRhYmxlGAEgASgOMhouc2VydmljZV9sYXllci5TTFRhYmxl",
+            "VHlwZUIHCgVFdmVudCJLCgxTTEFGTm90aWZNc2cSDwoHVnJmTmFtZRgBIAEo",
+            "CRIqCghBRk5vdGlmcxgDIAMoCzIYLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlm",
+            "MsgDCgRTTEFGEk0KDFNMQUZWcmZSZWdPcBIcLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "RlZyZlJlZ01zZxofLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZ1JzcBJW",
+            "Cg1TTEFGVnJmUmVnR2V0Eh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnR2V0",
+            "TXNnGiIuc2VydmljZV9sYXllci5TTEFGVnJmUmVnR2V0TXNnUnNwMAESOwoG",
+            "U0xBRk9wEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2VydmljZV9sYXll",
+            "ci5TTEFGTXNnUnNwEkUKDFNMQUZPcFN0cmVhbRIWLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZ1JzcCgBMAESRAoHU0xB",
+            "RkdldBIZLnNlcnZpY2VfbGF5ZXIuU0xBRkdldE1zZxocLnNlcnZpY2VfbGF5",
+            "ZXIuU0xBRkdldE1zZ1JzcDABEk8KD1NMQUZOb3RpZlN0cmVhbRIbLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRk5vdGlmUmVxGhsuc2VydmljZV9sYXllci5TTEFGTm90",
+            "aWZNc2coATABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9z",
+            "ZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5",
+            "ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -142,7 +144,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPathList), global::ServiceLayer.SLPathGroup.Types.SLPathList.Parser, new[]{ "Paths" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLMplsEntry), global::ServiceLayer.SLMplsEntry.Parser, new[]{ "LocalLabel", "AdminDistance", "PathList", "PathGroupKey", "Flags" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID", "AckType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID", "AckType", "AckPermit", "AckCadence" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients", "RouteMatch" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFDepFibStatus), global::ServiceLayer.SLAFDepFibStatus.Parser, new[]{ "ErrorCode", "OperationID", "Version", "PathGroupKey" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFFibStatus), global::ServiceLayer.SLAFFibStatus.Parser, new[]{ "Version", "DepResult" }, null, null, null, null),
@@ -3340,6 +3342,8 @@ namespace ServiceLayer {
       aFObject_ = other.aFObject_ != null ? other.aFObject_.Clone() : null;
       operationID_ = other.operationID_;
       ackType_ = other.ackType_;
+      ackPermit_ = other.ackPermit_;
+      ackCadence_ = other.ackCadence_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3395,6 +3399,41 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "AckPermit" field.</summary>
+    public const int AckPermitFieldNumber = 4;
+    private uint ackPermit_;
+    /// <summary>
+    /// AckPermit controls the scope of response types that are sent from
+    /// SL-API server in response to hardware programming events.
+    /// AckPermit is a bit-field  resulting from ORing one or more bits
+    /// enumerated in SLRspACKPermit.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint AckPermit {
+      get { return ackPermit_; }
+      set {
+        ackPermit_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AckCadence" field.</summary>
+    public const int AckCadenceFieldNumber = 5;
+    private global::ServiceLayer.SLRspAckCadence ackCadence_ = global::ServiceLayer.SLRspAckCadence.SlRspContinuous;
+    /// <summary>
+    /// AckCadence controls the cadence of hardware programming responses.
+    /// Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite
+    /// for setting AckCadence.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLRspAckCadence AckCadence {
+      get { return ackCadence_; }
+      set {
+        ackCadence_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3413,6 +3452,8 @@ namespace ServiceLayer {
       if (!object.Equals(AFObject, other.AFObject)) return false;
       if (OperationID != other.OperationID) return false;
       if (AckType != other.AckType) return false;
+      if (AckPermit != other.AckPermit) return false;
+      if (AckCadence != other.AckCadence) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3423,6 +3464,8 @@ namespace ServiceLayer {
       if (aFObject_ != null) hash ^= AFObject.GetHashCode();
       if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
       if (AckType != global::ServiceLayer.SLRspACKType.RibAck) hash ^= AckType.GetHashCode();
+      if (AckPermit != 0) hash ^= AckPermit.GetHashCode();
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) hash ^= AckCadence.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3453,6 +3496,14 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteEnum((int) AckType);
       }
+      if (AckPermit != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(AckPermit);
+      }
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) AckCadence);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3475,6 +3526,14 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteEnum((int) AckType);
       }
+      if (AckPermit != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(AckPermit);
+      }
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) AckCadence);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3493,6 +3552,12 @@ namespace ServiceLayer {
       }
       if (AckType != global::ServiceLayer.SLRspACKType.RibAck) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AckType);
+      }
+      if (AckPermit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AckPermit);
+      }
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AckCadence);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3517,6 +3582,12 @@ namespace ServiceLayer {
       }
       if (other.AckType != global::ServiceLayer.SLRspACKType.RibAck) {
         AckType = other.AckType;
+      }
+      if (other.AckPermit != 0) {
+        AckPermit = other.AckPermit;
+      }
+      if (other.AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
+        AckCadence = other.AckCadence;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3548,6 +3619,14 @@ namespace ServiceLayer {
             AckType = (global::ServiceLayer.SLRspACKType) input.ReadEnum();
             break;
           }
+          case 32: {
+            AckPermit = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            AckCadence = (global::ServiceLayer.SLRspAckCadence) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -3576,6 +3655,14 @@ namespace ServiceLayer {
           }
           case 24: {
             AckType = (global::ServiceLayer.SLRspACKType) input.ReadEnum();
+            break;
+          }
+          case 32: {
+            AckPermit = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            AckCadence = (global::ServiceLayer.SLRspAckCadence) input.ReadEnum();
             break;
           }
         }

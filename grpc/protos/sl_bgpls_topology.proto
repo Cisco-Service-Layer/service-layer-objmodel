@@ -268,7 +268,7 @@ message SLBgplsTopoSrPolicyData {
 message SLBgplsTopoNode {
     // AS Number associated with the BGP process originating the link-state information.
     // Autonomous System Number. TLV 512.
-    // Section 5.2.1 of [RFC9552]
+    // Section 5.2.1.4 of [RFC9552]
     uint32 Asn = 1;
 
     // Node Identifier
@@ -695,12 +695,6 @@ message SLBgplsTopoLinkAttr {
     // Section 5.3.2.1 of [RFC9552]
     repeated SLBgplsTopoRemoteIpv6RouterId RemoteIpv6RouterId = 6;
 
-    // The bit mask of administrative groups assigned
-    // by the network administrator.
-    // Administrative Group. TLV 1088
-    // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoAdminGroup AdminGroup = 7;
-
     // The maximum bandwidth that can be used on a link.
     // Maximum Link Bandwidth. TLV 1089
     // Section 5.3.2 of [RFC9552]
@@ -741,7 +735,7 @@ message SLBgplsTopoLinkAttr {
     // The Shared Link Risk Groups (SRLGs) of a link.
     // Shared Risk Link Group. TLV 1096
     // Section 5.3.2.5 of [RFC9552]
-    repeated SLBgplsTopoLinkSrlg Srlg = 15;
+    SLBgplsTopoLinkSrlg Srlg = 15;
 
     // An envelope that transparently carries
     // optional Link Attribute TLVs advertised by a router
@@ -839,7 +833,7 @@ message SLBgplsTopoLinkAttr {
     // by the network administrator.
     // Extended Administrative Group. TLV 1173
     // Section 2 of [RFC9104]
-    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 32;
+    SLBgplsTopoExtAdminGroup ExtAdminGroup = 32;
 
     // Unknown Link Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
@@ -1228,7 +1222,7 @@ message SLBgplsTopoFad {
     // Enables the exclusion of links having delay above a maximum specified delay from the computation of the specific algorithm
     // Flexible Algorithm Exclude Maximum Delay. TLV 1050
     // RFC TBD
-    uint32 ExcMaxDelay = 13;
+    SLBgplsTopoFadExcMaxDelay ExcMaxDelay = 13;
 
     // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the
     // specified affinities in the reverse direction from the computation of the specific algorithm.
@@ -1275,16 +1269,11 @@ message SLBgplsTopoFadUnsuppTlv {
     bytes Types = 2;
 }
 
-// Administrative Group. TLV 1088
-// Section 5.3.2 of [RFC9552]
-message SLBgplsTopoAdminGroup {
-    // Bit mask of administrative groups assigned by the
-    // network administrator. Each set bit corresponds to one
-    // administrative group assigned to the interface. By convention, the
-    // least significant bit is referred to as group 0, and the
-    // most significant bit is referred to as group 31. Each EAG bitmask
-    // is represented in multiple of 4 bytes.
-    uint32 Group = 1;
+// Flexible Algorithm Exclude Maximum Delay. TLV 1050
+message SLBgplsTopoFadExcMaxDelay {
+    // Maximum link delay information associated with the FAD.
+    // Encoded in microseconds.
+    uint32 Delay = 1;
 }
 
 // Maximum Link Bandwidth. TLV 1089
@@ -1347,7 +1336,7 @@ message SLBgplsTopoLinkIgpMetric {
 // Shared Risk Link Group. TLV 1096
 // Section 5.3.2.5 of [RFC9552]
 message SLBgplsTopoLinkSrlg {
-    uint32 SrlgVal = 1;
+    repeated uint32 SrlgVal = 1;
 }
 
 // Opaque Link Attribute. TLV 1097
@@ -1622,12 +1611,6 @@ message SLBgplsTopoAslaAttr {
     // represents a single user-defined application
     bytes Udabm = 2;
 
-    // The bit mask of administrative groups assigned
-    // by the network administrator.
-    // Extended Administrative Group. TLV 1088
-    // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoAdminGroup AdminGroup = 3;
-
     // The Traffic Engineering (TE) metric of a link.
     // TE Default Metric. TLV 1092
     // Section  5.3.2.3 of [RFC9552]
@@ -1636,7 +1619,7 @@ message SLBgplsTopoAslaAttr {
     // The Shared Link Risk Groups (SRLGs) of a link.
     // Shared Risk Link Group. TLV 1096
     // Section 5.3.2.5 of [RFC9552]
-    repeated SLBgplsTopoLinkSrlg Srlg = 5;
+    SLBgplsTopoLinkSrlg Srlg = 5;
 
     // The average link delay between two
     // directly connected IGP link-state neighbors.
@@ -1684,7 +1667,7 @@ message SLBgplsTopoAslaAttr {
     // by the network administrator.
     // Extended Administrative Group. TLV 1173
     // Section 2 of [RFC9104]
-    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 13;
+    SLBgplsTopoExtAdminGroup ExtAdminGroup = 13;
 
     // Unknown ASLA Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
@@ -1843,12 +1826,6 @@ message SLBgplsTopoL2BundleMemberAttr {
     // Link local identifier
     uint32 MemberDesc = 1;
 
-    // The bit mask of administrative groups assigned
-    // by the network administrator.
-    // Extended Administrative Group. TLV 1088
-    // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoAdminGroup AdminGroup = 2;
-
     // The maximum bandwidth that can be used on a link.
     // Maximum Link Bandwidth. TLV 1089
     // Section 5.3.2 of [RFC9552]
@@ -1939,7 +1916,7 @@ message SLBgplsTopoL2BundleMemberAttr {
     // by the network administrator.
     // Extended Administrative Group. TLV 1173
     // Section 2 of [RFC9104]
-    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 18;
+    SLBgplsTopoExtAdminGroup ExtAdminGroup = 18;
 
     // Unknown L2 Bundle Member Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
@@ -1955,7 +1932,7 @@ message SLBgplsTopoExtAdminGroup {
     // least significant bit is referred to as group 0, and the
     // most significant bit is referred to as group 31. Each EAG bitmask
     // is represented in multiple of 4 bytes.
-    uint32 Group = 1;
+    repeated uint32 Group = 1;
 }
 
 enum SLBgplsTopoSrBindingSidFlags {

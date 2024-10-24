@@ -21,7 +21,7 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // The following messages are used as common Service Layer types.
 // @{
 
-// Status codes, including errors and success codes.  
+// Status codes, including errors and success codes.
 // All service layer errors are defined below.
 message SLErrorStatus {
     enum SLErrno {
@@ -728,6 +728,10 @@ message SLErrorStatus {
         SL_FIB_FAILED = 0x17002;
         // The operation is not viable to be programmed in hardware at this time. 0x17003
         SL_FIB_INELIGIBLE = 0x17003;
+        // Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004
+        SL_ACK_PERMIT_NOT_SUPPORTED = 0x17004;
+        // Ack cadence is not supported when ack permits are not set. 0x17005
+        SL_ACK_CADENCE_NOT_SUPPORTED = 0x17005;
 
         // !!! Error codes for operations on policy objects.
 
@@ -986,36 +990,114 @@ enum SLRspACKType {
 
   // When the operating mode is RIB_AND_FIB_ACK,
   // the first result returned for the operation is RIB's result.
-  // If the object in the operation is successfully applied
-  // to RIB, SL_SUCCESS is returned.
+  // If the object in the operation is successfully applied to RIB,
+  // SL_SUCCESS is returned.
   //
-  // If the object in the operation is not active and
-  // cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned and
-  // the operation is considered complete. If in this state of the object,
-  // client sends more updates, and the object is still not active,
-  // the operations are responded with SL_FIB_INELIGIBLE and are
+  // If the object in the operation is not active and cannot be programmed to FIB,
+  // SL_FIB_INELIGIBLE is returned as a second response and the operation is
   // considered complete.
-  // As a result of an operation on an object, if another
-  // previously programmed object becomes ineligible to remain
-  // programmed in FIB, a SL_FIB_INELIGIBLE will be returned for 
-  // that object with the last known operation-id for that object.
   //
-  // Eventually, when the object becomes active,
-  // the object is sent to FIB and result of the operation
-  // is returned asynchronously to the client. The result is sent using
-  // the last Operation ID that RIB is aware of.
+  // As a result of an operation on an object, if another previously
+  // programmed object becomes ineligible, previously programmed object will be
+  // removed from FIB and SL_FIB_INELIGIBLE will be sent asynchronously with
+  // the last known OperationID for that object. However, the object will
+  // continue to remain in RIB.
   //
-  // A result from FIB includes hardware programming result.
+  // Eventually, when the object becomes active, the object is sent to FIB
+  // and result of the hardware programming is returned asynchronously with the last
+  // known OperationID for that object.
   //
-  // It must be noted that while the object is waiting for
-  // FIB programming, a client can send another update
-  // on the object and the object remains active.
-  // The network element may coalesce such back to back
-  // operations. In this scenario, only the last operation
-  // on the object is responded with either SL_FIB_SUCCESS
-  // or SL_FIB_FAILED.
+  // It must be noted that while the object is waiting for FIB programming,
+  // client can send another update on the object and the object remains in-active.
+  // The network element may coalesce such back to back operations.
+  // In this scenario, only the last operation on the object is responded to
+  // with corresponding hardware programming result
   RIB_AND_FIB_ACK = 1;
 }
+
+
+// SLRspACKPermit defines bit-field that control the types of hardware programming
+// responses that the client is interested in.
+// A set bit in the mask indicates PERMIT/ALLOW the corresponding response type.
+// If the SL-API client is interested in only a subset of possible responses
+// for hardware programming, then the corresponding bits are turned ON in the
+// bit-field.
+// Control of response type is supported ONLY when ACK type is
+// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK.
+// Errorcodes not listed in SLRspACKPermit such as parsing errors are
+// always permitted and will be relayed to the client even when SLRspACKPermit
+// is set to values other than SL_PERMIT_ALL.
+// When AckPermit is not set by the SL-API client, the SL-API server
+// will default to SL_PERMIT_ALL
+enum SLRspACKPermit {
+    // An undefined or 0 value Permits all SLErrorStatus to be relayed to client
+    SL_PERMIT_ALL = 0x0;
+
+    // Permits SL_SUCCESS to be relayed to client
+    // Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
+    SL_PERMIT_SL_SUCCESS = 0x1;
+
+    // Permits SL_FIB_SUCCESS to be relayed to client
+    SL_PERMIT_SL_FIB_SUCCESS = 0x2;
+
+    // Permits SL_FIB_FAILED to be relayed to client
+    SL_PERMIT_SL_FIB_FAILED = 0x4;
+
+    // Permits SL_FIB_INELIGIBLE to be relayed to client
+    SL_PERMIT_SL_FIB_INELIGIBLE = 0x8;
+
+}
+
+// SLRspAckCadence controls the cadence of hardware programming responses.
+// When SLRspAckCadence is NOT set by the SL-API client, the SL-API server
+// will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
+// for all hardware programming events including events that are internal
+// to the router such as insertion or removal of line cards.
+// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
+// SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
+enum SLRspAckCadence {
+  // Continuous relay of hardware programming/re-programming responses
+  SL_RSP_CONTINUOUS = 0;
+
+  // SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
+  // programming among the response types defined by SLRspACKPermit
+  //
+  // For Example:
+  // In the case where client sends
+  // Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+  // Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
+  // to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+  // There will no further notification when the object becomes viable and programmed in FIB.
+  SL_RSP_JUST_ONCE = 1;
+
+  // SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
+  // programming per response type defined by SLRspACKPermit
+  //
+  // For Example:
+  // In the case where client sends
+  // Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+  // and Cadence == SL_RSP_ONCE_EACH and at the time of programming if the object was not viable
+  // to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+  // Later, whenever the route becomes viable and gets programmed in the FIB the 
+  // corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
+  // This  will be particularly useful in the case of out of order programming
+  // where the prefix is ineligible until referenced PathGroup is programmed.
+  SL_RSP_ONCE_EACH = 2;
+}
+
+// The following table illustrates the behavior for combination of
+// SLRspACKPermit and SLRspAckCadence being set or not set
+// A field not set or not defined  will take the value of 0, So
+// SLRspACKPermit will default to SL_PERMIT_ALL
+// SLRspAckCadence will default to SL_RSP_CONTINUOUS
+// +-------------+-------------+--------------------------------------------------------+
+// |    Permit   | Cadence     | Behavior                                               |
+// |-------------+-------------+--------------------------------------------------------+
+// | Not Set     | Not Set     | Stream all responses (default)                         |
+// | Set         | Not Set     | Stream only the permitted response types continuously. |
+// | Not Set     | Set         | Not supported.                                         |
+// | Set         | Set         | Permitted responses will be sent according to cadence  |
+// +-------------+-------------+--------------------------------------------------------+
 
 // Common Object Identifier.
 message SLObjectId {

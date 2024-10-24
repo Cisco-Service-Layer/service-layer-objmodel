@@ -1,3 +1,4 @@
 *gen-docs*
 sl-env
 .cache
+grpc/dotnet/src/tutorial/Quickstart/obj/
