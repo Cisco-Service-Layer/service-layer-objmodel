@@ -14,6 +14,8 @@
 syntax = "proto3";
 package service_layer;
 
+import "sl_common_types.proto";
+
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 // @defgroup SLSrCommonTypes
@@ -364,6 +366,175 @@ message SLSrv6SidStruct {
 
     // Argument length in bits
     uint32 ArgLen = 4;
+}
+
+// SR dataplane.
+enum SLSrDataplane {
+    // Unspecified dataplane (invalid).
+    SL_SR_DATAPLANE_UNSPECIFIED = 0;
+
+    // MPLS dataplane.
+    SL_SR_DATAPLANE_MPLS = 1;
+
+    // SRv6 dataplane.
+    SL_SR_DATAPLANE_SRV6 = 2;
+}
+
+// Metric type.
+//
+// Mapped from the [IANA IGP Metric-Type registry]
+// (https://www.ietf.org/archive/id/draft-ietf-idr-bgp-ls-sr-policy-05.html#name-bgp-ls-sr-policy-metric-typ).
+enum SLSrMetricType {
+    option allow_alias = true;
+    // Unspecified metric type, defaults to IGP metric.
+    SL_METRIC_TYPE_UNSPECIFIED = 0;
+
+    // IGP metric type.
+    SL_METRIC_TYPE_IGP = 0;
+
+    // Minimum unidirectional link delay metric type [RFC7471].
+    SL_METRIC_TYPE_DELAY = 1;
+
+    // Traffic engineering default metric type [RFC3630].
+    SL_METRIC_TYPE_TE = 2;
+
+    // Hop count metric type [RFC5440].
+    SL_METRIC_TYPE_HOP = 3;
+}
+
+// Maximum metric that is allowed for given metric type
+message SLSrMetricBounds {
+    uint32 igp = 1;
+    uint32 te = 2;
+    uint32 latency = 3;
+}
+
+message SLSrMetricMargin {
+    enum MarginType {
+        // Indicates that the metric margin is specified as percentage of
+        // minimum metric
+        SL_RELATIVE = 0;
+        // Indicates that the metric margin is specified as an absolute value
+        SL_ABSOLUTE = 1;
+    }
+    MarginType type = 1;
+    uint32 value = 2;
+}
+
+// Diversity level.
+enum SLSrDiversityLevel {
+    SL_DIVERSITY_LEVEL_NONE = 0;
+    SL_DIVERSITY_LEVEL_LINK = 1;
+    SL_DIVERSITY_LEVEL_NODE = 2;
+    SL_DIVERSITY_LEVEL_SRLG = 3;
+    SL_DIVERSITY_LEVEL_SRLG_NODE = 4;
+}
+
+// Extended Administrative Group.
+// Bit mask of administrative groups assigned by the
+// network administrator. Each set bit corresponds to one
+// administrative group assigned to the interface. By convention, the
+// least significant bit is referred to as group 0, and the
+// most significant bit is referred to as group 31. Each EAG bitmask
+// is represented in multiple of 4 bytes.
+message SLSrAffinities {
+    // Affinity include any.
+    //
+    // Mapped from [section 6.2 of RFC 9350]
+    // (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.2).
+    repeated uint32 includeAny = 1;
+
+    // Affinity include all.
+    //
+    // Mapped from [section 6.3 of RFC 9350]
+    //(https://www.rfc-editor.org/rfc/rfc9350.html#section-6.3).
+    repeated uint32 includeAll = 2;
+
+    // Affinity exclude.
+    //
+    // Mapped from [section 6.1 of RFC 9350]
+    // (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.1).
+    repeated uint32 excludeAny = 3;
+}
+
+// A segment descriptor.
+//
+// Segment descriptor types are defined in [section 4 of RFC
+// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-4).
+message SLSrteSegment {
+    // Type A: SR-MPLS Label.
+    message TypeA {
+        uint32 label = 1;
+    }
+
+    // Type B: SRv6 SID.
+    message TypeB {
+        SLIpAddress ipv6_sid_address = 1;
+        uint32 behavior = 2;
+        SLSrv6SidStruct structure = 3;
+    }
+
+    oneof segment {
+        TypeA type_a = 1;   // A segment descriptor of type A.
+        TypeB type_b = 2;   // A segment descriptor of type B.
+    }
+}
+
+// A (weighted) segment list.
+message SLSrSegmentList {
+    // Ordered list of segments.
+    repeated SLSrteSegment segments = 1;
+
+    // Load balancing weight factor.
+    //
+    // As per [RFC 9256](https://www.rfc-editor.org/rfc/rfc9256.html):
+    //
+    // - the default weight is 1; and
+    // - a segment list with a weight of 0 is invalid.
+    optional uint32 weight = 2;
+
+    // Total path *cost*, i.e., the accumulated o-metric values along the path.
+    uint32 path_cost = 3;
+}
+
+// Identifier of an SR Policy as defined in [section 2.1 of RFC
+// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.1).
+message SLSrPolicyKey {
+    // IPv4 or IPv6 Router-ID of the headend node.
+    //
+    // The Router-ID of a node is advertised in BGP-LS TLV 1028 (IPv4) or 1029
+    // (IPv6) (see [section 5.3.1 of
+    // draft-ietf-idr-rfc7752bis]
+    // (https://datatracker.ietf.org/doc/html/draft-ietf-idr-rfc7752bis-16#section-5.3.1))
+    SLIpAddress headend = 1;
+
+    // Color is an unsigned non-zero 32-bit integer value.
+    uint32 color = 2;
+
+    // IPv4 or IPv6 address of the policy endpoint.
+    SLIpAddress endpoint = 3;
+}
+
+// Identifier of an SR Candidate Path in the context of an SR Policy, as
+// defined in [section 2.6 of RFC
+// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.6).
+message SLSrCandidatePathKey {
+    // Originator of the candidate path, as defined in [section 2.4 of RFC
+    // 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.4).
+    message Originator {
+        // Autonomous System Number (ASN)
+        // If 2-byte ASNs are in use, the low-order 16 bits MUST be used,
+        // and the high-order bits MUST be set to 0.
+        uint32 asn = 1;
+
+        // Originator Node Address
+        SLIpAddress nodeID = 2;
+    }
+    Originator originator = 1;
+
+    // Discriminator of the candidate path, as defined in [section 2.5 of RFC
+    // 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.5).
+    uint32 discriminator = 3;
 }
 
 // @}

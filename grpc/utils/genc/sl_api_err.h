@@ -755,6 +755,33 @@
     SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 0x19002,\
     /* Maximum SLBgplsTopoNotifStream exceeded. 0x19003 */\
     SL_BGPLS_MAX_STREAMS_EXCEEDED = 0x19003,\
+    /* !!! Error codes for operations on Segment-routing Traffic-eng policy objects. */\
+    /* Offset for policy object operations. 0x1a000 */\
+    SL_SRTE_POLICY_START_OFFSET = 0x1a000,\
+    /* Policy request message is not valid. 0x1a001 */\
+    SL_SRTE_POLICY_INVALID_REQUEST = 0x1a001,\
+    /* PolicyKey missing from request message. 0x1a002 */\
+    SL_SRTE_POLICY_POLICYKEY_MISSING = 0x1a002,\
+    /* PolicyKey Color missing or invalid. 0x1a003 */\
+    SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING = 0x1a003,\
+    /* PolicyKey Endpoint missing or invalid. 0x1a004 */\
+    SL_SRTE_POLICY_POLICYKEY_EP_MISSING = 0x1a004,\
+    /* PolicyKey Headend/Source address missing or invalid. 0x1a005 */\
+    SL_SRTE_POLICY_POLICYKEY_SRC_MISSING = 0x1a005,\
+    /* CandidatePath preference missing. 0x1a006 */\
+    SL_SRTE_POLICY_CP_PREF_MISSING = 0x1a006,\
+    /* CPKey missing from request. 0x1a007 */\
+    SL_SRTE_POLICY_CPKEY_MISSING = 0x1a007,\
+    /* CPKey Originator missing from request. 0x1a008 */\
+    SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING = 0x1a008,\
+    /* srte policy service not up. 0x1a009 */\
+    SL_SRTE_POLICY_SERVICE_NOT_UP = 0x1a009,\
+    /* Request message bigger then supported size. 0x1a00a */\
+    SL_SRTE_POLICY_EXCEED_MSG_SIZE = 0x1a00a,\
+    /* Invalid PathCompute request. 0x1a101 */\
+    SL_SRTE_PCALC_INVALID_REQUEST = 0x1a101,\
+    /* No path available for the requested end-point and constraints. 0x1a102 */\
+    SL_SRTE_PCALC_NO_PATH_FOUND = 0x1a102,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1807,6 +1834,45 @@
         },\
     {SL_BGPLS_MAX_STREAMS_EXCEEDED ,\
         " Maximum SLBgplsTopoNotifStream exceeded.  "\
+        },\
+    {SL_SRTE_POLICY_START_OFFSET ,\
+        " Offset for policy object operations.  "\
+        },\
+    {SL_SRTE_POLICY_INVALID_REQUEST ,\
+        " Policy request message is not valid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_MISSING ,\
+        " PolicyKey missing from request message.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING ,\
+        " PolicyKey Color missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_EP_MISSING ,\
+        " PolicyKey Endpoint missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_SRC_MISSING ,\
+        " PolicyKey Headend/Source address missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_CP_PREF_MISSING ,\
+        " CandidatePath preference missing.  "\
+        },\
+    {SL_SRTE_POLICY_CPKEY_MISSING ,\
+        " CPKey missing from request.  "\
+        },\
+    {SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING ,\
+        " CPKey Originator missing from request.  "\
+        },\
+    {SL_SRTE_POLICY_SERVICE_NOT_UP ,\
+        " srte policy service not up.  "\
+        },\
+    {SL_SRTE_POLICY_EXCEED_MSG_SIZE ,\
+        " Request message bigger then supported size.  "\
+        },\
+    {SL_SRTE_PCALC_INVALID_REQUEST ,\
+        " Invalid PathCompute request.  "\
+        },\
+    {SL_SRTE_PCALC_NO_PATH_FOUND ,\
+        " No path available for the requested end-point and constraints.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
