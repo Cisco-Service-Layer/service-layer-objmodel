@@ -26,7 +26,7 @@ namespace ServiceLayer {
           string.Concat(
             "ChBzbF92ZXJzaW9uLnByb3RvEg1zZXJ2aWNlX2xheWVyKmYKCVNMVmVyc2lv",
             "bhIVChFTTF9WRVJTSU9OX1VOVVNFRBAAEhQKEFNMX01BSk9SX1ZFUlNJT04Q",
-            "ABIUChBTTF9NSU5PUl9WRVJTSU9OEAsSEgoOU0xfU1VCX1ZFUlNJT04QABoC",
+            "ABIUChBTTF9NSU5PUl9WRVJTSU9OEAoSEgoOU0xfU1VCX1ZFUlNJT04QABoC",
             "EAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2Ut",
             "bGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJv",
             "dG8z"));
@@ -46,7 +46,7 @@ namespace ServiceLayer {
   public enum SLVersion {
     [pbr::OriginalName("SL_VERSION_UNUSED")] Unused = 0,
     [pbr::OriginalName("SL_MAJOR_VERSION", PreferredAlias = false)] SlMajorVersion = 0,
-    [pbr::OriginalName("SL_MINOR_VERSION")] SlMinorVersion = 11,
+    [pbr::OriginalName("SL_MINOR_VERSION")] SlMinorVersion = 10,
     [pbr::OriginalName("SL_SUB_VERSION", PreferredAlias = false)] SlSubVersion = 0,
   }
 

@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIivFsKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiulcKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i9FoKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i8lYKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -272,48 +272,37 @@ namespace ServiceLayer {
             "X1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWABhIgChpTTF9CR1BMU19UT1BP",
             "X1NUQVJUX09GRlNFVBCAoAYSIwodU0xfQkdQTFNfU0VSVkVSX05PVF9BVkFJ",
             "TEFCTEUQgaAGEigKIlNMX0JHUExTX01BWF9NQVRDSF9GSUxURVJfRVhDRUVE",
-            "RUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIh",
-            "ChtTTF9TUlRFX1BPTElDWV9TVEFSVF9PRkZTRVQQgMAGEiQKHlNMX1NSVEVf",
-            "UE9MSUNZX0lOVkFMSURfUkVRVUVTVBCBwAYSJgogU0xfU1JURV9QT0xJQ1lf",
-            "UE9MSUNZS0VZX01JU1NJTkcQgsAGEiwKJlNMX1NSVEVfUE9MSUNZX1BPTElD",
-            "WUtFWV9DT0xPUl9NSVNTSU5HEIPABhIpCiNTTF9TUlRFX1BPTElDWV9QT0xJ",
-            "Q1lLRVlfRVBfTUlTU0lORxCEwAYSKgokU0xfU1JURV9QT0xJQ1lfUE9MSUNZ",
-            "S0VZX1NSQ19NSVNTSU5HEIXABhIkCh5TTF9TUlRFX1BPTElDWV9DUF9QUkVG",
-            "X01JU1NJTkcQhsAGEiIKHFNMX1NSVEVfUE9MSUNZX0NQS0VZX01JU1NJTkcQ",
-            "h8AGEi0KJ1NMX1NSVEVfUE9MSUNZX0NQS0VZX09SSUdJTkFUT1JfTUlTU0lO",
-            "RxCIwAYSIwodU0xfU1JURV9QT0xJQ1lfU0VSVklDRV9OT1RfVVAQicAGEiQK",
-            "HlNMX1NSVEVfUE9MSUNZX0VYQ0VFRF9NU0dfU0laRRCKwAYSIwodU0xfU1JU",
-            "RV9QQ0FMQ19JTlZBTElEX1JFUVVFU1QQgcIGEiEKG1NMX1NSVEVfUENBTENf",
-            "Tk9fUEFUSF9GT1VORBCCwgYSHgoYU0xfSU5URVJOQUxfU1RBUlRfT0ZGU0VU",
-            "EICAQCI8CgtTTEludGVyZmFjZRIOCgROYW1lGAEgASgJSAASEAoGSGFuZGxl",
-            "GAIgASgNSABCCwoJSW50ZXJmYWNlIkIKC1NMSXBBZGRyZXNzEhMKCVY0QWRk",
-            "cmVzcxgBIAEoDUgAEhMKCVY2QWRkcmVzcxgCIAEoDEgAQgkKB0FkZHJlc3Mi",
-            "JQoKU0xPYmplY3RJZBIOCgROYW1lGAEgASgJSABCBwoFZW50cnkiVAoRU0xQ",
-            "YXRoR3JvdXBSZWZLZXkSDwoHVnJmTmFtZRgBIAEoCRIuCgtQYXRoR3JvdXBJ",
-            "ZBgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xPYmplY3RJZCpiCgdTTFJlZ09w",
-            "EhUKEVNMX1JFR09QX1JFU0VSVkVEEAASFQoRU0xfUkVHT1BfUkVHSVNURVIQ",
-            "ARIXChNTTF9SRUdPUF9VTlJFR0lTVEVSEAISEAoMU0xfUkVHT1BfRU9GEAMq",
-            "XwoKU0xPYmplY3RPcBIVChFTTF9PQkpPUF9SRVNFUlZFRBAAEhAKDFNMX09C",
-            "Sk9QX0FERBABEhMKD1NMX09CSk9QX1VQREFURRACEhMKD1NMX09CSk9QX0RF",
-            "TEVURRADKlMKCVNMTm90aWZPcBIXChNTTF9OT1RJRk9QX1JFU0VSVkVEEAAS",
-            "FQoRU0xfTk9USUZPUF9FTkFCTEUQARIWChJTTF9OT1RJRk9QX0RJU0FCTEUQ",
-            "AiqJAQoQU0xVcGRhdGVQcmlvcml0eRIYChRTTF9QUklPUklUWV9SRVNFUlZF",
-            "RBAAEhgKFFNMX1BSSU9SSVRZX0NSSVRJQ0FMEAQSFAoQU0xfUFJJT1JJVFlf",
-            "SElHSBAIEhYKElNMX1BSSU9SSVRZX01FRElVTRAMEhMKD1NMX1BSSU9SSVRZ",
-            "X0xPVxAQKksKC1NMRW5jYXBUeXBlEhUKEVNMX0VOQ0FQX1JFU0VSVkVEEAAS",
-            "EgoOU0xfRU5DQVBfVlhMQU4QARIRCg1TTF9FTkNBUF9NUExTEAIqjQEKC1NM",
-            "VGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZUEVfUkVTRVJWRUQQABIXChNTTF9J",
-            "UHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9ST1VURV9UQUJMRRACEhcK",
-            "E1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9QQVRIX0dST1VQX1RBQkxF",
-            "EAQqMAoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJ",
-            "Ql9BQ0sQASqZAQoOU0xSc3BBQ0tQZXJtaXQSEQoNU0xfUEVSTUlUX0FMTBAA",
-            "EhgKFFNMX1BFUk1JVF9TTF9TVUNDRVNTEAESHAoYU0xfUEVSTUlUX1NMX0ZJ",
-            "Ql9TVUNDRVNTEAISGwoXU0xfUEVSTUlUX1NMX0ZJQl9GQUlMRUQQBBIfChtT",
-            "TF9QRVJNSVRfU0xfRklCX0lORUxJR0lCTEUQCCpUCg9TTFJzcEFja0NhZGVu",
-            "Y2USFQoRU0xfUlNQX0NPTlRJTlVPVVMQABIUChBTTF9SU1BfSlVTVF9PTkNF",
-            "EAESFAoQU0xfUlNQX09OQ0VfRUFDSBACQlFaT2dpdGh1Yi5jb20vQ2lzY28t",
-            "c2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJv",
-            "dG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "RUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIe",
+            "ChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50ZXJmYWNl",
+            "Eg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJbnRlcmZh",
+            "Y2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAASEwoJVjZB",
+            "ZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElkEg4KBE5h",
+            "bWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktleRIPCgdW",
+            "cmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2VydmljZV9s",
+            "YXllci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJW",
+            "RUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVH",
+            "SVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNM",
+            "X09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JK",
+            "T1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9w",
+            "EhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJM",
+            "RRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9y",
+            "aXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlf",
+            "Q1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJ",
+            "VFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5",
+            "cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThAB",
+            "EhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFC",
+            "TEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIX",
+            "ChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJM",
+            "RRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCowCgxTTFJzcEFDS1R5cGUS",
+            "CwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FDSxABKpkBCg5TTFJzcEFD",
+            "S1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxMEAASGAoUU0xfUEVSTUlUX1NMX1NV",
+            "Q0NFU1MQARIcChhTTF9QRVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIbChdTTF9Q",
+            "RVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9GSUJfSU5F",
+            "TElHSUJMRRAIKlQKD1NMUnNwQWNrQ2FkZW5jZRIVChFTTF9SU1BfQ09OVElO",
+            "VU9VUxAAEhQKEFNMX1JTUF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9F",
+            "QUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
+            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -2148,58 +2137,6 @@ namespace ServiceLayer {
         /// Maximum SLBgplsTopoNotifStream exceeded. 0x19003
         /// </summary>
         [pbr::OriginalName("SL_BGPLS_MAX_STREAMS_EXCEEDED")] SlBgplsMaxStreamsExceeded = 102403,
-        /// <summary>
-        /// Offset for policy object operations. 0x1a000
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_START_OFFSET")] SlSrtePolicyStartOffset = 106496,
-        /// <summary>
-        /// Policy request message is not valid. 0x1a001
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_INVALID_REQUEST")] SlSrtePolicyInvalidRequest = 106497,
-        /// <summary>
-        /// PolicyKey missing from request message. 0x1a002
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_MISSING")] SlSrtePolicyPolicykeyMissing = 106498,
-        /// <summary>
-        /// PolicyKey Color missing or invalid. 0x1a003
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING")] SlSrtePolicyPolicykeyColorMissing = 106499,
-        /// <summary>
-        /// PolicyKey Endpoint missing or invalid. 0x1a004
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_EP_MISSING")] SlSrtePolicyPolicykeyEpMissing = 106500,
-        /// <summary>
-        /// PolicyKey Headend/Source address missing or invalid. 0x1a005
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_SRC_MISSING")] SlSrtePolicyPolicykeySrcMissing = 106501,
-        /// <summary>
-        /// CandidatePath preference missing. 0x1a006
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_CP_PREF_MISSING")] SlSrtePolicyCpPrefMissing = 106502,
-        /// <summary>
-        /// CPKey missing from request. 0x1a007
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_CPKEY_MISSING")] SlSrtePolicyCpkeyMissing = 106503,
-        /// <summary>
-        /// CPKey Originator missing from request. 0x1a008
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING")] SlSrtePolicyCpkeyOriginatorMissing = 106504,
-        /// <summary>
-        /// srte policy service not up. 0x1a009
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_SERVICE_NOT_UP")] SlSrtePolicyServiceNotUp = 106505,
-        /// <summary>
-        /// Request message bigger then supported size. 0x1a00a
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_EXCEED_MSG_SIZE")] SlSrtePolicyExceedMsgSize = 106506,
-        /// <summary>
-        /// Invalid PathCompute request. 0x1a101
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_PCALC_INVALID_REQUEST")] SlSrtePcalcInvalidRequest = 106753,
-        /// <summary>
-        /// No path available for the requested end-point and constraints. 0x1a102
-        /// </summary>
-        [pbr::OriginalName("SL_SRTE_PCALC_NO_PATH_FOUND")] SlSrtePcalcNoPathFound = 106754,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>
