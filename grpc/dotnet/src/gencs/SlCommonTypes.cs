@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiulcKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiyWMKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i8lYKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8igWMKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -272,37 +272,71 @@ namespace ServiceLayer {
             "X1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWABhIgChpTTF9CR1BMU19UT1BP",
             "X1NUQVJUX09GRlNFVBCAoAYSIwodU0xfQkdQTFNfU0VSVkVSX05PVF9BVkFJ",
             "TEFCTEUQgaAGEigKIlNMX0JHUExTX01BWF9NQVRDSF9GSUxURVJfRVhDRUVE",
-            "RUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIe",
-            "ChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50ZXJmYWNl",
-            "Eg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJbnRlcmZh",
-            "Y2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAASEwoJVjZB",
-            "ZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElkEg4KBE5h",
-            "bWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktleRIPCgdW",
-            "cmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2VydmljZV9s",
-            "YXllci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJW",
-            "RUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVH",
-            "SVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNM",
-            "X09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JK",
-            "T1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9w",
-            "EhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJM",
-            "RRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9y",
-            "aXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlf",
-            "Q1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJ",
-            "VFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5",
-            "cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThAB",
-            "EhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFC",
-            "TEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIX",
-            "ChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJM",
-            "RRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCowCgxTTFJzcEFDS1R5cGUS",
-            "CwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FDSxABKpkBCg5TTFJzcEFD",
-            "S1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxMEAASGAoUU0xfUEVSTUlUX1NMX1NV",
-            "Q0NFU1MQARIcChhTTF9QRVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIbChdTTF9Q",
-            "RVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9GSUJfSU5F",
-            "TElHSUJMRRAIKlQKD1NMUnNwQWNrQ2FkZW5jZRIVChFTTF9SU1BfQ09OVElO",
-            "VU9VUxAAEhQKEFNMX1JTUF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9F",
-            "QUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
-            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
-            "cHJvdG8z"));
+            "RUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIZ",
+            "ChNTTF9CR1BfU1RBUlRfT0ZGU0VUEIDABhIeChhTTF9CR1BfSU5TVF9OQU1F",
+            "X1RPT0xPTkcQgcAGEhwKFlNMX0JHUF9JTlNUX05BTUVfRU1QVFkQgsAGEiEK",
+            "G1NMX0JHUF9JTlNUX05PVF9JTklUSUFMSVpFRBCDwAYSHQoXU0xfQkdQX0lO",
+            "VkFMSURfT0JKX1RZUEUQhMAGEiAKGlNMX0JHUF9WUkZfTkFNRV9UT09MT05H",
+            "X1Y0EIXABhIgChpTTF9CR1BfVlJGX05BTUVfVE9PTE9OR19WNhCGwAYSIQob",
+            "U0xfQkdQX1VOU1VQUE9SVEVEX1ZSRl9OQU1FEIfABhIjCh1TTF9CR1BfSU5W",
+            "QUxJRF9OQlJfQUREUl9NQ0FTVBCIwAYSIQobU0xfQkdQX0lOVkFMSURfTkJS",
+            "X0FERFJfRVhQEInABhIdChdTTF9CR1BfSU5WQUxJRF9OQlJfQUREUhCKwAYS",
+            "HgoYU0xfQkdQX0lOVkFMSURfTkJSX1Y2X1NaEIvABhIcChZTTF9CR1BfSU5W",
+            "QUxJRF9OQlJfS0VZEIzABhIlCh9TTF9CR1BfSU5WQUxJRF9NUEFUSF9BRERS",
+            "X01DQVNUEI3ABhIjCh1TTF9CR1BfSU5WQUxJRF9NUEFUSF9BRERSX0VYUBCO",
+            "wAYSHwoZU0xfQkdQX0lOVkFMSURfTVBBVEhfQUREUhCPwAYSIAoaU0xfQkdQ",
+            "X0lOVkFMSURfTVBBVEhfVjZfU1oQkMAGEiEKG1NMX0JHUF9JTlZBTElEX05C",
+            "UlNBRklfTElTVBCRwAYSJQofU0xfQkdQX1VOU1VQUE9SVEVEX0JHUF9BRklf",
+            "U0FGSRCSwAYSHAoWU0xfQkdQX1VOU1VQUE9SVEVEX0FGSRCTwAYSHQoXU0xf",
+            "QkdQX1VOU1VQUE9SVEVEX1NBRkkQlMAGEhoKFFNMX0JHUF9FTVBUWV9PQkpF",
+            "Q1RTEJXABhIeChhTTF9CR1BfRU1QVFlfT0JKRUNUX0xJU1QQlsAGEiEKG1NM",
+            "X0JHUF9VUERBVEVfQldfR1JQX0ZBSUxFRBCXwAYSJQofU0xfQkdQX1VQREFU",
+            "RV9NUEFUSF9BRERSX0ZBSUxFRBCYwAYSIQobU0xfQkdQX0RFTEVURV9CV19H",
+            "UlBfRkFJTEVEEJnABhIeChhTTF9CR1BfREVMRVRFX05CUl9GQUlMRUQQmsAG",
+            "Eh4KGFNMX0JHUF9ERUxFVEVfQUZJX0ZBSUxFRBCbwAYSJQofU0xfQkdQX0RF",
+            "TEVURV9NUEFUSF9BRERSX0ZBSUxFRBCcwAYSGgoUU0xfQkdQX0RFTEVURV9G",
+            "QUlMRUQQncAGEiQKHlNMX0JHUF9CV19HUlBfTlVNX09VVF9PRl9SQU5HRRCe",
+            "wAYSJQofU0xfQkdQX0lOX0JXX0dSUF9DT1VOVF9FWENFRURFRBCfwAYSJgog",
+            "U0xfQkdQX09VVF9CV19HUlBfQ09VTlRfRVhDRUVERUQQoMAGEiIKHFNMX0JH",
+            "UF9JTlZBTElEX0lOX0JXR1JQX0xJU1QQocAGEiMKHVNMX0JHUF9JTlZBTElE",
+            "X09VVF9CV0dSUF9MSVNUEKLABhIhChtTTF9CR1BfTElOS19CV19PVVRfT0Zf",
+            "UkFOR0UQo8AGEiEKG1NMX0JHUF9OQlJfSURYX09VVF9PRl9SQU5HRRCkwAYS",
+            "HAoWU0xfQkdQX0lOVkFMSURfQldfVFlQRRClwAYSHQoXU0xfQkdQX0JXX0dS",
+            "UF9MSVNUX05VTEwQpsAGEh4KGFNMX0JHUF9OQlJTQUZJX0xJU1RfTlVMTBCn",
+            "wAYSJQofU0xfQkdQX0lOU1RfTk9UX0NPTkZJR19JTl9TTEFQSRCowAYSJgog",
+            "U0xfQkdQX09CSl9MSVNUX0lEWF9PVVRfT0ZfUkFOR0UQqcAGEh0KF1NMX0JH",
+            "UF9BU05fT1VUX09GX1JBTkdFEKrABhIbChVTTF9CR1BfSU5URVJOQUxfRVJS",
+            "XzEQgcIGEhsKFVNMX0JHUF9JTlRFUk5BTF9FUlJfMhCCwgYSGwoVU0xfQkdQ",
+            "X0lOVEVSTkFMX0VSUl8zEIPCBhIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZT",
+            "RVQQgIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5k",
+            "bGUYAiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRB",
+            "ZGRyZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVz",
+            "cyIlCgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFT",
+            "TFBhdGhHcm91cFJlZktleRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91",
+            "cElkGAIgASgLMhkuc2VydmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVn",
+            "T3ASFQoRU0xfUkVHT1BfUkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RF",
+            "UhABEhcKE1NMX1JFR09QX1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQ",
+            "AypfCgpTTE9iamVjdE9wEhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xf",
+            "T0JKT1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1Bf",
+            "REVMRVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQ",
+            "ABIVChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJM",
+            "RRACKokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VS",
+            "VkVEEAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklU",
+            "WV9ISUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJ",
+            "VFlfTE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQ",
+            "ABISCg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoL",
+            "U0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NM",
+            "X0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAIS",
+            "FwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFC",
+            "TEUQBCowCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRf",
+            "RklCX0FDSxABKpkBCg5TTFJzcEFDS1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxM",
+            "EAASGAoUU0xfUEVSTUlUX1NMX1NVQ0NFU1MQARIcChhTTF9QRVJNSVRfU0xf",
+            "RklCX1NVQ0NFU1MQAhIbChdTTF9QRVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8K",
+            "G1NMX1BFUk1JVF9TTF9GSUJfSU5FTElHSUJMRRAIKlQKD1NMUnNwQWNrQ2Fk",
+            "ZW5jZRIVChFTTF9SU1BfQ09OVElOVU9VUxAAEhQKEFNMX1JTUF9KVVNUX09O",
+            "Q0UQARIUChBTTF9SU1BfT05DRV9FQUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNj",
+            "by1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9w",
+            "cm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -2137,6 +2171,190 @@ namespace ServiceLayer {
         /// Maximum SLBgplsTopoNotifStream exceeded. 0x19003
         /// </summary>
         [pbr::OriginalName("SL_BGPLS_MAX_STREAMS_EXCEEDED")] SlBgplsMaxStreamsExceeded = 102403,
+        /// <summary>
+        /// Offset for bgp object operations. 0x1a000
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_START_OFFSET")] SlBgpStartOffset = 106496,
+        /// <summary>
+        /// BGP instance name too long. 0x1a001
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INST_NAME_TOOLONG")] SlBgpInstNameToolong = 106497,
+        /// <summary>
+        /// BGP instance name empty. 0x1a002
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INST_NAME_EMPTY")] SlBgpInstNameEmpty = 106498,
+        /// <summary>
+        /// BGP instance not initialized. 0x1a003
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INST_NOT_INITIALIZED")] SlBgpInstNotInitialized = 106499,
+        /// <summary>
+        /// BGP invalid object type. 0x1a004
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_OBJ_TYPE")] SlBgpInvalidObjType = 106500,
+        /// <summary>
+        /// BGP vrf name too long for v4 neighbor. 0x1a005
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_VRF_NAME_TOOLONG_V4")] SlBgpVrfNameToolongV4 = 106501,
+        /// <summary>
+        /// BGP vrf name too long for v6 neighbor. 0x1a006
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_VRF_NAME_TOOLONG_V6")] SlBgpVrfNameToolongV6 = 106502,
+        /// <summary>
+        /// BGP unsupported vrf name. 0x1a007
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_UNSUPPORTED_VRF_NAME")] SlBgpUnsupportedVrfName = 106503,
+        /// <summary>
+        /// BGP invalid neighbor address multicast. 0x1a008
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_NBR_ADDR_MCAST")] SlBgpInvalidNbrAddrMcast = 106504,
+        /// <summary>
+        /// BGP invalid neighbor address experimental. 0x1a009
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_NBR_ADDR_EXP")] SlBgpInvalidNbrAddrExp = 106505,
+        /// <summary>
+        /// BGP invalid neighbor address. 0x1a00a
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_NBR_ADDR")] SlBgpInvalidNbrAddr = 106506,
+        /// <summary>
+        /// BGP invalid neighbor v6 address size. 0x1a00b
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_NBR_V6_SZ")] SlBgpInvalidNbrV6Sz = 106507,
+        /// <summary>
+        /// BGP invalid neighbor key. 0x1a00c
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_NBR_KEY")] SlBgpInvalidNbrKey = 106508,
+        /// <summary>
+        /// BGP invalid mpath address multicast. 0x1a00d
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_MPATH_ADDR_MCAST")] SlBgpInvalidMpathAddrMcast = 106509,
+        /// <summary>
+        /// BGP invalid mpath address experimental. 0x1a00e
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_MPATH_ADDR_EXP")] SlBgpInvalidMpathAddrExp = 106510,
+        /// <summary>
+        /// BGP invalid mpath address. 0x1a00f
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_MPATH_ADDR")] SlBgpInvalidMpathAddr = 106511,
+        /// <summary>
+        /// BGP invalid mpath v6 address size. 0x1a010
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_MPATH_V6_SZ")] SlBgpInvalidMpathV6Sz = 106512,
+        /// <summary>
+        /// BGP invalid neighbor afi/safi list. 0x1a011
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_NBRSAFI_LIST")] SlBgpInvalidNbrsafiList = 106513,
+        /// <summary>
+        /// BGP unsupported BGP afi/safi. 0x1a012
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_UNSUPPORTED_BGP_AFI_SAFI")] SlBgpUnsupportedBgpAfiSafi = 106514,
+        /// <summary>
+        /// BGP unsupported afi. 0x1a013
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_UNSUPPORTED_AFI")] SlBgpUnsupportedAfi = 106515,
+        /// <summary>
+        /// BGP unsupported safi. 0x1a014
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_UNSUPPORTED_SAFI")] SlBgpUnsupportedSafi = 106516,
+        /// <summary>
+        /// BGP empty object. 0x1a015
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_EMPTY_OBJECTS")] SlBgpEmptyObjects = 106517,
+        /// <summary>
+        /// BGP empty object list. 0x1a016
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_EMPTY_OBJECT_LIST")] SlBgpEmptyObjectList = 106518,
+        /// <summary>
+        /// BGP updating bandwidth-group database failed. 0x1a017
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_UPDATE_BW_GRP_FAILED")] SlBgpUpdateBwGrpFailed = 106519,
+        /// <summary>
+        /// BGP updating mpath database failed. 0x1a018
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_UPDATE_MPATH_ADDR_FAILED")] SlBgpUpdateMpathAddrFailed = 106520,
+        /// <summary>
+        /// BGP deleting from bandwidth-group database failed. 0x1a019
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_DELETE_BW_GRP_FAILED")] SlBgpDeleteBwGrpFailed = 106521,
+        /// <summary>
+        /// BGP deleting neighbor from database failed. 0x1a01a
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_DELETE_NBR_FAILED")] SlBgpDeleteNbrFailed = 106522,
+        /// <summary>
+        /// BGP deleting afi/safi from database failed. 0x1a01b
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_DELETE_AFI_FAILED")] SlBgpDeleteAfiFailed = 106523,
+        /// <summary>
+        /// BGP deleting from mpath database failed. 0x1a01c
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_DELETE_MPATH_ADDR_FAILED")] SlBgpDeleteMpathAddrFailed = 106524,
+        /// <summary>
+        /// BGP deleting from database failed. 0x1a01d
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_DELETE_FAILED")] SlBgpDeleteFailed = 106525,
+        /// <summary>
+        /// BGP bandwidth-group number out of range. 0x1a01e
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_BW_GRP_NUM_OUT_OF_RANGE")] SlBgpBwGrpNumOutOfRange = 106526,
+        /// <summary>
+        /// BGP inbound bandwidth-group count exceeds limit. 0x1a01f
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_IN_BW_GRP_COUNT_EXCEEDED")] SlBgpInBwGrpCountExceeded = 106527,
+        /// <summary>
+        /// BGP outbound bandwidth-group count exceeds limit. 0x1a020
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_OUT_BW_GRP_COUNT_EXCEEDED")] SlBgpOutBwGrpCountExceeded = 106528,
+        /// <summary>
+        /// BGP invalid inbound bandwidth-group list. 0x1a021
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_IN_BWGRP_LIST")] SlBgpInvalidInBwgrpList = 106529,
+        /// <summary>
+        /// BGP invalid outbound bandwidth-group count list. 0x1a022
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_OUT_BWGRP_LIST")] SlBgpInvalidOutBwgrpList = 106530,
+        /// <summary>
+        /// BGP link bandwidth number out of range. 0x1a023
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_LINK_BW_OUT_OF_RANGE")] SlBgpLinkBwOutOfRange = 106531,
+        /// <summary>
+        /// BGP neighbor index out of range. 0x1a024
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_NBR_IDX_OUT_OF_RANGE")] SlBgpNbrIdxOutOfRange = 106532,
+        /// <summary>
+        /// BGP invalid bandwidth-group type. 0x1a025
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_BW_TYPE")] SlBgpInvalidBwType = 106533,
+        /// <summary>
+        /// BGP neighbor bandwidth-group list is NULL. 0x1a026
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_BW_GRP_LIST_NULL")] SlBgpBwGrpListNull = 106534,
+        /// <summary>
+        /// BGP neighbor afi/safi list is NULL. 0x1a027
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_NBRSAFI_LIST_NULL")] SlBgpNbrsafiListNull = 106535,
+        /// <summary>
+        /// BGP instance does not exist in SL-API. 0x1a028
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INST_NOT_CONFIG_IN_SLAPI")] SlBgpInstNotConfigInSlapi = 106536,
+        /// <summary>
+        /// BGP object list index out of range. 0x1a029
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE")] SlBgpObjListIdxOutOfRange = 106537,
+        /// <summary>
+        /// BGP AS number out of range. 0x1a02a
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_ASN_OUT_OF_RANGE")] SlBgpAsnOutOfRange = 106538,
+        /// <summary>
+        /// BGP Internal Error 1. 0x1a101
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INTERNAL_ERR_1")] SlBgpInternalErr1 = 106753,
+        /// <summary>
+        /// BGP Internal Error 2. 0x1a102
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INTERNAL_ERR_2")] SlBgpInternalErr2 = 106754,
+        /// <summary>
+        /// BGP Internal Error 3. 0x1a103
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INTERNAL_ERR_3")] SlBgpInternalErr3 = 106755,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>
