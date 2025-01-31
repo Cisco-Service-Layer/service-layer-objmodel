@@ -456,9 +456,9 @@ message SLAFOp {
 
     // AckPermit controls the scope of response types that are sent from
     // SL-API server in response to hardware programming events.
-    // AckPermit is a bit-field  resulting from ORing one or more bits
-    // enumerated in SLRspACKPermit.
-    uint32 AckPermit = 4;
+    // AckPermit is a list of possible response types as enumerated in
+    // SLRspACKPermit that the client is interested in.
+    repeated SLRspACKPermit AckPermit = 4;
 
     // AckCadence controls the cadence of hardware programming responses.
     // Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite

@@ -728,10 +728,10 @@ message SLErrorStatus {
         SL_FIB_FAILED = 0x17002;
         // The operation is not viable to be programmed in hardware at this time. 0x17003
         SL_FIB_INELIGIBLE = 0x17003;
-        // Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004
-        SL_ACK_PERMIT_NOT_SUPPORTED = 0x17004;
-        // Ack cadence is not supported when ack permits are not set. 0x17005
-        SL_ACK_CADENCE_NOT_SUPPORTED = 0x17005;
+        // The forwarding chain using this object is fully active in hardware. 0x17004
+        SL_FIB_FWD_ACTIVE = 0x17004;
+        // Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17005
+        SL_ACK_PERMIT_NOT_SUPPORTED = 0x17005;
 
         // !!! Error codes for operations on policy objects.
 
@@ -985,6 +985,14 @@ enum SLRspACKType {
   // In this scenario, only the last operation on the object is responded to
   // with corresponding hardware programming result
   RIB_AND_FIB_ACK = 1;
+
+  // This ack_type is applicable only for objects of type SLPathGroup.
+  // When the operating mode is RIB_AND_FIB_ACTIVE, along with the behavior
+  // explained above for RIB_AND_FIB_ACK, the client will receive an additional
+  // response of type SL_FIB_FWD_ACTIVE. SL_FIB_FWD_ACTIVE indicates that SLPathGroup
+  // has been programmed in FIB and is being actively used by one or more
+  // routes or labels or policies. And the entire forwarding chain is active in hardware. 
+  RIB_AND_FIB_FWD_ACTIVE_ACK = 2;
 }
 
 
@@ -1003,21 +1011,20 @@ enum SLRspACKType {
 // will default to SL_PERMIT_ALL
 enum SLRspACKPermit {
     // An undefined or 0 value Permits all SLErrorStatus to be relayed to client
-    SL_PERMIT_ALL = 0x0;
+    SL_PERMIT_ALL = 0;
 
     // Permits SL_SUCCESS to be relayed to client
     // Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
-    SL_PERMIT_SL_SUCCESS = 0x1;
+    SL_PERMIT_SL_SUCCESS = 1;
 
     // Permits SL_FIB_SUCCESS to be relayed to client
-    SL_PERMIT_SL_FIB_SUCCESS = 0x2;
+    SL_PERMIT_SL_FIB_SUCCESS = 2;
 
     // Permits SL_FIB_FAILED to be relayed to client
-    SL_PERMIT_SL_FIB_FAILED = 0x4;
+    SL_PERMIT_SL_FIB_FAILED = 3;
 
     // Permits SL_FIB_INELIGIBLE to be relayed to client
-    SL_PERMIT_SL_FIB_INELIGIBLE = 0x8;
-
+    SL_PERMIT_SL_FIB_INELIGIBLE = 4;
 }
 
 // SLRspAckCadence controls the cadence of hardware programming responses.
@@ -1028,33 +1035,39 @@ enum SLRspACKPermit {
 // Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
 // SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
 enum SLRspAckCadence {
-  // Continuous relay of hardware programming/re-programming responses
-  SL_RSP_CONTINUOUS = 0;
+    // Continuous relay of hardware programming/re-programming responses
+    SL_RSP_CONTINUOUS = 0;
 
-  // SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
-  // programming among the response types defined by SLRspACKPermit
-  //
-  // For Example:
-  // In the case where client sends
-  // Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
-  // Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
-  // to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
-  // There will no further notification when the object becomes viable and programmed in FIB.
-  SL_RSP_JUST_ONCE = 1;
+    // SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
+    // programming among the response types defined by SLRspACKPermit
+    //
+    // For Example:
+    // In the case where client sends
+    // Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+    // Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
+    // to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+    // There will no further notification when the object becomes viable and programmed in FIB.
+    SL_RSP_JUST_ONCE = 1;
 
-  // SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
-  // programming per response type defined by SLRspACKPermit
-  //
-  // For Example:
-  // In the case where client sends
-  // Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
-  // and Cadence == SL_RSP_ONCE_EACH and at the time of programming if the object was not viable
-  // to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
-  // Later, whenever the route becomes viable and gets programmed in the FIB the 
-  // corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
-  // This  will be particularly useful in the case of out of order programming
-  // where the prefix is ineligible until referenced PathGroup is programmed.
-  SL_RSP_ONCE_EACH = 2;
+    // SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
+    // programming per response type defined by SLRspACKPermit
+    //
+    // For Example:
+    // In the case where client sends
+    // Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+    // and Cadence == SL_RSP_ONCE_EACH and at the time of programming if the object was not viable
+    // to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+    // Later, whenever the route becomes viable and gets programmed in the FIB the 
+    // corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
+    // This  will be particularly useful in the case of out of order programming
+    // where the prefix is ineligible until referenced PathGroup is programmed.
+    SL_RSP_ONCE_EACH = 2;
+
+    // Blocks all response types. This option is used when client expects
+    // the hw-programming to be tracked internally within service-layer grpc
+    // server but doesn't expect any notification to be sent to the client.
+    // This option makes any SLRspACKPermit value to be treated as don't care.
+    SL_RSP_NONE = 3;
 }
 
 // The following table illustrates the behavior for combination of
@@ -1067,7 +1080,7 @@ enum SLRspAckCadence {
 // |-------------+-------------+--------------------------------------------------------+
 // | Not Set     | Not Set     | Stream all responses (default)                         |
 // | Set         | Not Set     | Stream only the permitted response types continuously. |
-// | Not Set     | Set         | Not supported.                                         |
+// | Not Set     | Set         | Supported only for SL_RSP_NONE.                        |
 // | Set         | Set         | Permitted responses will be sent according to cadence  |
 // +-------------+-------------+--------------------------------------------------------+
 
