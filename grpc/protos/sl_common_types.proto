@@ -729,15 +729,17 @@ message SLErrorStatus {
         // The operation is not viable to be programmed in hardware at this time. 0x17003
         SL_FIB_INELIGIBLE = 0x17003;
         // The forwarding chain using this object is fully active in hardware. 0x17004
-        SL_FIB_FWD_ACTIVE = 0x17004;
-        // Ack permit is not supported when ack type is not RIB_AND_FIB_ACK or RIB_AND_FIB_FWD_ACTIVE_ACK. 0x17005
+        SL_FIB_INUSE = 0x17004;
+        // Ack permit is not supported when ack type is not RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK. 0x17005
         SL_ACK_PERMIT_NOT_SUPPORTED = 0x17005;
+        // Given ack type is not permitted on object of this type. 0x17006
+        SL_INVALID_ACKTYPE = 0x17006;
 
         // !!! Error codes for operations on policy objects.
 
         // Offset for policy object operations. 0x18000
         SL_POLICY_START_OFFSET = 0x18000;
-        // Policy object could not be created. 0x18001  
+        // Policy object could not be created. 0x18001
         SL_POLICY_ADD_ERR = 0x18001;
         // Policy object already exists. 0x18002
         SL_POLICY_EXISTS_ERR = 0x18002;
@@ -934,10 +936,10 @@ enum SLTableType {
 // network element for any object programming operation.
 //
 // For the object in operation, the network element can operate
-// in two modes - whether the response from is required from 
+// in two modes - whether the response from is required from
 // device's RIB or both from RIB and FIB.
 //
-// Unary RPC does not support RIB_AND_FIB_ACK.
+// Unary RPC does not support RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK.
 //
 // On a hardware programming failure, client is expected to retry or
 // delete the object. The device does not perform any retries or
@@ -948,51 +950,50 @@ enum SLTableType {
 // when compared to the programming sequence.
 
 enum SLRspACKType {
-  // When the operating mode is RIB_ACK,
-  // once the object in the operation is successfully applied to
-  // the network element's RIB, SL_SUCCESS is returned for that operation.
-  // On an error, the object is not updated in the network element's RIB
-  // and error is returned to the client.
-  //
-  // The operation is considered complete once result of RIB programming
-  // is sent back to the client.
-  //
-  // By default, ACK type is assumed to be RIB_ACK.
-  RIB_ACK = 0;
+    // When the operating mode is RIB_ACK,
+    // once the object in the operation is successfully applied to
+    // the network element's RIB, SL_SUCCESS is returned for that operation.
+    // On an error, the object is not updated in the network element's RIB
+    // and error is returned to the client.
+    //
+    // The operation is considered complete once result of RIB programming
+    // is sent back to the client.
+    //
+    // By default, ACK type is assumed to be RIB_ACK.
+    RIB_ACK = 0;
 
-  // When the operating mode is RIB_AND_FIB_ACK,
-  // the first result returned for the operation is RIB's result.
-  // If the object in the operation is successfully applied to RIB,
-  // SL_SUCCESS is returned.
-  //
-  // If the object in the operation is not active and cannot be programmed to FIB,
-  // SL_FIB_INELIGIBLE is returned as a second response and the operation is
-  // considered complete.
-  //
-  // As a result of an operation on an object, if another previously
-  // programmed object becomes ineligible, previously programmed object will be
-  // removed from FIB and SL_FIB_INELIGIBLE will be sent asynchronously with
-  // the last known OperationID for that object. However, the object will
-  // continue to remain in RIB.
-  //
-  // Eventually, when the object becomes active, the object is sent to FIB
-  // and result of the hardware programming is returned asynchronously with the last
-  // known OperationID for that object.
-  //
-  // It must be noted that while the object is waiting for FIB programming,
-  // client can send another update on the object and the object remains in-active.
-  // The network element may coalesce such back to back operations.
-  // In this scenario, only the last operation on the object is responded to
-  // with corresponding hardware programming result
-  RIB_AND_FIB_ACK = 1;
+    // When the operating mode is RIB_AND_FIB_ACK,
+    // the first result returned for the operation is RIB's result.
+    // If the object in the operation is successfully applied to RIB,
+    // SL_SUCCESS is returned.
+    //
+    // If the object in the operation is not active and cannot be programmed to FIB,
+    // SL_FIB_INELIGIBLE is returned as a second response and the operation is
+    // considered complete.
+    //
+    // As a result of an operation on an object, if another previously
+    // programmed object becomes ineligible, previously programmed object will be
+    // removed from FIB and SL_FIB_INELIGIBLE will be sent asynchronously with
+    // the last known OperationID for that object. However, the object will
+    // continue to remain in RIB.
+    //
+    // Eventually, when the object becomes active, the object is sent to FIB
+    // and result of the hardware programming is returned asynchronously with the last
+    // known OperationID for that object.
+    //
+    // It must be noted that while the object is waiting for FIB programming,
+    // client can send another update on the object and the object remains in-active.
+    // The network element may coalesce such back to back operations.
+    // In this scenario, only the last operation on the object is responded to
+    // with corresponding hardware programming result
+    RIB_AND_FIB_ACK = 1;
 
-  // This ack_type is applicable only for objects of type SLPathGroup.
-  // When the operating mode is RIB_AND_FIB_ACTIVE, along with the behavior
-  // explained above for RIB_AND_FIB_ACK, the client will receive an additional
-  // response of type SL_FIB_FWD_ACTIVE. SL_FIB_FWD_ACTIVE indicates that SLPathGroup
-  // has been programmed in FIB and is being actively used by one or more
-  // routes or labels or policies. And the entire forwarding chain is active in hardware. 
-  RIB_AND_FIB_FWD_ACTIVE_ACK = 2;
+    // When the operating mode is RIB_FIB_INUSE_ACK, along with the behavior
+    // explained above for RIB_AND_FIB_ACK, the client will receive an additional
+    // response of type SL_FIB_INUSE. RIB_FIB_INUSE_ACK indicates that object
+    // has been programmed in FIB and is being actively used by one or more
+    // forwarding chains.
+    RIB_FIB_INUSE_ACK = 2;
 }
 
 
@@ -1003,7 +1004,7 @@ enum SLRspACKType {
 // for hardware programming, then the corresponding bits are turned ON in the
 // bit-field.
 // Control of response type is supported ONLY when ACK type is
-// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK.
+// RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK and is NOT supported when ACK type is RIB_ACK.
 // Errorcodes not listed in SLRspACKPermit such as parsing errors are
 // always permitted and will be relayed to the client even when SLRspACKPermit
 // is set to values other than SL_PERMIT_ALL.
@@ -1032,8 +1033,8 @@ enum SLRspACKPermit {
 // will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
 // for all hardware programming events including events that are internal
 // to the router such as insertion or removal of line cards.
-// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
-// SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
+// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK
+// and SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
 enum SLRspAckCadence {
     // Continuous relay of hardware programming/re-programming responses
     SL_RSP_CONTINUOUS = 0;
