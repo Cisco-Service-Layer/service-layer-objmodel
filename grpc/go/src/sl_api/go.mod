@@ -5,7 +5,7 @@ go 1.19
 require (
 	gengo v0.0.0-00010101000000-000000000000
 	github.com/sirupsen/logrus v1.9.0
-	golang.org/x/net v0.23.0
+	golang.org/x/net v0.33.0
 	google.golang.org/grpc v1.56.3
 )
 
