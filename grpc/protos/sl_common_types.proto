@@ -981,11 +981,17 @@ enum SLRspACKType {
     // and result of the hardware programming is returned asynchronously with the last
     // known OperationID for that object.
     //
-    // It must be noted that while the object is waiting for FIB programming,
+    // **Note 1: while the object is waiting for FIB to be programmed,
     // client can send another update on the object and the object remains in-active.
     // The network element may coalesce such back to back operations.
     // In this scenario, only the last operation on the object is responded to
     // with corresponding hardware programming result
+    //
+    // **Note 2: relay fib programming status is supported only in server streaming RPC.
+    // However, the AckType RIB_AND_FIB_ACK is supported in both unary (SLAFOp) as well as
+    // streaming (SLAFOpStream) rpc. When unary rpc is used for programming an object
+    // with ackType as RIB_AND_FIB_ACK, the fib programming will be tracked internally by
+    // the server and can be retrieved through get operation.
     RIB_AND_FIB_ACK = 1;
 
     // When the operating mode is RIB_FIB_INUSE_ACK, along with the behavior
