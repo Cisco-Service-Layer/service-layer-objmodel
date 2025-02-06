@@ -1034,7 +1034,7 @@ enum SLRspACKPermit {
     SL_PERMIT_SL_FIB_INELIGIBLE = 4;
 
     // Permits SL_FIB_INUSE to be relayed to client
-    SL_PERMIT_SL_FIB_INUSE = 5;
+    SL_PERMIT_SL_FIB_INUSE_SUCCESS = 5;
 }
 
 // SLRspAckCadence controls the cadence of hardware programming responses.
