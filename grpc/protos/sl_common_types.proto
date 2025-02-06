@@ -939,8 +939,6 @@ enum SLTableType {
 // in two modes - whether the response from is required from
 // device's RIB or both from RIB and FIB.
 //
-// Unary RPC does not support RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK.
-//
 // On a hardware programming failure, client is expected to retry or
 // delete the object. The device does not perform any retries or
 // take any other recovery action.
@@ -990,7 +988,7 @@ enum SLRspACKType {
     // **Note 2: relay fib programming status is supported only in server streaming RPC.
     // However, the AckType RIB_AND_FIB_ACK is supported in both unary (SLAFOp) as well as
     // streaming (SLAFOpStream) rpc. When unary rpc is used for programming an object
-    // with ackType as RIB_AND_FIB_ACK, the fib programming will be tracked internally by
+    // with ackType as RIB_AND_FIB_ACK, fib programming will be tracked internally by
     // the server and can be retrieved through get operation.
     RIB_AND_FIB_ACK = 1;
 
