@@ -729,7 +729,7 @@ message SLErrorStatus {
         // The operation is not viable to be programmed in hardware at this time. 0x17003
         SL_FIB_INELIGIBLE = 0x17003;
         // The forwarding chain using this object is fully active in hardware. 0x17004
-        SL_FIB_INUSE = 0x17004;
+        SL_FIB_INUSE_SUCCESS = 0x17004;
         // Ack permit is not supported when ack type is not RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK. 0x17005
         SL_ACK_PERMIT_NOT_SUPPORTED = 0x17005;
         // Given ack type is not permitted on object of this type. 0x17006
@@ -996,7 +996,7 @@ enum SLRspACKType {
 
     // When the operating mode is RIB_FIB_INUSE_ACK, along with the behavior
     // explained above for RIB_AND_FIB_ACK, the client will receive an additional
-    // response of type SL_FIB_INUSE. RIB_FIB_INUSE_ACK indicates that object
+    // response of type SL_FIB_INUSE_SUCCESS. RIB_FIB_INUSE_ACK indicates that object
     // has been programmed in FIB and is being actively used by one or more
     // forwarding chains.
     RIB_FIB_INUSE_ACK = 2;
