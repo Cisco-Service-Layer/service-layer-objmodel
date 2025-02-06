@@ -430,8 +430,6 @@ message SLAFObject {
 
 // Operation on a forwarding table object
 message SLAFOp {
-    reserved 4;
-    reserved "AckPermit";
 
     SLAFObject AFObject = 1;
 
@@ -458,17 +456,17 @@ message SLAFOp {
     // programming response regardless of what is defined in ACKPermit and
     // AckCadence.
 
+    // AckPermit controls the scope of response types that are sent from
+    // SL-API server in response to hardware programming events.
+    // AckPermit is a list of possible response types as enumerated in
+    // SLRspACKPermit that the client is interested in.
+    repeated SLRspACKPermit AckPermits = 4;
 
     // AckCadence controls the cadence of hardware programming responses.
     // Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite
     // for setting AckCadence.
     SLRspAckCadence AckCadence = 5;
 
-    // AckPermit controls the scope of response types that are sent from
-    // SL-API server in response to hardware programming events.
-    // AckPermit is a list of possible response types as enumerated in
-    // SLRspACKPermit that the client is interested in.
-    repeated SLRspACKPermit AckPermits = 6;
 }
 
 // Used to retrieve objects in a VRF table.
