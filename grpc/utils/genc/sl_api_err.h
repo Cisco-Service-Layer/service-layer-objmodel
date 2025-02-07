@@ -826,7 +826,7 @@
     SL_BGP_INVALID_IN_BWGRP_LIST = 0x1a021,\
     /* BGP invalid outbound bandwidth-group count list. 0x1a022 */\
     SL_BGP_INVALID_OUT_BWGRP_LIST = 0x1a022,\
-    /* BGP link bandwidth number out of range. 0x1a023 */\
+    /* BGP link bandwidth out of range. 0x1a023 */\
     SL_BGP_LINK_BW_OUT_OF_RANGE = 0x1a023,\
     /* BGP neighbor index out of range. 0x1a024 */\
     SL_BGP_NBR_IDX_OUT_OF_RANGE = 0x1a024,\
@@ -842,6 +842,8 @@
     SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE = 0x1a029,\
     /* BGP AS number out of range. 0x1a02a */\
     SL_BGP_ASN_OUT_OF_RANGE = 0x1a02a,\
+    /* BGP invalid bandwidth-unit. 0x1a02b */\
+    SL_BGP_INVALID_BW_UNIT = 0x1a02b,\
     /* BGP Internal Error 1. 0x1a101 */\
     SL_BGP_INTERNAL_ERR_1 = 0x1a101,\
     /* BGP Internal Error 2. 0x1a102 */\
@@ -2007,7 +2009,7 @@
         " BGP invalid outbound bandwidth-group count list.  "\
         },\
     {SL_BGP_LINK_BW_OUT_OF_RANGE ,\
-        " BGP link bandwidth number out of range.  "\
+        " BGP link bandwidth out of range.  "\
         },\
     {SL_BGP_NBR_IDX_OUT_OF_RANGE ,\
         " BGP neighbor index out of range.  "\
@@ -2029,6 +2031,9 @@
         },\
     {SL_BGP_ASN_OUT_OF_RANGE ,\
         " BGP AS number out of range.  "\
+        },\
+    {SL_BGP_INVALID_BW_UNIT ,\
+        " BGP invalid bandwidth-unit.  "\
         },\
     {SL_BGP_INTERNAL_ERR_1 ,\
         " BGP Internal Error 1.  "\

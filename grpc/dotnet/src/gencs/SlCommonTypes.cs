@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiyWMKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi52MKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8igWMKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8in2MKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -305,38 +305,39 @@ namespace ServiceLayer {
             "UF9MSVNUX05VTEwQpsAGEh4KGFNMX0JHUF9OQlJTQUZJX0xJU1RfTlVMTBCn",
             "wAYSJQofU0xfQkdQX0lOU1RfTk9UX0NPTkZJR19JTl9TTEFQSRCowAYSJgog",
             "U0xfQkdQX09CSl9MSVNUX0lEWF9PVVRfT0ZfUkFOR0UQqcAGEh0KF1NMX0JH",
-            "UF9BU05fT1VUX09GX1JBTkdFEKrABhIbChVTTF9CR1BfSU5URVJOQUxfRVJS",
-            "XzEQgcIGEhsKFVNMX0JHUF9JTlRFUk5BTF9FUlJfMhCCwgYSGwoVU0xfQkdQ",
-            "X0lOVEVSTkFMX0VSUl8zEIPCBhIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZT",
-            "RVQQgIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5k",
-            "bGUYAiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRB",
-            "ZGRyZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVz",
-            "cyIlCgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFT",
-            "TFBhdGhHcm91cFJlZktleRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91",
-            "cElkGAIgASgLMhkuc2VydmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVn",
-            "T3ASFQoRU0xfUkVHT1BfUkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RF",
-            "UhABEhcKE1NMX1JFR09QX1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQ",
-            "AypfCgpTTE9iamVjdE9wEhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xf",
-            "T0JKT1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1Bf",
-            "REVMRVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQ",
-            "ABIVChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJM",
-            "RRACKokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VS",
-            "VkVEEAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklU",
-            "WV9ISUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJ",
-            "VFlfTE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQ",
-            "ABISCg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoL",
-            "U0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NM",
-            "X0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAIS",
-            "FwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFC",
-            "TEUQBCowCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRf",
-            "RklCX0FDSxABKpkBCg5TTFJzcEFDS1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxM",
-            "EAASGAoUU0xfUEVSTUlUX1NMX1NVQ0NFU1MQARIcChhTTF9QRVJNSVRfU0xf",
-            "RklCX1NVQ0NFU1MQAhIbChdTTF9QRVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8K",
-            "G1NMX1BFUk1JVF9TTF9GSUJfSU5FTElHSUJMRRAIKlQKD1NMUnNwQWNrQ2Fk",
-            "ZW5jZRIVChFTTF9SU1BfQ09OVElOVU9VUxAAEhQKEFNMX1JTUF9KVVNUX09O",
-            "Q0UQARIUChBTTF9SU1BfT05DRV9FQUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNj",
-            "by1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9w",
-            "cm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "UF9BU05fT1VUX09GX1JBTkdFEKrABhIcChZTTF9CR1BfSU5WQUxJRF9CV19V",
+            "TklUEKvABhIbChVTTF9CR1BfSU5URVJOQUxfRVJSXzEQgcIGEhsKFVNMX0JH",
+            "UF9JTlRFUk5BTF9FUlJfMhCCwgYSGwoVU0xfQkdQX0lOVEVSTkFMX0VSUl8z",
+            "EIPCBhIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50",
+            "ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJ",
+            "bnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAAS",
+            "EwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElk",
+            "Eg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktl",
+            "eRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2Vy",
+            "dmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1Bf",
+            "UkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09Q",
+            "X1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9w",
+            "EhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoP",
+            "U0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xO",
+            "b3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9Q",
+            "X0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0",
+            "ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJ",
+            "T1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xf",
+            "UFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xF",
+            "bmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9W",
+            "WExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoW",
+            "U0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFC",
+            "TEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJF",
+            "TF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCowCgxTTFJzcEFD",
+            "S1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FDSxABKpkBCg5T",
+            "TFJzcEFDS1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxMEAASGAoUU0xfUEVSTUlU",
+            "X1NMX1NVQ0NFU1MQARIcChhTTF9QRVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIb",
+            "ChdTTF9QRVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9G",
+            "SUJfSU5FTElHSUJMRRAIKlQKD1NMUnNwQWNrQ2FkZW5jZRIVChFTTF9SU1Bf",
+            "Q09OVElOVU9VUxAAEhQKEFNMX1JTUF9KVVNUX09OQ0UQARIUChBTTF9SU1Bf",
+            "T05DRV9FQUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
+            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
+            "YXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -2312,7 +2313,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_BGP_INVALID_OUT_BWGRP_LIST")] SlBgpInvalidOutBwgrpList = 106530,
         /// <summary>
-        /// BGP link bandwidth number out of range. 0x1a023
+        /// BGP link bandwidth out of range. 0x1a023
         /// </summary>
         [pbr::OriginalName("SL_BGP_LINK_BW_OUT_OF_RANGE")] SlBgpLinkBwOutOfRange = 106531,
         /// <summary>
@@ -2343,6 +2344,10 @@ namespace ServiceLayer {
         /// BGP AS number out of range. 0x1a02a
         /// </summary>
         [pbr::OriginalName("SL_BGP_ASN_OUT_OF_RANGE")] SlBgpAsnOutOfRange = 106538,
+        /// <summary>
+        /// BGP invalid bandwidth-unit. 0x1a02b
+        /// </summary>
+        [pbr::OriginalName("SL_BGP_INVALID_BW_UNIT")] SlBgpInvalidBwUnit = 106539,
         /// <summary>
         /// BGP Internal Error 1. 0x1a101
         /// </summary>

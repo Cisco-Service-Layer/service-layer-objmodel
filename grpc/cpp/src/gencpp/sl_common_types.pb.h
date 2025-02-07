@@ -452,6 +452,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_BGP_INST_NOT_CONFIG_IN_SLAPI = 106536,
   SLErrorStatus_SLErrno_SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE = 106537,
   SLErrorStatus_SLErrno_SL_BGP_ASN_OUT_OF_RANGE = 106538,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_UNIT = 106539,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1 = 106753,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_2 = 106754,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_3 = 106755,
@@ -1583,6 +1584,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE;
   static constexpr SLErrno SL_BGP_ASN_OUT_OF_RANGE =
     SLErrorStatus_SLErrno_SL_BGP_ASN_OUT_OF_RANGE;
+  static constexpr SLErrno SL_BGP_INVALID_BW_UNIT =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_UNIT;
   static constexpr SLErrno SL_BGP_INTERNAL_ERR_1 =
     SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1;
   static constexpr SLErrno SL_BGP_INTERNAL_ERR_2 =
