@@ -422,6 +422,7 @@ const (
 	// response of type SL_FIB_INUSE_SUCCESS. RIB_FIB_INUSE_ACK indicates that object
 	// has been programmed in FIB and is being actively used by one or more
 	// forwarding chains.
+	// RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup
 	SLRspACKType_RIB_FIB_INUSE_ACK SLRspACKType = 2
 )
 
