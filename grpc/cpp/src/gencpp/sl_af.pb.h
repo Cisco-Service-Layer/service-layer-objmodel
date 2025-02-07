@@ -2333,12 +2333,29 @@ class SLAFOp final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kAckPermitsFieldNumber = 4,
     kAFObjectFieldNumber = 1,
     kOperationIDFieldNumber = 2,
     kAckTypeFieldNumber = 3,
-    kAckPermitFieldNumber = 4,
     kAckCadenceFieldNumber = 5,
   };
+  // repeated .service_layer.SLRspACKPermit AckPermits = 4;
+  int ackpermits_size() const;
+  private:
+  int _internal_ackpermits_size() const;
+  public:
+  void clear_ackpermits();
+  private:
+  ::service_layer::SLRspACKPermit _internal_ackpermits(int index) const;
+  void _internal_add_ackpermits(::service_layer::SLRspACKPermit value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_ackpermits();
+  public:
+  ::service_layer::SLRspACKPermit ackpermits(int index) const;
+  void set_ackpermits(int index, ::service_layer::SLRspACKPermit value);
+  void add_ackpermits(::service_layer::SLRspACKPermit value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& ackpermits() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_ackpermits();
+
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
   private:
@@ -2375,15 +2392,6 @@ class SLAFOp final :
   void _internal_set_acktype(::service_layer::SLRspACKType value);
   public:
 
-  // uint32 AckPermit = 4;
-  void clear_ackpermit();
-  uint32_t ackpermit() const;
-  void set_ackpermit(uint32_t value);
-  private:
-  uint32_t _internal_ackpermit() const;
-  void _internal_set_ackpermit(uint32_t value);
-  public:
-
   // .service_layer.SLRspAckCadence AckCadence = 5;
   void clear_ackcadence();
   ::service_layer::SLRspAckCadence ackcadence() const;
@@ -2400,10 +2408,11 @@ class SLAFOp final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> ackpermits_;
+  mutable std::atomic<int> _ackpermits_cached_byte_size_;
   ::service_layer::SLAFObject* afobject_;
   uint64_t operationid_;
   int acktype_;
-  uint32_t ackpermit_;
   int ackcadence_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
@@ -7653,24 +7662,47 @@ inline void SLAFOp::set_acktype(::service_layer::SLRspACKType value) {
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckType)
 }
 
-// uint32 AckPermit = 4;
-inline void SLAFOp::clear_ackpermit() {
-  ackpermit_ = 0u;
+// repeated .service_layer.SLRspACKPermit AckPermits = 4;
+inline int SLAFOp::_internal_ackpermits_size() const {
+  return ackpermits_.size();
 }
-inline uint32_t SLAFOp::_internal_ackpermit() const {
-  return ackpermit_;
+inline int SLAFOp::ackpermits_size() const {
+  return _internal_ackpermits_size();
 }
-inline uint32_t SLAFOp::ackpermit() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckPermit)
-  return _internal_ackpermit();
+inline void SLAFOp::clear_ackpermits() {
+  ackpermits_.Clear();
 }
-inline void SLAFOp::_internal_set_ackpermit(uint32_t value) {
-  
-  ackpermit_ = value;
+inline ::service_layer::SLRspACKPermit SLAFOp::_internal_ackpermits(int index) const {
+  return static_cast< ::service_layer::SLRspACKPermit >(ackpermits_.Get(index));
 }
-inline void SLAFOp::set_ackpermit(uint32_t value) {
-  _internal_set_ackpermit(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckPermit)
+inline ::service_layer::SLRspACKPermit SLAFOp::ackpermits(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckPermits)
+  return _internal_ackpermits(index);
+}
+inline void SLAFOp::set_ackpermits(int index, ::service_layer::SLRspACKPermit value) {
+  ackpermits_.Set(index, value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckPermits)
+}
+inline void SLAFOp::_internal_add_ackpermits(::service_layer::SLRspACKPermit value) {
+  ackpermits_.Add(value);
+}
+inline void SLAFOp::add_ackpermits(::service_layer::SLRspACKPermit value) {
+  _internal_add_ackpermits(value);
+  // @@protoc_insertion_point(field_add:service_layer.SLAFOp.AckPermits)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+SLAFOp::ackpermits() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLAFOp.AckPermits)
+  return ackpermits_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+SLAFOp::_internal_mutable_ackpermits() {
+  return &ackpermits_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+SLAFOp::mutable_ackpermits() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLAFOp.AckPermits)
+  return _internal_mutable_ackpermits();
 }
 
 // .service_layer.SLRspAckCadence AckCadence = 5;

@@ -365,8 +365,9 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94209,
   SLErrorStatus_SLErrno_SL_FIB_FAILED = 94210,
   SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94211,
-  SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED = 94212,
-  SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED = 94213,
+  SLErrorStatus_SLErrno_SL_FIB_INUSE_SUCCESS = 94212,
+  SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED = 94213,
+  SLErrorStatus_SLErrno_SL_INVALID_ACKTYPE = 94214,
   SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET = 98304,
   SLErrorStatus_SLErrno_SL_POLICY_ADD_ERR = 98305,
   SLErrorStatus_SLErrno_SL_POLICY_EXISTS_ERR = 98306,
@@ -597,12 +598,13 @@ inline bool SLTableType_Parse(
 enum SLRspACKType : int {
   RIB_ACK = 0,
   RIB_AND_FIB_ACK = 1,
+  RIB_FIB_INUSE_ACK = 2,
   SLRspACKType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspACKType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKType_IsValid(int value);
 constexpr SLRspACKType SLRspACKType_MIN = RIB_ACK;
-constexpr SLRspACKType SLRspACKType_MAX = RIB_AND_FIB_ACK;
+constexpr SLRspACKType SLRspACKType_MAX = RIB_FIB_INUSE_ACK;
 constexpr int SLRspACKType_ARRAYSIZE = SLRspACKType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKType_descriptor();
@@ -623,14 +625,15 @@ enum SLRspACKPermit : int {
   SL_PERMIT_ALL = 0,
   SL_PERMIT_SL_SUCCESS = 1,
   SL_PERMIT_SL_FIB_SUCCESS = 2,
-  SL_PERMIT_SL_FIB_FAILED = 4,
-  SL_PERMIT_SL_FIB_INELIGIBLE = 8,
+  SL_PERMIT_SL_FIB_FAILED = 3,
+  SL_PERMIT_SL_FIB_INELIGIBLE = 4,
+  SL_PERMIT_SL_FIB_INUSE_SUCCESS = 5,
   SLRspACKPermit_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspACKPermit_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKPermit_IsValid(int value);
 constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_ALL;
-constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_SL_FIB_INELIGIBLE;
+constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_SL_FIB_INUSE_SUCCESS;
 constexpr int SLRspACKPermit_ARRAYSIZE = SLRspACKPermit_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKPermit_descriptor();
@@ -651,12 +654,13 @@ enum SLRspAckCadence : int {
   SL_RSP_CONTINUOUS = 0,
   SL_RSP_JUST_ONCE = 1,
   SL_RSP_ONCE_EACH = 2,
+  SL_RSP_NONE = 3,
   SLRspAckCadence_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspAckCadence_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspAckCadence_IsValid(int value);
 constexpr SLRspAckCadence SLRspAckCadence_MIN = SL_RSP_CONTINUOUS;
-constexpr SLRspAckCadence SLRspAckCadence_MAX = SL_RSP_ONCE_EACH;
+constexpr SLRspAckCadence SLRspAckCadence_MAX = SL_RSP_NONE;
 constexpr int SLRspAckCadence_ARRAYSIZE = SLRspAckCadence_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspAckCadence_descriptor();
@@ -1363,10 +1367,12 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_FIB_FAILED;
   static constexpr SLErrno SL_FIB_INELIGIBLE =
     SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE;
+  static constexpr SLErrno SL_FIB_INUSE_SUCCESS =
+    SLErrorStatus_SLErrno_SL_FIB_INUSE_SUCCESS;
   static constexpr SLErrno SL_ACK_PERMIT_NOT_SUPPORTED =
     SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED;
-  static constexpr SLErrno SL_ACK_CADENCE_NOT_SUPPORTED =
-    SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED;
+  static constexpr SLErrno SL_INVALID_ACKTYPE =
+    SLErrorStatus_SLErrno_SL_INVALID_ACKTYPE;
   static constexpr SLErrno SL_POLICY_START_OFFSET =
     SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET;
   static constexpr SLErrno SL_POLICY_ADD_ERR =
