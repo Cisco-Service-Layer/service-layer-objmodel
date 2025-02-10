@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiulcKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIizFcKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i8lYKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8ihFcKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -239,70 +239,72 @@ namespace ServiceLayer {
             "RBCHwAUSJAoeU0xfUk9VVEVfUkVESVNUX1JJQl9BRERfRkFJTEVEEIjABRIZ",
             "ChNTTF9GSUJfU1RBUlRfT0ZGU0VUEIDgBRIUCg5TTF9GSUJfU1VDQ0VTUxCB",
             "4AUSEwoNU0xfRklCX0ZBSUxFRBCC4AUSFwoRU0xfRklCX0lORUxJR0lCTEUQ",
-            "g+AFEiEKG1NMX0FDS19QRVJNSVRfTk9UX1NVUFBPUlRFRBCE4AUSIgocU0xf",
-            "QUNLX0NBREVOQ0VfTk9UX1NVUFBPUlRFRBCF4AUSHAoWU0xfUE9MSUNZX1NU",
-            "QVJUX09GRlNFVBCAgAYSFwoRU0xfUE9MSUNZX0FERF9FUlIQgYAGEhoKFFNM",
-            "X1BPTElDWV9FWElTVFNfRVJSEIKABhIaChRTTF9QT0xJQ1lfREVMRVRFX0VS",
-            "UhCDgAYSHAoWU0xfUE9MSUNZX1JVTEVfQUREX0VSUhCEgAYSHwoZU0xfUE9M",
-            "SUNZX1JVTEVfRVhJU1RTX0VSUhCFgAYSHwoZU0xfUE9MSUNZX1JVTEVfREVM",
-            "RVRFX0VSUhCGgAYSGQoTU0xfUE9MSUNZX0FQUExZX0VSUhCHgAYSGwoVU0xf",
-            "UE9MSUNZX1VOQVBQTFlfRVJSEIiABhIhChtTTF9QT0xJQ1lfVE9PX01BTllf",
-            "UE9MSUNJRVMQiYAGEh0KF1NMX1BPTElDWV9OQU1FX1RPT19MT05HEIqABhIi",
-            "ChxTTF9QT0xJQ1lfUlVMRV9OQU1FX1RPT19MT05HEIuABhIqCiRTTF9QT0xJ",
-            "Q1lfRFVQTElDQVRFX1BSSU9SSVRZX0lOX1JVTEUQjIAGEiQKHlNMX1BPTElD",
-            "WV9SVUxFX01PRF9OT1RfQUxMT1dFRBCNgAYSHAoWU0xfUE9MSUNZX0lOVkFM",
-            "SURfUlVMRRCOgAYSIQobU0xfUE9MSUNZX1JVTEVfQUREX05PX1JVTEVTEI+A",
-            "BhIrCiVTTF9QT0xJQ1lfSU5WQUxJRF9NQVRDSF9DT1VOVF9JTl9SVUxFEJCA",
-            "BhIsCiZTTF9QT0xJQ1lfSU5WQUxJRF9BQ1RJT05fQ09VTlRfSU5fUlVMRRCR",
-            "gAYSGQoTU0xfUE9MSUNZX05PVF9GT1VORBCSgAYSFwoRU0xfUE9MSUNZX0lO",
-            "VkFMSUQQk4AGEhwKFlNMX1BPTElDWV9OQU1FX01JU1NJTkcQlIAGEiEKG1NM",
-            "X1BPTElDWV9SVUxFX05BTUVfTUlTU0lORxCVgAYSKAoiU0xfUE9MSUNZX1BS",
-            "SU9SSVRZX01JU1NJTkdfSU5fUlVMRRCWgAYSHAoWU0xfUE9MSUNZX1RZUEVf",
-            "SU5WQUxJRBCXgAYSIQobU0xfUE9MSUNZX0lOVkFMSURfRElSRUNUSU9OEJiA",
-            "BhIhChtTTF9QT0xJQ1lfSU5URl9OQU1FX1RPT0xPTkcQmYAGEiEKG1NMX1BP",
-            "TElDWV9JTlRGX05BTUVfTUlTU0lORxCagAYSJgogU0xfUE9MSUNZX01BWF9S",
-            "VUxFX0xJTUlUX1JFQUNIRUQQm4AGEiEKG1NMX1BPTElDWV9WUkZfTkFNRV9U",
-            "T09fTE9ORxCcgAYSIAoaU0xfUE9MSUNZX1ZSRl9OQU1FX01JU1NJTkcQnYAG",
-            "EiYKIFNMX1BPTElDWV9QQVRIX0dSUF9OQU1FX1RPT19MT05HEJ6ABhIlCh9T",
-            "TF9QT0xJQ1lfUEFUSF9HUlBfTkFNRV9NSVNTSU5HEJ+ABhIiChxTTF9QT0xJ",
-            "Q1lfSU5WQUxJRF9EU0NQX1ZBTFVFEKCABhIlCh9TTF9QT0xJQ1lfUFJJT1JJ",
-            "VFlfU1RSX1RPT19MT05HEKGABhImCiBTTF9QT0xJQ1lfTUFYX0lOVEZfTElN",
-            "SVRfUkVBQ0hFRBCigAYSJAoeU0xfUE9MSUNZX1JVTEVfREVMRVRFX05PX1JV",
-            "TEVTEKOABhIeChhTTF9QT0xJQ1lfQVBQTFlfTk9fSU5URlMQpIAGEiAKGlNM",
-            "X1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWABhIgChpTTF9CR1BMU19UT1BP",
-            "X1NUQVJUX09GRlNFVBCAoAYSIwodU0xfQkdQTFNfU0VSVkVSX05PVF9BVkFJ",
-            "TEFCTEUQgaAGEigKIlNMX0JHUExTX01BWF9NQVRDSF9GSUxURVJfRVhDRUVE",
-            "RUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIe",
-            "ChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50ZXJmYWNl",
-            "Eg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJbnRlcmZh",
-            "Y2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAASEwoJVjZB",
-            "ZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElkEg4KBE5h",
-            "bWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktleRIPCgdW",
-            "cmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2VydmljZV9s",
-            "YXllci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJW",
-            "RUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVH",
-            "SVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNM",
-            "X09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JK",
-            "T1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9w",
-            "EhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJM",
-            "RRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9y",
-            "aXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlf",
-            "Q1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJ",
-            "VFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5",
-            "cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThAB",
-            "EhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFC",
-            "TEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIX",
-            "ChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJM",
-            "RRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCowCgxTTFJzcEFDS1R5cGUS",
-            "CwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FDSxABKpkBCg5TTFJzcEFD",
-            "S1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxMEAASGAoUU0xfUEVSTUlUX1NMX1NV",
-            "Q0NFU1MQARIcChhTTF9QRVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIbChdTTF9Q",
-            "RVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9GSUJfSU5F",
-            "TElHSUJMRRAIKlQKD1NMUnNwQWNrQ2FkZW5jZRIVChFTTF9SU1BfQ09OVElO",
-            "VU9VUxAAEhQKEFNMX1JTUF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9F",
-            "QUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
-            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
-            "cHJvdG8z"));
+            "g+AFEhoKFFNMX0ZJQl9JTlVTRV9TVUNDRVNTEITgBRIhChtTTF9BQ0tfUEVS",
+            "TUlUX05PVF9TVVBQT1JURUQQheAFEhgKElNMX0lOVkFMSURfQUNLVFlQRRCG",
+            "4AUSHAoWU0xfUE9MSUNZX1NUQVJUX09GRlNFVBCAgAYSFwoRU0xfUE9MSUNZ",
+            "X0FERF9FUlIQgYAGEhoKFFNMX1BPTElDWV9FWElTVFNfRVJSEIKABhIaChRT",
+            "TF9QT0xJQ1lfREVMRVRFX0VSUhCDgAYSHAoWU0xfUE9MSUNZX1JVTEVfQURE",
+            "X0VSUhCEgAYSHwoZU0xfUE9MSUNZX1JVTEVfRVhJU1RTX0VSUhCFgAYSHwoZ",
+            "U0xfUE9MSUNZX1JVTEVfREVMRVRFX0VSUhCGgAYSGQoTU0xfUE9MSUNZX0FQ",
+            "UExZX0VSUhCHgAYSGwoVU0xfUE9MSUNZX1VOQVBQTFlfRVJSEIiABhIhChtT",
+            "TF9QT0xJQ1lfVE9PX01BTllfUE9MSUNJRVMQiYAGEh0KF1NMX1BPTElDWV9O",
+            "QU1FX1RPT19MT05HEIqABhIiChxTTF9QT0xJQ1lfUlVMRV9OQU1FX1RPT19M",
+            "T05HEIuABhIqCiRTTF9QT0xJQ1lfRFVQTElDQVRFX1BSSU9SSVRZX0lOX1JV",
+            "TEUQjIAGEiQKHlNMX1BPTElDWV9SVUxFX01PRF9OT1RfQUxMT1dFRBCNgAYS",
+            "HAoWU0xfUE9MSUNZX0lOVkFMSURfUlVMRRCOgAYSIQobU0xfUE9MSUNZX1JV",
+            "TEVfQUREX05PX1JVTEVTEI+ABhIrCiVTTF9QT0xJQ1lfSU5WQUxJRF9NQVRD",
+            "SF9DT1VOVF9JTl9SVUxFEJCABhIsCiZTTF9QT0xJQ1lfSU5WQUxJRF9BQ1RJ",
+            "T05fQ09VTlRfSU5fUlVMRRCRgAYSGQoTU0xfUE9MSUNZX05PVF9GT1VORBCS",
+            "gAYSFwoRU0xfUE9MSUNZX0lOVkFMSUQQk4AGEhwKFlNMX1BPTElDWV9OQU1F",
+            "X01JU1NJTkcQlIAGEiEKG1NMX1BPTElDWV9SVUxFX05BTUVfTUlTU0lORxCV",
+            "gAYSKAoiU0xfUE9MSUNZX1BSSU9SSVRZX01JU1NJTkdfSU5fUlVMRRCWgAYS",
+            "HAoWU0xfUE9MSUNZX1RZUEVfSU5WQUxJRBCXgAYSIQobU0xfUE9MSUNZX0lO",
+            "VkFMSURfRElSRUNUSU9OEJiABhIhChtTTF9QT0xJQ1lfSU5URl9OQU1FX1RP",
+            "T0xPTkcQmYAGEiEKG1NMX1BPTElDWV9JTlRGX05BTUVfTUlTU0lORxCagAYS",
+            "JgogU0xfUE9MSUNZX01BWF9SVUxFX0xJTUlUX1JFQUNIRUQQm4AGEiEKG1NM",
+            "X1BPTElDWV9WUkZfTkFNRV9UT09fTE9ORxCcgAYSIAoaU0xfUE9MSUNZX1ZS",
+            "Rl9OQU1FX01JU1NJTkcQnYAGEiYKIFNMX1BPTElDWV9QQVRIX0dSUF9OQU1F",
+            "X1RPT19MT05HEJ6ABhIlCh9TTF9QT0xJQ1lfUEFUSF9HUlBfTkFNRV9NSVNT",
+            "SU5HEJ+ABhIiChxTTF9QT0xJQ1lfSU5WQUxJRF9EU0NQX1ZBTFVFEKCABhIl",
+            "Ch9TTF9QT0xJQ1lfUFJJT1JJVFlfU1RSX1RPT19MT05HEKGABhImCiBTTF9Q",
+            "T0xJQ1lfTUFYX0lOVEZfTElNSVRfUkVBQ0hFRBCigAYSJAoeU0xfUE9MSUNZ",
+            "X1JVTEVfREVMRVRFX05PX1JVTEVTEKOABhIeChhTTF9QT0xJQ1lfQVBQTFlf",
+            "Tk9fSU5URlMQpIAGEiAKGlNMX1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWA",
+            "BhIgChpTTF9CR1BMU19UT1BPX1NUQVJUX09GRlNFVBCAoAYSIwodU0xfQkdQ",
+            "TFNfU0VSVkVSX05PVF9BVkFJTEFCTEUQgaAGEigKIlNMX0JHUExTX01BWF9N",
+            "QVRDSF9GSUxURVJfRVhDRUVERUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJF",
+            "QU1TX0VYQ0VFREVEEIOgBhIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQ",
+            "gIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUY",
+            "AiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRy",
+            "ZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIl",
+            "CgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBh",
+            "dGhHcm91cFJlZktleRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElk",
+            "GAIgASgLMhkuc2VydmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVnT3AS",
+            "FQoRU0xfUkVHT1BfUkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhAB",
+            "EhcKE1NMX1JFR09QX1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypf",
+            "CgpTTE9iamVjdE9wEhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JK",
+            "T1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVM",
+            "RVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIV",
+            "ChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJMRRAC",
+            "KokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVE",
+            "EAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9I",
+            "SUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlf",
+            "TE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABIS",
+            "Cg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xU",
+            "YWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQ",
+            "djRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoT",
+            "U0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQ",
+            "BCpHCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklC",
+            "X0FDSxABEhUKEVJJQl9GSUJfSU5VU0VfQUNLEAIqvQEKDlNMUnNwQUNLUGVy",
+            "bWl0EhEKDVNMX1BFUk1JVF9BTEwQABIYChRTTF9QRVJNSVRfU0xfU1VDQ0VT",
+            "UxABEhwKGFNMX1BFUk1JVF9TTF9GSUJfU1VDQ0VTUxACEhsKF1NMX1BFUk1J",
+            "VF9TTF9GSUJfRkFJTEVEEAMSHwobU0xfUEVSTUlUX1NMX0ZJQl9JTkVMSUdJ",
+            "QkxFEAQSIgoeU0xfUEVSTUlUX1NMX0ZJQl9JTlVTRV9TVUNDRVNTEAUqZQoP",
+            "U0xSc3BBY2tDYWRlbmNlEhUKEVNMX1JTUF9DT05USU5VT1VTEAASFAoQU0xf",
+            "UlNQX0pVU1RfT05DRRABEhQKEFNMX1JTUF9PTkNFX0VBQ0gQAhIPCgtTTF9S",
+            "U1BfTk9ORRADQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9z",
+            "ZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5",
+            "ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -472,13 +474,28 @@ namespace ServiceLayer {
     /// and result of the hardware programming is returned asynchronously with the last
     /// known OperationID for that object.
     ///
-    /// It must be noted that while the object is waiting for FIB programming,
+    /// **Note 1: while the object is waiting for FIB to be programmed,
     /// client can send another update on the object and the object remains in-active.
     /// The network element may coalesce such back to back operations.
     /// In this scenario, only the last operation on the object is responded to
     /// with corresponding hardware programming result
+    ///
+    /// **Note 2: relay fib programming status is supported only in server streaming RPC.
+    /// However, the AckType RIB_AND_FIB_ACK is supported in both unary (SLAFOp) as well as
+    /// streaming (SLAFOpStream) rpc. When unary rpc is used for programming an object
+    /// with ackType as RIB_AND_FIB_ACK, fib programming will be tracked internally by
+    /// the server and can be retrieved through get operation.
     /// </summary>
     [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
+    /// <summary>
+    /// When the operating mode is RIB_FIB_INUSE_ACK, along with the behavior
+    /// explained above for RIB_AND_FIB_ACK, the client will receive an additional
+    /// response of type SL_FIB_INUSE_SUCCESS. RIB_FIB_INUSE_ACK indicates that object
+    /// has been programmed in FIB and is being actively used by one or more
+    /// forwarding chains.
+    /// RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup
+    /// </summary>
+    [pbr::OriginalName("RIB_FIB_INUSE_ACK")] RibFibInuseAck = 2,
   }
 
   /// <summary>
@@ -489,7 +506,7 @@ namespace ServiceLayer {
   /// for hardware programming, then the corresponding bits are turned ON in the
   /// bit-field.
   /// Control of response type is supported ONLY when ACK type is
-  /// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK.
+  /// RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK and is NOT supported when ACK type is RIB_ACK.
   /// Errorcodes not listed in SLRspACKPermit such as parsing errors are
   /// always permitted and will be relayed to the client even when SLRspACKPermit
   /// is set to values other than SL_PERMIT_ALL.
@@ -513,11 +530,15 @@ namespace ServiceLayer {
     /// <summary>
     /// Permits SL_FIB_FAILED to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_FIB_FAILED")] SlPermitSlFibFailed = 4,
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_FAILED")] SlPermitSlFibFailed = 3,
     /// <summary>
     /// Permits SL_FIB_INELIGIBLE to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_FIB_INELIGIBLE")] SlPermitSlFibIneligible = 8,
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_INELIGIBLE")] SlPermitSlFibIneligible = 4,
+    /// <summary>
+    /// Permits SL_FIB_INUSE to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_INUSE_SUCCESS")] SlPermitSlFibInuseSuccess = 5,
   }
 
   /// <summary>
@@ -526,8 +547,8 @@ namespace ServiceLayer {
   /// will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
   /// for all hardware programming events including events that are internal
   /// to the router such as insertion or removal of line cards.
-  /// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
-  /// SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
+  /// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK
+  /// and SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
   /// </summary>
   public enum SLRspAckCadence {
     /// <summary>
@@ -561,6 +582,13 @@ namespace ServiceLayer {
     /// where the prefix is ineligible until referenced PathGroup is programmed.
     /// </summary>
     [pbr::OriginalName("SL_RSP_ONCE_EACH")] SlRspOnceEach = 2,
+    /// <summary>
+    /// Blocks all response types. This option is used when client expects
+    /// the hw-programming to be tracked internally within service-layer grpc
+    /// server but doesn't expect any notification to be sent to the client.
+    /// This option makes any SLRspACKPermit value to be treated as don't care.
+    /// </summary>
+    [pbr::OriginalName("SL_RSP_NONE")] SlRspNone = 3,
   }
 
   #endregion
@@ -1961,19 +1989,23 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94211,
         /// <summary>
-        /// Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004
+        /// The forwarding chain using this object is fully active in hardware. 0x17004
         /// </summary>
-        [pbr::OriginalName("SL_ACK_PERMIT_NOT_SUPPORTED")] SlAckPermitNotSupported = 94212,
+        [pbr::OriginalName("SL_FIB_INUSE_SUCCESS")] SlFibInuseSuccess = 94212,
         /// <summary>
-        /// Ack cadence is not supported when ack permits are not set. 0x17005
+        /// Ack permit is not supported when ack type is not RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK. 0x17005
         /// </summary>
-        [pbr::OriginalName("SL_ACK_CADENCE_NOT_SUPPORTED")] SlAckCadenceNotSupported = 94213,
+        [pbr::OriginalName("SL_ACK_PERMIT_NOT_SUPPORTED")] SlAckPermitNotSupported = 94213,
+        /// <summary>
+        /// Given ack type is not permitted on object of this type. 0x17006
+        /// </summary>
+        [pbr::OriginalName("SL_INVALID_ACKTYPE")] SlInvalidAcktype = 94214,
         /// <summary>
         /// Offset for policy object operations. 0x18000
         /// </summary>
         [pbr::OriginalName("SL_POLICY_START_OFFSET")] SlPolicyStartOffset = 98304,
         /// <summary>
-        /// Policy object could not be created. 0x18001  
+        /// Policy object could not be created. 0x18001
         /// </summary>
         [pbr::OriginalName("SL_POLICY_ADD_ERR")] SlPolicyAddErr = 98305,
         /// <summary>

@@ -430,6 +430,7 @@ message SLAFObject {
 
 // Operation on a forwarding table object
 message SLAFOp {
+
     SLAFObject AFObject = 1;
 
     // Unique operationID sent by the client to corelate the responses.
@@ -446,19 +447,19 @@ message SLAFOp {
     // and filter hardware programming responses sent from SL-API server
     // to the SL-API client based on the response type carried by SLAFRes.ErrStatus.
     // These parameters are supported only for objects programmed with AckType as
-    // RIB_AND_FIB_ACK.
+    // RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK.
     // These parameters only affect the responses sent to the SL-API client.
     // SL-API server will keep record of the latest hardware programming
-    // response for each object programmed with AckType as RIB_AND_FIB_ACK.
+    // response for each object programmed with AckType as RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK.
     // SL-API client can do a SLAFGet() RPC to retrieve the latest hardware
     // programming response regardless of what is defined in ACKPermit and
     // AckCadence.
 
     // AckPermit controls the scope of response types that are sent from
     // SL-API server in response to hardware programming events.
-    // AckPermit is a bit-field  resulting from ORing one or more bits
-    // enumerated in SLRspACKPermit.
-    uint32 AckPermit = 4;
+    // AckPermit is a list of possible response types as enumerated in
+    // SLRspACKPermit that the client is interested in.
+    repeated SLRspACKPermit AckPermits = 4;
 
     // AckCadence controls the cadence of hardware programming responses.
     // Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite
@@ -516,9 +517,9 @@ message SLAFFibStatus {
 
     // DepResult is the result of any object that this operation's object depends on.
     // For example: if this operation is about programming an IPv4 or IPv6
-    // route that is pointing to a Path Group, then the DepResult that will carry 
+    // route that is pointing to a Path Group, then the DepResult that will carry
     // the FIB result of the operation that programmed that Path Group.
-    // Note, DepResult is returned on ADD and UPDATE operations only. 
+    // Note, DepResult is returned on ADD and UPDATE operations only.
     SLAFDepFibStatus DepResult = 2;
 }
 
@@ -528,12 +529,12 @@ message SLAFGetMsgRspEntry {
     SLAFOp AFOp = 1;
 
     // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
-    // then ErrorCode indicates result of hardware programming of the
+    // or RIB_FIB_INUSE_ACK then ErrorCode indicates result of hardware programming of the
     // operation
     SLErrorStatus ErrorCode = 2;
 
     // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
-    // then Version is the last version number assigned by the device.
+    // or RIB_FIB_INUSE_ACK then Version is the last version number assigned by the device.
     uint64 Version = 3;
 }
 
@@ -593,7 +594,7 @@ message SLAFRes {
     string ErrorString = 3;
 
     // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
-    // then FIBStatus indicates status of hardware programming of the
+    // or RIB_FIB_INUSE_ACK, then FIBStatus indicates status of hardware programming of the
     // operation
     SLAFFibStatus FIBStatus = 4;
 }
