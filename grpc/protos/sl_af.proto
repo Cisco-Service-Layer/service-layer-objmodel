@@ -443,7 +443,6 @@ message SLAFOp {
     // the network element
     SLRspACKType AckType = 3;
 
-
     // ACKPermit and AckCadence are parameters that can be used to control
     // and filter hardware programming responses sent from SL-API server
     // to the SL-API client based on the response type carried by SLAFRes.ErrStatus.
@@ -466,7 +465,6 @@ message SLAFOp {
     // Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite
     // for setting AckCadence.
     SLRspAckCadence AckCadence = 5;
-
 }
 
 // Used to retrieve objects in a VRF table.
