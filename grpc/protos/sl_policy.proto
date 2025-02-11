@@ -61,7 +61,7 @@ service SLPolicy {
      // already exists.
      // If the incoming Policy object contains rules that are already
      // present (and idempotent) in the server's Policy object, they will
-     // ignored, and success will be returned for each such rule object.
+     // be ignored, and success will be returned for each such rule object.
      // Update/modification to existing rule objects are rejected and
      // error returned for that rule object.
      // Rule objects in the request that do not exist in the server's
