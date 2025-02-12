@@ -64,10 +64,10 @@ enum SLInterfaceState {
 }
 
 message SLInterfaceInfoMsgBw {
-    // The New Bandwidth.
+    // The New Bandwidth (in Kbps).
     uint64 NewBandwidth = 1;
 
-    // The Old Bandwidth prior to the update.
+    // The Old Bandwidth prior to the update (in Kbps).
     uint64 OldBandwidth = 2;
 }
 

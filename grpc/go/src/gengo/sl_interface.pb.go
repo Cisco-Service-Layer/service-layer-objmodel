@@ -108,9 +108,9 @@ type SLInterfaceInfoMsgBw struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// The New Bandwidth.
+	// The New Bandwidth (in Kbps).
 	NewBandwidth uint64 `protobuf:"varint,1,opt,name=NewBandwidth,proto3" json:"NewBandwidth,omitempty"`
-	// The Old Bandwidth prior to the update.
+	// The Old Bandwidth prior to the update (in Kbps).
 	OldBandwidth uint64 `protobuf:"varint,2,opt,name=OldBandwidth,proto3" json:"OldBandwidth,omitempty"`
 }
 

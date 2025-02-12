@@ -210,24 +210,24 @@ enum SLRouteFlags {
     // Each flag is indicated as a bit field. Supported values are:
 
     // Reserved.
-    SL_ROUTE_FLAG_RESERVED = 0x00;
+    SL_ROUTE_FLAG_RESERVED = 0;
 
     // This route takes precedence over a route
     // learnt by LDP.
-    SL_ROUTE_FLAG_PREFER_OVER_LDP = 0x01;
-  
+    SL_ROUTE_FLAG_PREFER_OVER_LDP = 1;
+
     // If this route is preferred over any other producer of the same prefix
     // and the latter is programmed with a SR label as well, do not merge
     // that label's programming this route.
-    SL_ROUTE_FLAG_DISABLE_LABEL_MERGE = 0x2; 
+    SL_ROUTE_FLAG_DISABLE_LABEL_MERGE = 2;
 
     // Install viable paths only. See text in SLRoutecommon/PathGroup for more details
-    SL_ROUTE_FLAG_VIABLE_PATHS_ONLY = 0x04;
+    SL_ROUTE_FLAG_VIABLE_PATHS_ONLY = 3;
 
-    // Route is considered active if there is atleast one viable path. 
+    // Route is considered active if there is atleast one viable path.
     // See text in SLRoutecommon/PathGroup for more details.
-    SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 0x08;
- 
+    SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 4;
+
     // All others are reserved.
 }
 
@@ -236,10 +236,10 @@ enum SLPathFlags {
     // Each flag is indicated as a bit field. Supported values are:
 
     // Reserved.
-    SL_PATH_FLAG_RESERVED = 0x00;
+    SL_PATH_FLAG_RESERVED = 0;
 
     // Enables hardware optimization for single path VxLAN tunnels.
-    SL_PATH_FLAG_SINGLE_PATH_OPT  = 0x01;
+    SL_PATH_FLAG_SINGLE_PATH_OPT  = 1;
 }
 
 // Common Get Notifications message
@@ -303,20 +303,11 @@ message SLVrfNotif {
     SLObjectOp Status = 2;
 }
 
-// Get objects whose attibutes match one of below entries.
-// Specify a regular expression for PathGroup name
-// or a numerical value for Vxlan VNI.
-message SLRouteGetMatch {
-    oneof entry {
-        // SLAFGetMsgRsp.AFList.AFOp.AFObject.entry.PathGroupKey.PathGroupId.Name
-        string PathGroupRegex = 1;
-        // SLAFGetMsgRsp.AFList.AFOp.AFObject.PathList.VxLANPath.VNI
-        uint32 VxlanVniId = 2;
-    }
-}
-
 // Common IPv4/IPv6 route attributes.
 message SLRouteCommon {
+    reserved 6;
+    reserved "Flags";
+
     // Adminstrative distance of the route. [0-255].
     // RIB uses this field to break the tie when multiple
     // sources install the same route.
@@ -407,7 +398,7 @@ message SLRouteCommon {
     //   whether this route should be considered in best route calculations.
     //
     // All others are reserved.
-    uint32 Flags = 6;
+    repeated SLRouteFlags RouteFlags = 7;
 }
 
 // Attributes for constructing VxLAN encapsulation for a IP packet.
@@ -441,6 +432,9 @@ message SLVxLANPath {
 // link down, BFD, etc.). Revertion is mainly timeout based. The timeout
 // value is platform specific and is not configurable.
 message SLRoutePath {
+    reserved 13;
+    reserved "Flags";
+
     // One of IPv4 or IPv6 address.
     // For ENCAP_VXLAN, this field is not supported and will be ignored.
     SLIpAddress NexthopAddress = 1;
@@ -467,6 +461,8 @@ message SLRoutePath {
     // Route Metric.
     // The metric is typically based on information like load, hop count,
     // MTU, reliability of the path, etc.
+    // If a non-zero metric value is set in the route, the value set will override
+    // any metric value in the associated SLRoutePath
     uint32 Metric = 5;
 
     // Path identifier.
@@ -528,7 +524,7 @@ message SLRoutePath {
     repeated SLIpAddress RemoteAddress = 9;
 
     // For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN
-    SLEncapType EncapType = 10;
+    SLEncapType EncapType = 10 [deprecated = true];
 
     // VTEP (VxLAN tunnel end point) router MAC address.
     // A unique system MAC address that other VTEPs can use for inter-VNI
@@ -539,15 +535,32 @@ message SLRoutePath {
     //
     // This field and VxLANPath are mutually exclusive. This field
     // is deprecated and will eventually be removed.
-    bytes VtepRouterMacAddress = 11;
+    bytes VtepRouterMacAddress = 11 [deprecated = true];
 
     // Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
     // on the IP packet.
     SLVxLANPath VxLANPath = 12;
-    
+
     // Path Flags. Each flag is indicated as a bit field. Supported values are:
     // - 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels.
-    uint32 Flags = 13;
+    repeated SLPathFlags PathFlags = 14;
+
+    // Reference to the Path Group for this route. The attribute is oneof
+    // to allow for future extension.
+    // If any field in the oneof is set, all other fields are ignored
+    oneof entry {
+        // Path group reference key
+        SLPathGroupRefKey PathGroupKey = 15;
+   }
+}
+
+// IP Route Prefix and Prefix Length
+message SLRoutePrefix {
+    // IPv4 or IPv6 address
+    SLIpAddress Prefix = 1;
+
+    // Prefix length
+    uint32 PrefixLen = 2;
 }
 
 // @}

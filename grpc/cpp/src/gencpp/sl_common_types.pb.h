@@ -361,13 +361,9 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_SZ = 90118,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_RIB_ADD_FAILED = 90119,
   SLErrorStatus_SLErrno_SL_ROUTE_REDIST_RIB_ADD_FAILED = 90120,
-  SLErrorStatus_SLErrno_SL_FIB_START_OFFSET = 94208,
-  SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94209,
-  SLErrorStatus_SLErrno_SL_FIB_FAILED = 94210,
-  SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94211,
-  SLErrorStatus_SLErrno_SL_FIB_INUSE_SUCCESS = 94212,
-  SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED = 94213,
-  SLErrorStatus_SLErrno_SL_INVALID_ACKTYPE = 94214,
+  SLErrorStatus_SLErrno_SL_ACK_START_OFFSET = 94208,
+  SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED = 94209,
+  SLErrorStatus_SLErrno_SL_ACK_INVALID_TYPE = 94210,
   SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET = 98304,
   SLErrorStatus_SLErrno_SL_POLICY_ADD_ERR = 98305,
   SLErrorStatus_SLErrno_SL_POLICY_EXISTS_ERR = 98306,
@@ -621,19 +617,46 @@ inline bool SLRspACKType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKType>(
     SLRspACKType_descriptor(), name, value);
 }
+enum SLAFFibStatus : int {
+  SL_FIB_UNKNOWN = 0,
+  SL_FIB_SUCCESS = 1,
+  SL_FIB_FAILED = 2,
+  SL_FIB_INELIGIBLE = 3,
+  SL_FIB_INUSE_SUCCESS = 4,
+  SLAFFibStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLAFFibStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLAFFibStatus_IsValid(int value);
+constexpr SLAFFibStatus SLAFFibStatus_MIN = SL_FIB_UNKNOWN;
+constexpr SLAFFibStatus SLAFFibStatus_MAX = SL_FIB_INUSE_SUCCESS;
+constexpr int SLAFFibStatus_ARRAYSIZE = SLAFFibStatus_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLAFFibStatus_descriptor();
+template<typename T>
+inline const std::string& SLAFFibStatus_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLAFFibStatus>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLAFFibStatus_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLAFFibStatus_descriptor(), enum_t_value);
+}
+inline bool SLAFFibStatus_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLAFFibStatus* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLAFFibStatus>(
+    SLAFFibStatus_descriptor(), name, value);
+}
 enum SLRspACKPermit : int {
-  SL_PERMIT_ALL = 0,
-  SL_PERMIT_SL_SUCCESS = 1,
-  SL_PERMIT_SL_FIB_SUCCESS = 2,
-  SL_PERMIT_SL_FIB_FAILED = 3,
-  SL_PERMIT_SL_FIB_INELIGIBLE = 4,
-  SL_PERMIT_SL_FIB_INUSE_SUCCESS = 5,
+  SL_PERMIT_FIB_STATUS_ALL = 0,
+  SL_PERMIT_FIB_SUCCESS = 1,
+  SL_PERMIT_FIB_FAILED = 2,
+  SL_PERMIT_FIB_INELIGIBLE = 3,
+  SL_PERMIT_FIB_INUSE_SUCCESS = 4,
   SLRspACKPermit_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspACKPermit_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKPermit_IsValid(int value);
-constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_ALL;
-constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_SL_FIB_INUSE_SUCCESS;
+constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_FIB_STATUS_ALL;
+constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_FIB_INUSE_SUCCESS;
 constexpr int SLRspACKPermit_ARRAYSIZE = SLRspACKPermit_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKPermit_descriptor();
@@ -1359,20 +1382,12 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_NEXT_HOP_RIB_ADD_FAILED;
   static constexpr SLErrno SL_ROUTE_REDIST_RIB_ADD_FAILED =
     SLErrorStatus_SLErrno_SL_ROUTE_REDIST_RIB_ADD_FAILED;
-  static constexpr SLErrno SL_FIB_START_OFFSET =
-    SLErrorStatus_SLErrno_SL_FIB_START_OFFSET;
-  static constexpr SLErrno SL_FIB_SUCCESS =
-    SLErrorStatus_SLErrno_SL_FIB_SUCCESS;
-  static constexpr SLErrno SL_FIB_FAILED =
-    SLErrorStatus_SLErrno_SL_FIB_FAILED;
-  static constexpr SLErrno SL_FIB_INELIGIBLE =
-    SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE;
-  static constexpr SLErrno SL_FIB_INUSE_SUCCESS =
-    SLErrorStatus_SLErrno_SL_FIB_INUSE_SUCCESS;
+  static constexpr SLErrno SL_ACK_START_OFFSET =
+    SLErrorStatus_SLErrno_SL_ACK_START_OFFSET;
   static constexpr SLErrno SL_ACK_PERMIT_NOT_SUPPORTED =
     SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED;
-  static constexpr SLErrno SL_INVALID_ACKTYPE =
-    SLErrorStatus_SLErrno_SL_INVALID_ACKTYPE;
+  static constexpr SLErrno SL_ACK_INVALID_TYPE =
+    SLErrorStatus_SLErrno_SL_ACK_INVALID_TYPE;
   static constexpr SLErrno SL_POLICY_START_OFFSET =
     SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET;
   static constexpr SLErrno SL_POLICY_ADD_ERR =
@@ -2824,6 +2839,11 @@ template <> struct is_proto_enum< ::service_layer::SLRspACKType> : ::std::true_t
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKType>() {
   return ::service_layer::SLRspACKType_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLAFFibStatus> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLAFFibStatus>() {
+  return ::service_layer::SLAFFibStatus_descriptor();
 }
 template <> struct is_proto_enum< ::service_layer::SLRspACKPermit> : ::std::true_type {};
 template <>
