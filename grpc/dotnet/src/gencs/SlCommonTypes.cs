@@ -526,7 +526,8 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 3,
     /// <summary>
     /// The forwarding chain using this object is fully active in hardware
-    /// and is in-use by at least one referencing object.
+    /// and is in-use by at least one referencing object that is also
+    /// programmed in hardware.
     /// </summary>
     [pbr::OriginalName("SL_FIB_INUSE_SUCCESS")] SlFibInuseSuccess = 4,
   }

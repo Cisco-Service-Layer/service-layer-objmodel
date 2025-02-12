@@ -4028,7 +4028,6 @@ class SLAFGetMsgRspEntry final :
 
   enum : int {
     kAFOpMsgFieldNumber = 1,
-    kVersionFieldNumber = 3,
     kFIBStatusFieldNumber = 2,
   };
   // .service_layer.SLAFOpMsg AFOpMsg = 1;
@@ -4049,15 +4048,6 @@ class SLAFGetMsgRspEntry final :
       ::service_layer::SLAFOpMsg* afopmsg);
   ::service_layer::SLAFOpMsg* unsafe_arena_release_afopmsg();
 
-  // uint64 Version = 3;
-  void clear_version();
-  uint64_t version() const;
-  void set_version(uint64_t value);
-  private:
-  uint64_t _internal_version() const;
-  void _internal_set_version(uint64_t value);
-  public:
-
   // .service_layer.SLAFFibStatus FIBStatus = 2;
   void clear_fibstatus();
   ::service_layer::SLAFFibStatus fibstatus() const;
@@ -4075,7 +4065,6 @@ class SLAFGetMsgRspEntry final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLAFOpMsg* afopmsg_;
-  uint64_t version_;
   int fibstatus_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
@@ -4592,7 +4581,6 @@ class SLAFRes final :
     kStatusFieldNumber = 1,
     kKeyFieldNumber = 2,
     kOperationIDFieldNumber = 3,
-    kVersionFieldNumber = 6,
     kFIBStatusFieldNumber = 4,
   };
   // string ErrorString = 5;
@@ -4654,15 +4642,6 @@ class SLAFRes final :
   void _internal_set_operationid(uint64_t value);
   public:
 
-  // uint64 Version = 6;
-  void clear_version();
-  uint64_t version() const;
-  void set_version(uint64_t value);
-  private:
-  uint64_t _internal_version() const;
-  void _internal_set_version(uint64_t value);
-  public:
-
   // .service_layer.SLAFFibStatus FIBStatus = 4;
   void clear_fibstatus();
   ::service_layer::SLAFFibStatus fibstatus() const;
@@ -4683,7 +4662,6 @@ class SLAFRes final :
   ::service_layer::SLErrorStatus* status_;
   ::service_layer::SLAFObjectKey* key_;
   uint64_t operationid_;
-  uint64_t version_;
   int fibstatus_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
@@ -9855,26 +9833,6 @@ inline void SLAFGetMsgRspEntry::set_fibstatus(::service_layer::SLAFFibStatus val
   // @@protoc_insertion_point(field_set:service_layer.SLAFGetMsgRspEntry.FIBStatus)
 }
 
-// uint64 Version = 3;
-inline void SLAFGetMsgRspEntry::clear_version() {
-  version_ = uint64_t{0u};
-}
-inline uint64_t SLAFGetMsgRspEntry::_internal_version() const {
-  return version_;
-}
-inline uint64_t SLAFGetMsgRspEntry::version() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFGetMsgRspEntry.Version)
-  return _internal_version();
-}
-inline void SLAFGetMsgRspEntry::_internal_set_version(uint64_t value) {
-  
-  version_ = value;
-}
-inline void SLAFGetMsgRspEntry::set_version(uint64_t value) {
-  _internal_set_version(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFGetMsgRspEntry.Version)
-}
-
 // -------------------------------------------------------------------
 
 // SLAFGetMsgRsp
@@ -10460,26 +10418,6 @@ inline void SLAFRes::set_allocated_errorstring(std::string* errorstring) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.ErrorString)
-}
-
-// uint64 Version = 6;
-inline void SLAFRes::clear_version() {
-  version_ = uint64_t{0u};
-}
-inline uint64_t SLAFRes::_internal_version() const {
-  return version_;
-}
-inline uint64_t SLAFRes::version() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.Version)
-  return _internal_version();
-}
-inline void SLAFRes::_internal_set_version(uint64_t value) {
-  
-  version_ = value;
-}
-inline void SLAFRes::set_version(uint64_t value) {
-  _internal_set_version(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.Version)
 }
 
 // -------------------------------------------------------------------
