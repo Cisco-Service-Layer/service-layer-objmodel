@@ -76,6 +76,12 @@ service SLPolicy {
      // existent object is returned as success.
      // 
 
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_REPLACE
+     // Replace an existing Policy Object with the incoming Policy Object.
+     // NOOP if the incoming Policy Object is idempotent (including Rules
+     // and all their attributes).
+     // Add a new Policy Object if it does not exist.
+
      // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_ADD 
      // Add rules to an existing Policy object. If any of the rules exist,
      // return success if the new rule is the same as existing rule. Else
@@ -93,6 +99,12 @@ service SLPolicy {
      // rule is provided.
      // 
 
+     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_REPLACE
+     // Replace the contents (matches, actions, priority) of an existing
+     // Rule Object.
+     // NOOP for idempotent replacement of Rule Objects.
+     // Add a new Rule Object if it does not exist.
+
      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY 
      // Apply the policy on an interface. Only the policy object key
      // and the interface where it needs to be applied will be verified
@@ -103,6 +115,13 @@ service SLPolicy {
      // and the interface where it needs to be removed from  will be 
      // verified and used, other attributes are ignored.
      // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY_REPLACE
+     // Replace the Policy Object that has been applied to an Interface.
+     // The previous Policy Object will be removed from the Interface,
+     // followed by addition of the specified Policy Object.
+     // NOOP if same Policy Object is being applied to an Interface.
+     // Apply the Policy to the interface if none is currently applied.
 
      // The device can be programmed by only one active instance of 
      // this RPC.
