@@ -81,6 +81,22 @@ service SLPolicy {
      // NOOP if the incoming Policy Object is idempotent (including Rules
      // and all their attributes).
      // Add a new Policy Object if it does not exist.
+     //
+     // Example,
+     // P{r1, r2, r3} + POLICY_REPLACE(P{r1, r3, r4}) -> P{r1, r3, r4}
+     // i.e., for an existing Policy P{r1, r2, r3} on server side,
+     // perform POLICY_REPLACE(P{r1, r3, r4}) where r1, r3 are
+     // idempotent (i.e., matches, action, priority are exactly same)
+     // with the server side Rule Object, the final Policy Object will
+     // be: P{r1, r3, r4}
+     // In terms of operations performed on the Policy Object,
+     //   r2 will be deleted,
+     //   r4 will be added,
+     //   no changes to r1, r3 since they are unmodified. No traffic
+     //   impact is expected to these rules.
+     // Any errors encountered while performing the above operations
+     // will be reported accordingly.
+     //
 
      // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_ADD 
      // Add rules to an existing Policy object. If any of the rules exist,
@@ -99,12 +115,6 @@ service SLPolicy {
      // rule is provided.
      // 
 
-     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_REPLACE
-     // Replace the contents (matches, actions, priority) of an existing
-     // Rule Object.
-     // NOOP for idempotent replacement of Rule Objects.
-     // Add a new Rule Object if it does not exist.
-
      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY 
      // Apply the policy on an interface. Only the policy object key
      // and the interface where it needs to be applied will be verified
@@ -115,13 +125,6 @@ service SLPolicy {
      // and the interface where it needs to be removed from  will be 
      // verified and used, other attributes are ignored.
      // 
-
-     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY_REPLACE
-     // Replace the Policy Object that has been applied to an Interface.
-     // The previous Policy Object will be removed from the Interface,
-     // followed by addition of the specified Policy Object.
-     // NOOP if same Policy Object is being applied to an Interface.
-     // Apply the Policy to the interface if none is currently applied.
 
      // The device can be programmed by only one active instance of 
      // this RPC.
