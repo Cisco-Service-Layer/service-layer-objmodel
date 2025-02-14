@@ -78,9 +78,11 @@ service SLPolicy {
 
      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_REPLACE
      // Replace an existing Policy Object with the incoming Policy Object.
-     // NOOP if the incoming Policy Object is idempotent (including Rules
-     // and all their attributes).
-     // Add a new Policy Object if it does not exist.
+     // As part of the replace,
+     //  - Rule Objects that did not change (idempotent) are not impacted.
+     //  - Rule Objects that that no longer exist in the new Policy will
+     //    be implicitly deleted.
+     //  - Newly added Rule Objects will be created.
      //
      // Example,
      // P{r1, r2, r3} + POLICY_REPLACE(P{r1, r3, r4}) -> P{r1, r3, r4}
@@ -96,6 +98,11 @@ service SLPolicy {
      //   impact is expected to these rules.
      // Any errors encountered while performing the above operations
      // will be reported accordingly.
+     // The order of Rule Objects in the request does not affect handling
+     // i.e., POLICY_REPLACE(P{r1, r3, r4}) and POLICY_REPLACE(P{r4, r3, r1})
+     // will have same behavior.
+     //
+     // Add a new Policy Object if it does not exist.
      //
 
      // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_ADD 
