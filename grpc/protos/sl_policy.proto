@@ -1,6 +1,6 @@
 // @file 
 // @brief Client RPC proto file for Policy RPCs. 
-// Declares calls for adding, deleting, replacing the policies
+// Declares calls for adding, replacing, deleting the policies
 // and apply, unapply policies from interfaces.
 // 
 // ----------------------------------------------------------------
@@ -332,7 +332,7 @@ message SLPolicyRes {
  
       oneof SLPolicyOpStatus {
         // Status of policy level operations
-        // like policy add and policy delete  
+        // like policy add, replace and delete
         SLErrorStatus PolicyStatus = 2;
         // Status of rule operations on a policy
         SLPolicyRuleStatusList RulesStatus = 3;
