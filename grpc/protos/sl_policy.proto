@@ -19,9 +19,12 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 
 // @defgroup SLPolicy
 // @ingroup Policy
-// Used for policy creation, deletion, replacement, and delete rules
-// from policy, apply and un-apply policy from interfaces.
-// Defines the RPC for operations on policy, interface and get requests.
+// Used for:
+// - Policy creation, replacement, and deletion
+// - Rule addition, and deletion from Policy
+// - Apply and Un-apply Policy from Interfaces
+//
+// Defines the RPC for operations on Policy, Interface and get requests.
 // @{ 
 service SLPolicy { 
      //@addtogroup SLPolicy
@@ -70,41 +73,6 @@ service SLPolicy {
      // affected.
      // 
 
-     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_DELETE 
-     // Delete the policy object. The object's key is enough to delete the 
-     // object. Other attributes if present are ignored. Delete of a non-
-     // existent object is returned as success.
-     // 
-
-
-     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_ADD 
-     // Add rules to an existing Policy object. If any of the rules exist,
-     // return success if the new rule is the same as existing rule. Else
-     // error is returned as rule modification is not supported.
-     // Fails if the Policy object key does not exist in the system or if
-     // no rule is provided.
-     // 
-
-     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_DELETE 
-     // If the policy object does not exist, "Policy not found" error
-     // is returned. If policy object exists, delete the list of rules
-     // provided. Delete of a non-existent rule within a policy object
-     // is returned as success. If the last rule within a policy object
-     // is deleted, an empty policy will continue to exist. Fails if no
-     // rule is provided.
-     // 
-
-     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY 
-     // Apply the policy on an interface. Only the policy object key
-     // and the interface where it needs to be applied will be verified
-     // and used. Other attributes are ignored.  
-
-     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
-     // Unapply the policy on an interface. Only the policy object key
-     // and the interface where it needs to be removed from  will be 
-     // verified and used, other attributes are ignored.
-     // 
-
      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_REPLACE
      // Replace an existing Policy Object with the incoming Policy Object.
      // As part of the replace,
@@ -132,6 +100,42 @@ service SLPolicy {
      // will have same behavior.
      //
      // Add a new Policy Object if it does not exist.
+     //
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_DELETE 
+     // Delete the policy object. The object's key is enough to delete the 
+     // object. Other attributes if present are ignored. Delete of a non-
+     // existent object is returned as success.
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_ADD 
+     // Add rules to an existing Policy object. If any of the rules exist,
+     // return success if the new rule is the same as existing rule. Else
+     // error is returned as rule modification is not supported.
+     // Fails if the Policy object key does not exist in the system or if
+     // no rule is provided.
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_DELETE 
+     // If the policy object does not exist, "Policy not found" error
+     // is returned. If policy object exists, delete the list of rules
+     // provided. Delete of a non-existent rule within a policy object
+     // is returned as success. If the last rule within a policy object
+     // is deleted, an empty policy will continue to exist. Fails if no
+     // rule is provided.
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY 
+     // Apply the policy on an interface. Only the policy object key
+     // and the interface where it needs to be applied will be verified
+     // and used. Other attributes are ignored.  
+     //
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
+     // Unapply the policy on an interface. Only the policy object key
+     // and the interface where it needs to be removed from  will be 
+     // verified and used, other attributes are ignored.
+     // 
 
      //
      // The device can be programmed by only one active instance of 
