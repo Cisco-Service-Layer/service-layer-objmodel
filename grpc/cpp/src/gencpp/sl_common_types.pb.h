@@ -453,6 +453,10 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE = 106537,
   SLErrorStatus_SLErrno_SL_BGP_ASN_OUT_OF_RANGE = 106538,
   SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_UNIT = 106539,
+  SLErrorStatus_SLErrno_SL_BGP_OBJECT_TYPE_REQUIRED = 106540,
+  SLErrorStatus_SLErrno_SL_BGP_OBJECT_KEY_REQUIRED = 106541,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_OBJECT_TYPE = 106542,
+  SLErrorStatus_SLErrno_SL_BGP_GET_EXACT_MATCH_NOT_FOUND = 106543,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1 = 106753,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_2 = 106754,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_3 = 106755,
@@ -1586,6 +1590,14 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_BGP_ASN_OUT_OF_RANGE;
   static constexpr SLErrno SL_BGP_INVALID_BW_UNIT =
     SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_UNIT;
+  static constexpr SLErrno SL_BGP_OBJECT_TYPE_REQUIRED =
+    SLErrorStatus_SLErrno_SL_BGP_OBJECT_TYPE_REQUIRED;
+  static constexpr SLErrno SL_BGP_OBJECT_KEY_REQUIRED =
+    SLErrorStatus_SLErrno_SL_BGP_OBJECT_KEY_REQUIRED;
+  static constexpr SLErrno SL_BGP_INVALID_OBJECT_TYPE =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_OBJECT_TYPE;
+  static constexpr SLErrno SL_BGP_GET_EXACT_MATCH_NOT_FOUND =
+    SLErrorStatus_SLErrno_SL_BGP_GET_EXACT_MATCH_NOT_FOUND;
   static constexpr SLErrno SL_BGP_INTERNAL_ERR_1 =
     SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1;
   static constexpr SLErrno SL_BGP_INTERNAL_ERR_2 =

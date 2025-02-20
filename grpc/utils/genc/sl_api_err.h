@@ -844,6 +844,14 @@
     SL_BGP_ASN_OUT_OF_RANGE = 0x1a02a,\
     /* BGP invalid bandwidth-unit. 0x1a02b */\
     SL_BGP_INVALID_BW_UNIT = 0x1a02b,\
+    /* BGP Object Type required when get_next is FALSE. 0x1a02c */\
+    SL_BGP_OBJECT_TYPE_REQUIRED = 0x1a02c,\
+    /* BGP Object Key required when get_next is FALSE. 0x1a02d */\
+    SL_BGP_OBJECT_KEY_REQUIRED = 0x1a02d,\
+    /* BGP invalid object type. 0x1a02e */\
+    SL_BGP_INVALID_OBJECT_TYPE = 0x1a02e,\
+    /* BGP exact match for get request is not found. 0x1a02f */\
+    SL_BGP_GET_EXACT_MATCH_NOT_FOUND = 0x1a02f,\
     /* BGP Internal Error 1. 0x1a101 */\
     SL_BGP_INTERNAL_ERR_1 = 0x1a101,\
     /* BGP Internal Error 2. 0x1a102 */\
@@ -2034,6 +2042,18 @@
         },\
     {SL_BGP_INVALID_BW_UNIT ,\
         " BGP invalid bandwidth-unit.  "\
+        },\
+    {SL_BGP_OBJECT_TYPE_REQUIRED ,\
+        " BGP Object Type required when get_next is FALSE.  "\
+        },\
+    {SL_BGP_OBJECT_KEY_REQUIRED ,\
+        " BGP Object Key required when get_next is FALSE.  "\
+        },\
+    {SL_BGP_INVALID_OBJECT_TYPE ,\
+        " BGP invalid object type.  "\
+        },\
+    {SL_BGP_GET_EXACT_MATCH_NOT_FOUND ,\
+        " BGP exact match for get request is not found.  "\
         },\
     {SL_BGP_INTERNAL_ERR_1 ,\
         " BGP Internal Error 1.  "\
