@@ -38,6 +38,27 @@ private:
     std::chrono::time_point<clock_> beg_;
 };
 
+// Splits a comma separated string into a vector
+std::vector<std::string> splitString(const std::string& input) {
+    std::vector<std::string> result;
+    std::stringstream ss(input);
+    std::string item;
+
+    while (std::getline(ss, item, ',')) {
+        std::string trimmedItem;
+        for (char c : item) {
+            if (c != ' ') {  // Check if the character is not a space
+                trimmedItem += c; // Add non-space characters to the trimmed string
+            }
+        }
+        if (!trimmedItem.empty()) {
+            result.push_back(trimmedItem);
+        }
+    }
+
+    return result;
+}
+
 uint32_t incrementIpv4Pfx(uint32_t prefix, uint32_t prefixLen) {
     if (prefixLen > 32) {
         LOG(ERROR) << "PrefixLen > 32";
@@ -132,16 +153,249 @@ signalHandlerSlaf(int signum)
     }  
 }
 
+// Checks if rib and/or fib response is what we expect
+std::pair<bool,bool> checkRibFibRequired(bool ack_rib_fib_set)
+{
+    bool rib_req = false;
+    bool fib_req = false;
+    if (ack_rib_fib_set) {
+        rib_req = true;
+        fib_req = true;
+    } else {
+        rib_req = true;
+    }
+
+    return std::make_pair(rib_req, fib_req);
+}
+
+void
+printHelperSlRoutePath(SLAFRShuttle* slaf_route_shuttle, service_layer::SLRoutePath path_object) {
+    LOG(INFO) << "\t\t\tSLRoutePath:";
+    // If path group key is set, all other fields are ignored
+    if (path_object.has_pathgroupkey()) {
+        service_layer::SLPathGroupRefKey path_group_key = path_object.pathgroupkey();
+        LOG(INFO) << "\t\t\t\tSLPathGroupRefKey:";
+        LOG(INFO) << "\t\t\t\t\tVrfName: " << path_group_key.vrfname();
+        if (path_group_key.pathgroupid().has_name()) {
+            LOG(INFO) << "\t\t\t\t\tPathGroupID: " << path_group_key.pathgroupid().name();
+        }
+    } else {
+        if (path_object.has_nexthopaddress()) {
+            service_layer::SLIpAddress address = path_object.nexthopaddress();
+            LOG(INFO) << "\t\t\t\tNextHopAddress: ";
+            if (address.has_v4address()) {
+                LOG(INFO) << "\t\t\t\t\tV4 Address: " << address.v4address();
+            }
+            if(address.has_v6address()) {
+                LOG(INFO) << "\t\t\t\t\tV6 Address: " << slaf_route_shuttle->ByteArrayStringtoIpv6(address.v6address());
+            }
+        }
+        if (path_object.has_nexthopinterface()) {
+            service_layer::SLInterface intf = path_object.nexthopinterface();
+            LOG(INFO) << "\t\t\t\tNextHopInterface: ";
+            if (intf.has_name()) {
+                LOG(INFO) << "\t\t\t\t\tName: " << intf.name();
+            }
+            if(intf.has_handle()) {
+                LOG(INFO) << "\t\t\t\t\tHandle: " << intf.handle();
+            }
+        }
+        LOG(INFO) << "\t\t\t\tLoad Metric: " << path_object.loadmetric();
+        LOG(INFO) << "\t\t\t\tVRF Name: " << path_object.vrfname();
+        LOG(INFO) << "\t\t\t\tMetric: " << path_object.metric();
+        LOG(INFO) << "\t\t\t\tPath ID: " << path_object.pathid();
+
+        for (int temp_index = 0; temp_index < path_object.protectedpathbitmap_size(); temp_index++) {
+            LOG(INFO) << "\t\t\t\tProtected Path Bitmap: " << path_object.protectedpathbitmap(temp_index);
+        }
+        for (int temp_index = 0; temp_index < path_object.labelstack_size(); temp_index++) {
+            LOG(INFO) << "\t\t\t\tLabel Stack: " << path_object.labelstack(temp_index);
+        }
+        for (int temp_index = 0; temp_index < path_object.remoteaddress_size(); temp_index++) {
+            service_layer::SLIpAddress address = path_object.remoteaddress(temp_index);
+            LOG(INFO) << "\t\t\t\tRemote Address:";
+            if (address.has_v4address()) {
+                LOG(INFO) << "\t\t\t\t\tV4 Address: " << address.v4address();
+            }
+            if(address.has_v6address()) {
+                LOG(INFO) << "\t\t\t\t\tV6 Address: " << slaf_route_shuttle->ByteArrayStringtoIpv6(address.v6address());
+            }
+        }
+
+        if (path_object.has_vxlanpath()) {
+            service_layer::SLVxLANPath vxlan_path = path_object.vxlanpath();
+            LOG(INFO) << "\t\t\t\tSLVxLANPath:";
+            LOG(INFO) << "\t\t\t\t\tVNI: " << vxlan_path.vni();
+            LOG(INFO) << "\t\t\t\t\tSource Mac Address: " << vxlan_path.sourcemacaddress();
+            LOG(INFO) << "\t\t\t\t\tDest Mac Address: " << vxlan_path.destmacaddress();
+
+            LOG(INFO) << "\t\t\t\t\tSrc Ip Address:";
+            service_layer::SLIpAddress src_address = vxlan_path.srcipaddress();
+            if (src_address.has_v4address()) {
+                LOG(INFO) << "\t\t\t\t\t\tV4 Address: " << src_address.v4address();
+            }
+            if(src_address.has_v6address()) {
+                LOG(INFO) << "\t\t\t\t\t\tV6 Address: " << slaf_route_shuttle->ByteArrayStringtoIpv6(src_address.v6address());
+            }
+
+            LOG(INFO) << "\t\t\t\t\tDest Ip Address:";
+            service_layer::SLIpAddress dest_address = vxlan_path.destipaddress();
+            if (dest_address.has_v4address()) {
+                LOG(INFO) << "\t\t\t\t\t\tV4 Address: " << dest_address.v4address();
+            }
+            if(dest_address.has_v6address()) {
+                LOG(INFO) << "\t\t\t\t\t\tV6 Address: " << slaf_route_shuttle->ByteArrayStringtoIpv6(dest_address.v6address());
+            }
+        }
+        for (int temp_index = 0; temp_index < path_object.pathflags_size(); temp_index++) {
+            LOG(INFO) << "\t\t\t\t\tPath Flag: " << path_object.pathflags(temp_index);
+        }
+    }
+}
+
+// Prints all the values from the SLAFGet responses
+void
+printVrfGetResponses(SLAFRShuttle* slaf_route_shuttle, std::vector<service_layer::SLAFVrfRegGetMsgRsp> responses){
+    for (service_layer::SLAFVrfRegGetMsgRsp response_msg: responses) {
+        LOG(INFO) << "-----------------------------------Get VRF Response Messsage-----------------------------------";
+        if (response_msg.errstatus().status() != service_layer::SLErrorStatus_SLErrno_SL_SUCCESS) {
+            LOG(ERROR) << "Error in response message. Error type : 0x" << std::hex << response_msg.errstatus().status();
+        }
+        LOG(INFO) << "ClientID: " << response_msg.clientid();
+        LOG(INFO) << "Table: " << response_msg.table();
+        for (int vrf_reg_index = 0; vrf_reg_index < response_msg.entries_size(); vrf_reg_index++) {
+            service_layer::SLVrfReg vrf_reg = response_msg.entries(vrf_reg_index);
+            LOG(INFO) << "\tVrfName: " << vrf_reg.vrfname();
+            LOG(INFO) << "\tAdminDistance: " << vrf_reg.admindistance();
+            LOG(INFO) << "\tVrfPurgeIntervalSeconds: " << vrf_reg.vrfpurgeintervalseconds();
+        }
+    }
+}
+
+// Prints all the values from the SLAFGet responses
+void
+printGetResponses(SLAFRShuttle* slaf_route_shuttle, std::vector<service_layer::SLAFGetMsgRsp> responses)
+{
+    for (service_layer::SLAFGetMsgRsp response_msg: responses) {
+        LOG(INFO) << "-----------------------------------Get Response Messsage-----------------------------------";
+        if (response_msg.errstatus().status() != service_layer::SLErrorStatus_SLErrno_SL_SUCCESS) {
+            LOG(ERROR) << "Error in response message. Error type : 0x" << std::hex << response_msg.errstatus().status();
+        }
+
+        LOG(INFO) << "Vrfname: " << response_msg.vrfname();
+        LOG(INFO) << "ClientID: " << response_msg.clientid();
+        for (int index = 0; index < response_msg.aflist_size(); index++) {
+            service_layer::SLAFGetMsgRspEntry af_entry = response_msg.aflist(index);
+            LOG(INFO) << "service_layer::SLAFGetMsgRspEntry with index " << index;
+            if (af_entry.has_afopmsg()) {
+                service_layer::SLAFOpMsg af_op_msg = af_entry.afopmsg();
+                LOG(INFO) << "\tSLAFOpMsg:";
+
+                service_layer::SLAFObject af_object = af_op_msg.afobject();
+                LOG(INFO) << "\t\tSLAFObject:";
+                if (af_object.has_iproute()) {
+                    service_layer::SLAFIPRoute ip_route = af_object.iproute();
+                    LOG(INFO) << "\t\t\tSLAFIPRoute:";
+                    if (ip_route.has_iprouteprefix()) {
+                        service_layer::SLRoutePrefix ip_route_prefix = ip_route.iprouteprefix();
+                        LOG(INFO) << "\t\t\t\tSLRoutePrefix:";
+                        if (ip_route_prefix.has_prefix()) {
+                            service_layer::SLIpAddress address = ip_route_prefix.prefix();
+                            LOG(INFO) << "\t\t\t\t\tPrefix: ";
+                            if (address.has_v4address()) {
+                                LOG(INFO) << "\t\t\t\t\t\tV4 Address: " << address.v4address();
+                            }
+                            if(address.has_v6address()) {
+                                LOG(INFO) << "\t\t\t\t\t\tV6 Address: " << slaf_route_shuttle->ByteArrayStringtoIpv6(address.v6address());
+                            }
+                        }
+
+                        LOG(INFO) << "\t\t\t\tPrefixLen: " << ip_route_prefix.prefixlen();
+                    }
+
+                    if (ip_route.has_routecommon()) {
+                        service_layer::SLRouteCommon route_common = ip_route.routecommon();
+                        LOG(INFO) << "\t\t\tSLRouteCommon:";
+                        LOG(INFO) << "\t\t\t\tAdminDistance: " << route_common.admindistance();
+                        LOG(INFO) << "\t\t\t\tLocalLabel: " << route_common.locallabel();
+                        LOG(INFO) << "\t\t\t\tTag: " << route_common.tag();
+                        LOG(INFO) << "\t\t\t\tSrcProto: " << route_common.srcproto();
+                        LOG(INFO) << "\t\t\t\tSrcProtoTag: " << route_common.srcprototag();
+                        for (int route_flag_index = 0; route_flag_index < route_common.routeflags_size(); route_flag_index++) {
+                            LOG(INFO) << "\t\t\t\tRouteFlags Set: " << route_common.routeflags(route_flag_index);
+                        }
+                    }
+
+                    for (int path_index = 0; path_index < ip_route.pathlist_size(); path_index++) {
+                        service_layer::SLRoutePath path_object = ip_route.pathlist(path_index);
+                        printHelperSlRoutePath(slaf_route_shuttle, path_object);
+                    }
+                } else if (af_object.has_mplslabel()) {
+                    service_layer::SLMplsEntry mpls_entry_key = af_object.mplslabel();
+                    LOG(INFO) << "\t\tSLMplsEntry: ";
+
+                    if (mpls_entry_key.has_mplskey()) {
+                        LOG(INFO) << "\t\t\t Mpls Key: " << mpls_entry_key.mplskey().label();
+                    }
+                    LOG(INFO) << "\t\t\tAdminDistance: " << mpls_entry_key.admindistance();
+                    for (int path_index = 0; path_index < mpls_entry_key.pathlist_size(); path_index++) {
+                        service_layer::SLRoutePath path_object = mpls_entry_key.pathlist(path_index);
+                        printHelperSlRoutePath(slaf_route_shuttle, path_object);
+                    }
+
+                    for (int route_flag_index = 0; route_flag_index < mpls_entry_key.mplsflags_size(); route_flag_index++) {
+                        LOG(INFO) << "\t\t\tMPLSFlags: " << mpls_entry_key.mplsflags(route_flag_index);
+                    }
+                } else if (af_object.has_pathgroup()) {
+                    service_layer::SLPathGroup pg = af_object.pathgroup();
+                    LOG(INFO) << "\t\tSLPathGroup:";
+
+                    if (pg.has_pathgroupid()) {
+                        if (pg.pathgroupid().has_name()) {
+                            LOG(INFO) << "\t\t\tPath Group ID:" << pg.pathgroupid().name();
+                        }
+                    }
+                    LOG(INFO) << "\t\t\tAdminDistance: " << pg.admindistance();
+                    if (pg.has_pathlist()) {
+                        service_layer::SLPathGroup::SLPathList path_list = pg.pathlist();
+                        LOG(INFO) << "\t\t  Path Lists";
+                        for(int path_list_index = 0; path_list_index < path_list.paths_size(); path_list_index++) {
+                            service_layer::SLPathGroup::SLPath path = path_list.paths(path_list_index);
+                            if (path.has_path()) {
+                                service_layer::SLRoutePath path_object = path.path();
+                                printHelperSlRoutePath(slaf_route_shuttle, path_object);
+                            }
+                        }
+                    }
+                    for (int route_flag_index = 0; route_flag_index < pg.pgflags_size(); route_flag_index++) {
+                        LOG(INFO) << "\t\t\tPGFlags: " << pg.pgflags(route_flag_index);
+                    }
+                }
+
+                LOG(INFO) << "\tOperationID: " << af_op_msg.operationid();
+                LOG(INFO) << "\tAckType: " << af_op_msg.acktype();
+                for (int permit_index = 0; permit_index < af_op_msg.ackpermits_size(); permit_index++) {
+                    LOG(INFO) << "\tAckPermit: " << af_op_msg.ackpermits(permit_index);
+                }
+                LOG(INFO) << "\tAck Cadence: " << af_op_msg.ackcadence();
+            }
+            LOG(INFO) << "FIB Status: " << af_entry.fibstatus();
+        }
+    }
+}
 // Goes through the DB and prints errors
 void printDbErrors(testingData env_data, service_layer::SLTableType addr_family)
 {
     if (addr_family == service_layer::SL_IPv4_ROUTE_TABLE) {
         for (auto ipv4_index = database.db_ipv4.begin(); ipv4_index != database.db_ipv4.end(); ipv4_index++) {
-            if (ipv4_index->second.second.fib_req == true) {
+            std::pair<bool, bool> check = checkRibFibRequired(
+                        ipv4_index->second.first.response_acks.response_ack_type_rib_fib_set);
+            if (check.second == true && env_data.stream_case == true) {
                 if (ipv4_index->second.second.fib_success == false || ipv4_index->second.second.rib_success == false) {
                     LOG(ERROR) << ipv4_index->second.second.error;
                 }
-            } else {
+            }
+            if (check.first == true) {
                 if (ipv4_index->second.second.rib_success == false) {
                     LOG(ERROR) << ipv4_index->second.second.error;
                 }
@@ -149,11 +403,14 @@ void printDbErrors(testingData env_data, service_layer::SLTableType addr_family)
         }
     } else if (addr_family == service_layer::SL_IPv6_ROUTE_TABLE) {
         for (auto ipv6_index = database.db_ipv6.begin(); ipv6_index != database.db_ipv6.end(); ipv6_index++) {
-            if (ipv6_index->second.second.fib_req == true) {
+            std::pair<bool, bool> check = checkRibFibRequired(
+                        ipv6_index->second.first.response_acks.response_ack_type_rib_fib_set);
+            if (check.second == true && env_data.stream_case == true) {
                 if (ipv6_index->second.second.fib_success == false || ipv6_index->second.second.rib_success == false) {
                     LOG(ERROR) << ipv6_index->second.second.error;
                 }
-            } else {
+            }
+            if (check.first == true) {
                 if (ipv6_index->second.second.rib_success == false) {
                     LOG(ERROR) << ipv6_index->second.second.error;
                 }
@@ -161,11 +418,14 @@ void printDbErrors(testingData env_data, service_layer::SLTableType addr_family)
         }
     } else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE) {
         for (auto mpls_index = database.db_mpls.begin(); mpls_index != database.db_mpls.end(); mpls_index++) {
-            if (mpls_index->second.second.fib_req == true) {
+            std::pair<bool, bool> check = checkRibFibRequired(
+                        mpls_index->second.first.response_acks.response_ack_type_rib_fib_set);
+            if (check.second == true && env_data.stream_case == true) {
                 if (mpls_index->second.second.fib_success == false || mpls_index->second.second.rib_success == false) {
                     LOG(ERROR) << mpls_index->second.second.error;
                 }
-            } else {
+            }
+            if (check.first == true) {
                 if (mpls_index->second.second.rib_success == false) {
                     LOG(ERROR) << mpls_index->second.second.error;
                 }
@@ -173,11 +433,14 @@ void printDbErrors(testingData env_data, service_layer::SLTableType addr_family)
         }
     } else if (addr_family == service_layer::SL_PATH_GROUP_TABLE) {
         for (auto pg_index = database.db_pg.begin(); pg_index != database.db_pg.end(); pg_index++) {
-            if (pg_index->second.second.fib_req == true) {
+            std::pair<bool, bool> check = checkRibFibRequired(
+                        pg_index->second.first.response_acks.response_ack_type_rib_fib_set);
+            if (check.second == true && env_data.stream_case == true) {
                 if (pg_index->second.second.fib_success == false || pg_index->second.second.rib_success == false) {
                     LOG(ERROR) << pg_index->second.second.error;
                 }
-            } else {
+            }
+            if (check.first == true) {
                 if (pg_index->second.second.rib_success == false) {
                     LOG(ERROR) << pg_index->second.second.error;
                 }
@@ -238,7 +501,7 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
 
         // Populate IPV4 DB
         auto prefix = slaf_route_shuttle->ipv4ToLong(env_data.first_prefix_ipv4.c_str());
-        uint8_t prefix_len = env_data.prefix_len_ipv4;
+        uint32_t prefix_len = env_data.prefix_len_ipv4;
         database.ipv4_start_index = prefix;
         // Push all routes these onto the db based off their prefix
         for(int i = 1; i <= env_data.num_operations; i++, prefix=incrementIpv4Pfx(prefix,prefix_len)){
@@ -262,7 +525,7 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         // Populate IPV6 DB
         std::string prefix_str = env_data.first_prefix_ipv6;
         auto prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
-        uint8_t prefix_len = env_data.prefix_len_ipv6;
+        uint32_t prefix_len = env_data.prefix_len_ipv6;
         // Push all routes these onto the db based off their prefix
         database.ipv6_start_index = prefix;
         for(int i = 1; i <= env_data.num_operations; i++, prefix=slaf_route_shuttle->incrementIpv6Pfx(prefix,prefix_len)){
@@ -284,7 +547,7 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         LOG(INFO) << "Starting MPLS";
 
         // Populate MPLS DB
-        unsigned int start_label = env_data.start_label;
+        uint32_t start_label = env_data.start_label;
         database.mpls_start_index = start_label;
         for(int i = 0; i < env_data.num_operations; i++){
             statusObject dummy;
@@ -347,7 +610,7 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         database.db_pg[env_data.pg_name] = temp;
         database.pg_name = env_data.pg_name;
 
-         if (env_data.stream_case == true) {
+        if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper,env_data.create_path_group_for);
         } else {
             totalroutes = slaf_route_shuttle->pushFromDB(false,env_data.route_oper,addr_family,env_data.create_path_group_for);
@@ -424,7 +687,7 @@ void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
             auto af_vrf_handler = SLAFVrf(channel,username,password);
             // Need to specify ipv4 (default), ipv6 or mpls
             table_type = env_data.table_type;
-            // If vrf_rg_oper not set then we do not register vrf
+            // If vrf_reg_oper not set then we do not register vrf
             if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
                 run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
             }
@@ -544,6 +807,120 @@ void try_route_push(std::shared_ptr<grpc::Channel> channel,
     }
 }
 
+void get_slaf(SLAFRShuttle* slaf_route_shuttle,
+               testingData env_data)
+{
+    Timer tmr;
+    int total_responses = 0;
+
+    if (env_data.get_vrf_request == true) {
+        std::vector<service_layer::SLAFVrfRegGetMsgRsp> responses = slaf_route_shuttle->routeSLAFVrfGet();
+        total_responses = responses.size();
+        auto time_taken = tmr.elapsed();
+
+        LOG(INFO) << "\nTime taken to get "<< total_responses << " responses\n " 
+                << time_taken
+                << "\nGet Vrf programming rate\n"
+                << float(total_responses)/time_taken << " responses/sec\n";
+        // Print the responses from the getvrf request
+        printVrfGetResponses(slaf_route_shuttle, responses);
+    } else {
+        getMatchObjects objs_to_search;
+
+        LOG(INFO) << "Starting Get Request Message";
+        if (env_data.get_match == true && env_data.get_match_route == true) {
+            // Populate all types of Objects needed
+            objs_to_search.pg_regexs = env_data.get_route_match_list.pg_regex;
+            objs_to_search.vxlan_vn_ids = env_data.get_route_match_list.vxlan_vn_id;
+            for (auto slaf_obj: env_data.get_route_match_list.slaf_obj_key) {
+                if (slaf_obj.addr_family == service_layer::SL_IPv4_ROUTE_TABLE) {
+                    auto prefix = slaf_route_shuttle->ipv4ToLong(slaf_obj.start_ipv4.c_str());
+                    uint32_t prefix_len = slaf_obj.prefix_len_ipv4;
+                    for (int j = 1; j <= slaf_obj.num_operations; j++, prefix=incrementIpv4Pfx(prefix,prefix_len)) {
+                        objs_to_search.ipv4_routes.push_back(std::make_pair(prefix, prefix_len));
+                    }
+                } else if (slaf_obj.addr_family == service_layer::SL_IPv6_ROUTE_TABLE) {
+                    auto prefix = slaf_route_shuttle->ipv6ToByteArrayString(slaf_obj.start_ipv6.c_str());
+                    uint32_t prefix_len = slaf_obj.prefix_len_ipv6;
+                    for (int j = 1; j <= slaf_obj.num_operations; j++, prefix=slaf_route_shuttle->incrementIpv6Pfx(prefix,prefix_len)) {
+                        objs_to_search.ipv6_routes.push_back(std::make_pair(prefix, prefix_len));
+                    }
+                } else if (slaf_obj.addr_family == service_layer::SL_MPLS_LABEL_TABLE) {
+                    uint32_t start_label = slaf_obj.start_mpls;
+                    for (int j = 0; j < slaf_obj.num_operations; j++){
+                        objs_to_search.mpls_labels.push_back(start_label+j);
+                    }
+
+                } else if (slaf_obj.addr_family == service_layer::SL_PATH_GROUP_TABLE) {
+                    objs_to_search.pg_ids.push_back(slaf_obj.pg_name);
+                }
+            }
+        }
+
+        std::vector<service_layer::SLAFGetMsgRsp> responses =
+            slaf_route_shuttle->routeSLAFget(env_data.get_vrf_name, env_data.get_match, env_data.get_match_route,
+                        env_data.get_client_all,objs_to_search,env_data.get_client_id_list,
+                        env_data.get_table_type_list);
+
+        total_responses = responses.size();
+
+        auto time_taken = tmr.elapsed();
+        LOG(INFO) << "\nTime taken to get "<< total_responses << " responses\n " 
+                << time_taken
+                << "\nGet programming rate\n"
+                << float(total_responses)/time_taken << " responses/sec\n";
+        // Print the responses from the get request
+        printGetResponses(slaf_route_shuttle, responses);
+    }
+}
+
+void try_get_slaf(std::shared_ptr<grpc::Channel> channel,
+               std::string grpc_server,
+               testingData env_data)
+{
+    bool exception_caught = true;
+    int attempts = 1;
+    bool route_shuttle_object_created = false;
+    while(attempts <= maxAttempts) {
+        try
+        {
+            route_shuttle_object_created = false;
+            slaf_route_shuttle = new SLAFRShuttle(channel, username, password);
+            route_shuttle_object_created = true;
+            get_slaf(slaf_route_shuttle, env_data);
+
+            exception_caught = false;
+        }
+        // Error Handling: If any RPC fails with UNAVAILABLE code we have to attempt to retry
+        catch (grpc::Status status) {
+            if(!status.ok()) {
+                // If we are not below max attempts retry
+                LOG(INFO) << "RETRY ATTEMPT Number: " << attempts;
+                if(route_shuttle_object_created) {
+                    delete slaf_route_shuttle;
+                }
+            }
+            if (status.error_code() != grpc::StatusCode::UNAVAILABLE) {
+                LOG(INFO) << "Cannot retry for status code: " << status.error_code();
+                attempts = maxAttempts + 1;
+                break;
+            }
+        }
+        if (!exception_caught) {
+            if (route_shuttle_object_created) {
+                delete slaf_route_shuttle;
+            }
+            break;
+        }
+        attempts++;
+        // No need to wait after all attempts are tried
+        if (attempts <= maxAttempts) {
+            LOG(INFO) << "Waiting 30 Seconds before retrying";
+            std::this_thread::sleep_for(std::chrono::seconds(30));
+        }
+    }
+}
+
 int main(int argc, char** argv) {
 
     int option_char;
@@ -573,7 +950,7 @@ int main(int argc, char** argv) {
 
     const struct option longopts[] = {
         {"table_type", required_argument, nullptr, 't'},
-        {"route_oper", required_argument, nullptr, 'a'},
+        {"operation", required_argument, nullptr, 'a'},
         {"vrf_reg_oper", required_argument, nullptr, 'w'},
         {"num_operations", required_argument, nullptr, 'b'},
         {"batch_size", required_argument, nullptr, 'c'},
@@ -592,6 +969,16 @@ int main(int argc, char** argv) {
         {"num_paths", required_argument, nullptr, 'q'},
         {"create_path_group_for", required_argument, nullptr, 'r'},
         {"path_group_name", required_argument, nullptr, 'y'},
+        {"response_ack_type", required_argument, nullptr, 'A'},
+        {"response_ack_permit", required_argument, nullptr, 'B'},
+        {"response_ack_cadence", required_argument, nullptr, 'C'},
+        {"vrf_name", required_argument, nullptr, 'D'},
+        {"client_id", required_argument, nullptr, 'E'},
+        {"match_table_list", required_argument, nullptr, 'F'},
+        {"match_route_list", no_argument, nullptr, 'G'},
+        {"add_vxlanvn_id", required_argument, nullptr, 'H'},
+        {"add_pg_regex", required_argument, nullptr, 'I'},
+        {"add_object_type", required_argument, nullptr, 'J'},
 
         {"help", no_argument, nullptr, 'h'},
         {"username", required_argument, nullptr, 'u'},
@@ -602,7 +989,7 @@ int main(int argc, char** argv) {
         {nullptr,0,nullptr,0}
     };
 
-    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:y:",longopts,nullptr)) != -1) {
+    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:y:A:B:C:D:E:F:GH:I:J:",longopts,nullptr)) != -1) {
         switch (option_long) {
             case 't':
                 dummy = optarg;
@@ -625,8 +1012,12 @@ int main(int argc, char** argv) {
                     env_data.route_oper = service_layer::SL_OBJOP_UPDATE;
                 } else if (dummy == "Delete") {
                     env_data.route_oper = service_layer::SL_OBJOP_DELETE;
+                } else if (dummy == "Get") {
+                    env_data.get_request = true;
+                } else if (dummy == "GetVrf") {
+                    env_data.get_vrf_request = true;
                 } else {
-                    fprintf (stderr, "Requires: %s --route_oper (Add), (Update), (Delete) \n", argv[0]);
+                    fprintf (stderr, "Requires: %s --operation (Add), (Update), (Delete), (Get), (GetVrf) \n", argv[0]);
                     return 1;
                 }
                 break;
@@ -693,7 +1084,7 @@ int main(int argc, char** argv) {
                 break;
             case 'r':
                 dummy = optarg;
-                if(dummy == "ipv6") {
+                if (dummy == "ipv6") {
                     env_data.create_path_group_for = service_layer::SL_IPv6_ROUTE_TABLE;
                 } else if (dummy == "mpls") {
                     env_data.create_path_group_for = service_layer::SL_MPLS_LABEL_TABLE;
@@ -716,18 +1107,23 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "Required Arguments: ";
                 LOG(INFO) << "| -u/--username                    | Username (Required argument) |";
                 LOG(INFO) << "| -p/--password                    | Password (Required argument) |";
-                LOG(INFO) << "| -a/--route_oper                  | Route Operation: Add, Update, Delete (Required argument) |";
-                LOG(INFO) << "| -w/--vrf_reg_oper                | VRF registration Operation: Register, Unregister, EOF. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. Remember to specific correct table_type when Unregistering (Required argument) |";
-                LOG(INFO) << "Optional arguments you can set in environment:";
+                LOG(INFO) << "| -a/--operation                   | Operation: Add, Update, Delete, Get, GetVrf. For GetVrf no commands below required. (Required argument) |";
+                LOG(INFO) << "| -w/--vrf_reg_oper                | VRF registration Operation: Register, Unregister, EOF. Used only when operation set to Add, Update, or Delete. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. Remember to specify correct table_type when Unregistering (Required argument) |";
+                LOG(INFO) << "Optional arguments you can set for programming routes of ipv4, ipv6, mpls, and path groups (Add, Update, Delete) and vrf regestration:";
                 LOG(INFO) << "| -h/--help                        | Help |";
                 LOG(INFO) << "| -t/--table_type                  | Specify whether to do ipv4, ipv6 or mpls operation, PG (default ipv4) |";
-                LOG(INFO) << "| -v/--slaf                        | Specify if you want to use slaf proto RPCs to program objects or not. If not, no other configuration possible and will only run 100k ipv4 routes (default true) |";
+                LOG(INFO) << "| -v/--slaf                        | Specify if you want to use slaf proto RPCs to program objects or not. If not, no other configurations will be used and it will only push 100k ipv4 routes in a unary rpc. (default true) |";
                 LOG(INFO) << "| -s/--global_init                 | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |";
                 LOG(INFO) << "| -b/--num_operations              | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch. If table_type is set to pg then 0 < num_operations <= 64 (default 1) |";
                 LOG(INFO) << "| -c/--batch_size                  | Configure the number of ipv4 routes ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |";
-                LOG(INFO) << "| -x/--stream_case                 | Want to use the streaming rpc or unary rpc (default true) |";
-                LOG(INFO) << "| -y/--path_group_name             | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg."
-                               << "When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") | \n";
+                LOG(INFO) << "| -x/--stream_case                 | Want to use the streaming rpc (true) or unary rpc (false). Only used with slaf protos. When using unary the response Ack given from server will always be of RIB status. (default true) |";
+                LOG(INFO) << "| -y/--path_group_name             | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg. \n"
+                            << "                                    When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") |";
+                LOG(INFO) << "| -A/--response_ack_type           | Configure the type of response that the client expects from the network element for any object programming operation. Please see Proto file for all options (default RIB_ACK) |";
+                LOG(INFO) << "| -B/--response_ack_permit         | Configure the list that controls the types of hardware programming responses as defined in SLAFFibStatus that the client is interested in. \n"
+                            << "                                     For this tutorial we allow one option to be set. Please see Proto file for all options."
+                            << "                                     Regardless of what permit type is picked, this tutorial will check for FIB success if the ack type is anything but RIB Ack and will check for RIB Success if Ack type is just RIB ack and print an error if those checks fail (default "") |";
+                LOG(INFO) << "| -C/--response_ack_cadence        | Configure the cadence of hardware programming responses. Defining response_ack_permit is a pre-requisite. Please see Proto file for all options (default SL_RSP_CONTINUOUS) |";
                 LOG(INFO) << "IPv4 Testing";
                 LOG(INFO) << "| -d/--first_prefix_ipv4           | Configure the starting address for this test for IPV4 (default 40.0.0.0) |";
                 LOG(INFO) << "| -e/--prefix_len_ipv4             | Configure the prefix length for this test for IPV4 address (default 24) |";
@@ -742,9 +1138,23 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -m/--first_mpls_path_nhip        | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
                 LOG(INFO) << "| -n/--next_hop_interface_mpls     | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
                 LOG(INFO) << "| -o/--start_label                 | Configure the starting label for this test for MPLS (default 20000) |";
-                LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1)";
+                LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1) |";
                 LOG(INFO) << "PG Testing";
-                LOG(INFO) << "| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4)";
+                LOG(INFO) << "| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4) |";
+                LOG(INFO) << "Optional arguments you can set for Get Request Only:";
+                LOG(INFO) << "| -D/--vrf_name                    | User can provide a vrfname for object search (default 'default') |";
+                LOG(INFO) << "| -E/--client_id                   | If set, user will provide a client id (int) for the object user wishes to search for, or input 'all' (default 'all') |";
+                LOG(INFO) << "| -F/--match_table_list            | Provide one or more table types you wish to get in comma separated list with no spaces. The choices are : ipv4,ipv6,mpls,pg (default ipv4). |";
+                LOG(INFO) << "| -G/--match_route_list            | If set, will override --match_table_list. This command will be used in conjunction with the commands --add_vxlanvn_id, --add_pg_regex, and --add_object_type. (No argument required) \n"
+                            << "The commands below can be repeatedly added and in combination with each other to the SLAFGetMsg. See their criteria on how to use them |";
+                LOG(INFO) << "| -H/--add_vxlanvn_id              | Configure one vxlanvnid the user wishes to search for. Will be added as a field within the route match list message. (default "") ";
+                LOG(INFO) << "| -I/--add_pg_regex                | Configure one Path Group Name Regex expression the user wishes to search for. Will be added as a field within the route match list message. (default "") ";
+                LOG(INFO) << "| -J/--add_object_type             | Configure the object type the user wishes to search for. User will need to provide a comma seperated list of arguments and in proper format, for every instance of this command. See below (default "") \n"
+                            << "    The user needs to provide the following for the specific object key type: \n"
+                            << "    For ipv4 the user provides the table_type, starting ipv4 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv4,40.0.0.0,24,100 \n"
+                            << "    For ipv6 the user provides the table_type, starting ipv6 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv6,2002:aa::0,64,100 \n"
+                            << "    For mpls the user provides the table_type, starting label, and a number indicating how many labels to search for incrementing from the starting label. For example: mpls,20000,100 \n"
+                            << "    For pg the user provides the table_type, and path group name. For example: pg,default |";
                 return 1;
             case 'u':
                 username = optarg;
@@ -758,8 +1168,143 @@ int main(int argc, char** argv) {
                     version2 = false;
                 }
                 break;
+            case 'A':
+                dummy = optarg;
+                if (dummy == "RIB_AND_FIB_ACK") {
+                    env_data.response_acks.response_ack_type_rib_fib_set = true;
+                    env_data.response_acks.response_ack_type = service_layer::RIB_AND_FIB_ACK;
+                } else if (dummy == "RIB_FIB_INUSE_ACK") {
+                    env_data.response_acks.response_ack_type_rib_fib_set = true;
+                    env_data.response_acks.response_ack_type = service_layer::RIB_FIB_INUSE_ACK;
+                } else {
+                    env_data.response_acks.response_ack_type = service_layer::RIB_ACK;
+                }
+                break;
+            case 'B':
+                dummy = optarg;
+                if (dummy == "SL_PERMIT_FIB_STATUS_ALL") {
+                    env_data.response_acks.response_ack_permit_set = true;
+                    env_data.response_acks.response_ack_permit = service_layer::SL_PERMIT_FIB_STATUS_ALL;
+                } else if (dummy == "SL_PERMIT_FIB_SUCCESS") {
+                    env_data.response_acks.response_ack_permit_set = true;
+                    env_data.response_acks.response_ack_permit = service_layer::SL_PERMIT_FIB_SUCCESS;
+                } else if (dummy == "SL_PERMIT_FIB_FAILED") {
+                    env_data.response_acks.response_ack_permit_set = true;
+                    env_data.response_acks.response_ack_permit = service_layer::SL_PERMIT_FIB_FAILED;
+                } else if (dummy == "SL_PERMIT_FIB_INELIGIBLE") {
+                    env_data.response_acks.response_ack_permit_set = true;
+                    env_data.response_acks.response_ack_permit = service_layer::SL_PERMIT_FIB_INELIGIBLE;
+                } else if (dummy == "SL_PERMIT_FIB_INUSE_SUCCESS") {
+                    env_data.response_acks.response_ack_permit_set = true;
+                    env_data.response_acks.response_ack_permit = service_layer::SL_PERMIT_FIB_INUSE_SUCCESS;
+                }
+                break;
+            case 'C':
+                dummy = optarg;
+                if (dummy == "SL_RSP_JUST_ONCE") {
+                    env_data.response_acks.response_ack_cadence = service_layer::SL_RSP_JUST_ONCE;
+                } else if (dummy == "SL_RSP_ONCE_EACH") {
+                    env_data.response_acks.response_ack_cadence = service_layer::SL_RSP_ONCE_EACH;
+                } else if (dummy == "SL_RSP_NONE") {
+                    env_data.response_acks.response_ack_cadence = service_layer::SL_RSP_NONE;
+                } else {
+                    env_data.response_acks.response_ack_cadence = service_layer::SL_RSP_CONTINUOUS;
+                }
+                break;
+            case 'D':
+                env_data.get_vrf_name = optarg;
+                break;
+            case 'E':
+                dummy = optarg;
+                if (dummy == "all" || dummy == "") {
+                    env_data.get_client_all = true;
+                } else {
+                    env_data.get_client_id_list.push_back(std::stoi(dummy));
+                }
+                break;
+            case 'F':
+                dummy = optarg;
+                env_data.get_match = true;
+                for (auto i: splitString(dummy)) {
+                    if(i == "ipv6") {
+                        env_data.get_table_type_list.push_back(service_layer::SL_IPv6_ROUTE_TABLE);
+                    } else if (i == "mpls") {
+                        env_data.get_table_type_list.push_back(service_layer::SL_MPLS_LABEL_TABLE);
+                    } else if (i == "pg"){
+                        env_data.get_table_type_list.push_back(service_layer::SL_PATH_GROUP_TABLE);
+                    } else {
+                        env_data.get_table_type_list.push_back(service_layer::SL_IPv4_ROUTE_TABLE);
+                    }
+                }
+                break;
+            case 'G':
+                env_data.get_match = true;
+                break;
+            case 'H':
+                dummy = optarg;
+                env_data.get_route_match_list.vxlan_vn_id.push_back(std::stoi(dummy));
+                env_data.get_match_route = true;
+                break;
+            case 'I':
+                dummy = optarg;
+                env_data.get_route_match_list.pg_regex.push_back(dummy);
+                env_data.get_match_route = true;
+                break;
+            case 'J':
+                dummy = optarg;
+                do {
+                    slafObjKey key = {};
+                    auto j = splitString(dummy);
+                    if (j.size() == 0) {
+                        fprintf (stderr, "Requires: %s user to enter in exact format. -h for more information \n", argv[0]);
+                        return 1;
+                    }
+                    if (j[0] == "ipv4") {
+                        if (j.size() < 4) {
+                            fprintf (stderr, "Requires: %s user to enter in exact format. -h for more information \n", argv[0]);
+                            return 1;
+                        }
+                        key.addr_family = service_layer::SL_IPv4_ROUTE_TABLE;
+                        key.start_ipv4 = j[1];
+                        key.prefix_len_ipv4 = std::stoi(j[2]);
+                        key.num_operations = std::stoi(j[3]);
+                    } else if (j[0] == "ipv6") {
+                        if (j.size() < 4) {
+                            fprintf (stderr, "Requires: %s user to enter in exact format. -h for more information \n", argv[0]);
+                            return 1;
+                        }
+                        key.addr_family = service_layer::SL_IPv6_ROUTE_TABLE;
+                        key.start_ipv6 = j[1];
+                        key.prefix_len_ipv6 = std::stoi(j[2]);
+                        key.num_operations = std::stoi(j[3]);
+                    } else if (j[0] == "mpls") {
+                        if (j.size() < 3) {
+                            fprintf (stderr, "Requires: %s user to enter in exact format. -h for more information \n", argv[0]);
+                            return 1;
+                        }
+                        key.addr_family = service_layer::SL_MPLS_LABEL_TABLE;
+                        key.start_mpls = std::stoi(j[1]);
+                        key.num_operations = std::stoi(j[2]);
+                    } else if (j[0] == "pg") {
+                        if (j.size() < 2) {
+                            fprintf (stderr, "Requires: %s user to enter in exact format. -h for more information \n", argv[0]);
+                            return 1;
+                        }
+                        key.addr_family = service_layer::SL_PATH_GROUP_TABLE;
+                        key.pg_name = j[1];
+                    } else {
+                        fprintf (stderr, "Requires: %s user to pick a selectable table type \n", argv[0]);
+                        return 1;
+                    }
+                    env_data.get_route_match_list.slaf_obj_key.push_back(key);
+
+                } while (false);
+                env_data.get_match_route = true;
+                break;
+            case 'K':
+                break;
             default:
-                fprintf (stderr, "usage: %s --username --password --route_oper --vrf_reg_oper\n", argv[0]);
+                fprintf (stderr, "usage: %s --help for more information \n", argv[0]);
                 return 1;
         }
     }
@@ -767,7 +1312,9 @@ int main(int argc, char** argv) {
     if(username == "" || password == ""){
         LOG(INFO) << "Did not provide a Username and Password";
     }
-    if(env_data.route_oper == service_layer::SL_OBJOP_RESERVED && env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+    if (env_data.route_oper == service_layer::SL_OBJOP_RESERVED && 
+        env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER &&
+        env_data.get_request == false && env_data.get_vrf_request == false) {
         LOG(ERROR) << "Need to provide the route_oper. Or set vrf_reg_oper to Unregister";
         return 0;
     }
@@ -807,21 +1354,27 @@ int main(int argc, char** argv) {
         }
     }
 
-    if (version2 == true) {
-        try_route_push_slaf(channel, grpc_server, env_data);
+    if (env_data.get_request == true || env_data.get_vrf_request == true) {
+        try_get_slaf(channel, grpc_server, env_data);
         if (global_init_rpc) {
             asynchandler.Shutdown();
             thread_.join();
         }
-
     } else {
-        try_route_push(channel, grpc_server, env_data);
-        if (global_init_rpc) {
-            asynchandler.Shutdown();
-            thread_.join();
+        if (version2 == true) {
+            try_route_push_slaf(channel, grpc_server, env_data);
+            if (global_init_rpc) {
+                asynchandler.Shutdown();
+                thread_.join();
+            }
+        } else {
+            try_route_push(channel, grpc_server, env_data);
+            if (global_init_rpc) {
+                asynchandler.Shutdown();
+                thread_.join();
+            }
         }
     }
 
     return 0;
 }
-

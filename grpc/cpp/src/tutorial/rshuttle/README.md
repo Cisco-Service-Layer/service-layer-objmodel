@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Server Setup](#server)
 - [Running the tutorial](#quick)
-- [Streaming vs Unary rpc implementation](#explain)
+- [Streaming vs Unary rpc and Route pushing vs Get implementation](#explain)
 - [Retry Policy and Error Handling](#retry)
 - [Generate gRPC Code](#gen)
 - [Initialize the client server connection](#init)
@@ -84,15 +84,15 @@ with the API.
 ## <a name='quick'></a>Running the tutorial
 
 The following basic tutorial will walk you through getting started with the Service Layer API. The program can be used to test 
-either IPV4, IPV6, or MPLS vertical through the unary rpc. Currently PG is not supported. This may require some initial cpp and GRPC setup, which will be explained below. 
+either IPV4, IPV6, MPLS, or PG vertical through the streaming and unary rpcs. This may require some initial cpp and GRPC setup, which will be explained below. 
 For now, if you already have passed this setup step, follow this example:
 
 | Required Argument | Description |
 | --- | --- |
 | -u/--username                                | Username (Required argument) |
 | -p/--password                                | Password (Required argument) |
-| -a/--route_oper                              | Route Operation: Add, Update, Delete (Required argument) |
-| -w/--vrf_reg_oper                            | VRF registration Operation: Register, Unregister, EOF. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. Remember to specific correct table_type when Unregistering (Required argument) |
+| -a/--operation                               | Route Operation: Add, Update, Delete, Get, GetVrf. For GetVrf no commands below required. (Required argument) |
+| -w/--vrf_reg_oper                            | VRF registration Operation: Register, Unregister, EOF. Used only when operation set to Add, Update, or Delete. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. User does not need to set this if auto-register is enabled on server. Remember to specify correct table_type when Unregistering (Required argument) |
 
 ##### Optional arguments you can set in environment:
 
@@ -104,8 +104,12 @@ For now, if you already have passed this setup step, follow this example:
 | -s/--global_init                | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
 | -b/--num_operations             | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch. If table_type is set to pg, then num_operations will dictate how many paths to add to a path group (default 1) |
 | -c/--batch_size                 | Configure the number of ipv4 routes, ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |
-| -x/--stream_case                | Want to use the streaming rpc or unary rpc (default true) |
+| -x/--stream_case                | Want to use the streaming rpc (true) or unary rpc (false). Only used with slaf protos. When using unary the response Ack given from server will always be of RIB status. (default true) |
 | -y/--path_group_name            | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg. When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") |
+| -A/--response_ack_type          | Configure the type of response that the client expects from the network element for any object programming operation. Please see Proto file for all options (default RIB_ACK) |
+| -B/--response_ack_permit        | Configure the list that controls the types of hardware programming responses as defined in SLAFFibStatus that the client is interested in. For this tutorial we allow one option to be set. Please see Proto file for all options. Regardless of what type is picked, this tutorial will check for FIB success if the ack type is anything but RIB Ack and check for RIB Success if Ack type is just RIB ack and print an error if those checks fail. (default "") |
+| -C/--response_ack_cadence       | Configure the cadence of hardware programming responses. Defining response_ack_permit is a pre-requisite. Please see Proto file for all options (default SL_RSP_CONTINUOUS) |
+
 ##### IPv4 Testing
 
 | Argument | Description |
@@ -134,10 +138,28 @@ For now, if you already have passed this setup step, follow this example:
 | -q/--num_paths                  | Configure the number of paths for MPLS labels (default 1) |
 
 ##### PG Testing
+
 | Argument | Description |
 | --- | --- |
 | -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4) |
 
+##### Get Request Testing
+
+| Argument | Description |
+| --- | --- |
+| -D/--vrf_name                    | User can provide a vrfname for object search (default 'default') |
+| -E/--client_id                   | If set, user will provide a client id (int) for the object user wishes to search for, or input 'all' (default 'all') |
+| -F/--match_table_list            | Provide one or more table types you wish to get in comma separated list with no spaces. The choices are : ipv4,ipv6,mpls,pg (default ipv4). |
+| -G/--match_route_list            | If set, will override --match_table_list. This command will be used in conjunction with the commands --add_vxlanvn_id, --add_pg_regex, and --add_object_type. (No argument required)
+The commands below can be repeatedly added and in combination with each other to the SLAFGetMsg. See their criteria on how to use them |
+| -H/--add_vxlanvn_id              | Configure one vxlanvnid the user wishes to search for. Will be added as a field within the route match list message. (default "")
+| -I/--add_pg_regex                | Configure one Path Group Name Regex expression the user wishes to search for. Will be added as a field within the route match list message. (default "")
+| -J/--add_object_type             | Configure the object type the user wishes to search for. User will need to provide a comma seperated list of arguments and in proper format, for every instance of this command. See below (default "")
+The user needs to provide the following for the specific object key type:
+For ipv4 the user provides the table_type, starting ipv4 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv4,40.0.0.0,24,100
+For ipv6 the user provides the table_type, starting ipv6 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv6,2002:aa::0,64,100
+For mpls the user provides the table_type, starting label, and a number indicating how many labels to search for incrementing from the starting label. For example: mpls,20000,100
+For pg the user provides the table_type, and path group name. For example: pg,default |
 
 ##### How to Build
 
@@ -148,9 +170,14 @@ the first time, but once it completes you can run "make slapi-bash" to drop into
 Bash-Prompt:sl$ make cpp-tutorial
 Bash-Prompt:sl$ make slapi-bash
 
-Once in bash, navigate to the tutorial directory:
+Once in bash, navigate to the src directory:
 
-root@f6179b5127f5:/slapi# cd grpc/cpp/src/tutorial/rshuttle
+root@f6179b5127f5:/slapi# cd grpc/cpp/src
+root@f6179b5127f5:/slapi# make && make install
+
+Then, navigate to the tutorial directory:
+
+root@f6179b5127f5:/slapi# cd /grpc/cpp/src/tutorial/rshuttle
 
 ##### How to Run in Docker container (external client workflow)
 
@@ -169,46 +196,76 @@ IPV4 Examples:
     $ ./servicelayermain -u username -p password --table_type ipv4 -a Add -w Register -b 500
     Delete 20 routes using unary rpc with batch size at 10. Assuming vrf registration is handled automatically:
     $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w EOF --num_operations 20 --batch_size 10 --stream_case false
-    Delete 50 routes with streaming rpc with batch size at 30 and with next hop as 14.1.1.21:
-    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w Register --num_operations 50 --batch_size 30 --next_hop_ip_ipv4 14.1.1.21
+    Delete 50 routes with streaming rpc with batch size at 30 and with next hop as 14.1.1.21 and with response ACK for FIB:
+    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w Register --num_operations 50 --batch_size 30 --next_hop_ip_ipv4 14.1.1.21 --response_ack_type RIB_AND_FIB_ACK
 
 IPV6 Example:
-    Adding 100k routes with stream case:
-    $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 100000
-    Add 25 routes with batch size as 6 and starting address as 2002:::0 with stream case false: 
-    $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 25 --batch_size 5 --first_prefix_ipv6 2001:db8:abcd:0012::0 --stream_case false
+    Adding 100k routes with stream case with Ack type for RIB and FIB, but only permit a FIB success with cadence set to only once:
+    $ ./servicelayermain -u cisco -p cisco123 --table_type ipv6 -a Add -w Register --num_operations 100000 --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS --response_ack_cadence SL_RSP_JUST_ONCE
+    Add 25 routes with batch size as 6 and starting address as 2002:::0 with stream case false and Ack type as RIB and FIB:
+    $ ./servicelayermain -u cisco -p cisco123 --table_type ipv6 -a Add -w Register --num_operations 25 --batch_size 5 --first_prefix_ipv6 2001:db8:abcd:0012::0 --stream_case false --response_ack_type RIB_AND_FIB_ACK
     Deleting All Routes and Unregister Vrf:
-    $ ./servicelayermain -u username -p password --table_type ipv6 -w Unregister
+    $ ./servicelayermain -u cisco -p cisco123 --table_type ipv6 -w Unregister
 
 MPLS Example:
-    Adding 1000 Labels with streaming rpc:
-    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --start_label 12000
-    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls --num_operations 1000 -o 12000 --batch_size 1024 (same as above example)
+    Adding 1000 Labels with streaming rpc and Ack type as RIB and FIB:
+    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type mpls -b 1000 --start_label 12000 --response_ack_type RIB_AND_FIB_ACK
+    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type mpls --num_operations 1000 -o 12000 --batch_size 1024 --response_ack_type RIB_AND_FIB_ACK (same as above example)
     Deleting 35 labels with unary rpc:
-    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type mpls --num_operations 35 --start_label 12010 -c false
+    $ ./servicelayermain -u cisco -p cisco123 -a Delete -w Register --table_type mpls --num_operations 35 --start_label 12010 --stream_case false
 
 Path Group Example:
     Create a path group with the named "temp" with 64 paths for ipv4 routes:
-    $ ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for ipv4 --path_group_name temp --num_operations 64
+    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for ipv4 --path_group_name temp --num_operations 64
     Delete a path group named "temp":
-    $ ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Delete -w Register --table_type pg --path_group_name temp
+    $ ./servicelayermain -u cisco -p cisco123 -a Delete -w Register --table_type pg --path_group_name temp
 
-    Add 100k ipv6 routes using path group named "temp":
-    $ ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type ipv6 --path_group_name temp --num_operations 100000
+    Create a path group for ipv6 addresses and Add 100k ipv6 routes using path group named "temp":
+    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for ipv6 --path_group_name temp
+    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type ipv6 --path_group_name temp --num_operations 100000
 
     Create a path group for mpls called mpls_temp, with starting address for paths in path group at 12.0.0.1, and with 5 paths
-    ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for mpls --path_group_name temp --num_operations 64 --first_mpls_path_nhip 12.0.0.1
-    Apply path group named "temp" for 1000 mpls labels:
-    ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --path_group_name temp
+    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for mpls --path_group_name temp --num_operations 64 --first_mpls_path_nhip 12.0.0.1
+
+    Apply path group named "temp" for 1000 mpls labels with Ack type as Rib and Fib Inuse and permit only the Inuse success response Ack:
+    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type mpls -b 1000 --path_group_name temp --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS
+
+Get Request Example:
+    Get information for all routes based off of client id 521 with vrfname as 'default':
+    $ ./servicelayermain -u cisco -p cisco123 -a Get --vrf_name default --client_id 521
+
+    Get information for all routes based on all existing clients:
+    $ ./servicelayermain -u cisco -p cisco123 -a Get --client_id all
+
+    Get information for all routes of a specific table type:
+    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_table_list ipv4
+
+    Get information for all routes based off multiple table types:
+    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_table_list ipv4,mpls,ipv6,pg
+
+    Get information for 1000 ipv4 routes starting from address 40.0.1.0 with prefix length as 24:
+    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_route_list --add_object_type ipv4,40.0.1.0,24,1000
+
+    Get information of all objects based on a regex expression for path group:
+    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_route_list --add_pg_regex te*
+
+    Get information of all objects based on regex expression for path group, and 6 ipv4 routes from address 40.0.1.0 with prefix length as 24 and 5 ipv6 routes from address 2002:aa::0 with prefix length as 64:
+    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_route_list --add_pg_regex te* --add_object_type ipv4,40.0.1.0,24,6 --add_object_type ipv6,2002:aa::0,64,5
+
+GetVrf Request Example:
+    $ ./servicelayermain -u cisco -p cisco123 -a GetVrf
 
 
 Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
+    This should only be used when doing an Add,Delete or Update operation
     $ ./servicelayermain -u username -p password -a Add (Same as above examples, just omit -w option)
 
 The following sections explain the details of the above example tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
 
-#### <a name='explain'></a>Streaming rpc vs Unary rpc implementation
+#### <a name='explain'></a>Streaming rpc vs Unary rpc and Route pushing vs Get implementation
+
+Note: This section is for route pushing. AKA when the operation command is set to Add, Update or Delete.--------------------------------------------------
 
 Using a unary rpc, the client sends a single request and blocks for response to the request.
 Initially, the program takes information given by user and creates a database. Each entry in the database corresponds to the information for one route/label.
@@ -234,11 +291,21 @@ Our code utilizes multithreading and locking to handle bidirectional streaming. 
 
     After all of this is done, we print out any errors in the database.
 
-We chose this design to allow ease of use and good performance. This design allows reusability for user specific code. The user just needs to hook up their own db and handle a few cases related to database information.
+We chose this design to allow ease of use and good performance. This design allows reusability for user specific code. The user just needs to hook up their own db and handle a few cases related to database information.  
+
+Note: This section is for getting information for routes. This is when the operation command is set to Get or GetVrf.--------------------------------------------------
+
+There is no use of databases here.  
+For Get:
+    This tutorial simply populates the SLAFGetMsg and uses the SLAFGet rpc to push a single message, and print out all of the responses.
+    This tutorial showcases how to set up the SLAFGetMsg and pull the responses from the SLAFGetMsgRsp objects.
+For GetVrf:
+    This tutorial simply populates the SLAFVrfRegGetMsg and uses the SLAFVrfRegGet rpc to push a single message, and print out all of the responses.
+    This tutorial showcases how to set up the SLAFVrfRegGetMsg and pull the responses from the SLAFVrfRegGetMsgRsp objects.
 
 #### <a name='retry'></a>Retry Policy and Error Handling
 
-From the start of the first rpc request to the last response, the program acts atomically. Meaning, if all requests cannot be pushed and successfully completed due to rpc failure, then everything is retried. DB is cleared, remade, and all requests are sent again, with a specified wait time between each request and a total number of attempts.
+From the start of the first rpc request to the last response, the program acts atomically. Meaning, if all requests cannot be pushed and successfully completed due to rpc failure, then everything is retried. DB is cleared and remade when in use, and all requests are sent again, with a specified wait time between each request and a total number of attempts.
 
 #### <a name='gen'></a>Generate gRPC Code (optional in this example)
 
