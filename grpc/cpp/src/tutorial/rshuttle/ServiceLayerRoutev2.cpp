@@ -803,7 +803,6 @@ SLAFRShuttle::routeSLAFget(std::string vrfname, bool get_match, bool get_match_r
                 service_layer::SLAFGetMatch* match = route_match_list->add_match();
                 service_layer::SLAFObjectKey* slaf_obj_key = match->mutable_key();
                 service_layer::SLMplsEntryKey* mpls_entry_key = slaf_obj_key->mutable_mplslabel();
-                LOG(INFO) << "MPLS LABELS : " << mpls_label;
                 mpls_entry_key->set_label(mpls_label);
             }
 

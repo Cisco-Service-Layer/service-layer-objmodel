@@ -201,59 +201,59 @@ IPV4 Examples:
 
 IPV6 Example:
     Adding 100k routes with stream case with Ack type for RIB and FIB, but only permit a FIB success with cadence set to only once:
-    $ ./servicelayermain -u cisco -p cisco123 --table_type ipv6 -a Add -w Register --num_operations 100000 --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS --response_ack_cadence SL_RSP_JUST_ONCE
+    $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 100000 --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS --response_ack_cadence SL_RSP_JUST_ONCE
     Add 25 routes with batch size as 6 and starting address as 2002:::0 with stream case false and Ack type as RIB and FIB:
-    $ ./servicelayermain -u cisco -p cisco123 --table_type ipv6 -a Add -w Register --num_operations 25 --batch_size 5 --first_prefix_ipv6 2001:db8:abcd:0012::0 --stream_case false --response_ack_type RIB_AND_FIB_ACK
+    $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 25 --batch_size 5 --first_prefix_ipv6 2001:db8:abcd:0012::0 --stream_case false --response_ack_type RIB_AND_FIB_ACK
     Deleting All Routes and Unregister Vrf:
-    $ ./servicelayermain -u cisco -p cisco123 --table_type ipv6 -w Unregister
+    $ ./servicelayermain -u username -p password --table_type ipv6 -w Unregister
 
 MPLS Example:
     Adding 1000 Labels with streaming rpc and Ack type as RIB and FIB:
-    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type mpls -b 1000 --start_label 12000 --response_ack_type RIB_AND_FIB_ACK
-    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type mpls --num_operations 1000 -o 12000 --batch_size 1024 --response_ack_type RIB_AND_FIB_ACK (same as above example)
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --start_label 12000 --response_ack_type RIB_AND_FIB_ACK
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls --num_operations 1000 -o 12000 --batch_size 1024 --response_ack_type RIB_AND_FIB_ACK (same as above example)
     Deleting 35 labels with unary rpc:
-    $ ./servicelayermain -u cisco -p cisco123 -a Delete -w Register --table_type mpls --num_operations 35 --start_label 12010 --stream_case false
+    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type mpls --num_operations 35 --start_label 12010 --stream_case false
 
 Path Group Example:
     Create a path group with the named "temp" with 64 paths for ipv4 routes:
-    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for ipv4 --path_group_name temp --num_operations 64
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type pg --create_path_group_for ipv4 --path_group_name temp --num_operations 64
     Delete a path group named "temp":
-    $ ./servicelayermain -u cisco -p cisco123 -a Delete -w Register --table_type pg --path_group_name temp
+    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type pg --path_group_name temp
 
     Create a path group for ipv6 addresses and Add 100k ipv6 routes using path group named "temp":
-    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for ipv6 --path_group_name temp
-    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type ipv6 --path_group_name temp --num_operations 100000
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type pg --create_path_group_for ipv6 --path_group_name temp
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type ipv6 --path_group_name temp --num_operations 100000
 
     Create a path group for mpls called mpls_temp, with starting address for paths in path group at 12.0.0.1, and with 5 paths
-    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for mpls --path_group_name temp --num_operations 64 --first_mpls_path_nhip 12.0.0.1
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type pg --create_path_group_for mpls --path_group_name temp --num_operations 64 --first_mpls_path_nhip 12.0.0.1
 
     Apply path group named "temp" for 1000 mpls labels with Ack type as Rib and Fib Inuse and permit only the Inuse success response Ack:
-    $ ./servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type mpls -b 1000 --path_group_name temp --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --path_group_name temp --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS
 
 Get Request Example:
     Get information for all routes based off of client id 521 with vrfname as 'default':
-    $ ./servicelayermain -u cisco -p cisco123 -a Get --vrf_name default --client_id 521
+    $ ./servicelayermain -u username -p password -a Get --vrf_name default --client_id 521
 
     Get information for all routes based on all existing clients:
-    $ ./servicelayermain -u cisco -p cisco123 -a Get --client_id all
+    $ ./servicelayermain -u username -p password -a Get --client_id all
 
     Get information for all routes of a specific table type:
-    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_table_list ipv4
+    $ ./servicelayermain -u username -p password -a Get --match_table_list ipv4
 
     Get information for all routes based off multiple table types:
-    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_table_list ipv4,mpls,ipv6,pg
+    $ ./servicelayermain -u username -p password -a Get --match_table_list ipv4,mpls,ipv6,pg
 
     Get information for 1000 ipv4 routes starting from address 40.0.1.0 with prefix length as 24:
-    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_route_list --add_object_type ipv4,40.0.1.0,24,1000
+    $ ./servicelayermain -u username -p password -a Get --match_route_list --add_object_type ipv4,40.0.1.0,24,1000
 
     Get information of all objects based on a regex expression for path group:
-    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_route_list --add_pg_regex te*
+    $ ./servicelayermain -u username -p password -a Get --match_route_list --add_pg_regex te*
 
     Get information of all objects based on regex expression for path group, and 6 ipv4 routes from address 40.0.1.0 with prefix length as 24 and 5 ipv6 routes from address 2002:aa::0 with prefix length as 64:
-    $ ./servicelayermain -u cisco -p cisco123 -a Get --match_route_list --add_pg_regex te* --add_object_type ipv4,40.0.1.0,24,6 --add_object_type ipv6,2002:aa::0,64,5
+    $ ./servicelayermain -u username -p password -a Get --match_route_list --add_pg_regex te* --add_object_type ipv4,40.0.1.0,24,6 --add_object_type ipv6,2002:aa::0,64,5
 
 GetVrf Request Example:
-    $ ./servicelayermain -u cisco -p cisco123 -a GetVrf
+    $ ./servicelayermain -u username -p password -a GetVrf
 
 
 Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
