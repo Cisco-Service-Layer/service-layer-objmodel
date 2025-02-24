@@ -72,7 +72,7 @@ DbHelperUpdate(int result, service_layer::SLTableType addrFamily, service_layer:
 
 // Update DB Objects with error messages
 void 
-DbHelperError(int result, service_layer::SLTableType addrFamily, service_layer::SLAFMsgRsp* respMsg, int errStatus)
+DbHelperError(int result, service_layer::SLTableType addrFamily, service_layer::SLAFMsgRsp* respMsg, int errStatus, bool fib)
 {
     // If any errors occur, then place any error messages in the db objects
     if (addrFamily == service_layer::SL_IPv4_ROUTE_TABLE) {
@@ -83,7 +83,13 @@ DbHelperError(int result, service_layer::SLTableType addrFamily, service_layer::
             << respMsg->results(result).key().iprouteprefix().prefixlen()
             << " Operation ID: "
             << respMsg->results(result).operationid()
-            <<" is 0x"<< std::hex << errStatus;
+            << " is ";
+        // When fib is true, add the FibStatus message which is not converted to hex
+        if (fib) {
+            temp << errStatus;
+        } else {
+            temp << "0x" << std::hex << errStatus;
+        }
         std::string error_message = temp.str();
 
         auto prefix_index = respMsg->results(result).key().iprouteprefix().prefix().v4address();
@@ -96,7 +102,12 @@ DbHelperError(int result, service_layer::SLTableType addrFamily, service_layer::
             << respMsg->results(result).key().iprouteprefix().prefixlen()
             << " Operation ID: "
             << respMsg->results(result).operationid()
-            <<" is 0x"<< std::hex << errStatus;
+            <<" is ";
+        if (fib) {
+            temp << errStatus;
+        } else {
+            temp << "0x" << std::hex << errStatus;
+        }
         std::string error_message = temp.str();
 
         auto prefix_index = respMsg->results(result).key().iprouteprefix().prefix().v6address();
@@ -107,7 +118,12 @@ DbHelperError(int result, service_layer::SLTableType addrFamily, service_layer::
             << respMsg->results(result).key().mplslabel().label()
             << " Operation ID: "
             << respMsg->results(result).operationid()
-            <<" is 0x"<< std::hex << errStatus;
+            <<" is ";
+        if (fib) {
+            temp << errStatus;
+        } else {
+            temp << "0x" << std::hex << errStatus;
+        }
         std::string error_message = temp.str();
 
         auto label_index = respMsg->results(result).key().mplslabel().label();
@@ -118,7 +134,12 @@ DbHelperError(int result, service_layer::SLTableType addrFamily, service_layer::
             << respMsg->results(result).key().pathgroupid().name()
             << " Operation ID: "
             << respMsg->results(result).operationid()
-            <<" is 0x"<< std::hex << errStatus;
+            <<" is ";
+        if (fib) {
+            temp << errStatus;
+        } else {
+            temp << "0x" << std::hex << errStatus;
+        }
         std::string error_message = temp.str();
         auto pg_index = respMsg->results(result).key().pathgroupid().name();
         database.db_pg[pg_index].second.error = error_message;
@@ -387,7 +408,7 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
                 auto slerr_status = 
                 static_cast<int>(route_msg_resp.results(result).status().status());
                 if (slerr_status != service_layer::SLErrorStatus_SLErrno_SL_SUCCESS) {
-                    DbHelperError(result,addr_family,&route_msg_resp,slerr_status);
+                    DbHelperError(result,addr_family,&route_msg_resp,slerr_status,false);
                     route_error = true;
                 } else {
                      // Only RIB response received for Unary RPC.
@@ -431,7 +452,7 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
 
             auto slerr_status_rib = static_cast<int>(resp_msg.results(result).status().status());
             if (slerr_status_rib != service_layer::SLErrorStatus_SLErrno_SL_SUCCESS) {
-                DbHelperError(result,addrFamily,&resp_msg,slerr_status_rib);
+                DbHelperError(result,addrFamily,&resp_msg,slerr_status_rib,false);
             } else {
                 DbHelperUpdate(result,addrFamily,&resp_msg,false);
             }
@@ -456,7 +477,7 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
             if (check_rib_and_fib_set) {
                 if (slerr_status_fib != service_layer::SLAFFibStatus::SL_FIB_SUCCESS &&
                     slerr_status_fib != service_layer::SLAFFibStatus::SL_FIB_INUSE_SUCCESS) {
-                    DbHelperError(result,addrFamily,&resp_msg,slerr_status_fib);
+                    DbHelperError(result,addrFamily,&resp_msg,slerr_status_fib,true);
                 } else {
                     DbHelperUpdate(result,addrFamily,&resp_msg,true);
                 }
@@ -1408,7 +1429,7 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
         } else {
             LOG(ERROR) << "Error code for VRF Operation:" 
                        << vrfOp 
-                       << " is 0x" << std::hex 
+                       << " is " << std::hex 
                        << af_vrf_msg_resp.statussummary().status()
                        << " tid: " << std::this_thread::get_id();
 
@@ -1420,7 +1441,7 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
                       static_cast<int>(af_vrf_msg_resp.results(result).errstatus().status());
                       LOG(ERROR) << "Error code for vrf " 
                                  << af_vrf_msg_resp.results(result).vrfname() 
-                                 << " is 0x" << std::hex 
+                                 << " is " << std::hex 
                                  << slerr_status
                                  << " tid: " << std::this_thread::get_id();
                 }
