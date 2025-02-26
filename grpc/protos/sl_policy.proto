@@ -80,10 +80,9 @@ service SLPolicy {
      //  - Rule Objects specified in the incoming Policy Object that do not
      //    exist in the server's Policy Object will be created.
      //  - Rule Objects that do not change (idempotent) are not impacted.
-     //  - If the server's Policy Object contains a Rule Object being modified
-     //    but NOT idempotent with the Rule Object in the incoming Policy Object
-     //    will be deleted, followed by addition of the Rule Object from the
-     //    incoming Policy Object.
+     //  - If the server's Policy Object contains a Rule Object that is being
+     //    modified in the incoming request, the existing Rule Object in the
+     //    server will be modified.
      //  - Rule Objects that exist in the server's Policy Object and are not
      //    specified in the incoming Policy Object will be deleted.
      //
@@ -92,15 +91,14 @@ service SLPolicy {
      // i.e., for an existing Policy P{r1, r2, r3} on server side,
      // perform POLICY_REPLACE(P{r1*, r3, r4}) where r1* denotes a modified
      // Rule Object, r3 is idempotent (i.e., matches, action, priority are
-     // exactly same) with the server Rule Object. The final Policy Object in
-     // the server will be: P{r1*, r3, r4}
-     // Sequence of operations performed on the Policy Object:
-     //   DEL r1, r2
-     //   ADD r1*, r4
+     // exactly same) with the server Rule Object.
+     // The final Policy Object in the server will be: P{r1*, r3, r4}
      // Note: No change to r3 since it is idempotent. No traffic impact for
      // such rule(s).
+     //
      // Response for the operation will contain a status for each Rule Object
      // within the Policy.
+     //
      // The order of Rule Objects in the request does not matter i.e.,
      // POLICY_REPLACE(P{r1*, r3, r4}) and POLICY_REPLACE(P{r4, r3, r1*})
      // will have same behavior.
