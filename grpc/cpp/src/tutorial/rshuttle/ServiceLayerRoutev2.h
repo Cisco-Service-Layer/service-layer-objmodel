@@ -94,7 +94,8 @@ public:
     // For MPLS
     std::string first_mpls_path_nhip = "11.0.0.1";
     std::string next_hop_interface_mpls = "FourHundredGigE0/0/0/0";
-    uint32_t start_label = 20000;
+    uint32_t start_label = 12000;
+    uint32_t start_out_label = 20000;
     unsigned int num_label = 1000;
     unsigned int num_paths = 1;
 
@@ -323,6 +324,7 @@ public:
 
     void insertAddBatchMPLS(uint32_t label,
                                 uint32_t startLabel,
+                                uint32_t startOutLabel,
                                 unsigned int numPaths,
                                 uint32_t nextHopAddress,
                                 std::string nextHopInterface,

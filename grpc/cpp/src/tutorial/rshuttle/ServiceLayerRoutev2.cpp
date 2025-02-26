@@ -242,9 +242,11 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
         while (mpls_index <= mpls_last) {
             auto db_label = mpls_index;
             auto start_label = database.db_mpls[mpls_index].first.start_label;
+            auto start_out_label = database.db_mpls[mpls_index].first.start_out_label;
             auto next_hop_address = this->ipv4ToLong(database.db_mpls[mpls_index].first.first_mpls_path_nhip.c_str());
             this->insertAddBatchMPLS(db_label,
                                 start_label,
+                                start_out_label,
                                 database.db_mpls[mpls_index].first.num_paths,
                                 next_hop_address,
                                 database.db_mpls[mpls_index].first.next_hop_interface_mpls,
@@ -295,7 +297,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     route_path->mutable_nexthopaddress()->set_v4address(db_prefix);
                     route_path->mutable_nexthopinterface()->set_name(database.db_pg[pg_name].first.next_hop_interface_ipv4);
                     if (createPathGroupFor == service_layer::SL_MPLS_LABEL_TABLE) {
-                        route_path->add_labelstack(database.db_pg[pg_name].first.start_label);
+                        route_path->add_labelstack(database.db_pg[pg_name].first.start_out_label);
                     }
                     route_count++;
                     ipv4_index++;
@@ -1215,6 +1217,7 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
 void
 SLAFRShuttle::insertAddBatchMPLS(uint32_t label,
                             uint32_t startLabel,
+                            uint32_t startOutLabel,
                             unsigned int numPaths,
                             uint32_t nextHopAddress,
                             std::string nextHopInterface,
@@ -1244,7 +1247,7 @@ SLAFRShuttle::insertAddBatchMPLS(uint32_t label,
                 sli_add->set_name(nextHopInterface);
             }
             if (startLabel > 0) {
-                int out_label = startLabel;
+                int out_label = startOutLabel + (label-startLabel);
                 nhlfe->add_labelstack(out_label);
             }
         }

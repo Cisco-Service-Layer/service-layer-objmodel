@@ -966,6 +966,7 @@ int main(int argc, char** argv) {
         {"first_mpls_path_nhip", required_argument, nullptr, 'm'},
         {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
         {"start_label", required_argument, nullptr, 'o'},
+        {"start_out_label", required_argument, nullptr, 'K'},
         {"num_paths", required_argument, nullptr, 'q'},
         {"create_path_group_for", required_argument, nullptr, 'r'},
         {"path_group_name", required_argument, nullptr, 'y'},
@@ -989,7 +990,7 @@ int main(int argc, char** argv) {
         {nullptr,0,nullptr,0}
     };
 
-    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:y:A:B:C:D:E:F:GH:I:J:",longopts,nullptr)) != -1) {
+    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:K:q:r:s:hu:p:v:y:A:B:C:D:E:F:GH:I:J:",longopts,nullptr)) != -1) {
         switch (option_long) {
             case 't':
                 dummy = optarg;
@@ -1079,6 +1080,9 @@ int main(int argc, char** argv) {
             case 'o':
                 env_data.start_label = std::stoi(optarg);
                 break;
+            case 'K':
+                env_data.start_out_label = std::stoi(optarg);
+                break;
             case 'q':
                 env_data.num_paths = std::stoi(optarg);
                 break;
@@ -1137,7 +1141,8 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "MPLS Testing";
                 LOG(INFO) << "| -m/--first_mpls_path_nhip        | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
                 LOG(INFO) << "| -n/--next_hop_interface_mpls     | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
-                LOG(INFO) << "| -o/--start_label                 | Configure the starting label for this test for MPLS (default 20000) |";
+                LOG(INFO) << "| -o/--start_label                 | Configure the starting label for this test for MPLS (default 12000) |";
+                LOG(INFO) << "| -K/--start_out_label             | Configure the starting Out label for this test for MPLS (default 20000) |";
                 LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1) |";
                 LOG(INFO) << "PG Testing";
                 LOG(INFO) << "| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4) |";
@@ -1300,8 +1305,6 @@ int main(int argc, char** argv) {
 
                 } while (false);
                 env_data.get_match_route = true;
-                break;
-            case 'K':
                 break;
             default:
                 fprintf (stderr, "usage: %s --help for more information \n", argv[0]);
