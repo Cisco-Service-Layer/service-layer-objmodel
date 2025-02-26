@@ -97,7 +97,8 @@ service SLPolicy {
      // such rule(s).
      //
      // Response for the operation will contain a status for each Rule Object
-     // within the Policy (including Rule Objects not specified in the request).
+     // within the Policy (including for existing Rule Objects that would
+     // be deleted if not specified in the request).
      //
      // The order of Rule Objects in the request does not matter i.e.,
      // POLICY_REPLACE(P{r1*, r3, r4}) and POLICY_REPLACE(P{r4, r3, r1*})
