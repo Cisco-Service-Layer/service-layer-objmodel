@@ -749,6 +749,8 @@
     SL_POLICY_APPLY_NO_INTFS = 0x18024,\
     /* Policy unapply requested but no interfaces were provided. 0x18025 */\
     SL_POLICY_UNAPPLY_NO_INTFS = 0x18025,\
+    /* Policy object replace failed. 0x18026 */\
+    SL_POLICY_REPLACE_ERR = 0x18026,\
     /* !!! Error codes for Bgpls Topology objects. */\
     /* Offset for Bgpls Topology errors. 0x19000 */\
     SL_BGPLS_TOPO_START_OFFSET = 0x19000,\
@@ -1799,6 +1801,9 @@
         },\
     {SL_POLICY_UNAPPLY_NO_INTFS ,\
         " Policy unapply requested but no interfaces were provided.  "\
+        },\
+    {SL_POLICY_REPLACE_ERR ,\
+        " Policy object replace failed.  "\
         },\
     {SL_BGPLS_TOPO_START_OFFSET ,\
         " Offset for Bgpls Topology errors.  "\

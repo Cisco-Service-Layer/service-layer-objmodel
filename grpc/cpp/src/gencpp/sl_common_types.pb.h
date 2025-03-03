@@ -402,6 +402,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_POLICY_RULE_DELETE_NO_RULES = 98339,
   SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS = 98340,
   SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS = 98341,
+  SLErrorStatus_SLErrno_SL_POLICY_REPLACE_ERR = 98342,
   SLErrorStatus_SLErrno_SL_BGPLS_TOPO_START_OFFSET = 102400,
   SLErrorStatus_SLErrno_SL_BGPLS_SERVER_NOT_AVAILABLE = 102401,
   SLErrorStatus_SLErrno_SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 102402,
@@ -1464,6 +1465,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS;
   static constexpr SLErrno SL_POLICY_UNAPPLY_NO_INTFS =
     SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS;
+  static constexpr SLErrno SL_POLICY_REPLACE_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_REPLACE_ERR;
   static constexpr SLErrno SL_BGPLS_TOPO_START_OFFSET =
     SLErrorStatus_SLErrno_SL_BGPLS_TOPO_START_OFFSET;
   static constexpr SLErrno SL_BGPLS_SERVER_NOT_AVAILABLE =

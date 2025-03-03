@@ -8,9 +8,12 @@ from . import sl_policy_pb2 as sl__policy__pb2
 class SLPolicyStub(object):
     """@defgroup SLPolicy
     @ingroup Policy
-    Used for policy creation and deletion, add and delete rules from policy, 
-    apply and un-apply policy from interfaces. 
-    Defines the RPC for operations on policy, interface and get requests.
+    Used for:
+    - Policy creation, replacement, and deletion
+    - Rule addition, and deletion from Policy
+    - Apply and Un-apply Policy from Interfaces
+
+    Defines the RPC for operations on Policy, Interface and get requests.
     @{ 
     @addtogroup SLPolicy
     @{
@@ -43,9 +46,12 @@ class SLPolicyStub(object):
 class SLPolicyServicer(object):
     """@defgroup SLPolicy
     @ingroup Policy
-    Used for policy creation and deletion, add and delete rules from policy, 
-    apply and un-apply policy from interfaces. 
-    Defines the RPC for operations on policy, interface and get requests.
+    Used for:
+    - Policy creation, replacement, and deletion
+    - Rule addition, and deletion from Policy
+    - Apply and Un-apply Policy from Interfaces
+
+    Defines the RPC for operations on Policy, Interface and get requests.
     @{ 
     @addtogroup SLPolicy
     @{
@@ -94,6 +100,41 @@ class SLPolicyServicer(object):
         affected.
 
 
+        SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_REPLACE
+        Replace an existing Policy Object with the incoming Policy Object.
+        Add a new Policy Object if it does not exist in the server.
+        As part of Replace,
+        - Rule Objects specified in the incoming Policy Object that do not
+        exist in the server's Policy Object will be created.
+        - Rule Objects that do not change (idempotent) are not impacted.
+        - If the server's Policy Object contains a Rule Object that is being
+        modified in the incoming request, the existing Rule Object in the
+        server will be modified.
+        - Rule Objects that exist in the server's Policy Object and are not
+        specified in the incoming Policy Object will be deleted.
+
+        Example,
+        P{r1, r2, r3} + POLICY_REPLACE(P{r1*, r3, r4}) -> P{r1*, r3, r4}
+        i.e., for an existing Policy P{r1, r2, r3} on server side,
+        perform POLICY_REPLACE(P{r1*, r3, r4}) where r1* denotes a modified
+        Rule Object, r3 is idempotent (i.e., matches, action, priority are
+        exactly same) with the server Rule Object.
+        The final Policy Object in the server will be: P{r1*, r3, r4}
+        Note: No change to r3 since it is idempotent. No traffic impact for
+        such rule(s).
+
+        Response for the operation will contain a status for each Rule Object
+        within the Policy (including for existing Rule Objects that would
+        be deleted if not specified in the request).
+
+        The order of Rule Objects in the request does not matter i.e.,
+        POLICY_REPLACE(P{r1*, r3, r4}) and POLICY_REPLACE(P{r4, r3, r1*})
+        will have same behavior.
+
+        Note: SL-Policy RPC operations are best-effort. Failure in individual
+        Rule Objects does not revert other successfully processed Rule Objects
+        in the REPLACE request.
+
         SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_DELETE 
         Delete the policy object. The object's key is enough to delete the 
         object. Other attributes if present are ignored. Delete of a non-
@@ -122,10 +163,12 @@ class SLPolicyServicer(object):
         and the interface where it needs to be applied will be verified
         and used. Other attributes are ignored.  
 
+
         SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
         Unapply the policy on an interface. Only the policy object key
         and the interface where it needs to be removed from  will be 
         verified and used, other attributes are ignored.
+
 
 
         The device can be programmed by only one active instance of 
@@ -184,9 +227,12 @@ def add_SLPolicyServicer_to_server(servicer, server):
 class SLPolicy(object):
     """@defgroup SLPolicy
     @ingroup Policy
-    Used for policy creation and deletion, add and delete rules from policy, 
-    apply and un-apply policy from interfaces. 
-    Defines the RPC for operations on policy, interface and get requests.
+    Used for:
+    - Policy creation, replacement, and deletion
+    - Rule addition, and deletion from Policy
+    - Apply and Un-apply Policy from Interfaces
+
+    Defines the RPC for operations on Policy, Interface and get requests.
     @{ 
     @addtogroup SLPolicy
     @{

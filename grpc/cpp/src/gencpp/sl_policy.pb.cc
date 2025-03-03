@@ -570,32 +570,32 @@ const char descriptor_table_protodef_sl_5fpolicy_2eproto[] PROTOBUF_SECTION_VARI
   "fo\"\026\n\024SLPolicyGlobalGetMsg\"q\n\027SLPolicyGl"
   "obalGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.servi"
   "ce_layer.SLErrorStatus\022\023\n\013MaxPolicies\030\002 "
-  "\001(\r\022\020\n\010MaxRules\030\003 \001(\r*\316\001\n\020SLPolicyObject"
+  "\001(\r\022\020\n\010MaxRules\030\003 \001(\r*\353\001\n\020SLPolicyObject"
   "Op\022\034\n\030SL_OBJOP_POLICY_RESERVED\020\000\022\027\n\023SL_O"
   "BJOP_POLICY_ADD\020\001\022\032\n\026SL_OBJOP_POLICY_DEL"
   "ETE\020\002\022\025\n\021SL_OBJOP_RULE_ADD\020\003\022\030\n\024SL_OBJOP"
   "_RULE_DELETE\020\004\022\031\n\025SL_OBJOP_POLICY_APPLY\020"
-  "\005\022\033\n\027SL_OBJOP_POLICY_UNAPPLY\020\006*=\n\014SLPoli"
-  "cyType\022\030\n\024SL_PM_PTYPE_RESERVED\020\000\022\023\n\017SL_P"
-  "M_PTYPE_PBR\020\001*N\n\020SLApplyDirection\022\032\n\026SL_"
-  "APPLY_TYPE_RESERVED\020\000\022\036\n\032SL_APPLY_DIRECT"
-  "ION_INGRESS\020\0012\210\002\n\010SLPolicy\022H\n\nSLPolicyOp"
-  "\022\034.service_layer.SLPolicyOpMsg\032\034.service"
-  "_layer.SLPolicyOpRsp\022P\n\013SLPolicyGet\022\035.se"
-  "rvice_layer.SLPolicyGetMsg\032 .service_lay"
-  "er.SLPolicyGetMsgRsp0\001\022`\n\021SLPolicyGlobal"
-  "Get\022#.service_layer.SLPolicyGlobalGetMsg"
-  "\032&.service_layer.SLPolicyGlobalGetMsgRsp"
-  "BQZOgithub.com/Cisco-service-layer/servi"
-  "ce-layer-objmodel/grpc/protos;service_la"
-  "yerb\006proto3"
+  "\005\022\033\n\027SL_OBJOP_POLICY_UNAPPLY\020\006\022\033\n\027SL_OBJ"
+  "OP_POLICY_REPLACE\020\007*=\n\014SLPolicyType\022\030\n\024S"
+  "L_PM_PTYPE_RESERVED\020\000\022\023\n\017SL_PM_PTYPE_PBR"
+  "\020\001*N\n\020SLApplyDirection\022\032\n\026SL_APPLY_TYPE_"
+  "RESERVED\020\000\022\036\n\032SL_APPLY_DIRECTION_INGRESS"
+  "\020\0012\210\002\n\010SLPolicy\022H\n\nSLPolicyOp\022\034.service_"
+  "layer.SLPolicyOpMsg\032\034.service_layer.SLPo"
+  "licyOpRsp\022P\n\013SLPolicyGet\022\035.service_layer"
+  ".SLPolicyGetMsg\032 .service_layer.SLPolicy"
+  "GetMsgRsp0\001\022`\n\021SLPolicyGlobalGet\022#.servi"
+  "ce_layer.SLPolicyGlobalGetMsg\032&.service_"
+  "layer.SLPolicyGlobalGetMsgRspBQZOgithub."
+  "com/Cisco-service-layer/service-layer-ob"
+  "jmodel/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fpolicy_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fpolicy_2eproto = {
-  false, false, 2931, descriptor_table_protodef_sl_5fpolicy_2eproto, "sl_policy.proto", 
+  false, false, 2960, descriptor_table_protodef_sl_5fpolicy_2eproto, "sl_policy.proto", 
   &descriptor_table_sl_5fpolicy_2eproto_once, descriptor_table_sl_5fpolicy_2eproto_deps, 1, 21,
   schemas, file_default_instances, TableStruct_sl_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fpolicy_2eproto, file_level_service_descriptors_sl_5fpolicy_2eproto,
@@ -620,6 +620,7 @@ bool SLPolicyObjectOp_IsValid(int value) {
     case 4:
     case 5:
     case 6:
+    case 7:
       return true;
     default:
       return false;
