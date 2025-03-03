@@ -2,7 +2,7 @@
  *------------------------------------------------------------------
  * This file is AUTO-GENERATED. DO NOT EDIT.
  *
- * Copyright (c) 2016-2019 by cisco Systems, Inc.
+ * Copyright (c) 2016-2019,2025 by cisco Systems, Inc.
  * All rights reserved.
  *------------------------------------------------------------------
  */
@@ -755,6 +755,111 @@
     SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 0x19002,\
     /* Maximum SLBgplsTopoNotifStream exceeded. 0x19003 */\
     SL_BGPLS_MAX_STREAMS_EXCEEDED = 0x19003,\
+    /* !!! Error codes for operations on BGP objects. */\
+    /* Offset for bgp object operations. 0x1a000 */\
+    SL_BGP_START_OFFSET = 0x1a000,\
+    /* BGP instance name too long. 0x1a001 */\
+    SL_BGP_INST_NAME_TOOLONG = 0x1a001,\
+    /* BGP instance name empty. 0x1a002 */\
+    SL_BGP_INST_NAME_EMPTY = 0x1a002,\
+    /* BGP instance not initialized. 0x1a003 */\
+    SL_BGP_INST_NOT_INITIALIZED = 0x1a003,\
+    /* BGP invalid object type. 0x1a004 */\
+    SL_BGP_INVALID_OBJ_TYPE = 0x1a004,\
+    /* BGP vrf name too long for v4 neighbor. 0x1a005 */\
+    SL_BGP_VRF_NAME_TOOLONG_V4 = 0x1a005,\
+    /* BGP vrf name too long for v6 neighbor. 0x1a006 */\
+    SL_BGP_VRF_NAME_TOOLONG_V6 = 0x1a006,\
+    /* BGP unsupported vrf name. 0x1a007 */\
+    SL_BGP_UNSUPPORTED_VRF_NAME = 0x1a007,\
+    /* BGP invalid neighbor address multicast. 0x1a008 */\
+    SL_BGP_INVALID_NBR_ADDR_MCAST = 0x1a008,\
+    /* BGP invalid neighbor address experimental. 0x1a009 */\
+    SL_BGP_INVALID_NBR_ADDR_EXP = 0x1a009,\
+    /* BGP invalid neighbor address. 0x1a00a */\
+    SL_BGP_INVALID_NBR_ADDR = 0x1a00a,\
+    /* BGP invalid neighbor v6 address size. 0x1a00b */\
+    SL_BGP_INVALID_NBR_V6_SZ = 0x1a00b,\
+    /* BGP invalid neighbor key. 0x1a00c */\
+    SL_BGP_INVALID_NBR_KEY = 0x1a00c,\
+    /* BGP invalid mpath address multicast. 0x1a00d */\
+    SL_BGP_INVALID_MPATH_ADDR_MCAST = 0x1a00d,\
+    /* BGP invalid mpath address experimental. 0x1a00e */\
+    SL_BGP_INVALID_MPATH_ADDR_EXP = 0x1a00e,\
+    /* BGP invalid mpath address. 0x1a00f */\
+    SL_BGP_INVALID_MPATH_ADDR = 0x1a00f,\
+    /* BGP invalid mpath v6 address size. 0x1a010 */\
+    SL_BGP_INVALID_MPATH_V6_SZ = 0x1a010,\
+    /* BGP invalid neighbor afi/safi list. 0x1a011 */\
+    SL_BGP_INVALID_NBRSAFI_LIST = 0x1a011,\
+    /* BGP unsupported BGP afi/safi. 0x1a012 */\
+    SL_BGP_UNSUPPORTED_BGP_AFI_SAFI = 0x1a012,\
+    /* BGP unsupported afi. 0x1a013 */\
+    SL_BGP_UNSUPPORTED_AFI = 0x1a013,\
+    /* BGP unsupported safi. 0x1a014 */\
+    SL_BGP_UNSUPPORTED_SAFI = 0x1a014,\
+    /* BGP empty object. 0x1a015 */\
+    SL_BGP_EMPTY_OBJECTS = 0x1a015,\
+    /* BGP empty object list. 0x1a016 */\
+    SL_BGP_EMPTY_OBJECT_LIST = 0x1a016,\
+    /* BGP updating bandwidth-group database failed. 0x1a017 */\
+    SL_BGP_UPDATE_BW_GRP_FAILED = 0x1a017,\
+    /* BGP updating mpath database failed. 0x1a018 */\
+    SL_BGP_UPDATE_MPATH_ADDR_FAILED = 0x1a018,\
+    /* BGP deleting from bandwidth-group database failed. 0x1a019 */\
+    SL_BGP_DELETE_BW_GRP_FAILED = 0x1a019,\
+    /* BGP deleting neighbor from database failed. 0x1a01a */\
+    SL_BGP_DELETE_NBR_FAILED = 0x1a01a,\
+    /* BGP deleting afi/safi from database failed. 0x1a01b */\
+    SL_BGP_DELETE_AFI_FAILED = 0x1a01b,\
+    /* BGP deleting from mpath database failed. 0x1a01c */\
+    SL_BGP_DELETE_MPATH_ADDR_FAILED = 0x1a01c,\
+    /* BGP deleting from database failed. 0x1a01d */\
+    SL_BGP_DELETE_FAILED = 0x1a01d,\
+    /* BGP bandwidth-group number out of range. 0x1a01e */\
+    SL_BGP_BW_GRP_NUM_OUT_OF_RANGE = 0x1a01e,\
+    /* BGP inbound bandwidth-group count exceeds limit. 0x1a01f */\
+    SL_BGP_IN_BW_GRP_COUNT_EXCEEDED = 0x1a01f,\
+    /* BGP outbound bandwidth-group count exceeds limit. 0x1a020 */\
+    SL_BGP_OUT_BW_GRP_COUNT_EXCEEDED = 0x1a020,\
+    /* BGP invalid inbound bandwidth-group list. 0x1a021 */\
+    SL_BGP_INVALID_IN_BWGRP_LIST = 0x1a021,\
+    /* BGP invalid outbound bandwidth-group count list. 0x1a022 */\
+    SL_BGP_INVALID_OUT_BWGRP_LIST = 0x1a022,\
+    /* BGP link bandwidth out of range. 0x1a023 */\
+    SL_BGP_LINK_BW_OUT_OF_RANGE = 0x1a023,\
+    /* BGP neighbor index out of range. 0x1a024 */\
+    SL_BGP_NBR_IDX_OUT_OF_RANGE = 0x1a024,\
+    /* BGP invalid bandwidth-group type. 0x1a025 */\
+    SL_BGP_INVALID_BW_TYPE = 0x1a025,\
+    /* BGP neighbor bandwidth-group list is NULL. 0x1a026 */\
+    SL_BGP_BW_GRP_LIST_NULL = 0x1a026,\
+    /* BGP neighbor afi/safi list is NULL. 0x1a027 */\
+    SL_BGP_NBRSAFI_LIST_NULL = 0x1a027,\
+    /* BGP instance does not exist in SL-API. 0x1a028 */\
+    SL_BGP_INST_NOT_CONFIG_IN_SLAPI = 0x1a028,\
+    /* BGP object list index out of range. 0x1a029 */\
+    SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE = 0x1a029,\
+    /* BGP AS number out of range. 0x1a02a */\
+    SL_BGP_ASN_OUT_OF_RANGE = 0x1a02a,\
+    /* BGP invalid bandwidth-unit. 0x1a02b */\
+    SL_BGP_INVALID_BW_UNIT = 0x1a02b,\
+    /* BGP Object Type required when get_next is FALSE. 0x1a02c */\
+    SL_BGP_OBJECT_TYPE_REQUIRED = 0x1a02c,\
+    /* BGP Object Key required when get_next is FALSE. 0x1a02d */\
+    SL_BGP_OBJECT_KEY_REQUIRED = 0x1a02d,\
+    /* BGP invalid object type. 0x1a02e */\
+    SL_BGP_INVALID_OBJECT_TYPE = 0x1a02e,\
+    /* BGP exact match for get request is not found. 0x1a02f */\
+    SL_BGP_GET_EXACT_MATCH_NOT_FOUND = 0x1a02f,\
+    /* BGP maximum neighbor count reached. 0x1a030 */\
+    SL_BGP_MAX_NEIGHBORS_IN_SYSDB = 0x1a030,\
+    /* BGP Internal Error 1. 0x1a101 */\
+    SL_BGP_INTERNAL_ERR_1 = 0x1a101,\
+    /* BGP Internal Error 2. 0x1a102 */\
+    SL_BGP_INTERNAL_ERR_2 = 0x1a102,\
+    /* BGP Internal Error 3. 0x1a103 */\
+    SL_BGP_INTERNAL_ERR_3 = 0x1a103,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1807,6 +1912,162 @@
         },\
     {SL_BGPLS_MAX_STREAMS_EXCEEDED ,\
         " Maximum SLBgplsTopoNotifStream exceeded.  "\
+        },\
+    {SL_BGP_START_OFFSET ,\
+        " Offset for bgp object operations.  "\
+        },\
+    {SL_BGP_INST_NAME_TOOLONG ,\
+        " BGP instance name too long.  "\
+        },\
+    {SL_BGP_INST_NAME_EMPTY ,\
+        " BGP instance name empty.  "\
+        },\
+    {SL_BGP_INST_NOT_INITIALIZED ,\
+        " BGP instance not initialized.  "\
+        },\
+    {SL_BGP_INVALID_OBJ_TYPE ,\
+        " BGP invalid object type.  "\
+        },\
+    {SL_BGP_VRF_NAME_TOOLONG_V4 ,\
+        " BGP vrf name too long for v4 neighbor.  "\
+        },\
+    {SL_BGP_VRF_NAME_TOOLONG_V6 ,\
+        " BGP vrf name too long for v6 neighbor.  "\
+        },\
+    {SL_BGP_UNSUPPORTED_VRF_NAME ,\
+        " BGP unsupported vrf name.  "\
+        },\
+    {SL_BGP_INVALID_NBR_ADDR_MCAST ,\
+        " BGP invalid neighbor address multicast.  "\
+        },\
+    {SL_BGP_INVALID_NBR_ADDR_EXP ,\
+        " BGP invalid neighbor address experimental.  "\
+        },\
+    {SL_BGP_INVALID_NBR_ADDR ,\
+        " BGP invalid neighbor address.  "\
+        },\
+    {SL_BGP_INVALID_NBR_V6_SZ ,\
+        " BGP invalid neighbor v6 address size.  "\
+        },\
+    {SL_BGP_INVALID_NBR_KEY ,\
+        " BGP invalid neighbor key.  "\
+        },\
+    {SL_BGP_INVALID_MPATH_ADDR_MCAST ,\
+        " BGP invalid mpath address multicast.  "\
+        },\
+    {SL_BGP_INVALID_MPATH_ADDR_EXP ,\
+        " BGP invalid mpath address experimental.  "\
+        },\
+    {SL_BGP_INVALID_MPATH_ADDR ,\
+        " BGP invalid mpath address.  "\
+        },\
+    {SL_BGP_INVALID_MPATH_V6_SZ ,\
+        " BGP invalid mpath v6 address size.  "\
+        },\
+    {SL_BGP_INVALID_NBRSAFI_LIST ,\
+        " BGP invalid neighbor afi/safi list.  "\
+        },\
+    {SL_BGP_UNSUPPORTED_BGP_AFI_SAFI ,\
+        " BGP unsupported BGP afi/safi.  "\
+        },\
+    {SL_BGP_UNSUPPORTED_AFI ,\
+        " BGP unsupported afi.  "\
+        },\
+    {SL_BGP_UNSUPPORTED_SAFI ,\
+        " BGP unsupported safi.  "\
+        },\
+    {SL_BGP_EMPTY_OBJECTS ,\
+        " BGP empty object.  "\
+        },\
+    {SL_BGP_EMPTY_OBJECT_LIST ,\
+        " BGP empty object list.  "\
+        },\
+    {SL_BGP_UPDATE_BW_GRP_FAILED ,\
+        " BGP updating bandwidth-group database failed.  "\
+        },\
+    {SL_BGP_UPDATE_MPATH_ADDR_FAILED ,\
+        " BGP updating mpath database failed.  "\
+        },\
+    {SL_BGP_DELETE_BW_GRP_FAILED ,\
+        " BGP deleting from bandwidth-group database failed.  "\
+        },\
+    {SL_BGP_DELETE_NBR_FAILED ,\
+        " BGP deleting neighbor from database failed.  "\
+        },\
+    {SL_BGP_DELETE_AFI_FAILED ,\
+        " BGP deleting afi/safi from database failed.  "\
+        },\
+    {SL_BGP_DELETE_MPATH_ADDR_FAILED ,\
+        " BGP deleting from mpath database failed.  "\
+        },\
+    {SL_BGP_DELETE_FAILED ,\
+        " BGP deleting from database failed.  "\
+        },\
+    {SL_BGP_BW_GRP_NUM_OUT_OF_RANGE ,\
+        " BGP bandwidth-group number out of range.  "\
+        },\
+    {SL_BGP_IN_BW_GRP_COUNT_EXCEEDED ,\
+        " BGP inbound bandwidth-group count exceeds limit.  "\
+        },\
+    {SL_BGP_OUT_BW_GRP_COUNT_EXCEEDED ,\
+        " BGP outbound bandwidth-group count exceeds limit.  "\
+        },\
+    {SL_BGP_INVALID_IN_BWGRP_LIST ,\
+        " BGP invalid inbound bandwidth-group list.  "\
+        },\
+    {SL_BGP_INVALID_OUT_BWGRP_LIST ,\
+        " BGP invalid outbound bandwidth-group count list.  "\
+        },\
+    {SL_BGP_LINK_BW_OUT_OF_RANGE ,\
+        " BGP link bandwidth out of range.  "\
+        },\
+    {SL_BGP_NBR_IDX_OUT_OF_RANGE ,\
+        " BGP neighbor index out of range.  "\
+        },\
+    {SL_BGP_INVALID_BW_TYPE ,\
+        " BGP invalid bandwidth-group type.  "\
+        },\
+    {SL_BGP_BW_GRP_LIST_NULL ,\
+        " BGP neighbor bandwidth-group list is NULL.  "\
+        },\
+    {SL_BGP_NBRSAFI_LIST_NULL ,\
+        " BGP neighbor afi/safi list is NULL.  "\
+        },\
+    {SL_BGP_INST_NOT_CONFIG_IN_SLAPI ,\
+        " BGP instance does not exist in SL-API.  "\
+        },\
+    {SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE ,\
+        " BGP object list index out of range.  "\
+        },\
+    {SL_BGP_ASN_OUT_OF_RANGE ,\
+        " BGP AS number out of range.  "\
+        },\
+    {SL_BGP_INVALID_BW_UNIT ,\
+        " BGP invalid bandwidth-unit.  "\
+        },\
+    {SL_BGP_OBJECT_TYPE_REQUIRED ,\
+        " BGP Object Type required when get_next is FALSE.  "\
+        },\
+    {SL_BGP_OBJECT_KEY_REQUIRED ,\
+        " BGP Object Key required when get_next is FALSE.  "\
+        },\
+    {SL_BGP_INVALID_OBJECT_TYPE ,\
+        " BGP invalid object type.  "\
+        },\
+    {SL_BGP_GET_EXACT_MATCH_NOT_FOUND ,\
+        " BGP exact match for get request is not found.  "\
+        },\
+    {SL_BGP_MAX_NEIGHBORS_IN_SYSDB ,\
+        " BGP maximum neighbor count reached.  "\
+        },\
+    {SL_BGP_INTERNAL_ERR_1 ,\
+        " BGP Internal Error 1.  "\
+        },\
+    {SL_BGP_INTERNAL_ERR_2 ,\
+        " BGP Internal Error 2.  "\
+        },\
+    {SL_BGP_INTERNAL_ERR_3 ,\
+        " BGP Internal Error 3.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
