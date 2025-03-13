@@ -287,19 +287,19 @@ GetVrf Request Example:
 Notification Stream Example:
 
     Enabling route notification for routes with table type ipv6, and programmed from this tutorial (SrcProto as application, and SrcProtoTag as Service-layer) for 10 seconds:
-    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 10 --notif_vrfname default --notif_route application,Service-layer,ipv6
+    $ ./servicelayermain -u username -p password -a Notification --notif_oper enable --notif_stream_duration 10 --notif_vrfname default --notif_route application,Service-layer,ipv6
 
     Same as the above example plus enabling route notification for routes with table type ipv6:
-    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 10 --notif_vrfname default --notif_route application,Service-layer,ipv6 --notif_route application,Service-layer,ipv4
+    $ ./servicelayermain -u username -p password -a Notification --notif_oper enable --notif_stream_duration 10 --notif_vrfname default --notif_route application,Service-layer,ipv6 --notif_route application,Service-layer,ipv4
 
     Disabling next hop change notification for 15 seconds and for next hop ip ipv4 address as 40.0.0.0 with prefix length as 24. And with best match, allow default route to be returned, and return only for the immediate viable path list:
-    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper disable --notif_stream_duration 15 --notif_vrfname default --notif_nh ipv4,40.0.0.0,24,false,true,false
+    $ ./servicelayermain -u username -p password -a Notification --notif_oper disable --notif_stream_duration 15 --notif_vrfname default --notif_nh ipv4,40.0.0.0,24,false,true,false
 
     Enabling next hop change notification for 9 seconds and for next hop ip ipv6 address as 2002:aa::0 with prefix length as 64. And with exact match, allow default route to not be returned, and return all next hop's paths paths lists:
-    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 9 --notif_vrfname default --notif_nh ipv6,2002:aa::0,64,true,false,true
+    $ ./servicelayermain -u username -p password -a Notification --notif_oper enable --notif_stream_duration 9 --notif_vrfname default --notif_nh ipv6,2002:aa::0,64,true,false,true
 
     Same as above example but also enable route notification for routes with table type as ipv6:
-    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 9 --notif_vrfname default --notif_nh ipv6,2002:aa::0,64,true,false,true --notif_route application,Service-layer,ipv6
+    $ ./servicelayermain -u username -p password -a Notification --notif_oper enable --notif_stream_duration 9 --notif_vrfname default --notif_nh ipv6,2002:aa::0,64,true,false,true --notif_route application,Service-layer,ipv6
 
 Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
 
