@@ -241,12 +241,12 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
         // Labels are incremented by 1
         while (mpls_index <= mpls_last) {
             auto db_label = mpls_index;
-            auto start_label = database.db_mpls[mpls_index].first.start_label;
-            auto start_out_label = database.db_mpls[mpls_index].first.start_out_label;
+            auto local_label = database.db_mpls[mpls_index].first.local_label;
+            auto out_label = database.db_mpls[mpls_index].first.out_label;
             auto next_hop_address = this->ipv4ToLong(database.db_mpls[mpls_index].first.first_mpls_path_nhip.c_str());
             this->insertAddBatchMPLS(db_label,
-                                start_label,
-                                start_out_label,
+                                local_label,
+                                out_label,
                                 database.db_mpls[mpls_index].first.num_paths,
                                 next_hop_address,
                                 database.db_mpls[mpls_index].first.next_hop_interface_mpls,
@@ -297,7 +297,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     route_path->mutable_nexthopaddress()->set_v4address(db_prefix);
                     route_path->mutable_nexthopinterface()->set_name(database.db_pg[pg_name].first.next_hop_interface_ipv4);
                     if (createPathGroupFor == service_layer::SL_MPLS_LABEL_TABLE) {
-                        route_path->add_labelstack(database.db_pg[pg_name].first.start_out_label);
+                        route_path->add_labelstack(database.db_pg[pg_name].first.out_label);
                     }
                     route_count++;
                     ipv4_index++;
@@ -435,7 +435,8 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
 }
 
 void
-SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream, service_layer::SLTableType addrFamily,  service_layer::SLObjectOp routeOper, std::string addressFamilyStr)
+SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream,
+                    service_layer::SLTableType addrFamily,  service_layer::SLObjectOp routeOper, std::string addressFamilyStr)
 {
     // Reader thread listens to any responses from the server
     service_layer::SLAFMsgRsp resp_msg;
@@ -637,11 +638,11 @@ SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_l
         stub_->SLAFOpStream(&context));
 
     // Create the Reader Thread
-    std::thread reader(this->readStream,std::ref(stream), addrFamily, routeOper, address_family_str);
+    std::thread reader(readStream,std::ref(stream), addrFamily, routeOper, address_family_str);
 
     request_deque.clear();
     // Start Writer Thread
-    std::thread writer(this->writeStream, std::ref(stream), address_family_str);
+    std::thread writer(writeStream, std::ref(stream), address_family_str);
     unsigned int total_routes = 0;
 
     // Makes batches from db objects and pushes into request queue
@@ -688,6 +689,141 @@ SLAFRShuttle::responseAckSet(service_layer::SLAFOpMsg* operation, responseAcks r
     }
 }
 
+void
+SLAFRShuttle::readNotifStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFNotifReq, service_layer::SLAFNotifMsg>>& stream,
+                            std::vector<service_layer::SLAFNotifMsg>& responses)
+{
+    bool read_successful = true;
+    service_layer::SLAFNotifMsg resp_msg = {};
+
+    // Waits for response until stream closes, timeout occurs, or response is given
+    while (read_successful = stream->Read(&resp_msg)) {
+        responses.push_back(resp_msg);
+    }
+}
+std::vector<service_layer::SLAFNotifMsg>
+SLAFRShuttle::routeSLAFNotifStream(unsigned int batchSize, service_layer::SLNotifOp oper,
+                                std::string vrfname, std::vector<notifRouteObj> notifRoute,
+                                std::vector<notifNextHopObj> notifNextHop, unsigned int notificationStreamDuration, unsigned int timeout)
+{
+    int count = 0;
+    int operation_id = 0;
+    // Create the channel object first and start the streaming operation
+    auto stub_ = service_layer::SLAF::NewStub(channel);
+
+    // Context for the client. It could be used to convey extra information to the server and/or tweak certain RPC behaviors.
+    grpc::ClientContext context;
+
+    // Storage for the status of the RPC upon completion.
+    grpc::Status status;
+
+    // Set timeout for RPC
+    std::chrono::system_clock::time_point deadline =
+        std::chrono::system_clock::now() + std::chrono::seconds(timeout);
+
+    // Setting metadata info in the context
+    context.set_deadline(deadline);
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
+    // When this request has false value set, uses client id from context
+    context.AddMetadata("iosxr-slapi-clientid", client_id);
+
+    std::vector<service_layer::SLAFNotifReq> messages;
+    service_layer::SLAFNotifReq temp = {};
+
+    std::string s;
+    if (google::protobuf::TextFormat::PrintToString(temp, &s)) {
+        VLOG(2) << "###########################" ;
+        VLOG(2) << "Transmitted message: IOSXR-SL NOTIF " << s;
+        VLOG(2) << "###########################" ;
+    } else {
+        VLOG(2) << "###########################" ;
+        VLOG(2) << "Message not valid (partial content: "
+                << temp.ShortDebugString() << ")";
+        VLOG(2) << "###########################" ;
+    }
+
+    temp.set_oper(oper);
+    temp.set_vrfname(vrfname);
+
+    service_layer::SLAFNotifReq notif_message = temp;
+
+    // Create the message batches
+    for (auto route: notifRoute) {
+        if (count == batchSize) {
+            messages.push_back(notif_message);
+            count = 0;
+            notif_message = temp;
+        }
+        service_layer::SLAFNotifRegReq* reg_req = notif_message.add_notifreq();
+        reg_req->set_operationid(operation_id++);
+        service_layer::SLAFRedistRegMsg* redist_req = reg_req->mutable_redistreq();
+        redist_req->set_srcproto(route.src_proto);
+        redist_req->set_srcprototag(route.src_proto_tag);
+        redist_req->set_table(route.addr_family);
+        count++;
+    }
+
+    for (auto nh: notifNextHop) {
+        if (count == batchSize) {
+            messages.push_back(notif_message);
+            count = 0;
+            notif_message = temp;
+        }
+        service_layer::SLAFNotifRegReq* reg_req = notif_message.add_notifreq();
+        reg_req->set_operationid(operation_id++);
+        service_layer::SLAFNextHopRegMsg* next_hop_req = reg_req->mutable_nexthopreq();
+        service_layer::SLAFNextHopRegKey* next_hop_key = next_hop_req->mutable_nexthopkey();
+        service_layer::SLAFNextHopRegKey_SLNextHopKey* next_hop = next_hop_key->mutable_nexthop();
+        next_hop->set_exactmatch(nh.exact_match);
+        next_hop->set_allowdefault(nh.allow_default);
+        next_hop->set_recurse(nh.recurse);
+
+        service_layer::SLRoutePrefix* next_hop_ip = next_hop->mutable_nexthopip();
+        next_hop_ip->set_prefixlen(nh.prefix_len);
+        service_layer::SLIpAddress* prefix = next_hop_ip->mutable_prefix();
+        if (nh.v4_set == true) {
+            prefix->set_v4address(nh.ipv4_address_uint);
+        } else {
+            prefix->set_v6address(nh.ipv6_address);
+        }
+        count++;
+    }
+    messages.push_back(notif_message);
+
+    std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFNotifReq, service_layer::SLAFNotifMsg>> stream(
+        stub_->SLAFNotifStream(&context));
+
+    // Start the read thread
+    std::vector<service_layer::SLAFNotifMsg> responses;
+    std::thread reader(readNotifStream,std::ref(stream),std::ref(responses));
+
+    // Send the RPC
+    for (auto message:messages) {
+         if (stream->Write(message) == false) {
+            LOG(ERROR) << "Write Failed...stopping more writes";
+            break;
+         }
+    }
+
+    std::this_thread::sleep_for(std::chrono::seconds(notificationStreamDuration));
+
+    // WritesDone Will cause the stream read to return false and exit this program
+   stream->WritesDone();
+
+   reader.join();
+   status = stream->Finish();
+   if (!status.ok()) {
+        LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
+        throw(status);
+    }
+    return responses;
+}
+
 std::vector<service_layer::SLAFVrfRegGetMsgRsp>
 SLAFRShuttle::routeSLAFVrfGet(unsigned int timeout)
 {
@@ -720,7 +856,7 @@ SLAFRShuttle::routeSLAFVrfGet(unsigned int timeout)
     std::string s;
     if (google::protobuf::TextFormat::PrintToString(get_vrf_msg, &s)) {
         VLOG(2) << "###########################" ;
-        VLOG(2) << "Transmitted message: IOSXR-SL GET " << s;
+        VLOG(2) << "Transmitted message: IOSXR-SL VRF GET " << s;
         VLOG(2) << "###########################" ;
     } else {
         VLOG(2) << "###########################" ;
@@ -744,7 +880,7 @@ SLAFRShuttle::routeSLAFVrfGet(unsigned int timeout)
 }
 
 std::vector<service_layer::SLAFGetMsgRsp>
-SLAFRShuttle::routeSLAFget(std::string vrfname, bool get_match, bool get_match_route, bool get_client_all,
+SLAFRShuttle::routeSLAFGet(std::string vrfname, bool get_match, bool get_match_route, bool get_client_all,
                         getMatchObjects match_objects, std::vector<uint64_t> client_list,
                         std::vector<service_layer::SLTableType> table_type_list, unsigned int timeout)
 {

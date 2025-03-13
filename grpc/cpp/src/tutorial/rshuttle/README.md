@@ -3,13 +3,13 @@
 ## Table of Contents
 - [Server Setup](#server)
 - [Running the tutorial](#quick)
-- [Streaming vs Unary rpc and Route pushing vs Get implementation](#explain)
+- [Route Programming, Get implementation, and Notification Tracking](#explain)
 - [Retry Policy and Error Handling](#retry)
 - [Generate gRPC Code](#gen)
 - [Initialize the client server connection](#init)
 - [Optional: Register the VRF](#vrf)
 
-NOTE: If you only want to be able to run the code then you only need to follow the Server Setup and Running the tutorial sections.
+[!NOTE] If you only want to be able to run the code then you only need to follow the Server Setup and Running the tutorial sections.
 #### <a name='server'></a>Server Setup
 
 On the server side, we need to configure GRPC and enable the service layer through the following CLI configuration:
@@ -107,7 +107,7 @@ For now, if you already have passed this setup step, follow this example:
 | -x/--stream_case                | Want to use the streaming rpc (true) or unary rpc (false). Only used with slaf protos. When using unary the response Ack given from server will always be of RIB status. (default true) |
 | -y/--path_group_name            | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg. When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") |
 | -A/--response_ack_type          | Configure the type of response that the client expects from the network element for any object programming operation. Please see Proto file for all options (default RIB_ACK) |
-| -B/--response_ack_permit        | Configure the list that controls the types of hardware programming responses as defined in SLAFFibStatus that the client is interested in. For this tutorial we allow one option to be set. Please see Proto file for all options. Regardless of what type is picked, this tutorial will check for FIB success if the ack type is anything but RIB Ack and check for RIB Success if Ack type is just RIB ack and print an error if those checks fail. (default "") |
+| -B/--response_ack_permit        | Configure the list that controls the types of hardware programming responses as defined in SLAFFibStatus that the client is interested in. For this tutorial we allow one option to be set. Please see Proto file for all options. Regardless of the response ack permit set, this tutorial does not verify any response other than RIB or FIB Success based on ack type. This option is just to demonstrate how to set this field. (default "") |
 | -C/--response_ack_cadence       | Configure the cadence of hardware programming responses. Defining response_ack_permit is a pre-requisite. Please see Proto file for all options (default SL_RSP_CONTINUOUS) |
 
 ##### IPv4 Testing
@@ -134,8 +134,8 @@ For now, if you already have passed this setup step, follow this example:
 | --- | --- |
 | -m/--first_mpls_path_nhip       | Configure the starting address for this test for MPLS (default "11.0.0.1") |
 | -n/--next_hop_interface_mpls    | Configure the next hop interface for MPLS (default "FourHundredGigE0/0/0/0") |
-| -o/--start_label                | Configure the starting label for this test for MPLS (default 12000) |
-| -K/--start_out_label            | Configure the starting Out label for this test for MPLS (default 20000) |
+| -o/--local_label                | Configure the starting local label for this test for MPLS (default 12000) |
+| -K/--out_label                  | Configure the starting out label for this test for MPLS (default 20000) |
 | -q/--num_paths                  | Configure the number of paths for MPLS labels (default 1) |
 
 ##### PG Testing
@@ -149,18 +149,37 @@ For now, if you already have passed this setup step, follow this example:
 | Argument | Description |
 | --- | --- |
 | -D/--vrf_name                    | User can provide a vrfname for object search (default 'default') |
-| -E/--client_id                   | If set, user will provide a client id (int) for the object user wishes to search for, or input 'all' (default 'all') |
+| -E/--client_id                   | If set, user will provide a client id (int) for the object user wishes to search for, or input 'all' to return all routes programmed by this client (default 'all') |
 | -F/--match_table_list            | Provide one or more table types you wish to get in comma separated list with no spaces. The choices are : ipv4,ipv6,mpls,pg (default ipv4). |
 | -G/--match_route_list            | If set, will override --match_table_list. This command will be used in conjunction with the commands --add_vxlanvn_id, --add_pg_regex, and --add_object_type. (No argument required)
 The commands below can be repeatedly added and in combination with each other to the SLAFGetMsg. See their criteria on how to use them |
 | -H/--add_vxlanvn_id              | Configure one vxlanvnid the user wishes to search for. Will be added as a field within the route match list message. (default "")
 | -I/--add_pg_regex                | Configure one Path Group Name Regex expression the user wishes to search for. Will be added as a field within the route match list message. (default "")
 | -J/--add_object_type             | Configure the object type the user wishes to search for. User will need to provide a comma seperated list of arguments and in proper format, for every instance of this command. See below (default "")
-The user needs to provide the following for the specific object key type:
-For ipv4 the user provides the table_type, starting ipv4 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv4,40.0.0.0,24,100
-For ipv6 the user provides the table_type, starting ipv6 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv6,2002:aa::0,64,100
-For mpls the user provides the table_type, starting label, and a number indicating how many labels to search for incrementing from the starting label. For example: mpls,20000,100
-For pg the user provides the table_type, and path group name. For example: pg,default |
+|                                  | The user needs to provide the following for the specific object key type:
+|                                  | For ipv4 the user provides the table_type, starting ipv4 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv4,40.0.0.0,24,100
+|                                  | For ipv6 the user provides the table_type, starting ipv6 address, prefix length, and a number indicating how many addresses to search for incrementing from the starting ip address. For example: ipv6,2002:aa::0,64,100
+|                                  | For mpls the user provides the table_type, starting label, and a number indicating how many labels to search for incrementing from the starting label. For example: mpls,20000,100
+|                                  | For pg the user provides the table_type, and path group name. For example: pg,default |
+
+#### Notification Stream Testing
+
+| Argument | Description |
+| --- | --- |
+| -L/--notif_stream_duration       | Enter number of seconds notification stream should stay up for. (Default 10) |
+| -M/--notif_oper                  | Operation to enable or disable notifications. Choices are enable or disable. (Needs to be set for Notification stream) |
+| -N/--notif_vrfname               | Vrf that the client is interested in (default 'default') |
+| -O/--notif_route                 | Route redistribution registration. Format for this input is a comma seperated list of these three strings : (SrcProto, SrcProtoTag, SLTableType)
+|                                  | For the SrcProto, the user enters the string.
+|                                  | For the SrcProtoTag, the user enters the string.
+|                                  | For the Table type, the valid options are ipv4,ipv6,mpls,pg. |
+| -P/--notif_nh                    | Next hop notification registration. Format for this input in a comma seperated list of (SLTableType,ipv4/v6 address,Prefix length, Exact match, Allow default, Recurse)
+|                                  | For the SLTableType, the valid options are only ipv4 or ipv6
+|                                  | For the address, put in a v4 address or v6 address associated with table type
+|                                  | Prefix length refers to the ip address' prefix length
+|                                  | Configure the Exact Match. Choices are true or false. If set to false, it will do best match
+|                                  | Configure to Allow default route to be returned. Choices are true or false
+|                                  | Configure the recurse flag to return a flattened path list of nexthop's (true) or the immediately viable path list (false). Choices are true or false.
 
 ##### How to Build
 
@@ -168,31 +187,35 @@ If you have a docker environment, you can run "make cpp-tutorial" from the servi
 top level directory where you see a Dockerfile and a Makefile. This will take some time to build
 the first time, but once it completes you can run "make slapi-bash" to drop into bash, like so:
 
-Bash-Prompt:sl$ make cpp-tutorial
-Bash-Prompt:sl$ make slapi-bash
+    Bash-Prompt:sl$ make cpp-tutorial
+    Bash-Prompt:sl$ make slapi-bash
 
 Once in bash, navigate to the src directory:
 
-root@f6179b5127f5:/slapi# cd grpc/cpp/src
-root@f6179b5127f5:/slapi# make && make install
+    root@f6179b5127f5:/slapi# cd grpc/cpp/src
+    root@f6179b5127f5:/slapi# make && make install
 
 Then, navigate to the tutorial directory:
 
-root@f6179b5127f5:/slapi# cd /grpc/cpp/src/tutorial/rshuttle
+    root@f6179b5127f5:/slapi# cd /grpc/cpp/src/tutorial/rshuttle
 
 ##### How to Run in Docker container (external client workflow)
 
 Set SERVER_IP and SERVER_PORT Before Running:
+
     $ export SERVER_IP=111.111.111.111
     $ export SERVER_PORT=11111
 
 Default Example (This runs ipv4 1 route):
+
     $ ./servicelayermain -u username -p password -a Add -w Register
 
 Version 1 Default Example (This runs ipv4 only):
+
     $ ./servicelayermain -u username -p password -v false -a Add -w Register
 
 IPV4 Examples:
+
     Adding 500 routes through stream:
     $ ./servicelayermain -u username -p password --table_type ipv4 -a Add -w Register -b 500
     Delete 20 routes using unary rpc with batch size at 10. Assuming vrf registration is handled automatically:
@@ -201,37 +224,41 @@ IPV4 Examples:
     $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w Register --num_operations 50 --batch_size 30 --next_hop_ip_ipv4 14.1.1.21 --response_ack_type RIB_AND_FIB_ACK
 
 IPV6 Example:
+
     Adding 100k routes with stream case with Ack type for RIB and FIB, but only permit a FIB success with cadence set to only once:
     $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 100000 --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS --response_ack_cadence SL_RSP_JUST_ONCE
-    Add 25 routes with batch size as 6 and starting address as 2002:::0 with stream case false and Ack type as RIB and FIB:
+    Add 25 routes with batch size as 6 and starting address as 2002:::0 with stream case false and with response ack set to RIB_AND_FIB_ACK:
     $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 25 --batch_size 5 --first_prefix_ipv6 2001:db8:abcd:0012::0 --stream_case false --response_ack_type RIB_AND_FIB_ACK
     Deleting All Routes and Unregister Vrf:
     $ ./servicelayermain -u username -p password --table_type ipv6 -w Unregister
 
 MPLS Example:
-    Adding 1000 Labels with streaming rpc and Ack type as RIB and FIB:
-    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --start_label 12000 --response_ack_type RIB_AND_FIB_ACK
+
+    Adding 1000 Labels with streaming rpc and with response ack set to RIB_AND_FIB_ACK:
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --local_label 12000 --response_ack_type RIB_AND_FIB_ACK
     $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls --num_operations 1000 -o 12000 --batch_size 1024 --response_ack_type RIB_AND_FIB_ACK (same as above example)
     Deleting 35 labels with unary rpc:
-    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type mpls --num_operations 35 --start_label 12010 --stream_case false
+    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type mpls --num_operations 35 --local_label 12010 --stream_case false
 
 Path Group Example:
-    Create a path group with the named "temp" with 64 paths for ipv4 routes:
+
+    Create a path group named "temp" with 64 paths for ipv4 routes:
     $ ./servicelayermain -u username -p password -a Add -w Register --table_type pg --create_path_group_for ipv4 --path_group_name temp --num_operations 64
     Delete a path group named "temp":
     $ ./servicelayermain -u username -p password -a Delete -w Register --table_type pg --path_group_name temp
 
-    Create a path group for ipv6 addresses and Add 100k ipv6 routes using path group named "temp":
+    Create a path group name "temp" for ipv6 addresses and program 100k ipv6 routes using path group named "temp":
     $ ./servicelayermain -u username -p password -a Add -w Register --table_type pg --create_path_group_for ipv6 --path_group_name temp
     $ ./servicelayermain -u username -p password -a Add -w Register --table_type ipv6 --path_group_name temp --num_operations 100000
 
-    Create a path group for mpls called mpls_temp, with starting address for paths in path group at 12.0.0.1, and with 5 paths
-    $ ./servicelayermain -u username -p password -a Add -w Register --table_type pg --create_path_group_for mpls --path_group_name temp --num_operations 64 --first_mpls_path_nhip 12.0.0.1
+    Create a path group for mpls called mpls_temp, with starting address for paths in path group at address 12.0.0.1, and with 5 paths
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type pg --create_path_group_for mpls --path_group_name mpls_temp --num_operations 5 --first_mpls_path_nhip 12.0.0.1
 
-    Apply path group named "temp" for 1000 mpls labels with Ack type as Rib and Fib Inuse and permit only the Inuse success response Ack:
+    Apply path group named "temp" for 1000 mpls labels with  response ack set to RIB_AND_FIB_ACK and response_ack_permit as SL_PERMIT_FIB_SUCCESS:
     $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --path_group_name temp --response_ack_type RIB_AND_FIB_ACK --response_ack_permit SL_PERMIT_FIB_SUCCESS
 
 Get Request Example:
+
     Get information for all routes based off of client id 521 with vrfname as 'default':
     $ ./servicelayermain -u username -p password -a Get --vrf_name default --client_id 521
 
@@ -254,19 +281,37 @@ Get Request Example:
     $ ./servicelayermain -u username -p password -a Get --match_route_list --add_pg_regex te* --add_object_type ipv4,40.0.1.0,24,6 --add_object_type ipv6,2002:aa::0,64,5
 
 GetVrf Request Example:
+
     $ ./servicelayermain -u username -p password -a GetVrf
 
+Notification Stream Example:
+
+    Enabling route notification for routes with table type ipv6, and programmed from this tutorial (SrcProto as application, and SrcProtoTag as Service-layer) for 10 seconds:
+    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 10 --notif_vrfname default --notif_route application,Service-layer,ipv6
+
+    Same as the above example plus enabling route notification for routes with table type ipv6:
+    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 10 --notif_vrfname default --notif_route application,Service-layer,ipv6 --notif_route application,Service-layer,ipv4
+
+    Disabling next hop change notification for 15 seconds and for next hop ip ipv4 address as 40.0.0.0 with prefix length as 24. And with best match, allow default route to be returned, and return only for the immediate viable path list:
+    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper disable --notif_stream_duration 15 --notif_vrfname default --notif_nh ipv4,40.0.0.0,24,false,true,false
+
+    Enabling next hop change notification for 9 seconds and for next hop ip ipv6 address as 2002:aa::0 with prefix length as 64. And with exact match, allow default route to not be returned, and return all next hop's paths paths lists:
+    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 9 --notif_vrfname default --notif_nh ipv6,2002:aa::0,64,true,false,true
+
+    Same as above example but also enable route notification for routes with table type as ipv6:
+    $ ./servicelayermain -u cisco -p cisco123 -a Notification --notif_oper enable --notif_stream_duration 9 --notif_vrfname default --notif_nh ipv6,2002:aa::0,64,true,false,true --notif_route application,Service-layer,ipv6
 
 Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
+
     This should only be used when doing an Add,Delete or Update operation
     $ ./servicelayermain -u username -p password -a Add (Same as above examples, just omit -w option)
 
 The following sections explain the details of the above example tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
 
-#### <a name='explain'></a>Streaming rpc vs Unary rpc and Route pushing vs Get implementation
+#### <a name='explain'></a>Route Programming, Get implementation, and Notification Tracking
 
-Note: This section is for route pushing. AKA when the operation command is set to Add, Update or Delete.--------------------------------------------------
+[!NOTE] This section is for route pushing. AKA when the operation command is set to Add, Update or Delete.
 
 Using a unary rpc, the client sends a single request and blocks for response to the request.
 Initially, the program takes information given by user and creates a database. Each entry in the database corresponds to the information for one route/label.
@@ -276,7 +321,7 @@ The streaming rpc implementation is a bit more complex.
 A bi-directional stream is used, in which both the client and server have two independent streams. Both the client and server can read and write messages in any order.
 Therefore, this section will explain a high level overview of how this program utilizes the streaming rpc.
 
-Note: For more information on the differences/details of rpcs, refer to https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle.
+[!NOTE] For more information on the differences/details of rpcs, refer to https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle.
 
 Our code utilizes multithreading and locking to handle bidirectional streaming. The general life cycle looks like this:
 
@@ -294,15 +339,26 @@ Our code utilizes multithreading and locking to handle bidirectional streaming. 
 
 We chose this design to allow ease of use and good performance. This design allows reusability for user specific code. The user just needs to hook up their own db and handle a few cases related to database information.  
 
-Note: This section is for getting information for routes. This is when the operation command is set to Get or GetVrf.--------------------------------------------------
+[!NOTE] This section is for getting information for routes. This is when the operation command is set to Get or GetVrf.
 
 There is no use of databases here.  
 For Get:
-    This tutorial simply populates the SLAFGetMsg and uses the SLAFGet rpc to push a single message, and print out all of the responses.
+
+    This tutorial simply populates the SLAFGetMsg and uses the SLAFGet rpc to push a single message, receives all responses, stores the responses in a vector, and then prints out all of the responses.
     This tutorial showcases how to set up the SLAFGetMsg and pull the responses from the SLAFGetMsgRsp objects.
+
 For GetVrf:
-    This tutorial simply populates the SLAFVrfRegGetMsg and uses the SLAFVrfRegGet rpc to push a single message, and print out all of the responses.
+
+    This tutorial simply populates the SLAFVrfRegGetMsg and uses the SLAFVrfRegGet rpc to push a single message, receives all responses, stores the responses in a vector, and then prints out all of the responses.
     This tutorial showcases how to set up the SLAFVrfRegGetMsg and pull the responses from the SLAFVrfRegGetMsgRsp objects.
+
+[!NOTE] This section is relating to route redistribution and next hop tracking. This is when the operation command is set to Notification.
+
+There is no use of databases here.  
+For Notification:
+
+    This tutorial simply populates the SLAFNotifMsg and uses the SLAFNotifStream rpc to push messages to the server. Then it gathers responses for the period of time set by notif_stream_duration.
+    Each response is stored in a vector. Then once the time is up, the client notifies the server that it is done sending messages, causing the rpc to end safely. Then, the responses are all printed out.
 
 #### <a name='retry'></a>Retry Policy and Error Handling
 

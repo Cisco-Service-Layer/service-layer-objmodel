@@ -20,7 +20,30 @@
 #include <iosxrsl/sl_af.grpc.pb.h>
 #include <iosxrsl/sl_af.pb.h>
 
-// Refers to the the objects used by Get Request to store SLAFGetMatch object information
+// Refers to the objects used by the NotifStream Request to store SLAFNotifRegReq object information
+class notifRouteObj
+{
+public:
+    std::string src_proto = "";
+    std::string src_proto_tag = "";
+    service_layer::SLTableType addr_family = service_layer::SL_TABLE_TYPE_RESERVED;
+};
+
+class notifNextHopObj
+{
+public:
+    service_layer::SLTableType addr_family = service_layer::SL_TABLE_TYPE_RESERVED;
+    bool v4_set = false;
+    std::string ipv4_address ="";
+    uint32_t ipv4_address_uint = 0;
+    std::string ipv6_address ="";
+    uint32_t prefix_len = 24;
+    bool exact_match = false;
+    bool allow_default = false;
+    bool recurse = false;
+};
+
+// Refers to the objects used by Get Request to store SLAFGetMatch object information
 class getMatchObjects
 {
 public:
@@ -34,7 +57,7 @@ public:
 
 class slafObjKey {
 public:
-    service_layer::SLTableType addr_family;
+    service_layer::SLTableType addr_family = service_layer::SL_TABLE_TYPE_RESERVED;
     std::string start_ipv4;
     uint32_t prefix_len_ipv4 = 24;
     std::string start_ipv6;
@@ -51,6 +74,7 @@ public:
     std::vector<std::string> pg_regex;
     std::vector<uint32_t> vxlan_vn_id;
 };
+
 // Refers to the Acknowledgment that the controller or agent expects from the network element
 class responseAcks
 {
@@ -94,8 +118,8 @@ public:
     // For MPLS
     std::string first_mpls_path_nhip = "11.0.0.1";
     std::string next_hop_interface_mpls = "FourHundredGigE0/0/0/0";
-    uint32_t start_label = 12000;
-    uint32_t start_out_label = 20000;
+    uint32_t local_label = 12000;
+    uint32_t out_label = 20000;
     unsigned int num_label = 1000;
     unsigned int num_paths = 1;
 
@@ -116,6 +140,14 @@ public:
     bool get_client_all = false;
     bool get_match = false;
     bool get_match_route = false;
+
+    // Below here is used for Notif Stream Request
+    bool notif_request = false;
+    unsigned int notification_stream_duration = 10;
+    service_layer::SLNotifOp notif_oper = service_layer::SL_NOTIFOP_RESERVED;
+    std::string notif_vrfname = "default";
+    std::vector<notifRouteObj> notif_route;
+    std::vector<notifNextHopObj> notif_next_hop;
 };
 
 // Status Object is for handling the response messages
@@ -236,11 +268,23 @@ public:
     void responseAckSet(service_layer::SLAFOpMsg* operation,
                         responseAcks responseAck);
 
+    // Thread for reading Notif Stream responses
+    static void readNotifStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFNotifReq, service_layer::SLAFNotifMsg>>& stream,
+                            std::vector<service_layer::SLAFNotifMsg>& responses);
+
+    // Notif streamimg rpc
+    std::vector<service_layer::SLAFNotifMsg> routeSLAFNotifStream(unsigned int batchSize,
+                        service_layer::SLNotifOp oper, std::string vrfname,
+                        std::vector<notifRouteObj> notifRoute,
+                        std::vector<notifNextHopObj> NotifNextHop,
+                        unsigned int notificationStreamDuration,
+                        unsigned int timeout=10000);
+
     // Vrf Get request rpc
     std::vector<service_layer::SLAFVrfRegGetMsgRsp> routeSLAFVrfGet(unsigned int timeout=10);
 
     // Get Request rpc
-    std::vector<service_layer::SLAFGetMsgRsp> routeSLAFget(
+    std::vector<service_layer::SLAFGetMsgRsp> routeSLAFGet(
                         std::string vrfname, bool get_match,
                         bool get_match_route, bool get_client_all, getMatchObjects match_objects,
                         std::vector<uint64_t> client_list, std::vector<service_layer::SLTableType> table_type_list,
