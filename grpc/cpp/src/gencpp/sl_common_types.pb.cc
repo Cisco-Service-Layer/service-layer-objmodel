@@ -144,9 +144,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025sl_common_types.proto\022\rservice_layer\"\233"
-  "e\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-  "ce_layer.SLErrorStatus.SLErrno\"\323d\n\007SLErr"
+  "\n\025sl_common_types.proto\022\rservice_layer\"\363"
+  "g\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
+  "ce_layer.SLErrorStatus.SLErrno\"\253g\n\007SLErr"
   "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
   "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
   "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -468,43 +468,52 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "\022#\n\035SL_BGP_MAX_NEIGHBORS_IN_SYSDB\020\260\300\006\022\033\n"
   "\025SL_BGP_INTERNAL_ERR_1\020\201\302\006\022\033\n\025SL_BGP_INT"
   "ERNAL_ERR_2\020\202\302\006\022\033\n\025SL_BGP_INTERNAL_ERR_3"
-  "\020\203\302\006\022\036\n\030SL_INTERNAL_START_OFFSET\020\200\200@\"<\n\013"
-  "SLInterface\022\016\n\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030\002 "
-  "\001(\rH\000B\013\n\tInterface\"B\n\013SLIpAddress\022\023\n\tV4A"
-  "ddress\030\001 \001(\rH\000\022\023\n\tV6Address\030\002 \001(\014H\000B\t\n\007A"
-  "ddress\"%\n\nSLObjectId\022\016\n\004Name\030\001 \001(\tH\000B\007\n\005"
-  "entry\"T\n\021SLPathGroupRefKey\022\017\n\007VrfName\030\001 "
-  "\001(\t\022.\n\013PathGroupId\030\002 \001(\0132\031.service_layer"
-  ".SLObjectId*b\n\007SLRegOp\022\025\n\021SL_REGOP_RESER"
-  "VED\020\000\022\025\n\021SL_REGOP_REGISTER\020\001\022\027\n\023SL_REGOP"
-  "_UNREGISTER\020\002\022\020\n\014SL_REGOP_EOF\020\003*_\n\nSLObj"
-  "ectOp\022\025\n\021SL_OBJOP_RESERVED\020\000\022\020\n\014SL_OBJOP"
-  "_ADD\020\001\022\023\n\017SL_OBJOP_UPDATE\020\002\022\023\n\017SL_OBJOP_"
-  "DELETE\020\003*S\n\tSLNotifOp\022\027\n\023SL_NOTIFOP_RESE"
-  "RVED\020\000\022\025\n\021SL_NOTIFOP_ENABLE\020\001\022\026\n\022SL_NOTI"
-  "FOP_DISABLE\020\002*\211\001\n\020SLUpdatePriority\022\030\n\024SL"
-  "_PRIORITY_RESERVED\020\000\022\030\n\024SL_PRIORITY_CRIT"
-  "ICAL\020\004\022\024\n\020SL_PRIORITY_HIGH\020\010\022\026\n\022SL_PRIOR"
-  "ITY_MEDIUM\020\014\022\023\n\017SL_PRIORITY_LOW\020\020*K\n\013SLE"
-  "ncapType\022\025\n\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_EN"
-  "CAP_VXLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002*\215\001\n\013SLTab"
-  "leType\022\032\n\026SL_TABLE_TYPE_RESERVED\020\000\022\027\n\023SL"
-  "_IPv4_ROUTE_TABLE\020\001\022\027\n\023SL_IPv6_ROUTE_TAB"
-  "LE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE\020\003\022\027\n\023SL_PATH"
-  "_GROUP_TABLE\020\004*0\n\014SLRspACKType\022\013\n\007RIB_AC"
-  "K\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001*\231\001\n\016SLRspACKPer"
-  "mit\022\021\n\rSL_PERMIT_ALL\020\000\022\030\n\024SL_PERMIT_SL_S"
-  "UCCESS\020\001\022\034\n\030SL_PERMIT_SL_FIB_SUCCESS\020\002\022\033"
-  "\n\027SL_PERMIT_SL_FIB_FAILED\020\004\022\037\n\033SL_PERMIT"
-  "_SL_FIB_INELIGIBLE\020\010*T\n\017SLRspAckCadence\022"
-  "\025\n\021SL_RSP_CONTINUOUS\020\000\022\024\n\020SL_RSP_JUST_ON"
-  "CE\020\001\022\024\n\020SL_RSP_ONCE_EACH\020\002BQZOgithub.com"
-  "/Cisco-service-layer/service-layer-objmo"
-  "del/grpc/protos;service_layerb\006proto3"
+  "\020\203\302\006\022!\n\033SL_SRTE_POLICY_START_OFFSET\020\200\340\006\022"
+  "$\n\036SL_SRTE_POLICY_REQUEST_INVALID\020\201\340\006\022\'\n"
+  "!SL_SRTE_POLICY_POLICY_KEY_INVALID\020\202\340\006\022("
+  "\n\"SL_SRTE_POLICY_POLICY_ATRR_INVALID\020\203\340\006"
+  "\022#\n\035SL_SRTE_POLICY_CP_KEY_INVALID\020\204\340\006\022$\n"
+  "\036SL_SRTE_POLICY_CP_ATTR_INVALID\020\205\340\006\022$\n\036S"
+  "L_SRTE_POLICY_CLIENT_MISMATCH\020\206\340\006\022#\n\035SL_"
+  "SRTE_POLICY_SERVICE_NOT_UP\020\207\340\006\022$\n\036SL_SRT"
+  "E_POLICY_EXCEED_MSG_SIZE\020\210\340\006\022\036\n\030SL_INTER"
+  "NAL_START_OFFSET\020\200\200@\"<\n\013SLInterface\022\016\n\004N"
+  "ame\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\013\n\tInterfa"
+  "ce\"B\n\013SLIpAddress\022\023\n\tV4Address\030\001 \001(\rH\000\022\023"
+  "\n\tV6Address\030\002 \001(\014H\000B\t\n\007Address\"%\n\nSLObje"
+  "ctId\022\016\n\004Name\030\001 \001(\tH\000B\007\n\005entry\"T\n\021SLPathG"
+  "roupRefKey\022\017\n\007VrfName\030\001 \001(\t\022.\n\013PathGroup"
+  "Id\030\002 \001(\0132\031.service_layer.SLObjectId*b\n\007S"
+  "LRegOp\022\025\n\021SL_REGOP_RESERVED\020\000\022\025\n\021SL_REGO"
+  "P_REGISTER\020\001\022\027\n\023SL_REGOP_UNREGISTER\020\002\022\020\n"
+  "\014SL_REGOP_EOF\020\003*_\n\nSLObjectOp\022\025\n\021SL_OBJO"
+  "P_RESERVED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017SL_OBJ"
+  "OP_UPDATE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003*S\n\tSLNo"
+  "tifOp\022\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOT"
+  "IFOP_ENABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*\211\001"
+  "\n\020SLUpdatePriority\022\030\n\024SL_PRIORITY_RESERV"
+  "ED\020\000\022\030\n\024SL_PRIORITY_CRITICAL\020\004\022\024\n\020SL_PRI"
+  "ORITY_HIGH\020\010\022\026\n\022SL_PRIORITY_MEDIUM\020\014\022\023\n\017"
+  "SL_PRIORITY_LOW\020\020*K\n\013SLEncapType\022\025\n\021SL_E"
+  "NCAP_RESERVED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rS"
+  "L_ENCAP_MPLS\020\002*\215\001\n\013SLTableType\022\032\n\026SL_TAB"
+  "LE_TYPE_RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABL"
+  "E\020\001\022\027\n\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_"
+  "LABEL_TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0"
+  "\n\014SLRspACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_F"
+  "IB_ACK\020\001*\231\001\n\016SLRspACKPermit\022\021\n\rSL_PERMIT"
+  "_ALL\020\000\022\030\n\024SL_PERMIT_SL_SUCCESS\020\001\022\034\n\030SL_P"
+  "ERMIT_SL_FIB_SUCCESS\020\002\022\033\n\027SL_PERMIT_SL_F"
+  "IB_FAILED\020\004\022\037\n\033SL_PERMIT_SL_FIB_INELIGIB"
+  "LE\020\010*T\n\017SLRspAckCadence\022\025\n\021SL_RSP_CONTIN"
+  "UOUS\020\000\022\024\n\020SL_RSP_JUST_ONCE\020\001\022\024\n\020SL_RSP_O"
+  "NCE_EACH\020\002BQZOgithub.com/Cisco-service-l"
+  "ayer/service-layer-objmodel/grpc/protos;"
+  "service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 14277, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 14621, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -902,6 +911,15 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 106753:
     case 106754:
     case 106755:
+    case 110592:
+    case 110593:
+    case 110594:
+    case 110595:
+    case 110596:
+    case 110597:
+    case 110598:
+    case 110599:
+    case 110600:
     case 1048576:
       return true;
     default:
@@ -1290,6 +1308,15 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_MAX_NEIGHBORS_IN_SYSDB;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_INTERNAL_ERR_1;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_INTERNAL_ERR_2;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_INTERNAL_ERR_3;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_START_OFFSET;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_REQUEST_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_POLICY_KEY_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_POLICY_ATRR_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_CP_KEY_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_CP_ATTR_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_CLIENT_MISMATCH;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_SERVICE_NOT_UP;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_EXCEED_MSG_SIZE;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_INTERNAL_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MIN;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MAX;

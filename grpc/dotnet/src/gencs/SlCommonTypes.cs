@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIim2UKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi82cKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i02QKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8iq2cKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -312,36 +312,43 @@ namespace ServiceLayer {
             "SF9OT1RfRk9VTkQQr8AGEiMKHVNMX0JHUF9NQVhfTkVJR0hCT1JTX0lOX1NZ",
             "U0RCELDABhIbChVTTF9CR1BfSU5URVJOQUxfRVJSXzEQgcIGEhsKFVNMX0JH",
             "UF9JTlRFUk5BTF9FUlJfMhCCwgYSGwoVU0xfQkdQX0lOVEVSTkFMX0VSUl8z",
-            "EIPCBhIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50",
-            "ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJ",
-            "bnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAAS",
-            "EwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElk",
-            "Eg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktl",
-            "eRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2Vy",
-            "dmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1Bf",
-            "UkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09Q",
-            "X1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9w",
-            "EhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoP",
-            "U0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xO",
-            "b3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9Q",
-            "X0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0",
-            "ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJ",
-            "T1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xf",
-            "UFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xF",
-            "bmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9W",
-            "WExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoW",
-            "U0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFC",
-            "TEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJF",
-            "TF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCowCgxTTFJzcEFD",
-            "S1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FDSxABKpkBCg5T",
-            "TFJzcEFDS1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxMEAASGAoUU0xfUEVSTUlU",
-            "X1NMX1NVQ0NFU1MQARIcChhTTF9QRVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIb",
-            "ChdTTF9QRVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9G",
-            "SUJfSU5FTElHSUJMRRAIKlQKD1NMUnNwQWNrQ2FkZW5jZRIVChFTTF9SU1Bf",
-            "Q09OVElOVU9VUxAAEhQKEFNMX1JTUF9KVVNUX09OQ0UQARIUChBTTF9SU1Bf",
-            "T05DRV9FQUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
-            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
-            "YXllcmIGcHJvdG8z"));
+            "EIPCBhIhChtTTF9TUlRFX1BPTElDWV9TVEFSVF9PRkZTRVQQgOAGEiQKHlNM",
+            "X1NSVEVfUE9MSUNZX1JFUVVFU1RfSU5WQUxJRBCB4AYSJwohU0xfU1JURV9Q",
+            "T0xJQ1lfUE9MSUNZX0tFWV9JTlZBTElEEILgBhIoCiJTTF9TUlRFX1BPTElD",
+            "WV9QT0xJQ1lfQVRSUl9JTlZBTElEEIPgBhIjCh1TTF9TUlRFX1BPTElDWV9D",
+            "UF9LRVlfSU5WQUxJRBCE4AYSJAoeU0xfU1JURV9QT0xJQ1lfQ1BfQVRUUl9J",
+            "TlZBTElEEIXgBhIkCh5TTF9TUlRFX1BPTElDWV9DTElFTlRfTUlTTUFUQ0gQ",
+            "huAGEiMKHVNMX1NSVEVfUE9MSUNZX1NFUlZJQ0VfTk9UX1VQEIfgBhIkCh5T",
+            "TF9TUlRFX1BPTElDWV9FWENFRURfTVNHX1NJWkUQiOAGEh4KGFNMX0lOVEVS",
+            "TkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoETmFtZRgB",
+            "IAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJCCgtTTElw",
+            "QWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJlc3MYAiAB",
+            "KAxIAEIJCgdBZGRyZXNzIiUKClNMT2JqZWN0SWQSDgoETmFtZRgBIAEoCUgA",
+            "QgcKBWVudHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1ZyZk5hbWUYASAB",
+            "KAkSLgoLUGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xheWVyLlNMT2Jq",
+            "ZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZFRBAAEhUKEVNM",
+            "X1JFR09QX1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJU1RFUhACEhAK",
+            "DFNMX1JFR09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xfT0JKT1BfUkVT",
+            "RVJWRUQQABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpPUF9VUERBVEUQ",
+            "AhITCg9TTF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3ASFwoTU0xfTk9U",
+            "SUZPUF9SRVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxFEAESFgoSU0xf",
+            "Tk9USUZPUF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3JpdHkSGAoUU0xf",
+            "UFJJT1JJVFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9DUklUSUNBTBAE",
+            "EhQKEFNMX1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklUWV9NRURJVU0Q",
+            "DBITCg9TTF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlwZRIVChFTTF9F",
+            "TkNBUF9SRVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAESEQoNU0xfRU5D",
+            "QVBfTVBMUxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJMRV9UWVBFX1JF",
+            "U0VSVkVEEAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQdjZf",
+            "Uk9VVEVfVEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxFEAMSFwoTU0xf",
+            "UEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRILCgdSSUJfQUNL",
+            "EAASEwoPUklCX0FORF9GSUJfQUNLEAEqmQEKDlNMUnNwQUNLUGVybWl0EhEK",
+            "DVNMX1BFUk1JVF9BTEwQABIYChRTTF9QRVJNSVRfU0xfU1VDQ0VTUxABEhwK",
+            "GFNMX1BFUk1JVF9TTF9GSUJfU1VDQ0VTUxACEhsKF1NMX1BFUk1JVF9TTF9G",
+            "SUJfRkFJTEVEEAQSHwobU0xfUEVSTUlUX1NMX0ZJQl9JTkVMSUdJQkxFEAgq",
+            "VAoPU0xSc3BBY2tDYWRlbmNlEhUKEVNMX1JTUF9DT05USU5VT1VTEAASFAoQ",
+            "U0xfUlNQX0pVU1RfT05DRRABEhQKEFNMX1JTUF9PTkNFX0VBQ0gQAkJRWk9n",
+            "aXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1v",
+            "Ymptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -2384,6 +2391,42 @@ namespace ServiceLayer {
         /// BGP Internal Error 3. 0x1a103
         /// </summary>
         [pbr::OriginalName("SL_BGP_INTERNAL_ERR_3")] SlBgpInternalErr3 = 106755,
+        /// <summary>
+        /// Offset for policy object operations. 0x1b000
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_START_OFFSET")] SlSrtePolicyStartOffset = 110592,
+        /// <summary>
+        /// Policy request message is not valid. 0x1b001
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_REQUEST_INVALID")] SlSrtePolicyRequestInvalid = 110593,
+        /// <summary>
+        /// PolicyKey missing or invalid. 0x1b002
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_POLICY_KEY_INVALID")] SlSrtePolicyPolicyKeyInvalid = 110594,
+        /// <summary>
+        /// Policy Attributes invalid. 0x1b003
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_POLICY_ATRR_INVALID")] SlSrtePolicyPolicyAtrrInvalid = 110595,
+        /// <summary>
+        /// CandidatePath Key missing or invalid. 0x1b004
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_CP_KEY_INVALID")] SlSrtePolicyCpKeyInvalid = 110596,
+        /// <summary>
+        /// CandidatePath attributes invalid. 0x1b005
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_CP_ATTR_INVALID")] SlSrtePolicyCpAttrInvalid = 110597,
+        /// <summary>
+        /// Policy Client ID mis-match. 0x1b006
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_CLIENT_MISMATCH")] SlSrtePolicyClientMismatch = 110598,
+        /// <summary>
+        /// srte policy service not up. 0x1b007
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_SERVICE_NOT_UP")] SlSrtePolicyServiceNotUp = 110599,
+        /// <summary>
+        /// Request message bigger then supported size. 0x1b008
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_EXCEED_MSG_SIZE")] SlSrtePolicyExceedMsgSize = 110600,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>

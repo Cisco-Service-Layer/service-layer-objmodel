@@ -461,6 +461,15 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1 = 106753,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_2 = 106754,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_3 = 106755,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_START_OFFSET = 110592,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_REQUEST_INVALID = 110593,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_POLICY_KEY_INVALID = 110594,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_POLICY_ATRR_INVALID = 110595,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_CP_KEY_INVALID = 110596,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_CP_ATTR_INVALID = 110597,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_CLIENT_MISMATCH = 110598,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_SERVICE_NOT_UP = 110599,
+  SLErrorStatus_SLErrno_SL_SRTE_POLICY_EXCEED_MSG_SIZE = 110600,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
@@ -1607,6 +1616,24 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_2;
   static constexpr SLErrno SL_BGP_INTERNAL_ERR_3 =
     SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_3;
+  static constexpr SLErrno SL_SRTE_POLICY_START_OFFSET =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_START_OFFSET;
+  static constexpr SLErrno SL_SRTE_POLICY_REQUEST_INVALID =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_REQUEST_INVALID;
+  static constexpr SLErrno SL_SRTE_POLICY_POLICY_KEY_INVALID =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_POLICY_KEY_INVALID;
+  static constexpr SLErrno SL_SRTE_POLICY_POLICY_ATRR_INVALID =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_POLICY_ATRR_INVALID;
+  static constexpr SLErrno SL_SRTE_POLICY_CP_KEY_INVALID =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_CP_KEY_INVALID;
+  static constexpr SLErrno SL_SRTE_POLICY_CP_ATTR_INVALID =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_CP_ATTR_INVALID;
+  static constexpr SLErrno SL_SRTE_POLICY_CLIENT_MISMATCH =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_CLIENT_MISMATCH;
+  static constexpr SLErrno SL_SRTE_POLICY_SERVICE_NOT_UP =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_SERVICE_NOT_UP;
+  static constexpr SLErrno SL_SRTE_POLICY_EXCEED_MSG_SIZE =
+    SLErrorStatus_SLErrno_SL_SRTE_POLICY_EXCEED_MSG_SIZE;
   static constexpr SLErrno SL_INTERNAL_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET;
   static inline bool SLErrno_IsValid(int value) {

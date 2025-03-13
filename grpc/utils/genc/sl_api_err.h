@@ -860,6 +860,25 @@
     SL_BGP_INTERNAL_ERR_2 = 0x1a102,\
     /* BGP Internal Error 3. 0x1a103 */\
     SL_BGP_INTERNAL_ERR_3 = 0x1a103,\
+    /* !!! Error codes for operations on Segment-routing Traffic-eng policy objects. */\
+    /* Offset for policy object operations. 0x1b000 */\
+    SL_SRTE_POLICY_START_OFFSET = 0x1b000,\
+    /* Policy request message is not valid. 0x1b001 */\
+    SL_SRTE_POLICY_REQUEST_INVALID = 0x1b001,\
+    /* PolicyKey missing or invalid. 0x1b002 */\
+    SL_SRTE_POLICY_POLICY_KEY_INVALID = 0x1b002,\
+    /* Policy Attributes invalid. 0x1b003 */\
+    SL_SRTE_POLICY_POLICY_ATRR_INVALID = 0x1b003,\
+    /* CandidatePath Key missing or invalid. 0x1b004 */\
+    SL_SRTE_POLICY_CP_KEY_INVALID = 0x1b004,\
+    /* CandidatePath attributes invalid. 0x1b005 */\
+    SL_SRTE_POLICY_CP_ATTR_INVALID = 0x1b005,\
+    /* Policy Client ID mis-match. 0x1b006 */\
+    SL_SRTE_POLICY_CLIENT_MISMATCH = 0x1b006,\
+    /* srte policy service not up. 0x1b007 */\
+    SL_SRTE_POLICY_SERVICE_NOT_UP = 0x1b007,\
+    /* Request message bigger then supported size. 0x1b008 */\
+    SL_SRTE_POLICY_EXCEED_MSG_SIZE = 0x1b008,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -2068,6 +2087,33 @@
         },\
     {SL_BGP_INTERNAL_ERR_3 ,\
         " BGP Internal Error 3.  "\
+        },\
+    {SL_SRTE_POLICY_START_OFFSET ,\
+        " Offset for policy object operations.  "\
+        },\
+    {SL_SRTE_POLICY_REQUEST_INVALID ,\
+        " Policy request message is not valid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICY_KEY_INVALID ,\
+        " PolicyKey missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICY_ATRR_INVALID ,\
+        " Policy Attributes invalid.  "\
+        },\
+    {SL_SRTE_POLICY_CP_KEY_INVALID ,\
+        " CandidatePath Key missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_CP_ATTR_INVALID ,\
+        " CandidatePath attributes invalid.  "\
+        },\
+    {SL_SRTE_POLICY_CLIENT_MISMATCH ,\
+        " Policy Client ID mis-match.  "\
+        },\
+    {SL_SRTE_POLICY_SERVICE_NOT_UP ,\
+        " srte policy service not up.  "\
+        },\
+    {SL_SRTE_POLICY_EXCEED_MSG_SIZE ,\
+        " Request message bigger then supported size.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
