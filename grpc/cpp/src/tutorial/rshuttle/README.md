@@ -1,16 +1,24 @@
 # Cpp Quick Tutorial
 
 ## Table of Contents
-- [Server Setup](#server)
-- [Running the tutorial](#quick)
-- [Route Programming, Get implementation, and Notification Tracking](#explain)
-- [Retry Policy and Error Handling](#retry)
-- [Generate gRPC Code](#gen)
-- [Initialize the client server connection](#init)
-- [Optional: Register the VRF](#vrf)
 
-[!NOTE] If you only want to be able to run the code then you only need to follow the Server Setup and Running the tutorial sections.
-#### <a name='server'></a>Server Setup
+- [Server Setup](#server-setup)
+
+- [Running the tutorial](#running-the-tutorial)
+
+- [Explanation of Operations Performed](#explanation-of-operations-performed)
+
+- [Retry Policy and Error Handling](#retry-policy-and-error-handling)
+
+- [Generate gRPC Code](#generate-grpc-code)
+
+- [How to Initialize the client server connection](#how-to-initialize-the-client-server-connection)
+
+- [Register the VRF](#register-the-vrf)
+
+>**Note:** If you only want to be able to run the code then you only need to follow the Server Setup and Running the tutorial sections.
+
+## Server Setup
 
 On the server side, we need to configure GRPC and enable the service layer through the following CLI configuration:
 
@@ -81,7 +89,7 @@ This completes all the setup needed to start writing some code! Hop into
 your cpp interpreter and try out some of the commands to get familiar
 with the API.
 
-## <a name='quick'></a>Running the tutorial
+## Running the tutorial
 
 The following basic tutorial will walk you through getting started with the Service Layer API. The program can be used to test 
 either IPV4, IPV6, MPLS, or PG vertical through the streaming and unary rpcs. This may require some initial cpp and GRPC setup, which will be explained below. 
@@ -301,7 +309,7 @@ Notification Stream Example:
     Same as above example but also enable route notification for routes with table type as ipv6:
     $ ./servicelayermain -u username -p password -a Notification --notif_oper enable --notif_stream_duration 9 --notif_vrfname default --notif_nh ipv6,2002:aa::0,64,true,false,true --notif_route application,Service-layer,ipv6
 
-Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
+Example using auto register (see section [Register the VRF](#register-the-vrf) for information on auto-register):
 
     This should only be used when doing an Add,Delete or Update operation
     $ ./servicelayermain -u username -p password -a Add (Same as above examples, just omit -w option)
@@ -309,19 +317,21 @@ Example using auto register (see section [Optional: Register the VRF](#vrf) for 
 The following sections explain the details of the above example tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
 
-#### <a name='explain'></a>Route Programming, Get implementation, and Notification Tracking
+## Explanation of Operations Performed
 
-[!NOTE] This section is for route pushing. AKA when the operation command is set to Add, Update or Delete.
+The rpcs used in this tutorial allow the user to perform Route Programming, Get Requests, and Notification Tracking. Below we will go over each one.
 
-Using a unary rpc, the client sends a single request and blocks for response to the request.
-Initially, the program takes information given by user and creates a database. Each entry in the database corresponds to the information for one route/label.
-When invoked with --stream_case false option, this program uses unary RPC. It invokes the unary RPC as many times needed to program the data set. Please follow through code for more information.
+>**Note:** This section is for route pushing. AKA when the operation command is set to Add, Update or Delete.
+
+Using a unary rpc, the client sends a single request and blocks for response to the request.  
+Initially, the program takes information given by user and creates a database. Each entry in the database corresponds to the information for one route/label.  
+When invoked with --stream_case false option, this program uses unary RPC. It invokes the unary RPC as many times needed to program the data set. Please follow through code for more information.  
 
 The streaming rpc implementation is a bit more complex.
 A bi-directional stream is used, in which both the client and server have two independent streams. Both the client and server can read and write messages in any order.
 Therefore, this section will explain a high level overview of how this program utilizes the streaming rpc.
 
-[!NOTE] For more information on the differences/details of rpcs, refer to https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle.
+>**Note:** For more information on the differences/details of rpcs, refer to https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle.
 
 Our code utilizes multithreading and locking to handle bidirectional streaming. The general life cycle looks like this:
 
@@ -339,7 +349,7 @@ Our code utilizes multithreading and locking to handle bidirectional streaming. 
 
 We chose this design to allow ease of use and good performance. This design allows reusability for user specific code. The user just needs to hook up their own db and handle a few cases related to database information.  
 
-[!NOTE] This section is for getting information for routes. This is when the operation command is set to Get or GetVrf.
+>**Note:** This section is for getting information for routes. This is when the operation command is set to Get or GetVrf.
 
 There is no use of databases here.  
 For Get:
@@ -352,7 +362,7 @@ For GetVrf:
     This tutorial simply populates the SLAFVrfRegGetMsg and uses the SLAFVrfRegGet rpc to push a single message, receives all responses, stores the responses in a vector, and then prints out all of the responses.
     This tutorial showcases how to set up the SLAFVrfRegGetMsg and pull the responses from the SLAFVrfRegGetMsgRsp objects.
 
-[!NOTE] This section is relating to route redistribution and next hop tracking. This is when the operation command is set to Notification.
+>**Note:** This section is relating to route redistribution and next hop tracking. This is when the operation command is set to Notification.
 
 There is no use of databases here.  
 For Notification:
@@ -360,11 +370,13 @@ For Notification:
     This tutorial simply populates the SLAFNotifMsg and uses the SLAFNotifStream rpc to push messages to the server. Then it gathers responses for the period of time set by notif_stream_duration.
     Each response is stored in a vector. Then once the time is up, the client notifies the server that it is done sending messages, causing the rpc to end safely. Then, the responses are all printed out.
 
-#### <a name='retry'></a>Retry Policy and Error Handling
+## Retry Policy and Error Handling
 
 From the start of the first rpc request to the last response, the program acts atomically. Meaning, if all requests cannot be pushed and successfully completed due to rpc failure, then everything is retried. DB is cleared and remade when in use, and all requests are sent again, with a specified wait time between each request and a total number of attempts.
 
-#### <a name='gen'></a>Generate gRPC Code (optional in this example)
+## Generate gRPC Code
+
+>**Note:** This section is optional
 
 If you are not familiar with gRPC, we recommend you refer to gRPC's
 documentation before beginning with our tutorial: [gRPC Docs](http://www.grpc.io/docs/)
@@ -381,7 +393,7 @@ This generates the code stubs that we will now utilize to create a client.
 The files are recognizable from the ".pb" and  ".grpc.pb" that is appended to the name of the
 proto files they were generated from (example: sl_route_ipv4.pb.cc).
 
-#### <a name='init'></a>Initialize the client server connection
+## How to Initialize the client server connection
 
 In order to follow this quick tutorial, it is best to open the files in `grpc/cpp/src/tutorial/rshuttle/`
 
@@ -395,7 +407,8 @@ As shown in ServiceLayerMain.cpp, the first thing to do is to setup the GRPC cha
     auto server_port = getEnvVar("SERVER_PORT");
     auto channel = grpc::CreateChannel(grpc_server, grpc::InsecureChannelCredentials());
 
-##### Optional: GlobalInit RPC
+## Optional: GlobalInit RPC
+
 This represents the --global_init_rpc:
 
 Once connected, client can choose to handshake the API version number with the server. This is optional step, not mandatory
@@ -488,7 +501,9 @@ Since the above SendInitMsg function would never return, it is best to spawn it 
         }
     }
 
-#### <a name='vrf'></a>Optional: Register the VRF
+## Register the VRF
+
+>**Note:** Optional Section.  
 
 Registering the vrf is optional. User can configure "grpc service-layer auto-register" to avoid this registration requirement, and with auto-register, client owns the responsibility for reconciliation. Therefore, auto registration is preferred.
 If using auto registration then user should not use -w/--vrf_reg_oper cli option.
