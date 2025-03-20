@@ -227,7 +227,7 @@ class SLSrPolicyMsg final :
   }
   enum MsgTypeCase {
     kOpen = 1,
-    kRequest = 2,
+    kRequests = 2,
     kReplayStart = 3,
     kReplayEnd = 4,
     MSG_TYPE_NOT_SET = 0,
@@ -313,7 +313,7 @@ class SLSrPolicyMsg final :
 
   enum : int {
     kOpenFieldNumber = 1,
-    kRequestFieldNumber = 2,
+    kRequestsFieldNumber = 2,
     kReplayStartFieldNumber = 3,
     kReplayEndFieldNumber = 4,
   };
@@ -335,23 +335,23 @@ class SLSrPolicyMsg final :
       ::service_layer::SLSrPolicyOpen* open);
   ::service_layer::SLSrPolicyOpen* unsafe_arena_release_open();
 
-  // .service_layer.SLSrPolicyRequests request = 2;
-  bool has_request() const;
+  // .service_layer.SLSrPolicyRequests requests = 2;
+  bool has_requests() const;
   private:
-  bool _internal_has_request() const;
+  bool _internal_has_requests() const;
   public:
-  void clear_request();
-  const ::service_layer::SLSrPolicyRequests& request() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrPolicyRequests* release_request();
-  ::service_layer::SLSrPolicyRequests* mutable_request();
-  void set_allocated_request(::service_layer::SLSrPolicyRequests* request);
+  void clear_requests();
+  const ::service_layer::SLSrPolicyRequests& requests() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrPolicyRequests* release_requests();
+  ::service_layer::SLSrPolicyRequests* mutable_requests();
+  void set_allocated_requests(::service_layer::SLSrPolicyRequests* requests);
   private:
-  const ::service_layer::SLSrPolicyRequests& _internal_request() const;
-  ::service_layer::SLSrPolicyRequests* _internal_mutable_request();
+  const ::service_layer::SLSrPolicyRequests& _internal_requests() const;
+  ::service_layer::SLSrPolicyRequests* _internal_mutable_requests();
   public:
-  void unsafe_arena_set_allocated_request(
-      ::service_layer::SLSrPolicyRequests* request);
-  ::service_layer::SLSrPolicyRequests* unsafe_arena_release_request();
+  void unsafe_arena_set_allocated_requests(
+      ::service_layer::SLSrPolicyRequests* requests);
+  ::service_layer::SLSrPolicyRequests* unsafe_arena_release_requests();
 
   // .service_layer.SLSrStartOfReplay replay_start = 3;
   bool has_replay_start() const;
@@ -395,7 +395,7 @@ class SLSrPolicyMsg final :
  private:
   class _Internal;
   void set_has_open();
-  void set_has_request();
+  void set_has_requests();
   void set_has_replay_start();
   void set_has_replay_end();
 
@@ -409,7 +409,7 @@ class SLSrPolicyMsg final :
     constexpr MsgTypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
     ::service_layer::SLSrPolicyOpen* open_;
-    ::service_layer::SLSrPolicyRequests* request_;
+    ::service_layer::SLSrPolicyRequests* requests_;
     ::service_layer::SLSrStartOfReplay* replay_start_;
     ::service_layer::SLSrEndOfReplay* replay_end_;
   } msg_type_;
@@ -2724,7 +2724,11 @@ class SLSrConstraints final :
   void _internal_set_protection(::service_layer::SLSrteProtectionType value);
   public:
 
-  // uint32 sid_algo = 3;
+  // optional uint32 sid_algo = 3;
+  bool has_sid_algo() const;
+  private:
+  bool _internal_has_sid_algo() const;
+  public:
   void clear_sid_algo();
   uint32_t sid_algo() const;
   void set_sid_algo(uint32_t value);
@@ -2749,11 +2753,12 @@ class SLSrConstraints final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::service_layer::SLSrAffinities* affinities_;
   int protection_;
   uint32_t sid_algo_;
   uint32_t maximum_sid_depth_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3332,77 +3337,77 @@ inline ::service_layer::SLSrPolicyOpen* SLSrPolicyMsg::mutable_open() {
   return _msg;
 }
 
-// .service_layer.SLSrPolicyRequests request = 2;
-inline bool SLSrPolicyMsg::_internal_has_request() const {
-  return msg_type_case() == kRequest;
+// .service_layer.SLSrPolicyRequests requests = 2;
+inline bool SLSrPolicyMsg::_internal_has_requests() const {
+  return msg_type_case() == kRequests;
 }
-inline bool SLSrPolicyMsg::has_request() const {
-  return _internal_has_request();
+inline bool SLSrPolicyMsg::has_requests() const {
+  return _internal_has_requests();
 }
-inline void SLSrPolicyMsg::set_has_request() {
-  _oneof_case_[0] = kRequest;
+inline void SLSrPolicyMsg::set_has_requests() {
+  _oneof_case_[0] = kRequests;
 }
-inline void SLSrPolicyMsg::clear_request() {
-  if (_internal_has_request()) {
+inline void SLSrPolicyMsg::clear_requests() {
+  if (_internal_has_requests()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete msg_type_.request_;
+      delete msg_type_.requests_;
     }
     clear_has_msg_type();
   }
 }
-inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::release_request() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrPolicyMsg.request)
-  if (_internal_has_request()) {
+inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::release_requests() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrPolicyMsg.requests)
+  if (_internal_has_requests()) {
     clear_has_msg_type();
-      ::service_layer::SLSrPolicyRequests* temp = msg_type_.request_;
+      ::service_layer::SLSrPolicyRequests* temp = msg_type_.requests_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    msg_type_.request_ = nullptr;
+    msg_type_.requests_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::service_layer::SLSrPolicyRequests& SLSrPolicyMsg::_internal_request() const {
-  return _internal_has_request()
-      ? *msg_type_.request_
+inline const ::service_layer::SLSrPolicyRequests& SLSrPolicyMsg::_internal_requests() const {
+  return _internal_has_requests()
+      ? *msg_type_.requests_
       : reinterpret_cast< ::service_layer::SLSrPolicyRequests&>(::service_layer::_SLSrPolicyRequests_default_instance_);
 }
-inline const ::service_layer::SLSrPolicyRequests& SLSrPolicyMsg::request() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyMsg.request)
-  return _internal_request();
+inline const ::service_layer::SLSrPolicyRequests& SLSrPolicyMsg::requests() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyMsg.requests)
+  return _internal_requests();
 }
-inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::unsafe_arena_release_request() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrPolicyMsg.request)
-  if (_internal_has_request()) {
+inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::unsafe_arena_release_requests() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrPolicyMsg.requests)
+  if (_internal_has_requests()) {
     clear_has_msg_type();
-    ::service_layer::SLSrPolicyRequests* temp = msg_type_.request_;
-    msg_type_.request_ = nullptr;
+    ::service_layer::SLSrPolicyRequests* temp = msg_type_.requests_;
+    msg_type_.requests_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLSrPolicyMsg::unsafe_arena_set_allocated_request(::service_layer::SLSrPolicyRequests* request) {
+inline void SLSrPolicyMsg::unsafe_arena_set_allocated_requests(::service_layer::SLSrPolicyRequests* requests) {
   clear_msg_type();
-  if (request) {
-    set_has_request();
-    msg_type_.request_ = request;
+  if (requests) {
+    set_has_requests();
+    msg_type_.requests_ = requests;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrPolicyMsg.request)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrPolicyMsg.requests)
 }
-inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::_internal_mutable_request() {
-  if (!_internal_has_request()) {
+inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::_internal_mutable_requests() {
+  if (!_internal_has_requests()) {
     clear_msg_type();
-    set_has_request();
-    msg_type_.request_ = CreateMaybeMessage< ::service_layer::SLSrPolicyRequests >(GetArenaForAllocation());
+    set_has_requests();
+    msg_type_.requests_ = CreateMaybeMessage< ::service_layer::SLSrPolicyRequests >(GetArenaForAllocation());
   }
-  return msg_type_.request_;
+  return msg_type_.requests_;
 }
-inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::mutable_request() {
-  ::service_layer::SLSrPolicyRequests* _msg = _internal_mutable_request();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyMsg.request)
+inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::mutable_requests() {
+  ::service_layer::SLSrPolicyRequests* _msg = _internal_mutable_requests();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyMsg.requests)
   return _msg;
 }
 
@@ -5203,9 +5208,17 @@ inline void SLSrConstraints::set_protection(::service_layer::SLSrteProtectionTyp
   // @@protoc_insertion_point(field_set:service_layer.SLSrConstraints.protection)
 }
 
-// uint32 sid_algo = 3;
+// optional uint32 sid_algo = 3;
+inline bool SLSrConstraints::_internal_has_sid_algo() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool SLSrConstraints::has_sid_algo() const {
+  return _internal_has_sid_algo();
+}
 inline void SLSrConstraints::clear_sid_algo() {
   sid_algo_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t SLSrConstraints::_internal_sid_algo() const {
   return sid_algo_;
@@ -5215,7 +5228,7 @@ inline uint32_t SLSrConstraints::sid_algo() const {
   return _internal_sid_algo();
 }
 inline void SLSrConstraints::_internal_set_sid_algo(uint32_t value) {
-  
+  _has_bits_[0] |= 0x00000001u;
   sid_algo_ = value;
 }
 inline void SLSrConstraints::set_sid_algo(uint32_t value) {

@@ -3,9 +3,9 @@
 // source: sl_srte_policy.proto
 // Original file comments:
 // @file 
-// @brief Proto file for Segment-routing traffic-eng (SRTE) Policy RPCs.
-// Declares calls for adding, deleting, updating the SRTE policies.
-// The GPB data model should reflect the model from the SRTE policy
+// @brief Proto file for Segment-routing traffic-eng (SR-TE) Policy RPCs.
+// Declares calls for adding, deleting, updating the SR-TE policies.
+// The GPB data model should reflect the model from the SR-TE policy
 // RFC https://datatracker.ietf.org/doc/rfc9256/.
 // 
 // ----------------------------------------------------------------
@@ -43,7 +43,7 @@ namespace service_layer {
 
 // @defgroup SLSrtePolicy
 // Used to programmatically create/update/delete SR-TE policies.
-// Defines the RPC for operations on SRTE policy.
+// Defines the RPC for operations on SR-TE policy.
 //
 // @{ 
 class SLSrtePolicy final {
@@ -55,7 +55,7 @@ class SLSrtePolicy final {
    public:
     virtual ~StubInterface() {}
     //    
-    // SRTE Policy operations
+    // SR-TE Policy operations
     //
     //
     // The SLSrPolicyOp RPC is used to create/update/delete an SR-TE policy based on the
@@ -73,7 +73,7 @@ class SLSrtePolicy final {
      public:
       virtual ~async_interface() {}
       //    
-      // SRTE Policy operations
+      // SR-TE Policy operations
       //
       //
       // The SLSrPolicyOp RPC is used to create/update/delete an SR-TE policy based on the
@@ -127,7 +127,7 @@ class SLSrtePolicy final {
     Service();
     virtual ~Service();
     //    
-    // SRTE Policy operations
+    // SR-TE Policy operations
     //
     //
     // The SLSrPolicyOp RPC is used to create/update/delete an SR-TE policy based on the

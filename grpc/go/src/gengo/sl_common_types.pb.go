@@ -2,7 +2,7 @@
 // @brief Common definitions for all of the service layer proto files.
 //
 //---------------------------------------------------------------------
-// Copyright (c) 2019, 2024 by Cisco Systems, Inc.
+// Copyright (c) 2019, 2024-2025 by Cisco Systems, Inc.
 // All rights reserved.
 //---------------------------------------------------------------------
 //
@@ -1436,7 +1436,7 @@ const (
 	// PolicyKey missing or invalid. 0x1b002
 	SLErrorStatus_SL_SRTE_POLICY_POLICY_KEY_INVALID SLErrorStatus_SLErrno = 110594
 	// Policy Attributes invalid. 0x1b003
-	SLErrorStatus_SL_SRTE_POLICY_POLICY_ATRR_INVALID SLErrorStatus_SLErrno = 110595
+	SLErrorStatus_SL_SRTE_POLICY_POLICY_ATTR_INVALID SLErrorStatus_SLErrno = 110595
 	// CandidatePath Key missing or invalid. 0x1b004
 	SLErrorStatus_SL_SRTE_POLICY_CP_KEY_INVALID SLErrorStatus_SLErrno = 110596
 	// CandidatePath attributes invalid. 0x1b005
@@ -1445,7 +1445,7 @@ const (
 	SLErrorStatus_SL_SRTE_POLICY_CLIENT_MISMATCH SLErrorStatus_SLErrno = 110598
 	// srte policy service not up. 0x1b007
 	SLErrorStatus_SL_SRTE_POLICY_SERVICE_NOT_UP SLErrorStatus_SLErrno = 110599
-	// Request message bigger then supported size. 0x1b008
+	// Request message bigger than supported size. 0x1b008
 	SLErrorStatus_SL_SRTE_POLICY_EXCEED_MSG_SIZE SLErrorStatus_SLErrno = 110600
 	// Offset for Internal errors. 0x100000
 	SLErrorStatus_SL_INTERNAL_START_OFFSET SLErrorStatus_SLErrno = 1048576
@@ -1837,7 +1837,7 @@ var (
 		110592:  "SL_SRTE_POLICY_START_OFFSET",
 		110593:  "SL_SRTE_POLICY_REQUEST_INVALID",
 		110594:  "SL_SRTE_POLICY_POLICY_KEY_INVALID",
-		110595:  "SL_SRTE_POLICY_POLICY_ATRR_INVALID",
+		110595:  "SL_SRTE_POLICY_POLICY_ATTR_INVALID",
 		110596:  "SL_SRTE_POLICY_CP_KEY_INVALID",
 		110597:  "SL_SRTE_POLICY_CP_ATTR_INVALID",
 		110598:  "SL_SRTE_POLICY_CLIENT_MISMATCH",
@@ -2229,7 +2229,7 @@ var (
 		"SL_SRTE_POLICY_START_OFFSET":               110592,
 		"SL_SRTE_POLICY_REQUEST_INVALID":            110593,
 		"SL_SRTE_POLICY_POLICY_KEY_INVALID":         110594,
-		"SL_SRTE_POLICY_POLICY_ATRR_INVALID":        110595,
+		"SL_SRTE_POLICY_POLICY_ATTR_INVALID":        110595,
 		"SL_SRTE_POLICY_CP_KEY_INVALID":             110596,
 		"SL_SRTE_POLICY_CP_ATTR_INVALID":            110597,
 		"SL_SRTE_POLICY_CLIENT_MISMATCH":            110598,
@@ -3438,7 +3438,7 @@ var file_sl_common_types_proto_rawDesc = []byte{
 	0x5f, 0x50, 0x4f, 0x4c, 0x49, 0x43, 0x59, 0x5f, 0x50, 0x4f, 0x4c, 0x49, 0x43, 0x59, 0x5f, 0x4b,
 	0x45, 0x59, 0x5f, 0x49, 0x4e, 0x56, 0x41, 0x4c, 0x49, 0x44, 0x10, 0x82, 0xe0, 0x06, 0x12, 0x28,
 	0x0a, 0x22, 0x53, 0x4c, 0x5f, 0x53, 0x52, 0x54, 0x45, 0x5f, 0x50, 0x4f, 0x4c, 0x49, 0x43, 0x59,
-	0x5f, 0x50, 0x4f, 0x4c, 0x49, 0x43, 0x59, 0x5f, 0x41, 0x54, 0x52, 0x52, 0x5f, 0x49, 0x4e, 0x56,
+	0x5f, 0x50, 0x4f, 0x4c, 0x49, 0x43, 0x59, 0x5f, 0x41, 0x54, 0x54, 0x52, 0x5f, 0x49, 0x4e, 0x56,
 	0x41, 0x4c, 0x49, 0x44, 0x10, 0x83, 0xe0, 0x06, 0x12, 0x23, 0x0a, 0x1d, 0x53, 0x4c, 0x5f, 0x53,
 	0x52, 0x54, 0x45, 0x5f, 0x50, 0x4f, 0x4c, 0x49, 0x43, 0x59, 0x5f, 0x43, 0x50, 0x5f, 0x4b, 0x45,
 	0x59, 0x5f, 0x49, 0x4e, 0x56, 0x41, 0x4c, 0x49, 0x44, 0x10, 0x84, 0xe0, 0x06, 0x12, 0x24, 0x0a,

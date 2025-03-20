@@ -315,7 +315,7 @@ namespace ServiceLayer {
             "EIPCBhIhChtTTF9TUlRFX1BPTElDWV9TVEFSVF9PRkZTRVQQgOAGEiQKHlNM",
             "X1NSVEVfUE9MSUNZX1JFUVVFU1RfSU5WQUxJRBCB4AYSJwohU0xfU1JURV9Q",
             "T0xJQ1lfUE9MSUNZX0tFWV9JTlZBTElEEILgBhIoCiJTTF9TUlRFX1BPTElD",
-            "WV9QT0xJQ1lfQVRSUl9JTlZBTElEEIPgBhIjCh1TTF9TUlRFX1BPTElDWV9D",
+            "WV9QT0xJQ1lfQVRUUl9JTlZBTElEEIPgBhIjCh1TTF9TUlRFX1BPTElDWV9D",
             "UF9LRVlfSU5WQUxJRBCE4AYSJAoeU0xfU1JURV9QT0xJQ1lfQ1BfQVRUUl9J",
             "TlZBTElEEIXgBhIkCh5TTF9TUlRFX1BPTElDWV9DTElFTlRfTUlTTUFUQ0gQ",
             "huAGEiMKHVNMX1NSVEVfUE9MSUNZX1NFUlZJQ0VfTk9UX1VQEIfgBhIkCh5T",
@@ -2406,7 +2406,7 @@ namespace ServiceLayer {
         /// <summary>
         /// Policy Attributes invalid. 0x1b003
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICY_ATRR_INVALID")] SlSrtePolicyPolicyAtrrInvalid = 110595,
+        [pbr::OriginalName("SL_SRTE_POLICY_POLICY_ATTR_INVALID")] SlSrtePolicyPolicyAttrInvalid = 110595,
         /// <summary>
         /// CandidatePath Key missing or invalid. 0x1b004
         /// </summary>
@@ -2424,7 +2424,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_SERVICE_NOT_UP")] SlSrtePolicyServiceNotUp = 110599,
         /// <summary>
-        /// Request message bigger then supported size. 0x1b008
+        /// Request message bigger than supported size. 0x1b008
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_EXCEED_MSG_SIZE")] SlSrtePolicyExceedMsgSize = 110600,
         /// <summary>

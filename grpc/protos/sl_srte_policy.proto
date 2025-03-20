@@ -1,7 +1,7 @@
 // @file 
-// @brief Proto file for Segment-routing traffic-eng (SRTE) Policy RPCs.
-// Declares calls for adding, deleting, updating the SRTE policies.
-// The GPB data model should reflect the model from the SRTE policy
+// @brief Proto file for Segment-routing traffic-eng (SR-TE) Policy RPCs.
+// Declares calls for adding, deleting, updating the SR-TE policies.
+// The GPB data model should reflect the model from the SR-TE policy
 // RFC https://datatracker.ietf.org/doc/rfc9256/.
 // 
 // ----------------------------------------------------------------
@@ -20,7 +20,7 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 
 // @defgroup SLSrtePolicy
 // Used to programmatically create/update/delete SR-TE policies.
-// Defines the RPC for operations on SRTE policy.
+// Defines the RPC for operations on SR-TE policy.
 //
 // @{ 
 service SLSrtePolicy {
@@ -29,7 +29,7 @@ service SLSrtePolicy {
     //;
 
     //    
-    // SRTE Policy operations
+    // SR-TE Policy operations
     //
 
     // The SLSrPolicyOp RPC is used to create/update/delete an SR-TE policy based on the
@@ -43,14 +43,14 @@ service SLSrtePolicy {
 message SLSrPolicyMsg {
     oneof msg_type {
         SLSrPolicyOpen open = 1;
-        SLSrPolicyRequests request = 2;
+        SLSrPolicyRequests requests = 2;
         SLSrStartOfReplay replay_start = 3;
         SLSrEndOfReplay replay_end = 4;
     }
 }
 
 // RPC response 
-// Response to policy request operation. Indicates result of the operation and not 
+// Response to policy operation. Indicates result of the operation and not 
 // operational state of policy.  In case of multiple requests received for 
 // policy identified by specific SLSrPolicyKey, always at least single response
 // will be sent to confirm processing of the last request. 
@@ -65,7 +65,7 @@ message SLSrPolicyRsp {
     // Set of responses corresponding to the policies in the request
     repeated PolicyRsp responses = 1;
 
-    // Generic error, Only set if error is not specific to Policies
+    // Generic error, Only set if error is not specific to policies
     SLSrStatus status = 2;
 } 
 
@@ -75,7 +75,7 @@ message SLSrPolicyRsp {
 // multiple times for the same gRPC session.
 // To update attributes (client-ID, persistence mode and cleanup timer value) included in
 // the Open Message, the connection must be closed and re-opened.
-// For DELETE persistence mode, open message is implicit start of replay.
+// For DELETE persistence mode, Open Message is implicit start of replay.
 // 
 // The server is not required to send an explicit response message to indicate the
 // receipt of the Open Message. Server will respond in case of any error.
@@ -88,10 +88,10 @@ message SLSrPolicyOpen {
         DELETE = 0; 
 
         //
-        // When the client disconnects, the server preservers all Policies/CPs
+        // When the client disconnects, the server preserves all policies/CPs
         // instantiated by this client.
-        // It is client responsibility to delete the Policies when they are no
-        // longer needed, Server does not do auto-cleanup of Policies created
+        // It is client responsibility to delete the policies when they are no
+        // longer needed, Server does not do auto-cleanup of policies created
         // with this mode.
         PRESERVE = 1;
     }
@@ -109,10 +109,10 @@ message SLSrPolicyOpen {
 
     // Only applicable to DELETE persistence mode.
     // Timer for deleting the policies after the disconnect. If not specified,
-    // a default value is used. 0 value is not allowed. Values is in seconds.
+    // a default value is used. 0 value is not allowed. Value is in seconds.
     optional uint32 policy_cleanup_timer = 2;
 
-    // Persistence mode for Policies instantiated by this client
+    // Persistence mode for policies instantiated by this client
     // Persistence mode is an attribute of the gRPC client. If the gRPC client
     // reconnects with a different persistence mode, the rules associated with
     // the mode specified in the most recent Open Message will be applied to all
@@ -121,7 +121,7 @@ message SLSrPolicyOpen {
     SLSrPersistenceMode mode = 3;
 } 
 
-// Set of Policies to be acted on
+// Set of policies to be acted on
 message SLSrPolicyRequests {
     repeated SLSrPolicyReq requests = 1; 
 }
@@ -129,10 +129,10 @@ message SLSrPolicyRequests {
 // Policy operation
 message SLSrPolicyReq {
     enum SLSrOp {
-        // Create operation for specified Policies. Policies that already exist
+        // Create operation for specified policies. Policies that already exist
         // will be updated.
         CREATE_UPDATE = 0;
-        // Delete operation for specified Policies. Deletion of non-existent policy
+        // Delete operation for specified policies. Deletion of non-existent policy
         // will be responded with specific error code.
         DELETE = 1;
     }
@@ -173,9 +173,9 @@ message SLSrEndOfReplay { }
 // starts replay timer. Note that if synchronization takes longer than specified
 // replay timer value, then policies can be deleted before receiving EndOfReplay message. 
 //
-// Replay of Policies followed by EndOfReplay is expected from the client after
+// Replay of policies followed by EndOfReplay is expected from the client after
 // this message. Replayed policies will have stale flag removed, EndOfSync will trigger
-// deletion of any Policies still left stale (Policies that have not been replayed).
+// deletion of any policies still left stale (policies that have not been replayed).
 // If server receives StartOfReplay when it is already in replay state, it is considered
 // an error.
 // Server will not send response to this message unless there is an error. 
@@ -220,6 +220,8 @@ message SLSrPolicyAttributes {
     bool transit_eligible = 2;
 
     // The segment routing dataplane.
+    // This is mandatory field. Unspecified dataplane is invalid and will be rejected
+    // by the server.
     SLSrDataplane dataplane = 3;
 
     // (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.1).
@@ -231,7 +233,7 @@ message SLSrPolicyAttributes {
 
     // ID of the profile with which policy can be associated with a non-zero value. The
     // Profile ID concept is described as “Policy Association Group” in RFC 9005.
-    // 0 value means unset.
+    // 0 value means unset. Maximum accepted value is 65534.
     // 
     // A profile represents a set of configuration knobs specifying policy or policy
     // candidate-path (CP) attributes. The profile-ID feature allows usage of
@@ -321,7 +323,7 @@ message SLSrConstraints {
 
     SLSrteProtectionType protection = 2;
 
-    uint32 sid_algo = 3;
+    optional uint32 sid_algo = 3;
 
     // Maximum number of segments in any of the candidate path segment lists.
     // 

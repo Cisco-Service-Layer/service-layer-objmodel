@@ -1426,7 +1426,7 @@ type SLSrAffinities struct {
 	// Mapped from [section 6.3 of RFC 9350]
 	// (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.3).
 	IncludeAll []uint32 `protobuf:"varint,2,rep,packed,name=includeAll,proto3" json:"includeAll,omitempty"`
-	// Affinity exclude.
+	// Affinity exclude any.
 	//
 	// Mapped from [section 6.1 of RFC 9350]
 	// (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.1).

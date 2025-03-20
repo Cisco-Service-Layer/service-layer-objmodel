@@ -4,9 +4,9 @@
 // </auto-generated>
 // Original file comments:
 // @file 
-// @brief Proto file for Segment-routing traffic-eng (SRTE) Policy RPCs.
-// Declares calls for adding, deleting, updating the SRTE policies.
-// The GPB data model should reflect the model from the SRTE policy
+// @brief Proto file for Segment-routing traffic-eng (SR-TE) Policy RPCs.
+// Declares calls for adding, deleting, updating the SR-TE policies.
+// The GPB data model should reflect the model from the SR-TE policy
 // RFC https://datatracker.ietf.org/doc/rfc9256/.
 // 
 // ----------------------------------------------------------------
@@ -25,7 +25,7 @@ namespace ServiceLayer {
   /// <summary>
   /// @defgroup SLSrtePolicy
   /// Used to programmatically create/update/delete SR-TE policies.
-  /// Defines the RPC for operations on SRTE policy.
+  /// Defines the RPC for operations on SR-TE policy.
   ///
   /// @{ 
   /// </summary>

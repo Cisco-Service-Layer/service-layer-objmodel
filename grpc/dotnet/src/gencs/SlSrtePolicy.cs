@@ -25,64 +25,64 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRzbF9zcnRlX3BvbGljeS5wcm90bxINc2VydmljZV9sYXllchoSc2xfc3Jf",
-            "Y29tbW9uLnByb3RvIvABCg1TTFNyUG9saWN5TXNnEi0KBG9wZW4YASABKAsy",
-            "HS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lPcGVuSAASNAoHcmVxdWVzdBgC",
-            "IAEoCzIhLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJlcXVlc3RzSAASOAoM",
-            "cmVwbGF5X3N0YXJ0GAMgASgLMiAuc2VydmljZV9sYXllci5TTFNyU3RhcnRP",
-            "ZlJlcGxheUgAEjQKCnJlcGxheV9lbmQYBCABKAsyHi5zZXJ2aWNlX2xheWVy",
-            "LlNMU3JFbmRPZlJlcGxheUgAQgoKCG1zZ190eXBlIukBCg1TTFNyUG9saWN5",
-            "UnNwEjkKCXJlc3BvbnNlcxgBIAMoCzImLnNlcnZpY2VfbGF5ZXIuU0xTclBv",
-            "bGljeVJzcC5Qb2xpY3lSc3ASKQoGc3RhdHVzGAIgASgLMhkuc2VydmljZV9s",
-            "YXllci5TTFNyU3RhdHVzGnIKCVBvbGljeVJzcBIPCgdzZXFfbnVtGAEgASgE",
-            "EikKA2tleRgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeUtleRIp",
-            "CgZzdGF0dXMYAyABKAsyGS5zZXJ2aWNlX2xheWVyLlNMU3JTdGF0dXMi0QEK",
-            "DlNMU3JQb2xpY3lPcGVuEhEKCWNsaWVudF9pZBgBIAEoCRIhChRwb2xpY3lf",
-            "Y2xlYW51cF90aW1lchgCIAEoDUgAiAEBEj8KBG1vZGUYAyABKA4yMS5zZXJ2",
-            "aWNlX2xheWVyLlNMU3JQb2xpY3lPcGVuLlNMU3JQZXJzaXN0ZW5jZU1vZGUi",
-            "LwoTU0xTclBlcnNpc3RlbmNlTW9kZRIKCgZERUxFVEUQABIMCghQUkVTRVJW",
-            "RRABQhcKFV9wb2xpY3lfY2xlYW51cF90aW1lciJEChJTTFNyUG9saWN5UmVx",
-            "dWVzdHMSLgoIcmVxdWVzdHMYASADKAsyHC5zZXJ2aWNlX2xheWVyLlNMU3JQ",
-            "b2xpY3lSZXEimwEKDVNMU3JQb2xpY3lSZXESNgoJb3BlcmF0aW9uGAEgASgO",
-            "MiMuc2VydmljZV9sYXllci5TTFNyUG9saWN5UmVxLlNMU3JPcBIpCgZwb2xp",
-            "Y3kYAiABKAsyGS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3kiJwoGU0xTck9w",
-            "EhEKDUNSRUFURV9VUERBVEUQABIKCgZERUxFVEUQASIRCg9TTFNyRW5kT2ZS",
-            "ZXBsYXkiEwoRU0xTclN0YXJ0T2ZSZXBsYXkiqwEKClNMU3JQb2xpY3kSDwoH",
-            "c2VxX251bRgBIAEoBBIpCgNrZXkYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNM",
-            "U3JQb2xpY3lLZXkSMgoFYXR0cnMYAyABKAsyIy5zZXJ2aWNlX2xheWVyLlNM",
-            "U3JQb2xpY3lBdHRyaWJ1dGVzEi0KA0NQcxgEIAMoCzIgLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTckNhbmRpZGF0ZVBhdGgi4gEKFFNMU3JQb2xpY3lBdHRyaWJ1dGVz",
-            "EhgKEHRyYW5zaXRfZWxpZ2libGUYAiABKAgSLwoJZGF0YXBsYW5lGAMgASgO",
-            "Mhwuc2VydmljZV9sYXllci5TTFNyRGF0YXBsYW5lEjQKCW1wbHNfYnNpZBgE",
-            "IAEoCzIhLnNlcnZpY2VfbGF5ZXIuU0xTck1QTFNCaW5kaW5nU0lEEjUKCnNy",
-            "djZfYnNpZHMYBSADKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JTcnY2QmluZGlu",
-            "Z1NJRBISCgpwcm9maWxlX2lkGAYgASgNIuUBChFTTFNyQ2FuZGlkYXRlUGF0",
-            "aBIwCgNrZXkYAiABKAsyIy5zZXJ2aWNlX2xheWVyLlNMU3JDYW5kaWRhdGVQ",
-            "YXRoS2V5EgwKBG5hbWUYAyABKAkSFwoKcHJlZmVyZW5jZRgEIAEoDUgBiAEB",
-            "Ei8KB2R5bmFtaWMYBSABKAsyHC5zZXJ2aWNlX2xheWVyLlNMU3JEeW5hbWlj",
-            "Q1BIABIxCghleHBsaWNpdBgGIAEoCzIdLnNlcnZpY2VfbGF5ZXIuU0xTckV4",
-            "cGxpY2l0Q1BIAEIECgJDUEINCgtfcHJlZmVyZW5jZSJbCg5TTFNyRXhwbGlj",
-            "aXRDUBI0CgxzZWdtZW50X2xpc3QYASADKAsyHi5zZXJ2aWNlX2xheWVyLlNM",
-            "U3JTZWdtZW50TGlzdBITCgttZXRyaWNfdHlwZRgDIAEoDSJZCg1TTFNyRHlu",
-            "YW1pY0NQEhMKC21ldHJpY190eXBlGAEgASgNEjMKC2NvbnN0cmFpbnRzGAIg",
-            "ASgLMh4uc2VydmljZV9sYXllci5TTFNyQ29uc3RyYWludHMiqgEKD1NMU3JD",
-            "b25zdHJhaW50cxIxCgphZmZpbml0aWVzGAEgASgLMh0uc2VydmljZV9sYXll",
-            "ci5TTFNyQWZmaW5pdGllcxI3Cgpwcm90ZWN0aW9uGAIgASgOMiMuc2Vydmlj",
-            "ZV9sYXllci5TTFNydGVQcm90ZWN0aW9uVHlwZRIQCghzaWRfYWxnbxgDIAEo",
-            "DRIZChFtYXhpbXVtX3NpZF9kZXB0aBgEIAEoDSKLAQoSU0xTclNydjZCaW5k",
-            "aW5nU0lEEjAKCGV4cGxpY2l0GAEgASgLMhwuc2VydmljZV9sYXllci5TTFNS",
-            "djZTSURJbmZvSAASOwoHZHluYW1pYxgCIAEoCzIoLnNlcnZpY2VfbGF5ZXIu",
-            "U0xTclNydjZEeW5hbWljQmluZGluZ1NJREgAQgYKBHR5cGUiOgoSU0xTck1Q",
-            "TFNCaW5kaW5nU0lEEhYKCW1wbHNfYnNpZBgBIAEoDUgAiAEBQgwKCl9tcGxz",
-            "X2JzaWQiLQoZU0xTclNydjZEeW5hbWljQmluZGluZ1NJRBIQCghiZWhhdmlv",
-            "chgBIAEoDTJeCgxTTFNydGVQb2xpY3kSTgoMU0xTclBvbGljeU9wEhwuc2Vy",
-            "dmljZV9sYXllci5TTFNyUG9saWN5TXNnGhwuc2VydmljZV9sYXllci5TTFNy",
-            "UG9saWN5UnNwKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5",
-            "ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNl",
-            "X2xheWVyYgZwcm90bzM="));
+            "Y29tbW9uLnByb3RvIvEBCg1TTFNyUG9saWN5TXNnEi0KBG9wZW4YASABKAsy",
+            "HS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lPcGVuSAASNQoIcmVxdWVzdHMY",
+            "AiABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSZXF1ZXN0c0gAEjgK",
+            "DHJlcGxheV9zdGFydBgDIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xTclN0YXJ0",
+            "T2ZSZXBsYXlIABI0CgpyZXBsYXlfZW5kGAQgASgLMh4uc2VydmljZV9sYXll",
+            "ci5TTFNyRW5kT2ZSZXBsYXlIAEIKCghtc2dfdHlwZSLpAQoNU0xTclBvbGlj",
+            "eVJzcBI5CglyZXNwb25zZXMYASADKAsyJi5zZXJ2aWNlX2xheWVyLlNMU3JQ",
+            "b2xpY3lSc3AuUG9saWN5UnNwEikKBnN0YXR1cxgCIAEoCzIZLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xTclN0YXR1cxpyCglQb2xpY3lSc3ASDwoHc2VxX251bRgBIAEo",
+            "BBIpCgNrZXkYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lLZXkS",
+            "KQoGc3RhdHVzGAMgASgLMhkuc2VydmljZV9sYXllci5TTFNyU3RhdHVzItEB",
+            "Cg5TTFNyUG9saWN5T3BlbhIRCgljbGllbnRfaWQYASABKAkSIQoUcG9saWN5",
+            "X2NsZWFudXBfdGltZXIYAiABKA1IAIgBARI/CgRtb2RlGAMgASgOMjEuc2Vy",
+            "dmljZV9sYXllci5TTFNyUG9saWN5T3Blbi5TTFNyUGVyc2lzdGVuY2VNb2Rl",
+            "Ii8KE1NMU3JQZXJzaXN0ZW5jZU1vZGUSCgoGREVMRVRFEAASDAoIUFJFU0VS",
+            "VkUQAUIXChVfcG9saWN5X2NsZWFudXBfdGltZXIiRAoSU0xTclBvbGljeVJl",
+            "cXVlc3RzEi4KCHJlcXVlc3RzGAEgAygLMhwuc2VydmljZV9sYXllci5TTFNy",
+            "UG9saWN5UmVxIpsBCg1TTFNyUG9saWN5UmVxEjYKCW9wZXJhdGlvbhgBIAEo",
+            "DjIjLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJlcS5TTFNyT3ASKQoGcG9s",
+            "aWN5GAIgASgLMhkuc2VydmljZV9sYXllci5TTFNyUG9saWN5IicKBlNMU3JP",
+            "cBIRCg1DUkVBVEVfVVBEQVRFEAASCgoGREVMRVRFEAEiEQoPU0xTckVuZE9m",
+            "UmVwbGF5IhMKEVNMU3JTdGFydE9mUmVwbGF5IqsBCgpTTFNyUG9saWN5Eg8K",
+            "B3NlcV9udW0YASABKAQSKQoDa2V5GAIgASgLMhwuc2VydmljZV9sYXllci5T",
+            "TFNyUG9saWN5S2V5EjIKBWF0dHJzGAMgASgLMiMuc2VydmljZV9sYXllci5T",
+            "TFNyUG9saWN5QXR0cmlidXRlcxItCgNDUHMYBCADKAsyIC5zZXJ2aWNlX2xh",
+            "eWVyLlNMU3JDYW5kaWRhdGVQYXRoIuIBChRTTFNyUG9saWN5QXR0cmlidXRl",
+            "cxIYChB0cmFuc2l0X2VsaWdpYmxlGAIgASgIEi8KCWRhdGFwbGFuZRgDIAEo",
+            "DjIcLnNlcnZpY2VfbGF5ZXIuU0xTckRhdGFwbGFuZRI0CgltcGxzX2JzaWQY",
+            "BCABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JNUExTQmluZGluZ1NJRBI1Cgpz",
+            "cnY2X2JzaWRzGAUgAygLMiEuc2VydmljZV9sYXllci5TTFNyU3J2NkJpbmRp",
+            "bmdTSUQSEgoKcHJvZmlsZV9pZBgGIAEoDSLlAQoRU0xTckNhbmRpZGF0ZVBh",
+            "dGgSMAoDa2V5GAIgASgLMiMuc2VydmljZV9sYXllci5TTFNyQ2FuZGlkYXRl",
+            "UGF0aEtleRIMCgRuYW1lGAMgASgJEhcKCnByZWZlcmVuY2UYBCABKA1IAYgB",
+            "ARIvCgdkeW5hbWljGAUgASgLMhwuc2VydmljZV9sYXllci5TTFNyRHluYW1p",
+            "Y0NQSAASMQoIZXhwbGljaXQYBiABKAsyHS5zZXJ2aWNlX2xheWVyLlNMU3JF",
+            "eHBsaWNpdENQSABCBAoCQ1BCDQoLX3ByZWZlcmVuY2UiWwoOU0xTckV4cGxp",
+            "Y2l0Q1ASNAoMc2VnbWVudF9saXN0GAEgAygLMh4uc2VydmljZV9sYXllci5T",
+            "TFNyU2VnbWVudExpc3QSEwoLbWV0cmljX3R5cGUYAyABKA0iWQoNU0xTckR5",
+            "bmFtaWNDUBITCgttZXRyaWNfdHlwZRgBIAEoDRIzCgtjb25zdHJhaW50cxgC",
+            "IAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTckNvbnN0cmFpbnRzIrwBCg9TTFNy",
+            "Q29uc3RyYWludHMSMQoKYWZmaW5pdGllcxgBIAEoCzIdLnNlcnZpY2VfbGF5",
+            "ZXIuU0xTckFmZmluaXRpZXMSNwoKcHJvdGVjdGlvbhgCIAEoDjIjLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTcnRlUHJvdGVjdGlvblR5cGUSFQoIc2lkX2FsZ28YAyAB",
+            "KA1IAIgBARIZChFtYXhpbXVtX3NpZF9kZXB0aBgEIAEoDUILCglfc2lkX2Fs",
+            "Z28iiwEKElNMU3JTcnY2QmluZGluZ1NJRBIwCghleHBsaWNpdBgBIAEoCzIc",
+            "LnNlcnZpY2VfbGF5ZXIuU0xTUnY2U0lESW5mb0gAEjsKB2R5bmFtaWMYAiAB",
+            "KAsyKC5zZXJ2aWNlX2xheWVyLlNMU3JTcnY2RHluYW1pY0JpbmRpbmdTSURI",
+            "AEIGCgR0eXBlIjoKElNMU3JNUExTQmluZGluZ1NJRBIWCgltcGxzX2JzaWQY",
+            "ASABKA1IAIgBAUIMCgpfbXBsc19ic2lkIi0KGVNMU3JTcnY2RHluYW1pY0Jp",
+            "bmRpbmdTSUQSEAoIYmVoYXZpb3IYASABKA0yXgoMU0xTcnRlUG9saWN5Ek4K",
+            "DFNMU3JQb2xpY3lPcBIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU1zZxoc",
+            "LnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJzcCgBMAFCUVpPZ2l0aHViLmNv",
+            "bS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwv",
+            "Z3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyMsg), global::ServiceLayer.SLSrPolicyMsg.Parser, new[]{ "Open", "Request", "ReplayStart", "ReplayEnd" }, new[]{ "MsgType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyMsg), global::ServiceLayer.SLSrPolicyMsg.Parser, new[]{ "Open", "Requests", "ReplayStart", "ReplayEnd" }, new[]{ "MsgType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Parser, new[]{ "Responses", "Status" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp.Parser, new[]{ "SeqNum", "Key", "Status" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyOpen), global::ServiceLayer.SLSrPolicyOpen.Parser, new[]{ "ClientId", "PolicyCleanupTimer", "Mode" }, new[]{ "PolicyCleanupTimer" }, new[]{ typeof(global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRequests), global::ServiceLayer.SLSrPolicyRequests.Parser, new[]{ "Requests" }, null, null, null, null),
@@ -94,7 +94,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCandidatePath), global::ServiceLayer.SLSrCandidatePath.Parser, new[]{ "Key", "Name", "Preference", "Dynamic", "Explicit" }, new[]{ "CP", "Preference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList", "MetricType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "MetricType", "Constraints" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "Protection", "SidAlgo", "MaximumSidDepth" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "Protection", "SidAlgo", "MaximumSidDepth" }, new[]{ "SidAlgo" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Explicit", "Dynamic" }, new[]{ "Type" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrMPLSBindingSID), global::ServiceLayer.SLSrMPLSBindingSID.Parser, new[]{ "MplsBsid" }, new[]{ "MplsBsid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6DynamicBindingSID), global::ServiceLayer.SLSrSrv6DynamicBindingSID.Parser, new[]{ "Behavior" }, null, null, null, null)
@@ -145,8 +145,8 @@ namespace ServiceLayer {
         case MsgTypeOneofCase.Open:
           Open = other.Open.Clone();
           break;
-        case MsgTypeOneofCase.Request:
-          Request = other.Request.Clone();
+        case MsgTypeOneofCase.Requests:
+          Requests = other.Requests.Clone();
           break;
         case MsgTypeOneofCase.ReplayStart:
           ReplayStart = other.ReplayStart.Clone();
@@ -177,15 +177,15 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "request" field.</summary>
-    public const int RequestFieldNumber = 2;
+    /// <summary>Field number for the "requests" field.</summary>
+    public const int RequestsFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrPolicyRequests Request {
-      get { return msgTypeCase_ == MsgTypeOneofCase.Request ? (global::ServiceLayer.SLSrPolicyRequests) msgType_ : null; }
+    public global::ServiceLayer.SLSrPolicyRequests Requests {
+      get { return msgTypeCase_ == MsgTypeOneofCase.Requests ? (global::ServiceLayer.SLSrPolicyRequests) msgType_ : null; }
       set {
         msgType_ = value;
-        msgTypeCase_ = value == null ? MsgTypeOneofCase.None : MsgTypeOneofCase.Request;
+        msgTypeCase_ = value == null ? MsgTypeOneofCase.None : MsgTypeOneofCase.Requests;
       }
     }
 
@@ -218,7 +218,7 @@ namespace ServiceLayer {
     public enum MsgTypeOneofCase {
       None = 0,
       Open = 1,
-      Request = 2,
+      Requests = 2,
       ReplayStart = 3,
       ReplayEnd = 4,
     }
@@ -252,7 +252,7 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(Open, other.Open)) return false;
-      if (!object.Equals(Request, other.Request)) return false;
+      if (!object.Equals(Requests, other.Requests)) return false;
       if (!object.Equals(ReplayStart, other.ReplayStart)) return false;
       if (!object.Equals(ReplayEnd, other.ReplayEnd)) return false;
       if (MsgTypeCase != other.MsgTypeCase) return false;
@@ -264,7 +264,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (msgTypeCase_ == MsgTypeOneofCase.Open) hash ^= Open.GetHashCode();
-      if (msgTypeCase_ == MsgTypeOneofCase.Request) hash ^= Request.GetHashCode();
+      if (msgTypeCase_ == MsgTypeOneofCase.Requests) hash ^= Requests.GetHashCode();
       if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) hash ^= ReplayStart.GetHashCode();
       if (msgTypeCase_ == MsgTypeOneofCase.ReplayEnd) hash ^= ReplayEnd.GetHashCode();
       hash ^= (int) msgTypeCase_;
@@ -290,9 +290,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(Open);
       }
-      if (msgTypeCase_ == MsgTypeOneofCase.Request) {
+      if (msgTypeCase_ == MsgTypeOneofCase.Requests) {
         output.WriteRawTag(18);
-        output.WriteMessage(Request);
+        output.WriteMessage(Requests);
       }
       if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
         output.WriteRawTag(26);
@@ -316,9 +316,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(Open);
       }
-      if (msgTypeCase_ == MsgTypeOneofCase.Request) {
+      if (msgTypeCase_ == MsgTypeOneofCase.Requests) {
         output.WriteRawTag(18);
-        output.WriteMessage(Request);
+        output.WriteMessage(Requests);
       }
       if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
         output.WriteRawTag(26);
@@ -341,8 +341,8 @@ namespace ServiceLayer {
       if (msgTypeCase_ == MsgTypeOneofCase.Open) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Open);
       }
-      if (msgTypeCase_ == MsgTypeOneofCase.Request) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Request);
+      if (msgTypeCase_ == MsgTypeOneofCase.Requests) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Requests);
       }
       if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReplayStart);
@@ -369,11 +369,11 @@ namespace ServiceLayer {
           }
           Open.MergeFrom(other.Open);
           break;
-        case MsgTypeOneofCase.Request:
-          if (Request == null) {
-            Request = new global::ServiceLayer.SLSrPolicyRequests();
+        case MsgTypeOneofCase.Requests:
+          if (Requests == null) {
+            Requests = new global::ServiceLayer.SLSrPolicyRequests();
           }
-          Request.MergeFrom(other.Request);
+          Requests.MergeFrom(other.Requests);
           break;
         case MsgTypeOneofCase.ReplayStart:
           if (ReplayStart == null) {
@@ -415,11 +415,11 @@ namespace ServiceLayer {
           }
           case 18: {
             global::ServiceLayer.SLSrPolicyRequests subBuilder = new global::ServiceLayer.SLSrPolicyRequests();
-            if (msgTypeCase_ == MsgTypeOneofCase.Request) {
-              subBuilder.MergeFrom(Request);
+            if (msgTypeCase_ == MsgTypeOneofCase.Requests) {
+              subBuilder.MergeFrom(Requests);
             }
             input.ReadMessage(subBuilder);
-            Request = subBuilder;
+            Requests = subBuilder;
             break;
           }
           case 26: {
@@ -466,11 +466,11 @@ namespace ServiceLayer {
           }
           case 18: {
             global::ServiceLayer.SLSrPolicyRequests subBuilder = new global::ServiceLayer.SLSrPolicyRequests();
-            if (msgTypeCase_ == MsgTypeOneofCase.Request) {
-              subBuilder.MergeFrom(Request);
+            if (msgTypeCase_ == MsgTypeOneofCase.Requests) {
+              subBuilder.MergeFrom(Requests);
             }
             input.ReadMessage(subBuilder);
-            Request = subBuilder;
+            Requests = subBuilder;
             break;
           }
           case 26: {
@@ -500,7 +500,7 @@ namespace ServiceLayer {
 
   /// <summary>
   /// RPC response 
-  /// Response to policy request operation. Indicates result of the operation and not 
+  /// Response to policy operation. Indicates result of the operation and not 
   /// operational state of policy.  In case of multiple requests received for 
   /// policy identified by specific SLSrPolicyKey, always at least single response
   /// will be sent to confirm processing of the last request. 
@@ -568,7 +568,7 @@ namespace ServiceLayer {
     public const int StatusFieldNumber = 2;
     private global::ServiceLayer.SLSrStatus status_;
     /// <summary>
-    /// Generic error, Only set if error is not specific to Policies
+    /// Generic error, Only set if error is not specific to policies
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1037,7 +1037,7 @@ namespace ServiceLayer {
   /// multiple times for the same gRPC session.
   /// To update attributes (client-ID, persistence mode and cleanup timer value) included in
   /// the Open Message, the connection must be closed and re-opened.
-  /// For DELETE persistence mode, open message is implicit start of replay.
+  /// For DELETE persistence mode, Open Message is implicit start of replay.
   /// 
   /// The server is not required to send an explicit response message to indicate the
   /// receipt of the Open Message. Server will respond in case of any error.
@@ -1119,7 +1119,7 @@ namespace ServiceLayer {
     /// <summary>
     /// Only applicable to DELETE persistence mode.
     /// Timer for deleting the policies after the disconnect. If not specified,
-    /// a default value is used. 0 value is not allowed. Values is in seconds.
+    /// a default value is used. 0 value is not allowed. Value is in seconds.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1147,7 +1147,7 @@ namespace ServiceLayer {
     public const int ModeFieldNumber = 3;
     private global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode mode_ = global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode.Delete;
     /// <summary>
-    /// Persistence mode for Policies instantiated by this client
+    /// Persistence mode for policies instantiated by this client
     /// Persistence mode is an attribute of the gRPC client. If the gRPC client
     /// reconnects with a different persistence mode, the rules associated with
     /// the mode specified in the most recent Open Message will be applied to all
@@ -1357,10 +1357,10 @@ namespace ServiceLayer {
         [pbr::OriginalName("DELETE")] Delete = 0,
         /// <summary>
         ///
-        /// When the client disconnects, the server preservers all Policies/CPs
+        /// When the client disconnects, the server preserves all policies/CPs
         /// instantiated by this client.
-        /// It is client responsibility to delete the Policies when they are no
-        /// longer needed, Server does not do auto-cleanup of Policies created
+        /// It is client responsibility to delete the policies when they are no
+        /// longer needed, Server does not do auto-cleanup of policies created
         /// with this mode.
         /// </summary>
         [pbr::OriginalName("PRESERVE")] Preserve = 1,
@@ -1372,7 +1372,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Set of Policies to be acted on
+  /// Set of policies to be acted on
   /// </summary>
   public sealed partial class SLSrPolicyRequests : pb::IMessage<SLSrPolicyRequests>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1808,12 +1808,12 @@ namespace ServiceLayer {
     public static partial class Types {
       public enum SLSrOp {
         /// <summary>
-        /// Create operation for specified Policies. Policies that already exist
+        /// Create operation for specified policies. Policies that already exist
         /// will be updated.
         /// </summary>
         [pbr::OriginalName("CREATE_UPDATE")] CreateUpdate = 0,
         /// <summary>
-        /// Delete operation for specified Policies. Deletion of non-existent policy
+        /// Delete operation for specified policies. Deletion of non-existent policy
         /// will be responded with specific error code.
         /// </summary>
         [pbr::OriginalName("DELETE")] Delete = 1,
@@ -1998,9 +1998,9 @@ namespace ServiceLayer {
   /// starts replay timer. Note that if synchronization takes longer than specified
   /// replay timer value, then policies can be deleted before receiving EndOfReplay message. 
   ///
-  /// Replay of Policies followed by EndOfReplay is expected from the client after
+  /// Replay of policies followed by EndOfReplay is expected from the client after
   /// this message. Replayed policies will have stale flag removed, EndOfSync will trigger
-  /// deletion of any Policies still left stale (Policies that have not been replayed).
+  /// deletion of any policies still left stale (policies that have not been replayed).
   /// If server receives StartOfReplay when it is already in replay state, it is considered
   /// an error.
   /// Server will not send response to this message unless there is an error. 
@@ -2548,6 +2548,8 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLSrDataplane dataplane_ = global::ServiceLayer.SLSrDataplane.Unspecified;
     /// <summary>
     /// The segment routing dataplane.
+    /// This is mandatory field. Unspecified dataplane is invalid and will be rejected
+    /// by the server.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2592,7 +2594,7 @@ namespace ServiceLayer {
     /// <summary>
     /// ID of the profile with which policy can be associated with a non-zero value. The
     /// Profile ID concept is described as “Policy Association Group” in RFC 9005.
-    /// 0 value means unset.
+    /// 0 value means unset. Maximum accepted value is 65534.
     /// 
     /// A profile represents a set of configuration knobs specifying policy or policy
     /// candidate-path (CP) attributes. The profile-ID feature allows usage of
@@ -3770,6 +3772,7 @@ namespace ServiceLayer {
   {
     private static readonly pb::MessageParser<SLSrConstraints> _parser = new pb::MessageParser<SLSrConstraints>(() => new SLSrConstraints());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SLSrConstraints> Parser { get { return _parser; } }
@@ -3797,6 +3800,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrConstraints(SLSrConstraints other) : this() {
+      _hasBits0 = other._hasBits0;
       affinities_ = other.affinities_ != null ? other.affinities_.Clone() : null;
       protection_ = other.protection_;
       sidAlgo_ = other.sidAlgo_;
@@ -3843,10 +3847,23 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint SidAlgo {
-      get { return sidAlgo_; }
+      get { if ((_hasBits0 & 1) != 0) { return sidAlgo_; } else { return 0; } }
       set {
+        _hasBits0 |= 1;
         sidAlgo_ = value;
       }
+    }
+    /// <summary>Gets whether the "sid_algo" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasSidAlgo {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "sid_algo" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSidAlgo() {
+      _hasBits0 &= ~1;
     }
 
     /// <summary>Field number for the "maximum_sid_depth" field.</summary>
@@ -3902,7 +3919,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (affinities_ != null) hash ^= Affinities.GetHashCode();
       if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) hash ^= Protection.GetHashCode();
-      if (SidAlgo != 0) hash ^= SidAlgo.GetHashCode();
+      if (HasSidAlgo) hash ^= SidAlgo.GetHashCode();
       if (MaximumSidDepth != 0) hash ^= MaximumSidDepth.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3930,7 +3947,7 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteEnum((int) Protection);
       }
-      if (SidAlgo != 0) {
+      if (HasSidAlgo) {
         output.WriteRawTag(24);
         output.WriteUInt32(SidAlgo);
       }
@@ -3956,7 +3973,7 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteEnum((int) Protection);
       }
-      if (SidAlgo != 0) {
+      if (HasSidAlgo) {
         output.WriteRawTag(24);
         output.WriteUInt32(SidAlgo);
       }
@@ -3980,7 +3997,7 @@ namespace ServiceLayer {
       if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Protection);
       }
-      if (SidAlgo != 0) {
+      if (HasSidAlgo) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SidAlgo);
       }
       if (MaximumSidDepth != 0) {
@@ -4007,7 +4024,7 @@ namespace ServiceLayer {
       if (other.Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) {
         Protection = other.Protection;
       }
-      if (other.SidAlgo != 0) {
+      if (other.HasSidAlgo) {
         SidAlgo = other.SidAlgo;
       }
       if (other.MaximumSidDepth != 0) {

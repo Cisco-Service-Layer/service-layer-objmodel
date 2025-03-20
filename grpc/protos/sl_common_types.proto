@@ -2,7 +2,7 @@
 // @brief Common definitions for all of the service layer proto files. 
 //
 //---------------------------------------------------------------------
-// Copyright (c) 2019, 2024 by Cisco Systems, Inc.
+// Copyright (c) 2019, 2024-2025 by Cisco Systems, Inc.
 // All rights reserved.
 //---------------------------------------------------------------------
 //
@@ -943,7 +943,7 @@ message SLErrorStatus {
         // PolicyKey missing or invalid. 0x1b002
         SL_SRTE_POLICY_POLICY_KEY_INVALID = 0x1b002;
         // Policy Attributes invalid. 0x1b003
-        SL_SRTE_POLICY_POLICY_ATRR_INVALID = 0x1b003;
+        SL_SRTE_POLICY_POLICY_ATTR_INVALID = 0x1b003;
         // CandidatePath Key missing or invalid. 0x1b004
         SL_SRTE_POLICY_CP_KEY_INVALID = 0x1b004;
         // CandidatePath attributes invalid. 0x1b005
@@ -953,7 +953,7 @@ message SLErrorStatus {
         SL_SRTE_POLICY_CLIENT_MISMATCH = 0x1b006;
         // srte policy service not up. 0x1b007
         SL_SRTE_POLICY_SERVICE_NOT_UP = 0x1b007;
-        // Request message bigger then supported size. 0x1b008
+        // Request message bigger than supported size. 0x1b008
         SL_SRTE_POLICY_EXCEED_MSG_SIZE = 0x1b008;
 
         // !!! Error codes Reserved for internal errors.

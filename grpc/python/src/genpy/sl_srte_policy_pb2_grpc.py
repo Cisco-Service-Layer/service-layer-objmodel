@@ -8,7 +8,7 @@ from . import sl_srte_policy_pb2 as sl__srte__policy__pb2
 class SLSrtePolicyStub(object):
     """@defgroup SLSrtePolicy
     Used to programmatically create/update/delete SR-TE policies.
-    Defines the RPC for operations on SRTE policy.
+    Defines the RPC for operations on SR-TE policy.
 
     @{ 
     @addtogroup SLSrtePolicy
@@ -32,7 +32,7 @@ class SLSrtePolicyStub(object):
 class SLSrtePolicyServicer(object):
     """@defgroup SLSrtePolicy
     Used to programmatically create/update/delete SR-TE policies.
-    Defines the RPC for operations on SRTE policy.
+    Defines the RPC for operations on SR-TE policy.
 
     @{ 
     @addtogroup SLSrtePolicy
@@ -42,7 +42,7 @@ class SLSrtePolicyServicer(object):
 
     def SLSrPolicyOp(self, request_iterator, context):
         """
-        SRTE Policy operations
+        SR-TE Policy operations
 
 
         The SLSrPolicyOp RPC is used to create/update/delete an SR-TE policy based on the
@@ -70,7 +70,7 @@ def add_SLSrtePolicyServicer_to_server(servicer, server):
 class SLSrtePolicy(object):
     """@defgroup SLSrtePolicy
     Used to programmatically create/update/delete SR-TE policies.
-    Defines the RPC for operations on SRTE policy.
+    Defines the RPC for operations on SR-TE policy.
 
     @{ 
     @addtogroup SLSrtePolicy

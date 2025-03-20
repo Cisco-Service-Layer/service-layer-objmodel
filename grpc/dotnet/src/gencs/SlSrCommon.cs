@@ -3930,7 +3930,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForUInt32(26);
     private readonly pbc::RepeatedField<uint> excludeAny_ = new pbc::RepeatedField<uint>();
     /// <summary>
-    /// Affinity exclude.
+    /// Affinity exclude any.
     ///
     /// Mapped from [section 6.1 of RFC 9350]
     /// (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.1).

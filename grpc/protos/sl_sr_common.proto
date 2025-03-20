@@ -439,7 +439,7 @@ message SLSrAffinities {
     //(https://www.rfc-editor.org/rfc/rfc9350.html#section-6.3).
     repeated uint32 includeAll = 2;
 
-    // Affinity exclude.
+    // Affinity exclude any.
     //
     // Mapped from [section 6.1 of RFC 9350]
     // (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.1).

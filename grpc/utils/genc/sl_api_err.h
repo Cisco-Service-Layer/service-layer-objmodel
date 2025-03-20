@@ -868,7 +868,7 @@
     /* PolicyKey missing or invalid. 0x1b002 */\
     SL_SRTE_POLICY_POLICY_KEY_INVALID = 0x1b002,\
     /* Policy Attributes invalid. 0x1b003 */\
-    SL_SRTE_POLICY_POLICY_ATRR_INVALID = 0x1b003,\
+    SL_SRTE_POLICY_POLICY_ATTR_INVALID = 0x1b003,\
     /* CandidatePath Key missing or invalid. 0x1b004 */\
     SL_SRTE_POLICY_CP_KEY_INVALID = 0x1b004,\
     /* CandidatePath attributes invalid. 0x1b005 */\
@@ -877,7 +877,7 @@
     SL_SRTE_POLICY_CLIENT_MISMATCH = 0x1b006,\
     /* srte policy service not up. 0x1b007 */\
     SL_SRTE_POLICY_SERVICE_NOT_UP = 0x1b007,\
-    /* Request message bigger then supported size. 0x1b008 */\
+    /* Request message bigger than supported size. 0x1b008 */\
     SL_SRTE_POLICY_EXCEED_MSG_SIZE = 0x1b008,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
@@ -2097,7 +2097,7 @@
     {SL_SRTE_POLICY_POLICY_KEY_INVALID ,\
         " PolicyKey missing or invalid.  "\
         },\
-    {SL_SRTE_POLICY_POLICY_ATRR_INVALID ,\
+    {SL_SRTE_POLICY_POLICY_ATTR_INVALID ,\
         " Policy Attributes invalid.  "\
         },\
     {SL_SRTE_POLICY_CP_KEY_INVALID ,\
@@ -2113,7 +2113,7 @@
         " srte policy service not up.  "\
         },\
     {SL_SRTE_POLICY_EXCEED_MSG_SIZE ,\
-        " Request message bigger then supported size.  "\
+        " Request message bigger than supported size.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
