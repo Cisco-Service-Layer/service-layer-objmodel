@@ -44,8 +44,8 @@ message SLSrPolicyMsg {
     oneof msg_type {
         SLSrPolicyOpen open = 1;
         SLSrPolicyRequests requests = 2;
-        SLSrStartOfReplay replay_start = 3;
-        SLSrEndOfReplay replay_end = 4;
+        //SLSrStartOfReplay replay_start = 3;
+        //SLSrEndOfReplay replay_end = 4;
     }
 }
 
@@ -110,7 +110,7 @@ message SLSrPolicyOpen {
     // Only applicable to DELETE persistence mode.
     // Timer for deleting the policies after the disconnect. If not specified,
     // a default value is used. 0 value is not allowed. Value is in seconds.
-    optional uint32 policy_cleanup_timer = 2;
+    //optional uint32 policy_cleanup_timer = 2;
 
     // Persistence mode for policies instantiated by this client
     // Persistence mode is an attribute of the gRPC client. If the gRPC client
@@ -123,7 +123,7 @@ message SLSrPolicyOpen {
 
 // Set of policies to be acted on
 message SLSrPolicyRequests {
-    repeated SLSrPolicyReq requests = 1; 
+    repeated SLSrPolicyReq request = 1; 
 }
 
 // Policy operation
@@ -341,7 +341,7 @@ message SLSrConstraints {
 
 message SLSrSrv6BindingSID {
     oneof type {
-       SLSRv6SIDInfo explicit = 1;
+       //SLSRv6SIDInfo explicit = 1;
        SLSrSrv6DynamicBindingSID dynamic = 2;
     }
 }

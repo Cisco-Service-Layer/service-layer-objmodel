@@ -25,67 +25,62 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRzbF9zcnRlX3BvbGljeS5wcm90bxINc2VydmljZV9sYXllchoSc2xfc3Jf",
-            "Y29tbW9uLnByb3RvIvEBCg1TTFNyUG9saWN5TXNnEi0KBG9wZW4YASABKAsy",
+            "Y29tbW9uLnByb3RvIoEBCg1TTFNyUG9saWN5TXNnEi0KBG9wZW4YASABKAsy",
             "HS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lPcGVuSAASNQoIcmVxdWVzdHMY",
-            "AiABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSZXF1ZXN0c0gAEjgK",
-            "DHJlcGxheV9zdGFydBgDIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xTclN0YXJ0",
-            "T2ZSZXBsYXlIABI0CgpyZXBsYXlfZW5kGAQgASgLMh4uc2VydmljZV9sYXll",
-            "ci5TTFNyRW5kT2ZSZXBsYXlIAEIKCghtc2dfdHlwZSLpAQoNU0xTclBvbGlj",
-            "eVJzcBI5CglyZXNwb25zZXMYASADKAsyJi5zZXJ2aWNlX2xheWVyLlNMU3JQ",
-            "b2xpY3lSc3AuUG9saWN5UnNwEikKBnN0YXR1cxgCIAEoCzIZLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xTclN0YXR1cxpyCglQb2xpY3lSc3ASDwoHc2VxX251bRgBIAEo",
-            "BBIpCgNrZXkYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lLZXkS",
-            "KQoGc3RhdHVzGAMgASgLMhkuc2VydmljZV9sYXllci5TTFNyU3RhdHVzItEB",
-            "Cg5TTFNyUG9saWN5T3BlbhIRCgljbGllbnRfaWQYASABKAkSIQoUcG9saWN5",
-            "X2NsZWFudXBfdGltZXIYAiABKA1IAIgBARI/CgRtb2RlGAMgASgOMjEuc2Vy",
-            "dmljZV9sYXllci5TTFNyUG9saWN5T3Blbi5TTFNyUGVyc2lzdGVuY2VNb2Rl",
-            "Ii8KE1NMU3JQZXJzaXN0ZW5jZU1vZGUSCgoGREVMRVRFEAASDAoIUFJFU0VS",
-            "VkUQAUIXChVfcG9saWN5X2NsZWFudXBfdGltZXIiRAoSU0xTclBvbGljeVJl",
-            "cXVlc3RzEi4KCHJlcXVlc3RzGAEgAygLMhwuc2VydmljZV9sYXllci5TTFNy",
-            "UG9saWN5UmVxIpsBCg1TTFNyUG9saWN5UmVxEjYKCW9wZXJhdGlvbhgBIAEo",
-            "DjIjLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJlcS5TTFNyT3ASKQoGcG9s",
-            "aWN5GAIgASgLMhkuc2VydmljZV9sYXllci5TTFNyUG9saWN5IicKBlNMU3JP",
-            "cBIRCg1DUkVBVEVfVVBEQVRFEAASCgoGREVMRVRFEAEiEQoPU0xTckVuZE9m",
-            "UmVwbGF5IhMKEVNMU3JTdGFydE9mUmVwbGF5IqsBCgpTTFNyUG9saWN5Eg8K",
-            "B3NlcV9udW0YASABKAQSKQoDa2V5GAIgASgLMhwuc2VydmljZV9sYXllci5T",
-            "TFNyUG9saWN5S2V5EjIKBWF0dHJzGAMgASgLMiMuc2VydmljZV9sYXllci5T",
-            "TFNyUG9saWN5QXR0cmlidXRlcxItCgNDUHMYBCADKAsyIC5zZXJ2aWNlX2xh",
-            "eWVyLlNMU3JDYW5kaWRhdGVQYXRoIuIBChRTTFNyUG9saWN5QXR0cmlidXRl",
-            "cxIYChB0cmFuc2l0X2VsaWdpYmxlGAIgASgIEi8KCWRhdGFwbGFuZRgDIAEo",
-            "DjIcLnNlcnZpY2VfbGF5ZXIuU0xTckRhdGFwbGFuZRI0CgltcGxzX2JzaWQY",
-            "BCABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JNUExTQmluZGluZ1NJRBI1Cgpz",
-            "cnY2X2JzaWRzGAUgAygLMiEuc2VydmljZV9sYXllci5TTFNyU3J2NkJpbmRp",
-            "bmdTSUQSEgoKcHJvZmlsZV9pZBgGIAEoDSLlAQoRU0xTckNhbmRpZGF0ZVBh",
-            "dGgSMAoDa2V5GAIgASgLMiMuc2VydmljZV9sYXllci5TTFNyQ2FuZGlkYXRl",
-            "UGF0aEtleRIMCgRuYW1lGAMgASgJEhcKCnByZWZlcmVuY2UYBCABKA1IAYgB",
-            "ARIvCgdkeW5hbWljGAUgASgLMhwuc2VydmljZV9sYXllci5TTFNyRHluYW1p",
-            "Y0NQSAASMQoIZXhwbGljaXQYBiABKAsyHS5zZXJ2aWNlX2xheWVyLlNMU3JF",
-            "eHBsaWNpdENQSABCBAoCQ1BCDQoLX3ByZWZlcmVuY2UiWwoOU0xTckV4cGxp",
-            "Y2l0Q1ASNAoMc2VnbWVudF9saXN0GAEgAygLMh4uc2VydmljZV9sYXllci5T",
-            "TFNyU2VnbWVudExpc3QSEwoLbWV0cmljX3R5cGUYAyABKA0iWQoNU0xTckR5",
-            "bmFtaWNDUBITCgttZXRyaWNfdHlwZRgBIAEoDRIzCgtjb25zdHJhaW50cxgC",
-            "IAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTckNvbnN0cmFpbnRzIrwBCg9TTFNy",
-            "Q29uc3RyYWludHMSMQoKYWZmaW5pdGllcxgBIAEoCzIdLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTckFmZmluaXRpZXMSNwoKcHJvdGVjdGlvbhgCIAEoDjIjLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTcnRlUHJvdGVjdGlvblR5cGUSFQoIc2lkX2FsZ28YAyAB",
-            "KA1IAIgBARIZChFtYXhpbXVtX3NpZF9kZXB0aBgEIAEoDUILCglfc2lkX2Fs",
-            "Z28iiwEKElNMU3JTcnY2QmluZGluZ1NJRBIwCghleHBsaWNpdBgBIAEoCzIc",
-            "LnNlcnZpY2VfbGF5ZXIuU0xTUnY2U0lESW5mb0gAEjsKB2R5bmFtaWMYAiAB",
-            "KAsyKC5zZXJ2aWNlX2xheWVyLlNMU3JTcnY2RHluYW1pY0JpbmRpbmdTSURI",
-            "AEIGCgR0eXBlIjoKElNMU3JNUExTQmluZGluZ1NJRBIWCgltcGxzX2JzaWQY",
-            "ASABKA1IAIgBAUIMCgpfbXBsc19ic2lkIi0KGVNMU3JTcnY2RHluYW1pY0Jp",
-            "bmRpbmdTSUQSEAoIYmVoYXZpb3IYASABKA0yXgoMU0xTcnRlUG9saWN5Ek4K",
-            "DFNMU3JQb2xpY3lPcBIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU1zZxoc",
-            "LnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJzcCgBMAFCUVpPZ2l0aHViLmNv",
-            "bS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwv",
-            "Z3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "AiABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSZXF1ZXN0c0gAQgoK",
+            "CG1zZ190eXBlIukBCg1TTFNyUG9saWN5UnNwEjkKCXJlc3BvbnNlcxgBIAMo",
+            "CzImLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJzcC5Qb2xpY3lSc3ASKQoG",
+            "c3RhdHVzGAIgASgLMhkuc2VydmljZV9sYXllci5TTFNyU3RhdHVzGnIKCVBv",
+            "bGljeVJzcBIPCgdzZXFfbnVtGAEgASgEEikKA2tleRgCIAEoCzIcLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTclBvbGljeUtleRIpCgZzdGF0dXMYAyABKAsyGS5zZXJ2",
+            "aWNlX2xheWVyLlNMU3JTdGF0dXMilQEKDlNMU3JQb2xpY3lPcGVuEhEKCWNs",
+            "aWVudF9pZBgBIAEoCRI/CgRtb2RlGAMgASgOMjEuc2VydmljZV9sYXllci5T",
+            "TFNyUG9saWN5T3Blbi5TTFNyUGVyc2lzdGVuY2VNb2RlIi8KE1NMU3JQZXJz",
+            "aXN0ZW5jZU1vZGUSCgoGREVMRVRFEAASDAoIUFJFU0VSVkUQASJDChJTTFNy",
+            "UG9saWN5UmVxdWVzdHMSLQoHcmVxdWVzdBgBIAMoCzIcLnNlcnZpY2VfbGF5",
+            "ZXIuU0xTclBvbGljeVJlcSKbAQoNU0xTclBvbGljeVJlcRI2CglvcGVyYXRp",
+            "b24YASABKA4yIy5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSZXEuU0xTck9w",
+            "EikKBnBvbGljeRgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeSIn",
+            "CgZTTFNyT3ASEQoNQ1JFQVRFX1VQREFURRAAEgoKBkRFTEVURRABIhEKD1NM",
+            "U3JFbmRPZlJlcGxheSITChFTTFNyU3RhcnRPZlJlcGxheSKrAQoKU0xTclBv",
+            "bGljeRIPCgdzZXFfbnVtGAEgASgEEikKA2tleRgCIAEoCzIcLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xTclBvbGljeUtleRIyCgVhdHRycxgDIAEoCzIjLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xTclBvbGljeUF0dHJpYnV0ZXMSLQoDQ1BzGAQgAygLMiAuc2Vy",
+            "dmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aCLiAQoUU0xTclBvbGljeUF0",
+            "dHJpYnV0ZXMSGAoQdHJhbnNpdF9lbGlnaWJsZRgCIAEoCBIvCglkYXRhcGxh",
+            "bmUYAyABKA4yHC5zZXJ2aWNlX2xheWVyLlNMU3JEYXRhcGxhbmUSNAoJbXBs",
+            "c19ic2lkGAQgASgLMiEuc2VydmljZV9sYXllci5TTFNyTVBMU0JpbmRpbmdT",
+            "SUQSNQoKc3J2Nl9ic2lkcxgFIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xTclNy",
+            "djZCaW5kaW5nU0lEEhIKCnByb2ZpbGVfaWQYBiABKA0i5QEKEVNMU3JDYW5k",
+            "aWRhdGVQYXRoEjAKA2tleRgCIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xTckNh",
+            "bmRpZGF0ZVBhdGhLZXkSDAoEbmFtZRgDIAEoCRIXCgpwcmVmZXJlbmNlGAQg",
+            "ASgNSAGIAQESLwoHZHluYW1pYxgFIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "ckR5bmFtaWNDUEgAEjEKCGV4cGxpY2l0GAYgASgLMh0uc2VydmljZV9sYXll",
+            "ci5TTFNyRXhwbGljaXRDUEgAQgQKAkNQQg0KC19wcmVmZXJlbmNlIlsKDlNM",
+            "U3JFeHBsaWNpdENQEjQKDHNlZ21lbnRfbGlzdBgBIAMoCzIeLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xTclNlZ21lbnRMaXN0EhMKC21ldHJpY190eXBlGAMgASgNIlkK",
+            "DVNMU3JEeW5hbWljQ1ASEwoLbWV0cmljX3R5cGUYASABKA0SMwoLY29uc3Ry",
+            "YWludHMYAiABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3JDb25zdHJhaW50cyK8",
+            "AQoPU0xTckNvbnN0cmFpbnRzEjEKCmFmZmluaXRpZXMYASABKAsyHS5zZXJ2",
+            "aWNlX2xheWVyLlNMU3JBZmZpbml0aWVzEjcKCnByb3RlY3Rpb24YAiABKA4y",
+            "Iy5zZXJ2aWNlX2xheWVyLlNMU3J0ZVByb3RlY3Rpb25UeXBlEhUKCHNpZF9h",
+            "bGdvGAMgASgNSACIAQESGQoRbWF4aW11bV9zaWRfZGVwdGgYBCABKA1CCwoJ",
+            "X3NpZF9hbGdvIlkKElNMU3JTcnY2QmluZGluZ1NJRBI7CgdkeW5hbWljGAIg",
+            "ASgLMiguc2VydmljZV9sYXllci5TTFNyU3J2NkR5bmFtaWNCaW5kaW5nU0lE",
+            "SABCBgoEdHlwZSI6ChJTTFNyTVBMU0JpbmRpbmdTSUQSFgoJbXBsc19ic2lk",
+            "GAEgASgNSACIAQFCDAoKX21wbHNfYnNpZCItChlTTFNyU3J2NkR5bmFtaWNC",
+            "aW5kaW5nU0lEEhAKCGJlaGF2aW9yGAEgASgNMl4KDFNMU3J0ZVBvbGljeRJO",
+            "CgxTTFNyUG9saWN5T3ASHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lNc2ca",
+            "HC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSc3AoATABQlFaT2dpdGh1Yi5j",
+            "b20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVs",
+            "L2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyMsg), global::ServiceLayer.SLSrPolicyMsg.Parser, new[]{ "Open", "Requests", "ReplayStart", "ReplayEnd" }, new[]{ "MsgType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyMsg), global::ServiceLayer.SLSrPolicyMsg.Parser, new[]{ "Open", "Requests" }, new[]{ "MsgType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Parser, new[]{ "Responses", "Status" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp.Parser, new[]{ "SeqNum", "Key", "Status" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyOpen), global::ServiceLayer.SLSrPolicyOpen.Parser, new[]{ "ClientId", "PolicyCleanupTimer", "Mode" }, new[]{ "PolicyCleanupTimer" }, new[]{ typeof(global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRequests), global::ServiceLayer.SLSrPolicyRequests.Parser, new[]{ "Requests" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyOpen), global::ServiceLayer.SLSrPolicyOpen.Parser, new[]{ "ClientId", "Mode" }, null, new[]{ typeof(global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRequests), global::ServiceLayer.SLSrPolicyRequests.Parser, new[]{ "Request" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyReq), global::ServiceLayer.SLSrPolicyReq.Parser, new[]{ "Operation", "Policy" }, null, new[]{ typeof(global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrEndOfReplay), global::ServiceLayer.SLSrEndOfReplay.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrStartOfReplay), global::ServiceLayer.SLSrStartOfReplay.Parser, null, null, null, null, null),
@@ -95,7 +90,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList", "MetricType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "MetricType", "Constraints" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "Protection", "SidAlgo", "MaximumSidDepth" }, new[]{ "SidAlgo" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Explicit", "Dynamic" }, new[]{ "Type" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Dynamic" }, new[]{ "Type" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrMPLSBindingSID), global::ServiceLayer.SLSrMPLSBindingSID.Parser, new[]{ "MplsBsid" }, new[]{ "MplsBsid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6DynamicBindingSID), global::ServiceLayer.SLSrSrv6DynamicBindingSID.Parser, new[]{ "Behavior" }, null, null, null, null)
           }));
@@ -148,12 +143,6 @@ namespace ServiceLayer {
         case MsgTypeOneofCase.Requests:
           Requests = other.Requests.Clone();
           break;
-        case MsgTypeOneofCase.ReplayStart:
-          ReplayStart = other.ReplayStart.Clone();
-          break;
-        case MsgTypeOneofCase.ReplayEnd:
-          ReplayEnd = other.ReplayEnd.Clone();
-          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -179,6 +168,10 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "requests" field.</summary>
     public const int RequestsFieldNumber = 2;
+    /// <summary>
+    ///SLSrStartOfReplay replay_start = 3;
+    ///SLSrEndOfReplay replay_end = 4;
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrPolicyRequests Requests {
@@ -189,38 +182,12 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "replay_start" field.</summary>
-    public const int ReplayStartFieldNumber = 3;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrStartOfReplay ReplayStart {
-      get { return msgTypeCase_ == MsgTypeOneofCase.ReplayStart ? (global::ServiceLayer.SLSrStartOfReplay) msgType_ : null; }
-      set {
-        msgType_ = value;
-        msgTypeCase_ = value == null ? MsgTypeOneofCase.None : MsgTypeOneofCase.ReplayStart;
-      }
-    }
-
-    /// <summary>Field number for the "replay_end" field.</summary>
-    public const int ReplayEndFieldNumber = 4;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrEndOfReplay ReplayEnd {
-      get { return msgTypeCase_ == MsgTypeOneofCase.ReplayEnd ? (global::ServiceLayer.SLSrEndOfReplay) msgType_ : null; }
-      set {
-        msgType_ = value;
-        msgTypeCase_ = value == null ? MsgTypeOneofCase.None : MsgTypeOneofCase.ReplayEnd;
-      }
-    }
-
     private object msgType_;
     /// <summary>Enum of possible cases for the "msg_type" oneof.</summary>
     public enum MsgTypeOneofCase {
       None = 0,
       Open = 1,
       Requests = 2,
-      ReplayStart = 3,
-      ReplayEnd = 4,
     }
     private MsgTypeOneofCase msgTypeCase_ = MsgTypeOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -253,8 +220,6 @@ namespace ServiceLayer {
       }
       if (!object.Equals(Open, other.Open)) return false;
       if (!object.Equals(Requests, other.Requests)) return false;
-      if (!object.Equals(ReplayStart, other.ReplayStart)) return false;
-      if (!object.Equals(ReplayEnd, other.ReplayEnd)) return false;
       if (MsgTypeCase != other.MsgTypeCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -265,8 +230,6 @@ namespace ServiceLayer {
       int hash = 1;
       if (msgTypeCase_ == MsgTypeOneofCase.Open) hash ^= Open.GetHashCode();
       if (msgTypeCase_ == MsgTypeOneofCase.Requests) hash ^= Requests.GetHashCode();
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) hash ^= ReplayStart.GetHashCode();
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayEnd) hash ^= ReplayEnd.GetHashCode();
       hash ^= (int) msgTypeCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -294,14 +257,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteMessage(Requests);
       }
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
-        output.WriteRawTag(26);
-        output.WriteMessage(ReplayStart);
-      }
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayEnd) {
-        output.WriteRawTag(34);
-        output.WriteMessage(ReplayEnd);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -320,14 +275,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteMessage(Requests);
       }
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
-        output.WriteRawTag(26);
-        output.WriteMessage(ReplayStart);
-      }
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayEnd) {
-        output.WriteRawTag(34);
-        output.WriteMessage(ReplayEnd);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -343,12 +290,6 @@ namespace ServiceLayer {
       }
       if (msgTypeCase_ == MsgTypeOneofCase.Requests) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Requests);
-      }
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReplayStart);
-      }
-      if (msgTypeCase_ == MsgTypeOneofCase.ReplayEnd) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReplayEnd);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -374,18 +315,6 @@ namespace ServiceLayer {
             Requests = new global::ServiceLayer.SLSrPolicyRequests();
           }
           Requests.MergeFrom(other.Requests);
-          break;
-        case MsgTypeOneofCase.ReplayStart:
-          if (ReplayStart == null) {
-            ReplayStart = new global::ServiceLayer.SLSrStartOfReplay();
-          }
-          ReplayStart.MergeFrom(other.ReplayStart);
-          break;
-        case MsgTypeOneofCase.ReplayEnd:
-          if (ReplayEnd == null) {
-            ReplayEnd = new global::ServiceLayer.SLSrEndOfReplay();
-          }
-          ReplayEnd.MergeFrom(other.ReplayEnd);
           break;
       }
 
@@ -422,24 +351,6 @@ namespace ServiceLayer {
             Requests = subBuilder;
             break;
           }
-          case 26: {
-            global::ServiceLayer.SLSrStartOfReplay subBuilder = new global::ServiceLayer.SLSrStartOfReplay();
-            if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
-              subBuilder.MergeFrom(ReplayStart);
-            }
-            input.ReadMessage(subBuilder);
-            ReplayStart = subBuilder;
-            break;
-          }
-          case 34: {
-            global::ServiceLayer.SLSrEndOfReplay subBuilder = new global::ServiceLayer.SLSrEndOfReplay();
-            if (msgTypeCase_ == MsgTypeOneofCase.ReplayEnd) {
-              subBuilder.MergeFrom(ReplayEnd);
-            }
-            input.ReadMessage(subBuilder);
-            ReplayEnd = subBuilder;
-            break;
-          }
         }
       }
     #endif
@@ -471,24 +382,6 @@ namespace ServiceLayer {
             }
             input.ReadMessage(subBuilder);
             Requests = subBuilder;
-            break;
-          }
-          case 26: {
-            global::ServiceLayer.SLSrStartOfReplay subBuilder = new global::ServiceLayer.SLSrStartOfReplay();
-            if (msgTypeCase_ == MsgTypeOneofCase.ReplayStart) {
-              subBuilder.MergeFrom(ReplayStart);
-            }
-            input.ReadMessage(subBuilder);
-            ReplayStart = subBuilder;
-            break;
-          }
-          case 34: {
-            global::ServiceLayer.SLSrEndOfReplay subBuilder = new global::ServiceLayer.SLSrEndOfReplay();
-            if (msgTypeCase_ == MsgTypeOneofCase.ReplayEnd) {
-              subBuilder.MergeFrom(ReplayEnd);
-            }
-            input.ReadMessage(subBuilder);
-            ReplayEnd = subBuilder;
             break;
           }
         }
@@ -1049,7 +942,6 @@ namespace ServiceLayer {
   {
     private static readonly pb::MessageParser<SLSrPolicyOpen> _parser = new pb::MessageParser<SLSrPolicyOpen>(() => new SLSrPolicyOpen());
     private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SLSrPolicyOpen> Parser { get { return _parser; } }
@@ -1077,9 +969,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrPolicyOpen(SLSrPolicyOpen other) : this() {
-      _hasBits0 = other._hasBits0;
       clientId_ = other.clientId_;
-      policyCleanupTimer_ = other.policyCleanupTimer_;
       mode_ = other.mode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1111,36 +1001,6 @@ namespace ServiceLayer {
       set {
         clientId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
-    }
-
-    /// <summary>Field number for the "policy_cleanup_timer" field.</summary>
-    public const int PolicyCleanupTimerFieldNumber = 2;
-    private uint policyCleanupTimer_;
-    /// <summary>
-    /// Only applicable to DELETE persistence mode.
-    /// Timer for deleting the policies after the disconnect. If not specified,
-    /// a default value is used. 0 value is not allowed. Value is in seconds.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint PolicyCleanupTimer {
-      get { if ((_hasBits0 & 1) != 0) { return policyCleanupTimer_; } else { return 0; } }
-      set {
-        _hasBits0 |= 1;
-        policyCleanupTimer_ = value;
-      }
-    }
-    /// <summary>Gets whether the "policy_cleanup_timer" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPolicyCleanupTimer {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "policy_cleanup_timer" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPolicyCleanupTimer() {
-      _hasBits0 &= ~1;
     }
 
     /// <summary>Field number for the "mode" field.</summary>
@@ -1179,7 +1039,6 @@ namespace ServiceLayer {
         return true;
       }
       if (ClientId != other.ClientId) return false;
-      if (PolicyCleanupTimer != other.PolicyCleanupTimer) return false;
       if (Mode != other.Mode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1189,7 +1048,6 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (ClientId.Length != 0) hash ^= ClientId.GetHashCode();
-      if (HasPolicyCleanupTimer) hash ^= PolicyCleanupTimer.GetHashCode();
       if (Mode != global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode.Delete) hash ^= Mode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1213,10 +1071,6 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteString(ClientId);
       }
-      if (HasPolicyCleanupTimer) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(PolicyCleanupTimer);
-      }
       if (Mode != global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode.Delete) {
         output.WriteRawTag(24);
         output.WriteEnum((int) Mode);
@@ -1235,10 +1089,6 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteString(ClientId);
       }
-      if (HasPolicyCleanupTimer) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(PolicyCleanupTimer);
-      }
       if (Mode != global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode.Delete) {
         output.WriteRawTag(24);
         output.WriteEnum((int) Mode);
@@ -1255,9 +1105,6 @@ namespace ServiceLayer {
       int size = 0;
       if (ClientId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientId);
-      }
-      if (HasPolicyCleanupTimer) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PolicyCleanupTimer);
       }
       if (Mode != global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode.Delete) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Mode);
@@ -1276,9 +1123,6 @@ namespace ServiceLayer {
       }
       if (other.ClientId.Length != 0) {
         ClientId = other.ClientId;
-      }
-      if (other.HasPolicyCleanupTimer) {
-        PolicyCleanupTimer = other.PolicyCleanupTimer;
       }
       if (other.Mode != global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode.Delete) {
         Mode = other.Mode;
@@ -1302,10 +1146,6 @@ namespace ServiceLayer {
             ClientId = input.ReadString();
             break;
           }
-          case 16: {
-            PolicyCleanupTimer = input.ReadUInt32();
-            break;
-          }
           case 24: {
             Mode = (global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode) input.ReadEnum();
             break;
@@ -1327,10 +1167,6 @@ namespace ServiceLayer {
             break;
           case 10: {
             ClientId = input.ReadString();
-            break;
-          }
-          case 16: {
-            PolicyCleanupTimer = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -1408,7 +1244,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrPolicyRequests(SLSrPolicyRequests other) : this() {
-      requests_ = other.requests_.Clone();
+      request_ = other.request_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1418,15 +1254,15 @@ namespace ServiceLayer {
       return new SLSrPolicyRequests(this);
     }
 
-    /// <summary>Field number for the "requests" field.</summary>
-    public const int RequestsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLSrPolicyReq> _repeated_requests_codec
+    /// <summary>Field number for the "request" field.</summary>
+    public const int RequestFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLSrPolicyReq> _repeated_request_codec
         = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrPolicyReq.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq> requests_ = new pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq>();
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq> request_ = new pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq> Requests {
-      get { return requests_; }
+    public pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq> Request {
+      get { return request_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1444,7 +1280,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!requests_.Equals(other.requests_)) return false;
+      if(!request_.Equals(other.request_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1452,7 +1288,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= requests_.GetHashCode();
+      hash ^= request_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1471,7 +1307,7 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      requests_.WriteTo(output, _repeated_requests_codec);
+      request_.WriteTo(output, _repeated_request_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1482,7 +1318,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      requests_.WriteTo(ref output, _repeated_requests_codec);
+      request_.WriteTo(ref output, _repeated_request_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1493,7 +1329,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += requests_.CalculateSize(_repeated_requests_codec);
+      size += request_.CalculateSize(_repeated_request_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1506,7 +1342,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      requests_.Add(other.requests_);
+      request_.Add(other.request_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1523,7 +1359,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            requests_.AddEntriesFrom(input, _repeated_requests_codec);
+            request_.AddEntriesFrom(input, _repeated_request_codec);
             break;
           }
         }
@@ -1542,7 +1378,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            requests_.AddEntriesFrom(ref input, _repeated_requests_codec);
+            request_.AddEntriesFrom(ref input, _repeated_request_codec);
             break;
           }
         }
@@ -4140,9 +3976,6 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrSrv6BindingSID(SLSrSrv6BindingSID other) : this() {
       switch (other.TypeCase) {
-        case TypeOneofCase.Explicit:
-          Explicit = other.Explicit.Clone();
-          break;
         case TypeOneofCase.Dynamic:
           Dynamic = other.Dynamic.Clone();
           break;
@@ -4157,20 +3990,11 @@ namespace ServiceLayer {
       return new SLSrSrv6BindingSID(this);
     }
 
-    /// <summary>Field number for the "explicit" field.</summary>
-    public const int ExplicitFieldNumber = 1;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSRv6SIDInfo Explicit {
-      get { return typeCase_ == TypeOneofCase.Explicit ? (global::ServiceLayer.SLSRv6SIDInfo) type_ : null; }
-      set {
-        type_ = value;
-        typeCase_ = value == null ? TypeOneofCase.None : TypeOneofCase.Explicit;
-      }
-    }
-
     /// <summary>Field number for the "dynamic" field.</summary>
     public const int DynamicFieldNumber = 2;
+    /// <summary>
+    ///SLSRv6SIDInfo explicit = 1;
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrSrv6DynamicBindingSID Dynamic {
@@ -4185,7 +4009,6 @@ namespace ServiceLayer {
     /// <summary>Enum of possible cases for the "type" oneof.</summary>
     public enum TypeOneofCase {
       None = 0,
-      Explicit = 1,
       Dynamic = 2,
     }
     private TypeOneofCase typeCase_ = TypeOneofCase.None;
@@ -4217,7 +4040,6 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Explicit, other.Explicit)) return false;
       if (!object.Equals(Dynamic, other.Dynamic)) return false;
       if (TypeCase != other.TypeCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -4227,7 +4049,6 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (typeCase_ == TypeOneofCase.Explicit) hash ^= Explicit.GetHashCode();
       if (typeCase_ == TypeOneofCase.Dynamic) hash ^= Dynamic.GetHashCode();
       hash ^= (int) typeCase_;
       if (_unknownFields != null) {
@@ -4248,10 +4069,6 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (typeCase_ == TypeOneofCase.Explicit) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Explicit);
-      }
       if (typeCase_ == TypeOneofCase.Dynamic) {
         output.WriteRawTag(18);
         output.WriteMessage(Dynamic);
@@ -4266,10 +4083,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (typeCase_ == TypeOneofCase.Explicit) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Explicit);
-      }
       if (typeCase_ == TypeOneofCase.Dynamic) {
         output.WriteRawTag(18);
         output.WriteMessage(Dynamic);
@@ -4284,9 +4097,6 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (typeCase_ == TypeOneofCase.Explicit) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Explicit);
-      }
       if (typeCase_ == TypeOneofCase.Dynamic) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Dynamic);
       }
@@ -4303,12 +4113,6 @@ namespace ServiceLayer {
         return;
       }
       switch (other.TypeCase) {
-        case TypeOneofCase.Explicit:
-          if (Explicit == null) {
-            Explicit = new global::ServiceLayer.SLSRv6SIDInfo();
-          }
-          Explicit.MergeFrom(other.Explicit);
-          break;
         case TypeOneofCase.Dynamic:
           if (Dynamic == null) {
             Dynamic = new global::ServiceLayer.SLSrSrv6DynamicBindingSID();
@@ -4332,15 +4136,6 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            global::ServiceLayer.SLSRv6SIDInfo subBuilder = new global::ServiceLayer.SLSRv6SIDInfo();
-            if (typeCase_ == TypeOneofCase.Explicit) {
-              subBuilder.MergeFrom(Explicit);
-            }
-            input.ReadMessage(subBuilder);
-            Explicit = subBuilder;
-            break;
-          }
           case 18: {
             global::ServiceLayer.SLSrSrv6DynamicBindingSID subBuilder = new global::ServiceLayer.SLSrSrv6DynamicBindingSID();
             if (typeCase_ == TypeOneofCase.Dynamic) {
@@ -4365,15 +4160,6 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            global::ServiceLayer.SLSRv6SIDInfo subBuilder = new global::ServiceLayer.SLSRv6SIDInfo();
-            if (typeCase_ == TypeOneofCase.Explicit) {
-              subBuilder.MergeFrom(Explicit);
-            }
-            input.ReadMessage(subBuilder);
-            Explicit = subBuilder;
-            break;
-          }
           case 18: {
             global::ServiceLayer.SLSrSrv6DynamicBindingSID subBuilder = new global::ServiceLayer.SLSrSrv6DynamicBindingSID();
             if (typeCase_ == TypeOneofCase.Dynamic) {

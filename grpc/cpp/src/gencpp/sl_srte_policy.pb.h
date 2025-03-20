@@ -228,8 +228,6 @@ class SLSrPolicyMsg final :
   enum MsgTypeCase {
     kOpen = 1,
     kRequests = 2,
-    kReplayStart = 3,
-    kReplayEnd = 4,
     MSG_TYPE_NOT_SET = 0,
   };
 
@@ -314,8 +312,6 @@ class SLSrPolicyMsg final :
   enum : int {
     kOpenFieldNumber = 1,
     kRequestsFieldNumber = 2,
-    kReplayStartFieldNumber = 3,
-    kReplayEndFieldNumber = 4,
   };
   // .service_layer.SLSrPolicyOpen open = 1;
   bool has_open() const;
@@ -353,42 +349,6 @@ class SLSrPolicyMsg final :
       ::service_layer::SLSrPolicyRequests* requests);
   ::service_layer::SLSrPolicyRequests* unsafe_arena_release_requests();
 
-  // .service_layer.SLSrStartOfReplay replay_start = 3;
-  bool has_replay_start() const;
-  private:
-  bool _internal_has_replay_start() const;
-  public:
-  void clear_replay_start();
-  const ::service_layer::SLSrStartOfReplay& replay_start() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrStartOfReplay* release_replay_start();
-  ::service_layer::SLSrStartOfReplay* mutable_replay_start();
-  void set_allocated_replay_start(::service_layer::SLSrStartOfReplay* replay_start);
-  private:
-  const ::service_layer::SLSrStartOfReplay& _internal_replay_start() const;
-  ::service_layer::SLSrStartOfReplay* _internal_mutable_replay_start();
-  public:
-  void unsafe_arena_set_allocated_replay_start(
-      ::service_layer::SLSrStartOfReplay* replay_start);
-  ::service_layer::SLSrStartOfReplay* unsafe_arena_release_replay_start();
-
-  // .service_layer.SLSrEndOfReplay replay_end = 4;
-  bool has_replay_end() const;
-  private:
-  bool _internal_has_replay_end() const;
-  public:
-  void clear_replay_end();
-  const ::service_layer::SLSrEndOfReplay& replay_end() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrEndOfReplay* release_replay_end();
-  ::service_layer::SLSrEndOfReplay* mutable_replay_end();
-  void set_allocated_replay_end(::service_layer::SLSrEndOfReplay* replay_end);
-  private:
-  const ::service_layer::SLSrEndOfReplay& _internal_replay_end() const;
-  ::service_layer::SLSrEndOfReplay* _internal_mutable_replay_end();
-  public:
-  void unsafe_arena_set_allocated_replay_end(
-      ::service_layer::SLSrEndOfReplay* replay_end);
-  ::service_layer::SLSrEndOfReplay* unsafe_arena_release_replay_end();
-
   void clear_msg_type();
   MsgTypeCase msg_type_case() const;
   // @@protoc_insertion_point(class_scope:service_layer.SLSrPolicyMsg)
@@ -396,8 +356,6 @@ class SLSrPolicyMsg final :
   class _Internal;
   void set_has_open();
   void set_has_requests();
-  void set_has_replay_start();
-  void set_has_replay_end();
 
   inline bool has_msg_type() const;
   inline void clear_has_msg_type();
@@ -410,8 +368,6 @@ class SLSrPolicyMsg final :
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
     ::service_layer::SLSrPolicyOpen* open_;
     ::service_layer::SLSrPolicyRequests* requests_;
-    ::service_layer::SLSrStartOfReplay* replay_start_;
-    ::service_layer::SLSrEndOfReplay* replay_end_;
   } msg_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -936,7 +892,6 @@ class SLSrPolicyOpen final :
 
   enum : int {
     kClientIdFieldNumber = 1,
-    kPolicyCleanupTimerFieldNumber = 2,
     kModeFieldNumber = 3,
   };
   // string client_id = 1;
@@ -951,19 +906,6 @@ class SLSrPolicyOpen final :
   const std::string& _internal_client_id() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_client_id(const std::string& value);
   std::string* _internal_mutable_client_id();
-  public:
-
-  // optional uint32 policy_cleanup_timer = 2;
-  bool has_policy_cleanup_timer() const;
-  private:
-  bool _internal_has_policy_cleanup_timer() const;
-  public:
-  void clear_policy_cleanup_timer();
-  uint32_t policy_cleanup_timer() const;
-  void set_policy_cleanup_timer(uint32_t value);
-  private:
-  uint32_t _internal_policy_cleanup_timer() const;
-  void _internal_set_policy_cleanup_timer(uint32_t value);
   public:
 
   // .service_layer.SLSrPolicyOpen.SLSrPersistenceMode mode = 3;
@@ -982,11 +924,9 @@ class SLSrPolicyOpen final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
-  uint32_t policy_cleanup_timer_;
   int mode_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1113,25 +1053,25 @@ class SLSrPolicyRequests final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRequestsFieldNumber = 1,
+    kRequestFieldNumber = 1,
   };
-  // repeated .service_layer.SLSrPolicyReq requests = 1;
-  int requests_size() const;
+  // repeated .service_layer.SLSrPolicyReq request = 1;
+  int request_size() const;
   private:
-  int _internal_requests_size() const;
+  int _internal_request_size() const;
   public:
-  void clear_requests();
-  ::service_layer::SLSrPolicyReq* mutable_requests(int index);
+  void clear_request();
+  ::service_layer::SLSrPolicyReq* mutable_request(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrPolicyReq >*
-      mutable_requests();
+      mutable_request();
   private:
-  const ::service_layer::SLSrPolicyReq& _internal_requests(int index) const;
-  ::service_layer::SLSrPolicyReq* _internal_add_requests();
+  const ::service_layer::SLSrPolicyReq& _internal_request(int index) const;
+  ::service_layer::SLSrPolicyReq* _internal_add_request();
   public:
-  const ::service_layer::SLSrPolicyReq& requests(int index) const;
-  ::service_layer::SLSrPolicyReq* add_requests();
+  const ::service_layer::SLSrPolicyReq& request(int index) const;
+  ::service_layer::SLSrPolicyReq* add_request();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrPolicyReq >&
-      requests() const;
+      request() const;
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrPolicyRequests)
  private:
@@ -1140,7 +1080,7 @@ class SLSrPolicyRequests final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrPolicyReq > requests_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrPolicyReq > request_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -2807,7 +2747,6 @@ class SLSrSrv6BindingSID final :
     return *internal_default_instance();
   }
   enum TypeCase {
-    kExplicit = 1,
     kDynamic = 2,
     TYPE_NOT_SET = 0,
   };
@@ -2891,27 +2830,8 @@ class SLSrSrv6BindingSID final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kExplicitFieldNumber = 1,
     kDynamicFieldNumber = 2,
   };
-  // .service_layer.SLSRv6SIDInfo explicit = 1;
-  bool has_explicit_() const;
-  private:
-  bool _internal_has_explicit_() const;
-  public:
-  void clear_explicit_();
-  const ::service_layer::SLSRv6SIDInfo& explicit_() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSRv6SIDInfo* release_explicit_();
-  ::service_layer::SLSRv6SIDInfo* mutable_explicit_();
-  void set_allocated_explicit_(::service_layer::SLSRv6SIDInfo* explicit_);
-  private:
-  const ::service_layer::SLSRv6SIDInfo& _internal_explicit_() const;
-  ::service_layer::SLSRv6SIDInfo* _internal_mutable_explicit_();
-  public:
-  void unsafe_arena_set_allocated_explicit_(
-      ::service_layer::SLSRv6SIDInfo* explicit_);
-  ::service_layer::SLSRv6SIDInfo* unsafe_arena_release_explicit_();
-
   // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
   bool has_dynamic() const;
   private:
@@ -2935,7 +2855,6 @@ class SLSrSrv6BindingSID final :
   // @@protoc_insertion_point(class_scope:service_layer.SLSrSrv6BindingSID)
  private:
   class _Internal;
-  void set_has_explicit_();
   void set_has_dynamic();
 
   inline bool has_type() const;
@@ -2947,7 +2866,6 @@ class SLSrSrv6BindingSID final :
   union TypeUnion {
     constexpr TypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::service_layer::SLSRv6SIDInfo* explicit__;
     ::service_layer::SLSrSrv6DynamicBindingSID* dynamic_;
   } type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -3411,154 +3329,6 @@ inline ::service_layer::SLSrPolicyRequests* SLSrPolicyMsg::mutable_requests() {
   return _msg;
 }
 
-// .service_layer.SLSrStartOfReplay replay_start = 3;
-inline bool SLSrPolicyMsg::_internal_has_replay_start() const {
-  return msg_type_case() == kReplayStart;
-}
-inline bool SLSrPolicyMsg::has_replay_start() const {
-  return _internal_has_replay_start();
-}
-inline void SLSrPolicyMsg::set_has_replay_start() {
-  _oneof_case_[0] = kReplayStart;
-}
-inline void SLSrPolicyMsg::clear_replay_start() {
-  if (_internal_has_replay_start()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete msg_type_.replay_start_;
-    }
-    clear_has_msg_type();
-  }
-}
-inline ::service_layer::SLSrStartOfReplay* SLSrPolicyMsg::release_replay_start() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrPolicyMsg.replay_start)
-  if (_internal_has_replay_start()) {
-    clear_has_msg_type();
-      ::service_layer::SLSrStartOfReplay* temp = msg_type_.replay_start_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    msg_type_.replay_start_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLSrStartOfReplay& SLSrPolicyMsg::_internal_replay_start() const {
-  return _internal_has_replay_start()
-      ? *msg_type_.replay_start_
-      : reinterpret_cast< ::service_layer::SLSrStartOfReplay&>(::service_layer::_SLSrStartOfReplay_default_instance_);
-}
-inline const ::service_layer::SLSrStartOfReplay& SLSrPolicyMsg::replay_start() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyMsg.replay_start)
-  return _internal_replay_start();
-}
-inline ::service_layer::SLSrStartOfReplay* SLSrPolicyMsg::unsafe_arena_release_replay_start() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrPolicyMsg.replay_start)
-  if (_internal_has_replay_start()) {
-    clear_has_msg_type();
-    ::service_layer::SLSrStartOfReplay* temp = msg_type_.replay_start_;
-    msg_type_.replay_start_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLSrPolicyMsg::unsafe_arena_set_allocated_replay_start(::service_layer::SLSrStartOfReplay* replay_start) {
-  clear_msg_type();
-  if (replay_start) {
-    set_has_replay_start();
-    msg_type_.replay_start_ = replay_start;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrPolicyMsg.replay_start)
-}
-inline ::service_layer::SLSrStartOfReplay* SLSrPolicyMsg::_internal_mutable_replay_start() {
-  if (!_internal_has_replay_start()) {
-    clear_msg_type();
-    set_has_replay_start();
-    msg_type_.replay_start_ = CreateMaybeMessage< ::service_layer::SLSrStartOfReplay >(GetArenaForAllocation());
-  }
-  return msg_type_.replay_start_;
-}
-inline ::service_layer::SLSrStartOfReplay* SLSrPolicyMsg::mutable_replay_start() {
-  ::service_layer::SLSrStartOfReplay* _msg = _internal_mutable_replay_start();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyMsg.replay_start)
-  return _msg;
-}
-
-// .service_layer.SLSrEndOfReplay replay_end = 4;
-inline bool SLSrPolicyMsg::_internal_has_replay_end() const {
-  return msg_type_case() == kReplayEnd;
-}
-inline bool SLSrPolicyMsg::has_replay_end() const {
-  return _internal_has_replay_end();
-}
-inline void SLSrPolicyMsg::set_has_replay_end() {
-  _oneof_case_[0] = kReplayEnd;
-}
-inline void SLSrPolicyMsg::clear_replay_end() {
-  if (_internal_has_replay_end()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete msg_type_.replay_end_;
-    }
-    clear_has_msg_type();
-  }
-}
-inline ::service_layer::SLSrEndOfReplay* SLSrPolicyMsg::release_replay_end() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrPolicyMsg.replay_end)
-  if (_internal_has_replay_end()) {
-    clear_has_msg_type();
-      ::service_layer::SLSrEndOfReplay* temp = msg_type_.replay_end_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    msg_type_.replay_end_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLSrEndOfReplay& SLSrPolicyMsg::_internal_replay_end() const {
-  return _internal_has_replay_end()
-      ? *msg_type_.replay_end_
-      : reinterpret_cast< ::service_layer::SLSrEndOfReplay&>(::service_layer::_SLSrEndOfReplay_default_instance_);
-}
-inline const ::service_layer::SLSrEndOfReplay& SLSrPolicyMsg::replay_end() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyMsg.replay_end)
-  return _internal_replay_end();
-}
-inline ::service_layer::SLSrEndOfReplay* SLSrPolicyMsg::unsafe_arena_release_replay_end() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrPolicyMsg.replay_end)
-  if (_internal_has_replay_end()) {
-    clear_has_msg_type();
-    ::service_layer::SLSrEndOfReplay* temp = msg_type_.replay_end_;
-    msg_type_.replay_end_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLSrPolicyMsg::unsafe_arena_set_allocated_replay_end(::service_layer::SLSrEndOfReplay* replay_end) {
-  clear_msg_type();
-  if (replay_end) {
-    set_has_replay_end();
-    msg_type_.replay_end_ = replay_end;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrPolicyMsg.replay_end)
-}
-inline ::service_layer::SLSrEndOfReplay* SLSrPolicyMsg::_internal_mutable_replay_end() {
-  if (!_internal_has_replay_end()) {
-    clear_msg_type();
-    set_has_replay_end();
-    msg_type_.replay_end_ = CreateMaybeMessage< ::service_layer::SLSrEndOfReplay >(GetArenaForAllocation());
-  }
-  return msg_type_.replay_end_;
-}
-inline ::service_layer::SLSrEndOfReplay* SLSrPolicyMsg::mutable_replay_end() {
-  ::service_layer::SLSrEndOfReplay* _msg = _internal_mutable_replay_end();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyMsg.replay_end)
-  return _msg;
-}
-
 inline bool SLSrPolicyMsg::has_msg_type() const {
   return msg_type_case() != MSG_TYPE_NOT_SET;
 }
@@ -3949,34 +3719,6 @@ inline void SLSrPolicyOpen::set_allocated_client_id(std::string* client_id) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicyOpen.client_id)
 }
 
-// optional uint32 policy_cleanup_timer = 2;
-inline bool SLSrPolicyOpen::_internal_has_policy_cleanup_timer() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool SLSrPolicyOpen::has_policy_cleanup_timer() const {
-  return _internal_has_policy_cleanup_timer();
-}
-inline void SLSrPolicyOpen::clear_policy_cleanup_timer() {
-  policy_cleanup_timer_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t SLSrPolicyOpen::_internal_policy_cleanup_timer() const {
-  return policy_cleanup_timer_;
-}
-inline uint32_t SLSrPolicyOpen::policy_cleanup_timer() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyOpen.policy_cleanup_timer)
-  return _internal_policy_cleanup_timer();
-}
-inline void SLSrPolicyOpen::_internal_set_policy_cleanup_timer(uint32_t value) {
-  _has_bits_[0] |= 0x00000001u;
-  policy_cleanup_timer_ = value;
-}
-inline void SLSrPolicyOpen::set_policy_cleanup_timer(uint32_t value) {
-  _internal_set_policy_cleanup_timer(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicyOpen.policy_cleanup_timer)
-}
-
 // .service_layer.SLSrPolicyOpen.SLSrPersistenceMode mode = 3;
 inline void SLSrPolicyOpen::clear_mode() {
   mode_ = 0;
@@ -4001,44 +3743,44 @@ inline void SLSrPolicyOpen::set_mode(::service_layer::SLSrPolicyOpen_SLSrPersist
 
 // SLSrPolicyRequests
 
-// repeated .service_layer.SLSrPolicyReq requests = 1;
-inline int SLSrPolicyRequests::_internal_requests_size() const {
-  return requests_.size();
+// repeated .service_layer.SLSrPolicyReq request = 1;
+inline int SLSrPolicyRequests::_internal_request_size() const {
+  return request_.size();
 }
-inline int SLSrPolicyRequests::requests_size() const {
-  return _internal_requests_size();
+inline int SLSrPolicyRequests::request_size() const {
+  return _internal_request_size();
 }
-inline void SLSrPolicyRequests::clear_requests() {
-  requests_.Clear();
+inline void SLSrPolicyRequests::clear_request() {
+  request_.Clear();
 }
-inline ::service_layer::SLSrPolicyReq* SLSrPolicyRequests::mutable_requests(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyRequests.requests)
-  return requests_.Mutable(index);
+inline ::service_layer::SLSrPolicyReq* SLSrPolicyRequests::mutable_request(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyRequests.request)
+  return request_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrPolicyReq >*
-SLSrPolicyRequests::mutable_requests() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrPolicyRequests.requests)
-  return &requests_;
+SLSrPolicyRequests::mutable_request() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLSrPolicyRequests.request)
+  return &request_;
 }
-inline const ::service_layer::SLSrPolicyReq& SLSrPolicyRequests::_internal_requests(int index) const {
-  return requests_.Get(index);
+inline const ::service_layer::SLSrPolicyReq& SLSrPolicyRequests::_internal_request(int index) const {
+  return request_.Get(index);
 }
-inline const ::service_layer::SLSrPolicyReq& SLSrPolicyRequests::requests(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyRequests.requests)
-  return _internal_requests(index);
+inline const ::service_layer::SLSrPolicyReq& SLSrPolicyRequests::request(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyRequests.request)
+  return _internal_request(index);
 }
-inline ::service_layer::SLSrPolicyReq* SLSrPolicyRequests::_internal_add_requests() {
-  return requests_.Add();
+inline ::service_layer::SLSrPolicyReq* SLSrPolicyRequests::_internal_add_request() {
+  return request_.Add();
 }
-inline ::service_layer::SLSrPolicyReq* SLSrPolicyRequests::add_requests() {
-  ::service_layer::SLSrPolicyReq* _add = _internal_add_requests();
-  // @@protoc_insertion_point(field_add:service_layer.SLSrPolicyRequests.requests)
+inline ::service_layer::SLSrPolicyReq* SLSrPolicyRequests::add_request() {
+  ::service_layer::SLSrPolicyReq* _add = _internal_add_request();
+  // @@protoc_insertion_point(field_add:service_layer.SLSrPolicyRequests.request)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrPolicyReq >&
-SLSrPolicyRequests::requests() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLSrPolicyRequests.requests)
-  return requests_;
+SLSrPolicyRequests::request() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLSrPolicyRequests.request)
+  return request_;
 }
 
 // -------------------------------------------------------------------
@@ -5259,72 +5001,6 @@ inline void SLSrConstraints::set_maximum_sid_depth(uint32_t value) {
 // -------------------------------------------------------------------
 
 // SLSrSrv6BindingSID
-
-// .service_layer.SLSRv6SIDInfo explicit = 1;
-inline bool SLSrSrv6BindingSID::_internal_has_explicit_() const {
-  return type_case() == kExplicit;
-}
-inline bool SLSrSrv6BindingSID::has_explicit_() const {
-  return _internal_has_explicit_();
-}
-inline void SLSrSrv6BindingSID::set_has_explicit_() {
-  _oneof_case_[0] = kExplicit;
-}
-inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::release_explicit_() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrSrv6BindingSID.explicit)
-  if (_internal_has_explicit_()) {
-    clear_has_type();
-      ::service_layer::SLSRv6SIDInfo* temp = type_.explicit__;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    type_.explicit__ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLSRv6SIDInfo& SLSrSrv6BindingSID::_internal_explicit_() const {
-  return _internal_has_explicit_()
-      ? *type_.explicit__
-      : reinterpret_cast< ::service_layer::SLSRv6SIDInfo&>(::service_layer::_SLSRv6SIDInfo_default_instance_);
-}
-inline const ::service_layer::SLSRv6SIDInfo& SLSrSrv6BindingSID::explicit_() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrSrv6BindingSID.explicit)
-  return _internal_explicit_();
-}
-inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::unsafe_arena_release_explicit_() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrSrv6BindingSID.explicit)
-  if (_internal_has_explicit_()) {
-    clear_has_type();
-    ::service_layer::SLSRv6SIDInfo* temp = type_.explicit__;
-    type_.explicit__ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLSrSrv6BindingSID::unsafe_arena_set_allocated_explicit_(::service_layer::SLSRv6SIDInfo* explicit_) {
-  clear_type();
-  if (explicit_) {
-    set_has_explicit_();
-    type_.explicit__ = explicit_;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrSrv6BindingSID.explicit)
-}
-inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::_internal_mutable_explicit_() {
-  if (!_internal_has_explicit_()) {
-    clear_type();
-    set_has_explicit_();
-    type_.explicit__ = CreateMaybeMessage< ::service_layer::SLSRv6SIDInfo >(GetArenaForAllocation());
-  }
-  return type_.explicit__;
-}
-inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::mutable_explicit_() {
-  ::service_layer::SLSRv6SIDInfo* _msg = _internal_mutable_explicit_();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSrv6BindingSID.explicit)
-  return _msg;
-}
 
 // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
 inline bool SLSrSrv6BindingSID::_internal_has_dynamic() const {

@@ -59,7 +59,6 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrPolicyRspDefaultTypeInterna
 constexpr SLSrPolicyOpen::SLSrPolicyOpen(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : client_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , policy_cleanup_timer_(0u)
   , mode_(0)
 {}
 struct SLSrPolicyOpenDefaultTypeInternal {
@@ -73,7 +72,7 @@ struct SLSrPolicyOpenDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrPolicyOpenDefaultTypeInternal _SLSrPolicyOpen_default_instance_;
 constexpr SLSrPolicyRequests::SLSrPolicyRequests(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : requests_(){}
+  : request_(){}
 struct SLSrPolicyRequestsDefaultTypeInternal {
   constexpr SLSrPolicyRequestsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -258,8 +257,6 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _inlined_string_donated_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyMsg, msg_type_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRsp_PolicyRsp, _internal_metadata_),
@@ -278,25 +275,21 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRsp, responses_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRsp, status_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyOpen, _has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyOpen, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyOpen, client_id_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyOpen, policy_cleanup_timer_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyOpen, mode_),
-  ~0u,
-  0,
-  ~0u,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRequests, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRequests, requests_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRequests, request_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -392,7 +385,6 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6BindingSID, type_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrMPLSBindingSID, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrMPLSBindingSID, _internal_metadata_),
@@ -412,22 +404,22 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::service_layer::SLSrPolicyMsg)},
-  { 11, -1, -1, sizeof(::service_layer::SLSrPolicyRsp_PolicyRsp)},
-  { 20, -1, -1, sizeof(::service_layer::SLSrPolicyRsp)},
-  { 28, 37, -1, sizeof(::service_layer::SLSrPolicyOpen)},
-  { 40, -1, -1, sizeof(::service_layer::SLSrPolicyRequests)},
-  { 47, -1, -1, sizeof(::service_layer::SLSrPolicyReq)},
-  { 55, -1, -1, sizeof(::service_layer::SLSrEndOfReplay)},
-  { 61, -1, -1, sizeof(::service_layer::SLSrStartOfReplay)},
-  { 67, -1, -1, sizeof(::service_layer::SLSrPolicy)},
-  { 77, -1, -1, sizeof(::service_layer::SLSrPolicyAttributes)},
-  { 88, 100, -1, sizeof(::service_layer::SLSrCandidatePath)},
-  { 105, -1, -1, sizeof(::service_layer::SLSrExplicitCP)},
-  { 113, -1, -1, sizeof(::service_layer::SLSrDynamicCP)},
-  { 121, 131, -1, sizeof(::service_layer::SLSrConstraints)},
-  { 135, -1, -1, sizeof(::service_layer::SLSrSrv6BindingSID)},
-  { 144, 151, -1, sizeof(::service_layer::SLSrMPLSBindingSID)},
-  { 152, -1, -1, sizeof(::service_layer::SLSrSrv6DynamicBindingSID)},
+  { 9, -1, -1, sizeof(::service_layer::SLSrPolicyRsp_PolicyRsp)},
+  { 18, -1, -1, sizeof(::service_layer::SLSrPolicyRsp)},
+  { 26, -1, -1, sizeof(::service_layer::SLSrPolicyOpen)},
+  { 34, -1, -1, sizeof(::service_layer::SLSrPolicyRequests)},
+  { 41, -1, -1, sizeof(::service_layer::SLSrPolicyReq)},
+  { 49, -1, -1, sizeof(::service_layer::SLSrEndOfReplay)},
+  { 55, -1, -1, sizeof(::service_layer::SLSrStartOfReplay)},
+  { 61, -1, -1, sizeof(::service_layer::SLSrPolicy)},
+  { 71, -1, -1, sizeof(::service_layer::SLSrPolicyAttributes)},
+  { 82, 94, -1, sizeof(::service_layer::SLSrCandidatePath)},
+  { 99, -1, -1, sizeof(::service_layer::SLSrExplicitCP)},
+  { 107, -1, -1, sizeof(::service_layer::SLSrDynamicCP)},
+  { 115, 125, -1, sizeof(::service_layer::SLSrConstraints)},
+  { 129, -1, -1, sizeof(::service_layer::SLSrSrv6BindingSID)},
+  { 137, 144, -1, sizeof(::service_layer::SLSrMPLSBindingSID)},
+  { 145, -1, -1, sizeof(::service_layer::SLSrSrv6DynamicBindingSID)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -452,74 +444,68 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\024sl_srte_policy.proto\022\rservice_layer\032\022s"
-  "l_sr_common.proto\"\361\001\n\rSLSrPolicyMsg\022-\n\004o"
+  "l_sr_common.proto\"\201\001\n\rSLSrPolicyMsg\022-\n\004o"
   "pen\030\001 \001(\0132\035.service_layer.SLSrPolicyOpen"
   "H\000\0225\n\010requests\030\002 \001(\0132!.service_layer.SLS"
-  "rPolicyRequestsH\000\0228\n\014replay_start\030\003 \001(\0132"
-  " .service_layer.SLSrStartOfReplayH\000\0224\n\nr"
-  "eplay_end\030\004 \001(\0132\036.service_layer.SLSrEndO"
-  "fReplayH\000B\n\n\010msg_type\"\351\001\n\rSLSrPolicyRsp\022"
-  "9\n\tresponses\030\001 \003(\0132&.service_layer.SLSrP"
-  "olicyRsp.PolicyRsp\022)\n\006status\030\002 \001(\0132\031.ser"
-  "vice_layer.SLSrStatus\032r\n\tPolicyRsp\022\017\n\007se"
-  "q_num\030\001 \001(\004\022)\n\003key\030\002 \001(\0132\034.service_layer"
-  ".SLSrPolicyKey\022)\n\006status\030\003 \001(\0132\031.service"
-  "_layer.SLSrStatus\"\321\001\n\016SLSrPolicyOpen\022\021\n\t"
-  "client_id\030\001 \001(\t\022!\n\024policy_cleanup_timer\030"
-  "\002 \001(\rH\000\210\001\001\022\?\n\004mode\030\003 \001(\01621.service_layer"
-  ".SLSrPolicyOpen.SLSrPersistenceMode\"/\n\023S"
-  "LSrPersistenceMode\022\n\n\006DELETE\020\000\022\014\n\010PRESER"
-  "VE\020\001B\027\n\025_policy_cleanup_timer\"D\n\022SLSrPol"
-  "icyRequests\022.\n\010requests\030\001 \003(\0132\034.service_"
-  "layer.SLSrPolicyReq\"\233\001\n\rSLSrPolicyReq\0226\n"
-  "\toperation\030\001 \001(\0162#.service_layer.SLSrPol"
-  "icyReq.SLSrOp\022)\n\006policy\030\002 \001(\0132\031.service_"
-  "layer.SLSrPolicy\"\'\n\006SLSrOp\022\021\n\rCREATE_UPD"
-  "ATE\020\000\022\n\n\006DELETE\020\001\"\021\n\017SLSrEndOfReplay\"\023\n\021"
-  "SLSrStartOfReplay\"\253\001\n\nSLSrPolicy\022\017\n\007seq_"
-  "num\030\001 \001(\004\022)\n\003key\030\002 \001(\0132\034.service_layer.S"
-  "LSrPolicyKey\0222\n\005attrs\030\003 \001(\0132#.service_la"
-  "yer.SLSrPolicyAttributes\022-\n\003CPs\030\004 \003(\0132 ."
-  "service_layer.SLSrCandidatePath\"\342\001\n\024SLSr"
-  "PolicyAttributes\022\030\n\020transit_eligible\030\002 \001"
-  "(\010\022/\n\tdataplane\030\003 \001(\0162\034.service_layer.SL"
-  "SrDataplane\0224\n\tmpls_bsid\030\004 \001(\0132!.service"
-  "_layer.SLSrMPLSBindingSID\0225\n\nsrv6_bsids\030"
-  "\005 \003(\0132!.service_layer.SLSrSrv6BindingSID"
-  "\022\022\n\nprofile_id\030\006 \001(\r\"\345\001\n\021SLSrCandidatePa"
-  "th\0220\n\003key\030\002 \001(\0132#.service_layer.SLSrCand"
-  "idatePathKey\022\014\n\004name\030\003 \001(\t\022\027\n\npreference"
-  "\030\004 \001(\rH\001\210\001\001\022/\n\007dynamic\030\005 \001(\0132\034.service_l"
-  "ayer.SLSrDynamicCPH\000\0221\n\010explicit\030\006 \001(\0132\035"
-  ".service_layer.SLSrExplicitCPH\000B\004\n\002CPB\r\n"
-  "\013_preference\"[\n\016SLSrExplicitCP\0224\n\014segmen"
-  "t_list\030\001 \003(\0132\036.service_layer.SLSrSegment"
-  "List\022\023\n\013metric_type\030\003 \001(\r\"Y\n\rSLSrDynamic"
-  "CP\022\023\n\013metric_type\030\001 \001(\r\0223\n\013constraints\030\002"
-  " \001(\0132\036.service_layer.SLSrConstraints\"\274\001\n"
-  "\017SLSrConstraints\0221\n\naffinities\030\001 \001(\0132\035.s"
-  "ervice_layer.SLSrAffinities\0227\n\nprotectio"
-  "n\030\002 \001(\0162#.service_layer.SLSrteProtection"
-  "Type\022\025\n\010sid_algo\030\003 \001(\rH\000\210\001\001\022\031\n\021maximum_s"
-  "id_depth\030\004 \001(\rB\013\n\t_sid_algo\"\213\001\n\022SLSrSrv6"
-  "BindingSID\0220\n\010explicit\030\001 \001(\0132\034.service_l"
-  "ayer.SLSRv6SIDInfoH\000\022;\n\007dynamic\030\002 \001(\0132(."
-  "service_layer.SLSrSrv6DynamicBindingSIDH"
-  "\000B\006\n\004type\":\n\022SLSrMPLSBindingSID\022\026\n\tmpls_"
-  "bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_mpls_bsid\"-\n\031SLSrSrv"
-  "6DynamicBindingSID\022\020\n\010behavior\030\001 \001(\r2^\n\014"
-  "SLSrtePolicy\022N\n\014SLSrPolicyOp\022\034.service_l"
-  "ayer.SLSrPolicyMsg\032\034.service_layer.SLSrP"
-  "olicyRsp(\0010\001BQZOgithub.com/Cisco-service"
-  "-layer/service-layer-objmodel/grpc/proto"
-  "s;service_layerb\006proto3"
+  "rPolicyRequestsH\000B\n\n\010msg_type\"\351\001\n\rSLSrPo"
+  "licyRsp\0229\n\tresponses\030\001 \003(\0132&.service_lay"
+  "er.SLSrPolicyRsp.PolicyRsp\022)\n\006status\030\002 \001"
+  "(\0132\031.service_layer.SLSrStatus\032r\n\tPolicyR"
+  "sp\022\017\n\007seq_num\030\001 \001(\004\022)\n\003key\030\002 \001(\0132\034.servi"
+  "ce_layer.SLSrPolicyKey\022)\n\006status\030\003 \001(\0132\031"
+  ".service_layer.SLSrStatus\"\225\001\n\016SLSrPolicy"
+  "Open\022\021\n\tclient_id\030\001 \001(\t\022\?\n\004mode\030\003 \001(\01621."
+  "service_layer.SLSrPolicyOpen.SLSrPersist"
+  "enceMode\"/\n\023SLSrPersistenceMode\022\n\n\006DELET"
+  "E\020\000\022\014\n\010PRESERVE\020\001\"C\n\022SLSrPolicyRequests\022"
+  "-\n\007request\030\001 \003(\0132\034.service_layer.SLSrPol"
+  "icyReq\"\233\001\n\rSLSrPolicyReq\0226\n\toperation\030\001 "
+  "\001(\0162#.service_layer.SLSrPolicyReq.SLSrOp"
+  "\022)\n\006policy\030\002 \001(\0132\031.service_layer.SLSrPol"
+  "icy\"\'\n\006SLSrOp\022\021\n\rCREATE_UPDATE\020\000\022\n\n\006DELE"
+  "TE\020\001\"\021\n\017SLSrEndOfReplay\"\023\n\021SLSrStartOfRe"
+  "play\"\253\001\n\nSLSrPolicy\022\017\n\007seq_num\030\001 \001(\004\022)\n\003"
+  "key\030\002 \001(\0132\034.service_layer.SLSrPolicyKey\022"
+  "2\n\005attrs\030\003 \001(\0132#.service_layer.SLSrPolic"
+  "yAttributes\022-\n\003CPs\030\004 \003(\0132 .service_layer"
+  ".SLSrCandidatePath\"\342\001\n\024SLSrPolicyAttribu"
+  "tes\022\030\n\020transit_eligible\030\002 \001(\010\022/\n\tdatapla"
+  "ne\030\003 \001(\0162\034.service_layer.SLSrDataplane\0224"
+  "\n\tmpls_bsid\030\004 \001(\0132!.service_layer.SLSrMP"
+  "LSBindingSID\0225\n\nsrv6_bsids\030\005 \003(\0132!.servi"
+  "ce_layer.SLSrSrv6BindingSID\022\022\n\nprofile_i"
+  "d\030\006 \001(\r\"\345\001\n\021SLSrCandidatePath\0220\n\003key\030\002 \001"
+  "(\0132#.service_layer.SLSrCandidatePathKey\022"
+  "\014\n\004name\030\003 \001(\t\022\027\n\npreference\030\004 \001(\rH\001\210\001\001\022/"
+  "\n\007dynamic\030\005 \001(\0132\034.service_layer.SLSrDyna"
+  "micCPH\000\0221\n\010explicit\030\006 \001(\0132\035.service_laye"
+  "r.SLSrExplicitCPH\000B\004\n\002CPB\r\n\013_preference\""
+  "[\n\016SLSrExplicitCP\0224\n\014segment_list\030\001 \003(\0132"
+  "\036.service_layer.SLSrSegmentList\022\023\n\013metri"
+  "c_type\030\003 \001(\r\"Y\n\rSLSrDynamicCP\022\023\n\013metric_"
+  "type\030\001 \001(\r\0223\n\013constraints\030\002 \001(\0132\036.servic"
+  "e_layer.SLSrConstraints\"\274\001\n\017SLSrConstrai"
+  "nts\0221\n\naffinities\030\001 \001(\0132\035.service_layer."
+  "SLSrAffinities\0227\n\nprotection\030\002 \001(\0162#.ser"
+  "vice_layer.SLSrteProtectionType\022\025\n\010sid_a"
+  "lgo\030\003 \001(\rH\000\210\001\001\022\031\n\021maximum_sid_depth\030\004 \001("
+  "\rB\013\n\t_sid_algo\"Y\n\022SLSrSrv6BindingSID\022;\n\007"
+  "dynamic\030\002 \001(\0132(.service_layer.SLSrSrv6Dy"
+  "namicBindingSIDH\000B\006\n\004type\":\n\022SLSrMPLSBin"
+  "dingSID\022\026\n\tmpls_bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_mpls"
+  "_bsid\"-\n\031SLSrSrv6DynamicBindingSID\022\020\n\010be"
+  "havior\030\001 \001(\r2^\n\014SLSrtePolicy\022N\n\014SLSrPoli"
+  "cyOp\022\034.service_layer.SLSrPolicyMsg\032\034.ser"
+  "vice_layer.SLSrPolicyRsp(\0010\001BQZOgithub.c"
+  "om/Cisco-service-layer/service-layer-obj"
+  "model/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps[1] = {
   &::descriptor_table_sl_5fsr_5fcommon_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpolicy_2eproto = {
-  false, false, 2463, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
+  false, false, 2239, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
   &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 1, 17,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto, file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto,
@@ -580,8 +566,6 @@ class SLSrPolicyMsg::_Internal {
  public:
   static const ::service_layer::SLSrPolicyOpen& open(const SLSrPolicyMsg* msg);
   static const ::service_layer::SLSrPolicyRequests& requests(const SLSrPolicyMsg* msg);
-  static const ::service_layer::SLSrStartOfReplay& replay_start(const SLSrPolicyMsg* msg);
-  static const ::service_layer::SLSrEndOfReplay& replay_end(const SLSrPolicyMsg* msg);
 };
 
 const ::service_layer::SLSrPolicyOpen&
@@ -591,14 +575,6 @@ SLSrPolicyMsg::_Internal::open(const SLSrPolicyMsg* msg) {
 const ::service_layer::SLSrPolicyRequests&
 SLSrPolicyMsg::_Internal::requests(const SLSrPolicyMsg* msg) {
   return *msg->msg_type_.requests_;
-}
-const ::service_layer::SLSrStartOfReplay&
-SLSrPolicyMsg::_Internal::replay_start(const SLSrPolicyMsg* msg) {
-  return *msg->msg_type_.replay_start_;
-}
-const ::service_layer::SLSrEndOfReplay&
-SLSrPolicyMsg::_Internal::replay_end(const SLSrPolicyMsg* msg) {
-  return *msg->msg_type_.replay_end_;
 }
 void SLSrPolicyMsg::set_allocated_open(::service_layer::SLSrPolicyOpen* open) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -630,36 +606,6 @@ void SLSrPolicyMsg::set_allocated_requests(::service_layer::SLSrPolicyRequests* 
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicyMsg.requests)
 }
-void SLSrPolicyMsg::set_allocated_replay_start(::service_layer::SLSrStartOfReplay* replay_start) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_msg_type();
-  if (replay_start) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrStartOfReplay>::GetOwningArena(replay_start);
-    if (message_arena != submessage_arena) {
-      replay_start = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, replay_start, submessage_arena);
-    }
-    set_has_replay_start();
-    msg_type_.replay_start_ = replay_start;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicyMsg.replay_start)
-}
-void SLSrPolicyMsg::set_allocated_replay_end(::service_layer::SLSrEndOfReplay* replay_end) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_msg_type();
-  if (replay_end) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrEndOfReplay>::GetOwningArena(replay_end);
-    if (message_arena != submessage_arena) {
-      replay_end = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, replay_end, submessage_arena);
-    }
-    set_has_replay_end();
-    msg_type_.replay_end_ = replay_end;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicyMsg.replay_end)
-}
 SLSrPolicyMsg::SLSrPolicyMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -680,14 +626,6 @@ SLSrPolicyMsg::SLSrPolicyMsg(const SLSrPolicyMsg& from)
     }
     case kRequests: {
       _internal_mutable_requests()->::service_layer::SLSrPolicyRequests::MergeFrom(from._internal_requests());
-      break;
-    }
-    case kReplayStart: {
-      _internal_mutable_replay_start()->::service_layer::SLSrStartOfReplay::MergeFrom(from._internal_replay_start());
-      break;
-    }
-    case kReplayEnd: {
-      _internal_mutable_replay_end()->::service_layer::SLSrEndOfReplay::MergeFrom(from._internal_replay_end());
       break;
     }
     case MSG_TYPE_NOT_SET: {
@@ -740,18 +678,6 @@ void SLSrPolicyMsg::clear_msg_type() {
       }
       break;
     }
-    case kReplayStart: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete msg_type_.replay_start_;
-      }
-      break;
-    }
-    case kReplayEnd: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete msg_type_.replay_end_;
-      }
-      break;
-    }
     case MSG_TYPE_NOT_SET: {
       break;
     }
@@ -788,22 +714,6 @@ const char* SLSrPolicyMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_requests(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrStartOfReplay replay_start = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_replay_start(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLSrEndOfReplay replay_end = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_replay_end(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -853,22 +763,6 @@ uint8_t* SLSrPolicyMsg::_InternalSerialize(
         2, _Internal::requests(this), target, stream);
   }
 
-  // .service_layer.SLSrStartOfReplay replay_start = 3;
-  if (_internal_has_replay_start()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::replay_start(this), target, stream);
-  }
-
-  // .service_layer.SLSrEndOfReplay replay_end = 4;
-  if (_internal_has_replay_end()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::replay_end(this), target, stream);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -898,20 +792,6 @@ size_t SLSrPolicyMsg::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *msg_type_.requests_);
-      break;
-    }
-    // .service_layer.SLSrStartOfReplay replay_start = 3;
-    case kReplayStart: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *msg_type_.replay_start_);
-      break;
-    }
-    // .service_layer.SLSrEndOfReplay replay_end = 4;
-    case kReplayEnd: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *msg_type_.replay_end_);
       break;
     }
     case MSG_TYPE_NOT_SET: {
@@ -947,14 +827,6 @@ void SLSrPolicyMsg::MergeFrom(const SLSrPolicyMsg& from) {
     }
     case kRequests: {
       _internal_mutable_requests()->::service_layer::SLSrPolicyRequests::MergeFrom(from._internal_requests());
-      break;
-    }
-    case kReplayStart: {
-      _internal_mutable_replay_start()->::service_layer::SLSrStartOfReplay::MergeFrom(from._internal_replay_start());
-      break;
-    }
-    case kReplayEnd: {
-      _internal_mutable_replay_end()->::service_layer::SLSrEndOfReplay::MergeFrom(from._internal_replay_end());
       break;
     }
     case MSG_TYPE_NOT_SET: {
@@ -1506,10 +1378,6 @@ void SLSrPolicyRsp::InternalSwap(SLSrPolicyRsp* other) {
 
 class SLSrPolicyOpen::_Internal {
  public:
-  using HasBits = decltype(std::declval<SLSrPolicyOpen>()._has_bits_);
-  static void set_has_policy_cleanup_timer(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
 };
 
 SLSrPolicyOpen::SLSrPolicyOpen(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -1522,8 +1390,7 @@ SLSrPolicyOpen::SLSrPolicyOpen(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   // @@protoc_insertion_point(arena_constructor:service_layer.SLSrPolicyOpen)
 }
 SLSrPolicyOpen::SLSrPolicyOpen(const SLSrPolicyOpen& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   client_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -1533,9 +1400,7 @@ SLSrPolicyOpen::SLSrPolicyOpen(const SLSrPolicyOpen& from)
     client_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_client_id(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&policy_cleanup_timer_, &from.policy_cleanup_timer_,
-    static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
-    reinterpret_cast<char*>(&policy_cleanup_timer_)) + sizeof(mode_));
+  mode_ = from.mode_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrPolicyOpen)
 }
 
@@ -1544,10 +1409,7 @@ client_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAl
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   client_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&policy_cleanup_timer_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
-    reinterpret_cast<char*>(&policy_cleanup_timer_)) + sizeof(mode_));
+mode_ = 0;
 }
 
 SLSrPolicyOpen::~SLSrPolicyOpen() {
@@ -1579,15 +1441,12 @@ void SLSrPolicyOpen::Clear() {
   (void) cached_has_bits;
 
   client_id_.ClearToEmpty();
-  policy_cleanup_timer_ = 0u;
   mode_ = 0;
-  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SLSrPolicyOpen::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1598,15 +1457,6 @@ const char* SLSrPolicyOpen::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
           auto str = _internal_mutable_client_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLSrPolicyOpen.client_id"));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 policy_cleanup_timer = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_policy_cleanup_timer(&has_bits);
-          policy_cleanup_timer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1636,7 +1486,6 @@ const char* SLSrPolicyOpen::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -1658,12 +1507,6 @@ uint8_t* SLSrPolicyOpen::_InternalSerialize(
       "service_layer.SLSrPolicyOpen.client_id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_client_id(), target);
-  }
-
-  // optional uint32 policy_cleanup_timer = 2;
-  if (_internal_has_policy_cleanup_timer()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_policy_cleanup_timer(), target);
   }
 
   // .service_layer.SLSrPolicyOpen.SLSrPersistenceMode mode = 3;
@@ -1694,12 +1537,6 @@ size_t SLSrPolicyOpen::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_client_id());
-  }
-
-  // optional uint32 policy_cleanup_timer = 2;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_policy_cleanup_timer());
   }
 
   // .service_layer.SLSrPolicyOpen.SLSrPersistenceMode mode = 3;
@@ -1733,9 +1570,6 @@ void SLSrPolicyOpen::MergeFrom(const SLSrPolicyOpen& from) {
   if (!from._internal_client_id().empty()) {
     _internal_set_client_id(from._internal_client_id());
   }
-  if (from._internal_has_policy_cleanup_timer()) {
-    _internal_set_policy_cleanup_timer(from._internal_policy_cleanup_timer());
-  }
   if (from._internal_mode() != 0) {
     _internal_set_mode(from._internal_mode());
   }
@@ -1758,18 +1592,12 @@ void SLSrPolicyOpen::InternalSwap(SLSrPolicyOpen* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &client_id_, lhs_arena,
       &other->client_id_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrPolicyOpen, mode_)
-      + sizeof(SLSrPolicyOpen::mode_)
-      - PROTOBUF_FIELD_OFFSET(SLSrPolicyOpen, policy_cleanup_timer_)>(
-          reinterpret_cast<char*>(&policy_cleanup_timer_),
-          reinterpret_cast<char*>(&other->policy_cleanup_timer_));
+  swap(mode_, other->mode_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrPolicyOpen::GetMetadata() const {
@@ -1787,7 +1615,7 @@ class SLSrPolicyRequests::_Internal {
 SLSrPolicyRequests::SLSrPolicyRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  requests_(arena) {
+  request_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -1796,7 +1624,7 @@ SLSrPolicyRequests::SLSrPolicyRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 SLSrPolicyRequests::SLSrPolicyRequests(const SLSrPolicyRequests& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      requests_(from.requests_) {
+      request_(from.request_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrPolicyRequests)
 }
@@ -1831,7 +1659,7 @@ void SLSrPolicyRequests::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  requests_.Clear();
+  request_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1841,13 +1669,13 @@ const char* SLSrPolicyRequests::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .service_layer.SLSrPolicyReq requests = 1;
+      // repeated .service_layer.SLSrPolicyReq request = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_requests(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_request(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
@@ -1883,12 +1711,12 @@ uint8_t* SLSrPolicyRequests::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrPolicyReq requests = 1;
+  // repeated .service_layer.SLSrPolicyReq request = 1;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_requests_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->_internal_request_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_requests(i), target, stream);
+      InternalWriteMessage(1, this->_internal_request(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1907,9 +1735,9 @@ size_t SLSrPolicyRequests::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLSrPolicyReq requests = 1;
-  total_size += 1UL * this->_internal_requests_size();
-  for (const auto& msg : this->requests_) {
+  // repeated .service_layer.SLSrPolicyReq request = 1;
+  total_size += 1UL * this->_internal_request_size();
+  for (const auto& msg : this->request_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -1936,7 +1764,7 @@ void SLSrPolicyRequests::MergeFrom(const SLSrPolicyRequests& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  requests_.MergeFrom(from.requests_);
+  request_.MergeFrom(from.request_);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1954,7 +1782,7 @@ bool SLSrPolicyRequests::IsInitialized() const {
 void SLSrPolicyRequests::InternalSwap(SLSrPolicyRequests* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  requests_.InternalSwap(&other->requests_);
+  request_.InternalSwap(&other->request_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrPolicyRequests::GetMetadata() const {
@@ -4072,42 +3900,12 @@ void SLSrConstraints::InternalSwap(SLSrConstraints* other) {
 
 class SLSrSrv6BindingSID::_Internal {
  public:
-  static const ::service_layer::SLSRv6SIDInfo& explicit_(const SLSrSrv6BindingSID* msg);
   static const ::service_layer::SLSrSrv6DynamicBindingSID& dynamic(const SLSrSrv6BindingSID* msg);
 };
 
-const ::service_layer::SLSRv6SIDInfo&
-SLSrSrv6BindingSID::_Internal::explicit_(const SLSrSrv6BindingSID* msg) {
-  return *msg->type_.explicit__;
-}
 const ::service_layer::SLSrSrv6DynamicBindingSID&
 SLSrSrv6BindingSID::_Internal::dynamic(const SLSrSrv6BindingSID* msg) {
   return *msg->type_.dynamic_;
-}
-void SLSrSrv6BindingSID::set_allocated_explicit_(::service_layer::SLSRv6SIDInfo* explicit_) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_type();
-  if (explicit_) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(explicit_));
-    if (message_arena != submessage_arena) {
-      explicit_ = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, explicit_, submessage_arena);
-    }
-    set_has_explicit_();
-    type_.explicit__ = explicit_;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSrv6BindingSID.explicit)
-}
-void SLSrSrv6BindingSID::clear_explicit_() {
-  if (_internal_has_explicit_()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete type_.explicit__;
-    }
-    clear_has_type();
-  }
 }
 void SLSrSrv6BindingSID::set_allocated_dynamic(::service_layer::SLSrSrv6DynamicBindingSID* dynamic) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -4138,10 +3936,6 @@ SLSrSrv6BindingSID::SLSrSrv6BindingSID(const SLSrSrv6BindingSID& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_type();
   switch (from.type_case()) {
-    case kExplicit: {
-      _internal_mutable_explicit_()->::service_layer::SLSRv6SIDInfo::MergeFrom(from._internal_explicit_());
-      break;
-    }
     case kDynamic: {
       _internal_mutable_dynamic()->::service_layer::SLSrSrv6DynamicBindingSID::MergeFrom(from._internal_dynamic());
       break;
@@ -4184,12 +3978,6 @@ void SLSrSrv6BindingSID::SetCachedSize(int size) const {
 void SLSrSrv6BindingSID::clear_type() {
 // @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrSrv6BindingSID)
   switch (type_case()) {
-    case kExplicit: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete type_.explicit__;
-      }
-      break;
-    }
     case kDynamic: {
       if (GetArenaForAllocation() == nullptr) {
         delete type_.dynamic_;
@@ -4220,14 +4008,6 @@ const char* SLSrSrv6BindingSID::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .service_layer.SLSRv6SIDInfo explicit = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_explicit_(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
       // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
@@ -4265,14 +4045,6 @@ uint8_t* SLSrSrv6BindingSID::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .service_layer.SLSRv6SIDInfo explicit = 1;
-  if (_internal_has_explicit_()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::explicit_(this), target, stream);
-  }
-
   // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
   if (_internal_has_dynamic()) {
     target = stream->EnsureSpace(target);
@@ -4298,13 +4070,6 @@ size_t SLSrSrv6BindingSID::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (type_case()) {
-    // .service_layer.SLSRv6SIDInfo explicit = 1;
-    case kExplicit: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.explicit__);
-      break;
-    }
     // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
     case kDynamic: {
       total_size += 1 +
@@ -4339,10 +4104,6 @@ void SLSrSrv6BindingSID::MergeFrom(const SLSrSrv6BindingSID& from) {
   (void) cached_has_bits;
 
   switch (from.type_case()) {
-    case kExplicit: {
-      _internal_mutable_explicit_()->::service_layer::SLSRv6SIDInfo::MergeFrom(from._internal_explicit_());
-      break;
-    }
     case kDynamic: {
       _internal_mutable_dynamic()->::service_layer::SLSrSrv6DynamicBindingSID::MergeFrom(from._internal_dynamic());
       break;
