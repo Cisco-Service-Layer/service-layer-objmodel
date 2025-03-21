@@ -44,8 +44,6 @@ message SLSrPolicyMsg {
     oneof msg_type {
         SLSrPolicyOpen open = 1;
         SLSrPolicyRequests requests = 2;
-        //SLSrStartOfReplay replay_start = 3;
-        //SLSrEndOfReplay replay_end = 4;
     }
 }
 
@@ -106,11 +104,6 @@ message SLSrPolicyOpen {
     // an error. Usage of characters used in client_id is limited to alphanumerical
     // characters.
     string client_id = 1;
-
-    // Only applicable to DELETE persistence mode.
-    // Timer for deleting the policies after the disconnect. If not specified,
-    // a default value is used. 0 value is not allowed. Value is in seconds.
-    //optional uint32 policy_cleanup_timer = 2;
 
     // Persistence mode for policies instantiated by this client
     // Persistence mode is an attribute of the gRPC client. If the gRPC client
@@ -208,15 +201,6 @@ message SLSrPolicy {
 
 // Policy attributes
 message SLSrPolicyAttributes {
-    // The version number must be incremented by the controller whenever any attribute
-    // is changed in the parent container. The server will interpret the container as
-    // unchanged only if the version numbers match. If the version number is 0,
-    // it is not guaranteed that server will be able to avoid triggering the processing
-    // of an update for that candidate path, which could possibly result in
-    // re-optimization and/or notifications to various protocols, including PCEP and
-    // BGP-LS.
-    // uint64 version = 1;
-
     bool transit_eligible = 2;
 
     // The segment routing dataplane.
@@ -246,15 +230,6 @@ message SLSrPolicyAttributes {
 // [section 2.2 of RFC 9256] 
 // (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.2).
 message SLSrCandidatePath {
-    // The version number must be incremented by the controller whenever any attribute is
-    // changed in the parent container. The server will interpret the container as
-    // unchanged if the version numbers match. If the version number is 0,
-    // it is not guaranteed that server will be able to avoid triggering the
-    // processing of an update for that candidate path, which could possibly result in
-    // re-optimization and/or notifications to various protocols, including PCEP and
-    // BGP-LS.
-    // uint64 version = 1;
-
     // Unique candidate path identifier in the context of an SR policy.
     // The tuple (`policy_key`, `candidate_path_key`) is a globally unique
     // identifier of the candidate path. Protocol origin field will be set to
@@ -284,7 +259,6 @@ message SLSrCandidatePath {
 message SLSrExplicitCP {
     // The set of weighted segment lists in the explicit candidate path.
     repeated SLSrSegmentList segment_list = 1;
-    //repeated SLSrSegmentList reverse_segment_list = 2;
 
     // Optimization metric type used for accumulating metric value (specified for each
     // segment-list).

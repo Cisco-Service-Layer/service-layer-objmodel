@@ -168,10 +168,6 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "requests" field.</summary>
     public const int RequestsFieldNumber = 2;
-    /// <summary>
-    ///SLSrStartOfReplay replay_start = 3;
-    ///SLSrEndOfReplay replay_end = 4;
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrPolicyRequests Requests {

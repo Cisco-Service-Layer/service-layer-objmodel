@@ -877,7 +877,7 @@ type SLSrExplicitCP struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The set of weighted segment lists in the explicit candidate path.
-	SegmentList []*SLSrSegmentList `protobuf:"bytes,1,rep,name=segment_list,json=segmentList,proto3" json:"segment_list,omitempty"` //repeated SLSrSegmentList reverse_segment_list = 2;
+	SegmentList []*SLSrSegmentList `protobuf:"bytes,1,rep,name=segment_list,json=segmentList,proto3" json:"segment_list,omitempty"`
 	// Optimization metric type used for accumulating metric value (specified for each
 	// segment-list).
 	// Values are defined in “BGP-LS SR Policy Metric Type” registry under
