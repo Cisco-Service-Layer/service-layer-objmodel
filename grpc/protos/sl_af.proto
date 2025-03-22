@@ -7,7 +7,7 @@
 // change without notice and such changes can break backwards compatibility.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023, 2024 by Cisco Systems, Inc.
+//  Copyright (c) 2023-2025 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -21,8 +21,6 @@ package service_layer;
 
 import "sl_common_types.proto";
 import "sl_route_common.proto";
-import "sl_route_ipv4.proto";
-import "sl_route_ipv6.proto";
 
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
@@ -42,7 +40,7 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // Each client application MUST use a unique client ID identifying itself
 // that is separate from other clients programming the server. If there
 // are multiple instances of the client application, then each such
-// instance MUST be uniquely idenified.
+// instance MUST be uniquely identified.
 //
 // If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
 // a default client id of 0 for that RPC invocation and associates
@@ -83,7 +81,7 @@ service SLAF {
     // any other object (e.g. IP Route and MPLS label object) created by
     // ANY other client.
     //
-    // Only the client that created the object (IP/MPLS and Path Group included) 
+    // Only the client that created the object (IP/MPLS and Path Group included)
     // can manipulate that object.
 
     //
@@ -171,6 +169,8 @@ service SLAF {
     rpc SLAFOpStream(stream SLAFMsg) returns (stream SLAFMsgRsp);
 
     // Retrieves object attributes.
+    // This RPC is unidirectional streaming from the server side
+    // Server will close the stream when all the entries have been returned.
     rpc SLAFGet(SLAFGetMsg) returns (stream SLAFGetMsgRsp);
 
     // The route redistribution and next hop tracking RPC.
@@ -193,7 +193,8 @@ service SLAF {
     // The call takes a stream of per-VRF table notification requests.
     // Each notification request is first responded to with the result
     // of the registration operation itself, followed by any redistributed
-    // routes if requested and present, and any next hops if requested and present.
+    // routes if requested and present, and any next hops if requested and
+    // present.
     // From then on, any updates are notified as long as RPC is up.
     rpc SLAFNotifStream(stream SLAFNotifReq) returns (stream SLAFNotifMsg);
 
@@ -205,7 +206,7 @@ message SLAFVrfReg {
     // Registration message is applied on VRF's identified table
     SLTableType Table = 1;
 
-    // VRF registration attibutes
+    // VRF registration attributes
     SLVrfReg VrfReg = 2;
 }
 
@@ -252,7 +253,8 @@ message SLAFVrfRegMsgRsp {
 // Returns the VRF registrations done for all table types.
 message SLAFVrfRegGetMsg {
     // If true,  returns VRF registrations for all clients.
-    // If false, returns VRF registrations for this client as identified by the gRPC metadata.
+    // If false, returns VRF registrations for this client as identified by
+    // the gRPC metadata.
     bool GetAll = 1;
 }
 
@@ -304,11 +306,10 @@ message SLPathGroup {
     }
 
     // Flags to control programming of the PathGroup to Routing
-    // Information Base. Each flag is indicated as a bit field.
-    // See SLRouteFlags for flag enumerations.
+    // Information Base. See SLRouteFlags for flag enumerations.
     // Supported values are:
     //
-    // SL_ROUTE_FLAG_VIABLE_PATHS_ONLY. 
+    // SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
     // - If the flag is not set, all paths in the PathList are installed in
     //   the PathGroup's load balance group, even if paths are unviable.
     //   The Network element does not automatically update the PathGroup's
@@ -326,7 +327,7 @@ message SLPathGroup {
     //   based on their administrative distance. PathGroup's viability
     //   is not considered as a criterion to determine the routes' and
     //   MPLS entries' activeness. The network element does not automatically
-    //   promote or demote the routes and MPLS entries as viability of the 
+    //   promote or demote the routes and MPLS entries as viability of the
     //   PathGroup changes.
     //
     // - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
@@ -335,43 +336,42 @@ message SLPathGroup {
     //   on their administrative distance AND viability of the PathGroup.
     //   At least one path in the PathGroup must be viable for the
     //   PathGroup to be viable. The network element automatically promotes or
-    //   demotes the routes and MPLS entries as viability of the PathGroup changes.
+    //   demotes the routes and MPLS entries as viability of the PathGroup
+    //   changes.
     //
     // Others - Reserved.
-    uint32 Flags = 4;
+    repeated SLRouteFlags PgFlags = 4;
+}
+
+// Key for a MPLS label entry
+message SLMplsEntryKey {
+    // Local Label
+    uint32 Label = 1;
 }
 
 // MPLS entry.
 // This message defines an entry in the MPLS forwarding table.
 message SLMplsEntry {
-    // Local Label
-    uint32 LocalLabel = 1;
+    // MPLS Key
+    SLMplsEntryKey MplsKey = 1;
 
     // Administrative distance of the MPLS label. Possible values
     // are [0-255]. RIB uses this field to break the tie when multiple
     // sources install the same incoming MPLS label. Lower distance is
     // preferred over higher distance. The per MPLS label object admin distance
-    // overrides the default admin distance set at VRF registration. see SLVrfReg.
+    // overrides the default admin distance set at VRF registration.
+    // see SLVrfReg.
     uint32 AdminDistance = 2;
 
-    // For ADD or UPDATE operation, only one of PathList or
-    // SLPathGroupRefKey must be specified. For DELETE, neither
-    // are required.
+    // For ADD or UPDATE operation, atleast one path in the PathList
+    // must be specified. For DELETE, PathList is ignored.
 
     // List of paths for this MPLS label entry.
     // Specifying more than one path is allowed for ECMP/UCMP cases.
     repeated SLRoutePath PathList = 3;
 
-    // Reference to the Path Group for this MPLS label entry.
-    // The attribute is oneof to allow for future extension.
-    oneof entry {
-        // Path group reference key
-        SLPathGroupRefKey PathGroupKey = 4;
-    }
-
     // Flags to control programming of the MPLS Entry to Routing
-    // Information Base. Each flag is indicated as a bit field.
-    // See SLRouteFlags for flag enumerations.
+    // Information Base. See SLRouteFlags for flag enumerations.
     // Supported values are:
     //
     // SL_ROUTE_FLAG_VIABLE_PATHS_ONLY - This flag on the MPLS Entry
@@ -388,8 +388,8 @@ message SLMplsEntry {
     //   The Network element also automatically updates the MPLS Entry's
     //   load balance group when path viability changes.
     //
-    // - If the MPLS Entry refers to the PathGroup, then a programming error is 
-    //   returned and the corresponding setting on the PathGroup dictates 
+    // - If the MPLS Entry refers to the PathGroup, then a programming error is
+    //   returned and the corresponding setting on the PathGroup dictates
     //   path programming.
     //
     // SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
@@ -410,32 +410,52 @@ message SLMplsEntry {
     //   are no longer viable.
     //
     // - If the MPLS Entry refers to the PathGroup,
-    //   then a programming error is returned and the corresponding setting on 
-    //   PathGroup dictates whether this route should be considered in best 
+    //   then a programming error is returned and the corresponding setting on
+    //   PathGroup dictates whether this route should be considered in best
     //   route calculations.
     //
     // Others - Reserved.
-    uint32 Flags = 5;
+    repeated SLRouteFlags MplsFlags = 4;
+}
+
+// SL IPv4 or IPv6 Unicast Route Object
+message SLAFIPRoute {
+    // IP Route Prefix
+    SLRoutePrefix IPRoutePrefix = 1;
+
+    // Common route attributes
+    SLRouteCommon RouteCommon = 2;
+
+    // List of route paths for this route.
+    // Specifying more than one path is allowed for ECMP/UCMP cases.
+    repeated SLRoutePath PathList = 3;
 }
 
 // One of AF objects
 message SLAFObject {
     oneof entry {
-        SLRoutev4 IPv4Route = 1;
-        SLRoutev6 IPv6Route = 2;
-        SLMplsEntry MplsLabel = 3;
-        SLPathGroup PathGroup = 4;
+        // IPv4 or IPv6 Unicast Route Object
+        SLAFIPRoute IPRoute = 1;
+
+        // MPLS Label Object
+        SLMplsEntry MplsLabel = 2;
+
+        // Path Group Object
+        SLPathGroup PathGroup = 3;
     }
 }
 
 // Operation on a forwarding table object
-message SLAFOp {
+message SLAFOpMsg {
+    // Object
     SLAFObject AFObject = 1;
 
     // Unique operationID sent by the client to corelate the responses.
     // The responses from network element can be out of order, and client can
-    // use operation ID to correlate the response for the operation on the object.
-    // Operation Id should be monotonically increasing for the life of the client.
+    // use operation ID to correlate the response for the operation on the
+    // object.
+    // Operation Id should be monotonically increasing for the life of the
+    // client.
     uint64 OperationID = 2;
 
     // The type of Acknowledgment that the controller or agent expects from
@@ -444,21 +464,23 @@ message SLAFOp {
 
     // ACKPermit and AckCadence are parameters that can be used to control
     // and filter hardware programming responses sent from SL-API server
-    // to the SL-API client based on the response type carried by SLAFRes.ErrStatus.
-    // These parameters are supported only for objects programmed with AckType as
-    // RIB_AND_FIB_ACK.
+    // to the SL-API client based on the response type carried by
+    // SLAFRes.Status.
+    // These parameters are supported only for objects programmed with AckType
+    // as RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK.
     // These parameters only affect the responses sent to the SL-API client.
     // SL-API server will keep record of the latest hardware programming
-    // response for each object programmed with AckType as RIB_AND_FIB_ACK.
+    // response for each object programmed with AckType as RIB_AND_FIB_ACK or
+    // RIB_FIB_INUSE_ACK.
     // SL-API client can do a SLAFGet() RPC to retrieve the latest hardware
     // programming response regardless of what is defined in ACKPermit and
     // AckCadence.
 
     // AckPermit controls the scope of response types that are sent from
     // SL-API server in response to hardware programming events.
-    // AckPermit is a bit-field  resulting from ORing one or more bits
-    // enumerated in SLRspACKPermit.
-    uint32 AckPermit = 4;
+    // AckPermit is a list of possible response types as enumerated in
+    // SLRspACKPermit that the client is interested in.
+    repeated SLRspACKPermit AckPermits = 4;
 
     // AckCadence controls the cadence of hardware programming responses.
     // Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite
@@ -466,75 +488,99 @@ message SLAFOp {
     SLRspAckCadence AckCadence = 5;
 }
 
-// Used to retrieve objects in a VRF table.
-// Only objects produced by this client (as indicated in the RPC's metadata)
-// are returned unless the GetAllClients is set to true. In that case, all
-// the objects produced by all the clients is returned.
-message SLAFGetMsg {
-    // VRF name. If VRF name is not specified or is nil, get objects from
-    // all VRFs.
-    string VrfName = 1;
-
-    // If Table is set to SL_TABLE_TYPE_RESERVED, or is unset, objects from
-    // all tables for selected VRFs are returned
-    SLTableType Table = 2;
-
-    // Get objects programmed by all clients, ignoring any RPC ClientID
-    // metadata
-    bool GetAllClients = 3;
-
-    // Get objects that  match the value
-    repeated SLRouteGetMatch RouteMatch = 4;
+// List of Client IDs for which entries will be returned
+message SLAFClientIDList {
+    // List of Client IDs
+    repeated uint64 ClientIDList = 1;
 }
 
-// FIB programming result of the dependent operation
-message SLAFDepFibStatus {
-    // Error code associated with hardware programming
-    SLErrorStatus ErrorCode = 1;
+// List of table types from whom objects for selected VRFs will be returned.
+// Table type SL_TABLE_TYPE_RESERVED should not be used
+message SLTableTypeList {
+    repeated SLTableType Table = 1;
+}
 
-    // Operation ID of the dependent object
-    uint64 OperationID = 2;
+// Key for a AF object
+message SLAFObjectKey {
+    oneof key {
+        // IP Route Prefix Key
+        SLRoutePrefix IPRoutePrefix = 1;
 
-    // Version of the dependent object. A valid version is
-    // a non-zero positive number.
-    uint64 Version = 3;
+        // MPLS Label Object Key
+        SLMplsEntryKey MplsLabel = 2;
 
-    // Key of the dependent object. This attribute is oneof to allow for future extension.
-    // If the parent object is programmed with reference to a path-group,
-    // the key of dependent path-group is returned here.
-    oneof entry {
-        // Path group reference key
-        SLPathGroupRefKey PathGroupKey = 4;
+        // Path Group Object Key
+        SLObjectId PathGroupId = 3;
     }
 }
 
-// FIB programming result of an object
-message SLAFFibStatus {
-    // Version generated by the device for this operation. A valid version is
-    // a non-zero positive number
-    uint64 Version = 1;
+// Get objects whose attributes match one of below entries.
+// Specify a regular expression for PathGroup name
+// or a numerical value for Vxlan VNI
+// or a specific IPv4, IPv6, MPLS or PG route key.
+message SLAFGetMatch {
+    oneof entry {
+        // Return objects matching the specified object key (exact match)
+        SLAFObjectKey Key = 1;
 
-    // DepResult is the result of any object that this operation's object depends on.
-    // For example: if this operation is about programming an IPv4 or IPv6
-    // route that is pointing to a Path Group, then the DepResult that will carry 
-    // the FIB result of the operation that programmed that Path Group.
-    // Note, DepResult is returned on ADD and UPDATE operations only. 
-    SLAFDepFibStatus DepResult = 2;
+        // Path Group Name Regex
+        string PathGroupRegex = 2;
+
+        // Return VxLAN encap IP routes matching VNI ID
+        uint32 VxlanVniId = 3;
+    }
+}
+
+// List of match criteria to return objects that match either of the criteria
+// specified.
+message SLAFGetMatchList {
+    // Match criteria to check objects to return
+    repeated SLAFGetMatch Match = 1;
+}
+
+// Used to retrieve objects in a VRF table. This RPC
+// can only be used to get objects programmed by this service.
+message SLAFGetMsg {
+
+    // VRF name. If VRF name is specified, the specified VRF
+    // is a candidate for object search.
+    // If VRF name is not specified or is nil,
+    // all VRFs are candidates for object search.
+    string VrfName = 1;
+
+    // Search objects produced by either all clients or clients
+    // specified in the ClientIDList. If not specified,
+    // objects of the current client are searched.
+    oneof client {
+        // Search objects programmed by clients in the Client ID List
+        // Maximum number of entries allowed in the list is 32. All client ids
+        // specified after the maximum are discarded.
+        SLAFClientIDList ClientIDList = 2;
+
+        // Search objects programmed by all clients
+        bool AllClients = 3;
+    }
+
+    // If match is not specified, all objects of the searched
+    // VRFs and Client IDs are returned.
+    oneof match {
+        // Return only objects of specified table types.
+        SLTableTypeList TableList = 4;
+
+        // Return objects that match the specified match criteria.
+        SLAFGetMatchList RouteMatchList = 5;
+    }
 }
 
 // Object and its programming status returned on Get
 message SLAFGetMsgRspEntry {
     // Object
-    SLAFOp AFOp = 1;
+    SLAFOpMsg AFOpMsg = 1;
 
     // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
-    // then ErrorCode indicates result of hardware programming of the
-    // operation
-    SLErrorStatus ErrorCode = 2;
-
-    // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
-    // then Version is the last version number assigned by the device.
-    uint64 Version = 3;
+    // or RIB_FIB_INUSE_ACK, then FIBStatus indicates status of hardware
+    // programming of the operation.
+    SLAFFibStatus FIBStatus = 2;
 }
 
 // Get AF message response. The objects can be returned in
@@ -576,26 +622,36 @@ message SLAFMsg {
     string VrfName = 2;
 
     // List of operations
-    repeated SLAFOp OpList = 3;
+    repeated SLAFOpMsg OpList = 3;
 
 }
 
 // Result of an operation on the object
 message SLAFRes {
-    // Error code
-    SLErrorStatus ErrStatus = 1;
+    // Status of Operation.
+    // Status == SL_SUCCESS implies that the object is programmed in RIB.
+    // Any other value implies some failure.
+    SLErrorStatus Status = 1;
 
-    // The operation, expected to carry only the part that is considered
-    // the key to uniquely identify the object that is programmed
-    SLAFOp Operation = 2;
+    // Object key
+    SLAFObjectKey Key = 2;
 
-    // Descriptive string describing error if any, on the hardware programming
-    string ErrorString = 3;
+    // Unique operationID sent by the client to corelate the responses.
+    // The responses from network element can be out of order, and client can
+    // use operation ID to correlate the response for the operation on the
+    // object.
+    // Operation Id should be monotonically increasing for the lifetime of the
+    // client.
+    uint64 OperationID = 3;
 
     // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
-    // then FIBStatus indicates status of hardware programming of the
-    // operation
+    // or RIB_FIB_INUSE_ACK, then FIBStatus indicates status of hardware
+    // programming of the operation.
     SLAFFibStatus FIBStatus = 4;
+
+    // In case Status or FIBStatus indicates failure, the ErrorString MAY
+    // provide more descriptive context about the failure.
+    string ErrorString = 5;
 }
 
 // Route operations result status
@@ -630,24 +686,22 @@ message SLAFRedistRegMsg {
 // Next hop registration request key
 message SLAFNextHopRegKey {
     message SLNextHopKey {
-        // Next Hop IP to resolve
-        SLIpAddress NextHop = 1;
 
-        // Length of Next Hop IP address to use for resolution
-        uint32 NextHopLen = 2;
+        // Next Hop IP to resolve
+        SLRoutePrefix NextHopIP = 1;
 
         // Chose exact vs. best match
-        bool ExactMatch = 3;
+        bool ExactMatch = 2;
 
         // Allow default route to be returned
-        bool AllowDefault = 4;
+        bool AllowDefault = 3;
 
         // If this flag is not set or set to False, only the immediate
         // viable path list is returned. If set to True, recursively resolve
         // the next hop's paths and return the flattened path list.
         // If the list exceeds MaxPathsInNexthopNotif, then only the
         // first MaxPathsInNexthopNotif will be returned.
-        bool Recurse = 5;
+        bool Recurse = 4;
     }
 
     // Notification request key
@@ -726,43 +780,42 @@ message SLAFNotifRsp {
 }
 
 // Next hop Notification.
-// If there are no viable paths to the next hop, ResolvingRoute, 
-// ResolvingRouteLen, SrcProto are not set, AdminDistance/Metric are set to 
-// UINT32_MAX.
+// If there are no viable paths to the next hop, then:
+//  1. ResolvingPrefix, SrcProto are not set, and
+//  2. AdminDistance and Metric are set to UINT32_MAX.
 message SLNextHop {
+
     // Next hop registration key
     SLAFNextHopRegKey NextHopKey = 1;
 
     // Prefix of the route resolving the nexthop
-    SLIpAddress ResolvingRoute = 2;
-
-    // Resolving route's prefix length
-    uint32 ResolvingRouteLen = 3;
+    SLRoutePrefix ResolvingPrefix = 2;
 
     // Source Protocol.
     // Contact Cisco for supported protocol string names.
-    string SrcProto = 4;
+    string SrcProto = 3;
 
     // Source Protocol Tag. This can be empty if N/A.
     // Contact Cisco for supported protocol tags.
     // This field is optional.
-    string SrcProtoTag = 5;
+    string SrcProtoTag = 4;
 
     // Nexthop route distance
-    uint32 AdminDistance = 6;
+    uint32 AdminDistance = 5;
 
     // Nexthop route metric
-    uint32 Metric = 7;
+    uint32 Metric = 6;
 
     // Nexthop's path list. Paths indicate paths available
     // for the next hop. In case of recursive next hop resolution,
     // the returned path list consists of flattened directly connected
     // paths.
-    // Returned attributes in Path are NexthopAddress, NexthopInterface, VrfName.
+    // Returned attributes in Path are NexthopAddress, NexthopInterface,
+    // VrfName.
     //
     // If this field is not present,
     // then no viable path to the next hop exist.
-    repeated SLRoutePath Paths = 8;
+    repeated SLRoutePath Paths = 7;
 }
 
 // AF Notification message
@@ -772,7 +825,7 @@ message SLAFNotif {
         // Table type for the Marker.
         SLTableType Table = 1;
     }
-    
+
     oneof Event {
         // This field carries the status of the SLAFNotifReq message
         SLAFNotifRsp NotifStatus = 1;
@@ -780,10 +833,10 @@ message SLAFNotif {
         // This field carries the start marker per VRF per Tabletype.
         // Server sends this event before any notifications are sent under
         // following conditions:
-        // - If there are no previous redistribution registrations for the VRF and
-        //   table type, and new redistribution requests are registered, then
-        //   when the first route matching any of the redistribution registrations
-        //   is available.
+        // - If there are no previous redistribution registrations for the
+        //   VRF and table type, and new redistribution requests are registered,
+        //   then when the first route matching any of the redistribution
+        //   registrations is available.
         // - On a RIB restart if there are previous redistribution registrations
         //   on the VRF and table type.
         // This allows the client to stale any previous notifications in its
@@ -797,8 +850,8 @@ message SLAFNotif {
         // - On redistribution registrations from the client when
         //   all routes matching the outstanding redistribution registrations
         //   have been sent to the client.
-        // - On RIB restart, after all routes matching the outstanding 
-        //   registrations on the VRF and table type have been notified to the 
+        // - On RIB restart, after all routes matching the outstanding
+        //   registrations on the VRF and table type have been notified to the
         //   client.
         // The client can now reconcile and sweep any stale notifications.
         SLRedistMarker EndMarker = 3;
@@ -809,8 +862,8 @@ message SLAFNotif {
         // for forwarding. If the route is deleted, or no paths are available
         // for forwarding, the PathList is not returned.
         // If the route is programmed with PathGroupRefKey, the redistributed
-        // route contains PathGroupRefKey. If the route is deleted, or the path group
-        // is unviable, the PathGroupRefKey is not returned.
+        // route contains PathGroupRefKey. If the route is deleted, or the
+        // path group is unviable, the PathGroupRefKey is not returned.
         SLAFObject RedistObject = 4;
 
         // Next hop change notification

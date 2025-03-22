@@ -5,11 +5,11 @@
 // Original file comments:
 // @file 
 // @brief Client RPC proto file for Policy RPCs. 
-// Declares calls for adding, deleting, updating the policies
-// and apply, unapply policies from interfaces. 
+// Declares calls for adding, replacing, deleting the policies
+// and apply, unapply policies from interfaces.
 // 
 // ----------------------------------------------------------------
-//  Copyright (c) 2024 by Cisco Systems, Inc.
+//  Copyright (c) 2024-2025 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -24,9 +24,12 @@ namespace ServiceLayer {
   /// <summary>
   /// @defgroup SLPolicy
   /// @ingroup Policy
-  /// Used for policy creation and deletion, add and delete rules from policy, 
-  /// apply and un-apply policy from interfaces. 
-  /// Defines the RPC for operations on policy, interface and get requests.
+  /// Used for:
+  /// - Policy creation, replacement, and deletion
+  /// - Rule addition, and deletion from Policy
+  /// - Apply and Un-apply Policy from Interfaces
+  ///
+  /// Defines the RPC for operations on Policy, Interface and get requests.
   /// @{ 
   /// </summary>
   public static partial class SLPolicy

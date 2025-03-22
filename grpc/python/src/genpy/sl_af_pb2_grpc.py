@@ -22,7 +22,7 @@ class SLAFStub(object):
     Each client application MUST use a unique client ID identifying itself
     that is separate from other clients programming the server. If there
     are multiple instances of the client application, then each such
-    instance MUST be uniquely idenified.
+    instance MUST be uniquely identified.
 
     If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
     a default client id of 0 for that RPC invocation and associates
@@ -110,7 +110,7 @@ class SLAFServicer(object):
     Each client application MUST use a unique client ID identifying itself
     that is separate from other clients programming the server. If there
     are multiple instances of the client application, then each such
-    instance MUST be uniquely idenified.
+    instance MUST be uniquely identified.
 
     If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
     a default client id of 0 for that RPC invocation and associates
@@ -152,7 +152,7 @@ class SLAFServicer(object):
         any other object (e.g. IP Route and MPLS label object) created by
         ANY other client.
 
-        Only the client that created the object (IP/MPLS and Path Group included) 
+        Only the client that created the object (IP/MPLS and Path Group included)
         can manipulate that object.
 
 
@@ -256,6 +256,8 @@ class SLAFServicer(object):
 
     def SLAFGet(self, request, context):
         """Retrieves object attributes.
+        This RPC is unidirectional streaming from the server side
+        Server will close the stream when all the entries have been returned.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -282,7 +284,8 @@ class SLAFServicer(object):
         The call takes a stream of per-VRF table notification requests.
         Each notification request is first responded to with the result
         of the registration operation itself, followed by any redistributed
-        routes if requested and present, and any next hops if requested and present.
+        routes if requested and present, and any next hops if requested and
+        present.
         From then on, any updates are notified as long as RPC is up.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -346,7 +349,7 @@ class SLAF(object):
     Each client application MUST use a unique client ID identifying itself
     that is separate from other clients programming the server. If there
     are multiple instances of the client application, then each such
-    instance MUST be uniquely idenified.
+    instance MUST be uniquely identified.
 
     If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
     a default client id of 0 for that RPC invocation and associates

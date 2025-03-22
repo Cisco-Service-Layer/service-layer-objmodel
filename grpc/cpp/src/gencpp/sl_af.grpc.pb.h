@@ -11,7 +11,7 @@
 // change without notice and such changes can break backwards compatibility.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023, 2024 by Cisco Systems, Inc.
+//  Copyright (c) 2023-2025 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -62,7 +62,7 @@ namespace service_layer {
 // Each client application MUST use a unique client ID identifying itself
 // that is separate from other clients programming the server. If there
 // are multiple instances of the client application, then each such
-// instance MUST be uniquely idenified.
+// instance MUST be uniquely identified.
 //
 // If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
 // a default client id of 0 for that RPC invocation and associates
@@ -106,7 +106,7 @@ class SLAF final {
     // any other object (e.g. IP Route and MPLS label object) created by
     // ANY other client.
     //
-    // Only the client that created the object (IP/MPLS and Path Group included) 
+    // Only the client that created the object (IP/MPLS and Path Group included)
     // can manipulate that object.
     //
     //
@@ -218,6 +218,8 @@ class SLAF final {
       return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>>(PrepareAsyncSLAFOpStreamRaw(context, cq));
     }
     // Retrieves object attributes.
+    // This RPC is unidirectional streaming from the server side
+    // Server will close the stream when all the entries have been returned.
     std::unique_ptr< ::grpc::ClientReaderInterface< ::service_layer::SLAFGetMsgRsp>> SLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::service_layer::SLAFGetMsgRsp>>(SLAFGetRaw(context, request));
     }
@@ -247,7 +249,8 @@ class SLAF final {
     // The call takes a stream of per-VRF table notification requests.
     // Each notification request is first responded to with the result
     // of the registration operation itself, followed by any redistributed
-    // routes if requested and present, and any next hops if requested and present.
+    // routes if requested and present, and any next hops if requested and
+    // present.
     // From then on, any updates are notified as long as RPC is up.
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> SLAFNotifStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(SLAFNotifStreamRaw(context));
@@ -269,7 +272,7 @@ class SLAF final {
       // any other object (e.g. IP Route and MPLS label object) created by
       // ANY other client.
       //
-      // Only the client that created the object (IP/MPLS and Path Group included) 
+      // Only the client that created the object (IP/MPLS and Path Group included)
       // can manipulate that object.
       //
       //
@@ -355,6 +358,8 @@ class SLAF final {
       //     Delete of a non-existant object is returned as success.
       virtual void SLAFOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFMsg,::service_layer::SLAFMsgRsp>* reactor) = 0;
       // Retrieves object attributes.
+      // This RPC is unidirectional streaming from the server side
+      // Server will close the stream when all the entries have been returned.
       virtual void SLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLAFGetMsgRsp>* reactor) = 0;
       // The route redistribution and next hop tracking RPC.
       //
@@ -376,7 +381,8 @@ class SLAF final {
       // The call takes a stream of per-VRF table notification requests.
       // Each notification request is first responded to with the result
       // of the registration operation itself, followed by any redistributed
-      // routes if requested and present, and any next hops if requested and present.
+      // routes if requested and present, and any next hops if requested and
+      // present.
       // From then on, any updates are notified as long as RPC is up.
       virtual void SLAFNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFNotifReq,::service_layer::SLAFNotifMsg>* reactor) = 0;
     };
@@ -513,7 +519,7 @@ class SLAF final {
     // any other object (e.g. IP Route and MPLS label object) created by
     // ANY other client.
     //
-    // Only the client that created the object (IP/MPLS and Path Group included) 
+    // Only the client that created the object (IP/MPLS and Path Group included)
     // can manipulate that object.
     //
     //
@@ -597,6 +603,8 @@ class SLAF final {
     //     Delete of a non-existant object is returned as success.
     virtual ::grpc::Status SLAFOpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* stream);
     // Retrieves object attributes.
+    // This RPC is unidirectional streaming from the server side
+    // Server will close the stream when all the entries have been returned.
     virtual ::grpc::Status SLAFGet(::grpc::ServerContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ServerWriter< ::service_layer::SLAFGetMsgRsp>* writer);
     // The route redistribution and next hop tracking RPC.
     //
@@ -618,7 +626,8 @@ class SLAF final {
     // The call takes a stream of per-VRF table notification requests.
     // Each notification request is first responded to with the result
     // of the registration operation itself, followed by any redistributed
-    // routes if requested and present, and any next hops if requested and present.
+    // routes if requested and present, and any next hops if requested and
+    // present.
     // From then on, any updates are notified as long as RPC is up.
     virtual ::grpc::Status SLAFNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* stream);
   };
