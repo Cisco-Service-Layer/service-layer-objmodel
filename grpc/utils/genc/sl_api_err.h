@@ -86,9 +86,11 @@
     SL_VRF_NOT_FOUND = 0x2002,\
     /* On a VRF registration, Table ID for the VRF is not found. 0x2003 */\
     SL_VRF_NO_TABLE_ID = 0x2003,\
-    /* VRF add registration message with invalid administrative distance. 0x2004 */\
+    /* VRF add registration message with invalid administrative distance. */\
+    /* 0x2004 */\
     SL_VRF_REG_INVALID_ADMIN_DISTANCE = 0x2004,\
-    /* On a VRF registration, Table cannot be added to persistent memory. 0x2005 */\
+    /* On a VRF registration, Table cannot be added to persistent memory. */\
+    /* 0x2005 */\
     SL_VRF_TABLE_ADD_ERR = 0x2005,\
     /* VRF table cannot be registered with RIB. 0x2006 */\
     SL_VRF_TABLE_REGISTRATION_ERR = 0x2006,\
@@ -147,9 +149,11 @@
     SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG = 0x3009,\
     /* Operation rejected as the request's SrcProtoTag is too long. 0x300a */\
     SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG = 0x300a,\
-    /* Operation rejected as the requested match value/values/criteria is invalid. 0x300b */\
+    /* Operation rejected as the requested match value/values/criteria */\
+    /* is invalid. 0x300b */\
     SL_RPC_ROUTE_GET_MATCH_INVALID = 0x300b,\
-    /* Operation rejected as the requested match value/values/criteria is not supported. 0x300c */\
+    /* Operation rejected as the requested match value/values/criteria */\
+    /* is not supported. 0x300c */\
     SL_RPC_ROUTE_GET_MATCH_NOTSUP = 0x300c,\
     /* !!! Error codes for Route objects. */\
     /* Offset for route errors. 0x4000 */\
@@ -178,7 +182,7 @@
     /* One or more paths could not be programmed in RIB as number of paths */\
     /* reached system limit. 0x400b */\
     SL_ROUTE_ERR_RIB_TOOMANYPATHS = 0x400b,\
-    /* This route already exists in the database. 0x400c   */\
+    /* This route already exists in the database. 0x400c */\
     SL_ROUTE_EEXIST = 0x400c,\
     /* Route prefix has host bits set. 0x400d */\
     SL_ROUTE_HOST_BITS_SET = 0x400d,\
@@ -205,7 +209,8 @@
     SL_PATH_NH_INTF_NOT_FOUND = 0x5002,\
     /* Number of labels in the path exceeds system capabilities. 0x5003 */\
     SL_PATH_INVALID_LABEL_COUNT = 0x5003,\
-    /* Path ID assigned to the path falls outside the supported range. 0x5004 */\
+    /* Path ID assigned to the path falls outside the supported range. */\
+    /* 0x5004 */\
     SL_PATH_INVALID_ID = 0x5004,\
     /* Path VRF name exceeds supported length. 0x5005 */\
     SL_PATH_VRF_NAME_TOOLONG = 0x5005,\
@@ -254,7 +259,8 @@
     SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH = 0x501a,\
     /* PATH router mac is not supported with VxLAN path attributes. 0x501b */\
     SL_PATH_RTR_MAC_NOSUP = 0x501b,\
-    /* Path Encap type attribute does not match specified encapsulation. 0x501c */\
+    /* Path Encap type attribute does not match specified encapsulation. */\
+    /* 0x501c */\
     SL_PATH_ENCAP_TYPE_MISMATCH = 0x501c,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
@@ -281,7 +287,7 @@
     SL_BFD_INTF_NAME_TOOLONG = 0x7001,\
     /* BFD Session's interface not found. 0x7002 */\
     SL_BFD_INTF_NOT_FOUND = 0x7002,\
-    /* BFD Session's tx interval or multiplier are beyond the  */\
+    /* BFD Session's tx interval or multiplier are beyond the */\
     /* supported range. 0x7003 */\
     SL_BFD_INVALID_ATTRIBUTE = 0x7003,\
     /* BFD Session's interface name is missing. 0x7004 */\
@@ -292,7 +298,7 @@
     SL_BFD_INVALID_NBR = 0x7006,\
     /* BFD Session's VRF Name is too long. 0x7007 */\
     SL_BFD_VRF_NAME_TOOLONG = 0x7007,\
-    /* BFD Session's one or more parameters are invalid.  */\
+    /* BFD Session's one or more parameters are invalid. */\
     /* For example, Multihop BFD can not have the interface name set. 0x7008 */\
     SL_BFD_BAD_PARAMETER = 0x7008,\
     /* BFD Session failed with internal error. 0x7009 */\
@@ -364,7 +370,8 @@
     SL_ILM_ELSP_EXP_OR_DFLT_ALREADY_SET = 0x900e,\
     /* MPLS ILM add operation requested but no paths were provided. 0x900f */\
     SL_ILM_ADD_NO_PATHS = 0x900f,\
-    /* MPLS ILM update operation requested but no paths were provided. 0x9010 */\
+    /* MPLS ILM update operation requested but no paths were provided. */\
+    /* 0x9010 */\
     SL_ILM_UPDATE_NO_PATHS = 0x9010,\
     /* LSP and ELSP on the same label not supported. 0x9011 */\
     SL_ILM_UNSUPPORTED_ELSP = 0x9011,\
@@ -410,7 +417,7 @@
     SL_NHLFE_NH_INF_NAME_MISSING = 0xa005,\
     /* Interface name exceeds supported length. 0xa006 */\
     SL_NHLFE_NH_INTF_NAME_TOOLONG = 0xa006,\
-    /* Number of labels in the path incompatible with system capabilities  */\
+    /* Number of labels in the path incompatible with system capabilities */\
     /* for the given label action. 0xa007 */\
     SL_NHLFE_INVALID_LABEL_COUNT = 0xa007,\
     /* Path id is invalid in NHLFE. 0xa008 */\
@@ -470,7 +477,8 @@
     SL_NHLFE_NON_CONTIGUOUS_SETIDS = 0xa022,\
     /* Paths with same EXP classification are not contiguous. 0xa023 */\
     SL_NHLFE_NON_CONTIGUOUS_EXP = 0xa023,\
-    /* On a ILM, mix of NHLFE with EXP class and others without any EXP class are not allowed. 0xa024 */\
+    /* On a ILM, mix of NHLFE with EXP class and others without any EXP */\
+    /* class are not allowed. 0xa024 */\
     SL_NHLFE_INCONSISTENT_EXP_ON_PATH = 0xa024,\
     /* !!!  MPLS Label block Error codes */\
     /* Offset for label block errors. 0xb000 */\
@@ -514,7 +522,7 @@
     SL_RPC_INTF_TOO_MANY_INTERFACES = 0xd001,\
     /* Interface Operation rejected as server is not initialized. 0xd002 */\
     SL_RPC_INTF_SERVER_NOT_INITIALIZED = 0xd002,\
-    /* Interface Operation failed as server is not registered with  */\
+    /* Interface Operation failed as server is not registered with */\
     /* interface manager. 0xd003 */\
     SL_RPC_INTF_API_CLIENT_NOT_REGISTERED = 0xd003,\
     /* !!! Error codes for Interface objects. */\
@@ -524,7 +532,7 @@
     SL_INTF_INTERFACE_NAME_MISSING = 0xe001,\
     /* Interface object's interface name exceeds supported length. 0xe002 */\
     SL_INTF_INTERFACE_NAME_TOOLONG = 0xe002,\
-    /* Interface internal registration error. 0xe003  */\
+    /* Interface internal registration error. 0xe003 */\
     SL_INTF_INTERFACE_REG_ERR = 0xe003,\
     /* Internal database error. 0xe004 */\
     SL_INTF_INTERNAL_DB_ERROR = 0xe004,\
@@ -633,7 +641,8 @@
     SL_PG_VRF_NO_VRFID = 0x15002,\
     /* PathGroup's string key is too long. 0x15003 */\
     SL_PG_STR_KEY_TOOLONG = 0x15003,\
-    /* ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004 */\
+    /* ID of a next hop VRF in a path in the PathGroup cannot be determined. */\
+    /* 0x15004 */\
     SL_PG_TARGET_VRF_NO_VRFID = 0x15004,\
     /* PathGroup's string key contains invalid characters. 0x15005 */\
     SL_PG_STR_KEY_INVALID = 0x15005,\
@@ -657,21 +666,16 @@
     /* Unable to program route redist registration to RIB. 0x16008 */\
     SL_ROUTE_REDIST_RIB_ADD_FAILED = 0x16008,\
     /* Offset for Hardware Ack errors. 0x17000 */\
-    SL_FIB_START_OFFSET = 0x17000,\
-    /* The operation is successfully programmed in hardware. 0x17001 */\
-    SL_FIB_SUCCESS = 0x17001,\
-    /* FIB programming failure. 0x17002 */\
-    SL_FIB_FAILED = 0x17002,\
-    /* The operation is not viable to be programmed in hardware at this time. 0x17003 */\
-    SL_FIB_INELIGIBLE = 0x17003,\
-    /* Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004 */\
-    SL_ACK_PERMIT_NOT_SUPPORTED = 0x17004,\
-    /* Ack cadence is not supported when ack permits are not set. 0x17005 */\
-    SL_ACK_CADENCE_NOT_SUPPORTED = 0x17005,\
+    SL_ACK_START_OFFSET = 0x17000,\
+    /* Ack permit is supported only on streaming RPC with ack type set */\
+    /* to RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK. 0x17001 */\
+    SL_ACK_PERMIT_NOT_SUPPORTED = 0x17001,\
+    /* The Ack type requested is not supported on the object type. 0x17002 */\
+    SL_ACK_INVALID_TYPE = 0x17002,\
     /* !!! Error codes for operations on policy objects. */\
     /* Offset for policy object operations. 0x18000 */\
     SL_POLICY_START_OFFSET = 0x18000,\
-    /* Policy object could not be created. 0x18001   */\
+    /* Policy object could not be created. 0x18001 */\
     SL_POLICY_ADD_ERR = 0x18001,\
     /* Policy object already exists. 0x18002 */\
     SL_POLICY_EXISTS_ERR = 0x18002,\
@@ -700,7 +704,7 @@
     /* Rule belongs to a different policy. 0x1800e */\
     SL_POLICY_INVALID_RULE = 0x1800e,\
     /* Rule add operation requested but no rules were provided. 0x1800f */\
-    SL_POLICY_RULE_ADD_NO_RULES = 0x1800f, \
+    SL_POLICY_RULE_ADD_NO_RULES = 0x1800f,\
     /* Rule add operation requested but no matches were provided. 0x18010 */\
     SL_POLICY_INVALID_MATCH_COUNT_IN_RULE = 0x18010,\
     /* Rule add operation requested but no actions were provided. 0x18011 */\
@@ -711,17 +715,17 @@
     SL_POLICY_INVALID = 0x18013,\
     /* Policy name missing. 0x18014 */\
     SL_POLICY_NAME_MISSING = 0x18014,\
-    /* Rule name missing. 0x18015  */\
+    /* Rule name missing. 0x18015 */\
     SL_POLICY_RULE_NAME_MISSING = 0x18015,\
     /* Priority missing in rule. 0x18016 */\
     SL_POLICY_PRIORITY_MISSING_IN_RULE = 0x18016,\
-    /* Invalid policy type. 0x18017  */\
+    /* Invalid policy type. 0x18017 */\
     SL_POLICY_TYPE_INVALID = 0x18017,\
     /* Invalid policy direction. 0x18018 */\
     SL_POLICY_INVALID_DIRECTION = 0x18018,\
     /* Policy object's interface name exceeds supported length. 0x18019 */\
     SL_POLICY_INTF_NAME_TOOLONG = 0x18019,\
-    /* Policy object's interface name is missing. 0x1801a  */\
+    /* Policy object's interface name is missing. 0x1801a */\
     SL_POLICY_INTF_NAME_MISSING = 0x1801a,\
     /* Max rule limit within a policy is reached. 0x1801b */\
     SL_POLICY_MAX_RULE_LIMIT_REACHED = 0x1801b,\
@@ -735,7 +739,7 @@
     SL_POLICY_PATH_GRP_NAME_MISSING = 0x1801f,\
     /* Invalid Dscp Value. 0x18020 */\
     SL_POLICY_INVALID_DSCP_VALUE = 0x18020,\
-    /* Priority string too long. 0x18021  */\
+    /* Priority string too long. 0x18021 */\
     SL_POLICY_PRIORITY_STR_TOO_LONG = 0x18021,\
     /* Max interfaces limit in policy reached. 0x18022 */\
     SL_POLICY_MAX_INTF_LIMIT_REACHED = 0x18022,\
@@ -745,9 +749,11 @@
     SL_POLICY_APPLY_NO_INTFS = 0x18024,\
     /* Policy unapply requested but no interfaces were provided. 0x18025 */\
     SL_POLICY_UNAPPLY_NO_INTFS = 0x18025,\
+    /* Policy object replace failed. 0x18026 */\
+    SL_POLICY_REPLACE_ERR = 0x18026,\
     /* !!! Error codes for Bgpls Topology objects. */\
     /* Offset for Bgpls Topology errors. 0x19000 */\
-    SL_BGPLS_TOPO_START_OFFSET = 0x19000,        \
+    SL_BGPLS_TOPO_START_OFFSET = 0x19000,\
     /* LSLIB Server which is required for BGPLS Topology Service */\
     /* is not available. 0x19001 */\
     SL_BGPLS_SERVER_NOT_AVAILABLE = 0x19001,\
@@ -987,10 +993,12 @@
         " On a VRF registration, Table ID for the VRF is not found.  "\
         },\
     {SL_VRF_REG_INVALID_ADMIN_DISTANCE ,\
-        " VRF add registration message with invalid administrative distance.  "\
+        " VRF add registration message with invalid administrative distance. "\
+        "  "\
         },\
     {SL_VRF_TABLE_ADD_ERR ,\
-        " On a VRF registration, Table cannot be added to persistent memory.  "\
+        " On a VRF registration, Table cannot be added to persistent memory. "\
+        "  "\
         },\
     {SL_VRF_TABLE_REGISTRATION_ERR ,\
         " VRF table cannot be registered with RIB.  "\
@@ -1068,10 +1076,12 @@
         " Operation rejected as the request's SrcProtoTag is too long.  "\
         },\
     {SL_RPC_ROUTE_GET_MATCH_INVALID ,\
-        " Operation rejected as the requested match value/values/criteria is invalid.  "\
+        " Operation rejected as the requested match value/values/criteria "\
+        " is invalid.  "\
         },\
     {SL_RPC_ROUTE_GET_MATCH_NOTSUP ,\
-        " Operation rejected as the requested match value/values/criteria is not supported.  "\
+        " Operation rejected as the requested match value/values/criteria "\
+        " is not supported.  "\
         },\
     {SL_ROUTE_START_OFFSET ,\
         " Offset for route errors.  "\
@@ -1151,7 +1161,8 @@
         " Number of labels in the path exceeds system capabilities.  "\
         },\
     {SL_PATH_INVALID_ID ,\
-        " Path ID assigned to the path falls outside the supported range.  "\
+        " Path ID assigned to the path falls outside the supported range. "\
+        "  "\
         },\
     {SL_PATH_VRF_NAME_TOOLONG ,\
         " Path VRF name exceeds supported length.  "\
@@ -1224,7 +1235,8 @@
         " PATH router mac is not supported with VxLAN path attributes.  "\
         },\
     {SL_PATH_ENCAP_TYPE_MISMATCH ,\
-        " Path Encap type attribute does not match specified encapsulation.  "\
+        " Path Encap type attribute does not match specified encapsulation. "\
+        "  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
         " Offset for BFD operation errors.  "\
@@ -1261,7 +1273,7 @@
         " BFD Session's interface not found.  "\
         },\
     {SL_BFD_INVALID_ATTRIBUTE ,\
-        " BFD Session's tx interval or multiplier are beyond the  "\
+        " BFD Session's tx interval or multiplier are beyond the "\
         " supported range.  "\
         },\
     {SL_BFD_INTF_NAME_MISSING ,\
@@ -1277,7 +1289,7 @@
         " BFD Session's VRF Name is too long.  "\
         },\
     {SL_BFD_BAD_PARAMETER ,\
-        " BFD Session's one or more parameters are invalid.  "\
+        " BFD Session's one or more parameters are invalid. "\
         " For example, Multihop BFD can not have the interface name set.  "\
         },\
     {SL_BFD_API_INTERNAL_ERROR ,\
@@ -1379,7 +1391,8 @@
         " MPLS ILM add operation requested but no paths were provided.  "\
         },\
     {SL_ILM_UPDATE_NO_PATHS ,\
-        " MPLS ILM update operation requested but no paths were provided.  "\
+        " MPLS ILM update operation requested but no paths were provided. "\
+        "  "\
         },\
     {SL_ILM_UNSUPPORTED_ELSP ,\
         " LSP and ELSP on the same label not supported.  "\
@@ -1444,7 +1457,7 @@
         " Interface name exceeds supported length.  "\
         },\
     {SL_NHLFE_INVALID_LABEL_COUNT ,\
-        " Number of labels in the path incompatible with system capabilities  "\
+        " Number of labels in the path incompatible with system capabilities "\
         " for the given label action.  "\
         },\
     {SL_NHLFE_INVALID_PATH_ID ,\
@@ -1533,7 +1546,8 @@
         " Paths with same EXP classification are not contiguous.  "\
         },\
     {SL_NHLFE_INCONSISTENT_EXP_ON_PATH ,\
-        " On a ILM, mix of NHLFE with EXP class and others without any EXP class are not allowed.  "\
+        " On a ILM, mix of NHLFE with EXP class and others without any EXP "\
+        " class are not allowed.  "\
         },\
     {SL_LABEL_BLK_ERR_OFFSET ,\
         " Offset for label block errors.  "\
@@ -1594,7 +1608,7 @@
         " Interface Operation rejected as server is not initialized.  "\
         },\
     {SL_RPC_INTF_API_CLIENT_NOT_REGISTERED ,\
-        " Interface Operation failed as server is not registered with  "\
+        " Interface Operation failed as server is not registered with "\
         " interface manager.  "\
         },\
     {SL_INTF_START_OFFSET ,\
@@ -1755,7 +1769,8 @@
         " PathGroup's string key is too long.  "\
         },\
     {SL_PG_TARGET_VRF_NO_VRFID ,\
-        " ID of a next hop VRF in a path in the PathGroup cannot be determined.  "\
+        " ID of a next hop VRF in a path in the PathGroup cannot be determined. "\
+        "  "\
         },\
     {SL_PG_STR_KEY_INVALID ,\
         " PathGroup's string key contains invalid characters.  "\
@@ -1787,23 +1802,15 @@
     {SL_ROUTE_REDIST_RIB_ADD_FAILED ,\
         " Unable to program route redist registration to RIB.  "\
         },\
-    {SL_FIB_START_OFFSET ,\
+    {SL_ACK_START_OFFSET ,\
         " Offset for Hardware Ack errors.  "\
         },\
-    {SL_FIB_SUCCESS ,\
-        " The operation is successfully programmed in hardware.  "\
-        },\
-    {SL_FIB_FAILED ,\
-        " FIB programming failure.  "\
-        },\
-    {SL_FIB_INELIGIBLE ,\
-        " The operation is not viable to be programmed in hardware at this time.  "\
-        },\
     {SL_ACK_PERMIT_NOT_SUPPORTED ,\
-        " Ack permit is not supported when ack type is not RIB_AND_FIB_ACK.  "\
+        " Ack permit is supported only on streaming RPC with ack type set "\
+        " to RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK.  "\
         },\
-    {SL_ACK_CADENCE_NOT_SUPPORTED ,\
-        " Ack cadence is not supported when ack permits are not set.  "\
+    {SL_ACK_INVALID_TYPE ,\
+        " The Ack type requested is not supported on the object type.  "\
         },\
     {SL_POLICY_START_OFFSET ,\
         " Offset for policy object operations.  "\
@@ -1918,6 +1925,9 @@
         },\
     {SL_POLICY_UNAPPLY_NO_INTFS ,\
         " Policy unapply requested but no interfaces were provided.  "\
+        },\
+    {SL_POLICY_REPLACE_ERR ,\
+        " Policy object replace failed.  "\
         },\
     {SL_BGPLS_TOPO_START_OFFSET ,\
         " Offset for Bgpls Topology errors.  "\

@@ -127,9 +127,10 @@ struct SLPathGroup_SLPathListDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLPathGroup_SLPathListDefaultTypeInternal _SLPathGroup_SLPathList_default_instance_;
 constexpr SLPathGroup::SLPathGroup(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : pathgroupid_(nullptr)
+  : pgflags_()
+  , _pgflags_cached_byte_size_(0)
+  , pathgroupid_(nullptr)
   , admindistance_(0u)
-  , flags_(0u)
   , _oneof_case_{}{}
 struct SLPathGroupDefaultTypeInternal {
   constexpr SLPathGroupDefaultTypeInternal()
@@ -140,13 +141,25 @@ struct SLPathGroupDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLPathGroupDefaultTypeInternal _SLPathGroup_default_instance_;
+constexpr SLMplsEntryKey::SLMplsEntryKey(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : label_(0u){}
+struct SLMplsEntryKeyDefaultTypeInternal {
+  constexpr SLMplsEntryKeyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLMplsEntryKeyDefaultTypeInternal() {}
+  union {
+    SLMplsEntryKey _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsEntryKeyDefaultTypeInternal _SLMplsEntryKey_default_instance_;
 constexpr SLMplsEntry::SLMplsEntry(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : pathlist_()
-  , locallabel_(0u)
-  , admindistance_(0u)
-  , flags_(0u)
-  , _oneof_case_{}{}
+  , mplsflags_()
+  , _mplsflags_cached_byte_size_(0)
+  , mplskey_(nullptr)
+  , admindistance_(0u){}
 struct SLMplsEntryDefaultTypeInternal {
   constexpr SLMplsEntryDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -156,6 +169,20 @@ struct SLMplsEntryDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsEntryDefaultTypeInternal _SLMplsEntry_default_instance_;
+constexpr SLAFIPRoute::SLAFIPRoute(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : pathlist_()
+  , iprouteprefix_(nullptr)
+  , routecommon_(nullptr){}
+struct SLAFIPRouteDefaultTypeInternal {
+  constexpr SLAFIPRouteDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAFIPRouteDefaultTypeInternal() {}
+  union {
+    SLAFIPRoute _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFIPRouteDefaultTypeInternal _SLAFIPRoute_default_instance_;
 constexpr SLAFObject::SLAFObject(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : _oneof_case_{}{}
@@ -168,31 +195,91 @@ struct SLAFObjectDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFObjectDefaultTypeInternal _SLAFObject_default_instance_;
-constexpr SLAFOp::SLAFOp(
+constexpr SLAFOpMsg::SLAFOpMsg(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : afobject_(nullptr)
+  : ackpermits_()
+  , _ackpermits_cached_byte_size_(0)
+  , afobject_(nullptr)
   , operationid_(uint64_t{0u})
   , acktype_(0)
 
-  , ackpermit_(0u)
   , ackcadence_(0)
 {}
-struct SLAFOpDefaultTypeInternal {
-  constexpr SLAFOpDefaultTypeInternal()
+struct SLAFOpMsgDefaultTypeInternal {
+  constexpr SLAFOpMsgDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLAFOpDefaultTypeInternal() {}
+  ~SLAFOpMsgDefaultTypeInternal() {}
   union {
-    SLAFOp _instance;
+    SLAFOpMsg _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFOpDefaultTypeInternal _SLAFOp_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFOpMsgDefaultTypeInternal _SLAFOpMsg_default_instance_;
+constexpr SLAFClientIDList::SLAFClientIDList(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : clientidlist_()
+  , _clientidlist_cached_byte_size_(0){}
+struct SLAFClientIDListDefaultTypeInternal {
+  constexpr SLAFClientIDListDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAFClientIDListDefaultTypeInternal() {}
+  union {
+    SLAFClientIDList _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFClientIDListDefaultTypeInternal _SLAFClientIDList_default_instance_;
+constexpr SLTableTypeList::SLTableTypeList(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : table_()
+  , _table_cached_byte_size_(0){}
+struct SLTableTypeListDefaultTypeInternal {
+  constexpr SLTableTypeListDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLTableTypeListDefaultTypeInternal() {}
+  union {
+    SLTableTypeList _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLTableTypeListDefaultTypeInternal _SLTableTypeList_default_instance_;
+constexpr SLAFObjectKey::SLAFObjectKey(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : _oneof_case_{}{}
+struct SLAFObjectKeyDefaultTypeInternal {
+  constexpr SLAFObjectKeyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAFObjectKeyDefaultTypeInternal() {}
+  union {
+    SLAFObjectKey _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFObjectKeyDefaultTypeInternal _SLAFObjectKey_default_instance_;
+constexpr SLAFGetMatch::SLAFGetMatch(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : _oneof_case_{}{}
+struct SLAFGetMatchDefaultTypeInternal {
+  constexpr SLAFGetMatchDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAFGetMatchDefaultTypeInternal() {}
+  union {
+    SLAFGetMatch _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFGetMatchDefaultTypeInternal _SLAFGetMatch_default_instance_;
+constexpr SLAFGetMatchList::SLAFGetMatchList(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : match_(){}
+struct SLAFGetMatchListDefaultTypeInternal {
+  constexpr SLAFGetMatchListDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAFGetMatchListDefaultTypeInternal() {}
+  union {
+    SLAFGetMatchList _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFGetMatchListDefaultTypeInternal _SLAFGetMatchList_default_instance_;
 constexpr SLAFGetMsg::SLAFGetMsg(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : routematch_()
-  , vrfname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , table_(0)
-
-  , getallclients_(false){}
+  : vrfname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , _oneof_case_{}{}
 struct SLAFGetMsgDefaultTypeInternal {
   constexpr SLAFGetMsgDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -202,39 +289,11 @@ struct SLAFGetMsgDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFGetMsgDefaultTypeInternal _SLAFGetMsg_default_instance_;
-constexpr SLAFDepFibStatus::SLAFDepFibStatus(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : errorcode_(nullptr)
-  , operationid_(uint64_t{0u})
-  , version_(uint64_t{0u})
-  , _oneof_case_{}{}
-struct SLAFDepFibStatusDefaultTypeInternal {
-  constexpr SLAFDepFibStatusDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLAFDepFibStatusDefaultTypeInternal() {}
-  union {
-    SLAFDepFibStatus _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFDepFibStatusDefaultTypeInternal _SLAFDepFibStatus_default_instance_;
-constexpr SLAFFibStatus::SLAFFibStatus(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : depresult_(nullptr)
-  , version_(uint64_t{0u}){}
-struct SLAFFibStatusDefaultTypeInternal {
-  constexpr SLAFFibStatusDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLAFFibStatusDefaultTypeInternal() {}
-  union {
-    SLAFFibStatus _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFFibStatusDefaultTypeInternal _SLAFFibStatus_default_instance_;
 constexpr SLAFGetMsgRspEntry::SLAFGetMsgRspEntry(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : afop_(nullptr)
-  , errorcode_(nullptr)
-  , version_(uint64_t{0u}){}
+  : afopmsg_(nullptr)
+  , fibstatus_(0)
+{}
 struct SLAFGetMsgRspEntryDefaultTypeInternal {
   constexpr SLAFGetMsgRspEntryDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -277,9 +336,11 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFMsgDefaultTypeInternal _SLA
 constexpr SLAFRes::SLAFRes(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : errorstring_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , errstatus_(nullptr)
-  , operation_(nullptr)
-  , fibstatus_(nullptr){}
+  , status_(nullptr)
+  , key_(nullptr)
+  , operationid_(uint64_t{0u})
+  , fibstatus_(0)
+{}
 struct SLAFResDefaultTypeInternal {
   constexpr SLAFResDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -319,8 +380,7 @@ struct SLAFRedistRegMsgDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFRedistRegMsgDefaultTypeInternal _SLAFRedistRegMsg_default_instance_;
 constexpr SLAFNextHopRegKey_SLNextHopKey::SLAFNextHopRegKey_SLNextHopKey(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : nexthop_(nullptr)
-  , nexthoplen_(0u)
+  : nexthopip_(nullptr)
   , exactmatch_(false)
   , allowdefault_(false)
   , recurse_(false){}
@@ -404,8 +464,7 @@ constexpr SLNextHop::SLNextHop(
   , srcproto_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , srcprototag_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , nexthopkey_(nullptr)
-  , resolvingroute_(nullptr)
-  , resolvingroutelen_(0u)
+  , resolvingprefix_(nullptr)
   , admindistance_(0u)
   , metric_(0u){}
 struct SLNextHopDefaultTypeInternal {
@@ -456,7 +515,7 @@ struct SLAFNotifMsgDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFNotifMsgDefaultTypeInternal _SLAFNotifMsg_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5faf_2eproto[31];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5faf_2eproto[36];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_sl_5faf_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5faf_2eproto = nullptr;
 
@@ -534,20 +593,34 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, pathgroupid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, admindistance_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, flags_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, pgflags_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, entry_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntryKey, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntryKey, label_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, _oneof_case_[0]),
+  ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, locallabel_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, mplskey_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, admindistance_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, pathlist_),
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, flags_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, entry_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, mplsflags_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFIPRoute, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFIPRoute, iprouteprefix_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFIPRoute, routecommon_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFIPRoute, pathlist_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFObject, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -557,57 +630,80 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFObject, entry_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOpMsg, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, afobject_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, operationid_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, acktype_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, ackpermit_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, ackcadence_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOpMsg, afobject_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOpMsg, operationid_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOpMsg, acktype_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOpMsg, ackpermits_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOpMsg, ackcadence_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFClientIDList, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFClientIDList, clientidlist_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLTableTypeList, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLTableTypeList, table_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFObjectKey, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFObjectKey, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFObjectKey, key_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMatch, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMatch, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMatch, entry_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMatchList, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMatchList, match_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, vrfname_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, table_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, getallclients_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, routematch_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFDepFibStatus, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFDepFibStatus, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFDepFibStatus, errorcode_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFDepFibStatus, operationid_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFDepFibStatus, version_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFDepFibStatus, entry_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFFibStatus, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFFibStatus, version_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFFibStatus, depresult_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, client_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, match_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsgRspEntry, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsgRspEntry, afop_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsgRspEntry, errorcode_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsgRspEntry, version_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsgRspEntry, afopmsg_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsgRspEntry, fibstatus_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsgRsp, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -633,10 +729,11 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, errstatus_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, operation_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, errorstring_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, status_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, key_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, operationid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, fibstatus_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, errorstring_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFMsgRsp, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -660,8 +757,7 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNextHopRegKey_SLNextHopKey, nexthop_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNextHopRegKey_SLNextHopKey, nexthoplen_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNextHopRegKey_SLNextHopKey, nexthopip_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNextHopRegKey_SLNextHopKey, exactmatch_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNextHopRegKey_SLNextHopKey, allowdefault_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNextHopRegKey_SLNextHopKey, recurse_),
@@ -714,8 +810,7 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, nexthopkey_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, resolvingroute_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, resolvingroutelen_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, resolvingprefix_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, srcproto_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, srcprototag_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, admindistance_),
@@ -759,28 +854,33 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 50, -1, -1, sizeof(::service_layer::SLPathGroup_SLPath)},
   { 57, -1, -1, sizeof(::service_layer::SLPathGroup_SLPathList)},
   { 64, -1, -1, sizeof(::service_layer::SLPathGroup)},
-  { 75, -1, -1, sizeof(::service_layer::SLMplsEntry)},
-  { 87, -1, -1, sizeof(::service_layer::SLAFObject)},
-  { 98, -1, -1, sizeof(::service_layer::SLAFOp)},
-  { 109, -1, -1, sizeof(::service_layer::SLAFGetMsg)},
-  { 119, -1, -1, sizeof(::service_layer::SLAFDepFibStatus)},
-  { 130, -1, -1, sizeof(::service_layer::SLAFFibStatus)},
-  { 138, -1, -1, sizeof(::service_layer::SLAFGetMsgRspEntry)},
-  { 147, -1, -1, sizeof(::service_layer::SLAFGetMsgRsp)},
-  { 157, -1, -1, sizeof(::service_layer::SLAFMsg)},
-  { 166, -1, -1, sizeof(::service_layer::SLAFRes)},
-  { 176, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
-  { 184, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
-  { 193, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey_SLNextHopKey)},
-  { 204, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey)},
-  { 212, -1, -1, sizeof(::service_layer::SLAFNextHopRegMsg)},
-  { 219, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
-  { 229, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
-  { 238, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
-  { 246, -1, -1, sizeof(::service_layer::SLNextHop)},
-  { 260, -1, -1, sizeof(::service_layer::SLAFNotif_SLRedistMarker)},
-  { 267, -1, -1, sizeof(::service_layer::SLAFNotif)},
-  { 279, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
+  { 75, -1, -1, sizeof(::service_layer::SLMplsEntryKey)},
+  { 82, -1, -1, sizeof(::service_layer::SLMplsEntry)},
+  { 92, -1, -1, sizeof(::service_layer::SLAFIPRoute)},
+  { 101, -1, -1, sizeof(::service_layer::SLAFObject)},
+  { 111, -1, -1, sizeof(::service_layer::SLAFOpMsg)},
+  { 122, -1, -1, sizeof(::service_layer::SLAFClientIDList)},
+  { 129, -1, -1, sizeof(::service_layer::SLTableTypeList)},
+  { 136, -1, -1, sizeof(::service_layer::SLAFObjectKey)},
+  { 146, -1, -1, sizeof(::service_layer::SLAFGetMatch)},
+  { 156, -1, -1, sizeof(::service_layer::SLAFGetMatchList)},
+  { 163, -1, -1, sizeof(::service_layer::SLAFGetMsg)},
+  { 176, -1, -1, sizeof(::service_layer::SLAFGetMsgRspEntry)},
+  { 184, -1, -1, sizeof(::service_layer::SLAFGetMsgRsp)},
+  { 194, -1, -1, sizeof(::service_layer::SLAFMsg)},
+  { 203, -1, -1, sizeof(::service_layer::SLAFRes)},
+  { 214, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
+  { 222, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
+  { 231, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey_SLNextHopKey)},
+  { 241, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey)},
+  { 249, -1, -1, sizeof(::service_layer::SLAFNextHopRegMsg)},
+  { 256, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
+  { 266, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
+  { 275, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
+  { 283, -1, -1, sizeof(::service_layer::SLNextHop)},
+  { 296, -1, -1, sizeof(::service_layer::SLAFNotif_SLRedistMarker)},
+  { 303, -1, -1, sizeof(::service_layer::SLAFNotif)},
+  { 315, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -793,12 +893,17 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroup_SLPath_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroup_SLPathList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroup_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsEntryKey_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsEntry_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFIPRoute_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFObject_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFOp_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFOpMsg_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFClientIDList_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLTableTypeList_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFObjectKey_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFGetMatch_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFGetMatchList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFGetMsg_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFDepFibStatus_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFFibStatus_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFGetMsgRspEntry_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFGetMsgRsp_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFMsg_default_instance_),
@@ -819,136 +924,145 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013sl_af.proto\022\rservice_layer\032\025sl_common_"
-  "types.proto\032\025sl_route_common.proto\032\023sl_r"
-  "oute_ipv4.proto\032\023sl_route_ipv6.proto\"`\n\n"
-  "SLAFVrfReg\022)\n\005Table\030\001 \001(\0162\032.service_laye"
-  "r.SLTableType\022\'\n\006VrfReg\030\002 \001(\0132\027.service_"
-  "layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\022$\n\004Oper\030"
-  "\001 \001(\0162\026.service_layer.SLRegOp\022-\n\nVrfRegM"
-  "sgs\030\002 \003(\0132\031.service_layer.SLAFVrfReg\"\177\n\020"
-  "SLAFVrfRegMsgRes\022/\n\tErrStatus\030\001 \001(\0132\034.se"
-  "rvice_layer.SLErrorStatus\022\017\n\007VrfName\030\002 \001"
-  "(\t\022)\n\005Table\030\003 \001(\0162\032.service_layer.SLTabl"
-  "eType\"y\n\020SLAFVrfRegMsgRsp\0223\n\rStatusSumma"
-  "ry\030\001 \001(\0132\034.service_layer.SLErrorStatus\0220"
-  "\n\007Results\030\002 \003(\0132\037.service_layer.SLAFVrfR"
-  "egMsgRes\"\"\n\020SLAFVrfRegGetMsg\022\016\n\006GetAll\030\001"
-  " \001(\010\"\255\001\n\023SLAFVrfRegGetMsgRsp\022/\n\tErrStatu"
-  "s\030\001 \001(\0132\034.service_layer.SLErrorStatus\022\020\n"
-  "\010ClientID\030\002 \001(\004\022)\n\005Table\030\003 \001(\0162\032.service"
-  "_layer.SLTableType\022(\n\007Entries\030\004 \003(\0132\027.se"
-  "rvice_layer.SLVrfReg\"\233\002\n\013SLPathGroup\022.\n\013"
-  "PathGroupId\030\001 \001(\0132\031.service_layer.SLObje"
-  "ctId\022\025\n\rAdminDistance\030\002 \001(\r\0229\n\010PathList\030"
-  "\003 \001(\0132%.service_layer.SLPathGroup.SLPath"
-  "ListH\000\022\r\n\005Flags\030\004 \001(\r\0322\n\006SLPath\022(\n\004Path\030"
-  "\001 \001(\0132\032.service_layer.SLRoutePath\032>\n\nSLP"
-  "athList\0220\n\005Paths\030\001 \003(\0132!.service_layer.S"
-  "LPathGroup.SLPathB\007\n\005entry\"\270\001\n\013SLMplsEnt"
-  "ry\022\022\n\nLocalLabel\030\001 \001(\r\022\025\n\rAdminDistance\030"
-  "\002 \001(\r\022,\n\010PathList\030\003 \003(\0132\032.service_layer."
-  "SLRoutePath\0228\n\014PathGroupKey\030\004 \001(\0132 .serv"
-  "ice_layer.SLPathGroupRefKeyH\000\022\r\n\005Flags\030\005"
-  " \001(\rB\007\n\005entry\"\325\001\n\nSLAFObject\022-\n\tIPv4Rout"
-  "e\030\001 \001(\0132\030.service_layer.SLRoutev4H\000\022-\n\tI"
-  "Pv6Route\030\002 \001(\0132\030.service_layer.SLRoutev6"
-  "H\000\022/\n\tMplsLabel\030\003 \001(\0132\032.service_layer.SL"
-  "MplsEntryH\000\022/\n\tPathGroup\030\004 \001(\0132\032.service"
-  "_layer.SLPathGroupH\000B\007\n\005entry\"\277\001\n\006SLAFOp"
-  "\022+\n\010AFObject\030\001 \001(\0132\031.service_layer.SLAFO"
-  "bject\022\023\n\013OperationID\030\002 \001(\004\022,\n\007AckType\030\003 "
-  "\001(\0162\033.service_layer.SLRspACKType\022\021\n\tAckP"
-  "ermit\030\004 \001(\r\0222\n\nAckCadence\030\005 \001(\0162\036.servic"
-  "e_layer.SLRspAckCadence\"\223\001\n\nSLAFGetMsg\022\017"
-  "\n\007VrfName\030\001 \001(\t\022)\n\005Table\030\002 \001(\0162\032.service"
-  "_layer.SLTableType\022\025\n\rGetAllClients\030\003 \001("
-  "\010\0222\n\nRouteMatch\030\004 \003(\0132\036.service_layer.SL"
-  "RouteGetMatch\"\254\001\n\020SLAFDepFibStatus\022/\n\tEr"
-  "rorCode\030\001 \001(\0132\034.service_layer.SLErrorSta"
-  "tus\022\023\n\013OperationID\030\002 \001(\004\022\017\n\007Version\030\003 \001("
-  "\004\0228\n\014PathGroupKey\030\004 \001(\0132 .service_layer."
-  "SLPathGroupRefKeyH\000B\007\n\005entry\"T\n\rSLAFFibS"
-  "tatus\022\017\n\007Version\030\001 \001(\004\0222\n\tDepResult\030\002 \001("
-  "\0132\037.service_layer.SLAFDepFibStatus\"{\n\022SL"
-  "AFGetMsgRspEntry\022#\n\004AFOp\030\001 \001(\0132\025.service"
-  "_layer.SLAFOp\022/\n\tErrorCode\030\002 \001(\0132\034.servi"
-  "ce_layer.SLErrorStatus\022\017\n\007Version\030\003 \001(\004\""
-  "\226\001\n\rSLAFGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.s"
-  "ervice_layer.SLErrorStatus\022\017\n\007VrfName\030\002 "
-  "\001(\t\022\020\n\010ClientID\030\003 \001(\004\0221\n\006AFList\030\004 \003(\0132!."
-  "service_layer.SLAFGetMsgRspEntry\"j\n\007SLAF"
-  "Msg\022\'\n\004Oper\030\001 \001(\0162\031.service_layer.SLObje"
-  "ctOp\022\017\n\007VrfName\030\002 \001(\t\022%\n\006OpList\030\003 \003(\0132\025."
-  "service_layer.SLAFOp\"\252\001\n\007SLAFRes\022/\n\tErrS"
-  "tatus\030\001 \001(\0132\034.service_layer.SLErrorStatu"
-  "s\022(\n\tOperation\030\002 \001(\0132\025.service_layer.SLA"
-  "FOp\022\023\n\013ErrorString\030\003 \001(\t\022/\n\tFIBStatus\030\004 "
-  "\001(\0132\034.service_layer.SLAFFibStatus\"F\n\nSLA"
+  "types.proto\032\025sl_route_common.proto\"`\n\nSL"
+  "AFVrfReg\022)\n\005Table\030\001 \001(\0162\032.service_layer."
+  "SLTableType\022\'\n\006VrfReg\030\002 \001(\0132\027.service_la"
+  "yer.SLVrfReg\"d\n\rSLAFVrfRegMsg\022$\n\004Oper\030\001 "
+  "\001(\0162\026.service_layer.SLRegOp\022-\n\nVrfRegMsg"
+  "s\030\002 \003(\0132\031.service_layer.SLAFVrfReg\"\177\n\020SL"
+  "AFVrfRegMsgRes\022/\n\tErrStatus\030\001 \001(\0132\034.serv"
+  "ice_layer.SLErrorStatus\022\017\n\007VrfName\030\002 \001(\t"
+  "\022)\n\005Table\030\003 \001(\0162\032.service_layer.SLTableT"
+  "ype\"y\n\020SLAFVrfRegMsgRsp\0223\n\rStatusSummary"
+  "\030\001 \001(\0132\034.service_layer.SLErrorStatus\0220\n\007"
+  "Results\030\002 \003(\0132\037.service_layer.SLAFVrfReg"
+  "MsgRes\"\"\n\020SLAFVrfRegGetMsg\022\016\n\006GetAll\030\001 \001"
+  "(\010\"\255\001\n\023SLAFVrfRegGetMsgRsp\022/\n\tErrStatus\030"
+  "\001 \001(\0132\034.service_layer.SLErrorStatus\022\020\n\010C"
+  "lientID\030\002 \001(\004\022)\n\005Table\030\003 \001(\0162\032.service_l"
+  "ayer.SLTableType\022(\n\007Entries\030\004 \003(\0132\027.serv"
+  "ice_layer.SLVrfReg\"\272\002\n\013SLPathGroup\022.\n\013Pa"
+  "thGroupId\030\001 \001(\0132\031.service_layer.SLObject"
+  "Id\022\025\n\rAdminDistance\030\002 \001(\r\0229\n\010PathList\030\003 "
+  "\001(\0132%.service_layer.SLPathGroup.SLPathLi"
+  "stH\000\022,\n\007PgFlags\030\004 \003(\0162\033.service_layer.SL"
+  "RouteFlags\0322\n\006SLPath\022(\n\004Path\030\001 \001(\0132\032.ser"
+  "vice_layer.SLRoutePath\032>\n\nSLPathList\0220\n\005"
+  "Paths\030\001 \003(\0132!.service_layer.SLPathGroup."
+  "SLPathB\007\n\005entry\"\037\n\016SLMplsEntryKey\022\r\n\005Lab"
+  "el\030\001 \001(\r\"\262\001\n\013SLMplsEntry\022.\n\007MplsKey\030\001 \001("
+  "\0132\035.service_layer.SLMplsEntryKey\022\025\n\rAdmi"
+  "nDistance\030\002 \001(\r\022,\n\010PathList\030\003 \003(\0132\032.serv"
+  "ice_layer.SLRoutePath\022.\n\tMplsFlags\030\004 \003(\016"
+  "2\033.service_layer.SLRouteFlags\"\243\001\n\013SLAFIP"
+  "Route\0223\n\rIPRoutePrefix\030\001 \001(\0132\034.service_l"
+  "ayer.SLRoutePrefix\0221\n\013RouteCommon\030\002 \001(\0132"
+  "\034.service_layer.SLRouteCommon\022,\n\010PathLis"
+  "t\030\003 \003(\0132\032.service_layer.SLRoutePath\"\246\001\n\n"
+  "SLAFObject\022-\n\007IPRoute\030\001 \001(\0132\032.service_la"
+  "yer.SLAFIPRouteH\000\022/\n\tMplsLabel\030\002 \001(\0132\032.s"
+  "ervice_layer.SLMplsEntryH\000\022/\n\tPathGroup\030"
+  "\003 \001(\0132\032.service_layer.SLPathGroupH\000B\007\n\005e"
+  "ntry\"\342\001\n\tSLAFOpMsg\022+\n\010AFObject\030\001 \001(\0132\031.s"
+  "ervice_layer.SLAFObject\022\023\n\013OperationID\030\002"
+  " \001(\004\022,\n\007AckType\030\003 \001(\0162\033.service_layer.SL"
+  "RspACKType\0221\n\nAckPermits\030\004 \003(\0162\035.service"
+  "_layer.SLRspACKPermit\0222\n\nAckCadence\030\005 \001("
+  "\0162\036.service_layer.SLRspAckCadence\"(\n\020SLA"
+  "FClientIDList\022\024\n\014ClientIDList\030\001 \003(\004\"<\n\017S"
+  "LTableTypeList\022)\n\005Table\030\001 \003(\0162\032.service_"
+  "layer.SLTableType\"\263\001\n\rSLAFObjectKey\0225\n\rI"
+  "PRoutePrefix\030\001 \001(\0132\034.service_layer.SLRou"
+  "tePrefixH\000\0222\n\tMplsLabel\030\002 \001(\0132\035.service_"
+  "layer.SLMplsEntryKeyH\000\0220\n\013PathGroupId\030\003 "
+  "\001(\0132\031.service_layer.SLObjectIdH\000B\005\n\003key\""
+  "t\n\014SLAFGetMatch\022+\n\003Key\030\001 \001(\0132\034.service_l"
+  "ayer.SLAFObjectKeyH\000\022\030\n\016PathGroupRegex\030\002"
+  " \001(\tH\000\022\024\n\nVxlanVniId\030\003 \001(\rH\000B\007\n\005entry\">\n"
+  "\020SLAFGetMatchList\022*\n\005Match\030\001 \003(\0132\033.servi"
+  "ce_layer.SLAFGetMatch\"\357\001\n\nSLAFGetMsg\022\017\n\007"
+  "VrfName\030\001 \001(\t\0227\n\014ClientIDList\030\002 \001(\0132\037.se"
+  "rvice_layer.SLAFClientIDListH\000\022\024\n\nAllCli"
+  "ents\030\003 \001(\010H\000\0223\n\tTableList\030\004 \001(\0132\036.servic"
+  "e_layer.SLTableTypeListH\001\0229\n\016RouteMatchL"
+  "ist\030\005 \001(\0132\037.service_layer.SLAFGetMatchLi"
+  "stH\001B\010\n\006clientB\007\n\005match\"p\n\022SLAFGetMsgRsp"
+  "Entry\022)\n\007AFOpMsg\030\001 \001(\0132\030.service_layer.S"
+  "LAFOpMsg\022/\n\tFIBStatus\030\002 \001(\0162\034.service_la"
+  "yer.SLAFFibStatus\"\226\001\n\rSLAFGetMsgRsp\022/\n\tE"
+  "rrStatus\030\001 \001(\0132\034.service_layer.SLErrorSt"
+  "atus\022\017\n\007VrfName\030\002 \001(\t\022\020\n\010ClientID\030\003 \001(\004\022"
+  "1\n\006AFList\030\004 \003(\0132!.service_layer.SLAFGetM"
+  "sgRspEntry\"m\n\007SLAFMsg\022\'\n\004Oper\030\001 \001(\0162\031.se"
+  "rvice_layer.SLObjectOp\022\017\n\007VrfName\030\002 \001(\t\022"
+  "(\n\006OpList\030\003 \003(\0132\030.service_layer.SLAFOpMs"
+  "g\"\275\001\n\007SLAFRes\022,\n\006Status\030\001 \001(\0132\034.service_"
+  "layer.SLErrorStatus\022)\n\003Key\030\002 \001(\0132\034.servi"
+  "ce_layer.SLAFObjectKey\022\023\n\013OperationID\030\003 "
+  "\001(\004\022/\n\tFIBStatus\030\004 \001(\0162\034.service_layer.S"
+  "LAFFibStatus\022\023\n\013ErrorString\030\005 \001(\t\"F\n\nSLA"
   "FMsgRsp\022\017\n\007VrfName\030\001 \001(\t\022\'\n\007Results\030\002 \003("
   "\0132\026.service_layer.SLAFRes\"d\n\020SLAFRedistR"
   "egMsg\022\020\n\010SrcProto\030\001 \001(\t\022\023\n\013SrcProtoTag\030\002"
   " \001(\t\022)\n\005Table\030\003 \001(\0162\032.service_layer.SLTa"
-  "bleType\"\360\001\n\021SLAFNextHopRegKey\022@\n\007NextHop"
+  "bleType\"\337\001\n\021SLAFNextHopRegKey\022@\n\007NextHop"
   "\030\001 \001(\0132-.service_layer.SLAFNextHopRegKey"
-  ".SLNextHopKeyH\000\032\212\001\n\014SLNextHopKey\022+\n\007Next"
-  "Hop\030\001 \001(\0132\032.service_layer.SLIpAddress\022\022\n"
-  "\nNextHopLen\030\002 \001(\r\022\022\n\nExactMatch\030\003 \001(\010\022\024\n"
-  "\014AllowDefault\030\004 \001(\010\022\017\n\007Recurse\030\005 \001(\010B\014\n\n"
-  "nexthopkey\"I\n\021SLAFNextHopRegMsg\0224\n\nNextH"
-  "opKey\030\001 \001(\0132 .service_layer.SLAFNextHopR"
-  "egKey\"\237\001\n\017SLAFNotifRegReq\0224\n\tRedistReq\030\001"
-  " \001(\0132\037.service_layer.SLAFRedistRegMsgH\000\022"
-  "6\n\nNextHopReq\030\002 \001(\0132 .service_layer.SLAF"
-  "NextHopRegMsgH\000\022\023\n\013OperationID\030\003 \001(\004B\t\n\007"
-  "request\"y\n\014SLAFNotifReq\022&\n\004Oper\030\001 \001(\0162\030."
-  "service_layer.SLNotifOp\022\017\n\007VrfName\030\002 \001(\t"
-  "\0220\n\010NotifReq\030\003 \003(\0132\036.service_layer.SLAFN"
-  "otifRegReq\"s\n\014SLAFNotifRsp\0220\n\010NotifReq\030\001"
-  " \001(\0132\036.service_layer.SLAFNotifRegReq\0221\n\013"
-  "NotifStatus\030\002 \001(\0132\034.service_layer.SLErro"
-  "rStatus\"\211\002\n\tSLNextHop\0224\n\nNextHopKey\030\001 \001("
-  "\0132 .service_layer.SLAFNextHopRegKey\0222\n\016R"
-  "esolvingRoute\030\002 \001(\0132\032.service_layer.SLIp"
-  "Address\022\031\n\021ResolvingRouteLen\030\003 \001(\r\022\020\n\010Sr"
-  "cProto\030\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\025\n\rAdm"
-  "inDistance\030\006 \001(\r\022\016\n\006Metric\030\007 \001(\r\022)\n\005Path"
-  "s\030\010 \003(\0132\032.service_layer.SLRoutePath\"\343\002\n\t"
-  "SLAFNotif\0222\n\013NotifStatus\030\001 \001(\0132\033.service"
-  "_layer.SLAFNotifRspH\000\022>\n\013StartMarker\030\002 \001"
-  "(\0132\'.service_layer.SLAFNotif.SLRedistMar"
-  "kerH\000\022<\n\tEndMarker\030\003 \001(\0132\'.service_layer"
-  ".SLAFNotif.SLRedistMarkerH\000\0221\n\014RedistObj"
-  "ect\030\004 \001(\0132\031.service_layer.SLAFObjectH\000\022+"
-  "\n\007NextHop\030\005 \001(\0132\030.service_layer.SLNextHo"
-  "pH\000\032;\n\016SLRedistMarker\022)\n\005Table\030\001 \001(\0162\032.s"
-  "ervice_layer.SLTableTypeB\007\n\005Event\"K\n\014SLA"
-  "FNotifMsg\022\017\n\007VrfName\030\001 \001(\t\022*\n\010AFNotifs\030\003"
-  " \003(\0132\030.service_layer.SLAFNotif2\310\003\n\004SLAF\022"
-  "M\n\014SLAFVrfRegOp\022\034.service_layer.SLAFVrfR"
-  "egMsg\032\037.service_layer.SLAFVrfRegMsgRsp\022V"
-  "\n\rSLAFVrfRegGet\022\037.service_layer.SLAFVrfR"
-  "egGetMsg\032\".service_layer.SLAFVrfRegGetMs"
-  "gRsp0\001\022;\n\006SLAFOp\022\026.service_layer.SLAFMsg"
-  "\032\031.service_layer.SLAFMsgRsp\022E\n\014SLAFOpStr"
-  "eam\022\026.service_layer.SLAFMsg\032\031.service_la"
-  "yer.SLAFMsgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_"
-  "layer.SLAFGetMsg\032\034.service_layer.SLAFGet"
-  "MsgRsp0\001\022O\n\017SLAFNotifStream\022\033.service_la"
-  "yer.SLAFNotifReq\032\033.service_layer.SLAFNot"
-  "ifMsg(\0010\001BQZOgithub.com/Cisco-service-la"
-  "yer/service-layer-objmodel/grpc/protos;s"
-  "ervice_layerb\006proto3"
+  ".SLNextHopKeyH\000\032z\n\014SLNextHopKey\022/\n\tNextH"
+  "opIP\030\001 \001(\0132\034.service_layer.SLRoutePrefix"
+  "\022\022\n\nExactMatch\030\002 \001(\010\022\024\n\014AllowDefault\030\003 \001"
+  "(\010\022\017\n\007Recurse\030\004 \001(\010B\014\n\nnexthopkey\"I\n\021SLA"
+  "FNextHopRegMsg\0224\n\nNextHopKey\030\001 \001(\0132 .ser"
+  "vice_layer.SLAFNextHopRegKey\"\237\001\n\017SLAFNot"
+  "ifRegReq\0224\n\tRedistReq\030\001 \001(\0132\037.service_la"
+  "yer.SLAFRedistRegMsgH\000\0226\n\nNextHopReq\030\002 \001"
+  "(\0132 .service_layer.SLAFNextHopRegMsgH\000\022\023"
+  "\n\013OperationID\030\003 \001(\004B\t\n\007request\"y\n\014SLAFNo"
+  "tifReq\022&\n\004Oper\030\001 \001(\0162\030.service_layer.SLN"
+  "otifOp\022\017\n\007VrfName\030\002 \001(\t\0220\n\010NotifReq\030\003 \003("
+  "\0132\036.service_layer.SLAFNotifRegReq\"s\n\014SLA"
+  "FNotifRsp\0220\n\010NotifReq\030\001 \001(\0132\036.service_la"
+  "yer.SLAFNotifRegReq\0221\n\013NotifStatus\030\002 \001(\013"
+  "2\034.service_layer.SLErrorStatus\"\361\001\n\tSLNex"
+  "tHop\0224\n\nNextHopKey\030\001 \001(\0132 .service_layer"
+  ".SLAFNextHopRegKey\0225\n\017ResolvingPrefix\030\002 "
+  "\001(\0132\034.service_layer.SLRoutePrefix\022\020\n\010Src"
+  "Proto\030\003 \001(\t\022\023\n\013SrcProtoTag\030\004 \001(\t\022\025\n\rAdmi"
+  "nDistance\030\005 \001(\r\022\016\n\006Metric\030\006 \001(\r\022)\n\005Paths"
+  "\030\007 \003(\0132\032.service_layer.SLRoutePath\"\343\002\n\tS"
+  "LAFNotif\0222\n\013NotifStatus\030\001 \001(\0132\033.service_"
+  "layer.SLAFNotifRspH\000\022>\n\013StartMarker\030\002 \001("
+  "\0132\'.service_layer.SLAFNotif.SLRedistMark"
+  "erH\000\022<\n\tEndMarker\030\003 \001(\0132\'.service_layer."
+  "SLAFNotif.SLRedistMarkerH\000\0221\n\014RedistObje"
+  "ct\030\004 \001(\0132\031.service_layer.SLAFObjectH\000\022+\n"
+  "\007NextHop\030\005 \001(\0132\030.service_layer.SLNextHop"
+  "H\000\032;\n\016SLRedistMarker\022)\n\005Table\030\001 \001(\0162\032.se"
+  "rvice_layer.SLTableTypeB\007\n\005Event\"K\n\014SLAF"
+  "NotifMsg\022\017\n\007VrfName\030\001 \001(\t\022*\n\010AFNotifs\030\003 "
+  "\003(\0132\030.service_layer.SLAFNotif2\310\003\n\004SLAF\022M"
+  "\n\014SLAFVrfRegOp\022\034.service_layer.SLAFVrfRe"
+  "gMsg\032\037.service_layer.SLAFVrfRegMsgRsp\022V\n"
+  "\rSLAFVrfRegGet\022\037.service_layer.SLAFVrfRe"
+  "gGetMsg\032\".service_layer.SLAFVrfRegGetMsg"
+  "Rsp0\001\022;\n\006SLAFOp\022\026.service_layer.SLAFMsg\032"
+  "\031.service_layer.SLAFMsgRsp\022E\n\014SLAFOpStre"
+  "am\022\026.service_layer.SLAFMsg\032\031.service_lay"
+  "er.SLAFMsgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_l"
+  "ayer.SLAFGetMsg\032\034.service_layer.SLAFGetM"
+  "sgRsp0\001\022O\n\017SLAFNotifStream\022\033.service_lay"
+  "er.SLAFNotifReq\032\033.service_layer.SLAFNoti"
+  "fMsg(\0010\001BQZOgithub.com/Cisco-service-lay"
+  "er/service-layer-objmodel/grpc/protos;se"
+  "rvice_layerb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[2] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
   &::descriptor_table_sl_5froute_5fcommon_2eproto,
-  &::descriptor_table_sl_5froute_5fipv4_2eproto,
-  &::descriptor_table_sl_5froute_5fipv6_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 4780, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
-  &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 31,
+  false, false, 5219, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 2, 36,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
 };
@@ -2832,7 +2946,8 @@ void SLPathGroup::set_allocated_pathlist(::service_layer::SLPathGroup_SLPathList
 }
 SLPathGroup::SLPathGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  pgflags_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -2840,16 +2955,15 @@ SLPathGroup::SLPathGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   // @@protoc_insertion_point(arena_constructor:service_layer.SLPathGroup)
 }
 SLPathGroup::SLPathGroup(const SLPathGroup& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      pgflags_(from.pgflags_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_pathgroupid()) {
     pathgroupid_ = new ::service_layer::SLObjectId(*from.pathgroupid_);
   } else {
     pathgroupid_ = nullptr;
   }
-  ::memcpy(&admindistance_, &from.admindistance_,
-    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&admindistance_)) + sizeof(flags_));
+  admindistance_ = from.admindistance_;
   clear_has_entry();
   switch (from.entry_case()) {
     case kPathList: {
@@ -2866,8 +2980,8 @@ SLPathGroup::SLPathGroup(const SLPathGroup& from)
 inline void SLPathGroup::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&pathgroupid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&pathgroupid_)) + sizeof(flags_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&admindistance_) -
+    reinterpret_cast<char*>(&pathgroupid_)) + sizeof(admindistance_));
 clear_has_entry();
 }
 
@@ -2919,13 +3033,12 @@ void SLPathGroup::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  pgflags_.Clear();
   if (GetArenaForAllocation() == nullptr && pathgroupid_ != nullptr) {
     delete pathgroupid_;
   }
   pathgroupid_ = nullptr;
-  ::memset(&admindistance_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&flags_) -
-      reinterpret_cast<char*>(&admindistance_)) + sizeof(flags_));
+  admindistance_ = 0u;
   clear_entry();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2960,11 +3073,15 @@ const char* SLPathGroup::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         } else
           goto handle_unusual;
         continue;
-      // uint32 Flags = 4;
+      // repeated .service_layer.SLRouteFlags PgFlags = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_pgflags(), ptr, ctx);
           CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 32) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_add_pgflags(static_cast<::service_layer::SLRouteFlags>(val));
         } else
           goto handle_unusual;
         continue;
@@ -3019,10 +3136,13 @@ uint8_t* SLPathGroup::_InternalSerialize(
         3, _Internal::pathlist(this), target, stream);
   }
 
-  // uint32 Flags = 4;
-  if (this->_internal_flags() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_flags(), target);
+  // repeated .service_layer.SLRouteFlags PgFlags = 4;
+  {
+    int byte_size = _pgflags_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteEnumPacked(
+          4, pgflags_, byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3041,6 +3161,24 @@ size_t SLPathGroup::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated .service_layer.SLRouteFlags PgFlags = 4;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_pgflags_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_pgflags(static_cast<int>(i)));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _pgflags_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
   // .service_layer.SLObjectId PathGroupId = 1;
   if (this->_internal_has_pathgroupid()) {
     total_size += 1 +
@@ -3051,11 +3189,6 @@ size_t SLPathGroup::ByteSizeLong() const {
   // uint32 AdminDistance = 2;
   if (this->_internal_admindistance() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admindistance());
-  }
-
-  // uint32 Flags = 4;
-  if (this->_internal_flags() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   switch (entry_case()) {
@@ -3092,14 +3225,12 @@ void SLPathGroup::MergeFrom(const SLPathGroup& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  pgflags_.MergeFrom(from.pgflags_);
   if (from._internal_has_pathgroupid()) {
     _internal_mutable_pathgroupid()->::service_layer::SLObjectId::MergeFrom(from._internal_pathgroupid());
   }
   if (from._internal_admindistance() != 0) {
     _internal_set_admindistance(from._internal_admindistance());
-  }
-  if (from._internal_flags() != 0) {
-    _internal_set_flags(from._internal_flags());
   }
   switch (from.entry_case()) {
     case kPathList: {
@@ -3127,9 +3258,10 @@ bool SLPathGroup::IsInitialized() const {
 void SLPathGroup::InternalSwap(SLPathGroup* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  pgflags_.InternalSwap(&other->pgflags_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLPathGroup, flags_)
-      + sizeof(SLPathGroup::flags_)
+      PROTOBUF_FIELD_OFFSET(SLPathGroup, admindistance_)
+      + sizeof(SLPathGroup::admindistance_)
       - PROTOBUF_FIELD_OFFSET(SLPathGroup, pathgroupid_)>(
           reinterpret_cast<char*>(&pathgroupid_),
           reinterpret_cast<char*>(&other->pathgroupid_));
@@ -3145,47 +3277,201 @@ void SLPathGroup::InternalSwap(SLPathGroup* other) {
 
 // ===================================================================
 
-class SLMplsEntry::_Internal {
+class SLMplsEntryKey::_Internal {
  public:
-  static const ::service_layer::SLPathGroupRefKey& pathgroupkey(const SLMplsEntry* msg);
 };
 
-const ::service_layer::SLPathGroupRefKey&
-SLMplsEntry::_Internal::pathgroupkey(const SLMplsEntry* msg) {
-  return *msg->entry_.pathgroupkey_;
+SLMplsEntryKey::SLMplsEntryKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLMplsEntryKey)
+}
+SLMplsEntryKey::SLMplsEntryKey(const SLMplsEntryKey& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  label_ = from.label_;
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsEntryKey)
+}
+
+inline void SLMplsEntryKey::SharedCtor() {
+label_ = 0u;
+}
+
+SLMplsEntryKey::~SLMplsEntryKey() {
+  // @@protoc_insertion_point(destructor:service_layer.SLMplsEntryKey)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLMplsEntryKey::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLMplsEntryKey::ArenaDtor(void* object) {
+  SLMplsEntryKey* _this = reinterpret_cast< SLMplsEntryKey* >(object);
+  (void)_this;
+}
+void SLMplsEntryKey::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLMplsEntryKey::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLMplsEntryKey::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLMplsEntryKey)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  label_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLMplsEntryKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 Label = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          label_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLMplsEntryKey::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLMplsEntryKey)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 Label = 1;
+  if (this->_internal_label() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_label(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLMplsEntryKey)
+  return target;
+}
+
+size_t SLMplsEntryKey::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLMplsEntryKey)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 Label = 1;
+  if (this->_internal_label() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_label());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLMplsEntryKey::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLMplsEntryKey::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLMplsEntryKey::GetClassData() const { return &_class_data_; }
+
+void SLMplsEntryKey::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLMplsEntryKey *>(to)->MergeFrom(
+      static_cast<const SLMplsEntryKey &>(from));
+}
+
+
+void SLMplsEntryKey::MergeFrom(const SLMplsEntryKey& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLMplsEntryKey)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_label() != 0) {
+    _internal_set_label(from._internal_label());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLMplsEntryKey::CopyFrom(const SLMplsEntryKey& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLMplsEntryKey)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLMplsEntryKey::IsInitialized() const {
+  return true;
+}
+
+void SLMplsEntryKey::InternalSwap(SLMplsEntryKey* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(label_, other->label_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLMplsEntryKey::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[9]);
+}
+
+// ===================================================================
+
+class SLMplsEntry::_Internal {
+ public:
+  static const ::service_layer::SLMplsEntryKey& mplskey(const SLMplsEntry* msg);
+};
+
+const ::service_layer::SLMplsEntryKey&
+SLMplsEntry::_Internal::mplskey(const SLMplsEntry* msg) {
+  return *msg->mplskey_;
 }
 void SLMplsEntry::clear_pathlist() {
   pathlist_.Clear();
 }
-void SLMplsEntry::set_allocated_pathgroupkey(::service_layer::SLPathGroupRefKey* pathgroupkey) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_entry();
-  if (pathgroupkey) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupkey));
-    if (message_arena != submessage_arena) {
-      pathgroupkey = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, pathgroupkey, submessage_arena);
-    }
-    set_has_pathgroupkey();
-    entry_.pathgroupkey_ = pathgroupkey;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsEntry.PathGroupKey)
-}
-void SLMplsEntry::clear_pathgroupkey() {
-  if (_internal_has_pathgroupkey()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete entry_.pathgroupkey_;
-    }
-    clear_has_entry();
-  }
-}
 SLMplsEntry::SLMplsEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  pathlist_(arena) {
+  pathlist_(arena),
+  mplsflags_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -3194,30 +3480,23 @@ SLMplsEntry::SLMplsEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 SLMplsEntry::SLMplsEntry(const SLMplsEntry& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      pathlist_(from.pathlist_) {
+      pathlist_(from.pathlist_),
+      mplsflags_(from.mplsflags_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&locallabel_, &from.locallabel_,
-    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&locallabel_)) + sizeof(flags_));
-  clear_has_entry();
-  switch (from.entry_case()) {
-    case kPathGroupKey: {
-      _internal_mutable_pathgroupkey()->::service_layer::SLPathGroupRefKey::MergeFrom(from._internal_pathgroupkey());
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
+  if (from._internal_has_mplskey()) {
+    mplskey_ = new ::service_layer::SLMplsEntryKey(*from.mplskey_);
+  } else {
+    mplskey_ = nullptr;
   }
+  admindistance_ = from.admindistance_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsEntry)
 }
 
 inline void SLMplsEntry::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&locallabel_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&locallabel_)) + sizeof(flags_));
-clear_has_entry();
+    reinterpret_cast<char*>(&mplskey_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&admindistance_) -
+    reinterpret_cast<char*>(&mplskey_)) + sizeof(admindistance_));
 }
 
 SLMplsEntry::~SLMplsEntry() {
@@ -3229,9 +3508,7 @@ SLMplsEntry::~SLMplsEntry() {
 
 inline void SLMplsEntry::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_entry()) {
-    clear_entry();
-  }
+  if (this != internal_default_instance()) delete mplskey_;
 }
 
 void SLMplsEntry::ArenaDtor(void* object) {
@@ -3244,23 +3521,6 @@ void SLMplsEntry::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLMplsEntry::clear_entry() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLMplsEntry)
-  switch (entry_case()) {
-    case kPathGroupKey: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete entry_.pathgroupkey_;
-      }
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = ENTRY_NOT_SET;
-}
-
-
 void SLMplsEntry::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLMplsEntry)
   uint32_t cached_has_bits = 0;
@@ -3268,10 +3528,12 @@ void SLMplsEntry::Clear() {
   (void) cached_has_bits;
 
   pathlist_.Clear();
-  ::memset(&locallabel_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&flags_) -
-      reinterpret_cast<char*>(&locallabel_)) + sizeof(flags_));
-  clear_entry();
+  mplsflags_.Clear();
+  if (GetArenaForAllocation() == nullptr && mplskey_ != nullptr) {
+    delete mplskey_;
+  }
+  mplskey_ = nullptr;
+  admindistance_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3281,10 +3543,10 @@ const char* SLMplsEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 LocalLabel = 1;
+      // .service_layer.SLMplsEntryKey MplsKey = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          locallabel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_mplskey(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3310,19 +3572,15 @@ const char* SLMplsEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLPathGroupRefKey PathGroupKey = 4;
+      // repeated .service_layer.SLRouteFlags MplsFlags = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_pathgroupkey(), ptr);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_mplsflags(), ptr, ctx);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 Flags = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        } else if (static_cast<uint8_t>(tag) == 32) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+          _internal_add_mplsflags(static_cast<::service_layer::SLRouteFlags>(val));
         } else
           goto handle_unusual;
         continue;
@@ -3355,10 +3613,12 @@ uint8_t* SLMplsEntry::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 LocalLabel = 1;
-  if (this->_internal_locallabel() != 0) {
+  // .service_layer.SLMplsEntryKey MplsKey = 1;
+  if (this->_internal_has_mplskey()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_locallabel(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::mplskey(this), target, stream);
   }
 
   // uint32 AdminDistance = 2;
@@ -3375,18 +3635,13 @@ uint8_t* SLMplsEntry::_InternalSerialize(
       InternalWriteMessage(3, this->_internal_pathlist(i), target, stream);
   }
 
-  // .service_layer.SLPathGroupRefKey PathGroupKey = 4;
-  if (_internal_has_pathgroupkey()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::pathgroupkey(this), target, stream);
-  }
-
-  // uint32 Flags = 5;
-  if (this->_internal_flags() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_flags(), target);
+  // repeated .service_layer.SLRouteFlags MplsFlags = 4;
+  {
+    int byte_size = _mplsflags_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteEnumPacked(
+          4, mplsflags_, byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3412,9 +3667,29 @@ size_t SLMplsEntry::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // uint32 LocalLabel = 1;
-  if (this->_internal_locallabel() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_locallabel());
+  // repeated .service_layer.SLRouteFlags MplsFlags = 4;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_mplsflags_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_mplsflags(static_cast<int>(i)));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _mplsflags_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // .service_layer.SLMplsEntryKey MplsKey = 1;
+  if (this->_internal_has_mplskey()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *mplskey_);
   }
 
   // uint32 AdminDistance = 2;
@@ -3422,23 +3697,6 @@ size_t SLMplsEntry::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admindistance());
   }
 
-  // uint32 Flags = 5;
-  if (this->_internal_flags() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
-  }
-
-  switch (entry_case()) {
-    // .service_layer.SLPathGroupRefKey PathGroupKey = 4;
-    case kPathGroupKey: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entry_.pathgroupkey_);
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
-  }
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -3462,23 +3720,12 @@ void SLMplsEntry::MergeFrom(const SLMplsEntry& from) {
   (void) cached_has_bits;
 
   pathlist_.MergeFrom(from.pathlist_);
-  if (from._internal_locallabel() != 0) {
-    _internal_set_locallabel(from._internal_locallabel());
+  mplsflags_.MergeFrom(from.mplsflags_);
+  if (from._internal_has_mplskey()) {
+    _internal_mutable_mplskey()->::service_layer::SLMplsEntryKey::MergeFrom(from._internal_mplskey());
   }
   if (from._internal_admindistance() != 0) {
     _internal_set_admindistance(from._internal_admindistance());
-  }
-  if (from._internal_flags() != 0) {
-    _internal_set_flags(from._internal_flags());
-  }
-  switch (from.entry_case()) {
-    case kPathGroupKey: {
-      _internal_mutable_pathgroupkey()->::service_layer::SLPathGroupRefKey::MergeFrom(from._internal_pathgroupkey());
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -3498,39 +3745,325 @@ void SLMplsEntry::InternalSwap(SLMplsEntry* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   pathlist_.InternalSwap(&other->pathlist_);
+  mplsflags_.InternalSwap(&other->mplsflags_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLMplsEntry, flags_)
-      + sizeof(SLMplsEntry::flags_)
-      - PROTOBUF_FIELD_OFFSET(SLMplsEntry, locallabel_)>(
-          reinterpret_cast<char*>(&locallabel_),
-          reinterpret_cast<char*>(&other->locallabel_));
-  swap(entry_, other->entry_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+      PROTOBUF_FIELD_OFFSET(SLMplsEntry, admindistance_)
+      + sizeof(SLMplsEntry::admindistance_)
+      - PROTOBUF_FIELD_OFFSET(SLMplsEntry, mplskey_)>(
+          reinterpret_cast<char*>(&mplskey_),
+          reinterpret_cast<char*>(&other->mplskey_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsEntry::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[9]);
+      file_level_metadata_sl_5faf_2eproto[10]);
+}
+
+// ===================================================================
+
+class SLAFIPRoute::_Internal {
+ public:
+  static const ::service_layer::SLRoutePrefix& iprouteprefix(const SLAFIPRoute* msg);
+  static const ::service_layer::SLRouteCommon& routecommon(const SLAFIPRoute* msg);
+};
+
+const ::service_layer::SLRoutePrefix&
+SLAFIPRoute::_Internal::iprouteprefix(const SLAFIPRoute* msg) {
+  return *msg->iprouteprefix_;
+}
+const ::service_layer::SLRouteCommon&
+SLAFIPRoute::_Internal::routecommon(const SLAFIPRoute* msg) {
+  return *msg->routecommon_;
+}
+void SLAFIPRoute::clear_iprouteprefix() {
+  if (GetArenaForAllocation() == nullptr && iprouteprefix_ != nullptr) {
+    delete iprouteprefix_;
+  }
+  iprouteprefix_ = nullptr;
+}
+void SLAFIPRoute::clear_routecommon() {
+  if (GetArenaForAllocation() == nullptr && routecommon_ != nullptr) {
+    delete routecommon_;
+  }
+  routecommon_ = nullptr;
+}
+void SLAFIPRoute::clear_pathlist() {
+  pathlist_.Clear();
+}
+SLAFIPRoute::SLAFIPRoute(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  pathlist_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFIPRoute)
+}
+SLAFIPRoute::SLAFIPRoute(const SLAFIPRoute& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      pathlist_(from.pathlist_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_iprouteprefix()) {
+    iprouteprefix_ = new ::service_layer::SLRoutePrefix(*from.iprouteprefix_);
+  } else {
+    iprouteprefix_ = nullptr;
+  }
+  if (from._internal_has_routecommon()) {
+    routecommon_ = new ::service_layer::SLRouteCommon(*from.routecommon_);
+  } else {
+    routecommon_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFIPRoute)
+}
+
+inline void SLAFIPRoute::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&iprouteprefix_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&routecommon_) -
+    reinterpret_cast<char*>(&iprouteprefix_)) + sizeof(routecommon_));
+}
+
+SLAFIPRoute::~SLAFIPRoute() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFIPRoute)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAFIPRoute::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete iprouteprefix_;
+  if (this != internal_default_instance()) delete routecommon_;
+}
+
+void SLAFIPRoute::ArenaDtor(void* object) {
+  SLAFIPRoute* _this = reinterpret_cast< SLAFIPRoute* >(object);
+  (void)_this;
+}
+void SLAFIPRoute::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAFIPRoute::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAFIPRoute::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFIPRoute)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  pathlist_.Clear();
+  if (GetArenaForAllocation() == nullptr && iprouteprefix_ != nullptr) {
+    delete iprouteprefix_;
+  }
+  iprouteprefix_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && routecommon_ != nullptr) {
+    delete routecommon_;
+  }
+  routecommon_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAFIPRoute::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLRoutePrefix IPRoutePrefix = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_iprouteprefix(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLRouteCommon RouteCommon = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_routecommon(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .service_layer.SLRoutePath PathList = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_pathlist(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAFIPRoute::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFIPRoute)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLRoutePrefix IPRoutePrefix = 1;
+  if (this->_internal_has_iprouteprefix()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::iprouteprefix(this), target, stream);
+  }
+
+  // .service_layer.SLRouteCommon RouteCommon = 2;
+  if (this->_internal_has_routecommon()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::routecommon(this), target, stream);
+  }
+
+  // repeated .service_layer.SLRoutePath PathList = 3;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_pathlist_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, this->_internal_pathlist(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFIPRoute)
+  return target;
+}
+
+size_t SLAFIPRoute::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFIPRoute)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLRoutePath PathList = 3;
+  total_size += 1UL * this->_internal_pathlist_size();
+  for (const auto& msg : this->pathlist_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .service_layer.SLRoutePrefix IPRoutePrefix = 1;
+  if (this->_internal_has_iprouteprefix()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *iprouteprefix_);
+  }
+
+  // .service_layer.SLRouteCommon RouteCommon = 2;
+  if (this->_internal_has_routecommon()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *routecommon_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFIPRoute::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAFIPRoute::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFIPRoute::GetClassData() const { return &_class_data_; }
+
+void SLAFIPRoute::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAFIPRoute *>(to)->MergeFrom(
+      static_cast<const SLAFIPRoute &>(from));
+}
+
+
+void SLAFIPRoute::MergeFrom(const SLAFIPRoute& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFIPRoute)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  pathlist_.MergeFrom(from.pathlist_);
+  if (from._internal_has_iprouteprefix()) {
+    _internal_mutable_iprouteprefix()->::service_layer::SLRoutePrefix::MergeFrom(from._internal_iprouteprefix());
+  }
+  if (from._internal_has_routecommon()) {
+    _internal_mutable_routecommon()->::service_layer::SLRouteCommon::MergeFrom(from._internal_routecommon());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAFIPRoute::CopyFrom(const SLAFIPRoute& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFIPRoute)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAFIPRoute::IsInitialized() const {
+  return true;
+}
+
+void SLAFIPRoute::InternalSwap(SLAFIPRoute* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  pathlist_.InternalSwap(&other->pathlist_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLAFIPRoute, routecommon_)
+      + sizeof(SLAFIPRoute::routecommon_)
+      - PROTOBUF_FIELD_OFFSET(SLAFIPRoute, iprouteprefix_)>(
+          reinterpret_cast<char*>(&iprouteprefix_),
+          reinterpret_cast<char*>(&other->iprouteprefix_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFIPRoute::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[11]);
 }
 
 // ===================================================================
 
 class SLAFObject::_Internal {
  public:
-  static const ::service_layer::SLRoutev4& ipv4route(const SLAFObject* msg);
-  static const ::service_layer::SLRoutev6& ipv6route(const SLAFObject* msg);
+  static const ::service_layer::SLAFIPRoute& iproute(const SLAFObject* msg);
   static const ::service_layer::SLMplsEntry& mplslabel(const SLAFObject* msg);
   static const ::service_layer::SLPathGroup& pathgroup(const SLAFObject* msg);
 };
 
-const ::service_layer::SLRoutev4&
-SLAFObject::_Internal::ipv4route(const SLAFObject* msg) {
-  return *msg->entry_.ipv4route_;
-}
-const ::service_layer::SLRoutev6&
-SLAFObject::_Internal::ipv6route(const SLAFObject* msg) {
-  return *msg->entry_.ipv6route_;
+const ::service_layer::SLAFIPRoute&
+SLAFObject::_Internal::iproute(const SLAFObject* msg) {
+  return *msg->entry_.iproute_;
 }
 const ::service_layer::SLMplsEntry&
 SLAFObject::_Internal::mplslabel(const SLAFObject* msg) {
@@ -3540,55 +4073,20 @@ const ::service_layer::SLPathGroup&
 SLAFObject::_Internal::pathgroup(const SLAFObject* msg) {
   return *msg->entry_.pathgroup_;
 }
-void SLAFObject::set_allocated_ipv4route(::service_layer::SLRoutev4* ipv4route) {
+void SLAFObject::set_allocated_iproute(::service_layer::SLAFIPRoute* iproute) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_entry();
-  if (ipv4route) {
+  if (iproute) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(ipv4route));
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFIPRoute>::GetOwningArena(iproute);
     if (message_arena != submessage_arena) {
-      ipv4route = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, ipv4route, submessage_arena);
+      iproute = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, iproute, submessage_arena);
     }
-    set_has_ipv4route();
-    entry_.ipv4route_ = ipv4route;
+    set_has_iproute();
+    entry_.iproute_ = iproute;
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFObject.IPv4Route)
-}
-void SLAFObject::clear_ipv4route() {
-  if (_internal_has_ipv4route()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete entry_.ipv4route_;
-    }
-    clear_has_entry();
-  }
-}
-void SLAFObject::set_allocated_ipv6route(::service_layer::SLRoutev6* ipv6route) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_entry();
-  if (ipv6route) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(ipv6route));
-    if (message_arena != submessage_arena) {
-      ipv6route = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, ipv6route, submessage_arena);
-    }
-    set_has_ipv6route();
-    entry_.ipv6route_ = ipv6route;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFObject.IPv6Route)
-}
-void SLAFObject::clear_ipv6route() {
-  if (_internal_has_ipv6route()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete entry_.ipv6route_;
-    }
-    clear_has_entry();
-  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFObject.IPRoute)
 }
 void SLAFObject::set_allocated_mplslabel(::service_layer::SLMplsEntry* mplslabel) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -3634,12 +4132,8 @@ SLAFObject::SLAFObject(const SLAFObject& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_entry();
   switch (from.entry_case()) {
-    case kIPv4Route: {
-      _internal_mutable_ipv4route()->::service_layer::SLRoutev4::MergeFrom(from._internal_ipv4route());
-      break;
-    }
-    case kIPv6Route: {
-      _internal_mutable_ipv6route()->::service_layer::SLRoutev6::MergeFrom(from._internal_ipv6route());
+    case kIPRoute: {
+      _internal_mutable_iproute()->::service_layer::SLAFIPRoute::MergeFrom(from._internal_iproute());
       break;
     }
     case kMplsLabel: {
@@ -3688,15 +4182,9 @@ void SLAFObject::SetCachedSize(int size) const {
 void SLAFObject::clear_entry() {
 // @@protoc_insertion_point(one_of_clear_start:service_layer.SLAFObject)
   switch (entry_case()) {
-    case kIPv4Route: {
+    case kIPRoute: {
       if (GetArenaForAllocation() == nullptr) {
-        delete entry_.ipv4route_;
-      }
-      break;
-    }
-    case kIPv6Route: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete entry_.ipv6route_;
+        delete entry_.iproute_;
       }
       break;
     }
@@ -3736,33 +4224,25 @@ const char* SLAFObject::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .service_layer.SLRoutev4 IPv4Route = 1;
+      // .service_layer.SLAFIPRoute IPRoute = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_ipv4route(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_iproute(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLRoutev6 IPv6Route = 2;
+      // .service_layer.SLMplsEntry MplsLabel = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_ipv6route(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLMplsEntry MplsLabel = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_mplslabel(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLPathGroup PathGroup = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // .service_layer.SLPathGroup PathGroup = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_pathgroup(), ptr);
           CHK_(ptr);
         } else
@@ -3797,36 +4277,28 @@ uint8_t* SLAFObject::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .service_layer.SLRoutev4 IPv4Route = 1;
-  if (_internal_has_ipv4route()) {
+  // .service_layer.SLAFIPRoute IPRoute = 1;
+  if (_internal_has_iproute()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        1, _Internal::ipv4route(this), target, stream);
+        1, _Internal::iproute(this), target, stream);
   }
 
-  // .service_layer.SLRoutev6 IPv6Route = 2;
-  if (_internal_has_ipv6route()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::ipv6route(this), target, stream);
-  }
-
-  // .service_layer.SLMplsEntry MplsLabel = 3;
+  // .service_layer.SLMplsEntry MplsLabel = 2;
   if (_internal_has_mplslabel()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::mplslabel(this), target, stream);
+        2, _Internal::mplslabel(this), target, stream);
   }
 
-  // .service_layer.SLPathGroup PathGroup = 4;
+  // .service_layer.SLPathGroup PathGroup = 3;
   if (_internal_has_pathgroup()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        4, _Internal::pathgroup(this), target, stream);
+        3, _Internal::pathgroup(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3846,28 +4318,21 @@ size_t SLAFObject::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (entry_case()) {
-    // .service_layer.SLRoutev4 IPv4Route = 1;
-    case kIPv4Route: {
+    // .service_layer.SLAFIPRoute IPRoute = 1;
+    case kIPRoute: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entry_.ipv4route_);
+          *entry_.iproute_);
       break;
     }
-    // .service_layer.SLRoutev6 IPv6Route = 2;
-    case kIPv6Route: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entry_.ipv6route_);
-      break;
-    }
-    // .service_layer.SLMplsEntry MplsLabel = 3;
+    // .service_layer.SLMplsEntry MplsLabel = 2;
     case kMplsLabel: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *entry_.mplslabel_);
       break;
     }
-    // .service_layer.SLPathGroup PathGroup = 4;
+    // .service_layer.SLPathGroup PathGroup = 3;
     case kPathGroup: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3901,12 +4366,8 @@ void SLAFObject::MergeFrom(const SLAFObject& from) {
   (void) cached_has_bits;
 
   switch (from.entry_case()) {
-    case kIPv4Route: {
-      _internal_mutable_ipv4route()->::service_layer::SLRoutev4::MergeFrom(from._internal_ipv4route());
-      break;
-    }
-    case kIPv6Route: {
-      _internal_mutable_ipv6route()->::service_layer::SLRoutev6::MergeFrom(from._internal_ipv6route());
+    case kIPRoute: {
+      _internal_mutable_iproute()->::service_layer::SLAFIPRoute::MergeFrom(from._internal_iproute());
       break;
     }
     case kMplsLabel: {
@@ -3945,31 +4406,33 @@ void SLAFObject::InternalSwap(SLAFObject* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFObject::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[10]);
+      file_level_metadata_sl_5faf_2eproto[12]);
 }
 
 // ===================================================================
 
-class SLAFOp::_Internal {
+class SLAFOpMsg::_Internal {
  public:
-  static const ::service_layer::SLAFObject& afobject(const SLAFOp* msg);
+  static const ::service_layer::SLAFObject& afobject(const SLAFOpMsg* msg);
 };
 
 const ::service_layer::SLAFObject&
-SLAFOp::_Internal::afobject(const SLAFOp* msg) {
+SLAFOpMsg::_Internal::afobject(const SLAFOpMsg* msg) {
   return *msg->afobject_;
 }
-SLAFOp::SLAFOp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SLAFOpMsg::SLAFOpMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  ackpermits_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFOp)
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFOpMsg)
 }
-SLAFOp::SLAFOp(const SLAFOp& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+SLAFOpMsg::SLAFOpMsg(const SLAFOpMsg& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      ackpermits_(from.ackpermits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_afobject()) {
     afobject_ = new ::service_layer::SLAFObject(*from.afobject_);
@@ -3979,44 +4442,45 @@ SLAFOp::SLAFOp(const SLAFOp& from)
   ::memcpy(&operationid_, &from.operationid_,
     static_cast<size_t>(reinterpret_cast<char*>(&ackcadence_) -
     reinterpret_cast<char*>(&operationid_)) + sizeof(ackcadence_));
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFOp)
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFOpMsg)
 }
 
-inline void SLAFOp::SharedCtor() {
+inline void SLAFOpMsg::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&afobject_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&ackcadence_) -
     reinterpret_cast<char*>(&afobject_)) + sizeof(ackcadence_));
 }
 
-SLAFOp::~SLAFOp() {
-  // @@protoc_insertion_point(destructor:service_layer.SLAFOp)
+SLAFOpMsg::~SLAFOpMsg() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFOpMsg)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLAFOp::SharedDtor() {
+inline void SLAFOpMsg::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete afobject_;
 }
 
-void SLAFOp::ArenaDtor(void* object) {
-  SLAFOp* _this = reinterpret_cast< SLAFOp* >(object);
+void SLAFOpMsg::ArenaDtor(void* object) {
+  SLAFOpMsg* _this = reinterpret_cast< SLAFOpMsg* >(object);
   (void)_this;
 }
-void SLAFOp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SLAFOpMsg::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void SLAFOp::SetCachedSize(int size) const {
+void SLAFOpMsg::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLAFOp::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLAFOp)
+void SLAFOpMsg::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFOpMsg)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  ackpermits_.Clear();
   if (GetArenaForAllocation() == nullptr && afobject_ != nullptr) {
     delete afobject_;
   }
@@ -4027,7 +4491,7 @@ void SLAFOp::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SLAFOp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SLAFOpMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -4058,11 +4522,15 @@ const char* SLAFOp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
         } else
           goto handle_unusual;
         continue;
-      // uint32 AckPermit = 4;
+      // repeated .service_layer.SLRspACKPermit AckPermits = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          ackpermit_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_ackpermits(), ptr, ctx);
           CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 32) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_add_ackpermits(static_cast<::service_layer::SLRspACKPermit>(val));
         } else
           goto handle_unusual;
         continue;
@@ -4098,9 +4566,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SLAFOp::_InternalSerialize(
+uint8_t* SLAFOpMsg::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFOp)
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFOpMsg)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4125,10 +4593,13 @@ uint8_t* SLAFOp::_InternalSerialize(
       3, this->_internal_acktype(), target);
   }
 
-  // uint32 AckPermit = 4;
-  if (this->_internal_ackpermit() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_ackpermit(), target);
+  // repeated .service_layer.SLRspACKPermit AckPermits = 4;
+  {
+    int byte_size = _ackpermits_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteEnumPacked(
+          4, ackpermits_, byte_size, target);
+    }
   }
 
   // .service_layer.SLRspAckCadence AckCadence = 5;
@@ -4142,17 +4613,35 @@ uint8_t* SLAFOp::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFOp)
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFOpMsg)
   return target;
 }
 
-size_t SLAFOp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFOp)
+size_t SLAFOpMsg::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFOpMsg)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .service_layer.SLRspACKPermit AckPermits = 4;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_ackpermits_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_ackpermits(static_cast<int>(i)));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _ackpermits_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
 
   // .service_layer.SLAFObject AFObject = 1;
   if (this->_internal_has_afobject()) {
@@ -4172,11 +4661,6 @@ size_t SLAFOp::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_acktype());
   }
 
-  // uint32 AckPermit = 4;
-  if (this->_internal_ackpermit() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_ackpermit());
-  }
-
   // .service_layer.SLRspAckCadence AckCadence = 5;
   if (this->_internal_ackcadence() != 0) {
     total_size += 1 +
@@ -4186,25 +4670,26 @@ size_t SLAFOp::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFOp::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFOpMsg::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLAFOp::MergeImpl
+    SLAFOpMsg::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFOp::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFOpMsg::GetClassData() const { return &_class_data_; }
 
-void SLAFOp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void SLAFOpMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLAFOp *>(to)->MergeFrom(
-      static_cast<const SLAFOp &>(from));
+  static_cast<SLAFOpMsg *>(to)->MergeFrom(
+      static_cast<const SLAFOpMsg &>(from));
 }
 
 
-void SLAFOp::MergeFrom(const SLAFOp& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFOp)
+void SLAFOpMsg::MergeFrom(const SLAFOpMsg& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFOpMsg)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  ackpermits_.MergeFrom(from.ackpermits_);
   if (from._internal_has_afobject()) {
     _internal_mutable_afobject()->::service_layer::SLAFObject::MergeFrom(from._internal_afobject());
   }
@@ -4214,56 +4699,1373 @@ void SLAFOp::MergeFrom(const SLAFOp& from) {
   if (from._internal_acktype() != 0) {
     _internal_set_acktype(from._internal_acktype());
   }
-  if (from._internal_ackpermit() != 0) {
-    _internal_set_ackpermit(from._internal_ackpermit());
-  }
   if (from._internal_ackcadence() != 0) {
     _internal_set_ackcadence(from._internal_ackcadence());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SLAFOp::CopyFrom(const SLAFOp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFOp)
+void SLAFOpMsg::CopyFrom(const SLAFOpMsg& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFOpMsg)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SLAFOp::IsInitialized() const {
+bool SLAFOpMsg::IsInitialized() const {
   return true;
 }
 
-void SLAFOp::InternalSwap(SLAFOp* other) {
+void SLAFOpMsg::InternalSwap(SLAFOpMsg* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ackpermits_.InternalSwap(&other->ackpermits_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLAFOp, ackcadence_)
-      + sizeof(SLAFOp::ackcadence_)
-      - PROTOBUF_FIELD_OFFSET(SLAFOp, afobject_)>(
+      PROTOBUF_FIELD_OFFSET(SLAFOpMsg, ackcadence_)
+      + sizeof(SLAFOpMsg::ackcadence_)
+      - PROTOBUF_FIELD_OFFSET(SLAFOpMsg, afobject_)>(
           reinterpret_cast<char*>(&afobject_),
           reinterpret_cast<char*>(&other->afobject_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SLAFOp::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFOpMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[11]);
+      file_level_metadata_sl_5faf_2eproto[13]);
+}
+
+// ===================================================================
+
+class SLAFClientIDList::_Internal {
+ public:
+};
+
+SLAFClientIDList::SLAFClientIDList(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  clientidlist_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFClientIDList)
+}
+SLAFClientIDList::SLAFClientIDList(const SLAFClientIDList& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      clientidlist_(from.clientidlist_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFClientIDList)
+}
+
+inline void SLAFClientIDList::SharedCtor() {
+}
+
+SLAFClientIDList::~SLAFClientIDList() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFClientIDList)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAFClientIDList::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLAFClientIDList::ArenaDtor(void* object) {
+  SLAFClientIDList* _this = reinterpret_cast< SLAFClientIDList* >(object);
+  (void)_this;
+}
+void SLAFClientIDList::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAFClientIDList::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAFClientIDList::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFClientIDList)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clientidlist_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAFClientIDList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated uint64 ClientIDList = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_clientidlist(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 8) {
+          _internal_add_clientidlist(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAFClientIDList::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFClientIDList)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint64 ClientIDList = 1;
+  {
+    int byte_size = _clientidlist_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          1, _internal_clientidlist(), byte_size, target);
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFClientIDList)
+  return target;
+}
+
+size_t SLAFClientIDList::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFClientIDList)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint64 ClientIDList = 1;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt64Size(this->clientidlist_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _clientidlist_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFClientIDList::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAFClientIDList::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFClientIDList::GetClassData() const { return &_class_data_; }
+
+void SLAFClientIDList::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAFClientIDList *>(to)->MergeFrom(
+      static_cast<const SLAFClientIDList &>(from));
+}
+
+
+void SLAFClientIDList::MergeFrom(const SLAFClientIDList& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFClientIDList)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  clientidlist_.MergeFrom(from.clientidlist_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAFClientIDList::CopyFrom(const SLAFClientIDList& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFClientIDList)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAFClientIDList::IsInitialized() const {
+  return true;
+}
+
+void SLAFClientIDList::InternalSwap(SLAFClientIDList* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  clientidlist_.InternalSwap(&other->clientidlist_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFClientIDList::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[14]);
+}
+
+// ===================================================================
+
+class SLTableTypeList::_Internal {
+ public:
+};
+
+SLTableTypeList::SLTableTypeList(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  table_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLTableTypeList)
+}
+SLTableTypeList::SLTableTypeList(const SLTableTypeList& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      table_(from.table_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLTableTypeList)
+}
+
+inline void SLTableTypeList::SharedCtor() {
+}
+
+SLTableTypeList::~SLTableTypeList() {
+  // @@protoc_insertion_point(destructor:service_layer.SLTableTypeList)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLTableTypeList::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLTableTypeList::ArenaDtor(void* object) {
+  SLTableTypeList* _this = reinterpret_cast< SLTableTypeList* >(object);
+  (void)_this;
+}
+void SLTableTypeList::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLTableTypeList::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLTableTypeList::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLTableTypeList)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  table_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLTableTypeList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .service_layer.SLTableType Table = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_table(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 8) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_add_table(static_cast<::service_layer::SLTableType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLTableTypeList::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLTableTypeList)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLTableType Table = 1;
+  {
+    int byte_size = _table_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteEnumPacked(
+          1, table_, byte_size, target);
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLTableTypeList)
+  return target;
+}
+
+size_t SLTableTypeList::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLTableTypeList)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLTableType Table = 1;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_table_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_table(static_cast<int>(i)));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _table_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLTableTypeList::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLTableTypeList::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLTableTypeList::GetClassData() const { return &_class_data_; }
+
+void SLTableTypeList::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLTableTypeList *>(to)->MergeFrom(
+      static_cast<const SLTableTypeList &>(from));
+}
+
+
+void SLTableTypeList::MergeFrom(const SLTableTypeList& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLTableTypeList)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  table_.MergeFrom(from.table_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLTableTypeList::CopyFrom(const SLTableTypeList& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLTableTypeList)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLTableTypeList::IsInitialized() const {
+  return true;
+}
+
+void SLTableTypeList::InternalSwap(SLTableTypeList* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  table_.InternalSwap(&other->table_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLTableTypeList::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[15]);
+}
+
+// ===================================================================
+
+class SLAFObjectKey::_Internal {
+ public:
+  static const ::service_layer::SLRoutePrefix& iprouteprefix(const SLAFObjectKey* msg);
+  static const ::service_layer::SLMplsEntryKey& mplslabel(const SLAFObjectKey* msg);
+  static const ::service_layer::SLObjectId& pathgroupid(const SLAFObjectKey* msg);
+};
+
+const ::service_layer::SLRoutePrefix&
+SLAFObjectKey::_Internal::iprouteprefix(const SLAFObjectKey* msg) {
+  return *msg->key_.iprouteprefix_;
+}
+const ::service_layer::SLMplsEntryKey&
+SLAFObjectKey::_Internal::mplslabel(const SLAFObjectKey* msg) {
+  return *msg->key_.mplslabel_;
+}
+const ::service_layer::SLObjectId&
+SLAFObjectKey::_Internal::pathgroupid(const SLAFObjectKey* msg) {
+  return *msg->key_.pathgroupid_;
+}
+void SLAFObjectKey::set_allocated_iprouteprefix(::service_layer::SLRoutePrefix* iprouteprefix) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_key();
+  if (iprouteprefix) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(iprouteprefix));
+    if (message_arena != submessage_arena) {
+      iprouteprefix = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, iprouteprefix, submessage_arena);
+    }
+    set_has_iprouteprefix();
+    key_.iprouteprefix_ = iprouteprefix;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFObjectKey.IPRoutePrefix)
+}
+void SLAFObjectKey::clear_iprouteprefix() {
+  if (_internal_has_iprouteprefix()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete key_.iprouteprefix_;
+    }
+    clear_has_key();
+  }
+}
+void SLAFObjectKey::set_allocated_mplslabel(::service_layer::SLMplsEntryKey* mplslabel) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_key();
+  if (mplslabel) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLMplsEntryKey>::GetOwningArena(mplslabel);
+    if (message_arena != submessage_arena) {
+      mplslabel = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, mplslabel, submessage_arena);
+    }
+    set_has_mplslabel();
+    key_.mplslabel_ = mplslabel;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFObjectKey.MplsLabel)
+}
+void SLAFObjectKey::set_allocated_pathgroupid(::service_layer::SLObjectId* pathgroupid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_key();
+  if (pathgroupid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid));
+    if (message_arena != submessage_arena) {
+      pathgroupid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pathgroupid, submessage_arena);
+    }
+    set_has_pathgroupid();
+    key_.pathgroupid_ = pathgroupid;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFObjectKey.PathGroupId)
+}
+void SLAFObjectKey::clear_pathgroupid() {
+  if (_internal_has_pathgroupid()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete key_.pathgroupid_;
+    }
+    clear_has_key();
+  }
+}
+SLAFObjectKey::SLAFObjectKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFObjectKey)
+}
+SLAFObjectKey::SLAFObjectKey(const SLAFObjectKey& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  clear_has_key();
+  switch (from.key_case()) {
+    case kIPRoutePrefix: {
+      _internal_mutable_iprouteprefix()->::service_layer::SLRoutePrefix::MergeFrom(from._internal_iprouteprefix());
+      break;
+    }
+    case kMplsLabel: {
+      _internal_mutable_mplslabel()->::service_layer::SLMplsEntryKey::MergeFrom(from._internal_mplslabel());
+      break;
+    }
+    case kPathGroupId: {
+      _internal_mutable_pathgroupid()->::service_layer::SLObjectId::MergeFrom(from._internal_pathgroupid());
+      break;
+    }
+    case KEY_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFObjectKey)
+}
+
+inline void SLAFObjectKey::SharedCtor() {
+clear_has_key();
+}
+
+SLAFObjectKey::~SLAFObjectKey() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFObjectKey)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAFObjectKey::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (has_key()) {
+    clear_key();
+  }
+}
+
+void SLAFObjectKey::ArenaDtor(void* object) {
+  SLAFObjectKey* _this = reinterpret_cast< SLAFObjectKey* >(object);
+  (void)_this;
+}
+void SLAFObjectKey::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAFObjectKey::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAFObjectKey::clear_key() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLAFObjectKey)
+  switch (key_case()) {
+    case kIPRoutePrefix: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete key_.iprouteprefix_;
+      }
+      break;
+    }
+    case kMplsLabel: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete key_.mplslabel_;
+      }
+      break;
+    }
+    case kPathGroupId: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete key_.pathgroupid_;
+      }
+      break;
+    }
+    case KEY_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = KEY_NOT_SET;
+}
+
+
+void SLAFObjectKey::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFObjectKey)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_key();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAFObjectKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLRoutePrefix IPRoutePrefix = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_iprouteprefix(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLMplsEntryKey MplsLabel = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_mplslabel(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLObjectId PathGroupId = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_pathgroupid(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAFObjectKey::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFObjectKey)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLRoutePrefix IPRoutePrefix = 1;
+  if (_internal_has_iprouteprefix()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::iprouteprefix(this), target, stream);
+  }
+
+  // .service_layer.SLMplsEntryKey MplsLabel = 2;
+  if (_internal_has_mplslabel()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::mplslabel(this), target, stream);
+  }
+
+  // .service_layer.SLObjectId PathGroupId = 3;
+  if (_internal_has_pathgroupid()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::pathgroupid(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFObjectKey)
+  return target;
+}
+
+size_t SLAFObjectKey::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFObjectKey)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (key_case()) {
+    // .service_layer.SLRoutePrefix IPRoutePrefix = 1;
+    case kIPRoutePrefix: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *key_.iprouteprefix_);
+      break;
+    }
+    // .service_layer.SLMplsEntryKey MplsLabel = 2;
+    case kMplsLabel: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *key_.mplslabel_);
+      break;
+    }
+    // .service_layer.SLObjectId PathGroupId = 3;
+    case kPathGroupId: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *key_.pathgroupid_);
+      break;
+    }
+    case KEY_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFObjectKey::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAFObjectKey::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFObjectKey::GetClassData() const { return &_class_data_; }
+
+void SLAFObjectKey::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAFObjectKey *>(to)->MergeFrom(
+      static_cast<const SLAFObjectKey &>(from));
+}
+
+
+void SLAFObjectKey::MergeFrom(const SLAFObjectKey& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFObjectKey)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.key_case()) {
+    case kIPRoutePrefix: {
+      _internal_mutable_iprouteprefix()->::service_layer::SLRoutePrefix::MergeFrom(from._internal_iprouteprefix());
+      break;
+    }
+    case kMplsLabel: {
+      _internal_mutable_mplslabel()->::service_layer::SLMplsEntryKey::MergeFrom(from._internal_mplslabel());
+      break;
+    }
+    case kPathGroupId: {
+      _internal_mutable_pathgroupid()->::service_layer::SLObjectId::MergeFrom(from._internal_pathgroupid());
+      break;
+    }
+    case KEY_NOT_SET: {
+      break;
+    }
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAFObjectKey::CopyFrom(const SLAFObjectKey& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFObjectKey)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAFObjectKey::IsInitialized() const {
+  return true;
+}
+
+void SLAFObjectKey::InternalSwap(SLAFObjectKey* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(key_, other->key_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFObjectKey::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[16]);
+}
+
+// ===================================================================
+
+class SLAFGetMatch::_Internal {
+ public:
+  static const ::service_layer::SLAFObjectKey& key(const SLAFGetMatch* msg);
+};
+
+const ::service_layer::SLAFObjectKey&
+SLAFGetMatch::_Internal::key(const SLAFGetMatch* msg) {
+  return *msg->entry_.key_;
+}
+void SLAFGetMatch::set_allocated_key(::service_layer::SLAFObjectKey* key) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_entry();
+  if (key) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFObjectKey>::GetOwningArena(key);
+    if (message_arena != submessage_arena) {
+      key = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, key, submessage_arena);
+    }
+    set_has_key();
+    entry_.key_ = key;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMatch.Key)
+}
+SLAFGetMatch::SLAFGetMatch(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFGetMatch)
+}
+SLAFGetMatch::SLAFGetMatch(const SLAFGetMatch& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  clear_has_entry();
+  switch (from.entry_case()) {
+    case kKey: {
+      _internal_mutable_key()->::service_layer::SLAFObjectKey::MergeFrom(from._internal_key());
+      break;
+    }
+    case kPathGroupRegex: {
+      _internal_set_pathgroupregex(from._internal_pathgroupregex());
+      break;
+    }
+    case kVxlanVniId: {
+      _internal_set_vxlanvniid(from._internal_vxlanvniid());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFGetMatch)
+}
+
+inline void SLAFGetMatch::SharedCtor() {
+clear_has_entry();
+}
+
+SLAFGetMatch::~SLAFGetMatch() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFGetMatch)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAFGetMatch::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (has_entry()) {
+    clear_entry();
+  }
+}
+
+void SLAFGetMatch::ArenaDtor(void* object) {
+  SLAFGetMatch* _this = reinterpret_cast< SLAFGetMatch* >(object);
+  (void)_this;
+}
+void SLAFGetMatch::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAFGetMatch::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAFGetMatch::clear_entry() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLAFGetMatch)
+  switch (entry_case()) {
+    case kKey: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete entry_.key_;
+      }
+      break;
+    }
+    case kPathGroupRegex: {
+      entry_.pathgroupregex_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+      break;
+    }
+    case kVxlanVniId: {
+      // No need to clear
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+
+
+void SLAFGetMatch::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFGetMatch)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_entry();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAFGetMatch::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLAFObjectKey Key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_key(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string PathGroupRegex = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_pathgroupregex();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLAFGetMatch.PathGroupRegex"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 VxlanVniId = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _internal_set_vxlanvniid(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAFGetMatch::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFGetMatch)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLAFObjectKey Key = 1;
+  if (_internal_has_key()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::key(this), target, stream);
+  }
+
+  // string PathGroupRegex = 2;
+  if (_internal_has_pathgroupregex()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_pathgroupregex().data(), static_cast<int>(this->_internal_pathgroupregex().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "service_layer.SLAFGetMatch.PathGroupRegex");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_pathgroupregex(), target);
+  }
+
+  // uint32 VxlanVniId = 3;
+  if (_internal_has_vxlanvniid()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_vxlanvniid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFGetMatch)
+  return target;
+}
+
+size_t SLAFGetMatch::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFGetMatch)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (entry_case()) {
+    // .service_layer.SLAFObjectKey Key = 1;
+    case kKey: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entry_.key_);
+      break;
+    }
+    // string PathGroupRegex = 2;
+    case kPathGroupRegex: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_pathgroupregex());
+      break;
+    }
+    // uint32 VxlanVniId = 3;
+    case kVxlanVniId: {
+      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_vxlanvniid());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFGetMatch::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAFGetMatch::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFGetMatch::GetClassData() const { return &_class_data_; }
+
+void SLAFGetMatch::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAFGetMatch *>(to)->MergeFrom(
+      static_cast<const SLAFGetMatch &>(from));
+}
+
+
+void SLAFGetMatch::MergeFrom(const SLAFGetMatch& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFGetMatch)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.entry_case()) {
+    case kKey: {
+      _internal_mutable_key()->::service_layer::SLAFObjectKey::MergeFrom(from._internal_key());
+      break;
+    }
+    case kPathGroupRegex: {
+      _internal_set_pathgroupregex(from._internal_pathgroupregex());
+      break;
+    }
+    case kVxlanVniId: {
+      _internal_set_vxlanvniid(from._internal_vxlanvniid());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAFGetMatch::CopyFrom(const SLAFGetMatch& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFGetMatch)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAFGetMatch::IsInitialized() const {
+  return true;
+}
+
+void SLAFGetMatch::InternalSwap(SLAFGetMatch* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(entry_, other->entry_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFGetMatch::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[17]);
+}
+
+// ===================================================================
+
+class SLAFGetMatchList::_Internal {
+ public:
+};
+
+SLAFGetMatchList::SLAFGetMatchList(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  match_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFGetMatchList)
+}
+SLAFGetMatchList::SLAFGetMatchList(const SLAFGetMatchList& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      match_(from.match_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFGetMatchList)
+}
+
+inline void SLAFGetMatchList::SharedCtor() {
+}
+
+SLAFGetMatchList::~SLAFGetMatchList() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFGetMatchList)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAFGetMatchList::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLAFGetMatchList::ArenaDtor(void* object) {
+  SLAFGetMatchList* _this = reinterpret_cast< SLAFGetMatchList* >(object);
+  (void)_this;
+}
+void SLAFGetMatchList::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAFGetMatchList::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAFGetMatchList::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFGetMatchList)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  match_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAFGetMatchList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .service_layer.SLAFGetMatch Match = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_match(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAFGetMatchList::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFGetMatchList)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLAFGetMatch Match = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_match_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_match(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFGetMatchList)
+  return target;
+}
+
+size_t SLAFGetMatchList::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFGetMatchList)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLAFGetMatch Match = 1;
+  total_size += 1UL * this->_internal_match_size();
+  for (const auto& msg : this->match_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFGetMatchList::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAFGetMatchList::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFGetMatchList::GetClassData() const { return &_class_data_; }
+
+void SLAFGetMatchList::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAFGetMatchList *>(to)->MergeFrom(
+      static_cast<const SLAFGetMatchList &>(from));
+}
+
+
+void SLAFGetMatchList::MergeFrom(const SLAFGetMatchList& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFGetMatchList)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  match_.MergeFrom(from.match_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAFGetMatchList::CopyFrom(const SLAFGetMatchList& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFGetMatchList)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAFGetMatchList::IsInitialized() const {
+  return true;
+}
+
+void SLAFGetMatchList::InternalSwap(SLAFGetMatchList* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  match_.InternalSwap(&other->match_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFGetMatchList::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[18]);
 }
 
 // ===================================================================
 
 class SLAFGetMsg::_Internal {
  public:
+  static const ::service_layer::SLAFClientIDList& clientidlist(const SLAFGetMsg* msg);
+  static const ::service_layer::SLTableTypeList& tablelist(const SLAFGetMsg* msg);
+  static const ::service_layer::SLAFGetMatchList& routematchlist(const SLAFGetMsg* msg);
 };
 
-void SLAFGetMsg::clear_routematch() {
-  routematch_.Clear();
+const ::service_layer::SLAFClientIDList&
+SLAFGetMsg::_Internal::clientidlist(const SLAFGetMsg* msg) {
+  return *msg->client_.clientidlist_;
+}
+const ::service_layer::SLTableTypeList&
+SLAFGetMsg::_Internal::tablelist(const SLAFGetMsg* msg) {
+  return *msg->match_.tablelist_;
+}
+const ::service_layer::SLAFGetMatchList&
+SLAFGetMsg::_Internal::routematchlist(const SLAFGetMsg* msg) {
+  return *msg->match_.routematchlist_;
+}
+void SLAFGetMsg::set_allocated_clientidlist(::service_layer::SLAFClientIDList* clientidlist) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_client();
+  if (clientidlist) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFClientIDList>::GetOwningArena(clientidlist);
+    if (message_arena != submessage_arena) {
+      clientidlist = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, clientidlist, submessage_arena);
+    }
+    set_has_clientidlist();
+    client_.clientidlist_ = clientidlist;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsg.ClientIDList)
+}
+void SLAFGetMsg::set_allocated_tablelist(::service_layer::SLTableTypeList* tablelist) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_match();
+  if (tablelist) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLTableTypeList>::GetOwningArena(tablelist);
+    if (message_arena != submessage_arena) {
+      tablelist = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tablelist, submessage_arena);
+    }
+    set_has_tablelist();
+    match_.tablelist_ = tablelist;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsg.TableList)
+}
+void SLAFGetMsg::set_allocated_routematchlist(::service_layer::SLAFGetMatchList* routematchlist) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_match();
+  if (routematchlist) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFGetMatchList>::GetOwningArena(routematchlist);
+    if (message_arena != submessage_arena) {
+      routematchlist = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, routematchlist, submessage_arena);
+    }
+    set_has_routematchlist();
+    match_.routematchlist_ = routematchlist;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsg.RouteMatchList)
 }
 SLAFGetMsg::SLAFGetMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  routematch_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -4271,8 +6073,7 @@ SLAFGetMsg::SLAFGetMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   // @@protoc_insertion_point(arena_constructor:service_layer.SLAFGetMsg)
 }
 SLAFGetMsg::SLAFGetMsg(const SLAFGetMsg& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      routematch_(from.routematch_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   vrfname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4282,9 +6083,34 @@ SLAFGetMsg::SLAFGetMsg(const SLAFGetMsg& from)
     vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_vrfname(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&table_, &from.table_,
-    static_cast<size_t>(reinterpret_cast<char*>(&getallclients_) -
-    reinterpret_cast<char*>(&table_)) + sizeof(getallclients_));
+  clear_has_client();
+  switch (from.client_case()) {
+    case kClientIDList: {
+      _internal_mutable_clientidlist()->::service_layer::SLAFClientIDList::MergeFrom(from._internal_clientidlist());
+      break;
+    }
+    case kAllClients: {
+      _internal_set_allclients(from._internal_allclients());
+      break;
+    }
+    case CLIENT_NOT_SET: {
+      break;
+    }
+  }
+  clear_has_match();
+  switch (from.match_case()) {
+    case kTableList: {
+      _internal_mutable_tablelist()->::service_layer::SLTableTypeList::MergeFrom(from._internal_tablelist());
+      break;
+    }
+    case kRouteMatchList: {
+      _internal_mutable_routematchlist()->::service_layer::SLAFGetMatchList::MergeFrom(from._internal_routematchlist());
+      break;
+    }
+    case MATCH_NOT_SET: {
+      break;
+    }
+  }
   // @@protoc_insertion_point(copy_constructor:service_layer.SLAFGetMsg)
 }
 
@@ -4293,10 +6119,8 @@ vrfname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlre
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   vrfname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&table_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&getallclients_) -
-    reinterpret_cast<char*>(&table_)) + sizeof(getallclients_));
+clear_has_client();
+clear_has_match();
 }
 
 SLAFGetMsg::~SLAFGetMsg() {
@@ -4309,6 +6133,12 @@ SLAFGetMsg::~SLAFGetMsg() {
 inline void SLAFGetMsg::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   vrfname_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (has_client()) {
+    clear_client();
+  }
+  if (has_match()) {
+    clear_match();
+  }
 }
 
 void SLAFGetMsg::ArenaDtor(void* object) {
@@ -4321,17 +6151,58 @@ void SLAFGetMsg::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
+void SLAFGetMsg::clear_client() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLAFGetMsg)
+  switch (client_case()) {
+    case kClientIDList: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete client_.clientidlist_;
+      }
+      break;
+    }
+    case kAllClients: {
+      // No need to clear
+      break;
+    }
+    case CLIENT_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = CLIENT_NOT_SET;
+}
+
+void SLAFGetMsg::clear_match() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLAFGetMsg)
+  switch (match_case()) {
+    case kTableList: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete match_.tablelist_;
+      }
+      break;
+    }
+    case kRouteMatchList: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete match_.routematchlist_;
+      }
+      break;
+    }
+    case MATCH_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[1] = MATCH_NOT_SET;
+}
+
+
 void SLAFGetMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLAFGetMsg)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  routematch_.Clear();
   vrfname_.ClearToEmpty();
-  ::memset(&table_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&getallclients_) -
-      reinterpret_cast<char*>(&table_)) + sizeof(getallclients_));
+  clear_client();
+  clear_match();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4351,33 +6222,35 @@ const char* SLAFGetMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLTableType Table = 2;
+      // .service_layer.SLAFClientIDList ClientIDList = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_clientidlist(), ptr);
           CHK_(ptr);
-          _internal_set_table(static_cast<::service_layer::SLTableType>(val));
         } else
           goto handle_unusual;
         continue;
-      // bool GetAllClients = 3;
+      // bool AllClients = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          getallclients_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _internal_set_allclients(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // repeated .service_layer.SLRouteGetMatch RouteMatch = 4;
+      // .service_layer.SLTableTypeList TableList = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_routematch(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_tablelist(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLAFGetMatchList RouteMatchList = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_routematchlist(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -4420,25 +6293,34 @@ uint8_t* SLAFGetMsg::_InternalSerialize(
         1, this->_internal_vrfname(), target);
   }
 
-  // .service_layer.SLTableType Table = 2;
-  if (this->_internal_table() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      2, this->_internal_table(), target);
-  }
-
-  // bool GetAllClients = 3;
-  if (this->_internal_getallclients() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_getallclients(), target);
-  }
-
-  // repeated .service_layer.SLRouteGetMatch RouteMatch = 4;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_routematch_size()); i < n; i++) {
+  // .service_layer.SLAFClientIDList ClientIDList = 2;
+  if (_internal_has_clientidlist()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, this->_internal_routematch(i), target, stream);
+      InternalWriteMessage(
+        2, _Internal::clientidlist(this), target, stream);
+  }
+
+  // bool AllClients = 3;
+  if (_internal_has_allclients()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_allclients(), target);
+  }
+
+  // .service_layer.SLTableTypeList TableList = 4;
+  if (_internal_has_tablelist()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::tablelist(this), target, stream);
+  }
+
+  // .service_layer.SLAFGetMatchList RouteMatchList = 5;
+  if (_internal_has_routematchlist()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::routematchlist(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4457,13 +6339,6 @@ size_t SLAFGetMsg::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLRouteGetMatch RouteMatch = 4;
-  total_size += 1UL * this->_internal_routematch_size();
-  for (const auto& msg : this->routematch_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
   // string VrfName = 1;
   if (!this->_internal_vrfname().empty()) {
     total_size += 1 +
@@ -4471,17 +6346,42 @@ size_t SLAFGetMsg::ByteSizeLong() const {
         this->_internal_vrfname());
   }
 
-  // .service_layer.SLTableType Table = 2;
-  if (this->_internal_table() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_table());
+  switch (client_case()) {
+    // .service_layer.SLAFClientIDList ClientIDList = 2;
+    case kClientIDList: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *client_.clientidlist_);
+      break;
+    }
+    // bool AllClients = 3;
+    case kAllClients: {
+      total_size += 1 + 1;
+      break;
+    }
+    case CLIENT_NOT_SET: {
+      break;
+    }
   }
-
-  // bool GetAllClients = 3;
-  if (this->_internal_getallclients() != 0) {
-    total_size += 1 + 1;
+  switch (match_case()) {
+    // .service_layer.SLTableTypeList TableList = 4;
+    case kTableList: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *match_.tablelist_);
+      break;
+    }
+    // .service_layer.SLAFGetMatchList RouteMatchList = 5;
+    case kRouteMatchList: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *match_.routematchlist_);
+      break;
+    }
+    case MATCH_NOT_SET: {
+      break;
+    }
   }
-
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -4504,15 +6404,34 @@ void SLAFGetMsg::MergeFrom(const SLAFGetMsg& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  routematch_.MergeFrom(from.routematch_);
   if (!from._internal_vrfname().empty()) {
     _internal_set_vrfname(from._internal_vrfname());
   }
-  if (from._internal_table() != 0) {
-    _internal_set_table(from._internal_table());
+  switch (from.client_case()) {
+    case kClientIDList: {
+      _internal_mutable_clientidlist()->::service_layer::SLAFClientIDList::MergeFrom(from._internal_clientidlist());
+      break;
+    }
+    case kAllClients: {
+      _internal_set_allclients(from._internal_allclients());
+      break;
+    }
+    case CLIENT_NOT_SET: {
+      break;
+    }
   }
-  if (from._internal_getallclients() != 0) {
-    _internal_set_getallclients(from._internal_getallclients());
+  switch (from.match_case()) {
+    case kTableList: {
+      _internal_mutable_tablelist()->::service_layer::SLTableTypeList::MergeFrom(from._internal_tablelist());
+      break;
+    }
+    case kRouteMatchList: {
+      _internal_mutable_routematchlist()->::service_layer::SLAFGetMatchList::MergeFrom(from._internal_routematchlist());
+      break;
+    }
+    case MATCH_NOT_SET: {
+      break;
+    }
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4533,634 +6452,33 @@ void SLAFGetMsg::InternalSwap(SLAFGetMsg* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  routematch_.InternalSwap(&other->routematch_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &vrfname_, lhs_arena,
       &other->vrfname_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLAFGetMsg, getallclients_)
-      + sizeof(SLAFGetMsg::getallclients_)
-      - PROTOBUF_FIELD_OFFSET(SLAFGetMsg, table_)>(
-          reinterpret_cast<char*>(&table_),
-          reinterpret_cast<char*>(&other->table_));
+  swap(client_, other->client_);
+  swap(match_, other->match_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  swap(_oneof_case_[1], other->_oneof_case_[1]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFGetMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[12]);
-}
-
-// ===================================================================
-
-class SLAFDepFibStatus::_Internal {
- public:
-  static const ::service_layer::SLErrorStatus& errorcode(const SLAFDepFibStatus* msg);
-  static const ::service_layer::SLPathGroupRefKey& pathgroupkey(const SLAFDepFibStatus* msg);
-};
-
-const ::service_layer::SLErrorStatus&
-SLAFDepFibStatus::_Internal::errorcode(const SLAFDepFibStatus* msg) {
-  return *msg->errorcode_;
-}
-const ::service_layer::SLPathGroupRefKey&
-SLAFDepFibStatus::_Internal::pathgroupkey(const SLAFDepFibStatus* msg) {
-  return *msg->entry_.pathgroupkey_;
-}
-void SLAFDepFibStatus::clear_errorcode() {
-  if (GetArenaForAllocation() == nullptr && errorcode_ != nullptr) {
-    delete errorcode_;
-  }
-  errorcode_ = nullptr;
-}
-void SLAFDepFibStatus::set_allocated_pathgroupkey(::service_layer::SLPathGroupRefKey* pathgroupkey) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_entry();
-  if (pathgroupkey) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupkey));
-    if (message_arena != submessage_arena) {
-      pathgroupkey = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, pathgroupkey, submessage_arena);
-    }
-    set_has_pathgroupkey();
-    entry_.pathgroupkey_ = pathgroupkey;
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFDepFibStatus.PathGroupKey)
-}
-void SLAFDepFibStatus::clear_pathgroupkey() {
-  if (_internal_has_pathgroupkey()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete entry_.pathgroupkey_;
-    }
-    clear_has_entry();
-  }
-}
-SLAFDepFibStatus::SLAFDepFibStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFDepFibStatus)
-}
-SLAFDepFibStatus::SLAFDepFibStatus(const SLAFDepFibStatus& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_errorcode()) {
-    errorcode_ = new ::service_layer::SLErrorStatus(*from.errorcode_);
-  } else {
-    errorcode_ = nullptr;
-  }
-  ::memcpy(&operationid_, &from.operationid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&version_) -
-    reinterpret_cast<char*>(&operationid_)) + sizeof(version_));
-  clear_has_entry();
-  switch (from.entry_case()) {
-    case kPathGroupKey: {
-      _internal_mutable_pathgroupkey()->::service_layer::SLPathGroupRefKey::MergeFrom(from._internal_pathgroupkey());
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFDepFibStatus)
-}
-
-inline void SLAFDepFibStatus::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&errorcode_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&version_) -
-    reinterpret_cast<char*>(&errorcode_)) + sizeof(version_));
-clear_has_entry();
-}
-
-SLAFDepFibStatus::~SLAFDepFibStatus() {
-  // @@protoc_insertion_point(destructor:service_layer.SLAFDepFibStatus)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLAFDepFibStatus::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete errorcode_;
-  if (has_entry()) {
-    clear_entry();
-  }
-}
-
-void SLAFDepFibStatus::ArenaDtor(void* object) {
-  SLAFDepFibStatus* _this = reinterpret_cast< SLAFDepFibStatus* >(object);
-  (void)_this;
-}
-void SLAFDepFibStatus::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLAFDepFibStatus::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLAFDepFibStatus::clear_entry() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLAFDepFibStatus)
-  switch (entry_case()) {
-    case kPathGroupKey: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete entry_.pathgroupkey_;
-      }
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = ENTRY_NOT_SET;
-}
-
-
-void SLAFDepFibStatus::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLAFDepFibStatus)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaForAllocation() == nullptr && errorcode_ != nullptr) {
-    delete errorcode_;
-  }
-  errorcode_ = nullptr;
-  ::memset(&operationid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&version_) -
-      reinterpret_cast<char*>(&operationid_)) + sizeof(version_));
-  clear_entry();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLAFDepFibStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .service_layer.SLErrorStatus ErrorCode = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_errorcode(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 OperationID = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          operationid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 Version = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLPathGroupRefKey PathGroupKey = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_pathgroupkey(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLAFDepFibStatus::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFDepFibStatus)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .service_layer.SLErrorStatus ErrorCode = 1;
-  if (this->_internal_has_errorcode()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::errorcode(this), target, stream);
-  }
-
-  // uint64 OperationID = 2;
-  if (this->_internal_operationid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_operationid(), target);
-  }
-
-  // uint64 Version = 3;
-  if (this->_internal_version() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_version(), target);
-  }
-
-  // .service_layer.SLPathGroupRefKey PathGroupKey = 4;
-  if (_internal_has_pathgroupkey()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::pathgroupkey(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFDepFibStatus)
-  return target;
-}
-
-size_t SLAFDepFibStatus::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFDepFibStatus)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .service_layer.SLErrorStatus ErrorCode = 1;
-  if (this->_internal_has_errorcode()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *errorcode_);
-  }
-
-  // uint64 OperationID = 2;
-  if (this->_internal_operationid() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_operationid());
-  }
-
-  // uint64 Version = 3;
-  if (this->_internal_version() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_version());
-  }
-
-  switch (entry_case()) {
-    // .service_layer.SLPathGroupRefKey PathGroupKey = 4;
-    case kPathGroupKey: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entry_.pathgroupkey_);
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFDepFibStatus::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLAFDepFibStatus::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFDepFibStatus::GetClassData() const { return &_class_data_; }
-
-void SLAFDepFibStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLAFDepFibStatus *>(to)->MergeFrom(
-      static_cast<const SLAFDepFibStatus &>(from));
-}
-
-
-void SLAFDepFibStatus::MergeFrom(const SLAFDepFibStatus& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFDepFibStatus)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_errorcode()) {
-    _internal_mutable_errorcode()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errorcode());
-  }
-  if (from._internal_operationid() != 0) {
-    _internal_set_operationid(from._internal_operationid());
-  }
-  if (from._internal_version() != 0) {
-    _internal_set_version(from._internal_version());
-  }
-  switch (from.entry_case()) {
-    case kPathGroupKey: {
-      _internal_mutable_pathgroupkey()->::service_layer::SLPathGroupRefKey::MergeFrom(from._internal_pathgroupkey());
-      break;
-    }
-    case ENTRY_NOT_SET: {
-      break;
-    }
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLAFDepFibStatus::CopyFrom(const SLAFDepFibStatus& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFDepFibStatus)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLAFDepFibStatus::IsInitialized() const {
-  return true;
-}
-
-void SLAFDepFibStatus::InternalSwap(SLAFDepFibStatus* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLAFDepFibStatus, version_)
-      + sizeof(SLAFDepFibStatus::version_)
-      - PROTOBUF_FIELD_OFFSET(SLAFDepFibStatus, errorcode_)>(
-          reinterpret_cast<char*>(&errorcode_),
-          reinterpret_cast<char*>(&other->errorcode_));
-  swap(entry_, other->entry_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLAFDepFibStatus::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[13]);
-}
-
-// ===================================================================
-
-class SLAFFibStatus::_Internal {
- public:
-  static const ::service_layer::SLAFDepFibStatus& depresult(const SLAFFibStatus* msg);
-};
-
-const ::service_layer::SLAFDepFibStatus&
-SLAFFibStatus::_Internal::depresult(const SLAFFibStatus* msg) {
-  return *msg->depresult_;
-}
-SLAFFibStatus::SLAFFibStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFFibStatus)
-}
-SLAFFibStatus::SLAFFibStatus(const SLAFFibStatus& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_depresult()) {
-    depresult_ = new ::service_layer::SLAFDepFibStatus(*from.depresult_);
-  } else {
-    depresult_ = nullptr;
-  }
-  version_ = from.version_;
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFFibStatus)
-}
-
-inline void SLAFFibStatus::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&depresult_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&version_) -
-    reinterpret_cast<char*>(&depresult_)) + sizeof(version_));
-}
-
-SLAFFibStatus::~SLAFFibStatus() {
-  // @@protoc_insertion_point(destructor:service_layer.SLAFFibStatus)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLAFFibStatus::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete depresult_;
-}
-
-void SLAFFibStatus::ArenaDtor(void* object) {
-  SLAFFibStatus* _this = reinterpret_cast< SLAFFibStatus* >(object);
-  (void)_this;
-}
-void SLAFFibStatus::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLAFFibStatus::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLAFFibStatus::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLAFFibStatus)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaForAllocation() == nullptr && depresult_ != nullptr) {
-    delete depresult_;
-  }
-  depresult_ = nullptr;
-  version_ = uint64_t{0u};
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLAFFibStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // uint64 Version = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .service_layer.SLAFDepFibStatus DepResult = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_depresult(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLAFFibStatus::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFFibStatus)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 Version = 1;
-  if (this->_internal_version() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_version(), target);
-  }
-
-  // .service_layer.SLAFDepFibStatus DepResult = 2;
-  if (this->_internal_has_depresult()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::depresult(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFFibStatus)
-  return target;
-}
-
-size_t SLAFFibStatus::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFFibStatus)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .service_layer.SLAFDepFibStatus DepResult = 2;
-  if (this->_internal_has_depresult()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *depresult_);
-  }
-
-  // uint64 Version = 1;
-  if (this->_internal_version() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_version());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFFibStatus::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLAFFibStatus::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFFibStatus::GetClassData() const { return &_class_data_; }
-
-void SLAFFibStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLAFFibStatus *>(to)->MergeFrom(
-      static_cast<const SLAFFibStatus &>(from));
-}
-
-
-void SLAFFibStatus::MergeFrom(const SLAFFibStatus& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFFibStatus)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_depresult()) {
-    _internal_mutable_depresult()->::service_layer::SLAFDepFibStatus::MergeFrom(from._internal_depresult());
-  }
-  if (from._internal_version() != 0) {
-    _internal_set_version(from._internal_version());
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLAFFibStatus::CopyFrom(const SLAFFibStatus& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFFibStatus)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLAFFibStatus::IsInitialized() const {
-  return true;
-}
-
-void SLAFFibStatus::InternalSwap(SLAFFibStatus* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLAFFibStatus, version_)
-      + sizeof(SLAFFibStatus::version_)
-      - PROTOBUF_FIELD_OFFSET(SLAFFibStatus, depresult_)>(
-          reinterpret_cast<char*>(&depresult_),
-          reinterpret_cast<char*>(&other->depresult_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLAFFibStatus::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[14]);
+      file_level_metadata_sl_5faf_2eproto[19]);
 }
 
 // ===================================================================
 
 class SLAFGetMsgRspEntry::_Internal {
  public:
-  static const ::service_layer::SLAFOp& afop(const SLAFGetMsgRspEntry* msg);
-  static const ::service_layer::SLErrorStatus& errorcode(const SLAFGetMsgRspEntry* msg);
+  static const ::service_layer::SLAFOpMsg& afopmsg(const SLAFGetMsgRspEntry* msg);
 };
 
-const ::service_layer::SLAFOp&
-SLAFGetMsgRspEntry::_Internal::afop(const SLAFGetMsgRspEntry* msg) {
-  return *msg->afop_;
-}
-const ::service_layer::SLErrorStatus&
-SLAFGetMsgRspEntry::_Internal::errorcode(const SLAFGetMsgRspEntry* msg) {
-  return *msg->errorcode_;
-}
-void SLAFGetMsgRspEntry::clear_errorcode() {
-  if (GetArenaForAllocation() == nullptr && errorcode_ != nullptr) {
-    delete errorcode_;
-  }
-  errorcode_ = nullptr;
+const ::service_layer::SLAFOpMsg&
+SLAFGetMsgRspEntry::_Internal::afopmsg(const SLAFGetMsgRspEntry* msg) {
+  return *msg->afopmsg_;
 }
 SLAFGetMsgRspEntry::SLAFGetMsgRspEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -5174,25 +6492,20 @@ SLAFGetMsgRspEntry::SLAFGetMsgRspEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 SLAFGetMsgRspEntry::SLAFGetMsgRspEntry(const SLAFGetMsgRspEntry& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_afop()) {
-    afop_ = new ::service_layer::SLAFOp(*from.afop_);
+  if (from._internal_has_afopmsg()) {
+    afopmsg_ = new ::service_layer::SLAFOpMsg(*from.afopmsg_);
   } else {
-    afop_ = nullptr;
+    afopmsg_ = nullptr;
   }
-  if (from._internal_has_errorcode()) {
-    errorcode_ = new ::service_layer::SLErrorStatus(*from.errorcode_);
-  } else {
-    errorcode_ = nullptr;
-  }
-  version_ = from.version_;
+  fibstatus_ = from.fibstatus_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLAFGetMsgRspEntry)
 }
 
 inline void SLAFGetMsgRspEntry::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&afop_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&version_) -
-    reinterpret_cast<char*>(&afop_)) + sizeof(version_));
+    reinterpret_cast<char*>(&afopmsg_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&fibstatus_) -
+    reinterpret_cast<char*>(&afopmsg_)) + sizeof(fibstatus_));
 }
 
 SLAFGetMsgRspEntry::~SLAFGetMsgRspEntry() {
@@ -5204,8 +6517,7 @@ SLAFGetMsgRspEntry::~SLAFGetMsgRspEntry() {
 
 inline void SLAFGetMsgRspEntry::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete afop_;
-  if (this != internal_default_instance()) delete errorcode_;
+  if (this != internal_default_instance()) delete afopmsg_;
 }
 
 void SLAFGetMsgRspEntry::ArenaDtor(void* object) {
@@ -5224,15 +6536,11 @@ void SLAFGetMsgRspEntry::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && afop_ != nullptr) {
-    delete afop_;
+  if (GetArenaForAllocation() == nullptr && afopmsg_ != nullptr) {
+    delete afopmsg_;
   }
-  afop_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && errorcode_ != nullptr) {
-    delete errorcode_;
-  }
-  errorcode_ = nullptr;
-  version_ = uint64_t{0u};
+  afopmsg_ = nullptr;
+  fibstatus_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5242,27 +6550,20 @@ const char* SLAFGetMsgRspEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .service_layer.SLAFOp AFOp = 1;
+      // .service_layer.SLAFOpMsg AFOpMsg = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_afop(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_afopmsg(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLErrorStatus ErrorCode = 2;
+      // .service_layer.SLAFFibStatus FIBStatus = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_errorcode(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 Version = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
+          _internal_set_fibstatus(static_cast<::service_layer::SLAFFibStatus>(val));
         } else
           goto handle_unusual;
         continue;
@@ -5295,26 +6596,19 @@ uint8_t* SLAFGetMsgRspEntry::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .service_layer.SLAFOp AFOp = 1;
-  if (this->_internal_has_afop()) {
+  // .service_layer.SLAFOpMsg AFOpMsg = 1;
+  if (this->_internal_has_afopmsg()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        1, _Internal::afop(this), target, stream);
+        1, _Internal::afopmsg(this), target, stream);
   }
 
-  // .service_layer.SLErrorStatus ErrorCode = 2;
-  if (this->_internal_has_errorcode()) {
+  // .service_layer.SLAFFibStatus FIBStatus = 2;
+  if (this->_internal_fibstatus() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::errorcode(this), target, stream);
-  }
-
-  // uint64 Version = 3;
-  if (this->_internal_version() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_version(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_fibstatus(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5333,23 +6627,17 @@ size_t SLAFGetMsgRspEntry::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .service_layer.SLAFOp AFOp = 1;
-  if (this->_internal_has_afop()) {
+  // .service_layer.SLAFOpMsg AFOpMsg = 1;
+  if (this->_internal_has_afopmsg()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *afop_);
+        *afopmsg_);
   }
 
-  // .service_layer.SLErrorStatus ErrorCode = 2;
-  if (this->_internal_has_errorcode()) {
+  // .service_layer.SLAFFibStatus FIBStatus = 2;
+  if (this->_internal_fibstatus() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *errorcode_);
-  }
-
-  // uint64 Version = 3;
-  if (this->_internal_version() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_version());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_fibstatus());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -5374,14 +6662,11 @@ void SLAFGetMsgRspEntry::MergeFrom(const SLAFGetMsgRspEntry& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_afop()) {
-    _internal_mutable_afop()->::service_layer::SLAFOp::MergeFrom(from._internal_afop());
+  if (from._internal_has_afopmsg()) {
+    _internal_mutable_afopmsg()->::service_layer::SLAFOpMsg::MergeFrom(from._internal_afopmsg());
   }
-  if (from._internal_has_errorcode()) {
-    _internal_mutable_errorcode()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errorcode());
-  }
-  if (from._internal_version() != 0) {
-    _internal_set_version(from._internal_version());
+  if (from._internal_fibstatus() != 0) {
+    _internal_set_fibstatus(from._internal_fibstatus());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -5401,17 +6686,17 @@ void SLAFGetMsgRspEntry::InternalSwap(SLAFGetMsgRspEntry* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLAFGetMsgRspEntry, version_)
-      + sizeof(SLAFGetMsgRspEntry::version_)
-      - PROTOBUF_FIELD_OFFSET(SLAFGetMsgRspEntry, afop_)>(
-          reinterpret_cast<char*>(&afop_),
-          reinterpret_cast<char*>(&other->afop_));
+      PROTOBUF_FIELD_OFFSET(SLAFGetMsgRspEntry, fibstatus_)
+      + sizeof(SLAFGetMsgRspEntry::fibstatus_)
+      - PROTOBUF_FIELD_OFFSET(SLAFGetMsgRspEntry, afopmsg_)>(
+          reinterpret_cast<char*>(&afopmsg_),
+          reinterpret_cast<char*>(&other->afopmsg_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFGetMsgRspEntry::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[15]);
+      file_level_metadata_sl_5faf_2eproto[20]);
 }
 
 // ===================================================================
@@ -5728,7 +7013,7 @@ void SLAFGetMsgRsp::InternalSwap(SLAFGetMsgRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFGetMsgRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[16]);
+      file_level_metadata_sl_5faf_2eproto[21]);
 }
 
 // ===================================================================
@@ -5830,7 +7115,7 @@ const char* SLAFMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
         } else
           goto handle_unusual;
         continue;
-      // repeated .service_layer.SLAFOp OpList = 3;
+      // repeated .service_layer.SLAFOpMsg OpList = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
@@ -5889,7 +7174,7 @@ uint8_t* SLAFMsg::_InternalSerialize(
         2, this->_internal_vrfname(), target);
   }
 
-  // repeated .service_layer.SLAFOp OpList = 3;
+  // repeated .service_layer.SLAFOpMsg OpList = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_oplist_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -5913,7 +7198,7 @@ size_t SLAFMsg::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLAFOp OpList = 3;
+  // repeated .service_layer.SLAFOpMsg OpList = 3;
   total_size += 1UL * this->_internal_oplist_size();
   for (const auto& msg : this->oplist_) {
     total_size +=
@@ -5993,35 +7278,30 @@ void SLAFMsg::InternalSwap(SLAFMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[17]);
+      file_level_metadata_sl_5faf_2eproto[22]);
 }
 
 // ===================================================================
 
 class SLAFRes::_Internal {
  public:
-  static const ::service_layer::SLErrorStatus& errstatus(const SLAFRes* msg);
-  static const ::service_layer::SLAFOp& operation(const SLAFRes* msg);
-  static const ::service_layer::SLAFFibStatus& fibstatus(const SLAFRes* msg);
+  static const ::service_layer::SLErrorStatus& status(const SLAFRes* msg);
+  static const ::service_layer::SLAFObjectKey& key(const SLAFRes* msg);
 };
 
 const ::service_layer::SLErrorStatus&
-SLAFRes::_Internal::errstatus(const SLAFRes* msg) {
-  return *msg->errstatus_;
+SLAFRes::_Internal::status(const SLAFRes* msg) {
+  return *msg->status_;
 }
-const ::service_layer::SLAFOp&
-SLAFRes::_Internal::operation(const SLAFRes* msg) {
-  return *msg->operation_;
+const ::service_layer::SLAFObjectKey&
+SLAFRes::_Internal::key(const SLAFRes* msg) {
+  return *msg->key_;
 }
-const ::service_layer::SLAFFibStatus&
-SLAFRes::_Internal::fibstatus(const SLAFRes* msg) {
-  return *msg->fibstatus_;
-}
-void SLAFRes::clear_errstatus() {
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
-    delete errstatus_;
+void SLAFRes::clear_status() {
+  if (GetArenaForAllocation() == nullptr && status_ != nullptr) {
+    delete status_;
   }
-  errstatus_ = nullptr;
+  status_ = nullptr;
 }
 SLAFRes::SLAFRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -6043,21 +7323,19 @@ SLAFRes::SLAFRes(const SLAFRes& from)
     errorstring_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_errorstring(), 
       GetArenaForAllocation());
   }
-  if (from._internal_has_errstatus()) {
-    errstatus_ = new ::service_layer::SLErrorStatus(*from.errstatus_);
+  if (from._internal_has_status()) {
+    status_ = new ::service_layer::SLErrorStatus(*from.status_);
   } else {
-    errstatus_ = nullptr;
+    status_ = nullptr;
   }
-  if (from._internal_has_operation()) {
-    operation_ = new ::service_layer::SLAFOp(*from.operation_);
+  if (from._internal_has_key()) {
+    key_ = new ::service_layer::SLAFObjectKey(*from.key_);
   } else {
-    operation_ = nullptr;
+    key_ = nullptr;
   }
-  if (from._internal_has_fibstatus()) {
-    fibstatus_ = new ::service_layer::SLAFFibStatus(*from.fibstatus_);
-  } else {
-    fibstatus_ = nullptr;
-  }
+  ::memcpy(&operationid_, &from.operationid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&fibstatus_) -
+    reinterpret_cast<char*>(&operationid_)) + sizeof(fibstatus_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLAFRes)
 }
 
@@ -6067,9 +7345,9 @@ errorstring_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString
   errorstring_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&status_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&fibstatus_) -
-    reinterpret_cast<char*>(&errstatus_)) + sizeof(fibstatus_));
+    reinterpret_cast<char*>(&status_)) + sizeof(fibstatus_));
 }
 
 SLAFRes::~SLAFRes() {
@@ -6082,9 +7360,8 @@ SLAFRes::~SLAFRes() {
 inline void SLAFRes::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   errorstring_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete errstatus_;
-  if (this != internal_default_instance()) delete operation_;
-  if (this != internal_default_instance()) delete fibstatus_;
+  if (this != internal_default_instance()) delete status_;
+  if (this != internal_default_instance()) delete key_;
 }
 
 void SLAFRes::ArenaDtor(void* object) {
@@ -6104,18 +7381,17 @@ void SLAFRes::Clear() {
   (void) cached_has_bits;
 
   errorstring_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
-    delete errstatus_;
+  if (GetArenaForAllocation() == nullptr && status_ != nullptr) {
+    delete status_;
   }
-  errstatus_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && operation_ != nullptr) {
-    delete operation_;
+  status_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && key_ != nullptr) {
+    delete key_;
   }
-  operation_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && fibstatus_ != nullptr) {
-    delete fibstatus_;
-  }
-  fibstatus_ = nullptr;
+  key_ = nullptr;
+  ::memset(&operationid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&fibstatus_) -
+      reinterpret_cast<char*>(&operationid_)) + sizeof(fibstatus_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6125,36 +7401,45 @@ const char* SLAFRes::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .service_layer.SLErrorStatus ErrStatus = 1;
+      // .service_layer.SLErrorStatus Status = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_status(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLAFOp Operation = 2;
+      // .service_layer.SLAFObjectKey Key = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_operation(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_key(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // string ErrorString = 3;
+      // uint64 OperationID = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_errorstring();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLAFRes.ErrorString"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          operationid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // .service_layer.SLAFFibStatus FIBStatus = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_fibstatus(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_fibstatus(static_cast<::service_layer::SLAFFibStatus>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // string ErrorString = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_errorstring();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLAFRes.ErrorString"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -6188,38 +7473,43 @@ uint8_t* SLAFRes::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  // .service_layer.SLErrorStatus Status = 1;
+  if (this->_internal_has_status()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        1, _Internal::errstatus(this), target, stream);
+        1, _Internal::status(this), target, stream);
   }
 
-  // .service_layer.SLAFOp Operation = 2;
-  if (this->_internal_has_operation()) {
+  // .service_layer.SLAFObjectKey Key = 2;
+  if (this->_internal_has_key()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        2, _Internal::operation(this), target, stream);
+        2, _Internal::key(this), target, stream);
   }
 
-  // string ErrorString = 3;
+  // uint64 OperationID = 3;
+  if (this->_internal_operationid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_operationid(), target);
+  }
+
+  // .service_layer.SLAFFibStatus FIBStatus = 4;
+  if (this->_internal_fibstatus() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_fibstatus(), target);
+  }
+
+  // string ErrorString = 5;
   if (!this->_internal_errorstring().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_errorstring().data(), static_cast<int>(this->_internal_errorstring().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "service_layer.SLAFRes.ErrorString");
     target = stream->WriteStringMaybeAliased(
-        3, this->_internal_errorstring(), target);
-  }
-
-  // .service_layer.SLAFFibStatus FIBStatus = 4;
-  if (this->_internal_has_fibstatus()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::fibstatus(this), target, stream);
+        5, this->_internal_errorstring(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6238,32 +7528,36 @@ size_t SLAFRes::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string ErrorString = 3;
+  // string ErrorString = 5;
   if (!this->_internal_errorstring().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_errorstring());
   }
 
-  // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  // .service_layer.SLErrorStatus Status = 1;
+  if (this->_internal_has_status()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *errstatus_);
+        *status_);
   }
 
-  // .service_layer.SLAFOp Operation = 2;
-  if (this->_internal_has_operation()) {
+  // .service_layer.SLAFObjectKey Key = 2;
+  if (this->_internal_has_key()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *operation_);
+        *key_);
+  }
+
+  // uint64 OperationID = 3;
+  if (this->_internal_operationid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_operationid());
   }
 
   // .service_layer.SLAFFibStatus FIBStatus = 4;
-  if (this->_internal_has_fibstatus()) {
+  if (this->_internal_fibstatus() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *fibstatus_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_fibstatus());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -6291,14 +7585,17 @@ void SLAFRes::MergeFrom(const SLAFRes& from) {
   if (!from._internal_errorstring().empty()) {
     _internal_set_errorstring(from._internal_errorstring());
   }
-  if (from._internal_has_errstatus()) {
-    _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
+  if (from._internal_has_status()) {
+    _internal_mutable_status()->::service_layer::SLErrorStatus::MergeFrom(from._internal_status());
   }
-  if (from._internal_has_operation()) {
-    _internal_mutable_operation()->::service_layer::SLAFOp::MergeFrom(from._internal_operation());
+  if (from._internal_has_key()) {
+    _internal_mutable_key()->::service_layer::SLAFObjectKey::MergeFrom(from._internal_key());
   }
-  if (from._internal_has_fibstatus()) {
-    _internal_mutable_fibstatus()->::service_layer::SLAFFibStatus::MergeFrom(from._internal_fibstatus());
+  if (from._internal_operationid() != 0) {
+    _internal_set_operationid(from._internal_operationid());
+  }
+  if (from._internal_fibstatus() != 0) {
+    _internal_set_fibstatus(from._internal_fibstatus());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -6327,15 +7624,15 @@ void SLAFRes::InternalSwap(SLAFRes* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLAFRes, fibstatus_)
       + sizeof(SLAFRes::fibstatus_)
-      - PROTOBUF_FIELD_OFFSET(SLAFRes, errstatus_)>(
-          reinterpret_cast<char*>(&errstatus_),
-          reinterpret_cast<char*>(&other->errstatus_));
+      - PROTOBUF_FIELD_OFFSET(SLAFRes, status_)>(
+          reinterpret_cast<char*>(&status_),
+          reinterpret_cast<char*>(&other->status_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFRes::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[18]);
+      file_level_metadata_sl_5faf_2eproto[23]);
 }
 
 // ===================================================================
@@ -6571,7 +7868,7 @@ void SLAFMsgRsp::InternalSwap(SLAFMsgRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFMsgRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[19]);
+      file_level_metadata_sl_5faf_2eproto[24]);
 }
 
 // ===================================================================
@@ -6852,25 +8149,25 @@ void SLAFRedistRegMsg::InternalSwap(SLAFRedistRegMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFRedistRegMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[20]);
+      file_level_metadata_sl_5faf_2eproto[25]);
 }
 
 // ===================================================================
 
 class SLAFNextHopRegKey_SLNextHopKey::_Internal {
  public:
-  static const ::service_layer::SLIpAddress& nexthop(const SLAFNextHopRegKey_SLNextHopKey* msg);
+  static const ::service_layer::SLRoutePrefix& nexthopip(const SLAFNextHopRegKey_SLNextHopKey* msg);
 };
 
-const ::service_layer::SLIpAddress&
-SLAFNextHopRegKey_SLNextHopKey::_Internal::nexthop(const SLAFNextHopRegKey_SLNextHopKey* msg) {
-  return *msg->nexthop_;
+const ::service_layer::SLRoutePrefix&
+SLAFNextHopRegKey_SLNextHopKey::_Internal::nexthopip(const SLAFNextHopRegKey_SLNextHopKey* msg) {
+  return *msg->nexthopip_;
 }
-void SLAFNextHopRegKey_SLNextHopKey::clear_nexthop() {
-  if (GetArenaForAllocation() == nullptr && nexthop_ != nullptr) {
-    delete nexthop_;
+void SLAFNextHopRegKey_SLNextHopKey::clear_nexthopip() {
+  if (GetArenaForAllocation() == nullptr && nexthopip_ != nullptr) {
+    delete nexthopip_;
   }
-  nexthop_ = nullptr;
+  nexthopip_ = nullptr;
 }
 SLAFNextHopRegKey_SLNextHopKey::SLAFNextHopRegKey_SLNextHopKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -6884,22 +8181,22 @@ SLAFNextHopRegKey_SLNextHopKey::SLAFNextHopRegKey_SLNextHopKey(::PROTOBUF_NAMESP
 SLAFNextHopRegKey_SLNextHopKey::SLAFNextHopRegKey_SLNextHopKey(const SLAFNextHopRegKey_SLNextHopKey& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_nexthop()) {
-    nexthop_ = new ::service_layer::SLIpAddress(*from.nexthop_);
+  if (from._internal_has_nexthopip()) {
+    nexthopip_ = new ::service_layer::SLRoutePrefix(*from.nexthopip_);
   } else {
-    nexthop_ = nullptr;
+    nexthopip_ = nullptr;
   }
-  ::memcpy(&nexthoplen_, &from.nexthoplen_,
+  ::memcpy(&exactmatch_, &from.exactmatch_,
     static_cast<size_t>(reinterpret_cast<char*>(&recurse_) -
-    reinterpret_cast<char*>(&nexthoplen_)) + sizeof(recurse_));
+    reinterpret_cast<char*>(&exactmatch_)) + sizeof(recurse_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLAFNextHopRegKey.SLNextHopKey)
 }
 
 inline void SLAFNextHopRegKey_SLNextHopKey::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&nexthop_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&nexthopip_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&recurse_) -
-    reinterpret_cast<char*>(&nexthop_)) + sizeof(recurse_));
+    reinterpret_cast<char*>(&nexthopip_)) + sizeof(recurse_));
 }
 
 SLAFNextHopRegKey_SLNextHopKey::~SLAFNextHopRegKey_SLNextHopKey() {
@@ -6911,7 +8208,7 @@ SLAFNextHopRegKey_SLNextHopKey::~SLAFNextHopRegKey_SLNextHopKey() {
 
 inline void SLAFNextHopRegKey_SLNextHopKey::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete nexthop_;
+  if (this != internal_default_instance()) delete nexthopip_;
 }
 
 void SLAFNextHopRegKey_SLNextHopKey::ArenaDtor(void* object) {
@@ -6930,13 +8227,13 @@ void SLAFNextHopRegKey_SLNextHopKey::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && nexthop_ != nullptr) {
-    delete nexthop_;
+  if (GetArenaForAllocation() == nullptr && nexthopip_ != nullptr) {
+    delete nexthopip_;
   }
-  nexthop_ = nullptr;
-  ::memset(&nexthoplen_, 0, static_cast<size_t>(
+  nexthopip_ = nullptr;
+  ::memset(&exactmatch_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&recurse_) -
-      reinterpret_cast<char*>(&nexthoplen_)) + sizeof(recurse_));
+      reinterpret_cast<char*>(&exactmatch_)) + sizeof(recurse_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6946,41 +8243,33 @@ const char* SLAFNextHopRegKey_SLNextHopKey::_InternalParse(const char* ptr, ::PR
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .service_layer.SLIpAddress NextHop = 1;
+      // .service_layer.SLRoutePrefix NextHopIP = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_nexthop(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_nexthopip(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 NextHopLen = 2;
+      // bool ExactMatch = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          nexthoplen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bool ExactMatch = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           exactmatch_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bool AllowDefault = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+      // bool AllowDefault = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           allowdefault_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bool Recurse = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+      // bool Recurse = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           recurse_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -7015,36 +8304,30 @@ uint8_t* SLAFNextHopRegKey_SLNextHopKey::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .service_layer.SLIpAddress NextHop = 1;
-  if (this->_internal_has_nexthop()) {
+  // .service_layer.SLRoutePrefix NextHopIP = 1;
+  if (this->_internal_has_nexthopip()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        1, _Internal::nexthop(this), target, stream);
+        1, _Internal::nexthopip(this), target, stream);
   }
 
-  // uint32 NextHopLen = 2;
-  if (this->_internal_nexthoplen() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_nexthoplen(), target);
-  }
-
-  // bool ExactMatch = 3;
+  // bool ExactMatch = 2;
   if (this->_internal_exactmatch() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_exactmatch(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_exactmatch(), target);
   }
 
-  // bool AllowDefault = 4;
+  // bool AllowDefault = 3;
   if (this->_internal_allowdefault() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_allowdefault(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_allowdefault(), target);
   }
 
-  // bool Recurse = 5;
+  // bool Recurse = 4;
   if (this->_internal_recurse() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_recurse(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_recurse(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7063,29 +8346,24 @@ size_t SLAFNextHopRegKey_SLNextHopKey::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .service_layer.SLIpAddress NextHop = 1;
-  if (this->_internal_has_nexthop()) {
+  // .service_layer.SLRoutePrefix NextHopIP = 1;
+  if (this->_internal_has_nexthopip()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *nexthop_);
+        *nexthopip_);
   }
 
-  // uint32 NextHopLen = 2;
-  if (this->_internal_nexthoplen() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_nexthoplen());
-  }
-
-  // bool ExactMatch = 3;
+  // bool ExactMatch = 2;
   if (this->_internal_exactmatch() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool AllowDefault = 4;
+  // bool AllowDefault = 3;
   if (this->_internal_allowdefault() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool Recurse = 5;
+  // bool Recurse = 4;
   if (this->_internal_recurse() != 0) {
     total_size += 1 + 1;
   }
@@ -7112,11 +8390,8 @@ void SLAFNextHopRegKey_SLNextHopKey::MergeFrom(const SLAFNextHopRegKey_SLNextHop
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_nexthop()) {
-    _internal_mutable_nexthop()->::service_layer::SLIpAddress::MergeFrom(from._internal_nexthop());
-  }
-  if (from._internal_nexthoplen() != 0) {
-    _internal_set_nexthoplen(from._internal_nexthoplen());
+  if (from._internal_has_nexthopip()) {
+    _internal_mutable_nexthopip()->::service_layer::SLRoutePrefix::MergeFrom(from._internal_nexthopip());
   }
   if (from._internal_exactmatch() != 0) {
     _internal_set_exactmatch(from._internal_exactmatch());
@@ -7147,15 +8422,15 @@ void SLAFNextHopRegKey_SLNextHopKey::InternalSwap(SLAFNextHopRegKey_SLNextHopKey
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLAFNextHopRegKey_SLNextHopKey, recurse_)
       + sizeof(SLAFNextHopRegKey_SLNextHopKey::recurse_)
-      - PROTOBUF_FIELD_OFFSET(SLAFNextHopRegKey_SLNextHopKey, nexthop_)>(
-          reinterpret_cast<char*>(&nexthop_),
-          reinterpret_cast<char*>(&other->nexthop_));
+      - PROTOBUF_FIELD_OFFSET(SLAFNextHopRegKey_SLNextHopKey, nexthopip_)>(
+          reinterpret_cast<char*>(&nexthopip_),
+          reinterpret_cast<char*>(&other->nexthopip_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNextHopRegKey_SLNextHopKey::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[21]);
+      file_level_metadata_sl_5faf_2eproto[26]);
 }
 
 // ===================================================================
@@ -7398,7 +8673,7 @@ void SLAFNextHopRegKey::InternalSwap(SLAFNextHopRegKey* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNextHopRegKey::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[22]);
+      file_level_metadata_sl_5faf_2eproto[27]);
 }
 
 // ===================================================================
@@ -7593,7 +8868,7 @@ void SLAFNextHopRegMsg::InternalSwap(SLAFNextHopRegMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNextHopRegMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[23]);
+      file_level_metadata_sl_5faf_2eproto[28]);
 }
 
 // ===================================================================
@@ -7919,7 +9194,7 @@ void SLAFNotifRegReq::InternalSwap(SLAFNotifRegReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifRegReq::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[24]);
+      file_level_metadata_sl_5faf_2eproto[29]);
 }
 
 // ===================================================================
@@ -8184,7 +9459,7 @@ void SLAFNotifReq::InternalSwap(SLAFNotifReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifReq::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[25]);
+      file_level_metadata_sl_5faf_2eproto[30]);
 }
 
 // ===================================================================
@@ -8434,7 +9709,7 @@ void SLAFNotifRsp::InternalSwap(SLAFNotifRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[26]);
+      file_level_metadata_sl_5faf_2eproto[31]);
 }
 
 // ===================================================================
@@ -8442,22 +9717,22 @@ void SLAFNotifRsp::InternalSwap(SLAFNotifRsp* other) {
 class SLNextHop::_Internal {
  public:
   static const ::service_layer::SLAFNextHopRegKey& nexthopkey(const SLNextHop* msg);
-  static const ::service_layer::SLIpAddress& resolvingroute(const SLNextHop* msg);
+  static const ::service_layer::SLRoutePrefix& resolvingprefix(const SLNextHop* msg);
 };
 
 const ::service_layer::SLAFNextHopRegKey&
 SLNextHop::_Internal::nexthopkey(const SLNextHop* msg) {
   return *msg->nexthopkey_;
 }
-const ::service_layer::SLIpAddress&
-SLNextHop::_Internal::resolvingroute(const SLNextHop* msg) {
-  return *msg->resolvingroute_;
+const ::service_layer::SLRoutePrefix&
+SLNextHop::_Internal::resolvingprefix(const SLNextHop* msg) {
+  return *msg->resolvingprefix_;
 }
-void SLNextHop::clear_resolvingroute() {
-  if (GetArenaForAllocation() == nullptr && resolvingroute_ != nullptr) {
-    delete resolvingroute_;
+void SLNextHop::clear_resolvingprefix() {
+  if (GetArenaForAllocation() == nullptr && resolvingprefix_ != nullptr) {
+    delete resolvingprefix_;
   }
-  resolvingroute_ = nullptr;
+  resolvingprefix_ = nullptr;
 }
 void SLNextHop::clear_paths() {
   paths_.Clear();
@@ -8497,14 +9772,14 @@ SLNextHop::SLNextHop(const SLNextHop& from)
   } else {
     nexthopkey_ = nullptr;
   }
-  if (from._internal_has_resolvingroute()) {
-    resolvingroute_ = new ::service_layer::SLIpAddress(*from.resolvingroute_);
+  if (from._internal_has_resolvingprefix()) {
+    resolvingprefix_ = new ::service_layer::SLRoutePrefix(*from.resolvingprefix_);
   } else {
-    resolvingroute_ = nullptr;
+    resolvingprefix_ = nullptr;
   }
-  ::memcpy(&resolvingroutelen_, &from.resolvingroutelen_,
+  ::memcpy(&admindistance_, &from.admindistance_,
     static_cast<size_t>(reinterpret_cast<char*>(&metric_) -
-    reinterpret_cast<char*>(&resolvingroutelen_)) + sizeof(metric_));
+    reinterpret_cast<char*>(&admindistance_)) + sizeof(metric_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLNextHop)
 }
 
@@ -8535,7 +9810,7 @@ inline void SLNextHop::SharedDtor() {
   srcproto_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   srcprototag_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete nexthopkey_;
-  if (this != internal_default_instance()) delete resolvingroute_;
+  if (this != internal_default_instance()) delete resolvingprefix_;
 }
 
 void SLNextHop::ArenaDtor(void* object) {
@@ -8561,13 +9836,13 @@ void SLNextHop::Clear() {
     delete nexthopkey_;
   }
   nexthopkey_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && resolvingroute_ != nullptr) {
-    delete resolvingroute_;
+  if (GetArenaForAllocation() == nullptr && resolvingprefix_ != nullptr) {
+    delete resolvingprefix_;
   }
-  resolvingroute_ = nullptr;
-  ::memset(&resolvingroutelen_, 0, static_cast<size_t>(
+  resolvingprefix_ = nullptr;
+  ::memset(&admindistance_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&metric_) -
-      reinterpret_cast<char*>(&resolvingroutelen_)) + sizeof(metric_));
+      reinterpret_cast<char*>(&admindistance_)) + sizeof(metric_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -8585,25 +9860,17 @@ const char* SLNextHop::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLIpAddress ResolvingRoute = 2;
+      // .service_layer.SLRoutePrefix ResolvingPrefix = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_resolvingroute(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_resolvingprefix(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 ResolvingRouteLen = 3;
+      // string SrcProto = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          resolvingroutelen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string SrcProto = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_srcproto();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLNextHop.SrcProto"));
@@ -8611,9 +9878,9 @@ const char* SLNextHop::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         } else
           goto handle_unusual;
         continue;
-      // string SrcProtoTag = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+      // string SrcProtoTag = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_srcprototag();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLNextHop.SrcProtoTag"));
@@ -8621,32 +9888,32 @@ const char* SLNextHop::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         } else
           goto handle_unusual;
         continue;
-      // uint32 AdminDistance = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+      // uint32 AdminDistance = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           admindistance_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 Metric = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+      // uint32 Metric = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           metric_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // repeated .service_layer.SLRoutePath Paths = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+      // repeated .service_layer.SLRoutePath Paths = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_paths(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -8687,58 +9954,52 @@ uint8_t* SLNextHop::_InternalSerialize(
         1, _Internal::nexthopkey(this), target, stream);
   }
 
-  // .service_layer.SLIpAddress ResolvingRoute = 2;
-  if (this->_internal_has_resolvingroute()) {
+  // .service_layer.SLRoutePrefix ResolvingPrefix = 2;
+  if (this->_internal_has_resolvingprefix()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        2, _Internal::resolvingroute(this), target, stream);
+        2, _Internal::resolvingprefix(this), target, stream);
   }
 
-  // uint32 ResolvingRouteLen = 3;
-  if (this->_internal_resolvingroutelen() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_resolvingroutelen(), target);
-  }
-
-  // string SrcProto = 4;
+  // string SrcProto = 3;
   if (!this->_internal_srcproto().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_srcproto().data(), static_cast<int>(this->_internal_srcproto().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "service_layer.SLNextHop.SrcProto");
     target = stream->WriteStringMaybeAliased(
-        4, this->_internal_srcproto(), target);
+        3, this->_internal_srcproto(), target);
   }
 
-  // string SrcProtoTag = 5;
+  // string SrcProtoTag = 4;
   if (!this->_internal_srcprototag().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_srcprototag().data(), static_cast<int>(this->_internal_srcprototag().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "service_layer.SLNextHop.SrcProtoTag");
     target = stream->WriteStringMaybeAliased(
-        5, this->_internal_srcprototag(), target);
+        4, this->_internal_srcprototag(), target);
   }
 
-  // uint32 AdminDistance = 6;
+  // uint32 AdminDistance = 5;
   if (this->_internal_admindistance() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_admindistance(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_admindistance(), target);
   }
 
-  // uint32 Metric = 7;
+  // uint32 Metric = 6;
   if (this->_internal_metric() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_metric(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_metric(), target);
   }
 
-  // repeated .service_layer.SLRoutePath Paths = 8;
+  // repeated .service_layer.SLRoutePath Paths = 7;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_paths_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(8, this->_internal_paths(i), target, stream);
+      InternalWriteMessage(7, this->_internal_paths(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8757,21 +10018,21 @@ size_t SLNextHop::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLRoutePath Paths = 8;
+  // repeated .service_layer.SLRoutePath Paths = 7;
   total_size += 1UL * this->_internal_paths_size();
   for (const auto& msg : this->paths_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // string SrcProto = 4;
+  // string SrcProto = 3;
   if (!this->_internal_srcproto().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_srcproto());
   }
 
-  // string SrcProtoTag = 5;
+  // string SrcProtoTag = 4;
   if (!this->_internal_srcprototag().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -8785,24 +10046,19 @@ size_t SLNextHop::ByteSizeLong() const {
         *nexthopkey_);
   }
 
-  // .service_layer.SLIpAddress ResolvingRoute = 2;
-  if (this->_internal_has_resolvingroute()) {
+  // .service_layer.SLRoutePrefix ResolvingPrefix = 2;
+  if (this->_internal_has_resolvingprefix()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *resolvingroute_);
+        *resolvingprefix_);
   }
 
-  // uint32 ResolvingRouteLen = 3;
-  if (this->_internal_resolvingroutelen() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_resolvingroutelen());
-  }
-
-  // uint32 AdminDistance = 6;
+  // uint32 AdminDistance = 5;
   if (this->_internal_admindistance() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admindistance());
   }
 
-  // uint32 Metric = 7;
+  // uint32 Metric = 6;
   if (this->_internal_metric() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_metric());
   }
@@ -8839,11 +10095,8 @@ void SLNextHop::MergeFrom(const SLNextHop& from) {
   if (from._internal_has_nexthopkey()) {
     _internal_mutable_nexthopkey()->::service_layer::SLAFNextHopRegKey::MergeFrom(from._internal_nexthopkey());
   }
-  if (from._internal_has_resolvingroute()) {
-    _internal_mutable_resolvingroute()->::service_layer::SLIpAddress::MergeFrom(from._internal_resolvingroute());
-  }
-  if (from._internal_resolvingroutelen() != 0) {
-    _internal_set_resolvingroutelen(from._internal_resolvingroutelen());
+  if (from._internal_has_resolvingprefix()) {
+    _internal_mutable_resolvingprefix()->::service_layer::SLRoutePrefix::MergeFrom(from._internal_resolvingprefix());
   }
   if (from._internal_admindistance() != 0) {
     _internal_set_admindistance(from._internal_admindistance());
@@ -8892,7 +10145,7 @@ void SLNextHop::InternalSwap(SLNextHop* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLNextHop::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[27]);
+      file_level_metadata_sl_5faf_2eproto[32]);
 }
 
 // ===================================================================
@@ -9073,7 +10326,7 @@ void SLAFNotif_SLRedistMarker::InternalSwap(SLAFNotif_SLRedistMarker* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotif_SLRedistMarker::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[28]);
+      file_level_metadata_sl_5faf_2eproto[33]);
 }
 
 // ===================================================================
@@ -9544,7 +10797,7 @@ void SLAFNotif::InternalSwap(SLAFNotif* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotif::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[29]);
+      file_level_metadata_sl_5faf_2eproto[34]);
 }
 
 // ===================================================================
@@ -9780,7 +11033,7 @@ void SLAFNotifMsg::InternalSwap(SLAFNotifMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[30]);
+      file_level_metadata_sl_5faf_2eproto[35]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -9813,23 +11066,38 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLPathGroup_SLPathList* Arena::Cre
 template<> PROTOBUF_NOINLINE ::service_layer::SLPathGroup* Arena::CreateMaybeMessage< ::service_layer::SLPathGroup >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLPathGroup >(arena);
 }
+template<> PROTOBUF_NOINLINE ::service_layer::SLMplsEntryKey* Arena::CreateMaybeMessage< ::service_layer::SLMplsEntryKey >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLMplsEntryKey >(arena);
+}
 template<> PROTOBUF_NOINLINE ::service_layer::SLMplsEntry* Arena::CreateMaybeMessage< ::service_layer::SLMplsEntry >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLMplsEntry >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFIPRoute* Arena::CreateMaybeMessage< ::service_layer::SLAFIPRoute >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFIPRoute >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLAFObject* Arena::CreateMaybeMessage< ::service_layer::SLAFObject >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLAFObject >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLAFOp* Arena::CreateMaybeMessage< ::service_layer::SLAFOp >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLAFOp >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFOpMsg* Arena::CreateMaybeMessage< ::service_layer::SLAFOpMsg >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFOpMsg >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFClientIDList* Arena::CreateMaybeMessage< ::service_layer::SLAFClientIDList >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFClientIDList >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLTableTypeList* Arena::CreateMaybeMessage< ::service_layer::SLTableTypeList >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLTableTypeList >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFObjectKey* Arena::CreateMaybeMessage< ::service_layer::SLAFObjectKey >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFObjectKey >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFGetMatch* Arena::CreateMaybeMessage< ::service_layer::SLAFGetMatch >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFGetMatch >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFGetMatchList* Arena::CreateMaybeMessage< ::service_layer::SLAFGetMatchList >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFGetMatchList >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLAFGetMsg* Arena::CreateMaybeMessage< ::service_layer::SLAFGetMsg >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLAFGetMsg >(arena);
-}
-template<> PROTOBUF_NOINLINE ::service_layer::SLAFDepFibStatus* Arena::CreateMaybeMessage< ::service_layer::SLAFDepFibStatus >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLAFDepFibStatus >(arena);
-}
-template<> PROTOBUF_NOINLINE ::service_layer::SLAFFibStatus* Arena::CreateMaybeMessage< ::service_layer::SLAFFibStatus >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLAFFibStatus >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLAFGetMsgRspEntry* Arena::CreateMaybeMessage< ::service_layer::SLAFGetMsgRspEntry >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLAFGetMsgRspEntry >(arena);

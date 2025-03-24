@@ -138,11 +138,6 @@ class SLRoutev4 final :
   static const SLRoutev4& default_instance() {
     return *internal_default_instance();
   }
-  enum EntryCase {
-    kPathGroupKey = 5,
-    ENTRY_NOT_SET = 0,
-  };
-
   static inline const SLRoutev4* internal_default_instance() {
     return reinterpret_cast<const SLRoutev4*>(
                &_SLRoutev4_default_instance_);
@@ -226,7 +221,6 @@ class SLRoutev4 final :
     kRouteCommonFieldNumber = 3,
     kPrefixFieldNumber = 1,
     kPrefixLenFieldNumber = 2,
-    kPathGroupKeyFieldNumber = 5,
   };
   // repeated .service_layer.SLRoutePath PathList = 4;
   int pathlist_size() const;
@@ -282,33 +276,9 @@ class SLRoutev4 final :
   void _internal_set_prefixlen(uint32_t value);
   public:
 
-  // .service_layer.SLPathGroupRefKey PathGroupKey = 5;
-  bool has_pathgroupkey() const;
-  private:
-  bool _internal_has_pathgroupkey() const;
-  public:
-  void clear_pathgroupkey();
-  const ::service_layer::SLPathGroupRefKey& pathgroupkey() const;
-  PROTOBUF_NODISCARD ::service_layer::SLPathGroupRefKey* release_pathgroupkey();
-  ::service_layer::SLPathGroupRefKey* mutable_pathgroupkey();
-  void set_allocated_pathgroupkey(::service_layer::SLPathGroupRefKey* pathgroupkey);
-  private:
-  const ::service_layer::SLPathGroupRefKey& _internal_pathgroupkey() const;
-  ::service_layer::SLPathGroupRefKey* _internal_mutable_pathgroupkey();
-  public:
-  void unsafe_arena_set_allocated_pathgroupkey(
-      ::service_layer::SLPathGroupRefKey* pathgroupkey);
-  ::service_layer::SLPathGroupRefKey* unsafe_arena_release_pathgroupkey();
-
-  void clear_entry();
-  EntryCase entry_case() const;
   // @@protoc_insertion_point(class_scope:service_layer.SLRoutev4)
  private:
   class _Internal;
-  void set_has_pathgroupkey();
-
-  inline bool has_entry() const;
-  inline void clear_has_entry();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
@@ -317,14 +287,7 @@ class SLRoutev4 final :
   ::service_layer::SLRouteCommon* routecommon_;
   uint32_t prefix_;
   uint32_t prefixlen_;
-  union EntryUnion {
-    constexpr EntryUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::service_layer::SLPathGroupRefKey* pathgroupkey_;
-  } entry_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  uint32_t _oneof_case_[1];
-
   friend struct ::TableStruct_sl_5froute_5fipv4_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1934,81 +1897,6 @@ SLRoutev4::pathlist() const {
   return pathlist_;
 }
 
-// .service_layer.SLPathGroupRefKey PathGroupKey = 5;
-inline bool SLRoutev4::_internal_has_pathgroupkey() const {
-  return entry_case() == kPathGroupKey;
-}
-inline bool SLRoutev4::has_pathgroupkey() const {
-  return _internal_has_pathgroupkey();
-}
-inline void SLRoutev4::set_has_pathgroupkey() {
-  _oneof_case_[0] = kPathGroupKey;
-}
-inline ::service_layer::SLPathGroupRefKey* SLRoutev4::release_pathgroupkey() {
-  // @@protoc_insertion_point(field_release:service_layer.SLRoutev4.PathGroupKey)
-  if (_internal_has_pathgroupkey()) {
-    clear_has_entry();
-      ::service_layer::SLPathGroupRefKey* temp = entry_.pathgroupkey_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entry_.pathgroupkey_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLPathGroupRefKey& SLRoutev4::_internal_pathgroupkey() const {
-  return _internal_has_pathgroupkey()
-      ? *entry_.pathgroupkey_
-      : reinterpret_cast< ::service_layer::SLPathGroupRefKey&>(::service_layer::_SLPathGroupRefKey_default_instance_);
-}
-inline const ::service_layer::SLPathGroupRefKey& SLRoutev4::pathgroupkey() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLRoutev4.PathGroupKey)
-  return _internal_pathgroupkey();
-}
-inline ::service_layer::SLPathGroupRefKey* SLRoutev4::unsafe_arena_release_pathgroupkey() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLRoutev4.PathGroupKey)
-  if (_internal_has_pathgroupkey()) {
-    clear_has_entry();
-    ::service_layer::SLPathGroupRefKey* temp = entry_.pathgroupkey_;
-    entry_.pathgroupkey_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLRoutev4::unsafe_arena_set_allocated_pathgroupkey(::service_layer::SLPathGroupRefKey* pathgroupkey) {
-  clear_entry();
-  if (pathgroupkey) {
-    set_has_pathgroupkey();
-    entry_.pathgroupkey_ = pathgroupkey;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLRoutev4.PathGroupKey)
-}
-inline ::service_layer::SLPathGroupRefKey* SLRoutev4::_internal_mutable_pathgroupkey() {
-  if (!_internal_has_pathgroupkey()) {
-    clear_entry();
-    set_has_pathgroupkey();
-    entry_.pathgroupkey_ = CreateMaybeMessage< ::service_layer::SLPathGroupRefKey >(GetArenaForAllocation());
-  }
-  return entry_.pathgroupkey_;
-}
-inline ::service_layer::SLPathGroupRefKey* SLRoutev4::mutable_pathgroupkey() {
-  ::service_layer::SLPathGroupRefKey* _msg = _internal_mutable_pathgroupkey();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLRoutev4.PathGroupKey)
-  return _msg;
-}
-
-inline bool SLRoutev4::has_entry() const {
-  return entry_case() != ENTRY_NOT_SET;
-}
-inline void SLRoutev4::clear_has_entry() {
-  _oneof_case_[0] = ENTRY_NOT_SET;
-}
-inline SLRoutev4::EntryCase SLRoutev4::entry_case() const {
-  return SLRoutev4::EntryCase(_oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // SLRoutev4Msg
