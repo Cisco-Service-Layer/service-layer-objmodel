@@ -236,7 +236,7 @@ func SlafVrfRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp,
     }
 
     if response.StatusSummary.Status != pb.SLErrorStatus_SL_SUCCESS {
-        log.Fatalf("MPLS registration operation error: ", response.String())
+        log.Fatalf("Registration operation error: ", response.String())
     }
 
     log.Info("Response: ", response)
