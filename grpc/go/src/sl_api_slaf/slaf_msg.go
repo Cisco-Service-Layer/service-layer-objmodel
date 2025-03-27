@@ -244,7 +244,7 @@ func SlafVrfRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp,
 
 /* Performs the SLAFOp Unary rpc */
 func runSlafOpRequest(conn *grpc.ClientConn, messages []*pb.SLAFMsg,
-                      oper pb.SLObjectOp, username string, password string) (err error) {
+                      tableType pb.SLTableType, username string, password string) (err error) {
 
     client := pb.NewSLAFClient(conn)
     ctx, cancel := context.WithTimeout(context.Background(), 600*time.Second)
@@ -263,16 +263,22 @@ func runSlafOpRequest(conn *grpc.ClientConn, messages []*pb.SLAFMsg,
         results := response.GetResults()
         for i := 0; i < len(results); i++ {
             if results[i].GetStatus().GetStatus() != pb.SLErrorStatus_SL_SUCCESS {
-                if oper == pb.SLObjectOp(pb.SLTableType_SL_IPv4_ROUTE_TABLE) {
-                err = fmt.Errorf("route operation failed for: %s/%d ErrorStatus: %s With OperationID: %d",
-                            results[i].GetKey().GetIPRoutePrefix().GetPrefix(),
-                            results[i].GetKey().GetIPRoutePrefix().GetPrefixLen(),
-                            results[i].GetStatus().GetStatus(),
-                            results[i].GetOperationID())
+                if tableType == pb.SLTableType(pb.SLTableType_SL_IPv4_ROUTE_TABLE) {
+                    err = fmt.Errorf("route operation failed for: %s/%d ErrorStatus: %s With OperationID: %d",
+                                results[i].GetKey().GetIPRoutePrefix().GetPrefix(),
+                                results[i].GetKey().GetIPRoutePrefix().GetPrefixLen(),
+                                results[i].GetStatus().GetStatus(),
+                                results[i].GetOperationID())
                 }
-                if oper == pb.SLObjectOp(pb.SLTableType_SL_MPLS_LABEL_TABLE) {
+                if tableType == pb.SLTableType(pb.SLTableType_SL_MPLS_LABEL_TABLE) {
                     err = fmt.Errorf("route operation failed for: %s ErrorStatus: %s With OperationID: %d",
                                 results[i].GetKey().GetMplsLabel(),
+                                results[i].GetStatus().GetStatus(),
+                                results[i].GetOperationID())
+                }
+                if tableType == pb.SLTableType(pb.SLTableType_SL_PATH_GROUP_TABLE) {
+                    err = fmt.Errorf("route operation failed for: %s FibErrorStatus: %s With OperationID: %d",
+                                results[i].GetKey().GetPathGroupId(),
                                 results[i].GetStatus().GetStatus(),
                                 results[i].GetOperationID())
                 }
@@ -287,7 +293,7 @@ func runSlafOpRequest(conn *grpc.ClientConn, messages []*pb.SLAFMsg,
 /* Performs the SLAFOpStream rpc */
 func runSlafOpStreamRequest(conn *grpc.ClientConn, messages []*pb.SLAFMsg,
                             totalOperations uint, fibCheck bool,
-                            oper pb.SLObjectOp, username string, password string) (err error) {
+                            tableType pb.SLTableType, username string, password string) (err error) {
 
         client := pb.NewSLAFClient(conn)
         ctx, cancel := context.WithTimeout(context.Background(), 600*time.Second)
@@ -328,7 +334,7 @@ func runSlafOpStreamRequest(conn *grpc.ClientConn, messages []*pb.SLAFMsg,
                     results := response.GetResults()
                     for i := 0; i < len(results); i++ {
                         if results[i].GetStatus().GetStatus() != pb.SLErrorStatus_SL_SUCCESS {
-                            if oper == pb.SLObjectOp(pb.SLTableType_SL_IPv4_ROUTE_TABLE) {
+                            if tableType == pb.SLTableType(pb.SLTableType_SL_IPv4_ROUTE_TABLE) {
                                 errc <- fmt.Errorf("route operation failed for: %s/%d ErrorStatus: %s With OperationID: %d",
                                                 results[i].GetKey().GetIPRoutePrefix().GetPrefix(),
                                                 results[i].GetKey().GetIPRoutePrefix().GetPrefixLen(),
@@ -336,9 +342,15 @@ func runSlafOpStreamRequest(conn *grpc.ClientConn, messages []*pb.SLAFMsg,
                                                 results[i].GetOperationID())
                             }
 
-                            if oper == pb.SLObjectOp(pb.SLTableType_SL_MPLS_LABEL_TABLE) {
+                            if tableType == pb.SLTableType(pb.SLTableType_SL_MPLS_LABEL_TABLE) {
                                 errc <- fmt.Errorf("route operation failed for: %s ErrorStatus: %s With OperationID: %d",
                                                 results[i].GetKey().GetMplsLabel(),
+                                                results[i].GetStatus().GetStatus(),
+                                                results[i].GetOperationID())
+                            }
+                            if tableType == pb.SLTableType(pb.SLTableType_SL_PATH_GROUP_TABLE) {
+                                errc <- fmt.Errorf("route operation failed for: %s FibErrorStatus: %s With OperationID: %d",
+                                                results[i].GetKey().GetPathGroupId(),
                                                 results[i].GetStatus().GetStatus(),
                                                 results[i].GetOperationID())
                             }
@@ -353,16 +365,22 @@ func runSlafOpStreamRequest(conn *grpc.ClientConn, messages []*pb.SLAFMsg,
                             if results[i].GetFIBStatus() != pb.SLAFFibStatus_SL_FIB_UNKNOWN {
                                 numOperations--
                                 if results[i].GetFIBStatus() != pb.SLAFFibStatus_SL_FIB_SUCCESS {
-                                    if oper == pb.SLObjectOp(pb.SLTableType_SL_IPv4_ROUTE_TABLE) {
+                                    if tableType == pb.SLTableType(pb.SLTableType_SL_IPv4_ROUTE_TABLE) {
                                         errc <- fmt.Errorf("route operation failed for: %s/%d FibErrorStatus: %s With OperationID: %d",
                                                         results[i].GetKey().GetIPRoutePrefix().GetPrefix(),
                                                         results[i].GetKey().GetIPRoutePrefix().GetPrefixLen(),
                                                         results[i].GetFIBStatus(),
                                                         results[i].GetOperationID())
                                     }
-                                    if oper == pb.SLObjectOp(pb.SLTableType_SL_MPLS_LABEL_TABLE) {
+                                    if tableType == pb.SLTableType(pb.SLTableType_SL_MPLS_LABEL_TABLE) {
                                         errc <- fmt.Errorf("route operation failed for: %s FibErrorStatus: %s With OperationID: %d",
                                                         results[i].GetKey().GetMplsLabel(),
+                                                        results[i].GetFIBStatus(),
+                                                        results[i].GetOperationID())
+                                    }
+                                    if tableType == pb.SLTableType(pb.SLTableType_SL_PATH_GROUP_TABLE) {
+                                        errc <- fmt.Errorf("route operation failed for: %s FibErrorStatus: %s With OperationID: %d",
+                                                        results[i].GetKey().GetPathGroupId(),
                                                         results[i].GetFIBStatus(),
                                                         results[i].GetOperationID())
                                     }
@@ -721,9 +739,11 @@ func RouteOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         if int(ackType) != 0 {
             fibCheck = true
         }
-        err = runSlafOpStreamRequest(conn, messages, totalRoutes, fibCheck, oper, username, password)
+        err = runSlafOpStreamRequest(conn, messages,totalRoutes,
+            fibCheck, pb.SLTableType_SL_IPv4_ROUTE_TABLE, username, password)
     } else {
-        err = runSlafOpRequest(conn, messages, oper, username, password)
+        err = runSlafOpRequest(conn, messages,
+            pb.SLTableType_SL_IPv4_ROUTE_TABLE, username, password)
     }
     if err != nil {
         log.Fatal(err)
@@ -922,9 +942,11 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         if int(ackType) != 0 {
             fibCheck = true
         }
-        err = runSlafOpStreamRequest(conn, messages, sentIlms, fibCheck, oper, username, password)
+        err = runSlafOpStreamRequest(conn, messages, sentIlms,
+            fibCheck, pb.SLTableType_SL_MPLS_LABEL_TABLE, username, password)
     } else {
-        err = runSlafOpRequest(conn, messages, oper, username, password)
+        err = runSlafOpRequest(conn, messages,
+            pb.SLTableType_SL_MPLS_LABEL_TABLE, username, password)
     }
 
     if err != nil {
@@ -1058,9 +1080,11 @@ func PGOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         if int(ackType) != 0 {
             fibCheck = true
         }
-        err = runSlafOpStreamRequest(conn, messages, totalPG, fibCheck, oper, username, password)
+        err = runSlafOpStreamRequest(conn, messages, totalPG,
+            fibCheck, pb.SLTableType_SL_PATH_GROUP_TABLE, username, password)
     } else {
-        err = runSlafOpRequest(conn, messages, oper, username, password)
+        err = runSlafOpRequest(conn, messages,
+            pb.SLTableType_SL_PATH_GROUP_TABLE, username, password)
     }
     if err != nil {
         log.Fatal(err)
