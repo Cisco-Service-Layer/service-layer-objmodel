@@ -207,9 +207,9 @@ func SlafVrfRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp,
     tableType pb.SLTableType,
     username string, password string) {
 
-    /* Create a NewSLMplsOperClient instance */
+    /* Create a NewSLAFClient instance */
     client := pb.NewSLAFClient(conn)
-    /* Create an MPLS registration message */
+    /* Create an Vrf Reg registration message */
     vrf_reg_msg := []*pb.SLAFVrfReg{
         &pb.SLAFVrfReg{
             Table: tableType,
@@ -229,7 +229,7 @@ func SlafVrfRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp,
                     "username", username, "password", password,
                     "iosxr-slapi-clientid", ClientID)
 
-    /* RPC the Registration message*/
+    /* Call the SLAF Vrf Register rpc */
     response, err := client.SLAFVrfRegOp(ctx, message)
     if err != nil {
         log.Fatal(err)
@@ -800,7 +800,7 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     /* Initialize some path params */
     nexthop := ip4toInt(net.ParseIP(nextHopIP))
 
-    /* Let's compute the time it takes to RPC the labels */
+    /* Let's the preparation time it takes to create the messages */
     t0 := time.Now()
 
     label := startLabel
@@ -821,15 +821,13 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     for sentIlms < totalIlms  {
 
         log.Debug("sentIlms ", sentIlms,
-		          " batchIdx ", batchIndex,
+		          " batchIndex ", batchIndex,
 		          " ilmsInBatch ", ilmsInBatch,
 		          " numIlms ", numIlms,
 		          " batchSize ", batchSize,
-		          " sentIlms ", sentIlms,
 		          " totalIlms ", totalIlms)
 
-        if (ilmsInBatch + numIlms > batchSize) ||
-           (sentIlms + numIlms >= totalIlms) && (sentIlms != 0)  {
+        if ilmsInBatch + numIlms > batchSize && sentIlms != totalIlms {
             batchIndex ++
 
             messages = append(messages, message)
