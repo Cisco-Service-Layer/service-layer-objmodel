@@ -1659,7 +1659,7 @@ namespace ServiceLayer {
   /// <summary>
   /// 
   /// The controller is expected to send an EndOfReplay message after replaying policies
-  /// after the re-connect in case of “DELETE” persistence mode. For “PRESERVE” mode,
+  /// after the re-connect in case of "DELETE" persistence mode. For "PRESERVE" mode,
   /// replay of all policies is not required, but it can be still explicitly initiated
   /// by sending StartOfReplay message.
   /// It indicates that the controller has finished replaying all policies, which will
@@ -2425,7 +2425,7 @@ namespace ServiceLayer {
     private uint profileId_;
     /// <summary>
     /// ID of the profile with which policy can be associated with a non-zero value. The
-    /// Profile ID concept is described as “Policy Association Group” in RFC 9005.
+    /// Profile ID concept is described as "Policy Association Group" in RFC 9005.
     /// 0 value means unset. Maximum accepted value is 65534.
     /// 
     /// A profile represents a set of configuration knobs specifying policy or policy
@@ -2737,7 +2737,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLSrCandidatePathKey key_;
     /// <summary>
     /// Unique candidate path identifier in the context of an SR policy.
-    /// The tuple (`policy_key`, `candidate_path_key`) is a globally unique
+    /// The tuple (policy_key, candidate_path_key) is a globally unique
     /// identifier of the candidate path. Protocol origin field will be set to
     /// SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC
     /// </summary>
@@ -3186,7 +3186,7 @@ namespace ServiceLayer {
     /// <summary>
     /// Optimization metric type used for accumulating metric value (specified for each
     /// segment-list).
-    /// Values are defined in “BGP-LS SR Policy Metric Type” registry under
+    /// Values are defined in "BGP-LS SR Policy Metric Type" registry under
     /// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3401,8 +3401,10 @@ namespace ServiceLayer {
     /// 
     /// The objective function of the optimization problem is to minimize the
     /// accumulated value of this additive link metric along the path.
-    /// Values are defined in “BGP-LS SR Policy Metric Type” registry under
+    /// Values are defined in "BGP-LS SR Policy Metric Type" registry under
     /// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+    /// If sid-algo is specifiied within the range of 128-255, metric_type is
+    /// not considered.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

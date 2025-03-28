@@ -477,7 +477,7 @@ func (x *SLSrPolicyReq) GetPolicy() *SLSrPolicy {
 }
 
 // The controller is expected to send an EndOfReplay message after replaying policies
-// after the re-connect in case of “DELETE” persistence mode. For “PRESERVE” mode,
+// after the re-connect in case of "DELETE" persistence mode. For "PRESERVE" mode,
 // replay of all policies is not required, but it can be still explicitly initiated
 // by sending StartOfReplay message.
 // It indicates that the controller has finished replaying all policies, which will
@@ -672,7 +672,7 @@ type SLSrPolicyAttributes struct {
 	MplsBsid  *SLSrMPLSBindingSID   `protobuf:"bytes,4,opt,name=mpls_bsid,json=mplsBsid,proto3" json:"mpls_bsid,omitempty"`
 	Srv6Bsids []*SLSrSrv6BindingSID `protobuf:"bytes,5,rep,name=srv6_bsids,json=srv6Bsids,proto3" json:"srv6_bsids,omitempty"`
 	// ID of the profile with which policy can be associated with a non-zero value. The
-	// Profile ID concept is described as “Policy Association Group” in RFC 9005.
+	// Profile ID concept is described as "Policy Association Group" in RFC 9005.
 	// 0 value means unset. Maximum accepted value is 65534.
 	//
 	// A profile represents a set of configuration knobs specifying policy or policy
@@ -758,7 +758,7 @@ type SLSrCandidatePath struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Unique candidate path identifier in the context of an SR policy.
-	// The tuple (`policy_key`, `candidate_path_key`) is a globally unique
+	// The tuple (policy_key, candidate_path_key) is a globally unique
 	// identifier of the candidate path. Protocol origin field will be set to
 	// SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC
 	Key *SLSrCandidatePathKey `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
@@ -880,7 +880,7 @@ type SLSrExplicitCP struct {
 	SegmentList []*SLSrSegmentList `protobuf:"bytes,1,rep,name=segment_list,json=segmentList,proto3" json:"segment_list,omitempty"`
 	// Optimization metric type used for accumulating metric value (specified for each
 	// segment-list).
-	// Values are defined in “BGP-LS SR Policy Metric Type” registry under
+	// Values are defined in "BGP-LS SR Policy Metric Type" registry under
 	// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
 	MetricType uint32 `protobuf:"varint,3,opt,name=metric_type,json=metricType,proto3" json:"metric_type,omitempty"`
 }
@@ -941,8 +941,10 @@ type SLSrDynamicCP struct {
 	//
 	// The objective function of the optimization problem is to minimize the
 	// accumulated value of this additive link metric along the path.
-	// Values are defined in “BGP-LS SR Policy Metric Type” registry under
+	// Values are defined in "BGP-LS SR Policy Metric Type" registry under
 	// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+	// If sid-algo is specifiied within the range of 128-255, metric_type is
+	// not considered.
 	MetricType uint32 `protobuf:"varint,1,opt,name=metric_type,json=metricType,proto3" json:"metric_type,omitempty"`
 	// The set of constraints that the candidate path must satisfy.
 	Constraints *SLSrConstraints `protobuf:"bytes,2,opt,name=constraints,proto3" json:"constraints,omitempty"`
