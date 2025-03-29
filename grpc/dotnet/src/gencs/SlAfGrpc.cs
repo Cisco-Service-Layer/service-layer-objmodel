@@ -12,7 +12,7 @@
 // change without notice and such changes can break backwards compatibility.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023, 2024 by Cisco Systems, Inc.
+//  Copyright (c) 2023-2025 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -269,6 +269,8 @@ namespace ServiceLayer {
 
       /// <summary>
       /// Retrieves object attributes.
+      /// This RPC is unidirectional streaming from the server side
+      /// Server will close the stream when all the entries have been returned.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
@@ -300,7 +302,8 @@ namespace ServiceLayer {
       /// The call takes a stream of per-VRF table notification requests.
       /// Each notification request is first responded to with the result
       /// of the registration operation itself, followed by any redistributed
-      /// routes if requested and present, and any next hops if requested and present.
+      /// routes if requested and present, and any next hops if requested and
+      /// present.
       /// From then on, any updates are notified as long as RPC is up.
       /// </summary>
       /// <param name="requestStream">Used for reading requests from the client.</param>
@@ -736,6 +739,8 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// Retrieves object attributes.
+      /// This RPC is unidirectional streaming from the server side
+      /// Server will close the stream when all the entries have been returned.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -749,6 +754,8 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// Retrieves object attributes.
+      /// This RPC is unidirectional streaming from the server side
+      /// Server will close the stream when all the entries have been returned.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -778,7 +785,8 @@ namespace ServiceLayer {
       /// The call takes a stream of per-VRF table notification requests.
       /// Each notification request is first responded to with the result
       /// of the registration operation itself, followed by any redistributed
-      /// routes if requested and present, and any next hops if requested and present.
+      /// routes if requested and present, and any next hops if requested and
+      /// present.
       /// From then on, any updates are notified as long as RPC is up.
       /// </summary>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -810,7 +818,8 @@ namespace ServiceLayer {
       /// The call takes a stream of per-VRF table notification requests.
       /// Each notification request is first responded to with the result
       /// of the registration operation itself, followed by any redistributed
-      /// routes if requested and present, and any next hops if requested and present.
+      /// routes if requested and present, and any next hops if requested and
+      /// present.
       /// From then on, any updates are notified as long as RPC is up.
       /// </summary>
       /// <param name="options">The options for the call.</param>

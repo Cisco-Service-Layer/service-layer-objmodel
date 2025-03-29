@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIizFcKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiilcKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8ihFcKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8iwlYKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -237,77 +237,77 @@ namespace ServiceLayer {
             "TlZBTElEX05FWFRfSE9QX0FERFIQhcAFEiMKHVNMX05FWFRfSE9QX0lOVkFM",
             "SURfUFJFRklYX1NaEIbABRIgChpTTF9ORVhUX0hPUF9SSUJfQUREX0ZBSUxF",
             "RBCHwAUSJAoeU0xfUk9VVEVfUkVESVNUX1JJQl9BRERfRkFJTEVEEIjABRIZ",
-            "ChNTTF9GSUJfU1RBUlRfT0ZGU0VUEIDgBRIUCg5TTF9GSUJfU1VDQ0VTUxCB",
-            "4AUSEwoNU0xfRklCX0ZBSUxFRBCC4AUSFwoRU0xfRklCX0lORUxJR0lCTEUQ",
-            "g+AFEhoKFFNMX0ZJQl9JTlVTRV9TVUNDRVNTEITgBRIhChtTTF9BQ0tfUEVS",
-            "TUlUX05PVF9TVVBQT1JURUQQheAFEhgKElNMX0lOVkFMSURfQUNLVFlQRRCG",
-            "4AUSHAoWU0xfUE9MSUNZX1NUQVJUX09GRlNFVBCAgAYSFwoRU0xfUE9MSUNZ",
-            "X0FERF9FUlIQgYAGEhoKFFNMX1BPTElDWV9FWElTVFNfRVJSEIKABhIaChRT",
-            "TF9QT0xJQ1lfREVMRVRFX0VSUhCDgAYSHAoWU0xfUE9MSUNZX1JVTEVfQURE",
-            "X0VSUhCEgAYSHwoZU0xfUE9MSUNZX1JVTEVfRVhJU1RTX0VSUhCFgAYSHwoZ",
-            "U0xfUE9MSUNZX1JVTEVfREVMRVRFX0VSUhCGgAYSGQoTU0xfUE9MSUNZX0FQ",
-            "UExZX0VSUhCHgAYSGwoVU0xfUE9MSUNZX1VOQVBQTFlfRVJSEIiABhIhChtT",
-            "TF9QT0xJQ1lfVE9PX01BTllfUE9MSUNJRVMQiYAGEh0KF1NMX1BPTElDWV9O",
-            "QU1FX1RPT19MT05HEIqABhIiChxTTF9QT0xJQ1lfUlVMRV9OQU1FX1RPT19M",
-            "T05HEIuABhIqCiRTTF9QT0xJQ1lfRFVQTElDQVRFX1BSSU9SSVRZX0lOX1JV",
-            "TEUQjIAGEiQKHlNMX1BPTElDWV9SVUxFX01PRF9OT1RfQUxMT1dFRBCNgAYS",
-            "HAoWU0xfUE9MSUNZX0lOVkFMSURfUlVMRRCOgAYSIQobU0xfUE9MSUNZX1JV",
-            "TEVfQUREX05PX1JVTEVTEI+ABhIrCiVTTF9QT0xJQ1lfSU5WQUxJRF9NQVRD",
-            "SF9DT1VOVF9JTl9SVUxFEJCABhIsCiZTTF9QT0xJQ1lfSU5WQUxJRF9BQ1RJ",
-            "T05fQ09VTlRfSU5fUlVMRRCRgAYSGQoTU0xfUE9MSUNZX05PVF9GT1VORBCS",
-            "gAYSFwoRU0xfUE9MSUNZX0lOVkFMSUQQk4AGEhwKFlNMX1BPTElDWV9OQU1F",
-            "X01JU1NJTkcQlIAGEiEKG1NMX1BPTElDWV9SVUxFX05BTUVfTUlTU0lORxCV",
-            "gAYSKAoiU0xfUE9MSUNZX1BSSU9SSVRZX01JU1NJTkdfSU5fUlVMRRCWgAYS",
-            "HAoWU0xfUE9MSUNZX1RZUEVfSU5WQUxJRBCXgAYSIQobU0xfUE9MSUNZX0lO",
-            "VkFMSURfRElSRUNUSU9OEJiABhIhChtTTF9QT0xJQ1lfSU5URl9OQU1FX1RP",
-            "T0xPTkcQmYAGEiEKG1NMX1BPTElDWV9JTlRGX05BTUVfTUlTU0lORxCagAYS",
-            "JgogU0xfUE9MSUNZX01BWF9SVUxFX0xJTUlUX1JFQUNIRUQQm4AGEiEKG1NM",
-            "X1BPTElDWV9WUkZfTkFNRV9UT09fTE9ORxCcgAYSIAoaU0xfUE9MSUNZX1ZS",
-            "Rl9OQU1FX01JU1NJTkcQnYAGEiYKIFNMX1BPTElDWV9QQVRIX0dSUF9OQU1F",
-            "X1RPT19MT05HEJ6ABhIlCh9TTF9QT0xJQ1lfUEFUSF9HUlBfTkFNRV9NSVNT",
-            "SU5HEJ+ABhIiChxTTF9QT0xJQ1lfSU5WQUxJRF9EU0NQX1ZBTFVFEKCABhIl",
-            "Ch9TTF9QT0xJQ1lfUFJJT1JJVFlfU1RSX1RPT19MT05HEKGABhImCiBTTF9Q",
-            "T0xJQ1lfTUFYX0lOVEZfTElNSVRfUkVBQ0hFRBCigAYSJAoeU0xfUE9MSUNZ",
-            "X1JVTEVfREVMRVRFX05PX1JVTEVTEKOABhIeChhTTF9QT0xJQ1lfQVBQTFlf",
-            "Tk9fSU5URlMQpIAGEiAKGlNMX1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWA",
-            "BhIgChpTTF9CR1BMU19UT1BPX1NUQVJUX09GRlNFVBCAoAYSIwodU0xfQkdQ",
-            "TFNfU0VSVkVSX05PVF9BVkFJTEFCTEUQgaAGEigKIlNMX0JHUExTX01BWF9N",
-            "QVRDSF9GSUxURVJfRVhDRUVERUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJF",
-            "QU1TX0VYQ0VFREVEEIOgBhIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQ",
-            "gIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUY",
-            "AiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRy",
-            "ZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIl",
-            "CgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBh",
-            "dGhHcm91cFJlZktleRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElk",
-            "GAIgASgLMhkuc2VydmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVnT3AS",
-            "FQoRU0xfUkVHT1BfUkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhAB",
-            "EhcKE1NMX1JFR09QX1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypf",
-            "CgpTTE9iamVjdE9wEhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JK",
-            "T1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVM",
-            "RVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIV",
-            "ChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJMRRAC",
-            "KokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVE",
-            "EAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9I",
-            "SUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlf",
-            "TE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABIS",
-            "Cg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xU",
-            "YWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQ",
-            "djRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoT",
-            "U0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQ",
-            "BCpHCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklC",
-            "X0FDSxABEhUKEVJJQl9GSUJfSU5VU0VfQUNLEAIqvQEKDlNMUnNwQUNLUGVy",
-            "bWl0EhEKDVNMX1BFUk1JVF9BTEwQABIYChRTTF9QRVJNSVRfU0xfU1VDQ0VT",
-            "UxABEhwKGFNMX1BFUk1JVF9TTF9GSUJfU1VDQ0VTUxACEhsKF1NMX1BFUk1J",
-            "VF9TTF9GSUJfRkFJTEVEEAMSHwobU0xfUEVSTUlUX1NMX0ZJQl9JTkVMSUdJ",
-            "QkxFEAQSIgoeU0xfUEVSTUlUX1NMX0ZJQl9JTlVTRV9TVUNDRVNTEAUqZQoP",
-            "U0xSc3BBY2tDYWRlbmNlEhUKEVNMX1JTUF9DT05USU5VT1VTEAASFAoQU0xf",
-            "UlNQX0pVU1RfT05DRRABEhQKEFNMX1JTUF9PTkNFX0VBQ0gQAhIPCgtTTF9S",
-            "U1BfTk9ORRADQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9z",
-            "ZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5",
-            "ZXJiBnByb3RvMw=="));
+            "ChNTTF9BQ0tfU1RBUlRfT0ZGU0VUEIDgBRIhChtTTF9BQ0tfUEVSTUlUX05P",
+            "VF9TVVBQT1JURUQQgeAFEhkKE1NMX0FDS19JTlZBTElEX1RZUEUQguAFEhwK",
+            "FlNMX1BPTElDWV9TVEFSVF9PRkZTRVQQgIAGEhcKEVNMX1BPTElDWV9BRERf",
+            "RVJSEIGABhIaChRTTF9QT0xJQ1lfRVhJU1RTX0VSUhCCgAYSGgoUU0xfUE9M",
+            "SUNZX0RFTEVURV9FUlIQg4AGEhwKFlNMX1BPTElDWV9SVUxFX0FERF9FUlIQ",
+            "hIAGEh8KGVNMX1BPTElDWV9SVUxFX0VYSVNUU19FUlIQhYAGEh8KGVNMX1BP",
+            "TElDWV9SVUxFX0RFTEVURV9FUlIQhoAGEhkKE1NMX1BPTElDWV9BUFBMWV9F",
+            "UlIQh4AGEhsKFVNMX1BPTElDWV9VTkFQUExZX0VSUhCIgAYSIQobU0xfUE9M",
+            "SUNZX1RPT19NQU5ZX1BPTElDSUVTEImABhIdChdTTF9QT0xJQ1lfTkFNRV9U",
+            "T09fTE9ORxCKgAYSIgocU0xfUE9MSUNZX1JVTEVfTkFNRV9UT09fTE9ORxCL",
+            "gAYSKgokU0xfUE9MSUNZX0RVUExJQ0FURV9QUklPUklUWV9JTl9SVUxFEIyA",
+            "BhIkCh5TTF9QT0xJQ1lfUlVMRV9NT0RfTk9UX0FMTE9XRUQQjYAGEhwKFlNM",
+            "X1BPTElDWV9JTlZBTElEX1JVTEUQjoAGEiEKG1NMX1BPTElDWV9SVUxFX0FE",
+            "RF9OT19SVUxFUxCPgAYSKwolU0xfUE9MSUNZX0lOVkFMSURfTUFUQ0hfQ09V",
+            "TlRfSU5fUlVMRRCQgAYSLAomU0xfUE9MSUNZX0lOVkFMSURfQUNUSU9OX0NP",
+            "VU5UX0lOX1JVTEUQkYAGEhkKE1NMX1BPTElDWV9OT1RfRk9VTkQQkoAGEhcK",
+            "EVNMX1BPTElDWV9JTlZBTElEEJOABhIcChZTTF9QT0xJQ1lfTkFNRV9NSVNT",
+            "SU5HEJSABhIhChtTTF9QT0xJQ1lfUlVMRV9OQU1FX01JU1NJTkcQlYAGEigK",
+            "IlNMX1BPTElDWV9QUklPUklUWV9NSVNTSU5HX0lOX1JVTEUQloAGEhwKFlNM",
+            "X1BPTElDWV9UWVBFX0lOVkFMSUQQl4AGEiEKG1NMX1BPTElDWV9JTlZBTElE",
+            "X0RJUkVDVElPThCYgAYSIQobU0xfUE9MSUNZX0lOVEZfTkFNRV9UT09MT05H",
+            "EJmABhIhChtTTF9QT0xJQ1lfSU5URl9OQU1FX01JU1NJTkcQmoAGEiYKIFNM",
+            "X1BPTElDWV9NQVhfUlVMRV9MSU1JVF9SRUFDSEVEEJuABhIhChtTTF9QT0xJ",
+            "Q1lfVlJGX05BTUVfVE9PX0xPTkcQnIAGEiAKGlNMX1BPTElDWV9WUkZfTkFN",
+            "RV9NSVNTSU5HEJ2ABhImCiBTTF9QT0xJQ1lfUEFUSF9HUlBfTkFNRV9UT09f",
+            "TE9ORxCegAYSJQofU0xfUE9MSUNZX1BBVEhfR1JQX05BTUVfTUlTU0lORxCf",
+            "gAYSIgocU0xfUE9MSUNZX0lOVkFMSURfRFNDUF9WQUxVRRCggAYSJQofU0xf",
+            "UE9MSUNZX1BSSU9SSVRZX1NUUl9UT09fTE9ORxChgAYSJgogU0xfUE9MSUNZ",
+            "X01BWF9JTlRGX0xJTUlUX1JFQUNIRUQQooAGEiQKHlNMX1BPTElDWV9SVUxF",
+            "X0RFTEVURV9OT19SVUxFUxCjgAYSHgoYU0xfUE9MSUNZX0FQUExZX05PX0lO",
+            "VEZTEKSABhIgChpTTF9QT0xJQ1lfVU5BUFBMWV9OT19JTlRGUxClgAYSGwoV",
+            "U0xfUE9MSUNZX1JFUExBQ0VfRVJSEKaABhIgChpTTF9CR1BMU19UT1BPX1NU",
+            "QVJUX09GRlNFVBCAoAYSIwodU0xfQkdQTFNfU0VSVkVSX05PVF9BVkFJTEFC",
+            "TEUQgaAGEigKIlNMX0JHUExTX01BWF9NQVRDSF9GSUxURVJfRVhDRUVERUQQ",
+            "gqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIeChhT",
+            "TF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50ZXJmYWNlEg4K",
+            "BE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJbnRlcmZhY2Ui",
+            "QgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAASEwoJVjZBZGRy",
+            "ZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElkEg4KBE5hbWUY",
+            "ASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktleRIPCgdWcmZO",
+            "YW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2VydmljZV9sYXll",
+            "ci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJWRUQQ",
+            "ABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVHSVNU",
+            "RVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNMX09C",
+            "Sk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JKT1Bf",
+            "VVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9wEhcK",
+            "E1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJMRRAB",
+            "EhYKElNMX05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9yaXR5",
+            "EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlfQ1JJ",
+            "VElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJVFlf",
+            "TUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5cGUS",
+            "FQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThABEhEK",
+            "DVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVf",
+            "VFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIXChNT",
+            "TF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRAD",
+            "EhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCpHCgxTTFJzcEFDS1R5cGUSCwoH",
+            "UklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FDSxABEhUKEVJJQl9GSUJfSU5V",
+            "U0VfQUNLEAIqewoNU0xBRkZpYlN0YXR1cxISCg5TTF9GSUJfVU5LTk9XThAA",
+            "EhIKDlNMX0ZJQl9TVUNDRVNTEAESEQoNU0xfRklCX0ZBSUxFRBACEhUKEVNM",
+            "X0ZJQl9JTkVMSUdJQkxFEAMSGAoUU0xfRklCX0lOVVNFX1NVQ0NFU1MQBCqi",
+            "AQoOU0xSc3BBQ0tQZXJtaXQSHAoYU0xfUEVSTUlUX0ZJQl9TVEFUVVNfQUxM",
+            "EAASGQoVU0xfUEVSTUlUX0ZJQl9TVUNDRVNTEAESGAoUU0xfUEVSTUlUX0ZJ",
+            "Ql9GQUlMRUQQAhIcChhTTF9QRVJNSVRfRklCX0lORUxJR0lCTEUQAxIfChtT",
+            "TF9QRVJNSVRfRklCX0lOVVNFX1NVQ0NFU1MQBCplCg9TTFJzcEFja0NhZGVu",
+            "Y2USFQoRU0xfUlNQX0NPTlRJTlVPVVMQABIUChBTTF9SU1BfSlVTVF9PTkNF",
+            "EAESFAoQU0xfUlNQX09OQ0VfRUFDSBACEg8KC1NMX1JTUF9OT05FEANCUVpP",
+            "Z2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXIt",
+            "b2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLAFFibStatus), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLErrorStatus), global::ServiceLayer.SLErrorStatus.Parser, new[]{ "Status" }, null, new[]{ typeof(global::ServiceLayer.SLErrorStatus.Types.SLErrno) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterface), global::ServiceLayer.SLInterface.Parser, new[]{ "Name", "Handle" }, new[]{ "Interface" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLIpAddress), global::ServiceLayer.SLIpAddress.Parser, new[]{ "V4Address", "V6Address" }, new[]{ "Address" }, null, null, null),
@@ -460,95 +460,122 @@ namespace ServiceLayer {
     /// If the object in the operation is successfully applied to RIB,
     /// SL_SUCCESS is returned.
     ///
-    /// If the object in the operation is not active and cannot be programmed to FIB,
-    /// SL_FIB_INELIGIBLE is returned as a second response and the operation is
-    /// considered complete.
+    /// If the object in the operation is not active and cannot be programmed to
+    /// FIB, SL_FIB_INELIGIBLE is returned as a second response and the
+    /// operation is considered complete.
     ///
     /// As a result of an operation on an object, if another previously
-    /// programmed object becomes ineligible, previously programmed object will be
-    /// removed from FIB and SL_FIB_INELIGIBLE will be sent asynchronously with
-    /// the last known OperationID for that object. However, the object will
+    /// programmed object becomes ineligible, previously programmed object will
+    /// be removed from FIB and SL_FIB_INELIGIBLE will be sent asynchronously
+    /// with the last known OperationID for that object. However, the object will
     /// continue to remain in RIB.
     ///
     /// Eventually, when the object becomes active, the object is sent to FIB
-    /// and result of the hardware programming is returned asynchronously with the last
-    /// known OperationID for that object.
+    /// and result of the hardware programming is returned asynchronously with
+    /// the last known OperationID for that object.
     ///
     /// **Note 1: while the object is waiting for FIB to be programmed,
-    /// client can send another update on the object and the object remains in-active.
+    /// client can send another update on the object and the object remains
+    /// in-active.
     /// The network element may coalesce such back to back operations.
     /// In this scenario, only the last operation on the object is responded to
-    /// with corresponding hardware programming result
+    /// with corresponding hardware programming result.
     ///
-    /// **Note 2: relay fib programming status is supported only in server streaming RPC.
-    /// However, the AckType RIB_AND_FIB_ACK is supported in both unary (SLAFOp) as well as
-    /// streaming (SLAFOpStream) rpc. When unary rpc is used for programming an object
-    /// with ackType as RIB_AND_FIB_ACK, fib programming will be tracked internally by
-    /// the server and can be retrieved through get operation.
+    /// **Note 2: relay of FIB programming status is supported only in server
+    /// streaming RPC.
+    /// However, the AckType RIB_AND_FIB_ACK is supported in both unary (SLAFOp)
+    /// as well as streaming (SLAFOpStream) RPC. When unary RPC is used for
+    /// programming an object with ackType as RIB_AND_FIB_ACK, FIB programming
+    /// will be tracked internally by the server and can be retrieved
+    /// through get operation.
     /// </summary>
     [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
     /// <summary>
-    /// When the operating mode is RIB_FIB_INUSE_ACK, along with the behavior
-    /// explained above for RIB_AND_FIB_ACK, the client will receive an additional
-    /// response of type SL_FIB_INUSE_SUCCESS. RIB_FIB_INUSE_ACK indicates that object
-    /// has been programmed in FIB and is being actively used by one or more
-    /// forwarding chains.
-    /// RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup
+    /// When the ack type is RIB_FIB_INUSE_ACK, along with the behavior
+    /// explained above for RIB_AND_FIB_ACK, the client will receive an
+    /// additional response of type SL_FIB_INUSE_SUCCESS. RIB_FIB_INUSE_ACK
+    /// indicates that object has been programmed in FIB and is being actively
+    /// used by one or more forwarding chains.
+    /// // RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup.
     /// </summary>
     [pbr::OriginalName("RIB_FIB_INUSE_ACK")] RibFibInuseAck = 2,
   }
 
   /// <summary>
-  /// SLRspACKPermit defines bit-field that control the types of hardware programming
-  /// responses that the client is interested in.
-  /// A set bit in the mask indicates PERMIT/ALLOW the corresponding response type.
+  /// SLAFFibStatus defines possible status for hardware programming of
+  /// the operaration.
+  /// </summary>
+  public enum SLAFFibStatus {
+    /// <summary>
+    /// Hardware programming status is not available for this operation at
+    /// this time.
+    /// </summary>
+    [pbr::OriginalName("SL_FIB_UNKNOWN")] SlFibUnknown = 0,
+    /// <summary>
+    /// The operation is successfully programmed in hardware.
+    /// </summary>
+    [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 1,
+    /// <summary>
+    /// Hardware programming failure
+    /// </summary>
+    [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 2,
+    /// <summary>
+    /// The object is not eligible (e.g. not best path, next hop down, etc.)
+    /// to be programmed in hardware.
+    /// </summary>
+    [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 3,
+    /// <summary>
+    /// The forwarding chain using this object is fully active in hardware
+    /// and is in-use by at least one referencing object that is also
+    /// programmed in hardware.
+    /// </summary>
+    [pbr::OriginalName("SL_FIB_INUSE_SUCCESS")] SlFibInuseSuccess = 4,
+  }
+
+  /// <summary>
+  /// SLRspACKPermit defines the list that control the types of hardware
+  /// programming responses as defined in SLAFFibStatus that the client is
+  /// interested in.
   /// If the SL-API client is interested in only a subset of possible responses
-  /// for hardware programming, then the corresponding bits are turned ON in the
-  /// bit-field.
+  /// for hardware programming, then the corresponding Permit types can be added
+  /// to the list.
   /// Control of response type is supported ONLY when ACK type is
-  /// RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK and is NOT supported when ACK type is RIB_ACK.
-  /// Errorcodes not listed in SLRspACKPermit such as parsing errors are
-  /// always permitted and will be relayed to the client even when SLRspACKPermit
-  /// is set to values other than SL_PERMIT_ALL.
+  /// RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK and is NOT supported when ACK type
+  /// is RIB_ACK.
   /// When AckPermit is not set by the SL-API client, the SL-API server
   /// will default to SL_PERMIT_ALL
   /// </summary>
   public enum SLRspACKPermit {
     /// <summary>
-    /// An undefined or 0 value Permits all SLErrorStatus to be relayed to client
+    /// An undefined or 0 value Permits all SLAFFibStatus to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_ALL")] SlPermitAll = 0,
-    /// <summary>
-    /// Permits SL_SUCCESS to be relayed to client
-    /// Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
-    /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_SUCCESS")] SlPermitSlSuccess = 1,
+    [pbr::OriginalName("SL_PERMIT_FIB_STATUS_ALL")] SlPermitFibStatusAll = 0,
     /// <summary>
     /// Permits SL_FIB_SUCCESS to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_FIB_SUCCESS")] SlPermitSlFibSuccess = 2,
+    [pbr::OriginalName("SL_PERMIT_FIB_SUCCESS")] SlPermitFibSuccess = 1,
     /// <summary>
     /// Permits SL_FIB_FAILED to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_FIB_FAILED")] SlPermitSlFibFailed = 3,
+    [pbr::OriginalName("SL_PERMIT_FIB_FAILED")] SlPermitFibFailed = 2,
     /// <summary>
     /// Permits SL_FIB_INELIGIBLE to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_FIB_INELIGIBLE")] SlPermitSlFibIneligible = 4,
+    [pbr::OriginalName("SL_PERMIT_FIB_INELIGIBLE")] SlPermitFibIneligible = 3,
     /// <summary>
-    /// Permits SL_FIB_INUSE to be relayed to client
+    /// Permits SL_FIB_INUSE_SUCCESS to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_FIB_INUSE_SUCCESS")] SlPermitSlFibInuseSuccess = 5,
+    [pbr::OriginalName("SL_PERMIT_FIB_INUSE_SUCCESS")] SlPermitFibInuseSuccess = 4,
   }
 
   /// <summary>
   /// SLRspAckCadence controls the cadence of hardware programming responses.
   /// When SLRspAckCadence is NOT set by the SL-API client, the SL-API server
-  /// will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
-  /// for all hardware programming events including events that are internal
-  /// to the router such as insertion or removal of line cards.
-  /// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK
-  /// and SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
+  /// will default to SL_RSP_CONTINOUS and send responses defined by
+  /// SLRspACKPermit, for all hardware programming events including events that
+  /// are internal to the router such as insertion or removal of line cards.
+  /// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK
+  /// or RIB_FIB_INUSE_ACK.
   /// </summary>
   public enum SLRspAckCadence {
     /// <summary>
@@ -561,10 +588,14 @@ namespace ServiceLayer {
     ///
     /// For Example:
     /// In the case where client sends
-    /// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
-    /// Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
-    /// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
-    /// There will no further notification when the object becomes viable and programmed in FIB.
+    /// Permit == SL_PERMIT_FIB_INELIGIBLE |
+    ///           SL_PERMIT_FIB_SUCCESS |
+    ///           SL_PERMIT_FIB_FAILED
+    /// Cadence == SL_RSP_JUST_ONCE and at the time of programming if the
+    /// object was not viable to be programmed in hardware, then the first
+    /// response would be SL_FIB_INELIGIBLE.
+    /// There will no further notification even when the object becomes
+    /// viable and programmed in FIB.
     /// </summary>
     [pbr::OriginalName("SL_RSP_JUST_ONCE")] SlRspJustOnce = 1,
     /// <summary>
@@ -573,20 +604,24 @@ namespace ServiceLayer {
     ///
     /// For Example:
     /// In the case where client sends
-    /// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
-    /// and Cadence == SL_RSP_ONCE_EACH and at the time of programming if the object was not viable
-    /// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
-    /// Later, whenever the route becomes viable and gets programmed in the FIB the 
-    /// corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
+    /// Permit == SL_PERMIT_FIB_INELIGIBLE |
+    ///           SL_PERMIT_FIB_SUCCESS |
+    ///           SL_PERMIT_FIB_FAILED
+    /// and Cadence == SL_RSP_ONCE_EACH and at the time of programming if
+    /// the object was not viable to be programmed in hardware, then the
+    /// first response would be SL_FIB_INELIGIBLE.
+    /// Later, whenever the route becomes viable and gets programmed in the
+    /// FIB the corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will
+    /// be also be notified.
     /// This  will be particularly useful in the case of out of order programming
     /// where the prefix is ineligible until referenced PathGroup is programmed.
     /// </summary>
     [pbr::OriginalName("SL_RSP_ONCE_EACH")] SlRspOnceEach = 2,
     /// <summary>
     /// Blocks all response types. This option is used when client expects
-    /// the hw-programming to be tracked internally within service-layer grpc
+    /// the hw-programming to be tracked internally within service-layer gRPC
     /// server but doesn't expect any notification to be sent to the client.
-    /// This option makes any SLRspACKPermit value to be treated as don't care.
+    /// When SL_RSP_NONE is used, the value of SLRspACKPermit is ignored.
     /// </summary>
     [pbr::OriginalName("SL_RSP_NONE")] SlRspNone = 3,
   }
@@ -921,11 +956,13 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_VRF_NO_TABLE_ID")] SlVrfNoTableId = 8195,
         /// <summary>
-        /// VRF add registration message with invalid administrative distance. 0x2004
+        /// VRF add registration message with invalid administrative distance.
+        /// 0x2004
         /// </summary>
         [pbr::OriginalName("SL_VRF_REG_INVALID_ADMIN_DISTANCE")] SlVrfRegInvalidAdminDistance = 8196,
         /// <summary>
-        /// On a VRF registration, Table cannot be added to persistent memory. 0x2005
+        /// On a VRF registration, Table cannot be added to persistent memory.
+        /// 0x2005
         /// </summary>
         [pbr::OriginalName("SL_VRF_TABLE_ADD_ERR")] SlVrfTableAddErr = 8197,
         /// <summary>
@@ -1023,11 +1060,13 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG")] SlRpcRouteNotifSrcProtoTagToolong = 12298,
         /// <summary>
-        /// Operation rejected as the requested match value/values/criteria is invalid. 0x300b
+        /// Operation rejected as the requested match value/values/criteria
+        /// is invalid. 0x300b
         /// </summary>
         [pbr::OriginalName("SL_RPC_ROUTE_GET_MATCH_INVALID")] SlRpcRouteGetMatchInvalid = 12299,
         /// <summary>
-        /// Operation rejected as the requested match value/values/criteria is not supported. 0x300c
+        /// Operation rejected as the requested match value/values/criteria
+        /// is not supported. 0x300c
         /// </summary>
         [pbr::OriginalName("SL_RPC_ROUTE_GET_MATCH_NOTSUP")] SlRpcRouteGetMatchNotsup = 12300,
         /// <summary>
@@ -1081,7 +1120,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_ERR_RIB_TOOMANYPATHS")] SlRouteErrRibToomanypaths = 16395,
         /// <summary>
-        /// This route already exists in the database. 0x400c  
+        /// This route already exists in the database. 0x400c
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_EEXIST")] SlRouteEexist = 16396,
         /// <summary>
@@ -1133,7 +1172,8 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_PATH_INVALID_LABEL_COUNT")] SlPathInvalidLabelCount = 20483,
         /// <summary>
-        /// Path ID assigned to the path falls outside the supported range. 0x5004
+        /// Path ID assigned to the path falls outside the supported range.
+        /// 0x5004
         /// </summary>
         [pbr::OriginalName("SL_PATH_INVALID_ID")] SlPathInvalidId = 20484,
         /// <summary>
@@ -1230,7 +1270,8 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_PATH_RTR_MAC_NOSUP")] SlPathRtrMacNosup = 20507,
         /// <summary>
-        /// Path Encap type attribute does not match specified encapsulation. 0x501c
+        /// Path Encap type attribute does not match specified encapsulation.
+        /// 0x501c
         /// </summary>
         [pbr::OriginalName("SL_PATH_ENCAP_TYPE_MISMATCH")] SlPathEncapTypeMismatch = 20508,
         /// <summary>
@@ -1279,7 +1320,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_BFD_INTF_NOT_FOUND")] SlBfdIntfNotFound = 28674,
         /// <summary>
-        /// BFD Session's tx interval or multiplier are beyond the 
+        /// BFD Session's tx interval or multiplier are beyond the
         /// supported range. 0x7003
         /// </summary>
         [pbr::OriginalName("SL_BFD_INVALID_ATTRIBUTE")] SlBfdInvalidAttribute = 28675,
@@ -1300,7 +1341,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_BFD_VRF_NAME_TOOLONG")] SlBfdVrfNameToolong = 28679,
         /// <summary>
-        /// BFD Session's one or more parameters are invalid. 
+        /// BFD Session's one or more parameters are invalid.
         /// For example, Multihop BFD can not have the interface name set. 0x7008
         /// </summary>
         [pbr::OriginalName("SL_BFD_BAD_PARAMETER")] SlBfdBadParameter = 28680,
@@ -1434,7 +1475,8 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ILM_ADD_NO_PATHS")] SlIlmAddNoPaths = 36879,
         /// <summary>
-        /// MPLS ILM update operation requested but no paths were provided. 0x9010
+        /// MPLS ILM update operation requested but no paths were provided.
+        /// 0x9010
         /// </summary>
         [pbr::OriginalName("SL_ILM_UPDATE_NO_PATHS")] SlIlmUpdateNoPaths = 36880,
         /// <summary>
@@ -1519,7 +1561,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_NHLFE_NH_INTF_NAME_TOOLONG")] SlNhlfeNhIntfNameToolong = 40966,
         /// <summary>
-        /// Number of labels in the path incompatible with system capabilities 
+        /// Number of labels in the path incompatible with system capabilities
         /// for the given label action. 0xa007
         /// </summary>
         [pbr::OriginalName("SL_NHLFE_INVALID_LABEL_COUNT")] SlNhlfeInvalidLabelCount = 40967,
@@ -1637,7 +1679,8 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_NHLFE_NON_CONTIGUOUS_EXP")] SlNhlfeNonContiguousExp = 40995,
         /// <summary>
-        /// On a ILM, mix of NHLFE with EXP class and others without any EXP class are not allowed. 0xa024
+        /// On a ILM, mix of NHLFE with EXP class and others without any EXP
+        /// class are not allowed. 0xa024
         /// </summary>
         [pbr::OriginalName("SL_NHLFE_INCONSISTENT_EXP_ON_PATH")] SlNhlfeInconsistentExpOnPath = 40996,
         /// <summary>
@@ -1718,7 +1761,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_RPC_INTF_SERVER_NOT_INITIALIZED")] SlRpcIntfServerNotInitialized = 53250,
         /// <summary>
-        /// Interface Operation failed as server is not registered with 
+        /// Interface Operation failed as server is not registered with
         /// interface manager. 0xd003
         /// </summary>
         [pbr::OriginalName("SL_RPC_INTF_API_CLIENT_NOT_REGISTERED")] SlRpcIntfApiClientNotRegistered = 53251,
@@ -1735,7 +1778,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_INTF_INTERFACE_NAME_TOOLONG")] SlIntfInterfaceNameToolong = 57346,
         /// <summary>
-        /// Interface internal registration error. 0xe003 
+        /// Interface internal registration error. 0xe003
         /// </summary>
         [pbr::OriginalName("SL_INTF_INTERFACE_REG_ERR")] SlIntfInterfaceRegErr = 57347,
         /// <summary>
@@ -1929,7 +1972,8 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_PG_STR_KEY_TOOLONG")] SlPgStrKeyToolong = 86019,
         /// <summary>
-        /// ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004
+        /// ID of a next hop VRF in a path in the PathGroup cannot be determined.
+        /// 0x15004
         /// </summary>
         [pbr::OriginalName("SL_PG_TARGET_VRF_NO_VRFID")] SlPgTargetVrfNoVrfid = 86020,
         /// <summary>
@@ -1975,31 +2019,16 @@ namespace ServiceLayer {
         /// <summary>
         /// Offset for Hardware Ack errors. 0x17000
         /// </summary>
-        [pbr::OriginalName("SL_FIB_START_OFFSET")] SlFibStartOffset = 94208,
+        [pbr::OriginalName("SL_ACK_START_OFFSET")] SlAckStartOffset = 94208,
         /// <summary>
-        /// The operation is successfully programmed in hardware. 0x17001
+        /// Ack permit is supported only on streaming RPC with ack type set
+        /// to RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK. 0x17001
         /// </summary>
-        [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94209,
+        [pbr::OriginalName("SL_ACK_PERMIT_NOT_SUPPORTED")] SlAckPermitNotSupported = 94209,
         /// <summary>
-        /// FIB programming failure. 0x17002
+        /// The Ack type requested is not supported on the object type. 0x17002
         /// </summary>
-        [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 94210,
-        /// <summary>
-        /// The operation is not viable to be programmed in hardware at this time. 0x17003
-        /// </summary>
-        [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94211,
-        /// <summary>
-        /// The forwarding chain using this object is fully active in hardware. 0x17004
-        /// </summary>
-        [pbr::OriginalName("SL_FIB_INUSE_SUCCESS")] SlFibInuseSuccess = 94212,
-        /// <summary>
-        /// Ack permit is not supported when ack type is not RIB_AND_FIB_ACK or RIB_FIB_INUSE_ACK. 0x17005
-        /// </summary>
-        [pbr::OriginalName("SL_ACK_PERMIT_NOT_SUPPORTED")] SlAckPermitNotSupported = 94213,
-        /// <summary>
-        /// Given ack type is not permitted on object of this type. 0x17006
-        /// </summary>
-        [pbr::OriginalName("SL_INVALID_ACKTYPE")] SlInvalidAcktype = 94214,
+        [pbr::OriginalName("SL_ACK_INVALID_TYPE")] SlAckInvalidType = 94210,
         /// <summary>
         /// Offset for policy object operations. 0x18000
         /// </summary>
@@ -2085,7 +2114,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_POLICY_NAME_MISSING")] SlPolicyNameMissing = 98324,
         /// <summary>
-        /// Rule name missing. 0x18015 
+        /// Rule name missing. 0x18015
         /// </summary>
         [pbr::OriginalName("SL_POLICY_RULE_NAME_MISSING")] SlPolicyRuleNameMissing = 98325,
         /// <summary>
@@ -2093,7 +2122,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_POLICY_PRIORITY_MISSING_IN_RULE")] SlPolicyPriorityMissingInRule = 98326,
         /// <summary>
-        /// Invalid policy type. 0x18017 
+        /// Invalid policy type. 0x18017
         /// </summary>
         [pbr::OriginalName("SL_POLICY_TYPE_INVALID")] SlPolicyTypeInvalid = 98327,
         /// <summary>
@@ -2105,7 +2134,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_POLICY_INTF_NAME_TOOLONG")] SlPolicyIntfNameToolong = 98329,
         /// <summary>
-        /// Policy object's interface name is missing. 0x1801a 
+        /// Policy object's interface name is missing. 0x1801a
         /// </summary>
         [pbr::OriginalName("SL_POLICY_INTF_NAME_MISSING")] SlPolicyIntfNameMissing = 98330,
         /// <summary>
@@ -2133,7 +2162,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_POLICY_INVALID_DSCP_VALUE")] SlPolicyInvalidDscpValue = 98336,
         /// <summary>
-        /// Priority string too long. 0x18021 
+        /// Priority string too long. 0x18021
         /// </summary>
         [pbr::OriginalName("SL_POLICY_PRIORITY_STR_TOO_LONG")] SlPolicyPriorityStrTooLong = 98337,
         /// <summary>
@@ -2152,6 +2181,10 @@ namespace ServiceLayer {
         /// Policy unapply requested but no interfaces were provided. 0x18025
         /// </summary>
         [pbr::OriginalName("SL_POLICY_UNAPPLY_NO_INTFS")] SlPolicyUnapplyNoIntfs = 98341,
+        /// <summary>
+        /// Policy object replace failed. 0x18026
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_REPLACE_ERR")] SlPolicyReplaceErr = 98342,
         /// <summary>
         /// Offset for Bgpls Topology errors. 0x19000
         /// </summary>
