@@ -1666,7 +1666,7 @@ namespace ServiceLayer {
   /// then trigger cleanup of any policies not reclaimed by the controller (identified
   /// by Client-ID).
   /// The server will start replay timer, when replay is initiated with value of 600
-  /// seconds. If the // EndOfReplay message is not received in specified time, not
+  /// seconds. If the EndOfReplay message is not received in specified time, not
   /// replayed policies will be deleted.
   /// Server will not send response to this message unless there is an error. 
   /// </summary>
