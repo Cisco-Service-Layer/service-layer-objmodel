@@ -402,10 +402,63 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_POLICY_RULE_DELETE_NO_RULES = 98339,
   SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS = 98340,
   SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS = 98341,
+  SLErrorStatus_SLErrno_SL_POLICY_REPLACE_ERR = 98342,
   SLErrorStatus_SLErrno_SL_BGPLS_TOPO_START_OFFSET = 102400,
   SLErrorStatus_SLErrno_SL_BGPLS_SERVER_NOT_AVAILABLE = 102401,
   SLErrorStatus_SLErrno_SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 102402,
   SLErrorStatus_SLErrno_SL_BGPLS_MAX_STREAMS_EXCEEDED = 102403,
+  SLErrorStatus_SLErrno_SL_BGP_START_OFFSET = 106496,
+  SLErrorStatus_SLErrno_SL_BGP_INST_NAME_TOOLONG = 106497,
+  SLErrorStatus_SLErrno_SL_BGP_INST_NAME_EMPTY = 106498,
+  SLErrorStatus_SLErrno_SL_BGP_INST_NOT_INITIALIZED = 106499,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_OBJ_TYPE = 106500,
+  SLErrorStatus_SLErrno_SL_BGP_VRF_NAME_TOOLONG_V4 = 106501,
+  SLErrorStatus_SLErrno_SL_BGP_VRF_NAME_TOOLONG_V6 = 106502,
+  SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_VRF_NAME = 106503,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_ADDR_MCAST = 106504,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_ADDR_EXP = 106505,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_ADDR = 106506,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_V6_SZ = 106507,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_KEY = 106508,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_ADDR_MCAST = 106509,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_ADDR_EXP = 106510,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_ADDR = 106511,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_V6_SZ = 106512,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_NBRSAFI_LIST = 106513,
+  SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_BGP_AFI_SAFI = 106514,
+  SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_AFI = 106515,
+  SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_SAFI = 106516,
+  SLErrorStatus_SLErrno_SL_BGP_EMPTY_OBJECTS = 106517,
+  SLErrorStatus_SLErrno_SL_BGP_EMPTY_OBJECT_LIST = 106518,
+  SLErrorStatus_SLErrno_SL_BGP_UPDATE_BW_GRP_FAILED = 106519,
+  SLErrorStatus_SLErrno_SL_BGP_UPDATE_MPATH_ADDR_FAILED = 106520,
+  SLErrorStatus_SLErrno_SL_BGP_DELETE_BW_GRP_FAILED = 106521,
+  SLErrorStatus_SLErrno_SL_BGP_DELETE_NBR_FAILED = 106522,
+  SLErrorStatus_SLErrno_SL_BGP_DELETE_AFI_FAILED = 106523,
+  SLErrorStatus_SLErrno_SL_BGP_DELETE_MPATH_ADDR_FAILED = 106524,
+  SLErrorStatus_SLErrno_SL_BGP_DELETE_FAILED = 106525,
+  SLErrorStatus_SLErrno_SL_BGP_BW_GRP_NUM_OUT_OF_RANGE = 106526,
+  SLErrorStatus_SLErrno_SL_BGP_IN_BW_GRP_COUNT_EXCEEDED = 106527,
+  SLErrorStatus_SLErrno_SL_BGP_OUT_BW_GRP_COUNT_EXCEEDED = 106528,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_IN_BWGRP_LIST = 106529,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_OUT_BWGRP_LIST = 106530,
+  SLErrorStatus_SLErrno_SL_BGP_LINK_BW_OUT_OF_RANGE = 106531,
+  SLErrorStatus_SLErrno_SL_BGP_NBR_IDX_OUT_OF_RANGE = 106532,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_TYPE = 106533,
+  SLErrorStatus_SLErrno_SL_BGP_BW_GRP_LIST_NULL = 106534,
+  SLErrorStatus_SLErrno_SL_BGP_NBRSAFI_LIST_NULL = 106535,
+  SLErrorStatus_SLErrno_SL_BGP_INST_NOT_CONFIG_IN_SLAPI = 106536,
+  SLErrorStatus_SLErrno_SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE = 106537,
+  SLErrorStatus_SLErrno_SL_BGP_ASN_OUT_OF_RANGE = 106538,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_UNIT = 106539,
+  SLErrorStatus_SLErrno_SL_BGP_OBJECT_TYPE_REQUIRED = 106540,
+  SLErrorStatus_SLErrno_SL_BGP_OBJECT_KEY_REQUIRED = 106541,
+  SLErrorStatus_SLErrno_SL_BGP_INVALID_OBJECT_TYPE = 106542,
+  SLErrorStatus_SLErrno_SL_BGP_GET_EXACT_MATCH_NOT_FOUND = 106543,
+  SLErrorStatus_SLErrno_SL_BGP_MAX_NEIGHBORS_IN_SYSDB = 106544,
+  SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1 = 106753,
+  SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_2 = 106754,
+  SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_3 = 106755,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
@@ -1464,6 +1517,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS;
   static constexpr SLErrno SL_POLICY_UNAPPLY_NO_INTFS =
     SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS;
+  static constexpr SLErrno SL_POLICY_REPLACE_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_REPLACE_ERR;
   static constexpr SLErrno SL_BGPLS_TOPO_START_OFFSET =
     SLErrorStatus_SLErrno_SL_BGPLS_TOPO_START_OFFSET;
   static constexpr SLErrno SL_BGPLS_SERVER_NOT_AVAILABLE =
@@ -1472,6 +1527,110 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED;
   static constexpr SLErrno SL_BGPLS_MAX_STREAMS_EXCEEDED =
     SLErrorStatus_SLErrno_SL_BGPLS_MAX_STREAMS_EXCEEDED;
+  static constexpr SLErrno SL_BGP_START_OFFSET =
+    SLErrorStatus_SLErrno_SL_BGP_START_OFFSET;
+  static constexpr SLErrno SL_BGP_INST_NAME_TOOLONG =
+    SLErrorStatus_SLErrno_SL_BGP_INST_NAME_TOOLONG;
+  static constexpr SLErrno SL_BGP_INST_NAME_EMPTY =
+    SLErrorStatus_SLErrno_SL_BGP_INST_NAME_EMPTY;
+  static constexpr SLErrno SL_BGP_INST_NOT_INITIALIZED =
+    SLErrorStatus_SLErrno_SL_BGP_INST_NOT_INITIALIZED;
+  static constexpr SLErrno SL_BGP_INVALID_OBJ_TYPE =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_OBJ_TYPE;
+  static constexpr SLErrno SL_BGP_VRF_NAME_TOOLONG_V4 =
+    SLErrorStatus_SLErrno_SL_BGP_VRF_NAME_TOOLONG_V4;
+  static constexpr SLErrno SL_BGP_VRF_NAME_TOOLONG_V6 =
+    SLErrorStatus_SLErrno_SL_BGP_VRF_NAME_TOOLONG_V6;
+  static constexpr SLErrno SL_BGP_UNSUPPORTED_VRF_NAME =
+    SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_VRF_NAME;
+  static constexpr SLErrno SL_BGP_INVALID_NBR_ADDR_MCAST =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_ADDR_MCAST;
+  static constexpr SLErrno SL_BGP_INVALID_NBR_ADDR_EXP =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_ADDR_EXP;
+  static constexpr SLErrno SL_BGP_INVALID_NBR_ADDR =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_ADDR;
+  static constexpr SLErrno SL_BGP_INVALID_NBR_V6_SZ =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_V6_SZ;
+  static constexpr SLErrno SL_BGP_INVALID_NBR_KEY =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_NBR_KEY;
+  static constexpr SLErrno SL_BGP_INVALID_MPATH_ADDR_MCAST =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_ADDR_MCAST;
+  static constexpr SLErrno SL_BGP_INVALID_MPATH_ADDR_EXP =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_ADDR_EXP;
+  static constexpr SLErrno SL_BGP_INVALID_MPATH_ADDR =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_ADDR;
+  static constexpr SLErrno SL_BGP_INVALID_MPATH_V6_SZ =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_MPATH_V6_SZ;
+  static constexpr SLErrno SL_BGP_INVALID_NBRSAFI_LIST =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_NBRSAFI_LIST;
+  static constexpr SLErrno SL_BGP_UNSUPPORTED_BGP_AFI_SAFI =
+    SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_BGP_AFI_SAFI;
+  static constexpr SLErrno SL_BGP_UNSUPPORTED_AFI =
+    SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_AFI;
+  static constexpr SLErrno SL_BGP_UNSUPPORTED_SAFI =
+    SLErrorStatus_SLErrno_SL_BGP_UNSUPPORTED_SAFI;
+  static constexpr SLErrno SL_BGP_EMPTY_OBJECTS =
+    SLErrorStatus_SLErrno_SL_BGP_EMPTY_OBJECTS;
+  static constexpr SLErrno SL_BGP_EMPTY_OBJECT_LIST =
+    SLErrorStatus_SLErrno_SL_BGP_EMPTY_OBJECT_LIST;
+  static constexpr SLErrno SL_BGP_UPDATE_BW_GRP_FAILED =
+    SLErrorStatus_SLErrno_SL_BGP_UPDATE_BW_GRP_FAILED;
+  static constexpr SLErrno SL_BGP_UPDATE_MPATH_ADDR_FAILED =
+    SLErrorStatus_SLErrno_SL_BGP_UPDATE_MPATH_ADDR_FAILED;
+  static constexpr SLErrno SL_BGP_DELETE_BW_GRP_FAILED =
+    SLErrorStatus_SLErrno_SL_BGP_DELETE_BW_GRP_FAILED;
+  static constexpr SLErrno SL_BGP_DELETE_NBR_FAILED =
+    SLErrorStatus_SLErrno_SL_BGP_DELETE_NBR_FAILED;
+  static constexpr SLErrno SL_BGP_DELETE_AFI_FAILED =
+    SLErrorStatus_SLErrno_SL_BGP_DELETE_AFI_FAILED;
+  static constexpr SLErrno SL_BGP_DELETE_MPATH_ADDR_FAILED =
+    SLErrorStatus_SLErrno_SL_BGP_DELETE_MPATH_ADDR_FAILED;
+  static constexpr SLErrno SL_BGP_DELETE_FAILED =
+    SLErrorStatus_SLErrno_SL_BGP_DELETE_FAILED;
+  static constexpr SLErrno SL_BGP_BW_GRP_NUM_OUT_OF_RANGE =
+    SLErrorStatus_SLErrno_SL_BGP_BW_GRP_NUM_OUT_OF_RANGE;
+  static constexpr SLErrno SL_BGP_IN_BW_GRP_COUNT_EXCEEDED =
+    SLErrorStatus_SLErrno_SL_BGP_IN_BW_GRP_COUNT_EXCEEDED;
+  static constexpr SLErrno SL_BGP_OUT_BW_GRP_COUNT_EXCEEDED =
+    SLErrorStatus_SLErrno_SL_BGP_OUT_BW_GRP_COUNT_EXCEEDED;
+  static constexpr SLErrno SL_BGP_INVALID_IN_BWGRP_LIST =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_IN_BWGRP_LIST;
+  static constexpr SLErrno SL_BGP_INVALID_OUT_BWGRP_LIST =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_OUT_BWGRP_LIST;
+  static constexpr SLErrno SL_BGP_LINK_BW_OUT_OF_RANGE =
+    SLErrorStatus_SLErrno_SL_BGP_LINK_BW_OUT_OF_RANGE;
+  static constexpr SLErrno SL_BGP_NBR_IDX_OUT_OF_RANGE =
+    SLErrorStatus_SLErrno_SL_BGP_NBR_IDX_OUT_OF_RANGE;
+  static constexpr SLErrno SL_BGP_INVALID_BW_TYPE =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_TYPE;
+  static constexpr SLErrno SL_BGP_BW_GRP_LIST_NULL =
+    SLErrorStatus_SLErrno_SL_BGP_BW_GRP_LIST_NULL;
+  static constexpr SLErrno SL_BGP_NBRSAFI_LIST_NULL =
+    SLErrorStatus_SLErrno_SL_BGP_NBRSAFI_LIST_NULL;
+  static constexpr SLErrno SL_BGP_INST_NOT_CONFIG_IN_SLAPI =
+    SLErrorStatus_SLErrno_SL_BGP_INST_NOT_CONFIG_IN_SLAPI;
+  static constexpr SLErrno SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE =
+    SLErrorStatus_SLErrno_SL_BGP_OBJ_LIST_IDX_OUT_OF_RANGE;
+  static constexpr SLErrno SL_BGP_ASN_OUT_OF_RANGE =
+    SLErrorStatus_SLErrno_SL_BGP_ASN_OUT_OF_RANGE;
+  static constexpr SLErrno SL_BGP_INVALID_BW_UNIT =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_BW_UNIT;
+  static constexpr SLErrno SL_BGP_OBJECT_TYPE_REQUIRED =
+    SLErrorStatus_SLErrno_SL_BGP_OBJECT_TYPE_REQUIRED;
+  static constexpr SLErrno SL_BGP_OBJECT_KEY_REQUIRED =
+    SLErrorStatus_SLErrno_SL_BGP_OBJECT_KEY_REQUIRED;
+  static constexpr SLErrno SL_BGP_INVALID_OBJECT_TYPE =
+    SLErrorStatus_SLErrno_SL_BGP_INVALID_OBJECT_TYPE;
+  static constexpr SLErrno SL_BGP_GET_EXACT_MATCH_NOT_FOUND =
+    SLErrorStatus_SLErrno_SL_BGP_GET_EXACT_MATCH_NOT_FOUND;
+  static constexpr SLErrno SL_BGP_MAX_NEIGHBORS_IN_SYSDB =
+    SLErrorStatus_SLErrno_SL_BGP_MAX_NEIGHBORS_IN_SYSDB;
+  static constexpr SLErrno SL_BGP_INTERNAL_ERR_1 =
+    SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1;
+  static constexpr SLErrno SL_BGP_INTERNAL_ERR_2 =
+    SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_2;
+  static constexpr SLErrno SL_BGP_INTERNAL_ERR_3 =
+    SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_3;
   static constexpr SLErrno SL_INTERNAL_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET;
   static inline bool SLErrno_IsValid(int value) {

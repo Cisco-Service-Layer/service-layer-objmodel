@@ -4,8 +4,8 @@
 // Original file comments:
 // @file 
 // @brief Client RPC proto file for Policy RPCs. 
-// Declares calls for adding, deleting, updating the policies
-// and apply, unapply policies from interfaces. 
+// Declares calls for adding, replacing, deleting the policies
+// and apply, unapply policies from interfaces.
 // 
 // ----------------------------------------------------------------
 //  Copyright (c) 2024-2025 by Cisco Systems, Inc.
@@ -42,9 +42,12 @@ namespace service_layer {
 
 // @defgroup SLPolicy
 // @ingroup Policy
-// Used for policy creation and deletion, add and delete rules from policy, 
-// apply and un-apply policy from interfaces. 
-// Defines the RPC for operations on policy, interface and get requests.
+// Used for:
+// - Policy creation, replacement, and deletion
+// - Rule addition, and deletion from Policy
+// - Apply and Un-apply Policy from Interfaces
+//
+// Defines the RPC for operations on Policy, Interface and get requests.
 // @{ 
 class SLPolicy final {
  public:
@@ -86,7 +89,7 @@ class SLPolicy final {
     // already exists.
     // If the incoming Policy object contains rules that are already
     // present (and idempotent) in the server's Policy object, they will
-    // ignored, and success will be returned for each such rule object.
+    // be ignored, and success will be returned for each such rule object.
     // Update/modification to existing rule objects are rejected and
     // error returned for that rule object.
     // Rule objects in the request that do not exist in the server's
@@ -94,6 +97,35 @@ class SLPolicy final {
     // Existing rule objects in the server's Policy object are not
     // affected.
     // 
+    //
+    // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_REPLACE
+    // Replace an existing Policy Object with the incoming Policy Object.
+    // As part of the replace,
+    //  - Newly added Rule Objects will be created.
+    //  - Rule Objects that did not change (idempotent) are not impacted.
+    //  - Rule Objects that that no longer exist in the new Policy will
+    //    be implicitly deleted.
+    //
+    // Example,
+    // P{r1, r2, r3} + POLICY_REPLACE(P{r1, r3, r4}) -> P{r1, r3, r4}
+    // i.e., for an existing Policy P{r1, r2, r3} on server side,
+    // perform POLICY_REPLACE(P{r1, r3, r4}) where r1, r3 are
+    // idempotent (i.e., matches, action, priority are exactly same)
+    // with the server side Rule Object, the final Policy Object will
+    // be: P{r1, r3, r4}
+    // In terms of operations performed on the Policy Object,
+    //   r2 will be deleted,
+    //   r4 will be added,
+    //   no changes to r1, r3 since they are unmodified. No traffic
+    //   impact is expected to these rules.
+    // Any errors encountered while performing the above operations
+    // will be reported accordingly.
+    // The order of Rule Objects in the request does not affect handling
+    // i.e., POLICY_REPLACE(P{r1, r3, r4}) and POLICY_REPLACE(P{r4, r3, r1})
+    // will have same behavior.
+    //
+    // Add a new Policy Object if it does not exist.
+    //
     //
     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_DELETE 
     // Delete the policy object. The object's key is enough to delete the 
@@ -123,11 +155,13 @@ class SLPolicy final {
     // and the interface where it needs to be applied will be verified
     // and used. Other attributes are ignored.  
     //
+    //
     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
     // Unapply the policy on an interface. Only the policy object key
     // and the interface where it needs to be removed from  will be 
     // verified and used, other attributes are ignored.
     // 
+    //
     //
     // The device can be programmed by only one active instance of 
     // this RPC.
@@ -198,7 +232,7 @@ class SLPolicy final {
       // already exists.
       // If the incoming Policy object contains rules that are already
       // present (and idempotent) in the server's Policy object, they will
-      // ignored, and success will be returned for each such rule object.
+      // be ignored, and success will be returned for each such rule object.
       // Update/modification to existing rule objects are rejected and
       // error returned for that rule object.
       // Rule objects in the request that do not exist in the server's
@@ -206,6 +240,35 @@ class SLPolicy final {
       // Existing rule objects in the server's Policy object are not
       // affected.
       // 
+      //
+      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_REPLACE
+      // Replace an existing Policy Object with the incoming Policy Object.
+      // As part of the replace,
+      //  - Newly added Rule Objects will be created.
+      //  - Rule Objects that did not change (idempotent) are not impacted.
+      //  - Rule Objects that that no longer exist in the new Policy will
+      //    be implicitly deleted.
+      //
+      // Example,
+      // P{r1, r2, r3} + POLICY_REPLACE(P{r1, r3, r4}) -> P{r1, r3, r4}
+      // i.e., for an existing Policy P{r1, r2, r3} on server side,
+      // perform POLICY_REPLACE(P{r1, r3, r4}) where r1, r3 are
+      // idempotent (i.e., matches, action, priority are exactly same)
+      // with the server side Rule Object, the final Policy Object will
+      // be: P{r1, r3, r4}
+      // In terms of operations performed on the Policy Object,
+      //   r2 will be deleted,
+      //   r4 will be added,
+      //   no changes to r1, r3 since they are unmodified. No traffic
+      //   impact is expected to these rules.
+      // Any errors encountered while performing the above operations
+      // will be reported accordingly.
+      // The order of Rule Objects in the request does not affect handling
+      // i.e., POLICY_REPLACE(P{r1, r3, r4}) and POLICY_REPLACE(P{r4, r3, r1})
+      // will have same behavior.
+      //
+      // Add a new Policy Object if it does not exist.
+      //
       //
       // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_DELETE 
       // Delete the policy object. The object's key is enough to delete the 
@@ -235,11 +298,13 @@ class SLPolicy final {
       // and the interface where it needs to be applied will be verified
       // and used. Other attributes are ignored.  
       //
+      //
       // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
       // Unapply the policy on an interface. Only the policy object key
       // and the interface where it needs to be removed from  will be 
       // verified and used, other attributes are ignored.
       // 
+      //
       //
       // The device can be programmed by only one active instance of 
       // this RPC.
@@ -364,7 +429,7 @@ class SLPolicy final {
     // already exists.
     // If the incoming Policy object contains rules that are already
     // present (and idempotent) in the server's Policy object, they will
-    // ignored, and success will be returned for each such rule object.
+    // be ignored, and success will be returned for each such rule object.
     // Update/modification to existing rule objects are rejected and
     // error returned for that rule object.
     // Rule objects in the request that do not exist in the server's
@@ -372,6 +437,35 @@ class SLPolicy final {
     // Existing rule objects in the server's Policy object are not
     // affected.
     // 
+    //
+    // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_REPLACE
+    // Replace an existing Policy Object with the incoming Policy Object.
+    // As part of the replace,
+    //  - Newly added Rule Objects will be created.
+    //  - Rule Objects that did not change (idempotent) are not impacted.
+    //  - Rule Objects that that no longer exist in the new Policy will
+    //    be implicitly deleted.
+    //
+    // Example,
+    // P{r1, r2, r3} + POLICY_REPLACE(P{r1, r3, r4}) -> P{r1, r3, r4}
+    // i.e., for an existing Policy P{r1, r2, r3} on server side,
+    // perform POLICY_REPLACE(P{r1, r3, r4}) where r1, r3 are
+    // idempotent (i.e., matches, action, priority are exactly same)
+    // with the server side Rule Object, the final Policy Object will
+    // be: P{r1, r3, r4}
+    // In terms of operations performed on the Policy Object,
+    //   r2 will be deleted,
+    //   r4 will be added,
+    //   no changes to r1, r3 since they are unmodified. No traffic
+    //   impact is expected to these rules.
+    // Any errors encountered while performing the above operations
+    // will be reported accordingly.
+    // The order of Rule Objects in the request does not affect handling
+    // i.e., POLICY_REPLACE(P{r1, r3, r4}) and POLICY_REPLACE(P{r4, r3, r1})
+    // will have same behavior.
+    //
+    // Add a new Policy Object if it does not exist.
+    //
     //
     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_DELETE 
     // Delete the policy object. The object's key is enough to delete the 
@@ -401,11 +495,13 @@ class SLPolicy final {
     // and the interface where it needs to be applied will be verified
     // and used. Other attributes are ignored.  
     //
+    //
     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
     // Unapply the policy on an interface. Only the policy object key
     // and the interface where it needs to be removed from  will be 
     // verified and used, other attributes are ignored.
     // 
+    //
     //
     // The device can be programmed by only one active instance of 
     // this RPC.
