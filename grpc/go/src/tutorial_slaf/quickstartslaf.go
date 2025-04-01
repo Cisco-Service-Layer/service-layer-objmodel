@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 by cisco Systems, Inc.
+ * Copyright (c) 2025 by cisco Systems, Inc.
  * All rights reserved.
  */
 package main
@@ -86,8 +86,8 @@ var (
      *
      */
     TestMpls        = flag.Bool("mpls", false, "Test MPLS vertical")
-    startLabel      = flag.Uint("start_label", 12000, "Starting label")
-    StartOutLabel   = flag.Uint("start_out_label", 20000, "Starting out label")
+    StartLabel      = flag.Uint("start_label", 12000, "Starting label")
+    OutLabel        = flag.Uint("out_label", 20000, "Out label")
     NumLabels       = flag.Uint("num_labels", 1000, "Number of labels")
     NumPaths        = flag.Uint("num_paths", 1, "Number of paths")
     MaxIfIdx        = flag.Uint("max_if_idx", 0,
@@ -136,6 +136,9 @@ var (
     /*
      * For NotifStream:
      * -notif_stream:     Enable Notification Stream Testing. Showcases how to set up and perform SLAFGetVrf rpc.
+     *                    The messaged request associated with this rpc can handle multiple different objects,
+     *                    but for this tutorial we showcase how to set one of each type in any repeated field of the request.
+     *                    Also, we showcase how to setup notification route lists for only ipv4 routes.
      *
      */
     TestNotifStream     = flag.Bool("notif_stream", false, "Test NotifStream")
@@ -177,8 +180,8 @@ func testMPLSSlaf(conn *grpc.ClientConn, Username string, Password string) {
     sl_api_slaf.LabelOperation(conn, pb.SLObjectOp(*RouteOper),
                                pb.SLRouteFlags(*SLRouteFlag), uint32(*AdminDistance),
                                pb.SLRspACKType(*AckType), pb.SLRspACKPermit(*AckPermit),
-                               pb.SLRspAckCadence(*AckCadence), *startLabel,
-                               *StartOutLabel, *NumLabels, *NumPaths,
+                               pb.SLRspAckCadence(*AckCadence), *StartLabel,
+                               *OutLabel, *NumLabels, *NumPaths,
                                *BatchSize, *NextHopIP,
                                *Interface, *MaxIfIdx, *AutoIncNHIP,
                                *StreamCase, Username, Password)
@@ -310,8 +313,28 @@ func main() {
         return
     }
 
+    /* Checks for some message restrictions */
+    if len(*VrfName) > int(sl_api_slaf.MaxVrfNameLength) {
+        log.Fatalf("get_vrf_name is too long!")
+    }
+    if len(*NotifVrfname) > int(sl_api_slaf.MaxVrfNameLength) {
+        log.Fatalf("notif_vrfname is too long!")
+    }
+    if len(*Interface) > int(sl_api_slaf.MaxInterfaceNameLength) {
+        log.Fatalf("Interface name is too long!")
+    }
+
     if uint32(*BatchSize) > sl_api_slaf.MaxBatchSize {
         *BatchSize = uint(sl_api_slaf.MaxBatchSize)
+        log.Warn("Batch size was above the max. It is now updated to the max batch size")
+    }
+    if uint32(*NumPaths) > sl_api_slaf.MaxPrimaryPathPerEntry {
+        *NumPaths = uint(sl_api_slaf.MaxPrimaryPathPerEntry)
+        log.Warn("Primary path per entry was above the max. It is now updated to the max amount")
+    }
+    if uint32(*PGNumRoutes) > sl_api_slaf.MaxPrimaryPathPerEntry {
+        *PGNumRoutes = uint(sl_api_slaf.MaxPrimaryPathPerEntry)
+        log.Warn("Primary path per entry was above the max. It is now updated to the max amount")
     }
 
     if route_programming_set {

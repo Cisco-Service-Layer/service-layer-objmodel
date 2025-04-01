@@ -1,6 +1,6 @@
 # SLAF Go Quick Tutorial
 
-This tutorial goes over how to perform the SLAF RPC calls, setting up the message requests, and getting the responses. This tutorial does not claim to show how to fill every field for all SLAF RPC messages, nor does it allow the option to configure every field with the cli. The purpose of this tutorial is to showcase how the user can implement the SLAF RPC's, and provide examples on how to set/get most fields in the requests/responses for those RPCs. From their, it is up to the user to figure out how to use said RPC's, and the associated requests and responses, to perform their intended actions. Obviously, a pre-requisite would be to learn what is an RPC. For more information detailing RPCs, refer to https://grpc.io/docs/what-is-grpc/core-concepts/#RPC-life-cycle.
+This tutorial goes over how to perform the SLAF RPC calls, setting up the message requests, and getting the responses. This tutorial does not claim to show how to fill every field for all SLAF RPC messages, nor does it allow the option to configure every field with the cli. The purpose of this tutorial is to showcase how the user can implement the SLAF RPC's, and provide examples on how to set/get most fields in the requests/responses for those RPCs. From there on, it is up to the user to figure out how to use said RPC's, and the associated requests and responses, to perform their intended actions. Obviously, a pre-requisite would be to learn what is an RPC. For more information detailing RPCs, refer to https://grpc.io/docs/what-is-grpc/core-concepts/#RPC-life-cycle.
 
 ## Table of Contents
 
@@ -13,6 +13,8 @@ This tutorial goes over how to perform the SLAF RPC calls, setting up the messag
     2) [Examples](#examples)
 
 - [Optional Information](#optional-information)
+
+    1) [Generate gRPC Code](#generate-grpc-code)
 
 ## Server Setup
 
@@ -44,9 +46,9 @@ To configure an IP address on the management interface, one can use dhcp as foll
     end
 
 We also need to configure an any interface user wants to use for route programming.
-For our tests the interface is Bunder-Ether (as this is the default):
+For our tests the interface is FourHundredGigE0/0/0/0 (as this is the default):
     configure
-    interface Bunder-Ether 1
+    interface FourHundredGigE0/0/0/0
     no shut
     commit
     end
@@ -76,8 +78,8 @@ First we will showcase the options the tutorial provides, and then show how to b
 
 | Argument | Description |
 | --- | --- |
-| debug           | Sets log level to debug. Will print Debug messages and levels above (default false) |
-| print_responses | Sets log level to Info. Will print Info messages and levels above (default false) |
+| -debug           | Sets log level to debug. Will print Debug messages and levels above (default false) |
+| -print_responses | Sets log level to Info. Will print Info messages and levels above (default false) |
 
 ##### Ipv4 Testing
 
@@ -95,7 +97,7 @@ First we will showcase the options the tutorial provides, and then show how to b
 | --- | --- |
 | mpls            | Test MPLS vertical (default false) |
 | start_label     | Starting label (default 12000) |
-| start_out_label | Starting out label (default 20000) |
+| out_label       | Out label (default 20000) |
 | num_labels      | Number of labels (default 1000) |
 | num_paths       | Number of paths (default 1) |
 | max_if_idx      | Increment the last index of the interface name for each elsp up to this number (default 0) |
@@ -146,7 +148,7 @@ First we will showcase the options the tutorial provides, and then show how to b
 | --- | --- |
 | get_reg_vrf  | Test GetVrf Request (default false) |
 
-##### NotificationStream Testing
+##### NotifStream Testing
 
 | Argument | Description |
 | --- | --- |
@@ -168,7 +170,7 @@ First we will showcase the options the tutorial provides, and then show how to b
 ### How to Build
 
 All SL-API protobuf files can be found in the "grpc/protos/" directory  
->**Note:** User can find more information on generating the stubs from these proto files in [Optional Information](#optional-information)
+>**Note:** User can find more information on generating the stubs from these proto files in [Generate gRPC Code](#generate-grpc-code)
 
 The user can run "make tutorial" from the service-layer-objmodel top level directory. This will take some time to build
 the first time, but once it completes you can run "make slapi-bash" to drop into bash, like so:
@@ -183,9 +185,10 @@ Once in bash, navigate to the tutorial directory and type "make":
 
 ### Examples
 
->**Note:** Before trying out the examples, make sure to set the SERVER_IP and SERVER_PORT:
+>**Note:** Before trying out the examples, make sure to set the SERVER_IP and SERVER_PORT.  Steps on how to get that information from box are in [Server Setup](#server-setup):
 
-Example of how to set SERVER_IP (ip address) and SERVER_PORT (port):
+Set the server address and port number as environment variables with the
+following example command (this is assuming you are in bash shell):
 
     $ export SERVER_IP=111.111.111.111
     $ export SERVER_PORT=11111
@@ -209,6 +212,8 @@ MPLS Example:
     $ ./tutorial_slaf -mpls -num_labels 1000 -route_oper 1 -vrf_reg_oper 1 -username username -password password -stream_case -next_hop_ip 11.0.0.0 -auto_inc_nhip -ack_type 1
     Deleting 35 labels with unary RPC. Print out any responses and debug messages:
     $ ./tutorial_slaf -mpls -num_labels 35 -route_oper 3 -vrf_reg_oper 1 -username username -password password -debug
+    Adding 2 Label where the start label is 25000 and the out label is 26000 and print out the debug messages:
+    ./tutorial_slaf -mpls -num_labels 2 -route_oper 1 -vrf_reg_oper 1 -start_label 25000 -out_label 26000 -username username -password password -debug
 
 Path Group Example:  
 For purposes of this tutorial, we showcase how to create pg for ipv4 routes.  
@@ -224,6 +229,7 @@ When set, will use next_hop_ip and interface variables for information to create
     $ ./tutorial_slaf -ipv4 -use_pg_for_ipv4 temp -num_routes 1000 -route_oper 1 -vrf_reg_oper 1 -username username -password password -ack_type 1 -ack_permit 1 -stream_case
 
 Get Request Example:
+For purposes of this tutorial, we showcase how to get route lists for only a ipv4 route.
 
     Get information for all routes based off of client id 521 with vrfname as 'default':
     $ ./tutorial_slaf -username username -password password -get -get_vrf_name default -get_client_id 521 -print_responses
@@ -234,7 +240,7 @@ Get Request Example:
     Get information for all routes of a specific table type SL_IPv4_ROUTE_TABLE:
     $ ./tutorial_slaf -username username -password password -get -get_vrf_name default -get_client_id 521 -get_table_list 1 -print_responses
 
-    Get information for 1000 ipv4 routes starting from address 20.0.0.0 with prefix length as 24:
+    Get information for an ipv4 route with address 20.0.0.0 with prefix length as 24:
     $ ./tutorial_slaf -username username -password password -get -get_vrf_name default -get_client_id 521 -get_route_list -get_ipv4_prefix 20.0.0.0 -get_ipv4_prefix_len 24 -print_responses
 
     Get information of all objects based on a regex expression for path group:
@@ -248,25 +254,26 @@ GetVrf Request Example:
     $ ./tutorial_slaf -username username -password password -get_reg_vrf -print_responses
 
 Notification Stream Example:
+For purposes of this tutorial, we showcase how to enable route notifications for only a ipv4 route.
 
-    Enabling route notification for routes with table type SL_IPv6_ROUTE_TABLE, and programmed from this tutorial (SrcProto as application, and SrcProtoTag as Service-layer) for 10 seconds:
-    $ ./tutorial_slaf -username username -password password -notif_stream -notif_duration 10 -notif_oper 1 -notif_vrfname default -notif_route_reg -notif_route_src_proto application -notif_route_src_proto_tag Service-layer -notif_route_table_type 2 -print_responses
+    Enabling route notification for routes with table type SL_IPv4_ROUTE_TABLE, and programmed from this tutorial (SrcProto as application, and SrcProtoTag as Service-layer) for 10 seconds:
+    $ ./tutorial_slaf -username username -password password -notif_stream -notif_duration 10 -notif_oper 1 -notif_vrfname default -notif_route_reg -notif_route_src_proto application -notif_route_src_proto_tag Service-layer -notif_route_table_type 1 -print_responses
 
     Disabling next hop change notification for 15 seconds and for next hop ip ipv4 address as 20.0.0.0 with prefix length as 24. And with best match, allow default route to be returned, and return only for the immediate viable path list:
     $ ./tutorial_slaf -username username -password password -notif_stream -notif_duration 10 -notif_oper 2 -notif_vrfname default -notif_next_hop_reg -notif_ipv4_prefix 20.0.0.0 -notif_ipv4_prefix_len 24 -notif_allow_default -print_responses
 
-    Enabling next hop change notification for 9 seconds and for next hop ip ipv6 address as 2002:aa::0 with prefix length as 64. And with exact match, allow default route to not be returned, and return all next hop's paths paths lists:
+    Enabling next hop change notification for 9 seconds and for next hop ip ipv4 address as 20.0.0.0 with prefix length as 24. And with exact match, allow default route to not be returned, and return all next hop's paths paths lists:
     $ ./tutorial_slaf -username username -password password -notif_stream -notif_duration 9 -notif_oper 1 -notif_vrfname default -notif_next_hop_reg -notif_ipv4_prefix 20.0.0.0 -notif_ipv4_prefix_len 24 -notif_exact_match -notif_recurse -print_responses
 
     Same as above example but also enable route notification for routes with table type as SL_IPv6_ROUTE_TABLE:
     $ ./tutorial_slaf -username username -password password -notif_stream -notif_duration 9 -notif_oper 1 -notif_vrfname default -notif_next_hop_reg -notif_ipv4_prefix 20.0.0.0 -notif_ipv4_prefix_len 24 -notif_exact_match -notif_recurse -print_responses -notif_route_reg -notif_route_src_proto application -notif_route_src_proto_tag Service-layer -notif_route_table_type 2
 
 >**Note:** There are actually two optional RPC's which run before any test case.  
-More information can be found in the [Initial Connection and Handshake](initial-connection-and-handshake) section
+More information can be found in the [Initial Connection and Handshake](#initial-connection-and-handshake) section
 
 ### Optional Information
 
-#### Generate gRPC Code (optional in this example)
+#### Generate gRPC Code
 
 If you are not familiar with gRPC, we recommend you refer to gRPC's
 documentation before beginning with our tutorial: [gRPC Docs](http://www.grpc.io/docs/)
@@ -288,7 +295,7 @@ Once connected, the client gets some information related to message restrictions
 These are two RPC's performed before every other.  
 
     The first RPC receives one response with information related to message restrictions.
-    We use this information when creating our SLAF RPC message requests.  
+    Use this information when creating SLAF RPC message requests.  
 
     The second RPC mentioned also sets up an asynchronous stream of heartbeat notifications from the server.
     The first notification for this RPC would be the response to our version number message.

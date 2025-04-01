@@ -24,8 +24,11 @@ var ClientID string = "521";
 var GlobalOperationID uint64 = 0
 
 var (
-    MaxIlmInBatch uint32
-    MaxBatchSize uint32
+    MaxIlmInBatch uint32 = 1024
+    MaxBatchSize uint32 = 1024
+    MaxPrimaryPathPerEntry uint32 = 256
+    MaxVrfNameLength uint32 = 33
+    MaxInterfaceNameLength uint32 = 80
 )
 
 /*
@@ -106,7 +109,7 @@ func ClientInit(conn *grpc.ClientConn, username string, password string) (int) {
 
     /* Print Server response */
     fmt.Println("MaxVrfNameLength: ", response.GetMaxVrfNameLength())
-    fmt.Println("MaxInterfaceNameLength: ", response.GetMaxAFOpsPerMsg())
+    fmt.Println("MaxInterfaceNameLength: ", response.GetMaxInterfaceNameLength())
     fmt.Println("MaxPathsPerEntry:", response.GetMaxPathsPerEntry())
     fmt.Println("MaxPrimaryPathPerEntry: ", response.GetMaxPrimaryPathPerEntry())
     fmt.Println("MaxBackupPathPerEntry: ", response.GetMaxBackupPathPerEntry())
@@ -127,6 +130,9 @@ func ClientInit(conn *grpc.ClientConn, username string, password string) (int) {
 
     MaxIlmInBatch = response.GetMaxAFOpsPerMsg()
     MaxBatchSize = response.GetMaxAFOpsPerMsg()
+    MaxPrimaryPathPerEntry = response.GetMaxPrimaryPathPerEntry()
+    MaxVrfNameLength = response.GetMaxVrfNameLength()
+    MaxInterfaceNameLength = response.GetMaxInterfaceNameLength()
 
     return wait_resp
 }
@@ -554,10 +560,7 @@ func runSlafNotifStreamRequest(conn *grpc.ClientConn, notifStreamDuration uint,
 
                 for i := 0; i < len(results); i++ {
                     status := results[i].GetNotifStatus()
-
-                    if status == nil {
-                        log.Info("Response: ", results[i])
-                    } else {
+                    if status != nil {
                         if status.GetNotifStatus().GetStatus() != pb.SLErrorStatus_SL_SUCCESS {
                             errc <- fmt.Errorf("Notification operation failed with ErrorStatus: %s for Request: %s",
                                             status.GetNotifStatus().GetStatus(),
@@ -565,6 +568,8 @@ func runSlafNotifStreamRequest(conn *grpc.ClientConn, notifStreamDuration uint,
                         } else {
                             log.Info("Corresponding Request: ", status.GetNotifReq())
                         }
+                    } else {
+                        log.Info("Response: ", results[i])
                     }
                 }
             }
@@ -610,7 +615,7 @@ func RouteOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
               ", #numPaths: ", numPaths,
               ", #batchSize: ", batchSize)
 
-    /* Let's the preparation time it takes to create the messages */
+    /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
     /* Create a message */
@@ -708,7 +713,7 @@ func RouteOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         totalRoutes++
 
         // fmt.Print("Prefix \n", prefix)
-        if routeCount == batchSize || routeCount == numRoutes {
+        if routeCount == batchSize || setRoutes == numRoutes {
             routeCount = 0
             messages = append(messages, message)
 
@@ -800,7 +805,7 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     /* Initialize some path params */
     nexthop := ip4toInt(net.ParseIP(nextHopIP))
 
-    /* Let's the preparation time it takes to create the messages */
+    /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
     label := startLabel
@@ -973,13 +978,13 @@ func PGOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
                  nextHopIP string, nexthopInterface string, autoIncNHIP bool,
                  streamCase bool, pgName string, username string, password string) {
 
-    var batchIndex uint
+    var batchIndex uint = 1
     var totalPG uint = 1
     var messages []*pb.SLAFMsg
     var err error = nil
     var count uint = 1
 
-    /* Let's the preparation time it takes to create the messages */
+    /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
     /* Create a message */
@@ -1061,7 +1066,7 @@ func PGOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
 
     t1 := time.Now()
 
-    fmt.Printf("%s Total Batches: %d, Routes: %d, Preparation Time: %v\n",
+    fmt.Printf("%s Total Batches: %d, Pg's: %d, Preparation Time: %v\n",
         oper.String(), batchIndex, totalPG, t1.Sub(t0))
 
     if (totalPG > 0) {
@@ -1090,7 +1095,7 @@ func PGOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
 
     t1 = time.Now()
 
-    fmt.Printf("%s Total Batches: %d, Routes: %d, ElapsedTime: %v\n",
+    fmt.Printf("%s Total Batches: %d, Pg's: %d, ElapsedTime: %v\n",
         oper.String(), batchIndex, totalPG, t1.Sub(t0))
 
     if (totalPG > 0) {
@@ -1109,7 +1114,7 @@ func GetOperation(conn *grpc.ClientConn, vrfName string,
     var err error = nil
     var batchIndex uint
 
-    /* Let's the preparation time it takes to create the messages */
+    /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
     /* Create a message */
@@ -1133,7 +1138,7 @@ func GetOperation(conn *grpc.ClientConn, vrfName string,
         }
     }
 
-    // Set ip the objects to search for based off match
+    // Set up the objects to search for based off match criteria
     if routeList {
         routeMatchList := &pb.SLAFGetMatchList{}
 
@@ -1223,7 +1228,7 @@ func VrfRegGetOperation(conn *grpc.ClientConn, username string, password string)
     var err error = nil
     var batchIndex uint
 
-    /* Let's the preparation time it takes to create the messages */
+    /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
     /* Create a message */
@@ -1270,7 +1275,7 @@ func NotifStreamOperation(conn *grpc.ClientConn, notifStreamDuration uint,
     var batchIndex uint
     var messages []*pb.SLAFNotifReq
 
-    /* Let's the preparation time it takes to create the messages */
+    /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
     /* Create a message */
@@ -1332,7 +1337,7 @@ func NotifStreamOperation(conn *grpc.ClientConn, notifStreamDuration uint,
 
     t1 := time.Now()
 
-    fmt.Printf("VrfRegGet Total Batches: %d, Requests: %d, Preparation Time: %v\n",
+    fmt.Printf("NotifStream Total Batches: %d, Requests: %d, Preparation Time: %v\n",
         batchIndex, len(messages), t1.Sub(t0))
 
     var rate float64
@@ -1348,7 +1353,7 @@ func NotifStreamOperation(conn *grpc.ClientConn, notifStreamDuration uint,
 
     t1 = time.Now()
 
-    fmt.Printf("VrfRegGet Total Batches: %d, Requests: %d, ElapsedTime: %v\n",
+    fmt.Printf("NotifStream Total Batches: %d, Requests: %d, ElapsedTime: %v\n",
         batchIndex, len(messages), t1.Sub(t0))
 
     rate = float64(len(messages))/(t1.Sub(t0).Seconds())
