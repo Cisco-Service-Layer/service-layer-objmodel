@@ -1272,8 +1272,8 @@ func (x *SLSrv6SidStruct) GetArgLen() uint32 {
 	return 0
 }
 
-// Identifier of an SR Policy as defined in [section 2.1 of RFC
-// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.1).
+// Identifier of an SR Policy as defined in [section 2.1 of RFC 9256]
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.1).
 type SLSrPolicyKey struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1285,7 +1285,8 @@ type SLSrPolicyKey struct {
 	// (IPv6) (see [section 5.3.1 of draft-ietf-idr-rfc7752bis]
 	// (https://datatracker.ietf.org/doc/html/draft-ietf-idr-rfc7752bis-16#section-5.3.1))
 	Headend *SLIpAddress `protobuf:"bytes,1,opt,name=headend,proto3" json:"headend,omitempty"`
-	// Color is an unsigned non-zero 32-bit integer value.
+	// Color is a non-zero value that associates the SR Policy with an
+	// intent or objective (e.g., low latency).
 	Color uint32 `protobuf:"varint,2,opt,name=color,proto3" json:"color,omitempty"`
 	// IPv4 or IPv6 address of the policy endpoint.
 	Endpoint *SLIpAddress `protobuf:"bytes,3,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
@@ -1345,8 +1346,8 @@ func (x *SLSrPolicyKey) GetEndpoint() *SLIpAddress {
 }
 
 // Identifier of an SR Candidate Path in the context of an SR Policy, as
-// defined in [section 2.6 of RFC
-// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.6).
+// defined in [section 2.6 of RFC 9256]
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.6).
 type SLSrCandidatePathKey struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

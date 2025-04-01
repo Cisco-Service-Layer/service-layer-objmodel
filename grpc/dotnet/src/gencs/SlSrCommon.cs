@@ -3039,8 +3039,8 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Identifier of an SR Policy as defined in [section 2.1 of RFC
-  /// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.1).
+  /// Identifier of an SR Policy as defined in [section 2.1 of RFC 9256]
+  /// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.1).
   /// </summary>
   public sealed partial class SLSrPolicyKey : pb::IMessage<SLSrPolicyKey>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -3111,7 +3111,8 @@ namespace ServiceLayer {
     public const int ColorFieldNumber = 2;
     private uint color_;
     /// <summary>
-    /// Color is an unsigned non-zero 32-bit integer value.
+    /// Color is a non-zero value that associates the SR Policy with an
+    /// intent or objective (e.g., low latency).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3338,8 +3339,8 @@ namespace ServiceLayer {
 
   /// <summary>
   /// Identifier of an SR Candidate Path in the context of an SR Policy, as
-  /// defined in [section 2.6 of RFC
-  /// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.6).
+  /// defined in [section 2.6 of RFC 9256]
+  /// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.6).
   /// </summary>
   public sealed partial class SLSrCandidatePathKey : pb::IMessage<SLSrCandidatePathKey>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE

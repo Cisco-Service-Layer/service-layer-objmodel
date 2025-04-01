@@ -1539,17 +1539,17 @@ const (
 	SLErrorStatus_SL_SRTE_POLICY_START_OFFSET SLErrorStatus_SLErrno = 110592
 	// Policy request message is not valid. 0x1b001
 	SLErrorStatus_SL_SRTE_POLICY_REQUEST_INVALID SLErrorStatus_SLErrno = 110593
-	// PolicyKey missing or invalid. 0x1b002
+	// Policy Key missing or invalid. 0x1b002
 	SLErrorStatus_SL_SRTE_POLICY_POLICY_KEY_INVALID SLErrorStatus_SLErrno = 110594
-	// Policy Attributes invalid. 0x1b003
+	// Policy Attributes are invalid. 0x1b003
 	SLErrorStatus_SL_SRTE_POLICY_POLICY_ATTR_INVALID SLErrorStatus_SLErrno = 110595
-	// CandidatePath Key missing or invalid. 0x1b004
+	// Candidate Path Key missing or invalid. 0x1b004
 	SLErrorStatus_SL_SRTE_POLICY_CP_KEY_INVALID SLErrorStatus_SLErrno = 110596
-	// CandidatePath attributes invalid. 0x1b005
+	// Candidate Path attributes are invalid. 0x1b005
 	SLErrorStatus_SL_SRTE_POLICY_CP_ATTR_INVALID SLErrorStatus_SLErrno = 110597
 	// Policy Client ID mis-match. 0x1b006
 	SLErrorStatus_SL_SRTE_POLICY_CLIENT_MISMATCH SLErrorStatus_SLErrno = 110598
-	// srte policy service not up. 0x1b007
+	// SR-TE policy service is not ready. 0x1b007
 	SLErrorStatus_SL_SRTE_POLICY_SERVICE_NOT_UP SLErrorStatus_SLErrno = 110599
 	// Request message bigger than supported size. 0x1b008
 	SLErrorStatus_SL_SRTE_POLICY_EXCEED_MSG_SIZE SLErrorStatus_SLErrno = 110600
