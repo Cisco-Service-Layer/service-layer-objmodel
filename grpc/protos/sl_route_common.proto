@@ -401,6 +401,8 @@ message SLRouteCommon {
     repeated SLRouteFlags RouteFlags = 7;
 
     // Route Metric.
+    // The metric is typically based on information like load, hop count,
+    // MTU, reliability of the path, etc.
     // RIB uses this field as a tiebreaker when comparing routes produced by
     // different protocols which have identical distances.
     uint32 Metric = 8;

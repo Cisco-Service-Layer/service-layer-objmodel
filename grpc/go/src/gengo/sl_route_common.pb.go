@@ -1339,6 +1339,8 @@ type SLRouteCommon struct {
 	// All others are reserved.
 	RouteFlags []SLRouteFlags `protobuf:"varint,7,rep,packed,name=RouteFlags,proto3,enum=service_layer.SLRouteFlags" json:"RouteFlags,omitempty"`
 	// Route Metric.
+	// The metric is typically based on information like load, hop count,
+	// MTU, reliability of the path, etc.
 	// RIB uses this field as a tiebreaker when comparing routes produced by
 	// different protocols which have identical distances.
 	Metric uint32 `protobuf:"varint,8,opt,name=Metric,proto3" json:"Metric,omitempty"`
