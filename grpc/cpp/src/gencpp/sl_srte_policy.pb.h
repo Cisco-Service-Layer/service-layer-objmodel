@@ -156,13 +156,13 @@ inline bool SLSrPolicyOpen_SLSrPersistenceMode_Parse(
     SLSrPolicyOpen_SLSrPersistenceMode_descriptor(), name, value);
 }
 enum SLSrPolicyReq_SLSrOp : int {
-  SLSrPolicyReq_SLSrOp_CREATE_UPDATE = 0,
+  SLSrPolicyReq_SLSrOp_UPDATE = 0,
   SLSrPolicyReq_SLSrOp_DELETE = 1,
   SLSrPolicyReq_SLSrOp_SLSrPolicyReq_SLSrOp_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrPolicyReq_SLSrOp_SLSrPolicyReq_SLSrOp_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrPolicyReq_SLSrOp_IsValid(int value);
-constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq_SLSrOp_SLSrOp_MIN = SLSrPolicyReq_SLSrOp_CREATE_UPDATE;
+constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq_SLSrOp_SLSrOp_MIN = SLSrPolicyReq_SLSrOp_UPDATE;
 constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq_SLSrOp_SLSrOp_MAX = SLSrPolicyReq_SLSrOp_DELETE;
 constexpr int SLSrPolicyReq_SLSrOp_SLSrOp_ARRAYSIZE = SLSrPolicyReq_SLSrOp_SLSrOp_MAX + 1;
 
@@ -1206,8 +1206,8 @@ class SLSrPolicyReq final :
   // nested types ----------------------------------------------------
 
   typedef SLSrPolicyReq_SLSrOp SLSrOp;
-  static constexpr SLSrOp CREATE_UPDATE =
-    SLSrPolicyReq_SLSrOp_CREATE_UPDATE;
+  static constexpr SLSrOp UPDATE =
+    SLSrPolicyReq_SLSrOp_UPDATE;
   static constexpr SLSrOp DELETE =
     SLSrPolicyReq_SLSrOp_DELETE;
   static inline bool SLSrOp_IsValid(int value) {

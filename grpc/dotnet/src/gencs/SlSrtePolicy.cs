@@ -38,42 +38,42 @@ namespace ServiceLayer {
             "TFNyUG9saWN5T3Blbi5TTFNyUGVyc2lzdGVuY2VNb2RlIi8KE1NMU3JQZXJz",
             "aXN0ZW5jZU1vZGUSCgoGREVMRVRFEAASDAoIUFJFU0VSVkUQASJDChJTTFNy",
             "UG9saWN5UmVxdWVzdHMSLQoHcmVxdWVzdBgBIAMoCzIcLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTclBvbGljeVJlcSKbAQoNU0xTclBvbGljeVJlcRI2CglvcGVyYXRp",
+            "ZXIuU0xTclBvbGljeVJlcSKUAQoNU0xTclBvbGljeVJlcRI2CglvcGVyYXRp",
             "b24YASABKA4yIy5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSZXEuU0xTck9w",
-            "EikKBnBvbGljeRgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeSIn",
-            "CgZTTFNyT3ASEQoNQ1JFQVRFX1VQREFURRAAEgoKBkRFTEVURRABIhEKD1NM",
-            "U3JFbmRPZlJlcGxheSITChFTTFNyU3RhcnRPZlJlcGxheSKrAQoKU0xTclBv",
-            "bGljeRIPCgdzZXFfbnVtGAEgASgEEikKA2tleRgCIAEoCzIcLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xTclBvbGljeUtleRIyCgVhdHRycxgDIAEoCzIjLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xTclBvbGljeUF0dHJpYnV0ZXMSLQoDQ1BzGAQgAygLMiAuc2Vy",
-            "dmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aCLiAQoUU0xTclBvbGljeUF0",
-            "dHJpYnV0ZXMSGAoQdHJhbnNpdF9lbGlnaWJsZRgCIAEoCBIvCglkYXRhcGxh",
-            "bmUYAyABKA4yHC5zZXJ2aWNlX2xheWVyLlNMU3JEYXRhcGxhbmUSNAoJbXBs",
-            "c19ic2lkGAQgASgLMiEuc2VydmljZV9sYXllci5TTFNyTVBMU0JpbmRpbmdT",
-            "SUQSNQoKc3J2Nl9ic2lkcxgFIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xTclNy",
-            "djZCaW5kaW5nU0lEEhIKCnByb2ZpbGVfaWQYBiABKA0i5QEKEVNMU3JDYW5k",
-            "aWRhdGVQYXRoEjAKA2tleRgCIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xTckNh",
-            "bmRpZGF0ZVBhdGhLZXkSDAoEbmFtZRgDIAEoCRIXCgpwcmVmZXJlbmNlGAQg",
-            "ASgNSAGIAQESLwoHZHluYW1pYxgFIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xT",
-            "ckR5bmFtaWNDUEgAEjEKCGV4cGxpY2l0GAYgASgLMh0uc2VydmljZV9sYXll",
-            "ci5TTFNyRXhwbGljaXRDUEgAQgQKAkNQQg0KC19wcmVmZXJlbmNlIlsKDlNM",
-            "U3JFeHBsaWNpdENQEjQKDHNlZ21lbnRfbGlzdBgBIAMoCzIeLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xTclNlZ21lbnRMaXN0EhMKC21ldHJpY190eXBlGAMgASgNIlkK",
-            "DVNMU3JEeW5hbWljQ1ASEwoLbWV0cmljX3R5cGUYASABKA0SMwoLY29uc3Ry",
-            "YWludHMYAiABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3JDb25zdHJhaW50cyK8",
-            "AQoPU0xTckNvbnN0cmFpbnRzEjEKCmFmZmluaXRpZXMYASABKAsyHS5zZXJ2",
-            "aWNlX2xheWVyLlNMU3JBZmZpbml0aWVzEjcKCnByb3RlY3Rpb24YAiABKA4y",
-            "Iy5zZXJ2aWNlX2xheWVyLlNMU3J0ZVByb3RlY3Rpb25UeXBlEhUKCHNpZF9h",
-            "bGdvGAMgASgNSACIAQESGQoRbWF4aW11bV9zaWRfZGVwdGgYBCABKA1CCwoJ",
-            "X3NpZF9hbGdvIlkKElNMU3JTcnY2QmluZGluZ1NJRBI7CgdkeW5hbWljGAIg",
-            "ASgLMiguc2VydmljZV9sYXllci5TTFNyU3J2NkR5bmFtaWNCaW5kaW5nU0lE",
-            "SABCBgoEdHlwZSI6ChJTTFNyTVBMU0JpbmRpbmdTSUQSFgoJbXBsc19ic2lk",
-            "GAEgASgNSACIAQFCDAoKX21wbHNfYnNpZCItChlTTFNyU3J2NkR5bmFtaWNC",
-            "aW5kaW5nU0lEEhAKCGJlaGF2aW9yGAEgASgNMl4KDFNMU3J0ZVBvbGljeRJO",
-            "CgxTTFNyUG9saWN5T3ASHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lNc2ca",
-            "HC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSc3AoATABQlFaT2dpdGh1Yi5j",
-            "b20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVs",
-            "L2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "EikKBnBvbGljeRgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeSIg",
+            "CgZTTFNyT3ASCgoGVVBEQVRFEAASCgoGREVMRVRFEAEiEQoPU0xTckVuZE9m",
+            "UmVwbGF5IhMKEVNMU3JTdGFydE9mUmVwbGF5IqsBCgpTTFNyUG9saWN5Eg8K",
+            "B3NlcV9udW0YASABKAQSKQoDa2V5GAIgASgLMhwuc2VydmljZV9sYXllci5T",
+            "TFNyUG9saWN5S2V5EjIKBWF0dHJzGAMgASgLMiMuc2VydmljZV9sYXllci5T",
+            "TFNyUG9saWN5QXR0cmlidXRlcxItCgNDUHMYBCADKAsyIC5zZXJ2aWNlX2xh",
+            "eWVyLlNMU3JDYW5kaWRhdGVQYXRoIuIBChRTTFNyUG9saWN5QXR0cmlidXRl",
+            "cxIYChB0cmFuc2l0X2VsaWdpYmxlGAIgASgIEi8KCWRhdGFwbGFuZRgDIAEo",
+            "DjIcLnNlcnZpY2VfbGF5ZXIuU0xTckRhdGFwbGFuZRI0CgltcGxzX2JzaWQY",
+            "BCABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JNUExTQmluZGluZ1NJRBI1Cgpz",
+            "cnY2X2JzaWRzGAUgAygLMiEuc2VydmljZV9sYXllci5TTFNyU3J2NkJpbmRp",
+            "bmdTSUQSEgoKcHJvZmlsZV9pZBgGIAEoDSLlAQoRU0xTckNhbmRpZGF0ZVBh",
+            "dGgSMAoDa2V5GAIgASgLMiMuc2VydmljZV9sYXllci5TTFNyQ2FuZGlkYXRl",
+            "UGF0aEtleRIMCgRuYW1lGAMgASgJEhcKCnByZWZlcmVuY2UYBCABKA1IAYgB",
+            "ARIvCgdkeW5hbWljGAUgASgLMhwuc2VydmljZV9sYXllci5TTFNyRHluYW1p",
+            "Y0NQSAASMQoIZXhwbGljaXQYBiABKAsyHS5zZXJ2aWNlX2xheWVyLlNMU3JF",
+            "eHBsaWNpdENQSABCBAoCQ1BCDQoLX3ByZWZlcmVuY2UiWwoOU0xTckV4cGxp",
+            "Y2l0Q1ASNAoMc2VnbWVudF9saXN0GAEgAygLMh4uc2VydmljZV9sYXllci5T",
+            "TFNyU2VnbWVudExpc3QSEwoLbWV0cmljX3R5cGUYAyABKA0iWQoNU0xTckR5",
+            "bmFtaWNDUBITCgttZXRyaWNfdHlwZRgBIAEoDRIzCgtjb25zdHJhaW50cxgC",
+            "IAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTckNvbnN0cmFpbnRzIrwBCg9TTFNy",
+            "Q29uc3RyYWludHMSMQoKYWZmaW5pdGllcxgBIAEoCzIdLnNlcnZpY2VfbGF5",
+            "ZXIuU0xTckFmZmluaXRpZXMSNwoKcHJvdGVjdGlvbhgCIAEoDjIjLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTcnRlUHJvdGVjdGlvblR5cGUSFQoIc2lkX2FsZ28YAyAB",
+            "KA1IAIgBARIZChFtYXhpbXVtX3NpZF9kZXB0aBgEIAEoDUILCglfc2lkX2Fs",
+            "Z28iWQoSU0xTclNydjZCaW5kaW5nU0lEEjsKB2R5bmFtaWMYAiABKAsyKC5z",
+            "ZXJ2aWNlX2xheWVyLlNMU3JTcnY2RHluYW1pY0JpbmRpbmdTSURIAEIGCgR0",
+            "eXBlIjoKElNMU3JNUExTQmluZGluZ1NJRBIWCgltcGxzX2JzaWQYASABKA1I",
+            "AIgBAUIMCgpfbXBsc19ic2lkIi0KGVNMU3JTcnY2RHluYW1pY0JpbmRpbmdT",
+            "SUQSEAoIYmVoYXZpb3IYASABKA0yXgoMU0xTcnRlUG9saWN5Ek4KDFNMU3JQ",
+            "b2xpY3lPcBIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU1zZxocLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTclBvbGljeVJzcCgBMAFCUVpPZ2l0aHViLmNvbS9DaXNj",
+            "by1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9w",
+            "cm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -156,6 +156,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "open" field.</summary>
     public const int OpenFieldNumber = 1;
+    /// <summary>
+    /// Used to set session parameters by the client.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrPolicyOpen Open {
@@ -168,6 +171,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "requests" field.</summary>
     public const int RequestsFieldNumber = 2;
+    /// <summary>
+    /// Set of policies to be created, updated or deleted.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrPolicyRequests Requests {
@@ -389,10 +395,10 @@ namespace ServiceLayer {
 
   /// <summary>
   /// RPC response 
-  /// Response to policy operation. Indicates result of the operation and not 
-  /// operational state of policy.  In case of multiple requests received for 
-  /// policy identified by specific SLSrPolicyKey, always at least single response
-  /// will be sent to confirm processing of the last request. 
+  /// Response to policy operation. Indicates result of the operation and not the 
+  /// operational state of the policy. In case multiple requests are received for a
+  /// given policy, identified by the specific SLSrPolicyKey, there would be at least
+  /// one response based on the last message request.
   /// </summary>
   public sealed partial class SLSrPolicyRsp : pb::IMessage<SLSrPolicyRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -445,7 +451,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp> responses_ = new pbc::RepeatedField<global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp>();
     /// <summary>
-    /// Set of responses corresponding to the policies in the request
+    /// Set of responses corresponding to the policies in the request.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -457,7 +463,8 @@ namespace ServiceLayer {
     public const int StatusFieldNumber = 2;
     private global::ServiceLayer.SLSrStatus status_;
     /// <summary>
-    /// Generic error, Only set if error is not specific to policies
+    /// Status of the entire request. Used for errors that are not specific to
+    /// individual policies.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -676,6 +683,11 @@ namespace ServiceLayer {
         /// <summary>Field number for the "seq_num" field.</summary>
         public const int SeqNumFieldNumber = 1;
         private ulong seqNum_;
+        /// <summary>
+        /// Sequence number associated with the request for which response is being
+        /// sent by the server. Enables the client to match responses to their
+        /// respective requests.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public ulong SeqNum {
@@ -689,7 +701,7 @@ namespace ServiceLayer {
         public const int KeyFieldNumber = 2;
         private global::ServiceLayer.SLSrPolicyKey key_;
         /// <summary>
-        /// SR policy identifier from the request. 
+        /// SR policy identifier from the request.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -704,7 +716,7 @@ namespace ServiceLayer {
         public const int StatusFieldNumber = 3;
         private global::ServiceLayer.SLSrStatus status_;
         /// <summary>
-        /// return code for the request.
+        /// Status indicating the success or failure of the specific policy operation.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -929,7 +941,7 @@ namespace ServiceLayer {
   /// For DELETE persistence mode, Open Message is implicit start of replay.
   /// 
   /// The server is not required to send an explicit response message to indicate the
-  /// receipt of the Open Message. Server will respond in case of any error.
+  /// receipt of the Open Message. Server may respond in case of any errors.
   /// </summary>
   public sealed partial class SLSrPolicyOpen : pb::IMessage<SLSrPolicyOpen>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -980,11 +992,13 @@ namespace ServiceLayer {
     public const int ClientIdFieldNumber = 1;
     private string clientId_ = "";
     /// <summary>
-    /// Used to set ownership of any policies instantiated during this session
-    /// This is expected to be unique value, which means multiple clients with
-    /// same client_id are not allowed to connect to the same Server.
-    /// On a disconnect, controller with same client_id can reclaim the ownership
-    /// of policies on the Server by connecting back.
+    /// Used to set ownership of any policies instantiated during this session.
+    /// This is expected to be a unique value, which means multiple clients with
+    /// same client_id are not allowed to connect to the same server. Connection
+    /// is closed by the server with an error if client_id of the new session matches
+    /// with existing active session.
+    /// On a disconnect, a controller with same client_id can reclaim the ownership
+    /// of policies on the Server by reconnecting back.
     /// Length of the client_id is expected to be in the range of 1 to 64.
     /// An empty client_id or client_id outside of this range length is considered
     /// an error. Usage of characters used in client_id is limited to alphanumerical
@@ -1181,18 +1195,18 @@ namespace ServiceLayer {
     public static partial class Types {
       public enum SLSrPersistenceMode {
         /// <summary>
-        ///
-        /// When the controller disconnects, the router will either start the cleanup
-        /// timer or delete the policies (or its candidate paths) created by the
-        /// controller immediately.
+        /// When the controller disconnects,
+        /// - If a cleanup timer is specified in the OpenMsg, policies/CPs are deleted
+        ///   after the timer expires.
+        /// - If cleanup time is not specified or set to zero, policies/CPs are deleted
+        ///   immediately.
         /// </summary>
         [pbr::OriginalName("DELETE")] Delete = 0,
         /// <summary>
-        ///
         /// When the client disconnects, the server preserves all policies/CPs
         /// instantiated by this client.
-        /// It is client responsibility to delete the policies when they are no
-        /// longer needed, Server does not do auto-cleanup of policies created
+        /// It is client's responsibility to delete the policies when they are no
+        /// longer needed. The server does not do auto-cleanup of policies created
         /// with this mode.
         /// </summary>
         [pbr::OriginalName("PRESERVE")] Preserve = 1,
@@ -1255,6 +1269,9 @@ namespace ServiceLayer {
     private static readonly pb::FieldCodec<global::ServiceLayer.SLSrPolicyReq> _repeated_request_codec
         = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLSrPolicyReq.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq> request_ = new pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq>();
+    /// <summary>
+    /// List of policy operations
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::ServiceLayer.SLSrPolicyReq> Request {
@@ -1434,7 +1451,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "operation" field.</summary>
     public const int OperationFieldNumber = 1;
-    private global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp operation_ = global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.CreateUpdate;
+    private global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp operation_ = global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp Operation {
@@ -1493,7 +1510,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.CreateUpdate) hash ^= Operation.GetHashCode();
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) hash ^= Operation.GetHashCode();
       if (policy_ != null) hash ^= Policy.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1513,7 +1530,7 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.CreateUpdate) {
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Operation);
       }
@@ -1531,7 +1548,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.CreateUpdate) {
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Operation);
       }
@@ -1549,7 +1566,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.CreateUpdate) {
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Operation);
       }
       if (policy_ != null) {
@@ -1567,7 +1584,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.CreateUpdate) {
+      if (other.Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
         Operation = other.Operation;
       }
       if (other.policy_ != null) {
@@ -1643,10 +1660,10 @@ namespace ServiceLayer {
         /// Create operation for specified policies. Policies that already exist
         /// will be updated.
         /// </summary>
-        [pbr::OriginalName("CREATE_UPDATE")] CreateUpdate = 0,
+        [pbr::OriginalName("UPDATE")] Update = 0,
         /// <summary>
         /// Delete operation for specified policies. Deletion of non-existent policy
-        /// will be responded with specific error code.
+        /// will be responded with a corresponding error code.
         /// </summary>
         [pbr::OriginalName("DELETE")] Delete = 1,
       }
@@ -1658,17 +1675,17 @@ namespace ServiceLayer {
 
   /// <summary>
   /// 
-  /// The controller is expected to send an EndOfReplay message after replaying policies
-  /// after the re-connect in case of "DELETE" persistence mode. For "PRESERVE" mode,
+  /// After reconnect, the controller is expected to send an EndOfReplay message after
+  /// replaying policies in case of "DELETE" persistence mode. For "PRESERVE" mode,
   /// replay of all policies is not required, but it can be still explicitly initiated
   /// by sending StartOfReplay message.
-  /// It indicates that the controller has finished replaying all policies, which will
-  /// then trigger cleanup of any policies not reclaimed by the controller (identified
-  /// by Client-ID).
-  /// The server will start replay timer, when replay is initiated with value of 600
-  /// seconds. If the EndOfReplay message is not received in specified time, not
+  /// SLSrEndOfReplay indicates that the controller has finished replaying all policies,
+  /// which will then trigger cleanup of any policies not reclaimed by the controller
+  /// (identified by Client-ID).
+  /// The server will start a replay timer, when replay is initiated with value of 600
+  /// seconds. If the EndOfReplay message is not received in the specified time, not
   /// replayed policies will be deleted.
-  /// Server will not send response to this message unless there is an error. 
+  /// The server will not send any responses to this message unless there is an error. 
   /// </summary>
   public sealed partial class SLSrEndOfReplay : pb::IMessage<SLSrEndOfReplay>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1835,7 +1852,7 @@ namespace ServiceLayer {
   /// deletion of any policies still left stale (policies that have not been replayed).
   /// If server receives StartOfReplay when it is already in replay state, it is considered
   /// an error.
-  /// Server will not send response to this message unless there is an error. 
+  /// The server will not send any responses to this message unless there is an error. 
   /// </summary>
   public sealed partial class SLSrStartOfReplay : pb::IMessage<SLSrStartOfReplay>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -2093,6 +2110,9 @@ namespace ServiceLayer {
     private static readonly pb::FieldCodec<global::ServiceLayer.SLSrCandidatePath> _repeated_cPs_codec
         = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLSrCandidatePath.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLSrCandidatePath> cPs_ = new pbc::RepeatedField<global::ServiceLayer.SLSrCandidatePath>();
+    /// <summary>
+    /// List of Candidate Paths for the policy
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::ServiceLayer.SLSrCandidatePath> CPs {
@@ -2366,6 +2386,9 @@ namespace ServiceLayer {
     /// <summary>Field number for the "transit_eligible" field.</summary>
     public const int TransitEligibleFieldNumber = 2;
     private bool transitEligible_;
+    /// <summary>
+    /// When set, policy is eligible for use as a transit policy on the headend
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool TransitEligible {
@@ -2380,7 +2403,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLSrDataplane dataplane_ = global::ServiceLayer.SLSrDataplane.Unspecified;
     /// <summary>
     /// The segment routing dataplane.
-    /// This is mandatory field. Unspecified dataplane is invalid and will be rejected
+    /// This is a mandatory field. Unspecified dataplane is invalid and will be rejected
     /// by the server.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2414,6 +2437,11 @@ namespace ServiceLayer {
     private static readonly pb::FieldCodec<global::ServiceLayer.SLSrSrv6BindingSID> _repeated_srv6Bsids_codec
         = pb::FieldCodec.ForMessage(42, global::ServiceLayer.SLSrSrv6BindingSID.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLSrSrv6BindingSID> srv6Bsids_ = new pbc::RepeatedField<global::ServiceLayer.SLSrSrv6BindingSID>();
+    /// <summary>
+    /// (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
+    /// If neither mpls_bsid nor srv6_bsid are specified, then dynamic BSID based on
+    /// dataplane will be allocated.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::ServiceLayer.SLSrSrv6BindingSID> Srv6Bsids {
@@ -3666,6 +3694,9 @@ namespace ServiceLayer {
     /// <summary>Field number for the "protection" field.</summary>
     public const int ProtectionFieldNumber = 2;
     private global::ServiceLayer.SLSrteProtectionType protection_ = global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred;
+    /// <summary>
+    /// Protection type to be used for path segments
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrteProtectionType Protection {
@@ -3678,6 +3709,10 @@ namespace ServiceLayer {
     /// <summary>Field number for the "sid_algo" field.</summary>
     public const int SidAlgoFieldNumber = 3;
     private uint sidAlgo_;
+    /// <summary>
+    /// Algorithm to used for dynamic path calculation
+    /// Refer to Section 3.1.1 of [RFC8402]
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint SidAlgo {
@@ -3939,6 +3974,9 @@ namespace ServiceLayer {
 
   }
 
+  /// <summary>
+  /// SRv6 Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
+  /// </summary>
   public sealed partial class SLSrSrv6BindingSID : pb::IMessage<SLSrSrv6BindingSID>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4174,6 +4212,9 @@ namespace ServiceLayer {
 
   }
 
+  /// <summary>
+  /// SR-MPLS Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.1).
+  /// </summary>
   public sealed partial class SLSrMPLSBindingSID : pb::IMessage<SLSrMPLSBindingSID>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4381,6 +4422,10 @@ namespace ServiceLayer {
 
   }
 
+  /// <summary>
+  /// SRv6 Dynamic Binding SID attributes
+  /// (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
+  /// </summary>
   public sealed partial class SLSrSrv6DynamicBindingSID : pb::IMessage<SLSrSrv6DynamicBindingSID>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4429,7 +4474,7 @@ namespace ServiceLayer {
     public const int BehaviorFieldNumber = 1;
     private uint behavior_;
     /// <summary>
-    /// If not set, server will use default behavior
+    /// If not set, server will use default platform behavior
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

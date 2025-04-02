@@ -4099,6 +4099,9 @@ namespace ServiceLayer {
 
   }
 
+  /// <summary>
+  /// SRv6 Segment Identifier(SID) Address as defined in [RFC8986].
+  /// </summary>
   public sealed partial class SLSRv6SIDInfo : pb::IMessage<SLSRv6SIDInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4149,6 +4152,7 @@ namespace ServiceLayer {
     public const int SidAddressFieldNumber = 1;
     private pb::ByteString sidAddress_ = pb::ByteString.Empty;
     /// <summary>
+    /// An IPv6 address explicitly associated with the segment.
     /// SID Address must have length of 16 bytes
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4163,6 +4167,9 @@ namespace ServiceLayer {
     /// <summary>Field number for the "behavior" field.</summary>
     public const int BehaviorFieldNumber = 2;
     private uint behavior_;
+    /// <summary>
+    /// Endpoint behavior associated with the SID.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint Behavior {
@@ -4175,6 +4182,9 @@ namespace ServiceLayer {
     /// <summary>Field number for the "structure" field.</summary>
     public const int StructureFieldNumber = 3;
     private global::ServiceLayer.SLSrv6SidStruct structure_;
+    /// <summary>
+    /// SID Structure of the specifed SID address.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrv6SidStruct Structure {

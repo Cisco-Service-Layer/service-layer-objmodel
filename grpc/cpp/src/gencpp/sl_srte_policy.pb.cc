@@ -459,53 +459,53 @@ const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTI
   "enceMode\"/\n\023SLSrPersistenceMode\022\n\n\006DELET"
   "E\020\000\022\014\n\010PRESERVE\020\001\"C\n\022SLSrPolicyRequests\022"
   "-\n\007request\030\001 \003(\0132\034.service_layer.SLSrPol"
-  "icyReq\"\233\001\n\rSLSrPolicyReq\0226\n\toperation\030\001 "
+  "icyReq\"\224\001\n\rSLSrPolicyReq\0226\n\toperation\030\001 "
   "\001(\0162#.service_layer.SLSrPolicyReq.SLSrOp"
   "\022)\n\006policy\030\002 \001(\0132\031.service_layer.SLSrPol"
-  "icy\"\'\n\006SLSrOp\022\021\n\rCREATE_UPDATE\020\000\022\n\n\006DELE"
-  "TE\020\001\"\021\n\017SLSrEndOfReplay\"\023\n\021SLSrStartOfRe"
-  "play\"\253\001\n\nSLSrPolicy\022\017\n\007seq_num\030\001 \001(\004\022)\n\003"
-  "key\030\002 \001(\0132\034.service_layer.SLSrPolicyKey\022"
-  "2\n\005attrs\030\003 \001(\0132#.service_layer.SLSrPolic"
-  "yAttributes\022-\n\003CPs\030\004 \003(\0132 .service_layer"
-  ".SLSrCandidatePath\"\342\001\n\024SLSrPolicyAttribu"
-  "tes\022\030\n\020transit_eligible\030\002 \001(\010\022/\n\tdatapla"
-  "ne\030\003 \001(\0162\034.service_layer.SLSrDataplane\0224"
-  "\n\tmpls_bsid\030\004 \001(\0132!.service_layer.SLSrMP"
-  "LSBindingSID\0225\n\nsrv6_bsids\030\005 \003(\0132!.servi"
-  "ce_layer.SLSrSrv6BindingSID\022\022\n\nprofile_i"
-  "d\030\006 \001(\r\"\345\001\n\021SLSrCandidatePath\0220\n\003key\030\002 \001"
-  "(\0132#.service_layer.SLSrCandidatePathKey\022"
-  "\014\n\004name\030\003 \001(\t\022\027\n\npreference\030\004 \001(\rH\001\210\001\001\022/"
-  "\n\007dynamic\030\005 \001(\0132\034.service_layer.SLSrDyna"
-  "micCPH\000\0221\n\010explicit\030\006 \001(\0132\035.service_laye"
-  "r.SLSrExplicitCPH\000B\004\n\002CPB\r\n\013_preference\""
-  "[\n\016SLSrExplicitCP\0224\n\014segment_list\030\001 \003(\0132"
-  "\036.service_layer.SLSrSegmentList\022\023\n\013metri"
-  "c_type\030\003 \001(\r\"Y\n\rSLSrDynamicCP\022\023\n\013metric_"
-  "type\030\001 \001(\r\0223\n\013constraints\030\002 \001(\0132\036.servic"
-  "e_layer.SLSrConstraints\"\274\001\n\017SLSrConstrai"
-  "nts\0221\n\naffinities\030\001 \001(\0132\035.service_layer."
-  "SLSrAffinities\0227\n\nprotection\030\002 \001(\0162#.ser"
-  "vice_layer.SLSrteProtectionType\022\025\n\010sid_a"
-  "lgo\030\003 \001(\rH\000\210\001\001\022\031\n\021maximum_sid_depth\030\004 \001("
-  "\rB\013\n\t_sid_algo\"Y\n\022SLSrSrv6BindingSID\022;\n\007"
-  "dynamic\030\002 \001(\0132(.service_layer.SLSrSrv6Dy"
-  "namicBindingSIDH\000B\006\n\004type\":\n\022SLSrMPLSBin"
-  "dingSID\022\026\n\tmpls_bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_mpls"
-  "_bsid\"-\n\031SLSrSrv6DynamicBindingSID\022\020\n\010be"
-  "havior\030\001 \001(\r2^\n\014SLSrtePolicy\022N\n\014SLSrPoli"
-  "cyOp\022\034.service_layer.SLSrPolicyMsg\032\034.ser"
-  "vice_layer.SLSrPolicyRsp(\0010\001BQZOgithub.c"
-  "om/Cisco-service-layer/service-layer-obj"
-  "model/grpc/protos;service_layerb\006proto3"
+  "icy\" \n\006SLSrOp\022\n\n\006UPDATE\020\000\022\n\n\006DELETE\020\001\"\021\n"
+  "\017SLSrEndOfReplay\"\023\n\021SLSrStartOfReplay\"\253\001"
+  "\n\nSLSrPolicy\022\017\n\007seq_num\030\001 \001(\004\022)\n\003key\030\002 \001"
+  "(\0132\034.service_layer.SLSrPolicyKey\0222\n\005attr"
+  "s\030\003 \001(\0132#.service_layer.SLSrPolicyAttrib"
+  "utes\022-\n\003CPs\030\004 \003(\0132 .service_layer.SLSrCa"
+  "ndidatePath\"\342\001\n\024SLSrPolicyAttributes\022\030\n\020"
+  "transit_eligible\030\002 \001(\010\022/\n\tdataplane\030\003 \001("
+  "\0162\034.service_layer.SLSrDataplane\0224\n\tmpls_"
+  "bsid\030\004 \001(\0132!.service_layer.SLSrMPLSBindi"
+  "ngSID\0225\n\nsrv6_bsids\030\005 \003(\0132!.service_laye"
+  "r.SLSrSrv6BindingSID\022\022\n\nprofile_id\030\006 \001(\r"
+  "\"\345\001\n\021SLSrCandidatePath\0220\n\003key\030\002 \001(\0132#.se"
+  "rvice_layer.SLSrCandidatePathKey\022\014\n\004name"
+  "\030\003 \001(\t\022\027\n\npreference\030\004 \001(\rH\001\210\001\001\022/\n\007dynam"
+  "ic\030\005 \001(\0132\034.service_layer.SLSrDynamicCPH\000"
+  "\0221\n\010explicit\030\006 \001(\0132\035.service_layer.SLSrE"
+  "xplicitCPH\000B\004\n\002CPB\r\n\013_preference\"[\n\016SLSr"
+  "ExplicitCP\0224\n\014segment_list\030\001 \003(\0132\036.servi"
+  "ce_layer.SLSrSegmentList\022\023\n\013metric_type\030"
+  "\003 \001(\r\"Y\n\rSLSrDynamicCP\022\023\n\013metric_type\030\001 "
+  "\001(\r\0223\n\013constraints\030\002 \001(\0132\036.service_layer"
+  ".SLSrConstraints\"\274\001\n\017SLSrConstraints\0221\n\n"
+  "affinities\030\001 \001(\0132\035.service_layer.SLSrAff"
+  "inities\0227\n\nprotection\030\002 \001(\0162#.service_la"
+  "yer.SLSrteProtectionType\022\025\n\010sid_algo\030\003 \001"
+  "(\rH\000\210\001\001\022\031\n\021maximum_sid_depth\030\004 \001(\rB\013\n\t_s"
+  "id_algo\"Y\n\022SLSrSrv6BindingSID\022;\n\007dynamic"
+  "\030\002 \001(\0132(.service_layer.SLSrSrv6DynamicBi"
+  "ndingSIDH\000B\006\n\004type\":\n\022SLSrMPLSBindingSID"
+  "\022\026\n\tmpls_bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_mpls_bsid\"-"
+  "\n\031SLSrSrv6DynamicBindingSID\022\020\n\010behavior\030"
+  "\001 \001(\r2^\n\014SLSrtePolicy\022N\n\014SLSrPolicyOp\022\034."
+  "service_layer.SLSrPolicyMsg\032\034.service_la"
+  "yer.SLSrPolicyRsp(\0010\001BQZOgithub.com/Cisc"
+  "o-service-layer/service-layer-objmodel/g"
+  "rpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps[1] = {
   &::descriptor_table_sl_5fsr_5fcommon_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpolicy_2eproto = {
-  false, false, 2239, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
+  false, false, 2232, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
   &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 1, 17,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto, file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto,
@@ -553,7 +553,7 @@ bool SLSrPolicyReq_SLSrOp_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq::CREATE_UPDATE;
+constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq::UPDATE;
 constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq::DELETE;
 constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq::SLSrOp_MIN;
 constexpr SLSrPolicyReq_SLSrOp SLSrPolicyReq::SLSrOp_MAX;

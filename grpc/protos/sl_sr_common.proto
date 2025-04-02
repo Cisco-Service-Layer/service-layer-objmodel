@@ -461,10 +461,14 @@ enum SLSrteProtectionType {
     SL_SR_UNPROTECTED_ONLY = 3;
 }
 
+// SRv6 Segment Identifier(SID) Address as defined in [RFC8986].
 message SLSRv6SIDInfo {
+     // An IPv6 address explicitly associated with the segment.
      // SID Address must have length of 16 bytes
      bytes sid_address = 1;
+     // Endpoint behavior associated with the SID.
      uint32 behavior = 2;
+     // SID Structure of the specifed SID address.
      SLSrv6SidStruct structure = 3;
 }
 

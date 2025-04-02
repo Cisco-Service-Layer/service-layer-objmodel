@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from . import sl_sr_common_pb2 as sl__sr__common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14sl_srte_policy.proto\x12\rservice_layer\x1a\x12sl_sr_common.proto\"\x81\x01\n\rSLSrPolicyMsg\x12-\n\x04open\x18\x01 \x01(\x0b\x32\x1d.service_layer.SLSrPolicyOpenH\x00\x12\x35\n\x08requests\x18\x02 \x01(\x0b\x32!.service_layer.SLSrPolicyRequestsH\x00\x42\n\n\x08msg_type\"\xe9\x01\n\rSLSrPolicyRsp\x12\x39\n\tresponses\x18\x01 \x03(\x0b\x32&.service_layer.SLSrPolicyRsp.PolicyRsp\x12)\n\x06status\x18\x02 \x01(\x0b\x32\x19.service_layer.SLSrStatus\x1ar\n\tPolicyRsp\x12\x0f\n\x07seq_num\x18\x01 \x01(\x04\x12)\n\x03key\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLSrPolicyKey\x12)\n\x06status\x18\x03 \x01(\x0b\x32\x19.service_layer.SLSrStatus\"\x95\x01\n\x0eSLSrPolicyOpen\x12\x11\n\tclient_id\x18\x01 \x01(\t\x12?\n\x04mode\x18\x03 \x01(\x0e\x32\x31.service_layer.SLSrPolicyOpen.SLSrPersistenceMode\"/\n\x13SLSrPersistenceMode\x12\n\n\x06\x44\x45LETE\x10\x00\x12\x0c\n\x08PRESERVE\x10\x01\"C\n\x12SLSrPolicyRequests\x12-\n\x07request\x18\x01 \x03(\x0b\x32\x1c.service_layer.SLSrPolicyReq\"\x9b\x01\n\rSLSrPolicyReq\x12\x36\n\toperation\x18\x01 \x01(\x0e\x32#.service_layer.SLSrPolicyReq.SLSrOp\x12)\n\x06policy\x18\x02 \x01(\x0b\x32\x19.service_layer.SLSrPolicy\"\'\n\x06SLSrOp\x12\x11\n\rCREATE_UPDATE\x10\x00\x12\n\n\x06\x44\x45LETE\x10\x01\"\x11\n\x0fSLSrEndOfReplay\"\x13\n\x11SLSrStartOfReplay\"\xab\x01\n\nSLSrPolicy\x12\x0f\n\x07seq_num\x18\x01 \x01(\x04\x12)\n\x03key\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLSrPolicyKey\x12\x32\n\x05\x61ttrs\x18\x03 \x01(\x0b\x32#.service_layer.SLSrPolicyAttributes\x12-\n\x03\x43Ps\x18\x04 \x03(\x0b\x32 .service_layer.SLSrCandidatePath\"\xe2\x01\n\x14SLSrPolicyAttributes\x12\x18\n\x10transit_eligible\x18\x02 \x01(\x08\x12/\n\tdataplane\x18\x03 \x01(\x0e\x32\x1c.service_layer.SLSrDataplane\x12\x34\n\tmpls_bsid\x18\x04 \x01(\x0b\x32!.service_layer.SLSrMPLSBindingSID\x12\x35\n\nsrv6_bsids\x18\x05 \x03(\x0b\x32!.service_layer.SLSrSrv6BindingSID\x12\x12\n\nprofile_id\x18\x06 \x01(\r\"\xe5\x01\n\x11SLSrCandidatePath\x12\x30\n\x03key\x18\x02 \x01(\x0b\x32#.service_layer.SLSrCandidatePathKey\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x17\n\npreference\x18\x04 \x01(\rH\x01\x88\x01\x01\x12/\n\x07\x64ynamic\x18\x05 \x01(\x0b\x32\x1c.service_layer.SLSrDynamicCPH\x00\x12\x31\n\x08\x65xplicit\x18\x06 \x01(\x0b\x32\x1d.service_layer.SLSrExplicitCPH\x00\x42\x04\n\x02\x43PB\r\n\x0b_preference\"[\n\x0eSLSrExplicitCP\x12\x34\n\x0csegment_list\x18\x01 \x03(\x0b\x32\x1e.service_layer.SLSrSegmentList\x12\x13\n\x0bmetric_type\x18\x03 \x01(\r\"Y\n\rSLSrDynamicCP\x12\x13\n\x0bmetric_type\x18\x01 \x01(\r\x12\x33\n\x0b\x63onstraints\x18\x02 \x01(\x0b\x32\x1e.service_layer.SLSrConstraints\"\xbc\x01\n\x0fSLSrConstraints\x12\x31\n\naffinities\x18\x01 \x01(\x0b\x32\x1d.service_layer.SLSrAffinities\x12\x37\n\nprotection\x18\x02 \x01(\x0e\x32#.service_layer.SLSrteProtectionType\x12\x15\n\x08sid_algo\x18\x03 \x01(\rH\x00\x88\x01\x01\x12\x19\n\x11maximum_sid_depth\x18\x04 \x01(\rB\x0b\n\t_sid_algo\"Y\n\x12SLSrSrv6BindingSID\x12;\n\x07\x64ynamic\x18\x02 \x01(\x0b\x32(.service_layer.SLSrSrv6DynamicBindingSIDH\x00\x42\x06\n\x04type\":\n\x12SLSrMPLSBindingSID\x12\x16\n\tmpls_bsid\x18\x01 \x01(\rH\x00\x88\x01\x01\x42\x0c\n\n_mpls_bsid\"-\n\x19SLSrSrv6DynamicBindingSID\x12\x10\n\x08\x62\x65havior\x18\x01 \x01(\r2^\n\x0cSLSrtePolicy\x12N\n\x0cSLSrPolicyOp\x12\x1c.service_layer.SLSrPolicyMsg\x1a\x1c.service_layer.SLSrPolicyRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14sl_srte_policy.proto\x12\rservice_layer\x1a\x12sl_sr_common.proto\"\x81\x01\n\rSLSrPolicyMsg\x12-\n\x04open\x18\x01 \x01(\x0b\x32\x1d.service_layer.SLSrPolicyOpenH\x00\x12\x35\n\x08requests\x18\x02 \x01(\x0b\x32!.service_layer.SLSrPolicyRequestsH\x00\x42\n\n\x08msg_type\"\xe9\x01\n\rSLSrPolicyRsp\x12\x39\n\tresponses\x18\x01 \x03(\x0b\x32&.service_layer.SLSrPolicyRsp.PolicyRsp\x12)\n\x06status\x18\x02 \x01(\x0b\x32\x19.service_layer.SLSrStatus\x1ar\n\tPolicyRsp\x12\x0f\n\x07seq_num\x18\x01 \x01(\x04\x12)\n\x03key\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLSrPolicyKey\x12)\n\x06status\x18\x03 \x01(\x0b\x32\x19.service_layer.SLSrStatus\"\x95\x01\n\x0eSLSrPolicyOpen\x12\x11\n\tclient_id\x18\x01 \x01(\t\x12?\n\x04mode\x18\x03 \x01(\x0e\x32\x31.service_layer.SLSrPolicyOpen.SLSrPersistenceMode\"/\n\x13SLSrPersistenceMode\x12\n\n\x06\x44\x45LETE\x10\x00\x12\x0c\n\x08PRESERVE\x10\x01\"C\n\x12SLSrPolicyRequests\x12-\n\x07request\x18\x01 \x03(\x0b\x32\x1c.service_layer.SLSrPolicyReq\"\x94\x01\n\rSLSrPolicyReq\x12\x36\n\toperation\x18\x01 \x01(\x0e\x32#.service_layer.SLSrPolicyReq.SLSrOp\x12)\n\x06policy\x18\x02 \x01(\x0b\x32\x19.service_layer.SLSrPolicy\" \n\x06SLSrOp\x12\n\n\x06UPDATE\x10\x00\x12\n\n\x06\x44\x45LETE\x10\x01\"\x11\n\x0fSLSrEndOfReplay\"\x13\n\x11SLSrStartOfReplay\"\xab\x01\n\nSLSrPolicy\x12\x0f\n\x07seq_num\x18\x01 \x01(\x04\x12)\n\x03key\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLSrPolicyKey\x12\x32\n\x05\x61ttrs\x18\x03 \x01(\x0b\x32#.service_layer.SLSrPolicyAttributes\x12-\n\x03\x43Ps\x18\x04 \x03(\x0b\x32 .service_layer.SLSrCandidatePath\"\xe2\x01\n\x14SLSrPolicyAttributes\x12\x18\n\x10transit_eligible\x18\x02 \x01(\x08\x12/\n\tdataplane\x18\x03 \x01(\x0e\x32\x1c.service_layer.SLSrDataplane\x12\x34\n\tmpls_bsid\x18\x04 \x01(\x0b\x32!.service_layer.SLSrMPLSBindingSID\x12\x35\n\nsrv6_bsids\x18\x05 \x03(\x0b\x32!.service_layer.SLSrSrv6BindingSID\x12\x12\n\nprofile_id\x18\x06 \x01(\r\"\xe5\x01\n\x11SLSrCandidatePath\x12\x30\n\x03key\x18\x02 \x01(\x0b\x32#.service_layer.SLSrCandidatePathKey\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x17\n\npreference\x18\x04 \x01(\rH\x01\x88\x01\x01\x12/\n\x07\x64ynamic\x18\x05 \x01(\x0b\x32\x1c.service_layer.SLSrDynamicCPH\x00\x12\x31\n\x08\x65xplicit\x18\x06 \x01(\x0b\x32\x1d.service_layer.SLSrExplicitCPH\x00\x42\x04\n\x02\x43PB\r\n\x0b_preference\"[\n\x0eSLSrExplicitCP\x12\x34\n\x0csegment_list\x18\x01 \x03(\x0b\x32\x1e.service_layer.SLSrSegmentList\x12\x13\n\x0bmetric_type\x18\x03 \x01(\r\"Y\n\rSLSrDynamicCP\x12\x13\n\x0bmetric_type\x18\x01 \x01(\r\x12\x33\n\x0b\x63onstraints\x18\x02 \x01(\x0b\x32\x1e.service_layer.SLSrConstraints\"\xbc\x01\n\x0fSLSrConstraints\x12\x31\n\naffinities\x18\x01 \x01(\x0b\x32\x1d.service_layer.SLSrAffinities\x12\x37\n\nprotection\x18\x02 \x01(\x0e\x32#.service_layer.SLSrteProtectionType\x12\x15\n\x08sid_algo\x18\x03 \x01(\rH\x00\x88\x01\x01\x12\x19\n\x11maximum_sid_depth\x18\x04 \x01(\rB\x0b\n\t_sid_algo\"Y\n\x12SLSrSrv6BindingSID\x12;\n\x07\x64ynamic\x18\x02 \x01(\x0b\x32(.service_layer.SLSrSrv6DynamicBindingSIDH\x00\x42\x06\n\x04type\":\n\x12SLSrMPLSBindingSID\x12\x16\n\tmpls_bsid\x18\x01 \x01(\rH\x00\x88\x01\x01\x42\x0c\n\n_mpls_bsid\"-\n\x19SLSrSrv6DynamicBindingSID\x12\x10\n\x08\x62\x65havior\x18\x01 \x01(\r2^\n\x0cSLSrtePolicy\x12N\n\x0cSLSrPolicyOp\x12\x1c.service_layer.SLSrPolicyMsg\x1a\x1c.service_layer.SLSrPolicyRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,31 +36,31 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_SLSRPOLICYREQUESTS']._serialized_start=579
   _globals['_SLSRPOLICYREQUESTS']._serialized_end=646
   _globals['_SLSRPOLICYREQ']._serialized_start=649
-  _globals['_SLSRPOLICYREQ']._serialized_end=804
+  _globals['_SLSRPOLICYREQ']._serialized_end=797
   _globals['_SLSRPOLICYREQ_SLSROP']._serialized_start=765
-  _globals['_SLSRPOLICYREQ_SLSROP']._serialized_end=804
-  _globals['_SLSRENDOFREPLAY']._serialized_start=806
-  _globals['_SLSRENDOFREPLAY']._serialized_end=823
-  _globals['_SLSRSTARTOFREPLAY']._serialized_start=825
-  _globals['_SLSRSTARTOFREPLAY']._serialized_end=844
-  _globals['_SLSRPOLICY']._serialized_start=847
-  _globals['_SLSRPOLICY']._serialized_end=1018
-  _globals['_SLSRPOLICYATTRIBUTES']._serialized_start=1021
-  _globals['_SLSRPOLICYATTRIBUTES']._serialized_end=1247
-  _globals['_SLSRCANDIDATEPATH']._serialized_start=1250
-  _globals['_SLSRCANDIDATEPATH']._serialized_end=1479
-  _globals['_SLSREXPLICITCP']._serialized_start=1481
-  _globals['_SLSREXPLICITCP']._serialized_end=1572
-  _globals['_SLSRDYNAMICCP']._serialized_start=1574
-  _globals['_SLSRDYNAMICCP']._serialized_end=1663
-  _globals['_SLSRCONSTRAINTS']._serialized_start=1666
-  _globals['_SLSRCONSTRAINTS']._serialized_end=1854
-  _globals['_SLSRSRV6BINDINGSID']._serialized_start=1856
-  _globals['_SLSRSRV6BINDINGSID']._serialized_end=1945
-  _globals['_SLSRMPLSBINDINGSID']._serialized_start=1947
-  _globals['_SLSRMPLSBINDINGSID']._serialized_end=2005
-  _globals['_SLSRSRV6DYNAMICBINDINGSID']._serialized_start=2007
-  _globals['_SLSRSRV6DYNAMICBINDINGSID']._serialized_end=2052
-  _globals['_SLSRTEPOLICY']._serialized_start=2054
-  _globals['_SLSRTEPOLICY']._serialized_end=2148
+  _globals['_SLSRPOLICYREQ_SLSROP']._serialized_end=797
+  _globals['_SLSRENDOFREPLAY']._serialized_start=799
+  _globals['_SLSRENDOFREPLAY']._serialized_end=816
+  _globals['_SLSRSTARTOFREPLAY']._serialized_start=818
+  _globals['_SLSRSTARTOFREPLAY']._serialized_end=837
+  _globals['_SLSRPOLICY']._serialized_start=840
+  _globals['_SLSRPOLICY']._serialized_end=1011
+  _globals['_SLSRPOLICYATTRIBUTES']._serialized_start=1014
+  _globals['_SLSRPOLICYATTRIBUTES']._serialized_end=1240
+  _globals['_SLSRCANDIDATEPATH']._serialized_start=1243
+  _globals['_SLSRCANDIDATEPATH']._serialized_end=1472
+  _globals['_SLSREXPLICITCP']._serialized_start=1474
+  _globals['_SLSREXPLICITCP']._serialized_end=1565
+  _globals['_SLSRDYNAMICCP']._serialized_start=1567
+  _globals['_SLSRDYNAMICCP']._serialized_end=1656
+  _globals['_SLSRCONSTRAINTS']._serialized_start=1659
+  _globals['_SLSRCONSTRAINTS']._serialized_end=1847
+  _globals['_SLSRSRV6BINDINGSID']._serialized_start=1849
+  _globals['_SLSRSRV6BINDINGSID']._serialized_end=1938
+  _globals['_SLSRMPLSBINDINGSID']._serialized_start=1940
+  _globals['_SLSRMPLSBINDINGSID']._serialized_end=1998
+  _globals['_SLSRSRV6DYNAMICBINDINGSID']._serialized_start=2000
+  _globals['_SLSRSRV6DYNAMICBINDINGSID']._serialized_end=2045
+  _globals['_SLSRTEPOLICY']._serialized_start=2047
+  _globals['_SLSRTEPOLICY']._serialized_end=2141
 # @@protoc_insertion_point(module_scope)

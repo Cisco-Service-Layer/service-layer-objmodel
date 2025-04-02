@@ -1487,15 +1487,19 @@ func (x *SLSrAffinities) GetExcludeAny() []uint32 {
 	return nil
 }
 
+// SRv6 Segment Identifier(SID) Address as defined in [RFC8986].
 type SLSRv6SIDInfo struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// An IPv6 address explicitly associated with the segment.
 	// SID Address must have length of 16 bytes
-	SidAddress []byte           `protobuf:"bytes,1,opt,name=sid_address,json=sidAddress,proto3" json:"sid_address,omitempty"`
-	Behavior   uint32           `protobuf:"varint,2,opt,name=behavior,proto3" json:"behavior,omitempty"`
-	Structure  *SLSrv6SidStruct `protobuf:"bytes,3,opt,name=structure,proto3" json:"structure,omitempty"`
+	SidAddress []byte `protobuf:"bytes,1,opt,name=sid_address,json=sidAddress,proto3" json:"sid_address,omitempty"`
+	// Endpoint behavior associated with the SID.
+	Behavior uint32 `protobuf:"varint,2,opt,name=behavior,proto3" json:"behavior,omitempty"`
+	// SID Structure of the specifed SID address.
+	Structure *SLSrv6SidStruct `protobuf:"bytes,3,opt,name=structure,proto3" json:"structure,omitempty"`
 }
 
 func (x *SLSRv6SIDInfo) Reset() {

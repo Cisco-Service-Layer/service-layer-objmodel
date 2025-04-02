@@ -42,28 +42,34 @@ service SLSrtePolicy {
 // SLSrPolicyMsg is message used by client to manage policies on target device
 message SLSrPolicyMsg {
     oneof msg_type {
+        // Used to set session parameters by the client.
         SLSrPolicyOpen open = 1;
+        // Set of policies to be created, updated or deleted.
         SLSrPolicyRequests requests = 2;
     }
 }
 
 // RPC response 
-// Response to policy operation. Indicates result of the operation and not 
-// operational state of policy.  In case of multiple requests received for 
-// policy identified by specific SLSrPolicyKey, always at least single response
-// will be sent to confirm processing of the last request. 
+// Response to policy operation. Indicates result of the operation and not the 
+// operational state of the policy. In case multiple requests are received for a
+// given policy, identified by the specific SLSrPolicyKey, there would be at least
+// one response based on the last message request.
 message SLSrPolicyRsp {
     message PolicyRsp {
+        // Sequence number associated with the request for which response is being
+        // sent by the server. Enables the client to match responses to their
+        // respective requests.
         uint64 seq_num = 1;
-        // SR policy identifier from the request. 
+        // SR policy identifier from the request.
         SLSrPolicyKey key = 2;
-        // return code for the request.
+        // Status indicating the success or failure of the specific policy operation.
         SLSrStatus status = 3;
     }
-    // Set of responses corresponding to the policies in the request
+    // Set of responses corresponding to the policies in the request.
     repeated PolicyRsp responses = 1;
 
-    // Generic error, Only set if error is not specific to policies
+    // Status of the entire request. Used for errors that are not specific to
+    // individual policies.
     SLSrStatus status = 2;
 } 
 
@@ -76,29 +82,31 @@ message SLSrPolicyRsp {
 // For DELETE persistence mode, Open Message is implicit start of replay.
 // 
 // The server is not required to send an explicit response message to indicate the
-// receipt of the Open Message. Server will respond in case of any error.
+// receipt of the Open Message. Server may respond in case of any errors.
 message SLSrPolicyOpen {
     enum SLSrPersistenceMode {
-        //
-        // When the controller disconnects, the router will either start the cleanup
-        // timer or delete the policies (or its candidate paths) created by the
-        // controller immediately.
+        // When the controller disconnects,
+        // - If a cleanup timer is specified in the OpenMsg, policies/CPs are deleted
+        //   after the timer expires.
+        // - If cleanup time is not specified or set to zero, policies/CPs are deleted
+        //   immediately.
         DELETE = 0; 
 
-        //
         // When the client disconnects, the server preserves all policies/CPs
         // instantiated by this client.
-        // It is client responsibility to delete the policies when they are no
-        // longer needed, Server does not do auto-cleanup of policies created
+        // It is client's responsibility to delete the policies when they are no
+        // longer needed. The server does not do auto-cleanup of policies created
         // with this mode.
         PRESERVE = 1;
     }
 
-    // Used to set ownership of any policies instantiated during this session
-    // This is expected to be unique value, which means multiple clients with
-    // same client_id are not allowed to connect to the same Server.
-    // On a disconnect, controller with same client_id can reclaim the ownership
-    // of policies on the Server by connecting back.
+    // Used to set ownership of any policies instantiated during this session.
+    // This is expected to be a unique value, which means multiple clients with
+    // same client_id are not allowed to connect to the same server. Connection
+    // is closed by the server with an error if client_id of the new session matches
+    // with existing active session.
+    // On a disconnect, a controller with same client_id can reclaim the ownership
+    // of policies on the Server by reconnecting back.
     // Length of the client_id is expected to be in the range of 1 to 64.
     // An empty client_id or client_id outside of this range length is considered
     // an error. Usage of characters used in client_id is limited to alphanumerical
@@ -116,6 +124,7 @@ message SLSrPolicyOpen {
 
 // Set of policies to be acted on
 message SLSrPolicyRequests {
+    // List of policy operations
     repeated SLSrPolicyReq request = 1; 
 }
 
@@ -124,9 +133,9 @@ message SLSrPolicyReq {
     enum SLSrOp {
         // Create operation for specified policies. Policies that already exist
         // will be updated.
-        CREATE_UPDATE = 0;
+        UPDATE = 0;
         // Delete operation for specified policies. Deletion of non-existent policy
-        // will be responded with specific error code.
+        // will be responded with a corresponding error code.
         DELETE = 1;
     }
     SLSrOp operation = 1;
@@ -146,17 +155,17 @@ message SLSrPolicyReq {
 }
 
 // 
-// The controller is expected to send an EndOfReplay message after replaying policies
-// after the re-connect in case of "DELETE" persistence mode. For "PRESERVE" mode,
+// After reconnect, the controller is expected to send an EndOfReplay message after
+// replaying policies in case of "DELETE" persistence mode. For "PRESERVE" mode,
 // replay of all policies is not required, but it can be still explicitly initiated
 // by sending StartOfReplay message.
-// It indicates that the controller has finished replaying all policies, which will
-// then trigger cleanup of any policies not reclaimed by the controller (identified
-// by Client-ID).
-// The server will start replay timer, when replay is initiated with value of 600
-// seconds. If the EndOfReplay message is not received in specified time, not
+// SLSrEndOfReplay indicates that the controller has finished replaying all policies,
+// which will then trigger cleanup of any policies not reclaimed by the controller
+// (identified by Client-ID).
+// The server will start a replay timer, when replay is initiated with value of 600
+// seconds. If the EndOfReplay message is not received in the specified time, not
 // replayed policies will be deleted.
-// Server will not send response to this message unless there is an error. 
+// The server will not send any responses to this message unless there is an error. 
 message SLSrEndOfReplay { }
 
 // Client can use StartOfReplay to start a resync with the Server. This is the way for
@@ -171,7 +180,7 @@ message SLSrEndOfReplay { }
 // deletion of any policies still left stale (policies that have not been replayed).
 // If server receives StartOfReplay when it is already in replay state, it is considered
 // an error.
-// Server will not send response to this message unless there is an error. 
+// The server will not send any responses to this message unless there is an error. 
 message SLSrStartOfReplay { }
 
 // (https://www.rfc-editor.org/rfc/rfc9256.html#section-2).
@@ -194,6 +203,7 @@ message SLSrPolicy {
     // Policy attributes
     SLSrPolicyAttributes attrs = 3;
 
+    // List of Candidate Paths for the policy
     repeated SLSrCandidatePath CPs = 4;
 } 
 
@@ -201,10 +211,11 @@ message SLSrPolicy {
 
 // Policy attributes
 message SLSrPolicyAttributes {
+    // When set, policy is eligible for use as a transit policy on the headend
     bool transit_eligible = 2;
 
     // The segment routing dataplane.
-    // This is mandatory field. Unspecified dataplane is invalid and will be rejected
+    // This is a mandatory field. Unspecified dataplane is invalid and will be rejected
     // by the server.
     SLSrDataplane dataplane = 3;
 
@@ -213,6 +224,9 @@ message SLSrPolicyAttributes {
     // dataplane will be allocated.
     SLSrMPLSBindingSID mpls_bsid = 4;
 
+    // (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
+    // If neither mpls_bsid nor srv6_bsid are specified, then dynamic BSID based on
+    // dataplane will be allocated.
     repeated SLSrSrv6BindingSID srv6_bsids = 5;
 
     // ID of the profile with which policy can be associated with a non-zero value. The
@@ -297,8 +311,11 @@ message SLSrConstraints {
     // Constraints that must be satisfied by the complete path and cannot be
     // verified on a node-by-node or link-by-link basis.
 
+    // Protection type to be used for path segments
     SLSrteProtectionType protection = 2;
 
+    // Algorithm to used for dynamic path calculation
+    // Refer to Section 3.1.1 of [RFC8402]
     optional uint32 sid_algo = 3;
 
     // Maximum number of segments in any of the candidate path segment lists.
@@ -315,6 +332,7 @@ message SLSrConstraints {
     uint32 maximum_sid_depth = 4;
 } 
 
+// SRv6 Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
 message SLSrSrv6BindingSID {
     oneof type {
        //SLSRv6SIDInfo explicit = 1;
@@ -322,13 +340,16 @@ message SLSrSrv6BindingSID {
     }
 }
 
+// SR-MPLS Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.1).
 message SLSrMPLSBindingSID {
     // If not set, dynamic MPLS BSID will be allocated
     optional uint32 mpls_bsid = 1;
 }
 
+// SRv6 Dynamic Binding SID attributes
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
 message SLSrSrv6DynamicBindingSID {
-    // If not set, server will use default behavior
+    // If not set, server will use default platform behavior
     uint32 behavior = 1;
 }
 
