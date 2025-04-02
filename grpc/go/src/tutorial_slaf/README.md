@@ -213,7 +213,7 @@ MPLS Example:
     Deleting 35 labels with unary RPC. Print out any responses and debug messages:
     $ ./tutorial_slaf -mpls -num_labels 35 -route_oper 3 -vrf_reg_oper 1 -username username -password password -debug
     Adding 2 Label where the start label is 25000 and the out label is 26000 and print out the debug messages:
-    ./tutorial_slaf -mpls -num_labels 2 -route_oper 1 -vrf_reg_oper 1 -start_label 25000 -out_label 26000 -username username -password password -debug
+    $ ./tutorial_slaf -mpls -num_labels 2 -route_oper 1 -vrf_reg_oper 1 -start_label 25000 -out_label 26000 -username username -password password -debug
 
 Path Group Example:  
 For purposes of this tutorial, we showcase how to create pg for ipv4 routes.  
