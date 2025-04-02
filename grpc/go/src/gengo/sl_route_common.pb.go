@@ -1342,7 +1342,7 @@ type SLRouteCommon struct {
 	// The metric is typically based on information like load, hop count,
 	// MTU, reliability of the path, etc.
 	// RIB uses this field as a tiebreaker when comparing routes produced by
-	// different protocols which have identical distances.
+	// different protocols which have identical admin distances.
 	Metric uint32 `protobuf:"varint,8,opt,name=Metric,proto3" json:"Metric,omitempty"`
 }
 

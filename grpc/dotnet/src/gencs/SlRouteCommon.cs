@@ -4463,7 +4463,7 @@ namespace ServiceLayer {
     /// The metric is typically based on information like load, hop count,
     /// MTU, reliability of the path, etc.
     /// RIB uses this field as a tiebreaker when comparing routes produced by
-    /// different protocols which have identical distances.
+    /// different protocols which have identical admin distances.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
