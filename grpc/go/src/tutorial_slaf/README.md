@@ -225,8 +225,8 @@ When set, will use next_hop_ip and interface variables for information to create
     $ ./tutorial_slaf -pg -pg_name temp -route_oper 3 -vrf_reg_oper 1  -username username -password password
     Create a path group named "temp" with 64 paths for ipv4 routes with next_hop_ip address set to 11.0.0.1 and auto incrementing:
     $ ./tutorial_slaf -pg -pg_name temp -pg_num_path 64  -route_oper 1 -vrf_reg_oper 1  -username username -password password -next_hop_ip 11.0.0.1 -auto_inc_nhip
-    Apply path group named "temp" for 1000 ipv4 routes with response ack set to RIB_AND_FIB_ACK and response_ack_permit as SL_PERMIT_FIB_SUCCESS:
-    $ ./tutorial_slaf -ipv4 -use_pg_for_ipv4 temp -num_routes 1000 -route_oper 1 -vrf_reg_oper 1 -username username -password password -ack_type 1 -ack_permit 1 -stream_case
+    Apply path group named "temp" for 1000 ipv4 routes with response ack set to RIB_ACK using streaming RPC:
+    $ ./tutorial_slaf -ipv4 -use_pg_for_ipv4 temp -num_routes 1000 -route_oper 1 -vrf_reg_oper 1 -username username -password password -ack_type 0 -stream_case
 
 Get Request Example:
 For purposes of this tutorial, we showcase how to get route lists for only a ipv4 route.
