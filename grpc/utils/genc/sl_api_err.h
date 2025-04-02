@@ -871,11 +871,11 @@
     SL_SRTE_POLICY_START_OFFSET = 0x1b000,\
     /* Policy request message is not valid. 0x1b001 */\
     SL_SRTE_POLICY_REQUEST_INVALID = 0x1b001,\
-    /* Policy Key missing or invalid. 0x1b002 */\
+    /* Policy Key is missing or invalid. 0x1b002 */\
     SL_SRTE_POLICY_POLICY_KEY_INVALID = 0x1b002,\
     /* Policy Attributes are invalid. 0x1b003 */\
     SL_SRTE_POLICY_POLICY_ATTR_INVALID = 0x1b003,\
-    /* Candidate Path Key missing or invalid. 0x1b004 */\
+    /* Candidate Path Key is missing or invalid. 0x1b004 */\
     SL_SRTE_POLICY_CP_KEY_INVALID = 0x1b004,\
     /* Candidate Path attributes are invalid. 0x1b005 */\
     SL_SRTE_POLICY_CP_ATTR_INVALID = 0x1b005,\
@@ -2105,13 +2105,13 @@
         " Policy request message is not valid.  "\
         },\
     {SL_SRTE_POLICY_POLICY_KEY_INVALID ,\
-        " Policy Key missing or invalid.  "\
+        " Policy Key is missing or invalid.  "\
         },\
     {SL_SRTE_POLICY_POLICY_ATTR_INVALID ,\
         " Policy Attributes are invalid.  "\
         },\
     {SL_SRTE_POLICY_CP_KEY_INVALID ,\
-        " Candidate Path Key missing or invalid.  "\
+        " Candidate Path Key is missing or invalid.  "\
         },\
     {SL_SRTE_POLICY_CP_ATTR_INVALID ,\
         " Candidate Path attributes are invalid.  "\

@@ -1539,11 +1539,11 @@ const (
 	SLErrorStatus_SL_SRTE_POLICY_START_OFFSET SLErrorStatus_SLErrno = 110592
 	// Policy request message is not valid. 0x1b001
 	SLErrorStatus_SL_SRTE_POLICY_REQUEST_INVALID SLErrorStatus_SLErrno = 110593
-	// Policy Key missing or invalid. 0x1b002
+	// Policy Key is missing or invalid. 0x1b002
 	SLErrorStatus_SL_SRTE_POLICY_POLICY_KEY_INVALID SLErrorStatus_SLErrno = 110594
 	// Policy Attributes are invalid. 0x1b003
 	SLErrorStatus_SL_SRTE_POLICY_POLICY_ATTR_INVALID SLErrorStatus_SLErrno = 110595
-	// Candidate Path Key missing or invalid. 0x1b004
+	// Candidate Path Key is missing or invalid. 0x1b004
 	SLErrorStatus_SL_SRTE_POLICY_CP_KEY_INVALID SLErrorStatus_SLErrno = 110596
 	// Candidate Path attributes are invalid. 0x1b005
 	SLErrorStatus_SL_SRTE_POLICY_CP_ATTR_INVALID SLErrorStatus_SLErrno = 110597

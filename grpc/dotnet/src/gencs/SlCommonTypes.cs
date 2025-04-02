@@ -2466,7 +2466,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_REQUEST_INVALID")] SlSrtePolicyRequestInvalid = 110593,
         /// <summary>
-        /// Policy Key missing or invalid. 0x1b002
+        /// Policy Key is missing or invalid. 0x1b002
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_POLICY_KEY_INVALID")] SlSrtePolicyPolicyKeyInvalid = 110594,
         /// <summary>
@@ -2474,7 +2474,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_POLICY_ATTR_INVALID")] SlSrtePolicyPolicyAttrInvalid = 110595,
         /// <summary>
-        /// Candidate Path Key missing or invalid. 0x1b004
+        /// Candidate Path Key is missing or invalid. 0x1b004
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_CP_KEY_INVALID")] SlSrtePolicyCpKeyInvalid = 110596,
         /// <summary>
