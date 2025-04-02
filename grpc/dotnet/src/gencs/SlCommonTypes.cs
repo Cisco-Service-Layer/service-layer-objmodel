@@ -2470,7 +2470,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_POLICY_KEY_INVALID")] SlSrtePolicyPolicyKeyInvalid = 110594,
         /// <summary>
-        /// Policy Attributes are invalid. 0x1b003
+        /// Policy attributes are invalid. 0x1b003
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_POLICY_ATTR_INVALID")] SlSrtePolicyPolicyAttrInvalid = 110595,
         /// <summary>
@@ -2482,7 +2482,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_CP_ATTR_INVALID")] SlSrtePolicyCpAttrInvalid = 110597,
         /// <summary>
-        /// Policy Client ID mis-match. 0x1b006
+        /// Policy Client ID mismatch. 0x1b006
         /// </summary>
         [pbr::OriginalName("SL_SRTE_POLICY_CLIENT_MISMATCH")] SlSrtePolicyClientMismatch = 110598,
         /// <summary>

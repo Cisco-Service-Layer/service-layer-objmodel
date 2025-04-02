@@ -1541,13 +1541,13 @@ const (
 	SLErrorStatus_SL_SRTE_POLICY_REQUEST_INVALID SLErrorStatus_SLErrno = 110593
 	// Policy Key is missing or invalid. 0x1b002
 	SLErrorStatus_SL_SRTE_POLICY_POLICY_KEY_INVALID SLErrorStatus_SLErrno = 110594
-	// Policy Attributes are invalid. 0x1b003
+	// Policy attributes are invalid. 0x1b003
 	SLErrorStatus_SL_SRTE_POLICY_POLICY_ATTR_INVALID SLErrorStatus_SLErrno = 110595
 	// Candidate Path Key is missing or invalid. 0x1b004
 	SLErrorStatus_SL_SRTE_POLICY_CP_KEY_INVALID SLErrorStatus_SLErrno = 110596
 	// Candidate Path attributes are invalid. 0x1b005
 	SLErrorStatus_SL_SRTE_POLICY_CP_ATTR_INVALID SLErrorStatus_SLErrno = 110597
-	// Policy Client ID mis-match. 0x1b006
+	// Policy Client ID mismatch. 0x1b006
 	SLErrorStatus_SL_SRTE_POLICY_CLIENT_MISMATCH SLErrorStatus_SLErrno = 110598
 	// SR-TE policy service is not ready. 0x1b007
 	SLErrorStatus_SL_SRTE_POLICY_SERVICE_NOT_UP SLErrorStatus_SLErrno = 110599

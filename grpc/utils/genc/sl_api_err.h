@@ -873,13 +873,13 @@
     SL_SRTE_POLICY_REQUEST_INVALID = 0x1b001,\
     /* Policy Key is missing or invalid. 0x1b002 */\
     SL_SRTE_POLICY_POLICY_KEY_INVALID = 0x1b002,\
-    /* Policy Attributes are invalid. 0x1b003 */\
+    /* Policy attributes are invalid. 0x1b003 */\
     SL_SRTE_POLICY_POLICY_ATTR_INVALID = 0x1b003,\
     /* Candidate Path Key is missing or invalid. 0x1b004 */\
     SL_SRTE_POLICY_CP_KEY_INVALID = 0x1b004,\
     /* Candidate Path attributes are invalid. 0x1b005 */\
     SL_SRTE_POLICY_CP_ATTR_INVALID = 0x1b005,\
-    /* Policy Client ID mis-match. 0x1b006 */\
+    /* Policy Client ID mismatch. 0x1b006 */\
     SL_SRTE_POLICY_CLIENT_MISMATCH = 0x1b006,\
     /* SR-TE policy service is not ready. 0x1b007 */\
     SL_SRTE_POLICY_SERVICE_NOT_UP = 0x1b007,\
@@ -2108,7 +2108,7 @@
         " Policy Key is missing or invalid.  "\
         },\
     {SL_SRTE_POLICY_POLICY_ATTR_INVALID ,\
-        " Policy Attributes are invalid.  "\
+        " Policy attributes are invalid.  "\
         },\
     {SL_SRTE_POLICY_CP_KEY_INVALID ,\
         " Candidate Path Key is missing or invalid.  "\
@@ -2117,7 +2117,7 @@
         " Candidate Path attributes are invalid.  "\
         },\
     {SL_SRTE_POLICY_CLIENT_MISMATCH ,\
-        " Policy Client ID mis-match.  "\
+        " Policy Client ID mismatch.  "\
         },\
     {SL_SRTE_POLICY_SERVICE_NOT_UP ,\
         " SR-TE policy service is not ready.  "\
