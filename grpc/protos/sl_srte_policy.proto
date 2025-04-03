@@ -56,10 +56,10 @@ message SLSrPolicyMsg {
 // one response based on the last message request.
 message SLSrPolicyRsp {
     message PolicyRsp {
-        // Sequence number associated with the request for which response is being
-        // sent by the server. Enables the client to match responses to their
-        // respective requests.
-        uint64 seq_num = 1;
+        // Operation ID of the request for which response is being sent by the server.
+        // Enables the client to match responses to their corresponding requests.
+        uint64 operation_id = 1;
+
         // SR policy identifier from the request.
         SLSrPolicyKey key = 2;
         // Status indicating the success or failure of the specific policy operation.
@@ -140,7 +140,7 @@ message SLSrPolicyReq {
     }
     SLSrOp operation = 1;
 
-    // Each policy request is uniquely identified by a sequence ID and a policy key,
+    // Each policy request is uniquely identified by a operation ID and a policy key,
     // both of which are reflected by the router in the response.
     // Each policy request encompasses all candidate-paths and policy attributes.
     // Candidate-paths not included in the update request will be removed.
@@ -185,17 +185,11 @@ message SLSrStartOfReplay { }
 
 // (https://www.rfc-editor.org/rfc/rfc9256.html#section-2).
 message SLSrPolicy {
-    // ID to associate the request with.
-    // The sequence number serves the purpose of allowing the controller to identify
+    // The operation ID serves the purpose of allowing the controller to identify
     // which request the headend is responding to when multiple requests for the same
-    // policy are sent.  
-
-    // The sequence number is incremented by the controller and should be scoped per
-    // policy, meaning there is an independent sequence number for each policy. Server
-    // includes the sequence number of the request it is responding to in its reply. The
-    // server is not enforcing/validating or re-ordering requests based on sequence
-    // number specified.
-    uint64 seq_num = 1;
+    // policy are sent.
+    // Operation Id should be monotonically increasing for the life of the client.
+    uint64 operation_id = 1;
 
     // Globally unique SR policy identifier.
     SLSrPolicyKey key = 2;

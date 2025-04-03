@@ -500,7 +500,7 @@ class SLSrPolicyRsp_PolicyRsp final :
   enum : int {
     kKeyFieldNumber = 2,
     kStatusFieldNumber = 3,
-    kSeqNumFieldNumber = 1,
+    kOperationIdFieldNumber = 1,
   };
   // .service_layer.SLSrPolicyKey key = 2;
   bool has_key() const;
@@ -538,13 +538,13 @@ class SLSrPolicyRsp_PolicyRsp final :
       ::service_layer::SLSrStatus* status);
   ::service_layer::SLSrStatus* unsafe_arena_release_status();
 
-  // uint64 seq_num = 1;
-  void clear_seq_num();
-  uint64_t seq_num() const;
-  void set_seq_num(uint64_t value);
+  // uint64 operation_id = 1;
+  void clear_operation_id();
+  uint64_t operation_id() const;
+  void set_operation_id(uint64_t value);
   private:
-  uint64_t _internal_seq_num() const;
-  void _internal_set_seq_num(uint64_t value);
+  uint64_t _internal_operation_id() const;
+  void _internal_set_operation_id(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrPolicyRsp.PolicyRsp)
@@ -556,7 +556,7 @@ class SLSrPolicyRsp_PolicyRsp final :
   typedef void DestructorSkippable_;
   ::service_layer::SLSrPolicyKey* key_;
   ::service_layer::SLSrStatus* status_;
-  uint64_t seq_num_;
+  uint64_t operation_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -1643,7 +1643,7 @@ class SLSrPolicy final :
     kCPsFieldNumber = 4,
     kKeyFieldNumber = 2,
     kAttrsFieldNumber = 3,
-    kSeqNumFieldNumber = 1,
+    kOperationIdFieldNumber = 1,
   };
   // repeated .service_layer.SLSrCandidatePath CPs = 4;
   int cps_size() const;
@@ -1699,13 +1699,13 @@ class SLSrPolicy final :
       ::service_layer::SLSrPolicyAttributes* attrs);
   ::service_layer::SLSrPolicyAttributes* unsafe_arena_release_attrs();
 
-  // uint64 seq_num = 1;
-  void clear_seq_num();
-  uint64_t seq_num() const;
-  void set_seq_num(uint64_t value);
+  // uint64 operation_id = 1;
+  void clear_operation_id();
+  uint64_t operation_id() const;
+  void set_operation_id(uint64_t value);
   private:
-  uint64_t _internal_seq_num() const;
-  void _internal_set_seq_num(uint64_t value);
+  uint64_t _internal_operation_id() const;
+  void _internal_set_operation_id(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrPolicy)
@@ -1718,7 +1718,7 @@ class SLSrPolicy final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrCandidatePath > cps_;
   ::service_layer::SLSrPolicyKey* key_;
   ::service_layer::SLSrPolicyAttributes* attrs_;
-  uint64_t seq_num_;
+  uint64_t operation_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -3342,24 +3342,24 @@ inline SLSrPolicyMsg::MsgTypeCase SLSrPolicyMsg::msg_type_case() const {
 
 // SLSrPolicyRsp_PolicyRsp
 
-// uint64 seq_num = 1;
-inline void SLSrPolicyRsp_PolicyRsp::clear_seq_num() {
-  seq_num_ = uint64_t{0u};
+// uint64 operation_id = 1;
+inline void SLSrPolicyRsp_PolicyRsp::clear_operation_id() {
+  operation_id_ = uint64_t{0u};
 }
-inline uint64_t SLSrPolicyRsp_PolicyRsp::_internal_seq_num() const {
-  return seq_num_;
+inline uint64_t SLSrPolicyRsp_PolicyRsp::_internal_operation_id() const {
+  return operation_id_;
 }
-inline uint64_t SLSrPolicyRsp_PolicyRsp::seq_num() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyRsp.PolicyRsp.seq_num)
-  return _internal_seq_num();
+inline uint64_t SLSrPolicyRsp_PolicyRsp::operation_id() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyRsp.PolicyRsp.operation_id)
+  return _internal_operation_id();
 }
-inline void SLSrPolicyRsp_PolicyRsp::_internal_set_seq_num(uint64_t value) {
+inline void SLSrPolicyRsp_PolicyRsp::_internal_set_operation_id(uint64_t value) {
   
-  seq_num_ = value;
+  operation_id_ = value;
 }
-inline void SLSrPolicyRsp_PolicyRsp::set_seq_num(uint64_t value) {
-  _internal_set_seq_num(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicyRsp.PolicyRsp.seq_num)
+inline void SLSrPolicyRsp_PolicyRsp::set_operation_id(uint64_t value) {
+  _internal_set_operation_id(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicyRsp.PolicyRsp.operation_id)
 }
 
 // .service_layer.SLSrPolicyKey key = 2;
@@ -3909,24 +3909,24 @@ inline void SLSrPolicyReq::set_allocated_policy(::service_layer::SLSrPolicy* pol
 
 // SLSrPolicy
 
-// uint64 seq_num = 1;
-inline void SLSrPolicy::clear_seq_num() {
-  seq_num_ = uint64_t{0u};
+// uint64 operation_id = 1;
+inline void SLSrPolicy::clear_operation_id() {
+  operation_id_ = uint64_t{0u};
 }
-inline uint64_t SLSrPolicy::_internal_seq_num() const {
-  return seq_num_;
+inline uint64_t SLSrPolicy::_internal_operation_id() const {
+  return operation_id_;
 }
-inline uint64_t SLSrPolicy::seq_num() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicy.seq_num)
-  return _internal_seq_num();
+inline uint64_t SLSrPolicy::operation_id() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicy.operation_id)
+  return _internal_operation_id();
 }
-inline void SLSrPolicy::_internal_set_seq_num(uint64_t value) {
+inline void SLSrPolicy::_internal_set_operation_id(uint64_t value) {
   
-  seq_num_ = value;
+  operation_id_ = value;
 }
-inline void SLSrPolicy::set_seq_num(uint64_t value) {
-  _internal_set_seq_num(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicy.seq_num)
+inline void SLSrPolicy::set_operation_id(uint64_t value) {
+  _internal_set_operation_id(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrPolicy.operation_id)
 }
 
 // .service_layer.SLSrPolicyKey key = 2;

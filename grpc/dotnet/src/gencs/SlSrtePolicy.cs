@@ -28,63 +28,63 @@ namespace ServiceLayer {
             "Y29tbW9uLnByb3RvIoEBCg1TTFNyUG9saWN5TXNnEi0KBG9wZW4YASABKAsy",
             "HS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lPcGVuSAASNQoIcmVxdWVzdHMY",
             "AiABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSZXF1ZXN0c0gAQgoK",
-            "CG1zZ190eXBlIukBCg1TTFNyUG9saWN5UnNwEjkKCXJlc3BvbnNlcxgBIAMo",
+            "CG1zZ190eXBlIu4BCg1TTFNyUG9saWN5UnNwEjkKCXJlc3BvbnNlcxgBIAMo",
             "CzImLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJzcC5Qb2xpY3lSc3ASKQoG",
-            "c3RhdHVzGAIgASgLMhkuc2VydmljZV9sYXllci5TTFNyU3RhdHVzGnIKCVBv",
-            "bGljeVJzcBIPCgdzZXFfbnVtGAEgASgEEikKA2tleRgCIAEoCzIcLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTclBvbGljeUtleRIpCgZzdGF0dXMYAyABKAsyGS5zZXJ2",
-            "aWNlX2xheWVyLlNMU3JTdGF0dXMilQEKDlNMU3JQb2xpY3lPcGVuEhEKCWNs",
-            "aWVudF9pZBgBIAEoCRI/CgRtb2RlGAMgASgOMjEuc2VydmljZV9sYXllci5T",
-            "TFNyUG9saWN5T3Blbi5TTFNyUGVyc2lzdGVuY2VNb2RlIi8KE1NMU3JQZXJz",
-            "aXN0ZW5jZU1vZGUSCgoGREVMRVRFEAASDAoIUFJFU0VSVkUQASJDChJTTFNy",
-            "UG9saWN5UmVxdWVzdHMSLQoHcmVxdWVzdBgBIAMoCzIcLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTclBvbGljeVJlcSKUAQoNU0xTclBvbGljeVJlcRI2CglvcGVyYXRp",
-            "b24YASABKA4yIy5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSZXEuU0xTck9w",
-            "EikKBnBvbGljeRgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeSIg",
-            "CgZTTFNyT3ASCgoGVVBEQVRFEAASCgoGREVMRVRFEAEiEQoPU0xTckVuZE9m",
-            "UmVwbGF5IhMKEVNMU3JTdGFydE9mUmVwbGF5IqsBCgpTTFNyUG9saWN5Eg8K",
-            "B3NlcV9udW0YASABKAQSKQoDa2V5GAIgASgLMhwuc2VydmljZV9sYXllci5T",
-            "TFNyUG9saWN5S2V5EjIKBWF0dHJzGAMgASgLMiMuc2VydmljZV9sYXllci5T",
-            "TFNyUG9saWN5QXR0cmlidXRlcxItCgNDUHMYBCADKAsyIC5zZXJ2aWNlX2xh",
-            "eWVyLlNMU3JDYW5kaWRhdGVQYXRoIuIBChRTTFNyUG9saWN5QXR0cmlidXRl",
-            "cxIYChB0cmFuc2l0X2VsaWdpYmxlGAIgASgIEi8KCWRhdGFwbGFuZRgDIAEo",
-            "DjIcLnNlcnZpY2VfbGF5ZXIuU0xTckRhdGFwbGFuZRI0CgltcGxzX2JzaWQY",
-            "BCABKAsyIS5zZXJ2aWNlX2xheWVyLlNMU3JNUExTQmluZGluZ1NJRBI1Cgpz",
-            "cnY2X2JzaWRzGAUgAygLMiEuc2VydmljZV9sYXllci5TTFNyU3J2NkJpbmRp",
-            "bmdTSUQSEgoKcHJvZmlsZV9pZBgGIAEoDSLlAQoRU0xTckNhbmRpZGF0ZVBh",
-            "dGgSMAoDa2V5GAIgASgLMiMuc2VydmljZV9sYXllci5TTFNyQ2FuZGlkYXRl",
-            "UGF0aEtleRIMCgRuYW1lGAMgASgJEhcKCnByZWZlcmVuY2UYBCABKA1IAYgB",
-            "ARIvCgdkeW5hbWljGAUgASgLMhwuc2VydmljZV9sYXllci5TTFNyRHluYW1p",
-            "Y0NQSAASMQoIZXhwbGljaXQYBiABKAsyHS5zZXJ2aWNlX2xheWVyLlNMU3JF",
-            "eHBsaWNpdENQSABCBAoCQ1BCDQoLX3ByZWZlcmVuY2UiWwoOU0xTckV4cGxp",
-            "Y2l0Q1ASNAoMc2VnbWVudF9saXN0GAEgAygLMh4uc2VydmljZV9sYXllci5T",
-            "TFNyU2VnbWVudExpc3QSEwoLbWV0cmljX3R5cGUYAyABKA0iWQoNU0xTckR5",
-            "bmFtaWNDUBITCgttZXRyaWNfdHlwZRgBIAEoDRIzCgtjb25zdHJhaW50cxgC",
-            "IAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTckNvbnN0cmFpbnRzIrwBCg9TTFNy",
-            "Q29uc3RyYWludHMSMQoKYWZmaW5pdGllcxgBIAEoCzIdLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTckFmZmluaXRpZXMSNwoKcHJvdGVjdGlvbhgCIAEoDjIjLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTcnRlUHJvdGVjdGlvblR5cGUSFQoIc2lkX2FsZ28YAyAB",
-            "KA1IAIgBARIZChFtYXhpbXVtX3NpZF9kZXB0aBgEIAEoDUILCglfc2lkX2Fs",
-            "Z28iWQoSU0xTclNydjZCaW5kaW5nU0lEEjsKB2R5bmFtaWMYAiABKAsyKC5z",
-            "ZXJ2aWNlX2xheWVyLlNMU3JTcnY2RHluYW1pY0JpbmRpbmdTSURIAEIGCgR0",
-            "eXBlIjoKElNMU3JNUExTQmluZGluZ1NJRBIWCgltcGxzX2JzaWQYASABKA1I",
-            "AIgBAUIMCgpfbXBsc19ic2lkIi0KGVNMU3JTcnY2RHluYW1pY0JpbmRpbmdT",
-            "SUQSEAoIYmVoYXZpb3IYASABKA0yXgoMU0xTcnRlUG9saWN5Ek4KDFNMU3JQ",
-            "b2xpY3lPcBIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU1zZxocLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTclBvbGljeVJzcCgBMAFCUVpPZ2l0aHViLmNvbS9DaXNj",
-            "by1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9w",
-            "cm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "c3RhdHVzGAIgASgLMhkuc2VydmljZV9sYXllci5TTFNyU3RhdHVzGncKCVBv",
+            "bGljeVJzcBIUCgxvcGVyYXRpb25faWQYASABKAQSKQoDa2V5GAIgASgLMhwu",
+            "c2VydmljZV9sYXllci5TTFNyUG9saWN5S2V5EikKBnN0YXR1cxgDIAEoCzIZ",
+            "LnNlcnZpY2VfbGF5ZXIuU0xTclN0YXR1cyKVAQoOU0xTclBvbGljeU9wZW4S",
+            "EQoJY2xpZW50X2lkGAEgASgJEj8KBG1vZGUYAyABKA4yMS5zZXJ2aWNlX2xh",
+            "eWVyLlNMU3JQb2xpY3lPcGVuLlNMU3JQZXJzaXN0ZW5jZU1vZGUiLwoTU0xT",
+            "clBlcnNpc3RlbmNlTW9kZRIKCgZERUxFVEUQABIMCghQUkVTRVJWRRABIkMK",
+            "ElNMU3JQb2xpY3lSZXF1ZXN0cxItCgdyZXF1ZXN0GAEgAygLMhwuc2Vydmlj",
+            "ZV9sYXllci5TTFNyUG9saWN5UmVxIpQBCg1TTFNyUG9saWN5UmVxEjYKCW9w",
+            "ZXJhdGlvbhgBIAEoDjIjLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJlcS5T",
+            "TFNyT3ASKQoGcG9saWN5GAIgASgLMhkuc2VydmljZV9sYXllci5TTFNyUG9s",
+            "aWN5IiAKBlNMU3JPcBIKCgZVUERBVEUQABIKCgZERUxFVEUQASIRCg9TTFNy",
+            "RW5kT2ZSZXBsYXkiEwoRU0xTclN0YXJ0T2ZSZXBsYXkisAEKClNMU3JQb2xp",
+            "Y3kSFAoMb3BlcmF0aW9uX2lkGAEgASgEEikKA2tleRgCIAEoCzIcLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTclBvbGljeUtleRIyCgVhdHRycxgDIAEoCzIjLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTclBvbGljeUF0dHJpYnV0ZXMSLQoDQ1BzGAQgAygLMiAu",
+            "c2VydmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aCLiAQoUU0xTclBvbGlj",
+            "eUF0dHJpYnV0ZXMSGAoQdHJhbnNpdF9lbGlnaWJsZRgCIAEoCBIvCglkYXRh",
+            "cGxhbmUYAyABKA4yHC5zZXJ2aWNlX2xheWVyLlNMU3JEYXRhcGxhbmUSNAoJ",
+            "bXBsc19ic2lkGAQgASgLMiEuc2VydmljZV9sYXllci5TTFNyTVBMU0JpbmRp",
+            "bmdTSUQSNQoKc3J2Nl9ic2lkcxgFIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "clNydjZCaW5kaW5nU0lEEhIKCnByb2ZpbGVfaWQYBiABKA0i5QEKEVNMU3JD",
+            "YW5kaWRhdGVQYXRoEjAKA2tleRgCIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "ckNhbmRpZGF0ZVBhdGhLZXkSDAoEbmFtZRgDIAEoCRIXCgpwcmVmZXJlbmNl",
+            "GAQgASgNSAGIAQESLwoHZHluYW1pYxgFIAEoCzIcLnNlcnZpY2VfbGF5ZXIu",
+            "U0xTckR5bmFtaWNDUEgAEjEKCGV4cGxpY2l0GAYgASgLMh0uc2VydmljZV9s",
+            "YXllci5TTFNyRXhwbGljaXRDUEgAQgQKAkNQQg0KC19wcmVmZXJlbmNlIlsK",
+            "DlNMU3JFeHBsaWNpdENQEjQKDHNlZ21lbnRfbGlzdBgBIAMoCzIeLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTclNlZ21lbnRMaXN0EhMKC21ldHJpY190eXBlGAMgASgN",
+            "IlkKDVNMU3JEeW5hbWljQ1ASEwoLbWV0cmljX3R5cGUYASABKA0SMwoLY29u",
+            "c3RyYWludHMYAiABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3JDb25zdHJhaW50",
+            "cyK8AQoPU0xTckNvbnN0cmFpbnRzEjEKCmFmZmluaXRpZXMYASABKAsyHS5z",
+            "ZXJ2aWNlX2xheWVyLlNMU3JBZmZpbml0aWVzEjcKCnByb3RlY3Rpb24YAiAB",
+            "KA4yIy5zZXJ2aWNlX2xheWVyLlNMU3J0ZVByb3RlY3Rpb25UeXBlEhUKCHNp",
+            "ZF9hbGdvGAMgASgNSACIAQESGQoRbWF4aW11bV9zaWRfZGVwdGgYBCABKA1C",
+            "CwoJX3NpZF9hbGdvIlkKElNMU3JTcnY2QmluZGluZ1NJRBI7CgdkeW5hbWlj",
+            "GAIgASgLMiguc2VydmljZV9sYXllci5TTFNyU3J2NkR5bmFtaWNCaW5kaW5n",
+            "U0lESABCBgoEdHlwZSI6ChJTTFNyTVBMU0JpbmRpbmdTSUQSFgoJbXBsc19i",
+            "c2lkGAEgASgNSACIAQFCDAoKX21wbHNfYnNpZCItChlTTFNyU3J2NkR5bmFt",
+            "aWNCaW5kaW5nU0lEEhAKCGJlaGF2aW9yGAEgASgNMl4KDFNMU3J0ZVBvbGlj",
+            "eRJOCgxTTFNyUG9saWN5T3ASHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lN",
+            "c2caHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSc3AoATABQlFaT2dpdGh1",
+            "Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1v",
+            "ZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyMsg), global::ServiceLayer.SLSrPolicyMsg.Parser, new[]{ "Open", "Requests" }, new[]{ "MsgType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Parser, new[]{ "Responses", "Status" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp.Parser, new[]{ "SeqNum", "Key", "Status" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Parser, new[]{ "Responses", "Status" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp), global::ServiceLayer.SLSrPolicyRsp.Types.PolicyRsp.Parser, new[]{ "OperationId", "Key", "Status" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyOpen), global::ServiceLayer.SLSrPolicyOpen.Parser, new[]{ "ClientId", "Mode" }, null, new[]{ typeof(global::ServiceLayer.SLSrPolicyOpen.Types.SLSrPersistenceMode) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyRequests), global::ServiceLayer.SLSrPolicyRequests.Parser, new[]{ "Request" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyReq), global::ServiceLayer.SLSrPolicyReq.Parser, new[]{ "Operation", "Policy" }, null, new[]{ typeof(global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrEndOfReplay), global::ServiceLayer.SLSrEndOfReplay.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrStartOfReplay), global::ServiceLayer.SLSrStartOfReplay.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicy), global::ServiceLayer.SLSrPolicy.Parser, new[]{ "SeqNum", "Key", "Attrs", "CPs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicy), global::ServiceLayer.SLSrPolicy.Parser, new[]{ "OperationId", "Key", "Attrs", "CPs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyAttributes), global::ServiceLayer.SLSrPolicyAttributes.Parser, new[]{ "TransitEligible", "Dataplane", "MplsBsid", "Srv6Bsids", "ProfileId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCandidatePath), global::ServiceLayer.SLSrCandidatePath.Parser, new[]{ "Key", "Name", "Preference", "Dynamic", "Explicit" }, new[]{ "CP", "Preference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList", "MetricType" }, null, null, null, null),
@@ -668,7 +668,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public PolicyRsp(PolicyRsp other) : this() {
-          seqNum_ = other.seqNum_;
+          operationId_ = other.operationId_;
           key_ = other.key_ != null ? other.key_.Clone() : null;
           status_ = other.status_ != null ? other.status_.Clone() : null;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -680,20 +680,19 @@ namespace ServiceLayer {
           return new PolicyRsp(this);
         }
 
-        /// <summary>Field number for the "seq_num" field.</summary>
-        public const int SeqNumFieldNumber = 1;
-        private ulong seqNum_;
+        /// <summary>Field number for the "operation_id" field.</summary>
+        public const int OperationIdFieldNumber = 1;
+        private ulong operationId_;
         /// <summary>
-        /// Sequence number associated with the request for which response is being
-        /// sent by the server. Enables the client to match responses to their
-        /// respective requests.
+        /// Operation ID of the request for which response is being sent by the server.
+        /// Enables the client to match responses to their corresponding requests.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public ulong SeqNum {
-          get { return seqNum_; }
+        public ulong OperationId {
+          get { return operationId_; }
           set {
-            seqNum_ = value;
+            operationId_ = value;
           }
         }
 
@@ -742,7 +741,7 @@ namespace ServiceLayer {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if (SeqNum != other.SeqNum) return false;
+          if (OperationId != other.OperationId) return false;
           if (!object.Equals(Key, other.Key)) return false;
           if (!object.Equals(Status, other.Status)) return false;
           return Equals(_unknownFields, other._unknownFields);
@@ -752,7 +751,7 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
-          if (SeqNum != 0UL) hash ^= SeqNum.GetHashCode();
+          if (OperationId != 0UL) hash ^= OperationId.GetHashCode();
           if (key_ != null) hash ^= Key.GetHashCode();
           if (status_ != null) hash ^= Status.GetHashCode();
           if (_unknownFields != null) {
@@ -773,9 +772,9 @@ namespace ServiceLayer {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
-          if (SeqNum != 0UL) {
+          if (OperationId != 0UL) {
             output.WriteRawTag(8);
-            output.WriteUInt64(SeqNum);
+            output.WriteUInt64(OperationId);
           }
           if (key_ != null) {
             output.WriteRawTag(18);
@@ -795,9 +794,9 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (SeqNum != 0UL) {
+          if (OperationId != 0UL) {
             output.WriteRawTag(8);
-            output.WriteUInt64(SeqNum);
+            output.WriteUInt64(OperationId);
           }
           if (key_ != null) {
             output.WriteRawTag(18);
@@ -817,8 +816,8 @@ namespace ServiceLayer {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
-          if (SeqNum != 0UL) {
-            size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SeqNum);
+          if (OperationId != 0UL) {
+            size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationId);
           }
           if (key_ != null) {
             size += 1 + pb::CodedOutputStream.ComputeMessageSize(Key);
@@ -838,8 +837,8 @@ namespace ServiceLayer {
           if (other == null) {
             return;
           }
-          if (other.SeqNum != 0UL) {
-            SeqNum = other.SeqNum;
+          if (other.OperationId != 0UL) {
+            OperationId = other.OperationId;
           }
           if (other.key_ != null) {
             if (key_ == null) {
@@ -869,7 +868,7 @@ namespace ServiceLayer {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
               case 8: {
-                SeqNum = input.ReadUInt64();
+                OperationId = input.ReadUInt64();
                 break;
               }
               case 18: {
@@ -902,7 +901,7 @@ namespace ServiceLayer {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
               case 8: {
-                SeqNum = input.ReadUInt64();
+                OperationId = input.ReadUInt64();
                 break;
               }
               case 18: {
@@ -1465,7 +1464,7 @@ namespace ServiceLayer {
     public const int PolicyFieldNumber = 2;
     private global::ServiceLayer.SLSrPolicy policy_;
     /// <summary>
-    /// Each policy request is uniquely identified by a sequence ID and a policy key,
+    /// Each policy request is uniquely identified by a operation ID and a policy key,
     /// both of which are reflected by the router in the response.
     /// Each policy request encompasses all candidate-paths and policy attributes.
     /// Candidate-paths not included in the update request will be removed.
@@ -2043,7 +2042,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrPolicy(SLSrPolicy other) : this() {
-      seqNum_ = other.seqNum_;
+      operationId_ = other.operationId_;
       key_ = other.key_ != null ? other.key_.Clone() : null;
       attrs_ = other.attrs_ != null ? other.attrs_.Clone() : null;
       cPs_ = other.cPs_.Clone();
@@ -2056,22 +2055,21 @@ namespace ServiceLayer {
       return new SLSrPolicy(this);
     }
 
-    /// <summary>Field number for the "seq_num" field.</summary>
-    public const int SeqNumFieldNumber = 1;
-    private ulong seqNum_;
+    /// <summary>Field number for the "operation_id" field.</summary>
+    public const int OperationIdFieldNumber = 1;
+    private ulong operationId_;
     /// <summary>
-    /// The sequence number is incremented by the controller and should be scoped per
-    /// policy, meaning there is an independent sequence number for each policy. Server
-    /// includes the sequence number of the request it is responding to in its reply. The
-    /// server is not enforcing/validating or re-ordering requests based on sequence
-    /// number specified.
+    /// The operation ID serves the purpose of allowing the controller to identify
+    /// which request the headend is responding to when multiple requests for the same
+    /// policy are sent.
+    /// Operation Id should be monotonically increasing for the life of the client.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong SeqNum {
-      get { return seqNum_; }
+    public ulong OperationId {
+      get { return operationId_; }
       set {
-        seqNum_ = value;
+        operationId_ = value;
       }
     }
 
@@ -2134,7 +2132,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (SeqNum != other.SeqNum) return false;
+      if (OperationId != other.OperationId) return false;
       if (!object.Equals(Key, other.Key)) return false;
       if (!object.Equals(Attrs, other.Attrs)) return false;
       if(!cPs_.Equals(other.cPs_)) return false;
@@ -2145,7 +2143,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (SeqNum != 0UL) hash ^= SeqNum.GetHashCode();
+      if (OperationId != 0UL) hash ^= OperationId.GetHashCode();
       if (key_ != null) hash ^= Key.GetHashCode();
       if (attrs_ != null) hash ^= Attrs.GetHashCode();
       hash ^= cPs_.GetHashCode();
@@ -2167,9 +2165,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (SeqNum != 0UL) {
+      if (OperationId != 0UL) {
         output.WriteRawTag(8);
-        output.WriteUInt64(SeqNum);
+        output.WriteUInt64(OperationId);
       }
       if (key_ != null) {
         output.WriteRawTag(18);
@@ -2190,9 +2188,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (SeqNum != 0UL) {
+      if (OperationId != 0UL) {
         output.WriteRawTag(8);
-        output.WriteUInt64(SeqNum);
+        output.WriteUInt64(OperationId);
       }
       if (key_ != null) {
         output.WriteRawTag(18);
@@ -2213,8 +2211,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (SeqNum != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SeqNum);
+      if (OperationId != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationId);
       }
       if (key_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Key);
@@ -2235,8 +2233,8 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.SeqNum != 0UL) {
-        SeqNum = other.SeqNum;
+      if (other.OperationId != 0UL) {
+        OperationId = other.OperationId;
       }
       if (other.key_ != null) {
         if (key_ == null) {
@@ -2267,7 +2265,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            SeqNum = input.ReadUInt64();
+            OperationId = input.ReadUInt64();
             break;
           }
           case 18: {
@@ -2304,7 +2302,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            SeqNum = input.ReadUInt64();
+            OperationId = input.ReadUInt64();
             break;
           }
           case 18: {

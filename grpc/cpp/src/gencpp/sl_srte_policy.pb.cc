@@ -33,7 +33,7 @@ constexpr SLSrPolicyRsp_PolicyRsp::SLSrPolicyRsp_PolicyRsp(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : key_(nullptr)
   , status_(nullptr)
-  , seq_num_(uint64_t{0u}){}
+  , operation_id_(uint64_t{0u}){}
 struct SLSrPolicyRsp_PolicyRspDefaultTypeInternal {
   constexpr SLSrPolicyRsp_PolicyRspDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -123,7 +123,7 @@ constexpr SLSrPolicy::SLSrPolicy(
   : cps_()
   , key_(nullptr)
   , attrs_(nullptr)
-  , seq_num_(uint64_t{0u}){}
+  , operation_id_(uint64_t{0u}){}
 struct SLSrPolicyDefaultTypeInternal {
   constexpr SLSrPolicyDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -264,7 +264,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRsp_PolicyRsp, seq_num_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRsp_PolicyRsp, operation_id_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRsp_PolicyRsp, key_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyRsp_PolicyRsp, status_),
   ~0u,  // no _has_bits_
@@ -316,7 +316,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, seq_num_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, operation_id_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, key_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, attrs_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicy, cps_),
@@ -447,65 +447,66 @@ const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTI
   "l_sr_common.proto\"\201\001\n\rSLSrPolicyMsg\022-\n\004o"
   "pen\030\001 \001(\0132\035.service_layer.SLSrPolicyOpen"
   "H\000\0225\n\010requests\030\002 \001(\0132!.service_layer.SLS"
-  "rPolicyRequestsH\000B\n\n\010msg_type\"\351\001\n\rSLSrPo"
+  "rPolicyRequestsH\000B\n\n\010msg_type\"\356\001\n\rSLSrPo"
   "licyRsp\0229\n\tresponses\030\001 \003(\0132&.service_lay"
   "er.SLSrPolicyRsp.PolicyRsp\022)\n\006status\030\002 \001"
-  "(\0132\031.service_layer.SLSrStatus\032r\n\tPolicyR"
-  "sp\022\017\n\007seq_num\030\001 \001(\004\022)\n\003key\030\002 \001(\0132\034.servi"
-  "ce_layer.SLSrPolicyKey\022)\n\006status\030\003 \001(\0132\031"
-  ".service_layer.SLSrStatus\"\225\001\n\016SLSrPolicy"
-  "Open\022\021\n\tclient_id\030\001 \001(\t\022\?\n\004mode\030\003 \001(\01621."
-  "service_layer.SLSrPolicyOpen.SLSrPersist"
-  "enceMode\"/\n\023SLSrPersistenceMode\022\n\n\006DELET"
-  "E\020\000\022\014\n\010PRESERVE\020\001\"C\n\022SLSrPolicyRequests\022"
-  "-\n\007request\030\001 \003(\0132\034.service_layer.SLSrPol"
-  "icyReq\"\224\001\n\rSLSrPolicyReq\0226\n\toperation\030\001 "
-  "\001(\0162#.service_layer.SLSrPolicyReq.SLSrOp"
-  "\022)\n\006policy\030\002 \001(\0132\031.service_layer.SLSrPol"
-  "icy\" \n\006SLSrOp\022\n\n\006UPDATE\020\000\022\n\n\006DELETE\020\001\"\021\n"
-  "\017SLSrEndOfReplay\"\023\n\021SLSrStartOfReplay\"\253\001"
-  "\n\nSLSrPolicy\022\017\n\007seq_num\030\001 \001(\004\022)\n\003key\030\002 \001"
-  "(\0132\034.service_layer.SLSrPolicyKey\0222\n\005attr"
-  "s\030\003 \001(\0132#.service_layer.SLSrPolicyAttrib"
-  "utes\022-\n\003CPs\030\004 \003(\0132 .service_layer.SLSrCa"
-  "ndidatePath\"\342\001\n\024SLSrPolicyAttributes\022\030\n\020"
-  "transit_eligible\030\002 \001(\010\022/\n\tdataplane\030\003 \001("
-  "\0162\034.service_layer.SLSrDataplane\0224\n\tmpls_"
-  "bsid\030\004 \001(\0132!.service_layer.SLSrMPLSBindi"
-  "ngSID\0225\n\nsrv6_bsids\030\005 \003(\0132!.service_laye"
-  "r.SLSrSrv6BindingSID\022\022\n\nprofile_id\030\006 \001(\r"
-  "\"\345\001\n\021SLSrCandidatePath\0220\n\003key\030\002 \001(\0132#.se"
-  "rvice_layer.SLSrCandidatePathKey\022\014\n\004name"
-  "\030\003 \001(\t\022\027\n\npreference\030\004 \001(\rH\001\210\001\001\022/\n\007dynam"
-  "ic\030\005 \001(\0132\034.service_layer.SLSrDynamicCPH\000"
-  "\0221\n\010explicit\030\006 \001(\0132\035.service_layer.SLSrE"
-  "xplicitCPH\000B\004\n\002CPB\r\n\013_preference\"[\n\016SLSr"
-  "ExplicitCP\0224\n\014segment_list\030\001 \003(\0132\036.servi"
-  "ce_layer.SLSrSegmentList\022\023\n\013metric_type\030"
-  "\003 \001(\r\"Y\n\rSLSrDynamicCP\022\023\n\013metric_type\030\001 "
-  "\001(\r\0223\n\013constraints\030\002 \001(\0132\036.service_layer"
-  ".SLSrConstraints\"\274\001\n\017SLSrConstraints\0221\n\n"
-  "affinities\030\001 \001(\0132\035.service_layer.SLSrAff"
-  "inities\0227\n\nprotection\030\002 \001(\0162#.service_la"
-  "yer.SLSrteProtectionType\022\025\n\010sid_algo\030\003 \001"
-  "(\rH\000\210\001\001\022\031\n\021maximum_sid_depth\030\004 \001(\rB\013\n\t_s"
-  "id_algo\"Y\n\022SLSrSrv6BindingSID\022;\n\007dynamic"
-  "\030\002 \001(\0132(.service_layer.SLSrSrv6DynamicBi"
-  "ndingSIDH\000B\006\n\004type\":\n\022SLSrMPLSBindingSID"
-  "\022\026\n\tmpls_bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_mpls_bsid\"-"
-  "\n\031SLSrSrv6DynamicBindingSID\022\020\n\010behavior\030"
-  "\001 \001(\r2^\n\014SLSrtePolicy\022N\n\014SLSrPolicyOp\022\034."
-  "service_layer.SLSrPolicyMsg\032\034.service_la"
-  "yer.SLSrPolicyRsp(\0010\001BQZOgithub.com/Cisc"
-  "o-service-layer/service-layer-objmodel/g"
-  "rpc/protos;service_layerb\006proto3"
+  "(\0132\031.service_layer.SLSrStatus\032w\n\tPolicyR"
+  "sp\022\024\n\014operation_id\030\001 \001(\004\022)\n\003key\030\002 \001(\0132\034."
+  "service_layer.SLSrPolicyKey\022)\n\006status\030\003 "
+  "\001(\0132\031.service_layer.SLSrStatus\"\225\001\n\016SLSrP"
+  "olicyOpen\022\021\n\tclient_id\030\001 \001(\t\022\?\n\004mode\030\003 \001"
+  "(\01621.service_layer.SLSrPolicyOpen.SLSrPe"
+  "rsistenceMode\"/\n\023SLSrPersistenceMode\022\n\n\006"
+  "DELETE\020\000\022\014\n\010PRESERVE\020\001\"C\n\022SLSrPolicyRequ"
+  "ests\022-\n\007request\030\001 \003(\0132\034.service_layer.SL"
+  "SrPolicyReq\"\224\001\n\rSLSrPolicyReq\0226\n\toperati"
+  "on\030\001 \001(\0162#.service_layer.SLSrPolicyReq.S"
+  "LSrOp\022)\n\006policy\030\002 \001(\0132\031.service_layer.SL"
+  "SrPolicy\" \n\006SLSrOp\022\n\n\006UPDATE\020\000\022\n\n\006DELETE"
+  "\020\001\"\021\n\017SLSrEndOfReplay\"\023\n\021SLSrStartOfRepl"
+  "ay\"\260\001\n\nSLSrPolicy\022\024\n\014operation_id\030\001 \001(\004\022"
+  ")\n\003key\030\002 \001(\0132\034.service_layer.SLSrPolicyK"
+  "ey\0222\n\005attrs\030\003 \001(\0132#.service_layer.SLSrPo"
+  "licyAttributes\022-\n\003CPs\030\004 \003(\0132 .service_la"
+  "yer.SLSrCandidatePath\"\342\001\n\024SLSrPolicyAttr"
+  "ibutes\022\030\n\020transit_eligible\030\002 \001(\010\022/\n\tdata"
+  "plane\030\003 \001(\0162\034.service_layer.SLSrDataplan"
+  "e\0224\n\tmpls_bsid\030\004 \001(\0132!.service_layer.SLS"
+  "rMPLSBindingSID\0225\n\nsrv6_bsids\030\005 \003(\0132!.se"
+  "rvice_layer.SLSrSrv6BindingSID\022\022\n\nprofil"
+  "e_id\030\006 \001(\r\"\345\001\n\021SLSrCandidatePath\0220\n\003key\030"
+  "\002 \001(\0132#.service_layer.SLSrCandidatePathK"
+  "ey\022\014\n\004name\030\003 \001(\t\022\027\n\npreference\030\004 \001(\rH\001\210\001"
+  "\001\022/\n\007dynamic\030\005 \001(\0132\034.service_layer.SLSrD"
+  "ynamicCPH\000\0221\n\010explicit\030\006 \001(\0132\035.service_l"
+  "ayer.SLSrExplicitCPH\000B\004\n\002CPB\r\n\013_preferen"
+  "ce\"[\n\016SLSrExplicitCP\0224\n\014segment_list\030\001 \003"
+  "(\0132\036.service_layer.SLSrSegmentList\022\023\n\013me"
+  "tric_type\030\003 \001(\r\"Y\n\rSLSrDynamicCP\022\023\n\013metr"
+  "ic_type\030\001 \001(\r\0223\n\013constraints\030\002 \001(\0132\036.ser"
+  "vice_layer.SLSrConstraints\"\274\001\n\017SLSrConst"
+  "raints\0221\n\naffinities\030\001 \001(\0132\035.service_lay"
+  "er.SLSrAffinities\0227\n\nprotection\030\002 \001(\0162#."
+  "service_layer.SLSrteProtectionType\022\025\n\010si"
+  "d_algo\030\003 \001(\rH\000\210\001\001\022\031\n\021maximum_sid_depth\030\004"
+  " \001(\rB\013\n\t_sid_algo\"Y\n\022SLSrSrv6BindingSID\022"
+  ";\n\007dynamic\030\002 \001(\0132(.service_layer.SLSrSrv"
+  "6DynamicBindingSIDH\000B\006\n\004type\":\n\022SLSrMPLS"
+  "BindingSID\022\026\n\tmpls_bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_m"
+  "pls_bsid\"-\n\031SLSrSrv6DynamicBindingSID\022\020\n"
+  "\010behavior\030\001 \001(\r2^\n\014SLSrtePolicy\022N\n\014SLSrP"
+  "olicyOp\022\034.service_layer.SLSrPolicyMsg\032\034."
+  "service_layer.SLSrPolicyRsp(\0010\001BQZOgithu"
+  "b.com/Cisco-service-layer/service-layer-"
+  "objmodel/grpc/protos;service_layerb\006prot"
+  "o3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps[1] = {
   &::descriptor_table_sl_5fsr_5fcommon_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpolicy_2eproto = {
-  false, false, 2232, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
+  false, false, 2242, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
   &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 1, 17,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto, file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto,
@@ -910,15 +911,15 @@ SLSrPolicyRsp_PolicyRsp::SLSrPolicyRsp_PolicyRsp(const SLSrPolicyRsp_PolicyRsp& 
   } else {
     status_ = nullptr;
   }
-  seq_num_ = from.seq_num_;
+  operation_id_ = from.operation_id_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrPolicyRsp.PolicyRsp)
 }
 
 inline void SLSrPolicyRsp_PolicyRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&key_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&seq_num_) -
-    reinterpret_cast<char*>(&key_)) + sizeof(seq_num_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&operation_id_) -
+    reinterpret_cast<char*>(&key_)) + sizeof(operation_id_));
 }
 
 SLSrPolicyRsp_PolicyRsp::~SLSrPolicyRsp_PolicyRsp() {
@@ -958,7 +959,7 @@ void SLSrPolicyRsp_PolicyRsp::Clear() {
     delete status_;
   }
   status_ = nullptr;
-  seq_num_ = uint64_t{0u};
+  operation_id_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -968,10 +969,10 @@ const char* SLSrPolicyRsp_PolicyRsp::_InternalParse(const char* ptr, ::PROTOBUF_
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint64 seq_num = 1;
+      // uint64 operation_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          seq_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          operation_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1021,10 +1022,10 @@ uint8_t* SLSrPolicyRsp_PolicyRsp::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 seq_num = 1;
-  if (this->_internal_seq_num() != 0) {
+  // uint64 operation_id = 1;
+  if (this->_internal_operation_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_seq_num(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_operation_id(), target);
   }
 
   // .service_layer.SLSrPolicyKey key = 2;
@@ -1073,9 +1074,9 @@ size_t SLSrPolicyRsp_PolicyRsp::ByteSizeLong() const {
         *status_);
   }
 
-  // uint64 seq_num = 1;
-  if (this->_internal_seq_num() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_seq_num());
+  // uint64 operation_id = 1;
+  if (this->_internal_operation_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_operation_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1106,8 +1107,8 @@ void SLSrPolicyRsp_PolicyRsp::MergeFrom(const SLSrPolicyRsp_PolicyRsp& from) {
   if (from._internal_has_status()) {
     _internal_mutable_status()->::service_layer::SLSrStatus::MergeFrom(from._internal_status());
   }
-  if (from._internal_seq_num() != 0) {
-    _internal_set_seq_num(from._internal_seq_num());
+  if (from._internal_operation_id() != 0) {
+    _internal_set_operation_id(from._internal_operation_id());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1127,8 +1128,8 @@ void SLSrPolicyRsp_PolicyRsp::InternalSwap(SLSrPolicyRsp_PolicyRsp* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrPolicyRsp_PolicyRsp, seq_num_)
-      + sizeof(SLSrPolicyRsp_PolicyRsp::seq_num_)
+      PROTOBUF_FIELD_OFFSET(SLSrPolicyRsp_PolicyRsp, operation_id_)
+      + sizeof(SLSrPolicyRsp_PolicyRsp::operation_id_)
       - PROTOBUF_FIELD_OFFSET(SLSrPolicyRsp_PolicyRsp, key_)>(
           reinterpret_cast<char*>(&key_),
           reinterpret_cast<char*>(&other->key_));
@@ -2145,15 +2146,15 @@ SLSrPolicy::SLSrPolicy(const SLSrPolicy& from)
   } else {
     attrs_ = nullptr;
   }
-  seq_num_ = from.seq_num_;
+  operation_id_ = from.operation_id_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrPolicy)
 }
 
 inline void SLSrPolicy::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&key_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&seq_num_) -
-    reinterpret_cast<char*>(&key_)) + sizeof(seq_num_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&operation_id_) -
+    reinterpret_cast<char*>(&key_)) + sizeof(operation_id_));
 }
 
 SLSrPolicy::~SLSrPolicy() {
@@ -2194,7 +2195,7 @@ void SLSrPolicy::Clear() {
     delete attrs_;
   }
   attrs_ = nullptr;
-  seq_num_ = uint64_t{0u};
+  operation_id_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2204,10 +2205,10 @@ const char* SLSrPolicy::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint64 seq_num = 1;
+      // uint64 operation_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          seq_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          operation_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2270,10 +2271,10 @@ uint8_t* SLSrPolicy::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 seq_num = 1;
-  if (this->_internal_seq_num() != 0) {
+  // uint64 operation_id = 1;
+  if (this->_internal_operation_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_seq_num(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_operation_id(), target);
   }
 
   // .service_layer.SLSrPolicyKey key = 2;
@@ -2337,9 +2338,9 @@ size_t SLSrPolicy::ByteSizeLong() const {
         *attrs_);
   }
 
-  // uint64 seq_num = 1;
-  if (this->_internal_seq_num() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_seq_num());
+  // uint64 operation_id = 1;
+  if (this->_internal_operation_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_operation_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2371,8 +2372,8 @@ void SLSrPolicy::MergeFrom(const SLSrPolicy& from) {
   if (from._internal_has_attrs()) {
     _internal_mutable_attrs()->::service_layer::SLSrPolicyAttributes::MergeFrom(from._internal_attrs());
   }
-  if (from._internal_seq_num() != 0) {
-    _internal_set_seq_num(from._internal_seq_num());
+  if (from._internal_operation_id() != 0) {
+    _internal_set_operation_id(from._internal_operation_id());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2393,8 +2394,8 @@ void SLSrPolicy::InternalSwap(SLSrPolicy* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   cps_.InternalSwap(&other->cps_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLSrPolicy, seq_num_)
-      + sizeof(SLSrPolicy::seq_num_)
+      PROTOBUF_FIELD_OFFSET(SLSrPolicy, operation_id_)
+      + sizeof(SLSrPolicy::operation_id_)
       - PROTOBUF_FIELD_OFFSET(SLSrPolicy, key_)>(
           reinterpret_cast<char*>(&key_),
           reinterpret_cast<char*>(&other->key_));
