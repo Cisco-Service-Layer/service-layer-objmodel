@@ -308,16 +308,16 @@ inline bool SLSrDataplane_Parse(
     SLSrDataplane_descriptor(), name, value);
 }
 enum SLSrteProtectionType : int {
-  SL_SR_PROTECTED_PREFERRED = 0,
-  SL_SR_PROTECTED_ONLY = 1,
-  SL_SR_UNPROTECTED_PREFERRED = 2,
-  SL_SR_UNPROTECTED_ONLY = 3,
+  SL_SR_SEGMENT_PROTECTED_PREFERRED = 0,
+  SL_SR_SEGMENT_PROTECTED_ONLY = 1,
+  SL_SR_SEGMENT_UNPROTECTED_PREFERRED = 2,
+  SL_SR_SEGMENT_UNPROTECTED_ONLY = 3,
   SLSrteProtectionType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrteProtectionType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrteProtectionType_IsValid(int value);
-constexpr SLSrteProtectionType SLSrteProtectionType_MIN = SL_SR_PROTECTED_PREFERRED;
-constexpr SLSrteProtectionType SLSrteProtectionType_MAX = SL_SR_UNPROTECTED_ONLY;
+constexpr SLSrteProtectionType SLSrteProtectionType_MIN = SL_SR_SEGMENT_PROTECTED_PREFERRED;
+constexpr SLSrteProtectionType SLSrteProtectionType_MAX = SL_SR_SEGMENT_UNPROTECTED_ONLY;
 constexpr int SLSrteProtectionType_ARRAYSIZE = SLSrteProtectionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrteProtectionType_descriptor();

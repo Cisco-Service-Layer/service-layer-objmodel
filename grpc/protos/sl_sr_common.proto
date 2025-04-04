@@ -395,6 +395,8 @@ message SLSrPolicyKey {
     uint32 color = 2;
 
     // IPv4 or IPv6 address of the policy endpoint.
+    // Null endpoint is a valid input.
+    // The null endpoint is 0.0.0.0 for IPv4 and :: for IPv6 (all bits set to the 0 value).
     SLIpAddress endpoint = 3;
 }
 
@@ -420,13 +422,14 @@ message SLSrCandidatePathKey {
     uint32 discriminator = 3;
 }
 
-// Extended Administrative Group.
+// SR Affinity constraints
 // Bit mask of administrative groups assigned by the
 // network administrator. Each set bit corresponds to one
 // administrative group assigned to the interface. By convention, the
 // least significant bit is referred to as group 0, and the
 // most significant bit is referred to as group 31. Each EAG bitmask
 // is represented in multiple of 4 bytes.
+// https://www.ietf.org/archive/id/draft-ietf-idr-bgp-ls-sr-policy-17.html#name-sr-affinity-constraint-sub-
 message SLSrAffinities {
     // Affinity include any.
     //
@@ -448,17 +451,17 @@ message SLSrAffinities {
 }
 
 enum SLSrteProtectionType {
-     // Protected segments are preferred over unprotected ones.
-     SL_SR_PROTECTED_PREFERRED = 0;
+    // Protected segments are preferred over unprotected ones.
+    SL_SR_SEGMENT_PROTECTED_PREFERRED = 0;
 
-     // Segment list is made only of protected (i.e., FRR-protected) segments
-     SL_SR_PROTECTED_ONLY = 1;
+    // Segment list is made only of protected (i.e., FRR-protected) segments
+    SL_SR_SEGMENT_PROTECTED_ONLY = 1;
 
-     // Unprotected segments are preferred over protected ones.
-     SL_SR_UNPROTECTED_PREFERRED = 2;
+    // Unprotected segments are preferred over protected ones.
+    SL_SR_SEGMENT_UNPROTECTED_PREFERRED = 2;
 
     // Segment list is made only of unprotected (i.e., non FRR-protected) segments
-    SL_SR_UNPROTECTED_ONLY = 3;
+    SL_SR_SEGMENT_UNPROTECTED_ONLY = 3;
 }
 
 // SRv6 Segment Identifier(SID) Address as defined in [RFC8986].
@@ -469,6 +472,7 @@ message SLSRv6SIDInfo {
      // Endpoint behavior associated with the SID.
      uint32 behavior = 2;
      // SID Structure of the specifed SID address.
+     // https://datatracker.ietf.org/doc/html/rfc9352#name-srv6-sid-structure-sub-sub-
      SLSrv6SidStruct structure = 3;
 }
 
@@ -487,6 +491,7 @@ message SLSrteSegment {
         SLSRv6SIDInfo srv6_sid = 1;
     }
 
+    // RFC9256 specifies more segment-types, following are currently supported types.
     oneof segment {
         TypeA type_a = 1;   // A segment descriptor of type A.
         TypeB type_b = 2;   // A segment descriptor of type B.

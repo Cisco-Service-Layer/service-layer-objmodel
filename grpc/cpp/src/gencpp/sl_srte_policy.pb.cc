@@ -233,7 +233,7 @@ struct SLSrMPLSBindingSIDDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrMPLSBindingSIDDefaultTypeInternal _SLSrMPLSBindingSID_default_instance_;
 constexpr SLSrSrv6DynamicBindingSID::SLSrSrv6DynamicBindingSID(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : behavior_(0u){}
+  : srv6_endpoint_behavior_(0u){}
 struct SLSrSrv6DynamicBindingSIDDefaultTypeInternal {
   constexpr SLSrSrv6DynamicBindingSIDDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -400,7 +400,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6DynamicBindingSID, behavior_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6DynamicBindingSID, srv6_endpoint_behavior_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::service_layer::SLSrPolicyMsg)},
@@ -493,20 +493,20 @@ const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTI
   ";\n\007dynamic\030\002 \001(\0132(.service_layer.SLSrSrv"
   "6DynamicBindingSIDH\000B\006\n\004type\":\n\022SLSrMPLS"
   "BindingSID\022\026\n\tmpls_bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_m"
-  "pls_bsid\"-\n\031SLSrSrv6DynamicBindingSID\022\020\n"
-  "\010behavior\030\001 \001(\r2^\n\014SLSrtePolicy\022N\n\014SLSrP"
-  "olicyOp\022\034.service_layer.SLSrPolicyMsg\032\034."
-  "service_layer.SLSrPolicyRsp(\0010\001BQZOgithu"
-  "b.com/Cisco-service-layer/service-layer-"
-  "objmodel/grpc/protos;service_layerb\006prot"
-  "o3"
+  "pls_bsid\";\n\031SLSrSrv6DynamicBindingSID\022\036\n"
+  "\026srv6_endpoint_behavior\030\001 \001(\r2^\n\014SLSrteP"
+  "olicy\022N\n\014SLSrPolicyOp\022\034.service_layer.SL"
+  "SrPolicyMsg\032\034.service_layer.SLSrPolicyRs"
+  "p(\0010\001BQZOgithub.com/Cisco-service-layer/"
+  "service-layer-objmodel/grpc/protos;servi"
+  "ce_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps[1] = {
   &::descriptor_table_sl_5fsr_5fcommon_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpolicy_2eproto = {
-  false, false, 2242, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
+  false, false, 2256, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
   &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 1, 17,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto, file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto,
@@ -4347,12 +4347,12 @@ SLSrSrv6DynamicBindingSID::SLSrSrv6DynamicBindingSID(::PROTOBUF_NAMESPACE_ID::Ar
 SLSrSrv6DynamicBindingSID::SLSrSrv6DynamicBindingSID(const SLSrSrv6DynamicBindingSID& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  behavior_ = from.behavior_;
+  srv6_endpoint_behavior_ = from.srv6_endpoint_behavior_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLSrSrv6DynamicBindingSID)
 }
 
 inline void SLSrSrv6DynamicBindingSID::SharedCtor() {
-behavior_ = 0u;
+srv6_endpoint_behavior_ = 0u;
 }
 
 SLSrSrv6DynamicBindingSID::~SLSrSrv6DynamicBindingSID() {
@@ -4382,7 +4382,7 @@ void SLSrSrv6DynamicBindingSID::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  behavior_ = 0u;
+  srv6_endpoint_behavior_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4392,10 +4392,10 @@ const char* SLSrSrv6DynamicBindingSID::_InternalParse(const char* ptr, ::PROTOBU
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 behavior = 1;
+      // uint32 srv6_endpoint_behavior = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          behavior_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          srv6_endpoint_behavior_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4429,10 +4429,10 @@ uint8_t* SLSrSrv6DynamicBindingSID::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 behavior = 1;
-  if (this->_internal_behavior() != 0) {
+  // uint32 srv6_endpoint_behavior = 1;
+  if (this->_internal_srv6_endpoint_behavior() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_behavior(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_srv6_endpoint_behavior(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4451,9 +4451,9 @@ size_t SLSrSrv6DynamicBindingSID::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 behavior = 1;
-  if (this->_internal_behavior() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_behavior());
+  // uint32 srv6_endpoint_behavior = 1;
+  if (this->_internal_srv6_endpoint_behavior() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_srv6_endpoint_behavior());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -4478,8 +4478,8 @@ void SLSrSrv6DynamicBindingSID::MergeFrom(const SLSrSrv6DynamicBindingSID& from)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_behavior() != 0) {
-    _internal_set_behavior(from._internal_behavior());
+  if (from._internal_srv6_endpoint_behavior() != 0) {
+    _internal_set_srv6_endpoint_behavior(from._internal_srv6_endpoint_behavior());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4498,7 +4498,7 @@ bool SLSrSrv6DynamicBindingSID::IsInitialized() const {
 void SLSrSrv6DynamicBindingSID::InternalSwap(SLSrSrv6DynamicBindingSID* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(behavior_, other->behavior_);
+  swap(srv6_endpoint_behavior_, other->srv6_endpoint_behavior_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrSrv6DynamicBindingSID::GetMetadata() const {

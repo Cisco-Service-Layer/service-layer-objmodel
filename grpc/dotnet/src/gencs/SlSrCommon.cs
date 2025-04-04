@@ -104,12 +104,12 @@ namespace ServiceLayer {
             "ARIeChlTTF9TUlY2X0JTSURfRkxBR19EWU5BTUlDEIBAKmQKDVNMU3JEYXRh",
             "cGxhbmUSHwobU0xfU1JfREFUQVBMQU5FX1VOU1BFQ0lGSUVEEAASGAoUU0xf",
             "U1JfREFUQVBMQU5FX01QTFMQARIYChRTTF9TUl9EQVRBUExBTkVfU1JWNhAC",
-            "KowBChRTTFNydGVQcm90ZWN0aW9uVHlwZRIdChlTTF9TUl9QUk9URUNURURf",
-            "UFJFRkVSUkVEEAASGAoUU0xfU1JfUFJPVEVDVEVEX09OTFkQARIfChtTTF9T",
-            "Ul9VTlBST1RFQ1RFRF9QUkVGRVJSRUQQAhIaChZTTF9TUl9VTlBST1RFQ1RF",
-            "RF9PTkxZEANCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3Nl",
-            "cnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXll",
-            "cmIGcHJvdG8z"));
+            "KqwBChRTTFNydGVQcm90ZWN0aW9uVHlwZRIlCiFTTF9TUl9TRUdNRU5UX1BS",
+            "T1RFQ1RFRF9QUkVGRVJSRUQQABIgChxTTF9TUl9TRUdNRU5UX1BST1RFQ1RF",
+            "RF9PTkxZEAESJwojU0xfU1JfU0VHTUVOVF9VTlBST1RFQ1RFRF9QUkVGRVJS",
+            "RUQQAhIiCh5TTF9TUl9TRUdNRU5UX1VOUFJPVEVDVEVEX09OTFkQA0JRWk9n",
+            "aXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1v",
+            "Ymptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLSrPolicyFlagsDef), typeof(global::ServiceLayer.SLSrSegmentType), typeof(global::ServiceLayer.SLSrSegmentFlags), typeof(global::ServiceLayer.SLSrv6BindingSidFlags), typeof(global::ServiceLayer.SLSrDataplane), typeof(global::ServiceLayer.SLSrteProtectionType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -323,19 +323,19 @@ namespace ServiceLayer {
     /// <summary>
     /// Protected segments are preferred over unprotected ones.
     /// </summary>
-    [pbr::OriginalName("SL_SR_PROTECTED_PREFERRED")] SlSrProtectedPreferred = 0,
+    [pbr::OriginalName("SL_SR_SEGMENT_PROTECTED_PREFERRED")] SlSrSegmentProtectedPreferred = 0,
     /// <summary>
     /// Segment list is made only of protected (i.e., FRR-protected) segments
     /// </summary>
-    [pbr::OriginalName("SL_SR_PROTECTED_ONLY")] SlSrProtectedOnly = 1,
+    [pbr::OriginalName("SL_SR_SEGMENT_PROTECTED_ONLY")] SlSrSegmentProtectedOnly = 1,
     /// <summary>
     /// Unprotected segments are preferred over protected ones.
     /// </summary>
-    [pbr::OriginalName("SL_SR_UNPROTECTED_PREFERRED")] SlSrUnprotectedPreferred = 2,
+    [pbr::OriginalName("SL_SR_SEGMENT_UNPROTECTED_PREFERRED")] SlSrSegmentUnprotectedPreferred = 2,
     /// <summary>
     /// Segment list is made only of unprotected (i.e., non FRR-protected) segments
     /// </summary>
-    [pbr::OriginalName("SL_SR_UNPROTECTED_ONLY")] SlSrUnprotectedOnly = 3,
+    [pbr::OriginalName("SL_SR_SEGMENT_UNPROTECTED_ONLY")] SlSrSegmentUnprotectedOnly = 3,
   }
 
   #endregion
@@ -3128,6 +3128,8 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLIpAddress endpoint_;
     /// <summary>
     /// IPv4 or IPv6 address of the policy endpoint.
+    /// Null endpoint is a valid input.
+    /// The null endpoint is 0.0.0.0 for IPv4 and :: for IPv6 (all bits set to the 0 value).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3837,13 +3839,14 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Extended Administrative Group.
+  /// SR Affinity constraints
   /// Bit mask of administrative groups assigned by the
   /// network administrator. Each set bit corresponds to one
   /// administrative group assigned to the interface. By convention, the
   /// least significant bit is referred to as group 0, and the
   /// most significant bit is referred to as group 31. Each EAG bitmask
   /// is represented in multiple of 4 bytes.
+  /// https://www.ietf.org/archive/id/draft-ietf-idr-bgp-ls-sr-policy-17.html#name-sr-affinity-constraint-sub-
   /// </summary>
   public sealed partial class SLSrAffinities : pb::IMessage<SLSrAffinities>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -4184,6 +4187,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLSrv6SidStruct structure_;
     /// <summary>
     /// SID Structure of the specifed SID address.
+    /// https://datatracker.ietf.org/doc/html/rfc9352#name-srv6-sid-structure-sub-sub-
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

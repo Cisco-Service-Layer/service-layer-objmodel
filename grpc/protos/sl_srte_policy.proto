@@ -131,8 +131,7 @@ message SLSrPolicyRequests {
 // Policy operation
 message SLSrPolicyReq {
     enum SLSrOp {
-        // Create operation for specified policies. Policies that already exist
-        // will be updated.
+        // Create or Modify operation for specified policies.
         UPDATE = 0;
         // Delete operation for specified policies. Deletion of non-existent policy
         // will be responded with a corresponding error code.
@@ -143,7 +142,9 @@ message SLSrPolicyReq {
     // Each policy request is uniquely identified by a operation ID and a policy key,
     // both of which are reflected by the router in the response.
     // Each policy request encompasses all candidate-paths and policy attributes.
-    // Candidate-paths not included in the update request will be removed.
+    // A policy request is not incremental but expected to replace (with all
+    // contents/constructs such as candidate-paths) specified; Candidate-paths not
+    // included in the update request will be removed.
     // 
     // Policy attributes (e.g., profile ID, Binding SID, etc.), that are not specified
     // for each candidate-path are applied to all candidate-paths. In the event of
@@ -253,6 +254,7 @@ message SLSrCandidatePath {
     // The Preference of the candidate path is used to select the
     // best candidate path for an SR Policy.
     // If not specified, 100 is used as a default.
+    // https://www.rfc-editor.org/rfc/rfc9256.html#name-preference-of-a-candidate-p
     optional uint32 preference = 4;
 
     oneof CP {
@@ -283,7 +285,7 @@ message SLSrDynamicCP {
     // accumulated value of this additive link metric along the path.
     // Values are defined in "BGP-LS SR Policy Metric Type" registry under
     // "Border Gateway Protocol - Link State (BGP-LS) Parameters"
-    // If sid-algo is specifiied within the range of 128-255, metric_type is
+    // If sid-algo is specified within the range of 128-255, metric_type is
     // not considered.
     uint32 metric_type = 1;
 
@@ -344,7 +346,7 @@ message SLSrMPLSBindingSID {
 // (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
 message SLSrSrv6DynamicBindingSID {
     // If not set, server will use default platform behavior
-    uint32 behavior = 1;
+    uint32 srv6_endpoint_behavior = 1;
 }
 
 //@}

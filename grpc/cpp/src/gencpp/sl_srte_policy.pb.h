@@ -3148,15 +3148,15 @@ class SLSrSrv6DynamicBindingSID final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kBehaviorFieldNumber = 1,
+    kSrv6EndpointBehaviorFieldNumber = 1,
   };
-  // uint32 behavior = 1;
-  void clear_behavior();
-  uint32_t behavior() const;
-  void set_behavior(uint32_t value);
+  // uint32 srv6_endpoint_behavior = 1;
+  void clear_srv6_endpoint_behavior();
+  uint32_t srv6_endpoint_behavior() const;
+  void set_srv6_endpoint_behavior(uint32_t value);
   private:
-  uint32_t _internal_behavior() const;
-  void _internal_set_behavior(uint32_t value);
+  uint32_t _internal_srv6_endpoint_behavior() const;
+  void _internal_set_srv6_endpoint_behavior(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrSrv6DynamicBindingSID)
@@ -3166,7 +3166,7 @@ class SLSrSrv6DynamicBindingSID final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t behavior_;
+  uint32_t srv6_endpoint_behavior_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -5121,24 +5121,24 @@ inline void SLSrMPLSBindingSID::set_mpls_bsid(uint32_t value) {
 
 // SLSrSrv6DynamicBindingSID
 
-// uint32 behavior = 1;
-inline void SLSrSrv6DynamicBindingSID::clear_behavior() {
-  behavior_ = 0u;
+// uint32 srv6_endpoint_behavior = 1;
+inline void SLSrSrv6DynamicBindingSID::clear_srv6_endpoint_behavior() {
+  srv6_endpoint_behavior_ = 0u;
 }
-inline uint32_t SLSrSrv6DynamicBindingSID::_internal_behavior() const {
-  return behavior_;
+inline uint32_t SLSrSrv6DynamicBindingSID::_internal_srv6_endpoint_behavior() const {
+  return srv6_endpoint_behavior_;
 }
-inline uint32_t SLSrSrv6DynamicBindingSID::behavior() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrSrv6DynamicBindingSID.behavior)
-  return _internal_behavior();
+inline uint32_t SLSrSrv6DynamicBindingSID::srv6_endpoint_behavior() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSrv6DynamicBindingSID.srv6_endpoint_behavior)
+  return _internal_srv6_endpoint_behavior();
 }
-inline void SLSrSrv6DynamicBindingSID::_internal_set_behavior(uint32_t value) {
+inline void SLSrSrv6DynamicBindingSID::_internal_set_srv6_endpoint_behavior(uint32_t value) {
   
-  behavior_ = value;
+  srv6_endpoint_behavior_ = value;
 }
-inline void SLSrSrv6DynamicBindingSID::set_behavior(uint32_t value) {
-  _internal_set_behavior(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrSrv6DynamicBindingSID.behavior)
+inline void SLSrSrv6DynamicBindingSID::set_srv6_endpoint_behavior(uint32_t value) {
+  _internal_set_srv6_endpoint_behavior(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrSrv6DynamicBindingSID.srv6_endpoint_behavior)
 }
 
 #ifdef __GNUC__

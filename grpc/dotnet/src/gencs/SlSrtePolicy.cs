@@ -68,12 +68,13 @@ namespace ServiceLayer {
             "CwoJX3NpZF9hbGdvIlkKElNMU3JTcnY2QmluZGluZ1NJRBI7CgdkeW5hbWlj",
             "GAIgASgLMiguc2VydmljZV9sYXllci5TTFNyU3J2NkR5bmFtaWNCaW5kaW5n",
             "U0lESABCBgoEdHlwZSI6ChJTTFNyTVBMU0JpbmRpbmdTSUQSFgoJbXBsc19i",
-            "c2lkGAEgASgNSACIAQFCDAoKX21wbHNfYnNpZCItChlTTFNyU3J2NkR5bmFt",
-            "aWNCaW5kaW5nU0lEEhAKCGJlaGF2aW9yGAEgASgNMl4KDFNMU3J0ZVBvbGlj",
-            "eRJOCgxTTFNyUG9saWN5T3ASHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lN",
-            "c2caHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lSc3AoATABQlFaT2dpdGh1",
-            "Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1v",
-            "ZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "c2lkGAEgASgNSACIAQFCDAoKX21wbHNfYnNpZCI7ChlTTFNyU3J2NkR5bmFt",
+            "aWNCaW5kaW5nU0lEEh4KFnNydjZfZW5kcG9pbnRfYmVoYXZpb3IYASABKA0y",
+            "XgoMU0xTcnRlUG9saWN5Ek4KDFNMU3JQb2xpY3lPcBIcLnNlcnZpY2VfbGF5",
+            "ZXIuU0xTclBvbGljeU1zZxocLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJz",
+            "cCgBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
+            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -92,7 +93,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "Protection", "SidAlgo", "MaximumSidDepth" }, new[]{ "SidAlgo" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Dynamic" }, new[]{ "Type" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrMPLSBindingSID), global::ServiceLayer.SLSrMPLSBindingSID.Parser, new[]{ "MplsBsid" }, new[]{ "MplsBsid" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6DynamicBindingSID), global::ServiceLayer.SLSrSrv6DynamicBindingSID.Parser, new[]{ "Behavior" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6DynamicBindingSID), global::ServiceLayer.SLSrSrv6DynamicBindingSID.Parser, new[]{ "Srv6EndpointBehavior" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1467,7 +1468,9 @@ namespace ServiceLayer {
     /// Each policy request is uniquely identified by a operation ID and a policy key,
     /// both of which are reflected by the router in the response.
     /// Each policy request encompasses all candidate-paths and policy attributes.
-    /// Candidate-paths not included in the update request will be removed.
+    /// A policy request is not incremental but expected to replace (with all
+    /// contents/constructs such as candidate-paths) specified; Candidate-paths not
+    /// included in the update request will be removed.
     /// 
     /// Policy attributes (e.g., profile ID, Binding SID, etc.), that are not specified
     /// for each candidate-path are applied to all candidate-paths. In the event of
@@ -1656,8 +1659,7 @@ namespace ServiceLayer {
     public static partial class Types {
       public enum SLSrOp {
         /// <summary>
-        /// Create operation for specified policies. Policies that already exist
-        /// will be updated.
+        /// Create or Modify operation for specified policies.
         /// </summary>
         [pbr::OriginalName("UPDATE")] Update = 0,
         /// <summary>
@@ -2801,6 +2803,7 @@ namespace ServiceLayer {
     /// The Preference of the candidate path is used to select the
     /// best candidate path for an SR Policy.
     /// If not specified, 100 is used as a default.
+    /// https://www.rfc-editor.org/rfc/rfc9256.html#name-preference-of-a-candidate-p
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3429,7 +3432,7 @@ namespace ServiceLayer {
     /// accumulated value of this additive link metric along the path.
     /// Values are defined in "BGP-LS SR Policy Metric Type" registry under
     /// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
-    /// If sid-algo is specifiied within the range of 128-255, metric_type is
+    /// If sid-algo is specified within the range of 128-255, metric_type is
     /// not considered.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3691,7 +3694,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "protection" field.</summary>
     public const int ProtectionFieldNumber = 2;
-    private global::ServiceLayer.SLSrteProtectionType protection_ = global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred;
+    private global::ServiceLayer.SLSrteProtectionType protection_ = global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred;
     /// <summary>
     /// Protection type to be used for path segments
     /// </summary>
@@ -3785,7 +3788,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (affinities_ != null) hash ^= Affinities.GetHashCode();
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) hash ^= Protection.GetHashCode();
+      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) hash ^= Protection.GetHashCode();
       if (HasSidAlgo) hash ^= SidAlgo.GetHashCode();
       if (MaximumSidDepth != 0) hash ^= MaximumSidDepth.GetHashCode();
       if (_unknownFields != null) {
@@ -3810,7 +3813,7 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(Affinities);
       }
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) {
+      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Protection);
       }
@@ -3836,7 +3839,7 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(Affinities);
       }
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) {
+      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Protection);
       }
@@ -3861,7 +3864,7 @@ namespace ServiceLayer {
       if (affinities_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Affinities);
       }
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) {
+      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Protection);
       }
       if (HasSidAlgo) {
@@ -3888,7 +3891,7 @@ namespace ServiceLayer {
         }
         Affinities.MergeFrom(other.Affinities);
       }
-      if (other.Protection != global::ServiceLayer.SLSrteProtectionType.SlSrProtectedPreferred) {
+      if (other.Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
         Protection = other.Protection;
       }
       if (other.HasSidAlgo) {
@@ -4458,7 +4461,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrSrv6DynamicBindingSID(SLSrSrv6DynamicBindingSID other) : this() {
-      behavior_ = other.behavior_;
+      srv6EndpointBehavior_ = other.srv6EndpointBehavior_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4468,18 +4471,18 @@ namespace ServiceLayer {
       return new SLSrSrv6DynamicBindingSID(this);
     }
 
-    /// <summary>Field number for the "behavior" field.</summary>
-    public const int BehaviorFieldNumber = 1;
-    private uint behavior_;
+    /// <summary>Field number for the "srv6_endpoint_behavior" field.</summary>
+    public const int Srv6EndpointBehaviorFieldNumber = 1;
+    private uint srv6EndpointBehavior_;
     /// <summary>
     /// If not set, server will use default platform behavior
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Behavior {
-      get { return behavior_; }
+    public uint Srv6EndpointBehavior {
+      get { return srv6EndpointBehavior_; }
       set {
-        behavior_ = value;
+        srv6EndpointBehavior_ = value;
       }
     }
 
@@ -4498,7 +4501,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Behavior != other.Behavior) return false;
+      if (Srv6EndpointBehavior != other.Srv6EndpointBehavior) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4506,7 +4509,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Behavior != 0) hash ^= Behavior.GetHashCode();
+      if (Srv6EndpointBehavior != 0) hash ^= Srv6EndpointBehavior.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4525,9 +4528,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Behavior != 0) {
+      if (Srv6EndpointBehavior != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(Behavior);
+        output.WriteUInt32(Srv6EndpointBehavior);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4539,9 +4542,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Behavior != 0) {
+      if (Srv6EndpointBehavior != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(Behavior);
+        output.WriteUInt32(Srv6EndpointBehavior);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4553,8 +4556,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Behavior != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Behavior);
+      if (Srv6EndpointBehavior != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Srv6EndpointBehavior);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4568,8 +4571,8 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Behavior != 0) {
-        Behavior = other.Behavior;
+      if (other.Srv6EndpointBehavior != 0) {
+        Srv6EndpointBehavior = other.Srv6EndpointBehavior;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4587,7 +4590,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Behavior = input.ReadUInt32();
+            Srv6EndpointBehavior = input.ReadUInt32();
             break;
           }
         }
@@ -4606,7 +4609,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Behavior = input.ReadUInt32();
+            Srv6EndpointBehavior = input.ReadUInt32();
             break;
           }
         }

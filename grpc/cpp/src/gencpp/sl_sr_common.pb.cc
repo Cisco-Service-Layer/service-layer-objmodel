@@ -575,19 +575,20 @@ const char descriptor_table_protodef_sl_5fsr_5fcommon_2eproto[] PROTOBUF_SECTION
   "ID_FLAG_DYNAMIC\020\200@*d\n\rSLSrDataplane\022\037\n\033S"
   "L_SR_DATAPLANE_UNSPECIFIED\020\000\022\030\n\024SL_SR_DA"
   "TAPLANE_MPLS\020\001\022\030\n\024SL_SR_DATAPLANE_SRV6\020\002"
-  "*\214\001\n\024SLSrteProtectionType\022\035\n\031SL_SR_PROTE"
-  "CTED_PREFERRED\020\000\022\030\n\024SL_SR_PROTECTED_ONLY"
-  "\020\001\022\037\n\033SL_SR_UNPROTECTED_PREFERRED\020\002\022\032\n\026S"
-  "L_SR_UNPROTECTED_ONLY\020\003BQZOgithub.com/Ci"
-  "sco-service-layer/service-layer-objmodel"
-  "/grpc/protos;service_layerb\006proto3"
+  "*\254\001\n\024SLSrteProtectionType\022%\n!SL_SR_SEGME"
+  "NT_PROTECTED_PREFERRED\020\000\022 \n\034SL_SR_SEGMEN"
+  "T_PROTECTED_ONLY\020\001\022\'\n#SL_SR_SEGMENT_UNPR"
+  "OTECTED_PREFERRED\020\002\022\"\n\036SL_SR_SEGMENT_UNP"
+  "ROTECTED_ONLY\020\003BQZOgithub.com/Cisco-serv"
+  "ice-layer/service-layer-objmodel/grpc/pr"
+  "otos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsr_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsr_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto = {
-  false, false, 3834, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
+  false, false, 3866, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
   &descriptor_table_sl_5fsr_5fcommon_2eproto_once, descriptor_table_sl_5fsr_5fcommon_2eproto_deps, 1, 18,
   schemas, file_default_instances, TableStruct_sl_5fsr_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5fsr_5fcommon_2eproto, file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto, file_level_service_descriptors_sl_5fsr_5fcommon_2eproto,
