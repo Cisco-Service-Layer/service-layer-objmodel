@@ -57,19 +57,19 @@ namespace ServiceLayer {
             "EjEKC05vdGlmU3RhdHVzGAMgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9y",
             "U3RhdHVzIiUKElNMUm91dGVOb3RpZk1hcmtlchIPCgdWcmZOYW1lGAEgASgJ",
             "IkgKClNMVnJmTm90aWYSDwoHVnJmTmFtZRgBIAEoCRIpCgZTdGF0dXMYAiAB",
-            "KA4yGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0T3AirAEKDVNMUm91dGVDb21t",
+            "KA4yGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0T3AivAEKDVNMUm91dGVDb21t",
             "b24SFQoNQWRtaW5EaXN0YW5jZRgBIAEoDRISCgpMb2NhbExhYmVsGAIgASgN",
             "EgsKA1RhZxgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRITCgtTcmNQcm90b1Rh",
             "ZxgFIAEoCRIvCgpSb3V0ZUZsYWdzGAcgAygOMhsuc2VydmljZV9sYXllci5T",
-            "TFJvdXRlRmxhZ3NKBAgGEAdSBUZsYWdzIrEBCgtTTFZ4TEFOUGF0aBILCgNW",
-            "TkkYASABKA0SGAoQU291cmNlTWFjQWRkcmVzcxgCIAEoDBIWCg5EZXN0TWFj",
-            "QWRkcmVzcxgDIAEoDBIwCgxTcmNJcEFkZHJlc3MYBCABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMSXBBZGRyZXNzEjEKDURlc3RJcEFkZHJlc3MYBSABKAsyGi5z",
-            "ZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzIqMECgtTTFJvdXRlUGF0aBIyCg5O",
-            "ZXh0aG9wQWRkcmVzcxgBIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJl",
-            "c3MSNAoQTmV4dGhvcEludGVyZmFjZRgCIAEoCzIaLnNlcnZpY2VfbGF5ZXIu",
-            "U0xJbnRlcmZhY2USEgoKTG9hZE1ldHJpYxgDIAEoDRIPCgdWcmZOYW1lGAQg",
-            "ASgJEg4KBk1ldHJpYxgFIAEoDRIOCgZQYXRoSWQYBiABKA0SGwoTUHJvdGVj",
+            "TFJvdXRlRmxhZ3MSDgoGTWV0cmljGAggASgNSgQIBhAHUgVGbGFncyKxAQoL",
+            "U0xWeExBTlBhdGgSCwoDVk5JGAEgASgNEhgKEFNvdXJjZU1hY0FkZHJlc3MY",
+            "AiABKAwSFgoORGVzdE1hY0FkZHJlc3MYAyABKAwSMAoMU3JjSXBBZGRyZXNz",
+            "GAQgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxIxCg1EZXN0SXBB",
+            "ZGRyZXNzGAUgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcyKhBAoL",
+            "U0xSb3V0ZVBhdGgSMgoOTmV4dGhvcEFkZHJlc3MYASABKAsyGi5zZXJ2aWNl",
+            "X2xheWVyLlNMSXBBZGRyZXNzEjQKEE5leHRob3BJbnRlcmZhY2UYAiABKAsy",
+            "Gi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlEhIKCkxvYWRNZXRyaWMYAyAB",
+            "KA0SDwoHVnJmTmFtZRgEIAEoCRIOCgZQYXRoSWQYBiABKA0SGwoTUHJvdGVj",
             "dGVkUGF0aEJpdG1hcBgHIAMoBBISCgpMYWJlbFN0YWNrGAggAygNEjEKDVJl",
             "bW90ZUFkZHJlc3MYCSADKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNz",
             "EjEKCUVuY2FwVHlwZRgKIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xFbmNhcFR5",
@@ -77,22 +77,22 @@ namespace ServiceLayer {
             "eExBTlBhdGgYDCABKAsyGi5zZXJ2aWNlX2xheWVyLlNMVnhMQU5QYXRoEi0K",
             "CVBhdGhGbGFncxgOIAMoDjIaLnNlcnZpY2VfbGF5ZXIuU0xQYXRoRmxhZ3MS",
             "OAoMUGF0aEdyb3VwS2V5GA8gASgLMiAuc2VydmljZV9sYXllci5TTFBhdGhH",
-            "cm91cFJlZktleUgAQgcKBWVudHJ5SgQIDRAOUgVGbGFncyJOCg1TTFJvdXRl",
-            "UHJlZml4EioKBlByZWZpeBgBIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFk",
-            "ZHJlc3MSEQoJUHJlZml4TGVuGAIgASgNKsoBCgtTTE5vdGlmVHlwZRIaChZT",
-            "TF9FVkVOVF9UWVBFX1JFU0VSVkVEEAASFwoTU0xfRVZFTlRfVFlQRV9FUlJP",
-            "UhABEhgKFFNMX0VWRU5UX1RZUEVfU1RBVFVTEAISFwoTU0xfRVZFTlRfVFlQ",
-            "RV9ST1VURRADEh4KGlNMX0VWRU5UX1RZUEVfU1RBUlRfTUFSS0VSEAQSHAoY",
-            "U0xfRVZFTlRfVFlQRV9FTkRfTUFSS0VSEAUSFQoRU0xfRVZFTlRfVFlQRV9W",
-            "UkYQBirCAQoMU0xSb3V0ZUZsYWdzEhoKFlNMX1JPVVRFX0ZMQUdfUkVTRVJW",
-            "RUQQABIhCh1TTF9ST1VURV9GTEFHX1BSRUZFUl9PVkVSX0xEUBABEiUKIVNM",
-            "X1JPVVRFX0ZMQUdfRElTQUJMRV9MQUJFTF9NRVJHRRACEiMKH1NMX1JPVVRF",
-            "X0ZMQUdfVklBQkxFX1BBVEhTX09OTFkQAxInCiNTTF9ST1VURV9GTEFHX0FD",
-            "VElWRV9PTl9WSUFCTEVfUEFUSBAEKkoKC1NMUGF0aEZsYWdzEhkKFVNMX1BB",
-            "VEhfRkxBR19SRVNFUlZFRBAAEiAKHFNMX1BBVEhfRkxBR19TSU5HTEVfUEFU",
-            "SF9PUFQQAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vy",
-            "dmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVy",
-            "YgZwcm90bzM="));
+            "cm91cFJlZktleUgAQgcKBWVudHJ5SgQIDRAOSgQIBRAGUgVGbGFnc1IGTWV0",
+            "cmljIk4KDVNMUm91dGVQcmVmaXgSKgoGUHJlZml4GAEgASgLMhouc2Vydmlj",
+            "ZV9sYXllci5TTElwQWRkcmVzcxIRCglQcmVmaXhMZW4YAiABKA0qygEKC1NM",
+            "Tm90aWZUeXBlEhoKFlNMX0VWRU5UX1RZUEVfUkVTRVJWRUQQABIXChNTTF9F",
+            "VkVOVF9UWVBFX0VSUk9SEAESGAoUU0xfRVZFTlRfVFlQRV9TVEFUVVMQAhIX",
+            "ChNTTF9FVkVOVF9UWVBFX1JPVVRFEAMSHgoaU0xfRVZFTlRfVFlQRV9TVEFS",
+            "VF9NQVJLRVIQBBIcChhTTF9FVkVOVF9UWVBFX0VORF9NQVJLRVIQBRIVChFT",
+            "TF9FVkVOVF9UWVBFX1ZSRhAGKsIBCgxTTFJvdXRlRmxhZ3MSGgoWU0xfUk9V",
+            "VEVfRkxBR19SRVNFUlZFRBAAEiEKHVNMX1JPVVRFX0ZMQUdfUFJFRkVSX09W",
+            "RVJfTERQEAESJQohU0xfUk9VVEVfRkxBR19ESVNBQkxFX0xBQkVMX01FUkdF",
+            "EAISIwofU0xfUk9VVEVfRkxBR19WSUFCTEVfUEFUSFNfT05MWRADEicKI1NM",
+            "X1JPVVRFX0ZMQUdfQUNUSVZFX09OX1ZJQUJMRV9QQVRIEAQqSgoLU0xQYXRo",
+            "RmxhZ3MSGQoVU0xfUEFUSF9GTEFHX1JFU0VSVkVEEAASIAocU0xfUEFUSF9G",
+            "TEFHX1NJTkdMRV9QQVRIX09QVBABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2Vy",
+            "dmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9z",
+            "O3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -112,9 +112,9 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteNotifStatus), global::ServiceLayer.SLRouteNotifStatus.Parser, new[]{ "Correlator", "VrfName", "NotifStatus" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteNotifMarker), global::ServiceLayer.SLRouteNotifMarker.Parser, new[]{ "VrfName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVrfNotif), global::ServiceLayer.SLVrfNotif.Parser, new[]{ "VrfName", "Status" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteCommon), global::ServiceLayer.SLRouteCommon.Parser, new[]{ "AdminDistance", "LocalLabel", "Tag", "SrcProto", "SrcProtoTag", "RouteFlags" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteCommon), global::ServiceLayer.SLRouteCommon.Parser, new[]{ "AdminDistance", "LocalLabel", "Tag", "SrcProto", "SrcProtoTag", "RouteFlags", "Metric" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVxLANPath), global::ServiceLayer.SLVxLANPath.Parser, new[]{ "VNI", "SourceMacAddress", "DestMacAddress", "SrcIpAddress", "DestIpAddress" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePath), global::ServiceLayer.SLRoutePath.Parser, new[]{ "NexthopAddress", "NexthopInterface", "LoadMetric", "VrfName", "Metric", "PathId", "ProtectedPathBitmap", "LabelStack", "RemoteAddress", "EncapType", "VtepRouterMacAddress", "VxLANPath", "PathFlags", "PathGroupKey" }, new[]{ "Entry" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePath), global::ServiceLayer.SLRoutePath.Parser, new[]{ "NexthopAddress", "NexthopInterface", "LoadMetric", "VrfName", "PathId", "ProtectedPathBitmap", "LabelStack", "RemoteAddress", "EncapType", "VtepRouterMacAddress", "VxLANPath", "PathFlags", "PathGroupKey" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePrefix), global::ServiceLayer.SLRoutePrefix.Parser, new[]{ "Prefix", "PrefixLen" }, null, null, null, null)
           }));
     }
@@ -4282,6 +4282,7 @@ namespace ServiceLayer {
       srcProto_ = other.srcProto_;
       srcProtoTag_ = other.srcProtoTag_;
       routeFlags_ = other.routeFlags_.Clone();
+      metric_ = other.metric_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4454,6 +4455,25 @@ namespace ServiceLayer {
       get { return routeFlags_; }
     }
 
+    /// <summary>Field number for the "Metric" field.</summary>
+    public const int MetricFieldNumber = 8;
+    private uint metric_;
+    /// <summary>
+    /// Route Metric.
+    /// The metric is typically based on information like load, hop count,
+    /// MTU, reliability of the path, etc.
+    /// When routes from different protocols share the same admin distance, 
+    /// RIB selects the route with the lowest value in this field.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Metric {
+      get { return metric_; }
+      set {
+        metric_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4475,6 +4495,7 @@ namespace ServiceLayer {
       if (SrcProto != other.SrcProto) return false;
       if (SrcProtoTag != other.SrcProtoTag) return false;
       if(!routeFlags_.Equals(other.routeFlags_)) return false;
+      if (Metric != other.Metric) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4488,6 +4509,7 @@ namespace ServiceLayer {
       if (SrcProto.Length != 0) hash ^= SrcProto.GetHashCode();
       if (SrcProtoTag.Length != 0) hash ^= SrcProtoTag.GetHashCode();
       hash ^= routeFlags_.GetHashCode();
+      if (Metric != 0) hash ^= Metric.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4527,6 +4549,10 @@ namespace ServiceLayer {
         output.WriteString(SrcProtoTag);
       }
       routeFlags_.WriteTo(output, _repeated_routeFlags_codec);
+      if (Metric != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(Metric);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4558,6 +4584,10 @@ namespace ServiceLayer {
         output.WriteString(SrcProtoTag);
       }
       routeFlags_.WriteTo(ref output, _repeated_routeFlags_codec);
+      if (Metric != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(Metric);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4584,6 +4614,9 @@ namespace ServiceLayer {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SrcProtoTag);
       }
       size += routeFlags_.CalculateSize(_repeated_routeFlags_codec);
+      if (Metric != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Metric);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4612,6 +4645,9 @@ namespace ServiceLayer {
         SrcProtoTag = other.SrcProtoTag;
       }
       routeFlags_.Add(other.routeFlags_);
+      if (other.Metric != 0) {
+        Metric = other.Metric;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4652,6 +4688,10 @@ namespace ServiceLayer {
             routeFlags_.AddEntriesFrom(input, _repeated_routeFlags_codec);
             break;
           }
+          case 64: {
+            Metric = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -4690,6 +4730,10 @@ namespace ServiceLayer {
           case 58:
           case 56: {
             routeFlags_.AddEntriesFrom(ref input, _repeated_routeFlags_codec);
+            break;
+          }
+          case 64: {
+            Metric = input.ReadUInt32();
             break;
           }
         }
@@ -5124,7 +5168,6 @@ namespace ServiceLayer {
       nexthopInterface_ = other.nexthopInterface_ != null ? other.nexthopInterface_.Clone() : null;
       loadMetric_ = other.loadMetric_;
       vrfName_ = other.vrfName_;
-      metric_ = other.metric_;
       pathId_ = other.pathId_;
       protectedPathBitmap_ = other.protectedPathBitmap_.Clone();
       labelStack_ = other.labelStack_.Clone();
@@ -5216,25 +5259,6 @@ namespace ServiceLayer {
       get { return vrfName_; }
       set {
         vrfName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Metric" field.</summary>
-    public const int MetricFieldNumber = 5;
-    private uint metric_;
-    /// <summary>
-    /// Route Metric.
-    /// The metric is typically based on information like load, hop count,
-    /// MTU, reliability of the path, etc.
-    /// If a non-zero metric value is set in the route, the value set will override
-    /// any metric value in the associated SLRoutePath
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Metric {
-      get { return metric_; }
-      set {
-        metric_ = value;
       }
     }
 
@@ -5466,7 +5490,6 @@ namespace ServiceLayer {
       if (!object.Equals(NexthopInterface, other.NexthopInterface)) return false;
       if (LoadMetric != other.LoadMetric) return false;
       if (VrfName != other.VrfName) return false;
-      if (Metric != other.Metric) return false;
       if (PathId != other.PathId) return false;
       if(!protectedPathBitmap_.Equals(other.protectedPathBitmap_)) return false;
       if(!labelStack_.Equals(other.labelStack_)) return false;
@@ -5488,7 +5511,6 @@ namespace ServiceLayer {
       if (nexthopInterface_ != null) hash ^= NexthopInterface.GetHashCode();
       if (LoadMetric != 0) hash ^= LoadMetric.GetHashCode();
       if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
-      if (Metric != 0) hash ^= Metric.GetHashCode();
       if (PathId != 0) hash ^= PathId.GetHashCode();
       hash ^= protectedPathBitmap_.GetHashCode();
       hash ^= labelStack_.GetHashCode();
@@ -5532,10 +5554,6 @@ namespace ServiceLayer {
       if (VrfName.Length != 0) {
         output.WriteRawTag(34);
         output.WriteString(VrfName);
-      }
-      if (Metric != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Metric);
       }
       if (PathId != 0) {
         output.WriteRawTag(48);
@@ -5587,10 +5605,6 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteString(VrfName);
       }
-      if (Metric != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Metric);
-      }
       if (PathId != 0) {
         output.WriteRawTag(48);
         output.WriteUInt32(PathId);
@@ -5636,9 +5650,6 @@ namespace ServiceLayer {
       }
       if (VrfName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(VrfName);
-      }
-      if (Metric != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Metric);
       }
       if (PathId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PathId);
@@ -5688,9 +5699,6 @@ namespace ServiceLayer {
       }
       if (other.VrfName.Length != 0) {
         VrfName = other.VrfName;
-      }
-      if (other.Metric != 0) {
-        Metric = other.Metric;
       }
       if (other.PathId != 0) {
         PathId = other.PathId;
@@ -5755,10 +5763,6 @@ namespace ServiceLayer {
           }
           case 34: {
             VrfName = input.ReadString();
-            break;
-          }
-          case 40: {
-            Metric = input.ReadUInt32();
             break;
           }
           case 48: {
@@ -5843,10 +5847,6 @@ namespace ServiceLayer {
           }
           case 34: {
             VrfName = input.ReadString();
-            break;
-          }
-          case 40: {
-            Metric = input.ReadUInt32();
             break;
           }
           case 48: {
