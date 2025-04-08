@@ -48,7 +48,7 @@ struct TableStruct_sl_5fsr_5fcommon_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -89,9 +89,15 @@ extern SLSrSegmentDescDefaultTypeInternal _SLSrSegmentDesc_default_instance_;
 class SLSrSegmentList;
 struct SLSrSegmentListDefaultTypeInternal;
 extern SLSrSegmentListDefaultTypeInternal _SLSrSegmentList_default_instance_;
+class SLSrSegmentRules;
+struct SLSrSegmentRulesDefaultTypeInternal;
+extern SLSrSegmentRulesDefaultTypeInternal _SLSrSegmentRules_default_instance_;
 class SLSrStatus;
 struct SLSrStatusDefaultTypeInternal;
 extern SLSrStatusDefaultTypeInternal _SLSrStatus_default_instance_;
+class SLSrUpperBoundConstraints;
+struct SLSrUpperBoundConstraintsDefaultTypeInternal;
+extern SLSrUpperBoundConstraintsDefaultTypeInternal _SLSrUpperBoundConstraints_default_instance_;
 class SLSrteSegment;
 struct SLSrteSegmentDefaultTypeInternal;
 extern SLSrteSegmentDefaultTypeInternal _SLSrteSegment_default_instance_;
@@ -123,7 +129,9 @@ template<> ::service_layer::SLSrPolicyKey* Arena::CreateMaybeMessage<::service_l
 template<> ::service_layer::SLSrSegment* Arena::CreateMaybeMessage<::service_layer::SLSrSegment>(Arena*);
 template<> ::service_layer::SLSrSegmentDesc* Arena::CreateMaybeMessage<::service_layer::SLSrSegmentDesc>(Arena*);
 template<> ::service_layer::SLSrSegmentList* Arena::CreateMaybeMessage<::service_layer::SLSrSegmentList>(Arena*);
+template<> ::service_layer::SLSrSegmentRules* Arena::CreateMaybeMessage<::service_layer::SLSrSegmentRules>(Arena*);
 template<> ::service_layer::SLSrStatus* Arena::CreateMaybeMessage<::service_layer::SLSrStatus>(Arena*);
+template<> ::service_layer::SLSrUpperBoundConstraints* Arena::CreateMaybeMessage<::service_layer::SLSrUpperBoundConstraints>(Arena*);
 template<> ::service_layer::SLSrteSegment* Arena::CreateMaybeMessage<::service_layer::SLSrteSegment>(Arena*);
 template<> ::service_layer::SLSrteSegment_TypeA* Arena::CreateMaybeMessage<::service_layer::SLSrteSegment_TypeA>(Arena*);
 template<> ::service_layer::SLSrteSegment_TypeB* Arena::CreateMaybeMessage<::service_layer::SLSrteSegment_TypeB>(Arena*);
@@ -2250,9 +2258,27 @@ class SLSrCandidatePathKey_Originator final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNodeIDFieldNumber = 2,
     kAsnFieldNumber = 1,
+    kNodeIDFieldNumber = 2,
   };
+  // .service_layer.SLAutonomousSystemNumber asn = 1;
+  bool has_asn() const;
+  private:
+  bool _internal_has_asn() const;
+  public:
+  void clear_asn();
+  const ::service_layer::SLAutonomousSystemNumber& asn() const;
+  PROTOBUF_NODISCARD ::service_layer::SLAutonomousSystemNumber* release_asn();
+  ::service_layer::SLAutonomousSystemNumber* mutable_asn();
+  void set_allocated_asn(::service_layer::SLAutonomousSystemNumber* asn);
+  private:
+  const ::service_layer::SLAutonomousSystemNumber& _internal_asn() const;
+  ::service_layer::SLAutonomousSystemNumber* _internal_mutable_asn();
+  public:
+  void unsafe_arena_set_allocated_asn(
+      ::service_layer::SLAutonomousSystemNumber* asn);
+  ::service_layer::SLAutonomousSystemNumber* unsafe_arena_release_asn();
+
   // .service_layer.SLIpAddress nodeID = 2;
   bool has_nodeid() const;
   private:
@@ -2271,15 +2297,6 @@ class SLSrCandidatePathKey_Originator final :
       ::service_layer::SLIpAddress* nodeid);
   ::service_layer::SLIpAddress* unsafe_arena_release_nodeid();
 
-  // uint32 asn = 1;
-  void clear_asn();
-  uint32_t asn() const;
-  void set_asn(uint32_t value);
-  private:
-  uint32_t _internal_asn() const;
-  void _internal_set_asn(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:service_layer.SLSrCandidatePathKey.Originator)
  private:
   class _Internal;
@@ -2287,8 +2304,8 @@ class SLSrCandidatePathKey_Originator final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::service_layer::SLAutonomousSystemNumber* asn_;
   ::service_layer::SLIpAddress* nodeid_;
-  uint32_t asn_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
@@ -2672,6 +2689,314 @@ class SLSrAffinities final :
 };
 // -------------------------------------------------------------------
 
+class SLSrSegmentRules final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrSegmentRules) */ {
+ public:
+  inline SLSrSegmentRules() : SLSrSegmentRules(nullptr) {}
+  ~SLSrSegmentRules() override;
+  explicit constexpr SLSrSegmentRules(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLSrSegmentRules(const SLSrSegmentRules& from);
+  SLSrSegmentRules(SLSrSegmentRules&& from) noexcept
+    : SLSrSegmentRules() {
+    *this = ::std::move(from);
+  }
+
+  inline SLSrSegmentRules& operator=(const SLSrSegmentRules& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLSrSegmentRules& operator=(SLSrSegmentRules&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLSrSegmentRules& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLSrSegmentRules* internal_default_instance() {
+    return reinterpret_cast<const SLSrSegmentRules*>(
+               &_SLSrSegmentRules_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(SLSrSegmentRules& a, SLSrSegmentRules& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLSrSegmentRules* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLSrSegmentRules* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLSrSegmentRules* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrSegmentRules>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLSrSegmentRules& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLSrSegmentRules& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLSrSegmentRules* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLSrSegmentRules";
+  }
+  protected:
+  explicit SLSrSegmentRules(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSidAlgoFieldNumber = 1,
+    kProtectionFieldNumber = 2,
+  };
+  // optional uint32 sid_algo = 1;
+  bool has_sid_algo() const;
+  private:
+  bool _internal_has_sid_algo() const;
+  public:
+  void clear_sid_algo();
+  uint32_t sid_algo() const;
+  void set_sid_algo(uint32_t value);
+  private:
+  uint32_t _internal_sid_algo() const;
+  void _internal_set_sid_algo(uint32_t value);
+  public:
+
+  // .service_layer.SLSrteProtectionType protection = 2;
+  void clear_protection();
+  ::service_layer::SLSrteProtectionType protection() const;
+  void set_protection(::service_layer::SLSrteProtectionType value);
+  private:
+  ::service_layer::SLSrteProtectionType _internal_protection() const;
+  void _internal_set_protection(::service_layer::SLSrteProtectionType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrSegmentRules)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  uint32_t sid_algo_;
+  int protection_;
+  friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLSrUpperBoundConstraints final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrUpperBoundConstraints) */ {
+ public:
+  inline SLSrUpperBoundConstraints() : SLSrUpperBoundConstraints(nullptr) {}
+  ~SLSrUpperBoundConstraints() override;
+  explicit constexpr SLSrUpperBoundConstraints(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLSrUpperBoundConstraints(const SLSrUpperBoundConstraints& from);
+  SLSrUpperBoundConstraints(SLSrUpperBoundConstraints&& from) noexcept
+    : SLSrUpperBoundConstraints() {
+    *this = ::std::move(from);
+  }
+
+  inline SLSrUpperBoundConstraints& operator=(const SLSrUpperBoundConstraints& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLSrUpperBoundConstraints& operator=(SLSrUpperBoundConstraints&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLSrUpperBoundConstraints& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLSrUpperBoundConstraints* internal_default_instance() {
+    return reinterpret_cast<const SLSrUpperBoundConstraints*>(
+               &_SLSrUpperBoundConstraints_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(SLSrUpperBoundConstraints& a, SLSrUpperBoundConstraints& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLSrUpperBoundConstraints* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLSrUpperBoundConstraints* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLSrUpperBoundConstraints* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrUpperBoundConstraints>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLSrUpperBoundConstraints& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLSrUpperBoundConstraints& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLSrUpperBoundConstraints* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLSrUpperBoundConstraints";
+  }
+  protected:
+  explicit SLSrUpperBoundConstraints(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMaximumSidDepthFieldNumber = 1,
+  };
+  // uint32 maximum_sid_depth = 1;
+  void clear_maximum_sid_depth();
+  uint32_t maximum_sid_depth() const;
+  void set_maximum_sid_depth(uint32_t value);
+  private:
+  uint32_t _internal_maximum_sid_depth() const;
+  void _internal_set_maximum_sid_depth(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrUpperBoundConstraints)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t maximum_sid_depth_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SLSRv6SIDInfo final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSRv6SIDInfo) */ {
  public:
@@ -2720,7 +3045,7 @@ class SLSRv6SIDInfo final :
                &_SLSRv6SIDInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(SLSRv6SIDInfo& a, SLSRv6SIDInfo& b) {
     a.Swap(&b);
@@ -2798,19 +3123,23 @@ class SLSRv6SIDInfo final :
     kStructureFieldNumber = 3,
     kBehaviorFieldNumber = 2,
   };
-  // bytes sid_address = 1;
-  void clear_sid_address();
-  const std::string& sid_address() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_sid_address(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_sid_address();
-  PROTOBUF_NODISCARD std::string* release_sid_address();
-  void set_allocated_sid_address(std::string* sid_address);
+  // .service_layer.SLIpv6Address sid_address = 1;
+  bool has_sid_address() const;
   private:
-  const std::string& _internal_sid_address() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sid_address(const std::string& value);
-  std::string* _internal_mutable_sid_address();
+  bool _internal_has_sid_address() const;
   public:
+  void clear_sid_address();
+  const ::service_layer::SLIpv6Address& sid_address() const;
+  PROTOBUF_NODISCARD ::service_layer::SLIpv6Address* release_sid_address();
+  ::service_layer::SLIpv6Address* mutable_sid_address();
+  void set_allocated_sid_address(::service_layer::SLIpv6Address* sid_address);
+  private:
+  const ::service_layer::SLIpv6Address& _internal_sid_address() const;
+  ::service_layer::SLIpv6Address* _internal_mutable_sid_address();
+  public:
+  void unsafe_arena_set_allocated_sid_address(
+      ::service_layer::SLIpv6Address* sid_address);
+  ::service_layer::SLIpv6Address* unsafe_arena_release_sid_address();
 
   // .service_layer.SLSrv6SidStruct structure = 3;
   bool has_structure() const;
@@ -2846,7 +3175,7 @@ class SLSRv6SIDInfo final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sid_address_;
+  ::service_layer::SLIpv6Address* sid_address_;
   ::service_layer::SLSrv6SidStruct* structure_;
   uint32_t behavior_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2902,7 +3231,7 @@ class SLSrteSegment_TypeA final :
                &_SLSrteSegment_TypeA_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(SLSrteSegment_TypeA& a, SLSrteSegment_TypeA& b) {
     a.Swap(&b);
@@ -3048,7 +3377,7 @@ class SLSrteSegment_TypeB final :
                &_SLSrteSegment_TypeB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(SLSrteSegment_TypeB& a, SLSrteSegment_TypeB& b) {
     a.Swap(&b);
@@ -3209,7 +3538,7 @@ class SLSrteSegment final :
                &_SLSrteSegment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(SLSrteSegment& a, SLSrteSegment& b) {
     a.Swap(&b);
@@ -3400,7 +3729,7 @@ class SLSrSegmentList final :
                &_SLSrSegmentList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(SLSrSegmentList& a, SLSrSegmentList& b) {
     a.Swap(&b);
@@ -3582,7 +3911,7 @@ class SLSrStatus final :
                &_SLSrStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(SLSrStatus& a, SLSrStatus& b) {
     a.Swap(&b);
@@ -5434,24 +5763,90 @@ inline void SLSrPolicyKey::set_allocated_endpoint(::service_layer::SLIpAddress* 
 
 // SLSrCandidatePathKey_Originator
 
-// uint32 asn = 1;
-inline void SLSrCandidatePathKey_Originator::clear_asn() {
-  asn_ = 0u;
+// .service_layer.SLAutonomousSystemNumber asn = 1;
+inline bool SLSrCandidatePathKey_Originator::_internal_has_asn() const {
+  return this != internal_default_instance() && asn_ != nullptr;
 }
-inline uint32_t SLSrCandidatePathKey_Originator::_internal_asn() const {
-  return asn_;
+inline bool SLSrCandidatePathKey_Originator::has_asn() const {
+  return _internal_has_asn();
 }
-inline uint32_t SLSrCandidatePathKey_Originator::asn() const {
+inline const ::service_layer::SLAutonomousSystemNumber& SLSrCandidatePathKey_Originator::_internal_asn() const {
+  const ::service_layer::SLAutonomousSystemNumber* p = asn_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLAutonomousSystemNumber&>(
+      ::service_layer::_SLAutonomousSystemNumber_default_instance_);
+}
+inline const ::service_layer::SLAutonomousSystemNumber& SLSrCandidatePathKey_Originator::asn() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrCandidatePathKey.Originator.asn)
   return _internal_asn();
 }
-inline void SLSrCandidatePathKey_Originator::_internal_set_asn(uint32_t value) {
-  
-  asn_ = value;
+inline void SLSrCandidatePathKey_Originator::unsafe_arena_set_allocated_asn(
+    ::service_layer::SLAutonomousSystemNumber* asn) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(asn_);
+  }
+  asn_ = asn;
+  if (asn) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrCandidatePathKey.Originator.asn)
 }
-inline void SLSrCandidatePathKey_Originator::set_asn(uint32_t value) {
-  _internal_set_asn(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrCandidatePathKey.Originator.asn)
+inline ::service_layer::SLAutonomousSystemNumber* SLSrCandidatePathKey_Originator::release_asn() {
+  
+  ::service_layer::SLAutonomousSystemNumber* temp = asn_;
+  asn_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLAutonomousSystemNumber* SLSrCandidatePathKey_Originator::unsafe_arena_release_asn() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrCandidatePathKey.Originator.asn)
+  
+  ::service_layer::SLAutonomousSystemNumber* temp = asn_;
+  asn_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLAutonomousSystemNumber* SLSrCandidatePathKey_Originator::_internal_mutable_asn() {
+  
+  if (asn_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLAutonomousSystemNumber>(GetArenaForAllocation());
+    asn_ = p;
+  }
+  return asn_;
+}
+inline ::service_layer::SLAutonomousSystemNumber* SLSrCandidatePathKey_Originator::mutable_asn() {
+  ::service_layer::SLAutonomousSystemNumber* _msg = _internal_mutable_asn();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrCandidatePathKey.Originator.asn)
+  return _msg;
+}
+inline void SLSrCandidatePathKey_Originator::set_allocated_asn(::service_layer::SLAutonomousSystemNumber* asn) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(asn_);
+  }
+  if (asn) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(asn));
+    if (message_arena != submessage_arena) {
+      asn = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, asn, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  asn_ = asn;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrCandidatePathKey.Originator.asn)
 }
 
 // .service_layer.SLIpAddress nodeID = 2;
@@ -5801,56 +6196,167 @@ SLSrAffinities::mutable_excludeany() {
 
 // -------------------------------------------------------------------
 
+// SLSrSegmentRules
+
+// optional uint32 sid_algo = 1;
+inline bool SLSrSegmentRules::_internal_has_sid_algo() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool SLSrSegmentRules::has_sid_algo() const {
+  return _internal_has_sid_algo();
+}
+inline void SLSrSegmentRules::clear_sid_algo() {
+  sid_algo_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t SLSrSegmentRules::_internal_sid_algo() const {
+  return sid_algo_;
+}
+inline uint32_t SLSrSegmentRules::sid_algo() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentRules.sid_algo)
+  return _internal_sid_algo();
+}
+inline void SLSrSegmentRules::_internal_set_sid_algo(uint32_t value) {
+  _has_bits_[0] |= 0x00000001u;
+  sid_algo_ = value;
+}
+inline void SLSrSegmentRules::set_sid_algo(uint32_t value) {
+  _internal_set_sid_algo(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentRules.sid_algo)
+}
+
+// .service_layer.SLSrteProtectionType protection = 2;
+inline void SLSrSegmentRules::clear_protection() {
+  protection_ = 0;
+}
+inline ::service_layer::SLSrteProtectionType SLSrSegmentRules::_internal_protection() const {
+  return static_cast< ::service_layer::SLSrteProtectionType >(protection_);
+}
+inline ::service_layer::SLSrteProtectionType SLSrSegmentRules::protection() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentRules.protection)
+  return _internal_protection();
+}
+inline void SLSrSegmentRules::_internal_set_protection(::service_layer::SLSrteProtectionType value) {
+  
+  protection_ = value;
+}
+inline void SLSrSegmentRules::set_protection(::service_layer::SLSrteProtectionType value) {
+  _internal_set_protection(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentRules.protection)
+}
+
+// -------------------------------------------------------------------
+
+// SLSrUpperBoundConstraints
+
+// uint32 maximum_sid_depth = 1;
+inline void SLSrUpperBoundConstraints::clear_maximum_sid_depth() {
+  maximum_sid_depth_ = 0u;
+}
+inline uint32_t SLSrUpperBoundConstraints::_internal_maximum_sid_depth() const {
+  return maximum_sid_depth_;
+}
+inline uint32_t SLSrUpperBoundConstraints::maximum_sid_depth() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrUpperBoundConstraints.maximum_sid_depth)
+  return _internal_maximum_sid_depth();
+}
+inline void SLSrUpperBoundConstraints::_internal_set_maximum_sid_depth(uint32_t value) {
+  
+  maximum_sid_depth_ = value;
+}
+inline void SLSrUpperBoundConstraints::set_maximum_sid_depth(uint32_t value) {
+  _internal_set_maximum_sid_depth(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrUpperBoundConstraints.maximum_sid_depth)
+}
+
+// -------------------------------------------------------------------
+
 // SLSRv6SIDInfo
 
-// bytes sid_address = 1;
-inline void SLSRv6SIDInfo::clear_sid_address() {
-  sid_address_.ClearToEmpty();
+// .service_layer.SLIpv6Address sid_address = 1;
+inline bool SLSRv6SIDInfo::_internal_has_sid_address() const {
+  return this != internal_default_instance() && sid_address_ != nullptr;
 }
-inline const std::string& SLSRv6SIDInfo::sid_address() const {
+inline bool SLSRv6SIDInfo::has_sid_address() const {
+  return _internal_has_sid_address();
+}
+inline const ::service_layer::SLIpv6Address& SLSRv6SIDInfo::_internal_sid_address() const {
+  const ::service_layer::SLIpv6Address* p = sid_address_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpv6Address&>(
+      ::service_layer::_SLIpv6Address_default_instance_);
+}
+inline const ::service_layer::SLIpv6Address& SLSRv6SIDInfo::sid_address() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSRv6SIDInfo.sid_address)
   return _internal_sid_address();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLSRv6SIDInfo::set_sid_address(ArgT0&& arg0, ArgT... args) {
- 
- sid_address_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLSRv6SIDInfo.sid_address)
-}
-inline std::string* SLSRv6SIDInfo::mutable_sid_address() {
-  std::string* _s = _internal_mutable_sid_address();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSRv6SIDInfo.sid_address)
-  return _s;
-}
-inline const std::string& SLSRv6SIDInfo::_internal_sid_address() const {
-  return sid_address_.Get();
-}
-inline void SLSRv6SIDInfo::_internal_set_sid_address(const std::string& value) {
-  
-  sid_address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSRv6SIDInfo::_internal_mutable_sid_address() {
-  
-  return sid_address_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSRv6SIDInfo::release_sid_address() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSRv6SIDInfo.sid_address)
-  return sid_address_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLSRv6SIDInfo::set_allocated_sid_address(std::string* sid_address) {
-  if (sid_address != nullptr) {
+inline void SLSRv6SIDInfo::unsafe_arena_set_allocated_sid_address(
+    ::service_layer::SLIpv6Address* sid_address) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sid_address_);
+  }
+  sid_address_ = sid_address;
+  if (sid_address) {
     
   } else {
     
   }
-  sid_address_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sid_address,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (sid_address_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    sid_address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSRv6SIDInfo.sid_address)
+}
+inline ::service_layer::SLIpv6Address* SLSRv6SIDInfo::release_sid_address() {
+  
+  ::service_layer::SLIpv6Address* temp = sid_address_;
+  sid_address_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLIpv6Address* SLSRv6SIDInfo::unsafe_arena_release_sid_address() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSRv6SIDInfo.sid_address)
+  
+  ::service_layer::SLIpv6Address* temp = sid_address_;
+  sid_address_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLIpv6Address* SLSRv6SIDInfo::_internal_mutable_sid_address() {
+  
+  if (sid_address_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLIpv6Address>(GetArenaForAllocation());
+    sid_address_ = p;
+  }
+  return sid_address_;
+}
+inline ::service_layer::SLIpv6Address* SLSRv6SIDInfo::mutable_sid_address() {
+  ::service_layer::SLIpv6Address* _msg = _internal_mutable_sid_address();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSRv6SIDInfo.sid_address)
+  return _msg;
+}
+inline void SLSRv6SIDInfo::set_allocated_sid_address(::service_layer::SLIpv6Address* sid_address) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(sid_address_);
+  }
+  if (sid_address) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sid_address));
+    if (message_arena != submessage_arena) {
+      sid_address = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sid_address, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  sid_address_ = sid_address;
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSRv6SIDInfo.sid_address)
 }
 
@@ -6497,6 +7003,10 @@ inline void SLSrStatus::set_allocated_description(std::string* description) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

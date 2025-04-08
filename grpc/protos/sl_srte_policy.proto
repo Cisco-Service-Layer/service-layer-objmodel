@@ -3,6 +3,9 @@
 // Declares calls for adding, deleting, updating the SR-TE policies.
 // The GPB data model should reflect the model from the SR-TE policy
 // RFC https://datatracker.ietf.org/doc/rfc9256/.
+// A subset of the SR-TE Policy model defined in the RFC9256 is supported by
+// this proto. Future revisions can include more fields as needed to complete
+// the model.
 // 
 // ----------------------------------------------------------------
 //  Copyright (c) 2025 by Cisco Systems, Inc.
@@ -131,11 +134,13 @@ message SLSrPolicyRequests {
 // Policy operation
 message SLSrPolicyReq {
     enum SLSrOp {
+        // Reserved
+        RESERVED = 0;
         // Create or Modify operation for specified policies.
-        UPDATE = 0;
+        UPDATE = 1;
         // Delete operation for specified policies. Deletion of non-existent policy
         // will be responded with a corresponding error code.
-        DELETE = 1;
+        DELETE = 2;
     }
     SLSrOp operation = 1;
 
@@ -268,12 +273,15 @@ message SLSrCandidatePath {
 // Candidate path with explicitly defined set/s of segment-lists
 message SLSrExplicitCP {
     // The set of weighted segment lists in the explicit candidate path.
+    // Future revisions of this proto can add segment list by reference.
     repeated SLSrSegmentList segment_list = 1;
 
     // Optimization metric type used for accumulating metric value (specified for each
     // segment-list).
     // Values are defined in "BGP-LS SR Policy Metric Type" registry under
     // "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+    // Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
+    // or a user-defined/generic type[128-255] that is mainly for Flex-Algo
     uint32 metric_type = 3;
 }
 
@@ -285,6 +293,8 @@ message SLSrDynamicCP {
     // accumulated value of this additive link metric along the path.
     // Values are defined in "BGP-LS SR Policy Metric Type" registry under
     // "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+    // Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
+    // or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
     // If sid-algo is specified within the range of 128-255, metric_type is
     // not considered.
     uint32 metric_type = 1;
@@ -294,6 +304,8 @@ message SLSrDynamicCP {
 }
 
 // A set of constraints for an SR path.
+// Other contraints not included here like SRLG, Bandwidth, Metric(Margin, Bounds),
+// Disjoint Group etc., can be added in future revisions.
 message SLSrConstraints {
     // Topological Constraints
     // =======================
@@ -304,28 +316,11 @@ message SLSrConstraints {
     // Extended Administrative Groups.
     SLSrAffinities affinities = 1;
 
-    // Constraints that must be satisfied by the complete path and cannot be
-    // verified on a node-by-node or link-by-link basis.
+    // Constraints on the segments to be used in the path
+    SLSrSegmentRules segment_rules = 2;
 
-    // Protection type to be used for path segments
-    SLSrteProtectionType protection = 2;
-
-    // Algorithm to used for dynamic path calculation
-    // Refer to Section 3.1.1 of [RFC8402]
-    optional uint32 sid_algo = 3;
-
-    // Maximum number of segments in any of the candidate path segment lists.
-    // 
-    // When set to a non-zero value, this attribute replaces the headend MSD
-    // obtained from the link-state topology. When set to the default value (0),
-    // this attribute is ignored.
-    // 
-    // Note: If the first segment in the segment list can be enforced by setting
-    // the outgoing interface on the headend node, it does not count towards this
-    // limit.
-    // Supported value is platform dependent. Server can choose to respond with an error
-    // if the value is not in the supported range.
-    uint32 maximum_sid_depth = 4;
+    // Upper-bound constraints on the computed dynamic path
+    SLSrUpperBoundConstraints upper_bound = 3;
 } 
 
 // SRv6 Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).

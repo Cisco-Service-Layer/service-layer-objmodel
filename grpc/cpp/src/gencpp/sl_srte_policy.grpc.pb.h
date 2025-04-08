@@ -7,6 +7,9 @@
 // Declares calls for adding, deleting, updating the SR-TE policies.
 // The GPB data model should reflect the model from the SR-TE policy
 // RFC https://datatracker.ietf.org/doc/rfc9256/.
+// A subset of the SR-TE Policy model defined in the RFC9256 is supported by
+// this proto. Future revisions can include more fields as needed to complete
+// the model.
 // 
 // ----------------------------------------------------------------
 //  Copyright (c) 2025 by Cisco Systems, Inc.

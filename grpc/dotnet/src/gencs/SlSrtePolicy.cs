@@ -38,43 +38,43 @@ namespace ServiceLayer {
             "eWVyLlNMU3JQb2xpY3lPcGVuLlNMU3JQZXJzaXN0ZW5jZU1vZGUiLwoTU0xT",
             "clBlcnNpc3RlbmNlTW9kZRIKCgZERUxFVEUQABIMCghQUkVTRVJWRRABIkMK",
             "ElNMU3JQb2xpY3lSZXF1ZXN0cxItCgdyZXF1ZXN0GAEgAygLMhwuc2Vydmlj",
-            "ZV9sYXllci5TTFNyUG9saWN5UmVxIpQBCg1TTFNyUG9saWN5UmVxEjYKCW9w",
+            "ZV9sYXllci5TTFNyUG9saWN5UmVxIqIBCg1TTFNyUG9saWN5UmVxEjYKCW9w",
             "ZXJhdGlvbhgBIAEoDjIjLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJlcS5T",
             "TFNyT3ASKQoGcG9saWN5GAIgASgLMhkuc2VydmljZV9sYXllci5TTFNyUG9s",
-            "aWN5IiAKBlNMU3JPcBIKCgZVUERBVEUQABIKCgZERUxFVEUQASIRCg9TTFNy",
-            "RW5kT2ZSZXBsYXkiEwoRU0xTclN0YXJ0T2ZSZXBsYXkisAEKClNMU3JQb2xp",
-            "Y3kSFAoMb3BlcmF0aW9uX2lkGAEgASgEEikKA2tleRgCIAEoCzIcLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTclBvbGljeUtleRIyCgVhdHRycxgDIAEoCzIjLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTclBvbGljeUF0dHJpYnV0ZXMSLQoDQ1BzGAQgAygLMiAu",
-            "c2VydmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aCLiAQoUU0xTclBvbGlj",
-            "eUF0dHJpYnV0ZXMSGAoQdHJhbnNpdF9lbGlnaWJsZRgCIAEoCBIvCglkYXRh",
-            "cGxhbmUYAyABKA4yHC5zZXJ2aWNlX2xheWVyLlNMU3JEYXRhcGxhbmUSNAoJ",
-            "bXBsc19ic2lkGAQgASgLMiEuc2VydmljZV9sYXllci5TTFNyTVBMU0JpbmRp",
-            "bmdTSUQSNQoKc3J2Nl9ic2lkcxgFIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xT",
-            "clNydjZCaW5kaW5nU0lEEhIKCnByb2ZpbGVfaWQYBiABKA0i5QEKEVNMU3JD",
-            "YW5kaWRhdGVQYXRoEjAKA2tleRgCIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xT",
-            "ckNhbmRpZGF0ZVBhdGhLZXkSDAoEbmFtZRgDIAEoCRIXCgpwcmVmZXJlbmNl",
-            "GAQgASgNSAGIAQESLwoHZHluYW1pYxgFIAEoCzIcLnNlcnZpY2VfbGF5ZXIu",
-            "U0xTckR5bmFtaWNDUEgAEjEKCGV4cGxpY2l0GAYgASgLMh0uc2VydmljZV9s",
-            "YXllci5TTFNyRXhwbGljaXRDUEgAQgQKAkNQQg0KC19wcmVmZXJlbmNlIlsK",
-            "DlNMU3JFeHBsaWNpdENQEjQKDHNlZ21lbnRfbGlzdBgBIAMoCzIeLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTclNlZ21lbnRMaXN0EhMKC21ldHJpY190eXBlGAMgASgN",
-            "IlkKDVNMU3JEeW5hbWljQ1ASEwoLbWV0cmljX3R5cGUYASABKA0SMwoLY29u",
-            "c3RyYWludHMYAiABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3JDb25zdHJhaW50",
-            "cyK8AQoPU0xTckNvbnN0cmFpbnRzEjEKCmFmZmluaXRpZXMYASABKAsyHS5z",
-            "ZXJ2aWNlX2xheWVyLlNMU3JBZmZpbml0aWVzEjcKCnByb3RlY3Rpb24YAiAB",
-            "KA4yIy5zZXJ2aWNlX2xheWVyLlNMU3J0ZVByb3RlY3Rpb25UeXBlEhUKCHNp",
-            "ZF9hbGdvGAMgASgNSACIAQESGQoRbWF4aW11bV9zaWRfZGVwdGgYBCABKA1C",
-            "CwoJX3NpZF9hbGdvIlkKElNMU3JTcnY2QmluZGluZ1NJRBI7CgdkeW5hbWlj",
-            "GAIgASgLMiguc2VydmljZV9sYXllci5TTFNyU3J2NkR5bmFtaWNCaW5kaW5n",
-            "U0lESABCBgoEdHlwZSI6ChJTTFNyTVBMU0JpbmRpbmdTSUQSFgoJbXBsc19i",
-            "c2lkGAEgASgNSACIAQFCDAoKX21wbHNfYnNpZCI7ChlTTFNyU3J2NkR5bmFt",
-            "aWNCaW5kaW5nU0lEEh4KFnNydjZfZW5kcG9pbnRfYmVoYXZpb3IYASABKA0y",
-            "XgoMU0xTcnRlUG9saWN5Ek4KDFNMU3JQb2xpY3lPcBIcLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTclBvbGljeU1zZxocLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeVJz",
-            "cCgBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
-            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
-            "cHJvdG8z"));
+            "aWN5Ii4KBlNMU3JPcBIMCghSRVNFUlZFRBAAEgoKBlVQREFURRABEgoKBkRF",
+            "TEVURRACIhEKD1NMU3JFbmRPZlJlcGxheSITChFTTFNyU3RhcnRPZlJlcGxh",
+            "eSKwAQoKU0xTclBvbGljeRIUCgxvcGVyYXRpb25faWQYASABKAQSKQoDa2V5",
+            "GAIgASgLMhwuc2VydmljZV9sYXllci5TTFNyUG9saWN5S2V5EjIKBWF0dHJz",
+            "GAMgASgLMiMuc2VydmljZV9sYXllci5TTFNyUG9saWN5QXR0cmlidXRlcxIt",
+            "CgNDUHMYBCADKAsyIC5zZXJ2aWNlX2xheWVyLlNMU3JDYW5kaWRhdGVQYXRo",
+            "IuIBChRTTFNyUG9saWN5QXR0cmlidXRlcxIYChB0cmFuc2l0X2VsaWdpYmxl",
+            "GAIgASgIEi8KCWRhdGFwbGFuZRgDIAEoDjIcLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "ckRhdGFwbGFuZRI0CgltcGxzX2JzaWQYBCABKAsyIS5zZXJ2aWNlX2xheWVy",
+            "LlNMU3JNUExTQmluZGluZ1NJRBI1CgpzcnY2X2JzaWRzGAUgAygLMiEuc2Vy",
+            "dmljZV9sYXllci5TTFNyU3J2NkJpbmRpbmdTSUQSEgoKcHJvZmlsZV9pZBgG",
+            "IAEoDSLlAQoRU0xTckNhbmRpZGF0ZVBhdGgSMAoDa2V5GAIgASgLMiMuc2Vy",
+            "dmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aEtleRIMCgRuYW1lGAMgASgJ",
+            "EhcKCnByZWZlcmVuY2UYBCABKA1IAYgBARIvCgdkeW5hbWljGAUgASgLMhwu",
+            "c2VydmljZV9sYXllci5TTFNyRHluYW1pY0NQSAASMQoIZXhwbGljaXQYBiAB",
+            "KAsyHS5zZXJ2aWNlX2xheWVyLlNMU3JFeHBsaWNpdENQSABCBAoCQ1BCDQoL",
+            "X3ByZWZlcmVuY2UiWwoOU0xTckV4cGxpY2l0Q1ASNAoMc2VnbWVudF9saXN0",
+            "GAEgAygLMh4uc2VydmljZV9sYXllci5TTFNyU2VnbWVudExpc3QSEwoLbWV0",
+            "cmljX3R5cGUYAyABKA0iWQoNU0xTckR5bmFtaWNDUBITCgttZXRyaWNfdHlw",
+            "ZRgBIAEoDRIzCgtjb25zdHJhaW50cxgCIAEoCzIeLnNlcnZpY2VfbGF5ZXIu",
+            "U0xTckNvbnN0cmFpbnRzIrsBCg9TTFNyQ29uc3RyYWludHMSMQoKYWZmaW5p",
+            "dGllcxgBIAEoCzIdLnNlcnZpY2VfbGF5ZXIuU0xTckFmZmluaXRpZXMSNgoN",
+            "c2VnbWVudF9ydWxlcxgCIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xTclNlZ21l",
+            "bnRSdWxlcxI9Cgt1cHBlcl9ib3VuZBgDIAEoCzIoLnNlcnZpY2VfbGF5ZXIu",
+            "U0xTclVwcGVyQm91bmRDb25zdHJhaW50cyJZChJTTFNyU3J2NkJpbmRpbmdT",
+            "SUQSOwoHZHluYW1pYxgCIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xTclNydjZE",
+            "eW5hbWljQmluZGluZ1NJREgAQgYKBHR5cGUiOgoSU0xTck1QTFNCaW5kaW5n",
+            "U0lEEhYKCW1wbHNfYnNpZBgBIAEoDUgAiAEBQgwKCl9tcGxzX2JzaWQiOwoZ",
+            "U0xTclNydjZEeW5hbWljQmluZGluZ1NJRBIeChZzcnY2X2VuZHBvaW50X2Jl",
+            "aGF2aW9yGAEgASgNMl4KDFNMU3J0ZVBvbGljeRJOCgxTTFNyUG9saWN5T3AS",
+            "HC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lNc2caHC5zZXJ2aWNlX2xheWVy",
+            "LlNMU3JQb2xpY3lSc3AoATABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2Vydmlj",
+            "ZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3Nl",
+            "cnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -90,7 +90,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCandidatePath), global::ServiceLayer.SLSrCandidatePath.Parser, new[]{ "Key", "Name", "Preference", "Dynamic", "Explicit" }, new[]{ "CP", "Preference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList", "MetricType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "MetricType", "Constraints" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "Protection", "SidAlgo", "MaximumSidDepth" }, new[]{ "SidAlgo" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "SegmentRules", "UpperBound" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Dynamic" }, new[]{ "Type" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrMPLSBindingSID), global::ServiceLayer.SLSrMPLSBindingSID.Parser, new[]{ "MplsBsid" }, new[]{ "MplsBsid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6DynamicBindingSID), global::ServiceLayer.SLSrSrv6DynamicBindingSID.Parser, new[]{ "Srv6EndpointBehavior" }, null, null, null, null)
@@ -1451,7 +1451,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "operation" field.</summary>
     public const int OperationFieldNumber = 1;
-    private global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp operation_ = global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update;
+    private global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp operation_ = global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Reserved;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp Operation {
@@ -1512,7 +1512,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) hash ^= Operation.GetHashCode();
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Reserved) hash ^= Operation.GetHashCode();
       if (policy_ != null) hash ^= Policy.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1532,7 +1532,7 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Reserved) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Operation);
       }
@@ -1550,7 +1550,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Reserved) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Operation);
       }
@@ -1568,7 +1568,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
+      if (Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Reserved) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Operation);
       }
       if (policy_ != null) {
@@ -1586,7 +1586,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Update) {
+      if (other.Operation != global::ServiceLayer.SLSrPolicyReq.Types.SLSrOp.Reserved) {
         Operation = other.Operation;
       }
       if (other.policy_ != null) {
@@ -1659,14 +1659,18 @@ namespace ServiceLayer {
     public static partial class Types {
       public enum SLSrOp {
         /// <summary>
+        /// Reserved
+        /// </summary>
+        [pbr::OriginalName("RESERVED")] Reserved = 0,
+        /// <summary>
         /// Create or Modify operation for specified policies.
         /// </summary>
-        [pbr::OriginalName("UPDATE")] Update = 0,
+        [pbr::OriginalName("UPDATE")] Update = 1,
         /// <summary>
         /// Delete operation for specified policies. Deletion of non-existent policy
         /// will be responded with a corresponding error code.
         /// </summary>
-        [pbr::OriginalName("DELETE")] Delete = 1,
+        [pbr::OriginalName("DELETE")] Delete = 2,
       }
 
     }
@@ -3202,6 +3206,7 @@ namespace ServiceLayer {
     private readonly pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList> segmentList_ = new pbc::RepeatedField<global::ServiceLayer.SLSrSegmentList>();
     /// <summary>
     /// The set of weighted segment lists in the explicit candidate path.
+    /// Future revisions of this proto can add segment list by reference.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3217,6 +3222,8 @@ namespace ServiceLayer {
     /// segment-list).
     /// Values are defined in "BGP-LS SR Policy Metric Type" registry under
     /// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+    /// Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
+    /// or a user-defined/generic type[128-255] that is mainly for Flex-Algo
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3432,6 +3439,8 @@ namespace ServiceLayer {
     /// accumulated value of this additive link metric along the path.
     /// Values are defined in "BGP-LS SR Policy Metric Type" registry under
     /// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+    /// Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
+    /// or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
     /// If sid-algo is specified within the range of 128-255, metric_type is
     /// not considered.
     /// </summary>
@@ -3627,6 +3636,8 @@ namespace ServiceLayer {
 
   /// <summary>
   /// A set of constraints for an SR path.
+  /// Other contraints not included here like SRLG, Bandwidth, Metric(Margin, Bounds),
+  /// Disjoint Group etc., can be added in future revisions.
   /// </summary>
   public sealed partial class SLSrConstraints : pb::IMessage<SLSrConstraints>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -3635,7 +3646,6 @@ namespace ServiceLayer {
   {
     private static readonly pb::MessageParser<SLSrConstraints> _parser = new pb::MessageParser<SLSrConstraints>(() => new SLSrConstraints());
     private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SLSrConstraints> Parser { get { return _parser; } }
@@ -3663,11 +3673,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrConstraints(SLSrConstraints other) : this() {
-      _hasBits0 = other._hasBits0;
       affinities_ = other.affinities_ != null ? other.affinities_.Clone() : null;
-      protection_ = other.protection_;
-      sidAlgo_ = other.sidAlgo_;
-      maximumSidDepth_ = other.maximumSidDepth_;
+      segmentRules_ = other.segmentRules_ != null ? other.segmentRules_.Clone() : null;
+      upperBound_ = other.upperBound_ != null ? other.upperBound_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3692,72 +3700,33 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "protection" field.</summary>
-    public const int ProtectionFieldNumber = 2;
-    private global::ServiceLayer.SLSrteProtectionType protection_ = global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred;
+    /// <summary>Field number for the "segment_rules" field.</summary>
+    public const int SegmentRulesFieldNumber = 2;
+    private global::ServiceLayer.SLSrSegmentRules segmentRules_;
     /// <summary>
-    /// Protection type to be used for path segments
+    /// Constraints on the segments to be used in the path
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrteProtectionType Protection {
-      get { return protection_; }
+    public global::ServiceLayer.SLSrSegmentRules SegmentRules {
+      get { return segmentRules_; }
       set {
-        protection_ = value;
+        segmentRules_ = value;
       }
     }
 
-    /// <summary>Field number for the "sid_algo" field.</summary>
-    public const int SidAlgoFieldNumber = 3;
-    private uint sidAlgo_;
+    /// <summary>Field number for the "upper_bound" field.</summary>
+    public const int UpperBoundFieldNumber = 3;
+    private global::ServiceLayer.SLSrUpperBoundConstraints upperBound_;
     /// <summary>
-    /// Algorithm to used for dynamic path calculation
-    /// Refer to Section 3.1.1 of [RFC8402]
+    /// Upper-bound constraints on the computed dynamic path
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint SidAlgo {
-      get { if ((_hasBits0 & 1) != 0) { return sidAlgo_; } else { return 0; } }
+    public global::ServiceLayer.SLSrUpperBoundConstraints UpperBound {
+      get { return upperBound_; }
       set {
-        _hasBits0 |= 1;
-        sidAlgo_ = value;
-      }
-    }
-    /// <summary>Gets whether the "sid_algo" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSidAlgo {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "sid_algo" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSidAlgo() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "maximum_sid_depth" field.</summary>
-    public const int MaximumSidDepthFieldNumber = 4;
-    private uint maximumSidDepth_;
-    /// <summary>
-    /// Maximum number of segments in any of the candidate path segment lists.
-    /// 
-    /// When set to a non-zero value, this attribute replaces the headend MSD
-    /// obtained from the link-state topology. When set to the default value (0),
-    /// this attribute is ignored.
-    /// 
-    /// Note: If the first segment in the segment list can be enforced by setting
-    /// the outgoing interface on the headend node, it does not count towards this
-    /// limit.
-    /// Supported value is platform dependent. Server can choose to respond with an error
-    /// if the value is not in the supported range.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaximumSidDepth {
-      get { return maximumSidDepth_; }
-      set {
-        maximumSidDepth_ = value;
+        upperBound_ = value;
       }
     }
 
@@ -3777,9 +3746,8 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(Affinities, other.Affinities)) return false;
-      if (Protection != other.Protection) return false;
-      if (SidAlgo != other.SidAlgo) return false;
-      if (MaximumSidDepth != other.MaximumSidDepth) return false;
+      if (!object.Equals(SegmentRules, other.SegmentRules)) return false;
+      if (!object.Equals(UpperBound, other.UpperBound)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3788,9 +3756,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (affinities_ != null) hash ^= Affinities.GetHashCode();
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) hash ^= Protection.GetHashCode();
-      if (HasSidAlgo) hash ^= SidAlgo.GetHashCode();
-      if (MaximumSidDepth != 0) hash ^= MaximumSidDepth.GetHashCode();
+      if (segmentRules_ != null) hash ^= SegmentRules.GetHashCode();
+      if (upperBound_ != null) hash ^= UpperBound.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3813,17 +3780,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(Affinities);
       }
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Protection);
+      if (segmentRules_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SegmentRules);
       }
-      if (HasSidAlgo) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(SidAlgo);
-      }
-      if (MaximumSidDepth != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(MaximumSidDepth);
+      if (upperBound_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(UpperBound);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3839,17 +3802,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(Affinities);
       }
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Protection);
+      if (segmentRules_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SegmentRules);
       }
-      if (HasSidAlgo) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(SidAlgo);
-      }
-      if (MaximumSidDepth != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(MaximumSidDepth);
+      if (upperBound_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(UpperBound);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3864,14 +3823,11 @@ namespace ServiceLayer {
       if (affinities_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Affinities);
       }
-      if (Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Protection);
+      if (segmentRules_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SegmentRules);
       }
-      if (HasSidAlgo) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SidAlgo);
-      }
-      if (MaximumSidDepth != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaximumSidDepth);
+      if (upperBound_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UpperBound);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3891,14 +3847,17 @@ namespace ServiceLayer {
         }
         Affinities.MergeFrom(other.Affinities);
       }
-      if (other.Protection != global::ServiceLayer.SLSrteProtectionType.SlSrSegmentProtectedPreferred) {
-        Protection = other.Protection;
+      if (other.segmentRules_ != null) {
+        if (segmentRules_ == null) {
+          SegmentRules = new global::ServiceLayer.SLSrSegmentRules();
+        }
+        SegmentRules.MergeFrom(other.SegmentRules);
       }
-      if (other.HasSidAlgo) {
-        SidAlgo = other.SidAlgo;
-      }
-      if (other.MaximumSidDepth != 0) {
-        MaximumSidDepth = other.MaximumSidDepth;
+      if (other.upperBound_ != null) {
+        if (upperBound_ == null) {
+          UpperBound = new global::ServiceLayer.SLSrUpperBoundConstraints();
+        }
+        UpperBound.MergeFrom(other.UpperBound);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3922,16 +3881,18 @@ namespace ServiceLayer {
             input.ReadMessage(Affinities);
             break;
           }
-          case 16: {
-            Protection = (global::ServiceLayer.SLSrteProtectionType) input.ReadEnum();
+          case 18: {
+            if (segmentRules_ == null) {
+              SegmentRules = new global::ServiceLayer.SLSrSegmentRules();
+            }
+            input.ReadMessage(SegmentRules);
             break;
           }
-          case 24: {
-            SidAlgo = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            MaximumSidDepth = input.ReadUInt32();
+          case 26: {
+            if (upperBound_ == null) {
+              UpperBound = new global::ServiceLayer.SLSrUpperBoundConstraints();
+            }
+            input.ReadMessage(UpperBound);
             break;
           }
         }
@@ -3956,16 +3917,18 @@ namespace ServiceLayer {
             input.ReadMessage(Affinities);
             break;
           }
-          case 16: {
-            Protection = (global::ServiceLayer.SLSrteProtectionType) input.ReadEnum();
+          case 18: {
+            if (segmentRules_ == null) {
+              SegmentRules = new global::ServiceLayer.SLSrSegmentRules();
+            }
+            input.ReadMessage(SegmentRules);
             break;
           }
-          case 24: {
-            SidAlgo = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            MaximumSidDepth = input.ReadUInt32();
+          case 26: {
+            if (upperBound_ == null) {
+              UpperBound = new global::ServiceLayer.SLSrUpperBoundConstraints();
+            }
+            input.ReadMessage(UpperBound);
             break;
           }
         }
