@@ -112,7 +112,7 @@ For now, if you already have passed this setup step, follow this example:
 | -s/--global_init                | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
 | -b/--num_operations             | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch. If table_type is set to pg, then num_operations will dictate how many paths to add to a path group (default 1) |
 | -c/--batch_size                 | Configure the number of ipv4 routes, ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |
-| -x/--stream_case                | Want to use the streaming rpc (true) or unary rpc (false). Only used with slaf protos. When using unary the response Ack given from server will always be of RIB status. (default true) |
+| -x/--stream_case                | Want to use the streaming rpc (true) or unary rpc (false). Only used with slaf protos. When using unary, the response Ack given from server will always be RIB status. (default true) |
 | -y/--path_group_name            | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg. When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") |
 | -A/--response_ack_type          | Configure the type of response that the client expects from the network element for any object programming operation. Please see Proto file for all options (default RIB_ACK) |
 | -B/--response_ack_permit        | Configure the list that controls the types of hardware programming responses as defined in SLAFFibStatus that the client is interested in. For this tutorial we allow one option to be set. Please see Proto file for all options. Regardless of the response ack permit set, this tutorial does not verify any response other than RIB or FIB Success based on ack type. This option is just to demonstrate how to set this field. (default "") |
@@ -205,7 +205,7 @@ Once in bash, navigate to the src directory:
 
 Then, navigate to the tutorial directory:
 
-    root@f6179b5127f5:/slapi# cd /grpc/cpp/src/tutorial/rshuttle
+    root@f6179b5127f5:/slapi# cd grpc/cpp/src/tutorial/rshuttle
 
 ##### How to Run in Docker container (external client workflow)
 

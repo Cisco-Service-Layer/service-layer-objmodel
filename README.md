@@ -166,6 +166,16 @@ A makefile exists in the tutorial directory and could be invoked to re-build the
 # make tutorial (creates/launches container)
 ```
 
+### Cpp
+
+Another similar tutorial written in Cpp (C++) [README](grpc/cpp/src/tutorial/rshuttle/README.md). The tutorial's code is pre-compiled and commited in the code repo for a quick start.
+
+More information on it can be found in:
+
+```
+grpc/cpp/src/tutorial/rshuttle
+```
+
 ### Dotnet (C#)
 
 Another similar tutorial written in Dotnet (C#). This tutorial's code is pre-compiled and committed in the code repo for a quick start on some of the API key features showing batching, etc.
