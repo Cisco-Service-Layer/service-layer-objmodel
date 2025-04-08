@@ -1,7 +1,7 @@
 // @file
 // @brief Client RPC proto file for Policy RPCs.
-// Declares calls for adding, replacing, deleting the policies
-// and apply, unapply policies from interfaces.
+// Declares RPC calls for adding, replacing, deleting policies,
+// and applying/un-applying these policies on interfaces.
 //
 // ----------------------------------------------------------------
 //  Copyright (c) 2024-2025 by Cisco Systems, Inc.

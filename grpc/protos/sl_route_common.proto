@@ -399,6 +399,13 @@ message SLRouteCommon {
     //
     // All others are reserved.
     repeated SLRouteFlags RouteFlags = 7;
+
+    // Route Metric.
+    // The metric is typically based on information like load, hop count,
+    // MTU, reliability of the path, etc.
+    // When routes from different protocols share the same admin distance, 
+    // RIB selects the route with the lowest value in this field.
+    uint32 Metric = 8;
 }
 
 // Attributes for constructing VxLAN encapsulation for a IP packet.
@@ -432,8 +439,8 @@ message SLVxLANPath {
 // link down, BFD, etc.). Revertion is mainly timeout based. The timeout
 // value is platform specific and is not configurable.
 message SLRoutePath {
-    reserved 13;
-    reserved "Flags";
+    reserved 13, 5;
+    reserved "Flags", "Metric";
 
     // One of IPv4 or IPv6 address.
     // For ENCAP_VXLAN, this field is not supported and will be ignored.
@@ -457,13 +464,6 @@ message SLRoutePath {
     // the AF object containing this path is assumed. The client can set a
     // different VRF name for certain use cases such as VPN or VxLAN encapsulation.
     string VrfName = 4;
-
-    // Route Metric.
-    // The metric is typically based on information like load, hop count,
-    // MTU, reliability of the path, etc.
-    // If a non-zero metric value is set in the route, the value set will override
-    // any metric value in the associated SLRoutePath
-    uint32 Metric = 5;
 
     // Path identifier.
     // Path-id is used to uniquely identify a path when it comes to
@@ -539,6 +539,10 @@ message SLRoutePath {
 
     // Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
     // on the IP packet.
+    // Note: SLVxLANPath is supported only through following RPCs
+    // a) SLAFOp
+    // b) SLAFOpStream
+    //
     SLVxLANPath VxLANPath = 12;
 
     // Path Flags. Each flag is indicated as a bit field. Supported values are:
