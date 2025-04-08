@@ -5411,6 +5411,9 @@ namespace ServiceLayer {
     /// <summary>
     /// Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
     /// on the IP packet.
+    /// Note: SLVxLANPath is supported only through following RPCs
+    /// a) SLAFOp
+    /// b) SLAFOpStream
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

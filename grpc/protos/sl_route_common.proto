@@ -539,6 +539,10 @@ message SLRoutePath {
 
     // Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
     // on the IP packet.
+    // Note: SLVxLANPath is supported only through following RPCs
+    // a) SLAFOp
+    // b) SLAFOpStream
+    //
     SLVxLANPath VxLANPath = 12;
 
     // Path Flags. Each flag is indicated as a bit field. Supported values are:

@@ -1622,6 +1622,9 @@ type SLRoutePath struct {
 	VtepRouterMacAddress []byte `protobuf:"bytes,11,opt,name=VtepRouterMacAddress,proto3" json:"VtepRouterMacAddress,omitempty"`
 	// Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
 	// on the IP packet.
+	// Note: SLVxLANPath is supported only through following RPCs
+	// a) SLAFOp
+	// b) SLAFOpStream
 	VxLANPath *SLVxLANPath `protobuf:"bytes,12,opt,name=VxLANPath,proto3" json:"VxLANPath,omitempty"`
 	// Path Flags. Each flag is indicated as a bit field. Supported values are:
 	// - 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels.
