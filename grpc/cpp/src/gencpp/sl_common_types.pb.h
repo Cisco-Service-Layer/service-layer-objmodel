@@ -2222,7 +2222,7 @@ class SLIpv6Address final :
   enum : int {
     kAddressFieldNumber = 1,
   };
-  // bytes Address = 1;
+  // bytes address = 1;
   void clear_address();
   const std::string& address() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -3037,12 +3037,12 @@ inline SLIpAddress::AddressCase SLIpAddress::Address_case() const {
 
 // SLIpv6Address
 
-// bytes Address = 1;
+// bytes address = 1;
 inline void SLIpv6Address::clear_address() {
   address_.ClearToEmpty();
 }
 inline const std::string& SLIpv6Address::address() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLIpv6Address.Address)
+  // @@protoc_insertion_point(field_get:service_layer.SLIpv6Address.address)
   return _internal_address();
 }
 template <typename ArgT0, typename... ArgT>
@@ -3050,11 +3050,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void SLIpv6Address::set_address(ArgT0&& arg0, ArgT... args) {
  
  address_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLIpv6Address.Address)
+  // @@protoc_insertion_point(field_set:service_layer.SLIpv6Address.address)
 }
 inline std::string* SLIpv6Address::mutable_address() {
   std::string* _s = _internal_mutable_address();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLIpv6Address.Address)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLIpv6Address.address)
   return _s;
 }
 inline const std::string& SLIpv6Address::_internal_address() const {
@@ -3069,7 +3069,7 @@ inline std::string* SLIpv6Address::_internal_mutable_address() {
   return address_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* SLIpv6Address::release_address() {
-  // @@protoc_insertion_point(field_release:service_layer.SLIpv6Address.Address)
+  // @@protoc_insertion_point(field_release:service_layer.SLIpv6Address.address)
   return address_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void SLIpv6Address::set_allocated_address(std::string* address) {
@@ -3085,7 +3085,7 @@ inline void SLIpv6Address::set_allocated_address(std::string* address) {
     address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLIpv6Address.Address)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLIpv6Address.address)
 }
 
 // -------------------------------------------------------------------

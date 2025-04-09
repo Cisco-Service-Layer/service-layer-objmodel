@@ -522,7 +522,7 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\013\n\tInterface\"B\n\013SL"
   "IpAddress\022\023\n\tV4Address\030\001 \001(\rH\000\022\023\n\tV6Addr"
   "ess\030\002 \001(\014H\000B\t\n\007Address\" \n\rSLIpv6Address\022"
-  "\017\n\007Address\030\001 \001(\014\"\'\n\030SLAutonomousSystemNu"
+  "\017\n\007address\030\001 \001(\014\"\'\n\030SLAutonomousSystemNu"
   "mber\022\013\n\003asn\030\001 \001(\r\"%\n\nSLObjectId\022\016\n\004Name\030"
   "\001 \001(\tH\000B\007\n\005entry\"T\n\021SLPathGroupRefKey\022\017\n"
   "\007VrfName\030\001 \001(\t\022.\n\013PathGroupId\030\002 \001(\0132\031.se"
@@ -2289,7 +2289,7 @@ const char* SLIpv6Address::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes Address = 1;
+      // bytes address = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_address();
@@ -2327,7 +2327,7 @@ uint8_t* SLIpv6Address::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes Address = 1;
+  // bytes address = 1;
   if (!this->_internal_address().empty()) {
     target = stream->WriteBytesMaybeAliased(
         1, this->_internal_address(), target);
@@ -2349,7 +2349,7 @@ size_t SLIpv6Address::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes Address = 1;
+  // bytes address = 1;
   if (!this->_internal_address().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(

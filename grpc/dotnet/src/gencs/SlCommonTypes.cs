@@ -322,7 +322,7 @@ namespace ServiceLayer {
             "X1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoETmFtZRgBIAEo",
             "CUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJCCgtTTElwQWRk",
             "cmVzcxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJlc3MYAiABKAxI",
-            "AEIJCgdBZGRyZXNzIiAKDVNMSXB2NkFkZHJlc3MSDwoHQWRkcmVzcxgBIAEo",
+            "AEIJCgdBZGRyZXNzIiAKDVNMSXB2NkFkZHJlc3MSDwoHYWRkcmVzcxgBIAEo",
             "DCInChhTTEF1dG9ub21vdXNTeXN0ZW1OdW1iZXISCwoDYXNuGAEgASgNIiUK",
             "ClNMT2JqZWN0SWQSDgoETmFtZRgBIAEoCUgAQgcKBWVudHJ5IlQKEVNMUGF0",
             "aEdyb3VwUmVmS2V5Eg8KB1ZyZk5hbWUYASABKAkSLgoLUGF0aEdyb3VwSWQY",
@@ -3085,7 +3085,7 @@ namespace ServiceLayer {
       return new SLIpv6Address(this);
     }
 
-    /// <summary>Field number for the "Address" field.</summary>
+    /// <summary>Field number for the "address" field.</summary>
     public const int AddressFieldNumber = 1;
     private pb::ByteString address_ = pb::ByteString.Empty;
     /// <summary>

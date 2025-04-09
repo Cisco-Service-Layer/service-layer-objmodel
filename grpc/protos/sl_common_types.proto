@@ -1038,7 +1038,7 @@ message SLIpAddress {
 // IPv6 address.
 message SLIpv6Address {
     // Address must have length of 16 bytes.
-    bytes  Address = 1;
+    bytes address = 1;
 }
 
 // Autonomous System Number (ASN)
