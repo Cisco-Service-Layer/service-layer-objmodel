@@ -182,7 +182,7 @@ message SLSrEndOfReplay { }
 // replay timer value, then policies can be deleted before receiving EndOfReplay message. 
 //
 // Replay of policies followed by EndOfReplay is expected from the client after
-// this message. Replayed policies will have stale flag removed, EndOfSync will trigger
+// this message. Replayed policies will have stale flag removed, EndOfReplay will trigger
 // deletion of any policies still left stale (policies that have not been replayed).
 // If server receives StartOfReplay when it is already in replay state, it is considered
 // an error.
@@ -270,7 +270,7 @@ message SLSrCandidatePath {
     }
 }
 
-// Candidate path with explicitly defined set/s of segment-lists
+// Candidate path with explicitly defined set of segment-lists
 message SLSrExplicitCP {
     // The set of weighted segment lists in the explicit candidate path.
     // Future revisions of this proto can add segment list by reference.
@@ -326,6 +326,7 @@ message SLSrConstraints {
 // SRv6 Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
 message SLSrSrv6BindingSID {
     oneof type {
+       // Will be enabled in future
        //SLSRv6SIDInfo explicit = 1;
        SLSrSrv6DynamicBindingSID dynamic = 2;
     }

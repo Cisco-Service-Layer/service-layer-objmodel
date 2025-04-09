@@ -1853,7 +1853,7 @@ namespace ServiceLayer {
   /// replay timer value, then policies can be deleted before receiving EndOfReplay message. 
   ///
   /// Replay of policies followed by EndOfReplay is expected from the client after
-  /// this message. Replayed policies will have stale flag removed, EndOfSync will trigger
+  /// this message. Replayed policies will have stale flag removed, EndOfReplay will trigger
   /// deletion of any policies still left stale (policies that have not been replayed).
   /// If server receives StartOfReplay when it is already in replay state, it is considered
   /// an error.
@@ -3152,7 +3152,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Candidate path with explicitly defined set/s of segment-lists
+  /// Candidate path with explicitly defined set of segment-lists
   /// </summary>
   public sealed partial class SLSrExplicitCP : pb::IMessage<SLSrExplicitCP>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -3993,6 +3993,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "dynamic" field.</summary>
     public const int DynamicFieldNumber = 2;
     /// <summary>
+    /// Will be enabled in future
     ///SLSRv6SIDInfo explicit = 1;
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

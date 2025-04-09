@@ -549,7 +549,7 @@ func (*SLSrEndOfReplay) Descriptor() ([]byte, []int) {
 // replay timer value, then policies can be deleted before receiving EndOfReplay message.
 //
 // Replay of policies followed by EndOfReplay is expected from the client after
-// this message. Replayed policies will have stale flag removed, EndOfSync will trigger
+// this message. Replayed policies will have stale flag removed, EndOfReplay will trigger
 // deletion of any policies still left stale (policies that have not been replayed).
 // If server receives StartOfReplay when it is already in replay state, it is considered
 // an error.
@@ -891,7 +891,7 @@ func (*SLSrCandidatePath_Dynamic) isSLSrCandidatePath_CP() {}
 
 func (*SLSrCandidatePath_Explicit) isSLSrCandidatePath_CP() {}
 
-// Candidate path with explicitly defined set/s of segment-lists
+// Candidate path with explicitly defined set of segment-lists
 type SLSrExplicitCP struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1154,6 +1154,7 @@ type isSLSrSrv6BindingSID_Type interface {
 }
 
 type SLSrSrv6BindingSID_Dynamic struct {
+	// Will be enabled in future
 	// SLSRv6SIDInfo explicit = 1;
 	Dynamic *SLSrSrv6DynamicBindingSID `protobuf:"bytes,2,opt,name=dynamic,proto3,oneof"`
 }
