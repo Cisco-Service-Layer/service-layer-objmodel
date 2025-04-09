@@ -227,6 +227,10 @@ message SLSrPolicyAttributes {
     // (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
     // If neither mpls_bsid nor srv6_bsid are specified, then dynamic BSID based on
     // dataplane will be allocated.
+    // SRv6 architecture supports multiple binding SID behaviors, for eg., B6_PSP_USD.
+    // Network node is allowed to allocate and support more than one behavior at the
+    // same time. In practice only single combo behavior, for eg., PSP_USD is used
+    // and supported.
     repeated SLSrSrv6BindingSID srv6_bsids = 5;
 
     // ID of the profile with which policy can be associated with a non-zero value. The
@@ -267,6 +271,7 @@ message SLSrCandidatePath {
         SLSrDynamicCP dynamic = 5;
         // (https://www.rfc-editor.org/rfc/rfc9256.html#section-5.1).
         SLSrExplicitCP explicit = 6;
+        // Composite CP is currently not supported in this revision.
     }
 }
 
@@ -281,7 +286,8 @@ message SLSrExplicitCP {
     // Values are defined in "BGP-LS SR Policy Metric Type" registry under
     // "Border Gateway Protocol - Link State (BGP-LS) Parameters"
     // Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
-    // or a user-defined/generic type[128-255] that is mainly for Flex-Algo
+    // or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+    // To accomodate both types, a num (uint) is used instead of a well-defined enum.
     uint32 metric_type = 3;
 }
 
@@ -295,6 +301,7 @@ message SLSrDynamicCP {
     // "Border Gateway Protocol - Link State (BGP-LS) Parameters"
     // Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
     // or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+    // To accomodate both types, a num (uint) is used instead of a well-defined enum.
     // If sid-algo is specified within the range of 128-255, metric_type is
     // not considered.
     uint32 metric_type = 1;
@@ -313,7 +320,7 @@ message SLSrConstraints {
     // Constraints that must be satisfied by every node or link along the path.
     // These constraints determine the input topology to the path calculation.
 
-    // Extended Administrative Groups.
+    // SR Affinity constraints
     SLSrAffinities affinities = 1;
 
     // Constraints on the segments to be used in the path

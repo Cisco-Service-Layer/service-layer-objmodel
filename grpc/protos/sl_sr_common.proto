@@ -450,8 +450,7 @@ message SLSrAffinities {
     repeated uint32 excludeAny = 3;
 }
 
-// Constraints that must be satisfied by the complete path and cannot be
-// verified on a node-by-node or link-by-link basis.
+// Segment Rules related constraints to be used during the path computation.
 message SLSrSegmentRules {
     // Algorithm to used for dynamic path calculation.
     // Refer to Section 3.1.1 of [RFC8402]
@@ -537,6 +536,7 @@ message SLSrSegmentList {
     //
     // - the default weight is 1; and
     // - a segment list with a weight of 0 is invalid.
+    // Segment List weight can move to CP level when SL by reference is supported
     optional uint32 weight = 2;
 
     // Total path *cost*, i.e., the accumulated metric values along the path.

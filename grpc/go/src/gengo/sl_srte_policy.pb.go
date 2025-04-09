@@ -690,6 +690,10 @@ type SLSrPolicyAttributes struct {
 	// (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
 	// If neither mpls_bsid nor srv6_bsid are specified, then dynamic BSID based on
 	// dataplane will be allocated.
+	// SRv6 architecture supports multiple binding SID behaviors, for eg., B6_PSP_USD.
+	// Network node is allowed to allocate and support more than one behavior at the
+	// same time. In practice only single combo behavior, for eg., PSP_USD is used
+	// and supported.
 	Srv6Bsids []*SLSrSrv6BindingSID `protobuf:"bytes,5,rep,name=srv6_bsids,json=srv6Bsids,proto3" json:"srv6_bsids,omitempty"`
 	// ID of the profile with which policy can be associated with a non-zero value. The
 	// Profile ID concept is described as "Policy Association Group" in RFC 9005.
@@ -884,7 +888,7 @@ type SLSrCandidatePath_Dynamic struct {
 
 type SLSrCandidatePath_Explicit struct {
 	// (https://www.rfc-editor.org/rfc/rfc9256.html#section-5.1).
-	Explicit *SLSrExplicitCP `protobuf:"bytes,6,opt,name=explicit,proto3,oneof"`
+	Explicit *SLSrExplicitCP `protobuf:"bytes,6,opt,name=explicit,proto3,oneof"` // Composite CP is currently not supported in this revision.
 }
 
 func (*SLSrCandidatePath_Dynamic) isSLSrCandidatePath_CP() {}
@@ -905,7 +909,8 @@ type SLSrExplicitCP struct {
 	// Values are defined in "BGP-LS SR Policy Metric Type" registry under
 	// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
 	// Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
-	// or a user-defined/generic type[128-255] that is mainly for Flex-Algo
+	// or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+	// To accomodate both types, a num (uint) is used instead of a well-defined enum.
 	MetricType uint32 `protobuf:"varint,3,opt,name=metric_type,json=metricType,proto3" json:"metric_type,omitempty"`
 }
 
@@ -969,6 +974,7 @@ type SLSrDynamicCP struct {
 	// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
 	// Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
 	// or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+	// To accomodate both types, a num (uint) is used instead of a well-defined enum.
 	// If sid-algo is specified within the range of 128-255, metric_type is
 	// not considered.
 	MetricType uint32 `protobuf:"varint,1,opt,name=metric_type,json=metricType,proto3" json:"metric_type,omitempty"`
@@ -1030,7 +1036,7 @@ type SLSrConstraints struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Extended Administrative Groups.
+	// SR Affinity constraints
 	Affinities *SLSrAffinities `protobuf:"bytes,1,opt,name=affinities,proto3" json:"affinities,omitempty"`
 	// Constraints on the segments to be used in the path
 	SegmentRules *SLSrSegmentRules `protobuf:"bytes,2,opt,name=segment_rules,json=segmentRules,proto3" json:"segment_rules,omitempty"`

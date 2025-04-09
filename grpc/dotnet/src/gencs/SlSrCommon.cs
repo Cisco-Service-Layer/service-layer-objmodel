@@ -4120,8 +4120,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Constraints that must be satisfied by the complete path and cannot be
-  /// verified on a node-by-node or link-by-link basis.
+  /// Segment Rules related constraints to be used during the path computation.
   /// </summary>
   public sealed partial class SLSrSegmentRules : pb::IMessage<SLSrSegmentRules>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -5645,6 +5644,7 @@ namespace ServiceLayer {
     ///
     /// - the default weight is 1; and
     /// - a segment list with a weight of 0 is invalid.
+    /// Segment List weight can move to CP level when SL by reference is supported
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

@@ -1490,8 +1490,7 @@ func (x *SLSrAffinities) GetExcludeAny() []uint32 {
 	return nil
 }
 
-// Constraints that must be satisfied by the complete path and cannot be
-// verified on a node-by-node or link-by-link basis.
+// Segment Rules related constraints to be used during the path computation.
 type SLSrSegmentRules struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1780,6 +1779,7 @@ type SLSrSegmentList struct {
 	//
 	// - the default weight is 1; and
 	// - a segment list with a weight of 0 is invalid.
+	// Segment List weight can move to CP level when SL by reference is supported
 	Weight *uint32 `protobuf:"varint,2,opt,name=weight,proto3,oneof" json:"weight,omitempty"`
 	// Total path *cost*, i.e., the accumulated metric values along the path.
 	PathCost uint32 `protobuf:"varint,3,opt,name=path_cost,json=pathCost,proto3" json:"path_cost,omitempty"`

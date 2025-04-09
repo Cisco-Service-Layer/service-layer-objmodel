@@ -2445,6 +2445,10 @@ namespace ServiceLayer {
     /// (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
     /// If neither mpls_bsid nor srv6_bsid are specified, then dynamic BSID based on
     /// dataplane will be allocated.
+    /// SRv6 architecture supports multiple binding SID behaviors, for eg., B6_PSP_USD.
+    /// Network node is allowed to allocate and support more than one behavior at the
+    /// same time. In practice only single combo behavior, for eg., PSP_USD is used
+    /// and supported.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3223,7 +3227,8 @@ namespace ServiceLayer {
     /// Values are defined in "BGP-LS SR Policy Metric Type" registry under
     /// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
     /// Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
-    /// or a user-defined/generic type[128-255] that is mainly for Flex-Algo
+    /// or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+    /// To accomodate both types, a num (uint) is used instead of a well-defined enum.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3441,6 +3446,7 @@ namespace ServiceLayer {
     /// "Border Gateway Protocol - Link State (BGP-LS) Parameters"
     /// Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
     /// or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+    /// To accomodate both types, a num (uint) is used instead of a well-defined enum.
     /// If sid-algo is specified within the range of 128-255, metric_type is
     /// not considered.
     /// </summary>
@@ -3689,7 +3695,7 @@ namespace ServiceLayer {
     public const int AffinitiesFieldNumber = 1;
     private global::ServiceLayer.SLSrAffinities affinities_;
     /// <summary>
-    /// Extended Administrative Groups.
+    /// SR Affinity constraints
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
