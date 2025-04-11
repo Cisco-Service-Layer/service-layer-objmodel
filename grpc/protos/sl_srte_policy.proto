@@ -1,0 +1,355 @@
+// @file 
+// @brief Proto file for Segment-routing traffic-eng (SR-TE) Policy RPCs.
+// Declares calls for adding, deleting, updating the SR-TE policies.
+// The GPB data model should reflect the model from the SR-TE policy
+// RFC https://datatracker.ietf.org/doc/rfc9256/.
+// A subset of the SR-TE Policy model defined in the RFC9256 is supported by
+// this proto. Future revisions can include more fields as needed to complete
+// the model.
+// 
+// ----------------------------------------------------------------
+//  Copyright (c) 2025 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_sr_common.proto";
+
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
+
+// @defgroup SLSrtePolicy
+// Used to programmatically create/update/delete SR-TE policies.
+// Defines the RPC for operations on SR-TE policy.
+//
+// @{ 
+service SLSrtePolicy {
+    //@addtogroup SLSrtePolicy
+    //@{
+    //;
+
+    //    
+    // SR-TE Policy operations
+    //
+
+    // The SLSrPolicyOp RPC is used to create/update/delete an SR-TE policy based on the
+    // specified parameters.
+    rpc SLSrPolicyOp(stream SLSrPolicyMsg) returns (stream SLSrPolicyRsp);
+
+    //@} 
+}
+
+// SLSrPolicyMsg is message used by client to manage policies on target device
+message SLSrPolicyMsg {
+    oneof msg_type {
+        // Used to set session parameters by the client.
+        SLSrPolicyOpen open = 1;
+        // Set of policies to be created, updated or deleted.
+        SLSrPolicyRequests requests = 2;
+    }
+}
+
+// RPC response 
+// Response to policy operation. Indicates result of the operation and not the 
+// operational state of the policy. In case multiple requests are received for a
+// given policy, identified by the specific SLSrPolicyKey, there would be at least
+// one response based on the last message request.
+message SLSrPolicyRsp {
+    message PolicyRsp {
+        // Operation ID of the request for which response is being sent by the server.
+        // Enables the client to match responses to their corresponding requests.
+        uint64 operation_id = 1;
+
+        // SR policy identifier from the request.
+        SLSrPolicyKey key = 2;
+        // Status indicating the success or failure of the specific policy operation.
+        SLSrStatus status = 3;
+    }
+    // Set of responses corresponding to the policies in the request.
+    repeated PolicyRsp responses = 1;
+
+    // Status of the entire request. Used for errors that are not specific to
+    // individual policies.
+    SLSrStatus status = 2;
+} 
+
+// Used to set session parameters by the client.
+// The Open Message must be the first message sent by the controller. Any other message
+// prior to the Open is considered an error. It is not allowed to send the Open Message
+// multiple times for the same gRPC session.
+// To update attributes (client-ID, persistence mode and cleanup timer value) included in
+// the Open Message, the connection must be closed and re-opened.
+// For DELETE persistence mode, Open Message is implicit start of replay.
+// 
+// The server is not required to send an explicit response message to indicate the
+// receipt of the Open Message. Server may respond in case of any errors.
+message SLSrPolicyOpen {
+    enum SLSrPersistenceMode {
+        // When the controller disconnects,
+        // - If a cleanup timer is specified in the OpenMsg, policies/CPs are deleted
+        //   after the timer expires.
+        // - If cleanup time is not specified or set to zero, policies/CPs are deleted
+        //   immediately.
+        DELETE = 0; 
+
+        // When the client disconnects, the server preserves all policies/CPs
+        // instantiated by this client.
+        // It is client's responsibility to delete the policies when they are no
+        // longer needed. The server does not do auto-cleanup of policies created
+        // with this mode.
+        PRESERVE = 1;
+    }
+
+    // Used to set ownership of any policies instantiated during this session.
+    // This is expected to be a unique value, which means multiple clients with
+    // same client_id are not allowed to connect to the same server. Connection
+    // is closed by the server with an error if client_id of the new session matches
+    // with existing active session.
+    // On a disconnect, a controller with same client_id can reclaim the ownership
+    // of policies on the Server by reconnecting back.
+    // Length of the client_id is expected to be in the range of 1 to 64.
+    // An empty client_id or client_id outside of this range length is considered
+    // an error. Usage of characters used in client_id is limited to alphanumerical
+    // characters.
+    string client_id = 1;
+
+    // Persistence mode for policies instantiated by this client
+    // Persistence mode is an attribute of the gRPC client. If the gRPC client
+    // reconnects with a different persistence mode, the rules associated with
+    // the mode specified in the most recent Open Message will be applied to all
+    // policies created with the same Client-ID, including those provisioned in
+    // previous gRPC sessions.
+    SLSrPersistenceMode mode = 3;
+} 
+
+// Set of policies to be acted on
+message SLSrPolicyRequests {
+    // List of policy operations
+    repeated SLSrPolicyReq request = 1; 
+}
+
+// Policy operation
+message SLSrPolicyReq {
+    enum SLSrOp {
+        // Reserved
+        RESERVED = 0;
+        // Create or Modify operation for specified policies.
+        UPDATE = 1;
+        // Delete operation for specified policies. Deletion of non-existent policy
+        // will be responded with a corresponding error code.
+        DELETE = 2;
+    }
+    SLSrOp operation = 1;
+
+    // Each policy request is uniquely identified by a operation ID and a policy key,
+    // both of which are reflected by the router in the response.
+    // Each policy request encompasses all candidate-paths and policy attributes.
+    // A policy request is not incremental but expected to replace (with all
+    // contents/constructs such as candidate-paths) specified; Candidate-paths not
+    // included in the update request will be removed.
+    // 
+    // Policy attributes (e.g., profile ID, Binding SID, etc.), that are not specified
+    // for each candidate-path are applied to all candidate-paths. In the event of
+    // a conflict with similar attribute set from other interfaces (e.g., configuration,
+    // PCEP, etc.), then policy will be down. The only exception is the Binding SID
+    // attribute set for a specific candidate-path, which will take precedence over
+    // the Binding SID specified for the entire policy.
+    SLSrPolicy policy = 2;
+}
+
+// 
+// After reconnect, the controller is expected to send an EndOfReplay message after
+// replaying policies in case of "DELETE" persistence mode. For "PRESERVE" mode,
+// replay of all policies is not required, but it can be still explicitly initiated
+// by sending StartOfReplay message.
+// SLSrEndOfReplay indicates that the controller has finished replaying all policies,
+// which will then trigger cleanup of any policies not reclaimed by the controller
+// (identified by Client-ID).
+// The server will start a replay timer, when replay is initiated with value of 600
+// seconds. If the EndOfReplay message is not received in the specified time, not
+// replayed policies will be deleted.
+// The server will not send any responses to this message unless there is an error. 
+message SLSrEndOfReplay { }
+
+// Client can use StartOfReplay to start a resync with the Server. This is the way for
+// the controller to explicitly request start of replay on an already established
+// connection.
+// This message marks all the policies from this client as stale on the Server and
+// starts replay timer. Note that if synchronization takes longer than specified
+// replay timer value, then policies can be deleted before receiving EndOfReplay message. 
+//
+// Replay of policies followed by EndOfReplay is expected from the client after
+// this message. Replayed policies will have stale flag removed, EndOfReplay will trigger
+// deletion of any policies still left stale (policies that have not been replayed).
+// If server receives StartOfReplay when it is already in replay state, it is considered
+// an error.
+// The server will not send any responses to this message unless there is an error. 
+message SLSrStartOfReplay { }
+
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2).
+message SLSrPolicy {
+    // The operation ID serves the purpose of allowing the controller to identify
+    // which request the headend is responding to when multiple requests for the same
+    // policy are sent.
+    // Operation Id should be monotonically increasing for the life of the client.
+    uint64 operation_id = 1;
+
+    // Globally unique SR policy identifier.
+    SLSrPolicyKey key = 2;
+
+    // Policy attributes
+    SLSrPolicyAttributes attrs = 3;
+
+    // List of Candidate Paths for the policy
+    repeated SLSrCandidatePath CPs = 4;
+} 
+
+ 
+
+// Policy attributes
+message SLSrPolicyAttributes {
+    // When set, policy is eligible for use as a transit policy on the headend
+    bool transit_eligible = 2;
+
+    // The segment routing dataplane.
+    // This is a mandatory field. Unspecified dataplane is invalid and will be rejected
+    // by the server.
+    SLSrDataplane dataplane = 3;
+
+    // (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.1).
+    // If neither mpls_bsid nor srv6_bsid are specified, then dynamic BSID based on
+    // dataplane will be allocated.
+    SLSrMPLSBindingSID mpls_bsid = 4;
+
+    // (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
+    // If neither mpls_bsid nor srv6_bsid are specified, then dynamic BSID based on
+    // dataplane will be allocated.
+    // SRv6 architecture supports multiple binding SID behaviors, for eg., B6_PSP_USD.
+    // Network node is allowed to allocate and support more than one behavior at the
+    // same time. In practice only single combo behavior, for eg., PSP_USD is used
+    // and supported.
+    repeated SLSrSrv6BindingSID srv6_bsids = 5;
+
+    // ID of the profile with which policy can be associated with a non-zero value. The
+    // Profile ID concept is described as "Policy Association Group" in RFC 9005.
+    // 0 value means unset. Maximum accepted value is 65534.
+    // 
+    // A profile represents a set of configuration knobs specifying policy or policy
+    // candidate-path (CP) attributes. The profile-ID feature allows usage of
+    // vendor/implementation specific functionality per policy without requiring
+    // explicit support by controller.
+    uint32 profile_id = 6;
+}
+
+// SR Candidate Path in the context of an SR Policy, as defined in
+// [section 2.2 of RFC 9256] 
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.2).
+message SLSrCandidatePath {
+    // Unique candidate path identifier in the context of an SR policy.
+    // The tuple (policy_key, candidate_path_key) is a globally unique
+    // identifier of the candidate path. Protocol origin field will be set to
+    // SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC
+    SLSrCandidatePathKey key = 2;
+
+    // Candidate path name
+    // String of printable ASCII with max length of 256 characters.
+    // If unset, candidate-path name will be generated. Name with invalid
+    // length or unacceptable characters will be rejected.
+    string name = 3;
+
+    // The Preference of the candidate path is used to select the
+    // best candidate path for an SR Policy.
+    // If not specified, 100 is used as a default.
+    // https://www.rfc-editor.org/rfc/rfc9256.html#name-preference-of-a-candidate-p
+    optional uint32 preference = 4;
+
+    oneof CP {
+        // (https://www.rfc-editor.org/rfc/rfc9256.html#section-5.2).
+        SLSrDynamicCP dynamic = 5;
+        // (https://www.rfc-editor.org/rfc/rfc9256.html#section-5.1).
+        SLSrExplicitCP explicit = 6;
+        // Composite CP is currently not supported in this revision.
+    }
+}
+
+// Candidate path with explicitly defined set of segment-lists
+message SLSrExplicitCP {
+    // The set of weighted segment lists in the explicit candidate path.
+    // Future revisions of this proto can add segment list by reference.
+    repeated SLSrSegmentList segment_list = 1;
+
+    // Optimization metric type used for accumulating metric value (specified for each
+    // segment-list).
+    // Values are defined in "BGP-LS SR Policy Metric Type" registry under
+    // "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+    // Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
+    // or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+    // To accomodate both types, a num (uint) is used instead of a well-defined enum.
+    uint32 metric_type = 3;
+}
+
+// The specific attributes for instantiating a dynamic path request.
+message SLSrDynamicCP {
+    // The optimization metric of the dynamic candidate path.
+    // 
+    // The objective function of the optimization problem is to minimize the
+    // accumulated value of this additive link metric along the path.
+    // Values are defined in "BGP-LS SR Policy Metric Type" registry under
+    // "Border Gateway Protocol - Link State (BGP-LS) Parameters"
+    // Metric Type can be one of well-defined metric type (Eg: TE, Latency, BW etc.)
+    // or a user-defined/generic type[128-255] that is mainly for Flex-Algo.
+    // To accomodate both types, a num (uint) is used instead of a well-defined enum.
+    // If sid-algo is specified within the range of 128-255, metric_type is
+    // not considered.
+    uint32 metric_type = 1;
+
+    // The set of constraints that the candidate path must satisfy.
+    SLSrConstraints constraints = 2;
+}
+
+// A set of constraints for an SR path.
+// Other contraints not included here like SRLG, Bandwidth, Metric(Margin, Bounds),
+// Disjoint Group etc., can be added in future revisions.
+message SLSrConstraints {
+    // Topological Constraints
+    // =======================
+    // 
+    // Constraints that must be satisfied by every node or link along the path.
+    // These constraints determine the input topology to the path calculation.
+
+    // SR Affinity constraints
+    SLSrAffinities affinities = 1;
+
+    // Constraints on the segments to be used in the path
+    SLSrSegmentRules segment_rules = 2;
+
+    // Upper-bound constraints on the computed dynamic path
+    SLSrUpperBoundConstraints upper_bound = 3;
+} 
+
+// SRv6 Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
+message SLSrSrv6BindingSID {
+    oneof type {
+       // Will be enabled in future
+       //SLSRv6SIDInfo explicit = 1;
+       SLSrSrv6DynamicBindingSID dynamic = 2;
+    }
+}
+
+// SR-MPLS Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.1).
+message SLSrMPLSBindingSID {
+    // If not set, dynamic MPLS BSID will be allocated
+    optional uint32 mpls_bsid = 1;
+}
+
+// SRv6 Dynamic Binding SID attributes
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
+message SLSrSrv6DynamicBindingSID {
+    // If not set, server will use default platform behavior
+    uint32 srv6_endpoint_behavior = 1;
+}
+
+//@}

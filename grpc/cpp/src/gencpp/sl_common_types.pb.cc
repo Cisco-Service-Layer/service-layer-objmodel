@@ -54,6 +54,30 @@ struct SLIpAddressDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLIpAddressDefaultTypeInternal _SLIpAddress_default_instance_;
+constexpr SLIpv6Address::SLIpv6Address(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : address_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct SLIpv6AddressDefaultTypeInternal {
+  constexpr SLIpv6AddressDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLIpv6AddressDefaultTypeInternal() {}
+  union {
+    SLIpv6Address _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLIpv6AddressDefaultTypeInternal _SLIpv6Address_default_instance_;
+constexpr SLAutonomousSystemNumber::SLAutonomousSystemNumber(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : asn_(0u){}
+struct SLAutonomousSystemNumberDefaultTypeInternal {
+  constexpr SLAutonomousSystemNumberDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAutonomousSystemNumberDefaultTypeInternal() {}
+  union {
+    SLAutonomousSystemNumber _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAutonomousSystemNumberDefaultTypeInternal _SLAutonomousSystemNumber_default_instance_;
 constexpr SLObjectId::SLObjectId(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : _oneof_case_{}{}
@@ -80,7 +104,7 @@ struct SLPathGroupRefKeyDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLPathGroupRefKeyDefaultTypeInternal _SLPathGroupRefKey_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fcommon_5ftypes_2eproto[5];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fcommon_5ftypes_2eproto[7];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[11];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto = nullptr;
 
@@ -111,6 +135,20 @@ const uint32_t TableStruct_sl_5fcommon_5ftypes_2eproto::offsets[] PROTOBUF_SECTI
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLIpAddress, Address_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLIpv6Address, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLIpv6Address, address_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAutonomousSystemNumber, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAutonomousSystemNumber, asn_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLObjectId, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLObjectId, _oneof_case_[0]),
@@ -131,22 +169,26 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, -1, sizeof(::service_layer::SLErrorStatus)},
   { 7, -1, -1, sizeof(::service_layer::SLInterface)},
   { 16, -1, -1, sizeof(::service_layer::SLIpAddress)},
-  { 25, -1, -1, sizeof(::service_layer::SLObjectId)},
-  { 33, -1, -1, sizeof(::service_layer::SLPathGroupRefKey)},
+  { 25, -1, -1, sizeof(::service_layer::SLIpv6Address)},
+  { 32, -1, -1, sizeof(::service_layer::SLAutonomousSystemNumber)},
+  { 39, -1, -1, sizeof(::service_layer::SLObjectId)},
+  { 47, -1, -1, sizeof(::service_layer::SLPathGroupRefKey)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLErrorStatus_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLInterface_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLIpAddress_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLIpv6Address_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAutonomousSystemNumber_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLObjectId_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroupRefKey_default_instance_),
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025sl_common_types.proto\022\rservice_layer\"\353"
-  "d\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-  "ce_layer.SLErrorStatus.SLErrno\"\243d\n\007SLErr"
+  "\n\025sl_common_types.proto\022\rservice_layer\"\303"
+  "g\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
+  "ce_layer.SLErrorStatus.SLErrno\"\373f\n\007SLErr"
   "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
   "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
   "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -466,50 +508,60 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "GP_GET_EXACT_MATCH_NOT_FOUND\020\257\300\006\022#\n\035SL_B"
   "GP_MAX_NEIGHBORS_IN_SYSDB\020\260\300\006\022\033\n\025SL_BGP_"
   "INTERNAL_ERR_1\020\201\302\006\022\033\n\025SL_BGP_INTERNAL_ER"
-  "R_2\020\202\302\006\022\033\n\025SL_BGP_INTERNAL_ERR_3\020\203\302\006\022\036\n\030"
-  "SL_INTERNAL_START_OFFSET\020\200\200@\"<\n\013SLInterf"
-  "ace\022\016\n\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\013\n"
-  "\tInterface\"B\n\013SLIpAddress\022\023\n\tV4Address\030\001"
-  " \001(\rH\000\022\023\n\tV6Address\030\002 \001(\014H\000B\t\n\007Address\"%"
-  "\n\nSLObjectId\022\016\n\004Name\030\001 \001(\tH\000B\007\n\005entry\"T\n"
-  "\021SLPathGroupRefKey\022\017\n\007VrfName\030\001 \001(\t\022.\n\013P"
-  "athGroupId\030\002 \001(\0132\031.service_layer.SLObjec"
-  "tId*b\n\007SLRegOp\022\025\n\021SL_REGOP_RESERVED\020\000\022\025\n"
-  "\021SL_REGOP_REGISTER\020\001\022\027\n\023SL_REGOP_UNREGIS"
-  "TER\020\002\022\020\n\014SL_REGOP_EOF\020\003*_\n\nSLObjectOp\022\025\n"
-  "\021SL_OBJOP_RESERVED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023"
-  "\n\017SL_OBJOP_UPDATE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003"
-  "*S\n\tSLNotifOp\022\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025"
-  "\n\021SL_NOTIFOP_ENABLE\020\001\022\026\n\022SL_NOTIFOP_DISA"
-  "BLE\020\002*\211\001\n\020SLUpdatePriority\022\030\n\024SL_PRIORIT"
-  "Y_RESERVED\020\000\022\030\n\024SL_PRIORITY_CRITICAL\020\004\022\024"
-  "\n\020SL_PRIORITY_HIGH\020\010\022\026\n\022SL_PRIORITY_MEDI"
-  "UM\020\014\022\023\n\017SL_PRIORITY_LOW\020\020*K\n\013SLEncapType"
-  "\022\025\n\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_ENCAP_VXLA"
-  "N\020\001\022\021\n\rSL_ENCAP_MPLS\020\002*\215\001\n\013SLTableType\022\032"
-  "\n\026SL_TABLE_TYPE_RESERVED\020\000\022\027\n\023SL_IPv4_RO"
-  "UTE_TABLE\020\001\022\027\n\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023"
-  "SL_MPLS_LABEL_TABLE\020\003\022\027\n\023SL_PATH_GROUP_T"
-  "ABLE\020\004*G\n\014SLRspACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017R"
-  "IB_AND_FIB_ACK\020\001\022\025\n\021RIB_FIB_INUSE_ACK\020\002*"
-  "{\n\rSLAFFibStatus\022\022\n\016SL_FIB_UNKNOWN\020\000\022\022\n\016"
-  "SL_FIB_SUCCESS\020\001\022\021\n\rSL_FIB_FAILED\020\002\022\025\n\021S"
-  "L_FIB_INELIGIBLE\020\003\022\030\n\024SL_FIB_INUSE_SUCCE"
-  "SS\020\004*\242\001\n\016SLRspACKPermit\022\034\n\030SL_PERMIT_FIB"
-  "_STATUS_ALL\020\000\022\031\n\025SL_PERMIT_FIB_SUCCESS\020\001"
-  "\022\030\n\024SL_PERMIT_FIB_FAILED\020\002\022\034\n\030SL_PERMIT_"
-  "FIB_INELIGIBLE\020\003\022\037\n\033SL_PERMIT_FIB_INUSE_"
-  "SUCCESS\020\004*e\n\017SLRspAckCadence\022\025\n\021SL_RSP_C"
-  "ONTINUOUS\020\000\022\024\n\020SL_RSP_JUST_ONCE\020\001\022\024\n\020SL_"
-  "RSP_ONCE_EACH\020\002\022\017\n\013SL_RSP_NONE\020\003BQZOgith"
-  "ub.com/Cisco-service-layer/service-layer"
-  "-objmodel/grpc/protos;service_layerb\006pro"
-  "to3"
+  "R_2\020\202\302\006\022\033\n\025SL_BGP_INTERNAL_ERR_3\020\203\302\006\022!\n\033"
+  "SL_SRTE_POLICY_START_OFFSET\020\200\340\006\022$\n\036SL_SR"
+  "TE_POLICY_REQUEST_INVALID\020\201\340\006\022\'\n!SL_SRTE"
+  "_POLICY_POLICY_KEY_INVALID\020\202\340\006\022(\n\"SL_SRT"
+  "E_POLICY_POLICY_ATTR_INVALID\020\203\340\006\022#\n\035SL_S"
+  "RTE_POLICY_CP_KEY_INVALID\020\204\340\006\022$\n\036SL_SRTE"
+  "_POLICY_CP_ATTR_INVALID\020\205\340\006\022$\n\036SL_SRTE_P"
+  "OLICY_CLIENT_MISMATCH\020\206\340\006\022#\n\035SL_SRTE_POL"
+  "ICY_SERVICE_NOT_UP\020\207\340\006\022$\n\036SL_SRTE_POLICY"
+  "_EXCEED_MSG_SIZE\020\210\340\006\022\036\n\030SL_INTERNAL_STAR"
+  "T_OFFSET\020\200\200@\"<\n\013SLInterface\022\016\n\004Name\030\001 \001("
+  "\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\013\n\tInterface\"B\n\013SL"
+  "IpAddress\022\023\n\tV4Address\030\001 \001(\rH\000\022\023\n\tV6Addr"
+  "ess\030\002 \001(\014H\000B\t\n\007Address\" \n\rSLIpv6Address\022"
+  "\017\n\007address\030\001 \001(\014\"\'\n\030SLAutonomousSystemNu"
+  "mber\022\013\n\003asn\030\001 \001(\r\"%\n\nSLObjectId\022\016\n\004Name\030"
+  "\001 \001(\tH\000B\007\n\005entry\"T\n\021SLPathGroupRefKey\022\017\n"
+  "\007VrfName\030\001 \001(\t\022.\n\013PathGroupId\030\002 \001(\0132\031.se"
+  "rvice_layer.SLObjectId*b\n\007SLRegOp\022\025\n\021SL_"
+  "REGOP_RESERVED\020\000\022\025\n\021SL_REGOP_REGISTER\020\001\022"
+  "\027\n\023SL_REGOP_UNREGISTER\020\002\022\020\n\014SL_REGOP_EOF"
+  "\020\003*_\n\nSLObjectOp\022\025\n\021SL_OBJOP_RESERVED\020\000\022"
+  "\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017SL_OBJOP_UPDATE\020\002\022\023"
+  "\n\017SL_OBJOP_DELETE\020\003*S\n\tSLNotifOp\022\027\n\023SL_N"
+  "OTIFOP_RESERVED\020\000\022\025\n\021SL_NOTIFOP_ENABLE\020\001"
+  "\022\026\n\022SL_NOTIFOP_DISABLE\020\002*\211\001\n\020SLUpdatePri"
+  "ority\022\030\n\024SL_PRIORITY_RESERVED\020\000\022\030\n\024SL_PR"
+  "IORITY_CRITICAL\020\004\022\024\n\020SL_PRIORITY_HIGH\020\010\022"
+  "\026\n\022SL_PRIORITY_MEDIUM\020\014\022\023\n\017SL_PRIORITY_L"
+  "OW\020\020*K\n\013SLEncapType\022\025\n\021SL_ENCAP_RESERVED"
+  "\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020"
+  "\002*\215\001\n\013SLTableType\022\032\n\026SL_TABLE_TYPE_RESER"
+  "VED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n\023SL_IPv"
+  "6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE\020\003"
+  "\022\027\n\023SL_PATH_GROUP_TABLE\020\004*G\n\014SLRspACKTyp"
+  "e\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001\022\025\n\021R"
+  "IB_FIB_INUSE_ACK\020\002*{\n\rSLAFFibStatus\022\022\n\016S"
+  "L_FIB_UNKNOWN\020\000\022\022\n\016SL_FIB_SUCCESS\020\001\022\021\n\rS"
+  "L_FIB_FAILED\020\002\022\025\n\021SL_FIB_INELIGIBLE\020\003\022\030\n"
+  "\024SL_FIB_INUSE_SUCCESS\020\004*\242\001\n\016SLRspACKPerm"
+  "it\022\034\n\030SL_PERMIT_FIB_STATUS_ALL\020\000\022\031\n\025SL_P"
+  "ERMIT_FIB_SUCCESS\020\001\022\030\n\024SL_PERMIT_FIB_FAI"
+  "LED\020\002\022\034\n\030SL_PERMIT_FIB_INELIGIBLE\020\003\022\037\n\033S"
+  "L_PERMIT_FIB_INUSE_SUCCESS\020\004*e\n\017SLRspAck"
+  "Cadence\022\025\n\021SL_RSP_CONTINUOUS\020\000\022\024\n\020SL_RSP"
+  "_JUST_ONCE\020\001\022\024\n\020SL_RSP_ONCE_EACH\020\002\022\017\n\013SL"
+  "_RSP_NONE\020\003BQZOgithub.com/Cisco-service-"
+  "layer/service-layer-objmodel/grpc/protos"
+  ";service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 14403, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
-  &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
+  false, false, 14822, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 7,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
 };
@@ -904,6 +956,15 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 106753:
     case 106754:
     case 106755:
+    case 110592:
+    case 110593:
+    case 110594:
+    case 110595:
+    case 110596:
+    case 110597:
+    case 110598:
+    case 110599:
+    case 110600:
     case 1048576:
       return true;
     default:
@@ -1290,6 +1351,15 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_MAX_NEIGHBORS_IN_SYSDB;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_INTERNAL_ERR_1;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_INTERNAL_ERR_2;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_BGP_INTERNAL_ERR_3;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_START_OFFSET;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_REQUEST_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_POLICY_KEY_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_POLICY_ATTR_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_CP_KEY_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_CP_ATTR_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_CLIENT_MISMATCH;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_SERVICE_NOT_UP;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SRTE_POLICY_EXCEED_MSG_SIZE;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_INTERNAL_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MIN;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MAX;
@@ -2147,6 +2217,382 @@ void SLIpAddress::InternalSwap(SLIpAddress* other) {
 
 // ===================================================================
 
+class SLIpv6Address::_Internal {
+ public:
+};
+
+SLIpv6Address::SLIpv6Address(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLIpv6Address)
+}
+SLIpv6Address::SLIpv6Address(const SLIpv6Address& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  address_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_address().empty()) {
+    address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_address(), 
+      GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLIpv6Address)
+}
+
+inline void SLIpv6Address::SharedCtor() {
+address_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+SLIpv6Address::~SLIpv6Address() {
+  // @@protoc_insertion_point(destructor:service_layer.SLIpv6Address)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLIpv6Address::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  address_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void SLIpv6Address::ArenaDtor(void* object) {
+  SLIpv6Address* _this = reinterpret_cast< SLIpv6Address* >(object);
+  (void)_this;
+}
+void SLIpv6Address::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLIpv6Address::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLIpv6Address::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLIpv6Address)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  address_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLIpv6Address::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // bytes address = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_address();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLIpv6Address::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLIpv6Address)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes address = 1;
+  if (!this->_internal_address().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_address(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLIpv6Address)
+  return target;
+}
+
+size_t SLIpv6Address::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLIpv6Address)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes address = 1;
+  if (!this->_internal_address().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_address());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLIpv6Address::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLIpv6Address::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLIpv6Address::GetClassData() const { return &_class_data_; }
+
+void SLIpv6Address::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLIpv6Address *>(to)->MergeFrom(
+      static_cast<const SLIpv6Address &>(from));
+}
+
+
+void SLIpv6Address::MergeFrom(const SLIpv6Address& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLIpv6Address)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_address().empty()) {
+    _internal_set_address(from._internal_address());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLIpv6Address::CopyFrom(const SLIpv6Address& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLIpv6Address)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLIpv6Address::IsInitialized() const {
+  return true;
+}
+
+void SLIpv6Address::InternalSwap(SLIpv6Address* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &address_, lhs_arena,
+      &other->address_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLIpv6Address::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fcommon_5ftypes_2eproto_getter, &descriptor_table_sl_5fcommon_5ftypes_2eproto_once,
+      file_level_metadata_sl_5fcommon_5ftypes_2eproto[3]);
+}
+
+// ===================================================================
+
+class SLAutonomousSystemNumber::_Internal {
+ public:
+};
+
+SLAutonomousSystemNumber::SLAutonomousSystemNumber(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAutonomousSystemNumber)
+}
+SLAutonomousSystemNumber::SLAutonomousSystemNumber(const SLAutonomousSystemNumber& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  asn_ = from.asn_;
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAutonomousSystemNumber)
+}
+
+inline void SLAutonomousSystemNumber::SharedCtor() {
+asn_ = 0u;
+}
+
+SLAutonomousSystemNumber::~SLAutonomousSystemNumber() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAutonomousSystemNumber)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAutonomousSystemNumber::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLAutonomousSystemNumber::ArenaDtor(void* object) {
+  SLAutonomousSystemNumber* _this = reinterpret_cast< SLAutonomousSystemNumber* >(object);
+  (void)_this;
+}
+void SLAutonomousSystemNumber::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAutonomousSystemNumber::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAutonomousSystemNumber::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAutonomousSystemNumber)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  asn_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAutonomousSystemNumber::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 asn = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          asn_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAutonomousSystemNumber::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAutonomousSystemNumber)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 asn = 1;
+  if (this->_internal_asn() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_asn(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAutonomousSystemNumber)
+  return target;
+}
+
+size_t SLAutonomousSystemNumber::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAutonomousSystemNumber)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 asn = 1;
+  if (this->_internal_asn() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_asn());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAutonomousSystemNumber::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAutonomousSystemNumber::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAutonomousSystemNumber::GetClassData() const { return &_class_data_; }
+
+void SLAutonomousSystemNumber::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAutonomousSystemNumber *>(to)->MergeFrom(
+      static_cast<const SLAutonomousSystemNumber &>(from));
+}
+
+
+void SLAutonomousSystemNumber::MergeFrom(const SLAutonomousSystemNumber& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAutonomousSystemNumber)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_asn() != 0) {
+    _internal_set_asn(from._internal_asn());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAutonomousSystemNumber::CopyFrom(const SLAutonomousSystemNumber& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAutonomousSystemNumber)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAutonomousSystemNumber::IsInitialized() const {
+  return true;
+}
+
+void SLAutonomousSystemNumber::InternalSwap(SLAutonomousSystemNumber* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(asn_, other->asn_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAutonomousSystemNumber::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fcommon_5ftypes_2eproto_getter, &descriptor_table_sl_5fcommon_5ftypes_2eproto_once,
+      file_level_metadata_sl_5fcommon_5ftypes_2eproto[4]);
+}
+
+// ===================================================================
+
 class SLObjectId::_Internal {
  public:
 };
@@ -2367,7 +2813,7 @@ void SLObjectId::InternalSwap(SLObjectId* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLObjectId::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fcommon_5ftypes_2eproto_getter, &descriptor_table_sl_5fcommon_5ftypes_2eproto_once,
-      file_level_metadata_sl_5fcommon_5ftypes_2eproto[3]);
+      file_level_metadata_sl_5fcommon_5ftypes_2eproto[5]);
 }
 
 // ===================================================================
@@ -2613,7 +3059,7 @@ void SLPathGroupRefKey::InternalSwap(SLPathGroupRefKey* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLPathGroupRefKey::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fcommon_5ftypes_2eproto_getter, &descriptor_table_sl_5fcommon_5ftypes_2eproto_once,
-      file_level_metadata_sl_5fcommon_5ftypes_2eproto[4]);
+      file_level_metadata_sl_5fcommon_5ftypes_2eproto[6]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2627,6 +3073,12 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLInterface* Arena::CreateMaybeMes
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLIpAddress* Arena::CreateMaybeMessage< ::service_layer::SLIpAddress >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLIpAddress >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLIpv6Address* Arena::CreateMaybeMessage< ::service_layer::SLIpv6Address >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLIpv6Address >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAutonomousSystemNumber* Arena::CreateMaybeMessage< ::service_layer::SLAutonomousSystemNumber >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAutonomousSystemNumber >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLObjectId* Arena::CreateMaybeMessage< ::service_layer::SLObjectId >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLObjectId >(arena);
