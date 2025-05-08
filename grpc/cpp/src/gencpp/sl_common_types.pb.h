@@ -464,6 +464,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_BGP_INVALID_OBJECT_TYPE = 106542,
   SLErrorStatus_SLErrno_SL_BGP_GET_EXACT_MATCH_NOT_FOUND = 106543,
   SLErrorStatus_SLErrno_SL_BGP_MAX_NEIGHBORS_IN_SYSDB = 106544,
+  SLErrorStatus_SLErrno_SL_BGP_MAX_OBJECTS_IN_PAYLOAD = 106545,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1 = 106753,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_2 = 106754,
   SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_3 = 106755,
@@ -1642,6 +1643,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_BGP_GET_EXACT_MATCH_NOT_FOUND;
   static constexpr SLErrno SL_BGP_MAX_NEIGHBORS_IN_SYSDB =
     SLErrorStatus_SLErrno_SL_BGP_MAX_NEIGHBORS_IN_SYSDB;
+  static constexpr SLErrno SL_BGP_MAX_OBJECTS_IN_PAYLOAD =
+    SLErrorStatus_SLErrno_SL_BGP_MAX_OBJECTS_IN_PAYLOAD;
   static constexpr SLErrno SL_BGP_INTERNAL_ERR_1 =
     SLErrorStatus_SLErrno_SL_BGP_INTERNAL_ERR_1;
   static constexpr SLErrno SL_BGP_INTERNAL_ERR_2 =
