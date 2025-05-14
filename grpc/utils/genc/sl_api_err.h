@@ -862,6 +862,8 @@
     SL_BGP_GET_EXACT_MATCH_NOT_FOUND = 0x1a02f,\
     /* BGP maximum neighbor count reached. 0x1a030 */\
     SL_BGP_MAX_NEIGHBORS_IN_SYSDB = 0x1a030,\
+    /* BGP maximum object count reached. 0x1a031 */\
+    SL_BGP_MAX_OBJECTS_IN_PAYLOAD = 0x1a031,\
     /* BGP Internal Error 1. 0x1a101 */\
     SL_BGP_INTERNAL_ERR_1 = 0x1a101,\
     /* BGP Internal Error 2. 0x1a102 */\
@@ -2093,6 +2095,9 @@
         },\
     {SL_BGP_MAX_NEIGHBORS_IN_SYSDB ,\
         " BGP maximum neighbor count reached.  "\
+        },\
+    {SL_BGP_MAX_OBJECTS_IN_PAYLOAD ,\
+        " BGP maximum object count reached.  "\
         },\
     {SL_BGP_INTERNAL_ERR_1 ,\
         " BGP Internal Error 1.  "\
