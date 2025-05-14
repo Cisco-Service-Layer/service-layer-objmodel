@@ -406,6 +406,10 @@ message SLRouteCommon {
     // When routes from different protocols share the same admin distance, 
     // RIB selects the route with the lowest value in this field.
     uint32 Metric = 8;
+
+    // Each entry can have priority value, this priority value may be used
+    // in internal queuing of routes while programming the data-plane
+    SLUpdatePriority Priority = 9;
 }
 
 // Attributes for constructing VxLAN encapsulation for a IP packet.

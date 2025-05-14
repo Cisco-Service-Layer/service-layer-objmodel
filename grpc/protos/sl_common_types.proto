@@ -227,6 +227,8 @@ message SLErrorStatus {
         SL_ROUTE_INVALID_LOCAL_LABEL = 0x4013;
         // Invalid route flags. 0x4014
         SL_ROUTE_INVALID_FLAGS = 0x4014;
+        // Invalid route priority. 0x4015
+        SL_ROUTE_INVALID_PRIORITY = 0x4015;
 
         // !!! Error codes for route path objects.
 
