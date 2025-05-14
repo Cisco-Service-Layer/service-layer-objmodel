@@ -3038,6 +3038,7 @@ class SLRouteCommon final :
     kLocalLabelFieldNumber = 2,
     kTagFieldNumber = 3,
     kMetricFieldNumber = 8,
+    kPriorityFieldNumber = 9,
   };
   // repeated .service_layer.SLRouteFlags RouteFlags = 7;
   int routeflags_size() const;
@@ -3120,6 +3121,15 @@ class SLRouteCommon final :
   void _internal_set_metric(uint32_t value);
   public:
 
+  // .service_layer.SLUpdatePriority Priority = 9;
+  void clear_priority();
+  ::service_layer::SLUpdatePriority priority() const;
+  void set_priority(::service_layer::SLUpdatePriority value);
+  private:
+  ::service_layer::SLUpdatePriority _internal_priority() const;
+  void _internal_set_priority(::service_layer::SLUpdatePriority value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLRouteCommon)
  private:
   class _Internal;
@@ -3135,6 +3145,7 @@ class SLRouteCommon final :
   uint32_t locallabel_;
   uint32_t tag_;
   uint32_t metric_;
+  int priority_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
 };
@@ -5799,6 +5810,26 @@ inline void SLRouteCommon::_internal_set_metric(uint32_t value) {
 inline void SLRouteCommon::set_metric(uint32_t value) {
   _internal_set_metric(value);
   // @@protoc_insertion_point(field_set:service_layer.SLRouteCommon.Metric)
+}
+
+// .service_layer.SLUpdatePriority Priority = 9;
+inline void SLRouteCommon::clear_priority() {
+  priority_ = 0;
+}
+inline ::service_layer::SLUpdatePriority SLRouteCommon::_internal_priority() const {
+  return static_cast< ::service_layer::SLUpdatePriority >(priority_);
+}
+inline ::service_layer::SLUpdatePriority SLRouteCommon::priority() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRouteCommon.Priority)
+  return _internal_priority();
+}
+inline void SLRouteCommon::_internal_set_priority(::service_layer::SLUpdatePriority value) {
+  
+  priority_ = value;
+}
+inline void SLRouteCommon::set_priority(::service_layer::SLUpdatePriority value) {
+  _internal_set_priority(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRouteCommon.Priority)
 }
 
 // -------------------------------------------------------------------

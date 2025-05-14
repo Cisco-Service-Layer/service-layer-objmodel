@@ -242,7 +242,9 @@ constexpr SLRouteCommon::SLRouteCommon(
   , admindistance_(0u)
   , locallabel_(0u)
   , tag_(0u)
-  , metric_(0u){}
+  , metric_(0u)
+  , priority_(0)
+{}
 struct SLRouteCommonDefaultTypeInternal {
   constexpr SLRouteCommonDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -461,6 +463,7 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, srcprototag_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, routeflags_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, metric_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, priority_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -519,9 +522,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 118, -1, -1, sizeof(::service_layer::SLRouteNotifMarker)},
   { 125, -1, -1, sizeof(::service_layer::SLVrfNotif)},
   { 133, -1, -1, sizeof(::service_layer::SLRouteCommon)},
-  { 146, -1, -1, sizeof(::service_layer::SLVxLANPath)},
-  { 157, -1, -1, sizeof(::service_layer::SLRoutePath)},
-  { 177, -1, -1, sizeof(::service_layer::SLRoutePrefix)},
+  { 147, -1, -1, sizeof(::service_layer::SLVxLANPath)},
+  { 158, -1, -1, sizeof(::service_layer::SLRoutePath)},
+  { 178, -1, -1, sizeof(::service_layer::SLRoutePrefix)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -585,54 +588,55 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "tatus\030\003 \001(\0132\034.service_layer.SLErrorStatu"
   "s\"%\n\022SLRouteNotifMarker\022\017\n\007VrfName\030\001 \001(\t"
   "\"H\n\nSLVrfNotif\022\017\n\007VrfName\030\001 \001(\t\022)\n\006Statu"
-  "s\030\002 \001(\0162\031.service_layer.SLObjectOp\"\274\001\n\rS"
+  "s\030\002 \001(\0162\031.service_layer.SLObjectOp\"\357\001\n\rS"
   "LRouteCommon\022\025\n\rAdminDistance\030\001 \001(\r\022\022\n\nL"
   "ocalLabel\030\002 \001(\r\022\013\n\003Tag\030\003 \001(\r\022\020\n\010SrcProto"
   "\030\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022/\n\nRouteFlag"
   "s\030\007 \003(\0162\033.service_layer.SLRouteFlags\022\016\n\006"
-  "Metric\030\010 \001(\rJ\004\010\006\020\007R\005Flags\"\261\001\n\013SLVxLANPat"
-  "h\022\013\n\003VNI\030\001 \001(\r\022\030\n\020SourceMacAddress\030\002 \001(\014"
-  "\022\026\n\016DestMacAddress\030\003 \001(\014\0220\n\014SrcIpAddress"
-  "\030\004 \001(\0132\032.service_layer.SLIpAddress\0221\n\rDe"
-  "stIpAddress\030\005 \001(\0132\032.service_layer.SLIpAd"
-  "dress\"\241\004\n\013SLRoutePath\0222\n\016NexthopAddress\030"
-  "\001 \001(\0132\032.service_layer.SLIpAddress\0224\n\020Nex"
-  "thopInterface\030\002 \001(\0132\032.service_layer.SLIn"
-  "terface\022\022\n\nLoadMetric\030\003 \001(\r\022\017\n\007VrfName\030\004"
-  " \001(\t\022\016\n\006PathId\030\006 \001(\r\022\033\n\023ProtectedPathBit"
-  "map\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRemoteA"
-  "ddress\030\t \003(\0132\032.service_layer.SLIpAddress"
-  "\0221\n\tEncapType\030\n \001(\0162\032.service_layer.SLEn"
-  "capTypeB\002\030\001\022 \n\024VtepRouterMacAddress\030\013 \001("
-  "\014B\002\030\001\022-\n\tVxLANPath\030\014 \001(\0132\032.service_layer"
-  ".SLVxLANPath\022-\n\tPathFlags\030\016 \003(\0162\032.servic"
-  "e_layer.SLPathFlags\0228\n\014PathGroupKey\030\017 \001("
-  "\0132 .service_layer.SLPathGroupRefKeyH\000B\007\n"
-  "\005entryJ\004\010\r\020\016J\004\010\005\020\006R\005FlagsR\006Metric\"N\n\rSLR"
-  "outePrefix\022*\n\006Prefix\030\001 \001(\0132\032.service_lay"
-  "er.SLIpAddress\022\021\n\tPrefixLen\030\002 \001(\r*\312\001\n\013SL"
-  "NotifType\022\032\n\026SL_EVENT_TYPE_RESERVED\020\000\022\027\n"
-  "\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024SL_EVENT_TYPE_"
-  "STATUS\020\002\022\027\n\023SL_EVENT_TYPE_ROUTE\020\003\022\036\n\032SL_"
-  "EVENT_TYPE_START_MARKER\020\004\022\034\n\030SL_EVENT_TY"
-  "PE_END_MARKER\020\005\022\025\n\021SL_EVENT_TYPE_VRF\020\006*\302"
-  "\001\n\014SLRouteFlags\022\032\n\026SL_ROUTE_FLAG_RESERVE"
-  "D\020\000\022!\n\035SL_ROUTE_FLAG_PREFER_OVER_LDP\020\001\022%"
-  "\n!SL_ROUTE_FLAG_DISABLE_LABEL_MERGE\020\002\022#\n"
-  "\037SL_ROUTE_FLAG_VIABLE_PATHS_ONLY\020\003\022\'\n#SL"
-  "_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH\020\004*J\n\013S"
-  "LPathFlags\022\031\n\025SL_PATH_FLAG_RESERVED\020\000\022 \n"
-  "\034SL_PATH_FLAG_SINGLE_PATH_OPT\020\001BQZOgithu"
-  "b.com/Cisco-service-layer/service-layer-"
-  "objmodel/grpc/protos;service_layerb\006prot"
-  "o3"
+  "Metric\030\010 \001(\r\0221\n\010Priority\030\t \001(\0162\037.service"
+  "_layer.SLUpdatePriorityJ\004\010\006\020\007R\005Flags\"\261\001\n"
+  "\013SLVxLANPath\022\013\n\003VNI\030\001 \001(\r\022\030\n\020SourceMacAd"
+  "dress\030\002 \001(\014\022\026\n\016DestMacAddress\030\003 \001(\014\0220\n\014S"
+  "rcIpAddress\030\004 \001(\0132\032.service_layer.SLIpAd"
+  "dress\0221\n\rDestIpAddress\030\005 \001(\0132\032.service_l"
+  "ayer.SLIpAddress\"\241\004\n\013SLRoutePath\0222\n\016Next"
+  "hopAddress\030\001 \001(\0132\032.service_layer.SLIpAdd"
+  "ress\0224\n\020NexthopInterface\030\002 \001(\0132\032.service"
+  "_layer.SLInterface\022\022\n\nLoadMetric\030\003 \001(\r\022\017"
+  "\n\007VrfName\030\004 \001(\t\022\016\n\006PathId\030\006 \001(\r\022\033\n\023Prote"
+  "ctedPathBitmap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r"
+  "\0221\n\rRemoteAddress\030\t \003(\0132\032.service_layer."
+  "SLIpAddress\0221\n\tEncapType\030\n \001(\0162\032.service"
+  "_layer.SLEncapTypeB\002\030\001\022 \n\024VtepRouterMacA"
+  "ddress\030\013 \001(\014B\002\030\001\022-\n\tVxLANPath\030\014 \001(\0132\032.se"
+  "rvice_layer.SLVxLANPath\022-\n\tPathFlags\030\016 \003"
+  "(\0162\032.service_layer.SLPathFlags\0228\n\014PathGr"
+  "oupKey\030\017 \001(\0132 .service_layer.SLPathGroup"
+  "RefKeyH\000B\007\n\005entryJ\004\010\r\020\016J\004\010\005\020\006R\005FlagsR\006Me"
+  "tric\"N\n\rSLRoutePrefix\022*\n\006Prefix\030\001 \001(\0132\032."
+  "service_layer.SLIpAddress\022\021\n\tPrefixLen\030\002"
+  " \001(\r*\312\001\n\013SLNotifType\022\032\n\026SL_EVENT_TYPE_RE"
+  "SERVED\020\000\022\027\n\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024SL_"
+  "EVENT_TYPE_STATUS\020\002\022\027\n\023SL_EVENT_TYPE_ROU"
+  "TE\020\003\022\036\n\032SL_EVENT_TYPE_START_MARKER\020\004\022\034\n\030"
+  "SL_EVENT_TYPE_END_MARKER\020\005\022\025\n\021SL_EVENT_T"
+  "YPE_VRF\020\006*\302\001\n\014SLRouteFlags\022\032\n\026SL_ROUTE_F"
+  "LAG_RESERVED\020\000\022!\n\035SL_ROUTE_FLAG_PREFER_O"
+  "VER_LDP\020\001\022%\n!SL_ROUTE_FLAG_DISABLE_LABEL"
+  "_MERGE\020\002\022#\n\037SL_ROUTE_FLAG_VIABLE_PATHS_O"
+  "NLY\020\003\022\'\n#SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_"
+  "PATH\020\004*J\n\013SLPathFlags\022\031\n\025SL_PATH_FLAG_RE"
+  "SERVED\020\000\022 \n\034SL_PATH_FLAG_SINGLE_PATH_OPT"
+  "\020\001BQZOgithub.com/Cisco-service-layer/ser"
+  "vice-layer-objmodel/grpc/protos;service_"
+  "layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, 3082, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
+  false, false, 3133, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
   &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 20,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
@@ -4398,8 +4402,8 @@ SLRouteCommon::SLRouteCommon(const SLRouteCommon& from)
       GetArenaForAllocation());
   }
   ::memcpy(&admindistance_, &from.admindistance_,
-    static_cast<size_t>(reinterpret_cast<char*>(&metric_) -
-    reinterpret_cast<char*>(&admindistance_)) + sizeof(metric_));
+    static_cast<size_t>(reinterpret_cast<char*>(&priority_) -
+    reinterpret_cast<char*>(&admindistance_)) + sizeof(priority_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLRouteCommon)
 }
 
@@ -4414,8 +4418,8 @@ srcprototag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&admindistance_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&metric_) -
-    reinterpret_cast<char*>(&admindistance_)) + sizeof(metric_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&priority_) -
+    reinterpret_cast<char*>(&admindistance_)) + sizeof(priority_));
 }
 
 SLRouteCommon::~SLRouteCommon() {
@@ -4451,8 +4455,8 @@ void SLRouteCommon::Clear() {
   srcproto_.ClearToEmpty();
   srcprototag_.ClearToEmpty();
   ::memset(&admindistance_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&metric_) -
-      reinterpret_cast<char*>(&admindistance_)) + sizeof(metric_));
+      reinterpret_cast<char*>(&priority_) -
+      reinterpret_cast<char*>(&admindistance_)) + sizeof(priority_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4523,6 +4527,15 @@ const char* SLRouteCommon::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
           metric_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLUpdatePriority Priority = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_priority(static_cast<::service_layer::SLUpdatePriority>(val));
         } else
           goto handle_unusual;
         continue;
@@ -4608,6 +4621,13 @@ uint8_t* SLRouteCommon::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_metric(), target);
   }
 
+  // .service_layer.SLUpdatePriority Priority = 9;
+  if (this->_internal_priority() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      9, this->_internal_priority(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4676,6 +4696,12 @@ size_t SLRouteCommon::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_metric());
   }
 
+  // .service_layer.SLUpdatePriority Priority = 9;
+  if (this->_internal_priority() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_priority());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -4717,6 +4743,9 @@ void SLRouteCommon::MergeFrom(const SLRouteCommon& from) {
   if (from._internal_metric() != 0) {
     _internal_set_metric(from._internal_metric());
   }
+  if (from._internal_priority() != 0) {
+    _internal_set_priority(from._internal_priority());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4748,8 +4777,8 @@ void SLRouteCommon::InternalSwap(SLRouteCommon* other) {
       &other->srcprototag_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLRouteCommon, metric_)
-      + sizeof(SLRouteCommon::metric_)
+      PROTOBUF_FIELD_OFFSET(SLRouteCommon, priority_)
+      + sizeof(SLRouteCommon::priority_)
       - PROTOBUF_FIELD_OFFSET(SLRouteCommon, admindistance_)>(
           reinterpret_cast<char*>(&admindistance_),
           reinterpret_cast<char*>(&other->admindistance_));
