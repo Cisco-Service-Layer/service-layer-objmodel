@@ -26,7 +26,7 @@ On the server side, we need to configure GRPC and enable the service layer throu
 
     ! Configure GRPC
     configure
-    grpc port 57344
+    grpc port 57777
     grpc no-tls
     grpc address-family ipv4
     commit
