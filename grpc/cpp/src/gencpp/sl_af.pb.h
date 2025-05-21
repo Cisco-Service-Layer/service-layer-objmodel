@@ -2047,6 +2047,7 @@ class SLMplsEntry final :
     kMplsFlagsFieldNumber = 4,
     kMplsKeyFieldNumber = 1,
     kAdminDistanceFieldNumber = 2,
+    kPriorityFieldNumber = 5,
   };
   // repeated .service_layer.SLRoutePath PathList = 3;
   int pathlist_size() const;
@@ -2110,6 +2111,15 @@ class SLMplsEntry final :
   void _internal_set_admindistance(uint32_t value);
   public:
 
+  // .service_layer.SLUpdatePriority Priority = 5;
+  void clear_priority();
+  ::service_layer::SLUpdatePriority priority() const;
+  void set_priority(::service_layer::SLUpdatePriority value);
+  private:
+  ::service_layer::SLUpdatePriority _internal_priority() const;
+  void _internal_set_priority(::service_layer::SLUpdatePriority value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLMplsEntry)
  private:
   class _Internal;
@@ -2122,6 +2132,7 @@ class SLMplsEntry final :
   mutable std::atomic<int> _mplsflags_cached_byte_size_;
   ::service_layer::SLMplsEntryKey* mplskey_;
   uint32_t admindistance_;
+  int priority_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -8171,6 +8182,26 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
 SLMplsEntry::mutable_mplsflags() {
   // @@protoc_insertion_point(field_mutable_list:service_layer.SLMplsEntry.MplsFlags)
   return _internal_mutable_mplsflags();
+}
+
+// .service_layer.SLUpdatePriority Priority = 5;
+inline void SLMplsEntry::clear_priority() {
+  priority_ = 0;
+}
+inline ::service_layer::SLUpdatePriority SLMplsEntry::_internal_priority() const {
+  return static_cast< ::service_layer::SLUpdatePriority >(priority_);
+}
+inline ::service_layer::SLUpdatePriority SLMplsEntry::priority() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsEntry.Priority)
+  return _internal_priority();
+}
+inline void SLMplsEntry::_internal_set_priority(::service_layer::SLUpdatePriority value) {
+  
+  priority_ = value;
+}
+inline void SLMplsEntry::set_priority(::service_layer::SLUpdatePriority value) {
+  _internal_set_priority(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsEntry.Priority)
 }
 
 // -------------------------------------------------------------------
