@@ -2752,6 +2752,7 @@ class SLSrSrv6BindingSID final :
     return *internal_default_instance();
   }
   enum TypeCase {
+    kExplicit = 1,
     kDynamic = 2,
     TYPE_NOT_SET = 0,
   };
@@ -2835,8 +2836,27 @@ class SLSrSrv6BindingSID final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kExplicitFieldNumber = 1,
     kDynamicFieldNumber = 2,
   };
+  // .service_layer.SLSRv6SIDInfo explicit = 1;
+  bool has_explicit_() const;
+  private:
+  bool _internal_has_explicit_() const;
+  public:
+  void clear_explicit_();
+  const ::service_layer::SLSRv6SIDInfo& explicit_() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSRv6SIDInfo* release_explicit_();
+  ::service_layer::SLSRv6SIDInfo* mutable_explicit_();
+  void set_allocated_explicit_(::service_layer::SLSRv6SIDInfo* explicit_);
+  private:
+  const ::service_layer::SLSRv6SIDInfo& _internal_explicit_() const;
+  ::service_layer::SLSRv6SIDInfo* _internal_mutable_explicit_();
+  public:
+  void unsafe_arena_set_allocated_explicit_(
+      ::service_layer::SLSRv6SIDInfo* explicit_);
+  ::service_layer::SLSRv6SIDInfo* unsafe_arena_release_explicit_();
+
   // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
   bool has_dynamic() const;
   private:
@@ -2860,6 +2880,7 @@ class SLSrSrv6BindingSID final :
   // @@protoc_insertion_point(class_scope:service_layer.SLSrSrv6BindingSID)
  private:
   class _Internal;
+  void set_has_explicit_();
   void set_has_dynamic();
 
   inline bool has_type() const;
@@ -2871,6 +2892,7 @@ class SLSrSrv6BindingSID final :
   union TypeUnion {
     constexpr TypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::service_layer::SLSRv6SIDInfo* explicit__;
     ::service_layer::SLSrSrv6DynamicBindingSID* dynamic_;
   } type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5110,6 +5132,72 @@ inline void SLSrConstraints::set_allocated_upper_bound(::service_layer::SLSrUppe
 // -------------------------------------------------------------------
 
 // SLSrSrv6BindingSID
+
+// .service_layer.SLSRv6SIDInfo explicit = 1;
+inline bool SLSrSrv6BindingSID::_internal_has_explicit_() const {
+  return type_case() == kExplicit;
+}
+inline bool SLSrSrv6BindingSID::has_explicit_() const {
+  return _internal_has_explicit_();
+}
+inline void SLSrSrv6BindingSID::set_has_explicit_() {
+  _oneof_case_[0] = kExplicit;
+}
+inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::release_explicit_() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrSrv6BindingSID.explicit)
+  if (_internal_has_explicit_()) {
+    clear_has_type();
+      ::service_layer::SLSRv6SIDInfo* temp = type_.explicit__;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    type_.explicit__ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLSRv6SIDInfo& SLSrSrv6BindingSID::_internal_explicit_() const {
+  return _internal_has_explicit_()
+      ? *type_.explicit__
+      : reinterpret_cast< ::service_layer::SLSRv6SIDInfo&>(::service_layer::_SLSRv6SIDInfo_default_instance_);
+}
+inline const ::service_layer::SLSRv6SIDInfo& SLSrSrv6BindingSID::explicit_() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSrv6BindingSID.explicit)
+  return _internal_explicit_();
+}
+inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::unsafe_arena_release_explicit_() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLSrSrv6BindingSID.explicit)
+  if (_internal_has_explicit_()) {
+    clear_has_type();
+    ::service_layer::SLSRv6SIDInfo* temp = type_.explicit__;
+    type_.explicit__ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLSrSrv6BindingSID::unsafe_arena_set_allocated_explicit_(::service_layer::SLSRv6SIDInfo* explicit_) {
+  clear_type();
+  if (explicit_) {
+    set_has_explicit_();
+    type_.explicit__ = explicit_;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrSrv6BindingSID.explicit)
+}
+inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::_internal_mutable_explicit_() {
+  if (!_internal_has_explicit_()) {
+    clear_type();
+    set_has_explicit_();
+    type_.explicit__ = CreateMaybeMessage< ::service_layer::SLSRv6SIDInfo >(GetArenaForAllocation());
+  }
+  return type_.explicit__;
+}
+inline ::service_layer::SLSRv6SIDInfo* SLSrSrv6BindingSID::mutable_explicit_() {
+  ::service_layer::SLSRv6SIDInfo* _msg = _internal_mutable_explicit_();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSrv6BindingSID.explicit)
+  return _msg;
+}
 
 // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
 inline bool SLSrSrv6BindingSID::_internal_has_dynamic() const {

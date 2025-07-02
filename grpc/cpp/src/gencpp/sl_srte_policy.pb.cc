@@ -378,6 +378,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6BindingSID, type_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrMPLSBindingSID, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrMPLSBindingSID, _internal_metadata_),
@@ -411,8 +412,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 107, -1, -1, sizeof(::service_layer::SLSrDynamicCP)},
   { 115, -1, -1, sizeof(::service_layer::SLSrConstraints)},
   { 124, -1, -1, sizeof(::service_layer::SLSrSrv6BindingSID)},
-  { 132, 139, -1, sizeof(::service_layer::SLSrMPLSBindingSID)},
-  { 140, -1, -1, sizeof(::service_layer::SLSrSrv6DynamicBindingSID)},
+  { 133, 140, -1, sizeof(::service_layer::SLSrMPLSBindingSID)},
+  { 141, -1, -1, sizeof(::service_layer::SLSrSrv6DynamicBindingSID)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -482,24 +483,25 @@ const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTI
   "2\035.service_layer.SLSrAffinities\0226\n\rsegme"
   "nt_rules\030\002 \001(\0132\037.service_layer.SLSrSegme"
   "ntRules\022=\n\013upper_bound\030\003 \001(\0132(.service_l"
-  "ayer.SLSrUpperBoundConstraints\"Y\n\022SLSrSr"
-  "v6BindingSID\022;\n\007dynamic\030\002 \001(\0132(.service_"
-  "layer.SLSrSrv6DynamicBindingSIDH\000B\006\n\004typ"
-  "e\":\n\022SLSrMPLSBindingSID\022\026\n\tmpls_bsid\030\001 \001"
-  "(\rH\000\210\001\001B\014\n\n_mpls_bsid\";\n\031SLSrSrv6Dynamic"
-  "BindingSID\022\036\n\026srv6_endpoint_behavior\030\001 \001"
-  "(\r2^\n\014SLSrtePolicy\022N\n\014SLSrPolicyOp\022\034.ser"
-  "vice_layer.SLSrPolicyMsg\032\034.service_layer"
-  ".SLSrPolicyRsp(\0010\001BQZOgithub.com/Cisco-s"
-  "ervice-layer/service-layer-objmodel/grpc"
-  "/protos;service_layerb\006proto3"
+  "ayer.SLSrUpperBoundConstraints\"\213\001\n\022SLSrS"
+  "rv6BindingSID\0220\n\010explicit\030\001 \001(\0132\034.servic"
+  "e_layer.SLSRv6SIDInfoH\000\022;\n\007dynamic\030\002 \001(\013"
+  "2(.service_layer.SLSrSrv6DynamicBindingS"
+  "IDH\000B\006\n\004type\":\n\022SLSrMPLSBindingSID\022\026\n\tmp"
+  "ls_bsid\030\001 \001(\rH\000\210\001\001B\014\n\n_mpls_bsid\";\n\031SLSr"
+  "Srv6DynamicBindingSID\022\036\n\026srv6_endpoint_b"
+  "ehavior\030\001 \001(\r2^\n\014SLSrtePolicy\022N\n\014SLSrPol"
+  "icyOp\022\034.service_layer.SLSrPolicyMsg\032\034.se"
+  "rvice_layer.SLSrPolicyRsp(\0010\001BQZOgithub."
+  "com/Cisco-service-layer/service-layer-ob"
+  "jmodel/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps[1] = {
   &::descriptor_table_sl_5fsr_5fcommon_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpolicy_2eproto = {
-  false, false, 2269, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
+  false, false, 2320, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
   &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 1, 17,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto, file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto,
@@ -3904,12 +3906,42 @@ void SLSrConstraints::InternalSwap(SLSrConstraints* other) {
 
 class SLSrSrv6BindingSID::_Internal {
  public:
+  static const ::service_layer::SLSRv6SIDInfo& explicit_(const SLSrSrv6BindingSID* msg);
   static const ::service_layer::SLSrSrv6DynamicBindingSID& dynamic(const SLSrSrv6BindingSID* msg);
 };
 
+const ::service_layer::SLSRv6SIDInfo&
+SLSrSrv6BindingSID::_Internal::explicit_(const SLSrSrv6BindingSID* msg) {
+  return *msg->type_.explicit__;
+}
 const ::service_layer::SLSrSrv6DynamicBindingSID&
 SLSrSrv6BindingSID::_Internal::dynamic(const SLSrSrv6BindingSID* msg) {
   return *msg->type_.dynamic_;
+}
+void SLSrSrv6BindingSID::set_allocated_explicit_(::service_layer::SLSRv6SIDInfo* explicit_) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_type();
+  if (explicit_) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(explicit_));
+    if (message_arena != submessage_arena) {
+      explicit_ = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, explicit_, submessage_arena);
+    }
+    set_has_explicit_();
+    type_.explicit__ = explicit_;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSrv6BindingSID.explicit)
+}
+void SLSrSrv6BindingSID::clear_explicit_() {
+  if (_internal_has_explicit_()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete type_.explicit__;
+    }
+    clear_has_type();
+  }
 }
 void SLSrSrv6BindingSID::set_allocated_dynamic(::service_layer::SLSrSrv6DynamicBindingSID* dynamic) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -3940,6 +3972,10 @@ SLSrSrv6BindingSID::SLSrSrv6BindingSID(const SLSrSrv6BindingSID& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_type();
   switch (from.type_case()) {
+    case kExplicit: {
+      _internal_mutable_explicit_()->::service_layer::SLSRv6SIDInfo::MergeFrom(from._internal_explicit_());
+      break;
+    }
     case kDynamic: {
       _internal_mutable_dynamic()->::service_layer::SLSrSrv6DynamicBindingSID::MergeFrom(from._internal_dynamic());
       break;
@@ -3982,6 +4018,12 @@ void SLSrSrv6BindingSID::SetCachedSize(int size) const {
 void SLSrSrv6BindingSID::clear_type() {
 // @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrSrv6BindingSID)
   switch (type_case()) {
+    case kExplicit: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete type_.explicit__;
+      }
+      break;
+    }
     case kDynamic: {
       if (GetArenaForAllocation() == nullptr) {
         delete type_.dynamic_;
@@ -4012,6 +4054,14 @@ const char* SLSrSrv6BindingSID::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
+      // .service_layer.SLSRv6SIDInfo explicit = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_explicit_(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
@@ -4049,6 +4099,14 @@ uint8_t* SLSrSrv6BindingSID::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  // .service_layer.SLSRv6SIDInfo explicit = 1;
+  if (_internal_has_explicit_()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::explicit_(this), target, stream);
+  }
+
   // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
   if (_internal_has_dynamic()) {
     target = stream->EnsureSpace(target);
@@ -4074,6 +4132,13 @@ size_t SLSrSrv6BindingSID::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (type_case()) {
+    // .service_layer.SLSRv6SIDInfo explicit = 1;
+    case kExplicit: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *type_.explicit__);
+      break;
+    }
     // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
     case kDynamic: {
       total_size += 1 +
@@ -4108,6 +4173,10 @@ void SLSrSrv6BindingSID::MergeFrom(const SLSrSrv6BindingSID& from) {
   (void) cached_has_bits;
 
   switch (from.type_case()) {
+    case kExplicit: {
+      _internal_mutable_explicit_()->::service_layer::SLSRv6SIDInfo::MergeFrom(from._internal_explicit_());
+      break;
+    }
     case kDynamic: {
       _internal_mutable_dynamic()->::service_layer::SLSrSrv6DynamicBindingSID::MergeFrom(from._internal_dynamic());
       break;

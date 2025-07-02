@@ -65,16 +65,17 @@ namespace ServiceLayer {
             "dGllcxgBIAEoCzIdLnNlcnZpY2VfbGF5ZXIuU0xTckFmZmluaXRpZXMSNgoN",
             "c2VnbWVudF9ydWxlcxgCIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xTclNlZ21l",
             "bnRSdWxlcxI9Cgt1cHBlcl9ib3VuZBgDIAEoCzIoLnNlcnZpY2VfbGF5ZXIu",
-            "U0xTclVwcGVyQm91bmRDb25zdHJhaW50cyJZChJTTFNyU3J2NkJpbmRpbmdT",
-            "SUQSOwoHZHluYW1pYxgCIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xTclNydjZE",
-            "eW5hbWljQmluZGluZ1NJREgAQgYKBHR5cGUiOgoSU0xTck1QTFNCaW5kaW5n",
-            "U0lEEhYKCW1wbHNfYnNpZBgBIAEoDUgAiAEBQgwKCl9tcGxzX2JzaWQiOwoZ",
-            "U0xTclNydjZEeW5hbWljQmluZGluZ1NJRBIeChZzcnY2X2VuZHBvaW50X2Jl",
-            "aGF2aW9yGAEgASgNMl4KDFNMU3J0ZVBvbGljeRJOCgxTTFNyUG9saWN5T3AS",
-            "HC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lNc2caHC5zZXJ2aWNlX2xheWVy",
-            "LlNMU3JQb2xpY3lSc3AoATABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2Vydmlj",
-            "ZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3Nl",
-            "cnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "U0xTclVwcGVyQm91bmRDb25zdHJhaW50cyKLAQoSU0xTclNydjZCaW5kaW5n",
+            "U0lEEjAKCGV4cGxpY2l0GAEgASgLMhwuc2VydmljZV9sYXllci5TTFNSdjZT",
+            "SURJbmZvSAASOwoHZHluYW1pYxgCIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "clNydjZEeW5hbWljQmluZGluZ1NJREgAQgYKBHR5cGUiOgoSU0xTck1QTFNC",
+            "aW5kaW5nU0lEEhYKCW1wbHNfYnNpZBgBIAEoDUgAiAEBQgwKCl9tcGxzX2Jz",
+            "aWQiOwoZU0xTclNydjZEeW5hbWljQmluZGluZ1NJRBIeChZzcnY2X2VuZHBv",
+            "aW50X2JlaGF2aW9yGAEgASgNMl4KDFNMU3J0ZVBvbGljeRJOCgxTTFNyUG9s",
+            "aWN5T3ASHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lNc2caHC5zZXJ2aWNl",
+            "X2xheWVyLlNMU3JQb2xpY3lSc3AoATABQlFaT2dpdGh1Yi5jb20vQ2lzY28t",
+            "c2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJv",
+            "dG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -91,7 +92,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList", "MetricType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "MetricType", "Constraints" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "SegmentRules", "UpperBound" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Dynamic" }, new[]{ "Type" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Explicit", "Dynamic" }, new[]{ "Type" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrMPLSBindingSID), global::ServiceLayer.SLSrMPLSBindingSID.Parser, new[]{ "MplsBsid" }, new[]{ "MplsBsid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6DynamicBindingSID), global::ServiceLayer.SLSrSrv6DynamicBindingSID.Parser, new[]{ "Srv6EndpointBehavior" }, null, null, null, null)
           }));
@@ -3982,6 +3983,9 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrSrv6BindingSID(SLSrSrv6BindingSID other) : this() {
       switch (other.TypeCase) {
+        case TypeOneofCase.Explicit:
+          Explicit = other.Explicit.Clone();
+          break;
         case TypeOneofCase.Dynamic:
           Dynamic = other.Dynamic.Clone();
           break;
@@ -3996,12 +4000,20 @@ namespace ServiceLayer {
       return new SLSrSrv6BindingSID(this);
     }
 
+    /// <summary>Field number for the "explicit" field.</summary>
+    public const int ExplicitFieldNumber = 1;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLSRv6SIDInfo Explicit {
+      get { return typeCase_ == TypeOneofCase.Explicit ? (global::ServiceLayer.SLSRv6SIDInfo) type_ : null; }
+      set {
+        type_ = value;
+        typeCase_ = value == null ? TypeOneofCase.None : TypeOneofCase.Explicit;
+      }
+    }
+
     /// <summary>Field number for the "dynamic" field.</summary>
     public const int DynamicFieldNumber = 2;
-    /// <summary>
-    /// Will be enabled in future
-    ///SLSRv6SIDInfo explicit = 1;
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrSrv6DynamicBindingSID Dynamic {
@@ -4016,6 +4028,7 @@ namespace ServiceLayer {
     /// <summary>Enum of possible cases for the "type" oneof.</summary>
     public enum TypeOneofCase {
       None = 0,
+      Explicit = 1,
       Dynamic = 2,
     }
     private TypeOneofCase typeCase_ = TypeOneofCase.None;
@@ -4047,6 +4060,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Explicit, other.Explicit)) return false;
       if (!object.Equals(Dynamic, other.Dynamic)) return false;
       if (TypeCase != other.TypeCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -4056,6 +4070,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (typeCase_ == TypeOneofCase.Explicit) hash ^= Explicit.GetHashCode();
       if (typeCase_ == TypeOneofCase.Dynamic) hash ^= Dynamic.GetHashCode();
       hash ^= (int) typeCase_;
       if (_unknownFields != null) {
@@ -4076,6 +4091,10 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (typeCase_ == TypeOneofCase.Explicit) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Explicit);
+      }
       if (typeCase_ == TypeOneofCase.Dynamic) {
         output.WriteRawTag(18);
         output.WriteMessage(Dynamic);
@@ -4090,6 +4109,10 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (typeCase_ == TypeOneofCase.Explicit) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Explicit);
+      }
       if (typeCase_ == TypeOneofCase.Dynamic) {
         output.WriteRawTag(18);
         output.WriteMessage(Dynamic);
@@ -4104,6 +4127,9 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (typeCase_ == TypeOneofCase.Explicit) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Explicit);
+      }
       if (typeCase_ == TypeOneofCase.Dynamic) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Dynamic);
       }
@@ -4120,6 +4146,12 @@ namespace ServiceLayer {
         return;
       }
       switch (other.TypeCase) {
+        case TypeOneofCase.Explicit:
+          if (Explicit == null) {
+            Explicit = new global::ServiceLayer.SLSRv6SIDInfo();
+          }
+          Explicit.MergeFrom(other.Explicit);
+          break;
         case TypeOneofCase.Dynamic:
           if (Dynamic == null) {
             Dynamic = new global::ServiceLayer.SLSrSrv6DynamicBindingSID();
@@ -4143,6 +4175,15 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 10: {
+            global::ServiceLayer.SLSRv6SIDInfo subBuilder = new global::ServiceLayer.SLSRv6SIDInfo();
+            if (typeCase_ == TypeOneofCase.Explicit) {
+              subBuilder.MergeFrom(Explicit);
+            }
+            input.ReadMessage(subBuilder);
+            Explicit = subBuilder;
+            break;
+          }
           case 18: {
             global::ServiceLayer.SLSrSrv6DynamicBindingSID subBuilder = new global::ServiceLayer.SLSrSrv6DynamicBindingSID();
             if (typeCase_ == TypeOneofCase.Dynamic) {
@@ -4167,6 +4208,15 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 10: {
+            global::ServiceLayer.SLSRv6SIDInfo subBuilder = new global::ServiceLayer.SLSRv6SIDInfo();
+            if (typeCase_ == TypeOneofCase.Explicit) {
+              subBuilder.MergeFrom(Explicit);
+            }
+            input.ReadMessage(subBuilder);
+            Explicit = subBuilder;
+            break;
+          }
           case 18: {
             global::ServiceLayer.SLSrSrv6DynamicBindingSID subBuilder = new global::ServiceLayer.SLSrSrv6DynamicBindingSID();
             if (typeCase_ == TypeOneofCase.Dynamic) {

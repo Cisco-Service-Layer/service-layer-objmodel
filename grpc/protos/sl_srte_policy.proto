@@ -333,8 +333,10 @@ message SLSrConstraints {
 // SRv6 Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2).
 message SLSrSrv6BindingSID {
     oneof type {
-       // Will be enabled in future
-       //SLSRv6SIDInfo explicit = 1;
+        // SRv6 explicit Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2.3)
+       SLSRv6SIDInfo explicit = 1;
+
+        // SRv6 dynamic Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2.1)
        SLSrSrv6DynamicBindingSID dynamic = 2;
     }
 }
