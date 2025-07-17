@@ -202,6 +202,8 @@
     SL_ROUTE_INVALID_FLAGS = 0x4014,\
     /* Invalid route priority. 0x4015 */\
     SL_ROUTE_INVALID_PRIORITY = 0x4015,\
+    /* Invalid route metric. 0x4016 */\
+    SL_ROUTE_INVALID_METRIC = 0x4016,\
     /* !!! Error codes for route path objects. */\
     /* Offset for route path errors. 0x5000 */\
     SL_PATH_START_OFFSET = 0x5000,\
@@ -1154,6 +1156,9 @@
         },\
     {SL_ROUTE_INVALID_PRIORITY ,\
         " Invalid route priority.  "\
+        },\
+    {SL_ROUTE_INVALID_METRIC ,\
+        " Invalid route metric.  "\
         },\
     {SL_PATH_START_OFFSET ,\
         " Offset for route path errors.  "\
