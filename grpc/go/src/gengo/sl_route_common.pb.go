@@ -1338,7 +1338,7 @@ type SLRouteCommon struct {
 	//
 	// All others are reserved.
 	RouteFlags []SLRouteFlags `protobuf:"varint,7,rep,packed,name=RouteFlags,proto3,enum=service_layer.SLRouteFlags" json:"RouteFlags,omitempty"`
-	// Route Metric.
+	// Route Metric. [0-4294967294]
 	// The metric is typically based on information like load, hop count,
 	// MTU, reliability of the path, etc.
 	// When routes from different protocols share the same admin distance,
