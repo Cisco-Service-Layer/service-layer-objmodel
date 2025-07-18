@@ -4462,6 +4462,7 @@ namespace ServiceLayer {
     private uint metric_;
     /// <summary>
     /// Route Metric.
+    /// Range [0-4294967294]
     /// The metric is typically based on information like load, hop count,
     /// MTU, reliability of the path, etc.
     /// When routes from different protocols share the same admin distance, 
