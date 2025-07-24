@@ -469,10 +469,10 @@ func (*SLGlobalsGetMsg) Descriptor() ([]byte, []int) {
 //	Inspect ErrStatus first to verify the request succeeded.
 //	Use the various maximum values (limits) to validate client configurations before sending them to the router.
 //	Key configuration limits include:
-//	  VRF name length constraints (MaxVrfNameLength).
-//	  Path limitations for routes (MaxPathsPerEntry, MaxPrimaryPathPerEntry, MaxBackupPathPerEntry).
-//	  MPLS label stack depth (MaxMplsLabelsPerPath).
-//	  Message batching capabilities (MaxVrfRegPerMsg, MaxAFOpsPerMsg).
+//	  - VRF name length constraints (MaxVrfNameLength).
+//	  - Path limitations for routes (MaxPathsPerEntry, MaxPrimaryPathPerEntry, MaxBackupPathPerEntry).
+//	  - MPLS label stack depth (MaxMplsLabelsPerPath).
+//	  - Message batching capabilities (MaxVrfRegPerMsg, MaxAFOpsPerMsg).
 type SLGlobalsGetMsgRsp struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

@@ -1434,10 +1434,10 @@ namespace ServiceLayer {
   ///   Inspect ErrStatus first to verify the request succeeded.
   ///   Use the various maximum values (limits) to validate client configurations before sending them to the router.
   ///   Key configuration limits include:
-  ///     VRF name length constraints (MaxVrfNameLength).
-  ///     Path limitations for routes (MaxPathsPerEntry, MaxPrimaryPathPerEntry, MaxBackupPathPerEntry).
-  ///     MPLS label stack depth (MaxMplsLabelsPerPath).
-  ///     Message batching capabilities (MaxVrfRegPerMsg, MaxAFOpsPerMsg).
+  ///     - VRF name length constraints (MaxVrfNameLength).
+  ///     - Path limitations for routes (MaxPathsPerEntry, MaxPrimaryPathPerEntry, MaxBackupPathPerEntry).
+  ///     - MPLS label stack depth (MaxMplsLabelsPerPath).
+  ///     - Message batching capabilities (MaxVrfRegPerMsg, MaxAFOpsPerMsg).
   /// </summary>
   public sealed partial class SLGlobalsGetMsgRsp : pb::IMessage<SLGlobalsGetMsgRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
