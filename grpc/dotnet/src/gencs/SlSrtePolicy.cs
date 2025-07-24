@@ -4002,6 +4002,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "explicit" field.</summary>
     public const int ExplicitFieldNumber = 1;
+    /// <summary>
+    /// SRv6 explicit Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2.3)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSRv6SIDInfo Explicit {
@@ -4014,6 +4017,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "dynamic" field.</summary>
     public const int DynamicFieldNumber = 2;
+    /// <summary>
+    /// SRv6 dynamic Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2.1)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ServiceLayer.SLSrSrv6DynamicBindingSID Dynamic {
