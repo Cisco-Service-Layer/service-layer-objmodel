@@ -37,6 +37,7 @@ type SLGlobalClient interface {
 	//     Refer to SLGlobalNotif definition for further info.
 	SLGlobalInitNotif(ctx context.Context, in *SLInitMsg, opts ...grpc.CallOption) (SLGlobal_SLGlobalInitNotifClient, error)
 	// Get platform specific globals
+	// Used to retrieve platform-specific capabilities and configuration limits.
 	SLGlobalsGet(ctx context.Context, in *SLGlobalsGetMsg, opts ...grpc.CallOption) (*SLGlobalsGetMsgRsp, error)
 }
 
@@ -108,6 +109,7 @@ type SLGlobalServer interface {
 	//     Refer to SLGlobalNotif definition for further info.
 	SLGlobalInitNotif(*SLInitMsg, SLGlobal_SLGlobalInitNotifServer) error
 	// Get platform specific globals
+	// Used to retrieve platform-specific capabilities and configuration limits.
 	SLGlobalsGet(context.Context, *SLGlobalsGetMsg) (*SLGlobalsGetMsgRsp, error)
 	mustEmbedUnimplementedSLGlobalServer()
 }
