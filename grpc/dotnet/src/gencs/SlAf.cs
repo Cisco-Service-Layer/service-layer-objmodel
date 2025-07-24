@@ -1446,7 +1446,7 @@ namespace ServiceLayer {
     private ulong clientID_;
     /// <summary>
     /// Client that performed this registration
-    /// If the this field is set to 0, it will not appear in the serialized response message.
+    /// If this field is set to 0, it will not appear in the serialized response message.
     /// For any other value, it will be included in the response.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6103,7 +6103,7 @@ namespace ServiceLayer {
     /// the Client ID field can be used by the client to determine
     /// if the object was previously programmed by this client or some
     /// other client.
-    /// If the this field is set to 0, it will not appear in the serialized response message.
+    /// If this field is set to 0, it will not appear in the serialized response message.
     /// For any other value, it will be included in the response.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

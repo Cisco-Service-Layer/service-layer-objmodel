@@ -264,7 +264,7 @@ message SLAFVrfRegGetMsgRsp {
     SLErrorStatus ErrStatus = 1;
 
     // Client that performed this registration
-    // If the this field is set to 0, it will not appear in the serialized response message.
+    // If this field is set to 0, it will not appear in the serialized response message.
     // For any other value, it will be included in the response.
     uint64 ClientID = 2;
 
@@ -602,7 +602,7 @@ message SLAFGetMsgRsp {
     // the Client ID field can be used by the client to determine
     // if the object was previously programmed by this client or some
     // other client.
-    // If the this field is set to 0, it will not appear in the serialized response message.
+    // If this field is set to 0, it will not appear in the serialized response message.
     // For any other value, it will be included in the response.
     uint64 ClientID = 3;
 
