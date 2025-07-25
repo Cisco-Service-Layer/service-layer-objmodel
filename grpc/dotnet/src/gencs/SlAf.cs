@@ -1446,8 +1446,9 @@ namespace ServiceLayer {
     private ulong clientID_;
     /// <summary>
     /// Client that performed this registration
-    /// If this field is set to 0, it will not appear in the serialized response message.
-    /// For any other value, it will be included in the response.
+    /// Note: If the client id is 0, it is considered to be default value
+    /// as per gRPC proto3 encoding and will not appear in the serialized
+    /// response message
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6103,8 +6104,9 @@ namespace ServiceLayer {
     /// the Client ID field can be used by the client to determine
     /// if the object was previously programmed by this client or some
     /// other client.
-    /// If this field is set to 0, it will not appear in the serialized response message.
-    /// For any other value, it will be included in the response.
+    /// Note: If the client id is 0, it is considered to be default value
+    /// as per gRPC proto3 encoding and will not appear in the serialized
+    /// response message
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

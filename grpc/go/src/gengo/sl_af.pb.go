@@ -349,8 +349,9 @@ type SLAFVrfRegGetMsgRsp struct {
 	// Status of the Get operation
 	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Client that performed this registration
-	// If this field is set to 0, it will not appear in the serialized response message.
-	// For any other value, it will be included in the response.
+	// Note: If the client id is 0, it is considered to be default value
+	// as per gRPC proto3 encoding and will not appear in the serialized
+	// response message
 	ClientID uint64 `protobuf:"varint,2,opt,name=ClientID,proto3" json:"ClientID,omitempty"`
 	// If ErrStatus is SL_SUCCESS, Table and Entries
 	// contain the table in which the VRF registration
@@ -1581,8 +1582,9 @@ type SLAFGetMsgRsp struct {
 	// the Client ID field can be used by the client to determine
 	// if the object was previously programmed by this client or some
 	// other client.
-	// If this field is set to 0, it will not appear in the serialized response message.
-	// For any other value, it will be included in the response.
+	// Note: If the client id is 0, it is considered to be default value
+	// as per gRPC proto3 encoding and will not appear in the serialized
+	// response message
 	ClientID uint64 `protobuf:"varint,3,opt,name=ClientID,proto3" json:"ClientID,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, entry contains the list
