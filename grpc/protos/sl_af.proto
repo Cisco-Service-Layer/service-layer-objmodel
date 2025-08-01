@@ -154,7 +154,7 @@ service SLAF {
     //
     // Stream object operations.
     //
-    // The caller MUST keep it's receive and send side of the stream up as long as there is
+    // The client MUST keep it's receive and send side of the stream up as long as there is
     // interest in the responses.
     //
     // SLAFMsg.Oper = SL_OBJOP_ADD:
