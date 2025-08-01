@@ -106,6 +106,8 @@ type SLAFClient interface {
 	//	Delete of a non-existant object is returned as success.
 	SLAFOpStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFOpStreamClient, error)
 	// Retrieves object attributes.
+	// This RPC is unidirectional streaming from the server side
+	// Server will close the stream when all the entries have been returned.
 	SLAFGet(ctx context.Context, in *SLAFGetMsg, opts ...grpc.CallOption) (SLAF_SLAFGetClient, error)
 	// The route redistribution and next hop tracking RPC.
 	//
@@ -126,7 +128,8 @@ type SLAFClient interface {
 	// The call takes a stream of per-VRF table notification requests.
 	// Each notification request is first responded to with the result
 	// of the registration operation itself, followed by any redistributed
-	// routes if requested and present, and any next hops if requested and present.
+	// routes if requested and present, and any next hops if requested and
+	// present.
 	// From then on, any updates are notified as long as RPC is up.
 	SLAFNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFNotifStreamClient, error)
 }
@@ -371,6 +374,8 @@ type SLAFServer interface {
 	//	Delete of a non-existant object is returned as success.
 	SLAFOpStream(SLAF_SLAFOpStreamServer) error
 	// Retrieves object attributes.
+	// This RPC is unidirectional streaming from the server side
+	// Server will close the stream when all the entries have been returned.
 	SLAFGet(*SLAFGetMsg, SLAF_SLAFGetServer) error
 	// The route redistribution and next hop tracking RPC.
 	//
@@ -391,7 +396,8 @@ type SLAFServer interface {
 	// The call takes a stream of per-VRF table notification requests.
 	// Each notification request is first responded to with the result
 	// of the registration operation itself, followed by any redistributed
-	// routes if requested and present, and any next hops if requested and present.
+	// routes if requested and present, and any next hops if requested and
+	// present.
 	// From then on, any updates are notified as long as RPC is up.
 	SLAFNotifStream(SLAF_SLAFNotifStreamServer) error
 	mustEmbedUnimplementedSLAFServer()

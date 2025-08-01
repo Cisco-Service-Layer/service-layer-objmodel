@@ -2,10 +2,10 @@
 
 #include <memory>
 #include <string>
-#include <iostream> 
+#include <iostream>
 #include <thread>
 #include <mutex>
-#include <sstream>  
+#include <sstream>
 #include <utility>
 #include <unordered_map>
 #include <deque>
@@ -19,6 +19,73 @@
 #include <iosxrsl/sl_route_ipv6.pb.h>
 #include <iosxrsl/sl_af.grpc.pb.h>
 #include <iosxrsl/sl_af.pb.h>
+
+// Refers to the objects used by the NotifStream Request to store SLAFNotifRegReq object information
+class notifRouteObj
+{
+public:
+    std::string src_proto = "";
+    std::string src_proto_tag = "";
+    service_layer::SLTableType addr_family = service_layer::SL_TABLE_TYPE_RESERVED;
+};
+
+class notifNextHopObj
+{
+public:
+    service_layer::SLTableType addr_family = service_layer::SL_TABLE_TYPE_RESERVED;
+    bool v4_set = false;
+    std::string ipv4_address ="";
+    uint32_t ipv4_address_uint = 0;
+    std::string ipv6_address ="";
+    uint32_t prefix_len = 24;
+    bool exact_match = false;
+    bool allow_default = false;
+    bool recurse = false;
+};
+
+// Refers to the objects used by Get Request to store SLAFGetMatch object information
+class getMatchObjects
+{
+public:
+    std::vector<std::pair<uint32_t,uint32_t>> ipv4_routes;
+    std::vector<std::pair<std::string, uint32_t>> ipv6_routes;
+    std::vector<uint32_t> mpls_labels;
+    std::vector<std::string> pg_ids;
+    std::vector<std::string> pg_regexs;
+    std::vector<uint32_t> vxlan_vn_ids;
+};
+
+class slafObjKey {
+public:
+    service_layer::SLTableType addr_family = service_layer::SL_TABLE_TYPE_RESERVED;
+    std::string start_ipv4;
+    uint32_t prefix_len_ipv4 = 24;
+    std::string start_ipv6;
+    uint32_t prefix_len_ipv6 = 64;
+    uint32_t start_mpls;
+    std::string pg_name;
+
+    int num_operations;
+};
+class getSlafMatchItems
+{
+public:
+    std::vector<slafObjKey> slaf_obj_key;
+    std::vector<std::string> pg_regex;
+    std::vector<uint32_t> vxlan_vn_id;
+};
+
+// Refers to the Acknowledgment that the controller or agent expects from the network element
+class responseAcks
+{
+public:
+    // For SL allowed response types for programming routes
+    bool response_ack_type_rib_fib_set = false;
+    service_layer::SLRspACKType response_ack_type = service_layer::RIB_ACK;
+    bool response_ack_permit_set = false;
+    service_layer::SLRspACKPermit response_ack_permit = service_layer::SL_PERMIT_FIB_STATUS_ALL;
+    service_layer::SLRspAckCadence response_ack_cadence = service_layer::SL_RSP_CONTINUOUS;
+};
 
 // Data used throughout code. Will change dependent on cli options listed by user
 class testingData
@@ -38,20 +105,21 @@ public:
 
     // For Ipv4
     std::string first_prefix_ipv4 = "40.0.0.0";
-    unsigned int prefix_len_ipv4 = 24;
+    uint32_t prefix_len_ipv4 = 24;
     std::string next_hop_interface_ipv4 = "Bundle-Ether1";
     std::string next_hop_ip_ipv4 = "14.1.1.10";
 
     // For Ipv6
     std::string first_prefix_ipv6 = "2002:aa::0";
-    unsigned int prefix_len_ipv6 = 64;
+    uint32_t prefix_len_ipv6 = 64;
     std::string next_hop_interface_ipv6 = "Bundle-Ether1";
     std::string next_hop_ip_ipv6 = "2002:ae::3";
 
     // For MPLS
     std::string first_mpls_path_nhip = "11.0.0.1";
     std::string next_hop_interface_mpls = "FourHundredGigE0/0/0/0";
-    unsigned int start_label = 20000;
+    uint32_t local_label = 12000;
+    uint32_t out_label = 20000;
     unsigned int num_label = 1000;
     unsigned int num_paths = 1;
 
@@ -59,6 +127,27 @@ public:
     service_layer::SLTableType create_path_group_for = service_layer::SL_IPv4_ROUTE_TABLE;
 
     std::string pg_name ="";
+
+    responseAcks response_acks;
+
+    // Below here is used for Get Requests
+    bool get_request = false;
+    bool get_vrf_request = false;
+    std::string get_vrf_name = "default";
+    std::vector<uint64_t> get_client_id_list;
+    std::vector<service_layer::SLTableType> get_table_type_list;
+    getSlafMatchItems get_route_match_list;
+    bool get_client_all = false;
+    bool get_match = false;
+    bool get_match_route = false;
+
+    // Below here is used for Notif Stream Request
+    bool notif_request = false;
+    unsigned int notification_stream_duration = 10;
+    service_layer::SLNotifOp notif_oper = service_layer::SL_NOTIFOP_RESERVED;
+    std::string notif_vrfname = "default";
+    std::vector<notifRouteObj> notif_route;
+    std::vector<notifNextHopObj> notif_next_hop;
 };
 
 // Status Object is for handling the response messages
@@ -69,9 +158,6 @@ public:
     bool rib_success = false;
     // FIB SUCCESS
     bool fib_success = false;
-
-    // Requesting FIB
-    bool fib_req = false;
     // error message
     std::string error = "";
 };
@@ -87,7 +173,7 @@ public:
     // Key for ipv6 is the prefix
     std::unordered_map<std::string, std::pair<testingData, statusObject>> db_ipv6;
     // Key for mpls is the label number
-    std::unordered_map<unsigned int, std::pair<testingData, statusObject>> db_mpls;
+    std::unordered_map<uint32_t, std::pair<testingData, statusObject>> db_mpls;
     // Key for pg is the pg name
     std::unordered_map<std::string, std::pair<testingData, statusObject>> db_pg;
 
@@ -98,10 +184,13 @@ public:
     uint32_t ipv4_last_index;
     std::string ipv6_start_index;
     std::string ipv6_last_index;
-    unsigned int mpls_start_index;
-    unsigned int mpls_last_index;
+    uint32_t mpls_start_index;
+    uint32_t mpls_last_index;
 
     std::string pg_name;
+
+    // Operational ID is uniquely set for every request
+    uint64_t operation_id;
 };
 
 class SLAFQueueMsg {
@@ -143,6 +232,10 @@ public:
     service_layer::SLObjectOp route_op;
     service_layer::SLAFMsg route_msg;
     service_layer::SLAFMsgRsp route_msg_resp;
+    service_layer::SLAFGetMsg get_msg;
+    service_layer::SLAFGetMsgRsp get_msg_resp;
+    service_layer::SLAFVrfRegGetMsg get_vrf_msg;
+    service_layer::SLAFVrfRegGetMsgRsp get_vrf_msg_resp;
 
     std::map<std::string, int> prefix_map_v4;
     std::map<std::string, int> prefix_map_v6;
@@ -164,11 +257,38 @@ public:
     void stopStream(std::thread* reader, std::thread* writer);
 
     void routeSLAFOpStreamHelperEnqueue(bool terminate_slaf_stream);
-    unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, 
+    unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper,
                                 service_layer::SLTableType createPathGroupFor = service_layer::SL_IPv4_ROUTE_TABLE,
                                 unsigned int timeout=10);
     void clearDB();
     void clearBatch();
+
+
+    // Common methods for all table_types
+    void responseAckSet(service_layer::SLAFOpMsg* operation,
+                        responseAcks responseAck);
+
+    // Thread for reading Notif Stream responses
+    static void readNotifStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFNotifReq, service_layer::SLAFNotifMsg>>& stream,
+                            std::vector<service_layer::SLAFNotifMsg>& responses);
+
+    // Notif streamimg rpc
+    std::vector<service_layer::SLAFNotifMsg> routeSLAFNotifStream(unsigned int batchSize,
+                        service_layer::SLNotifOp oper, std::string vrfname,
+                        std::vector<notifRouteObj> notifRoute,
+                        std::vector<notifNextHopObj> NotifNextHop,
+                        unsigned int notificationStreamDuration,
+                        unsigned int timeout=10000);
+
+    // Vrf Get request rpc
+    std::vector<service_layer::SLAFVrfRegGetMsgRsp> routeSLAFVrfGet(unsigned int timeout=10);
+
+    // Get Request rpc
+    std::vector<service_layer::SLAFGetMsgRsp> routeSLAFGet(
+                        std::string vrfname, bool get_match,
+                        bool get_match_route, bool get_client_all, getMatchObjects match_objects,
+                        std::vector<uint64_t> client_list, std::vector<service_layer::SLTableType> table_type_list,
+                        unsigned int timeout=10);
 
     // IPv4 and IPv6 string manipulation methods
 
@@ -178,84 +298,82 @@ public:
     std::string ByteArrayStringtoIpv6(std::string ipv6ByteArray);
     std::string incrementIpv6Pfx(std::string ipv6ByteArray, uint32_t prefixLen);
 
+    // IPv4 and IPv6 common methods
+
+    service_layer::SLAFIPRoute*
+    routeIpAdd(responseAcks responseAck);
+
+    service_layer::SLAFIPRoute*
+    routeIpAdd(std::string vrfName,
+               responseAcks responseAck);
+
     // IPv4 methods
 
     void setVrfV4(std::string vrfName);
 
 
-    service_layer::SLRoutev4*
-    routev4Add();
-
-    service_layer::SLRoutev4*
-    routev4Add(std::string vrfName);
-
-
-    void routev4Set(service_layer::SLRoutev4* routev4Ptr,
+    void routev4Set(service_layer::SLAFIPRoute* routeIpPtr,
                     uint32_t prefix,
-                    uint8_t prefixLen);
+                    uint32_t prefixLen);
 
-    void routev4Set(service_layer::SLRoutev4* routev4Ptr,
+    void routev4Set(service_layer::SLAFIPRoute* routeIpPtr,
                     uint32_t prefix,
-                    uint8_t prefixLen,
-                    uint32_t adminDistance); 
+                    uint32_t prefixLen,
+                    uint32_t adminDistance);
 
-
-    void routev4PathAdd(service_layer::SLRoutev4* routev4Ptr,
+    void routev4PathAdd(service_layer::SLAFIPRoute* routeIpPtr,
                         uint32_t nextHopAddress,
                         std::string nextHopIf,
                         std::string pgName);
 
     bool insertAddBatchV4(std::string prefix,
-                          uint8_t prefixLen,
+                          uint32_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
                           std::string nextHopIf,
                           service_layer::SLObjectOp routeOper,
-                          std::string pgName);
+                          std::string pgName,
+                          responseAcks responseAck);
 
     // IPv6 methods
 
     void setVrfV6(std::string vrfName);
 
 
-    service_layer::SLRoutev6*
-    routev6Add();
-
-    service_layer::SLRoutev6*
-    routev6Add(std::string vrfName);
- 
-
-    void routev6Set(service_layer::SLRoutev6* routev6Ptr,
+    void routev6Set(service_layer::SLAFIPRoute* routeIpPtr,
                     std::string prefix,
-                    uint8_t prefixLen);
+                    uint32_t prefixLen);
 
 
-    void routev6Set(service_layer::SLRoutev6* routev6Ptr,
+    void routev6Set(service_layer::SLAFIPRoute* routeIpPtr,
                     std::string prefix,
-                    uint8_t prefixLen,
+                    uint32_t prefixLen,
                     uint32_t adminDistance);
 
-    void routev6PathAdd(service_layer::SLRoutev6* routev6Ptr,
+    void routev6PathAdd(service_layer::SLAFIPRoute* routeIpPtr,
                         std::string nextHopAddress,
                         std::string nextHopIf,
                         std::string pgName);
 
     bool insertAddBatchV6(std::string prefix,
-                          uint8_t prefixLen,
+                          uint32_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
                           std::string nextHopIf,
                           service_layer::SLObjectOp routeOper,
-                          std::string pgName);
+                          std::string pgName,
+                          responseAcks responseAck);
 
     // MPLS methods
 
-    void insertAddBatchMPLS(unsigned int label,
-                                unsigned int startLabel,
+    void insertAddBatchMPLS(uint32_t label,
+                                uint32_t startLabel,
+                                uint32_t startOutLabel,
                                 unsigned int numPaths,
                                 uint32_t nextHopAddress,
                                 std::string nextHopInterface,
-                                std::string pgName);
+                                std::string pgName,
+                                responseAcks responseAck);
 
 };
 
@@ -295,4 +413,3 @@ public:
     // Sends a GlobalsGet Request and updates parameter the value for max batch size
     bool getGlobals(unsigned int &batch_size, unsigned int &max_paths, unsigned int timeout=30);
 };
-

@@ -162,13 +162,6 @@ message SLRoutev6 {
     // List of route paths for this route.
     // Specifying more than one path is allowed for ECMP/UCMP cases
     repeated SLRoutePath PathList = 4;
-
-    // Reference to the Path Group for this route.
-    // The attribute is oneof to allow for future extension.
-    oneof entry {
-        // Path group reference key
-        SLPathGroupRefKey PathGroupKey = 5;
-   }
 }
 
 // List of routes for bulk download

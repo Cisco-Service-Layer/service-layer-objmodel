@@ -154,12 +154,13 @@ enum SLPolicyObjectOp : int {
   SL_OBJOP_RULE_DELETE = 4,
   SL_OBJOP_POLICY_APPLY = 5,
   SL_OBJOP_POLICY_UNAPPLY = 6,
+  SL_OBJOP_POLICY_REPLACE = 7,
   SLPolicyObjectOp_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLPolicyObjectOp_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLPolicyObjectOp_IsValid(int value);
 constexpr SLPolicyObjectOp SLPolicyObjectOp_MIN = SL_OBJOP_POLICY_RESERVED;
-constexpr SLPolicyObjectOp SLPolicyObjectOp_MAX = SL_OBJOP_POLICY_UNAPPLY;
+constexpr SLPolicyObjectOp SLPolicyObjectOp_MAX = SL_OBJOP_POLICY_REPLACE;
 constexpr int SLPolicyObjectOp_ARRAYSIZE = SLPolicyObjectOp_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLPolicyObjectOp_descriptor();

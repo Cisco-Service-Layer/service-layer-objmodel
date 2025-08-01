@@ -73,23 +73,23 @@ namespace ServiceLayer {
             "U0xQb2xpY3lJbmZvIhYKFFNMUG9saWN5R2xvYmFsR2V0TXNnInEKF1NMUG9s",
             "aWN5R2xvYmFsR2V0TXNnUnNwEi8KCUVyclN0YXR1cxgBIAEoCzIcLnNlcnZp",
             "Y2VfbGF5ZXIuU0xFcnJvclN0YXR1cxITCgtNYXhQb2xpY2llcxgCIAEoDRIQ",
-            "CghNYXhSdWxlcxgDIAEoDSrOAQoQU0xQb2xpY3lPYmplY3RPcBIcChhTTF9P",
+            "CghNYXhSdWxlcxgDIAEoDSrrAQoQU0xQb2xpY3lPYmplY3RPcBIcChhTTF9P",
             "QkpPUF9QT0xJQ1lfUkVTRVJWRUQQABIXChNTTF9PQkpPUF9QT0xJQ1lfQURE",
             "EAESGgoWU0xfT0JKT1BfUE9MSUNZX0RFTEVURRACEhUKEVNMX09CSk9QX1JV",
             "TEVfQUREEAMSGAoUU0xfT0JKT1BfUlVMRV9ERUxFVEUQBBIZChVTTF9PQkpP",
             "UF9QT0xJQ1lfQVBQTFkQBRIbChdTTF9PQkpPUF9QT0xJQ1lfVU5BUFBMWRAG",
-            "Kj0KDFNMUG9saWN5VHlwZRIYChRTTF9QTV9QVFlQRV9SRVNFUlZFRBAAEhMK",
-            "D1NMX1BNX1BUWVBFX1BCUhABKk4KEFNMQXBwbHlEaXJlY3Rpb24SGgoWU0xf",
-            "QVBQTFlfVFlQRV9SRVNFUlZFRBAAEh4KGlNMX0FQUExZX0RJUkVDVElPTl9J",
-            "TkdSRVNTEAEyiAIKCFNMUG9saWN5EkgKClNMUG9saWN5T3ASHC5zZXJ2aWNl",
-            "X2xheWVyLlNMUG9saWN5T3BNc2caHC5zZXJ2aWNlX2xheWVyLlNMUG9saWN5",
-            "T3BSc3ASUAoLU0xQb2xpY3lHZXQSHS5zZXJ2aWNlX2xheWVyLlNMUG9saWN5",
-            "R2V0TXNnGiAuc2VydmljZV9sYXllci5TTFBvbGljeUdldE1zZ1JzcDABEmAK",
-            "EVNMUG9saWN5R2xvYmFsR2V0EiMuc2VydmljZV9sYXllci5TTFBvbGljeUds",
-            "b2JhbEdldE1zZxomLnNlcnZpY2VfbGF5ZXIuU0xQb2xpY3lHbG9iYWxHZXRN",
-            "c2dSc3BCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
-            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
-            "cHJvdG8z"));
+            "EhsKF1NMX09CSk9QX1BPTElDWV9SRVBMQUNFEAcqPQoMU0xQb2xpY3lUeXBl",
+            "EhgKFFNMX1BNX1BUWVBFX1JFU0VSVkVEEAASEwoPU0xfUE1fUFRZUEVfUEJS",
+            "EAEqTgoQU0xBcHBseURpcmVjdGlvbhIaChZTTF9BUFBMWV9UWVBFX1JFU0VS",
+            "VkVEEAASHgoaU0xfQVBQTFlfRElSRUNUSU9OX0lOR1JFU1MQATKIAgoIU0xQ",
+            "b2xpY3kSSAoKU0xQb2xpY3lPcBIcLnNlcnZpY2VfbGF5ZXIuU0xQb2xpY3lP",
+            "cE1zZxocLnNlcnZpY2VfbGF5ZXIuU0xQb2xpY3lPcFJzcBJQCgtTTFBvbGlj",
+            "eUdldBIdLnNlcnZpY2VfbGF5ZXIuU0xQb2xpY3lHZXRNc2caIC5zZXJ2aWNl",
+            "X2xheWVyLlNMUG9saWN5R2V0TXNnUnNwMAESYAoRU0xQb2xpY3lHbG9iYWxH",
+            "ZXQSIy5zZXJ2aWNlX2xheWVyLlNMUG9saWN5R2xvYmFsR2V0TXNnGiYuc2Vy",
+            "dmljZV9sYXllci5TTFBvbGljeUdsb2JhbEdldE1zZ1JzcEJRWk9naXRodWIu",
+            "Y29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2Rl",
+            "bC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLPolicyObjectOp), typeof(global::ServiceLayer.SLPolicyType), typeof(global::ServiceLayer.SLApplyDirection), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -152,6 +152,10 @@ namespace ServiceLayer {
     /// Policy UnApply. 0x6 
     /// </summary>
     [pbr::OriginalName("SL_OBJOP_POLICY_UNAPPLY")] SlObjopPolicyUnapply = 6,
+    /// <summary>
+    /// Policy Replace. 0x7
+    /// </summary>
+    [pbr::OriginalName("SL_OBJOP_POLICY_REPLACE")] SlObjopPolicyReplace = 7,
   }
 
   /// <summary>
@@ -2989,7 +2993,7 @@ namespace ServiceLayer {
     public const int PolicyStatusFieldNumber = 2;
     /// <summary>
     /// Status of policy level operations
-    /// like policy add and policy delete  
+    /// like policy add, replace and delete
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

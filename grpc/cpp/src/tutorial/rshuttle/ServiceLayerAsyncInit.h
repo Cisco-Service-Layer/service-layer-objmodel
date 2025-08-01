@@ -5,6 +5,7 @@
 #include <condition_variable>
 #include <memory>
 #include <string>
+#include <vector>
 #include <sys/socket.h>
 #include <glog/logging.h>
 #include <arpa/inet.h>

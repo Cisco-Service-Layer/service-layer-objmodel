@@ -161,7 +161,7 @@ namespace ServiceLayer {
     public const int NewBandwidthFieldNumber = 1;
     private ulong newBandwidth_;
     /// <summary>
-    /// The New Bandwidth.
+    /// The New Bandwidth (in Kbps).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -176,7 +176,7 @@ namespace ServiceLayer {
     public const int OldBandwidthFieldNumber = 2;
     private ulong oldBandwidth_;
     /// <summary>
-    /// The Old Bandwidth prior to the update.
+    /// The Old Bandwidth prior to the update (in Kbps).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

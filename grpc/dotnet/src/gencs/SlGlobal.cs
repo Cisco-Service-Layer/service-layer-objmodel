@@ -1269,6 +1269,11 @@ namespace ServiceLayer {
 
   /// <summary>
   /// Globals query message.
+  /// This message is sent by clients to query the router for platform-specific capabilities and configuration limits.
+  ///
+  /// Client should use this message at the beginning of a Service Layer API session to determine platform capabilities
+  /// before configuring routes, interfaces, or other network elements to understand system limitations.
+  /// Helpful for cross-platform applications that need to adapt to different router hardware capabilities.
   /// </summary>
   public sealed partial class SLGlobalsGetMsg : pb::IMessage<SLGlobalsGetMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1424,6 +1429,15 @@ namespace ServiceLayer {
 
   /// <summary>
   /// Platform specific globals Response.
+  /// Retrieved values should be used by client to program requests ensuring operation within the router's constraints.
+  /// Usage:
+  ///   Inspect ErrStatus first to verify the request succeeded.
+  ///   Use the various maximum values (limits) to validate client configurations before sending them to the router.
+  ///   Key configuration limits include:
+  ///     - VRF name length constraints (MaxVrfNameLength).
+  ///     - Path limitations for routes (MaxPathsPerEntry, MaxPrimaryPathPerEntry, MaxBackupPathPerEntry).
+  ///     - MPLS label stack depth (MaxMplsLabelsPerPath).
+  ///     - Message batching capabilities (MaxVrfRegPerMsg, MaxAFOpsPerMsg).
   /// </summary>
   public sealed partial class SLGlobalsGetMsgRsp : pb::IMessage<SLGlobalsGetMsgRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE

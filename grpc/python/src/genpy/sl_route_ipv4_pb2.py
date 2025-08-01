@@ -16,7 +16,7 @@ from . import sl_common_types_pb2 as sl__common__types__pb2
 from . import sl_route_common_pb2 as sl__route__common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13sl_route_ipv4.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\"\xd2\x01\n\tSLRoutev4\x12\x0e\n\x06Prefix\x18\x01 \x01(\r\x12\x11\n\tPrefixLen\x18\x02 \x01(\r\x12\x31\n\x0bRouteCommon\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLRouteCommon\x12,\n\x08PathList\x18\x04 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x05 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x42\x07\n\x05\x65ntry\"\x86\x01\n\x0cSLRoutev4Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12(\n\x06Routes\x18\x04 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"b\n\x0cSLRoutev4Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06Prefix\x18\x02 \x01(\r\x12\x11\n\tPrefixLen\x18\x03 \x01(\r\"\x99\x01\n\x0fSLRoutev4MsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x33\n\rStatusSummary\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x04 \x03(\x0b\x32\x1b.service_layer.SLRoutev4Res\"\x80\x01\n\x0fSLRoutev4GetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0e\n\x06Prefix\x18\x03 \x01(\r\x12\x11\n\tPrefixLen\x18\x04 \x01(\r\x12\x14\n\x0c\x45ntriesCount\x18\x05 \x01(\r\x12\x0f\n\x07GetNext\x18\x06 \x01(\x08\"\xa2\x01\n\x12SLRoutev4GetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12/\n\tErrStatus\x18\x04 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12)\n\x07\x45ntries\x18\x05 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"Q\n\x13SLRoutev4NotifRoute\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"\xc9\x02\n\x0eSLRoutev4Notif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x38\n\x0bNotifStatus\x18\x03 \x01(\x0b\x32!.service_layer.SLRouteNotifStatusH\x00\x12\x33\n\x05Route\x18\x04 \x01(\x0b\x32\".service_layer.SLRoutev4NotifRouteH\x00\x12\x33\n\x06Marker\x18\x05 \x01(\x0b\x32!.service_layer.SLRouteNotifMarkerH\x00\x12(\n\x03Vrf\x18\x06 \x01(\x0b\x32\x19.service_layer.SLVrfNotifH\x00\x42\x07\n\x05\x45vent2\x98\x07\n\rSLRoutev4Oper\x12\x62\n\x13SLRoutev4GlobalsGet\x12#.service_layer.SLRouteGlobalsGetMsg\x1a&.service_layer.SLRouteGlobalsGetMsgRsp\x12n\n\x17SLRoutev4GlobalStatsGet\x12\'.service_layer.SLRouteGlobalStatsGetMsg\x1a*.service_layer.SLRouteGlobalStatsGetMsgRsp\x12N\n\x11SLRoutev4VrfRegOp\x12\x1a.service_layer.SLVrfRegMsg\x1a\x1d.service_layer.SLVrfRegMsgRsp\x12U\n\x12SLRoutev4VrfRegGet\x12\x1d.service_layer.SLVrfRegGetMsg\x1a .service_layer.SLVrfRegGetMsgRsp\x12Y\n\x14SLRoutev4VrfGetStats\x12\x1d.service_layer.SLVrfRegGetMsg\x1a\".service_layer.SLVRFGetStatsMsgRsp\x12J\n\x0bSLRoutev4Op\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp\x12Q\n\x0cSLRoutev4Get\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp\x12T\n\x11SLRoutev4OpStream\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp(\x01\x30\x01\x12[\n\x12SLRoutev4GetStream\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp(\x01\x30\x01\x12_\n\x17SLRoutev4GetNotifStream\x12!.service_layer.SLRouteGetNotifMsg\x1a\x1d.service_layer.SLRoutev4Notif(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13sl_route_ipv4.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\"\x8f\x01\n\tSLRoutev4\x12\x0e\n\x06Prefix\x18\x01 \x01(\r\x12\x11\n\tPrefixLen\x18\x02 \x01(\r\x12\x31\n\x0bRouteCommon\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLRouteCommon\x12,\n\x08PathList\x18\x04 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\"\x86\x01\n\x0cSLRoutev4Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12(\n\x06Routes\x18\x04 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"b\n\x0cSLRoutev4Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06Prefix\x18\x02 \x01(\r\x12\x11\n\tPrefixLen\x18\x03 \x01(\r\"\x99\x01\n\x0fSLRoutev4MsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x33\n\rStatusSummary\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x04 \x03(\x0b\x32\x1b.service_layer.SLRoutev4Res\"\x80\x01\n\x0fSLRoutev4GetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0e\n\x06Prefix\x18\x03 \x01(\r\x12\x11\n\tPrefixLen\x18\x04 \x01(\r\x12\x14\n\x0c\x45ntriesCount\x18\x05 \x01(\r\x12\x0f\n\x07GetNext\x18\x06 \x01(\x08\"\xa2\x01\n\x12SLRoutev4GetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12/\n\tErrStatus\x18\x04 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12)\n\x07\x45ntries\x18\x05 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"Q\n\x13SLRoutev4NotifRoute\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"\xc9\x02\n\x0eSLRoutev4Notif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x38\n\x0bNotifStatus\x18\x03 \x01(\x0b\x32!.service_layer.SLRouteNotifStatusH\x00\x12\x33\n\x05Route\x18\x04 \x01(\x0b\x32\".service_layer.SLRoutev4NotifRouteH\x00\x12\x33\n\x06Marker\x18\x05 \x01(\x0b\x32!.service_layer.SLRouteNotifMarkerH\x00\x12(\n\x03Vrf\x18\x06 \x01(\x0b\x32\x19.service_layer.SLVrfNotifH\x00\x42\x07\n\x05\x45vent2\x98\x07\n\rSLRoutev4Oper\x12\x62\n\x13SLRoutev4GlobalsGet\x12#.service_layer.SLRouteGlobalsGetMsg\x1a&.service_layer.SLRouteGlobalsGetMsgRsp\x12n\n\x17SLRoutev4GlobalStatsGet\x12\'.service_layer.SLRouteGlobalStatsGetMsg\x1a*.service_layer.SLRouteGlobalStatsGetMsgRsp\x12N\n\x11SLRoutev4VrfRegOp\x12\x1a.service_layer.SLVrfRegMsg\x1a\x1d.service_layer.SLVrfRegMsgRsp\x12U\n\x12SLRoutev4VrfRegGet\x12\x1d.service_layer.SLVrfRegGetMsg\x1a .service_layer.SLVrfRegGetMsgRsp\x12Y\n\x14SLRoutev4VrfGetStats\x12\x1d.service_layer.SLVrfRegGetMsg\x1a\".service_layer.SLVRFGetStatsMsgRsp\x12J\n\x0bSLRoutev4Op\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp\x12Q\n\x0cSLRoutev4Get\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp\x12T\n\x11SLRoutev4OpStream\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp(\x01\x30\x01\x12[\n\x12SLRoutev4GetStream\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp(\x01\x30\x01\x12_\n\x17SLRoutev4GetNotifStream\x12!.service_layer.SLRouteGetNotifMsg\x1a\x1d.service_layer.SLRoutev4Notif(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,21 +25,21 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer'
   _globals['_SLROUTEV4']._serialized_start=85
-  _globals['_SLROUTEV4']._serialized_end=295
-  _globals['_SLROUTEV4MSG']._serialized_start=298
-  _globals['_SLROUTEV4MSG']._serialized_end=432
-  _globals['_SLROUTEV4RES']._serialized_start=434
-  _globals['_SLROUTEV4RES']._serialized_end=532
-  _globals['_SLROUTEV4MSGRSP']._serialized_start=535
-  _globals['_SLROUTEV4MSGRSP']._serialized_end=688
-  _globals['_SLROUTEV4GETMSG']._serialized_start=691
-  _globals['_SLROUTEV4GETMSG']._serialized_end=819
-  _globals['_SLROUTEV4GETMSGRSP']._serialized_start=822
-  _globals['_SLROUTEV4GETMSGRSP']._serialized_end=984
-  _globals['_SLROUTEV4NOTIFROUTE']._serialized_start=986
-  _globals['_SLROUTEV4NOTIFROUTE']._serialized_end=1067
-  _globals['_SLROUTEV4NOTIF']._serialized_start=1070
-  _globals['_SLROUTEV4NOTIF']._serialized_end=1399
-  _globals['_SLROUTEV4OPER']._serialized_start=1402
-  _globals['_SLROUTEV4OPER']._serialized_end=2322
+  _globals['_SLROUTEV4']._serialized_end=228
+  _globals['_SLROUTEV4MSG']._serialized_start=231
+  _globals['_SLROUTEV4MSG']._serialized_end=365
+  _globals['_SLROUTEV4RES']._serialized_start=367
+  _globals['_SLROUTEV4RES']._serialized_end=465
+  _globals['_SLROUTEV4MSGRSP']._serialized_start=468
+  _globals['_SLROUTEV4MSGRSP']._serialized_end=621
+  _globals['_SLROUTEV4GETMSG']._serialized_start=624
+  _globals['_SLROUTEV4GETMSG']._serialized_end=752
+  _globals['_SLROUTEV4GETMSGRSP']._serialized_start=755
+  _globals['_SLROUTEV4GETMSGRSP']._serialized_end=917
+  _globals['_SLROUTEV4NOTIFROUTE']._serialized_start=919
+  _globals['_SLROUTEV4NOTIFROUTE']._serialized_end=1000
+  _globals['_SLROUTEV4NOTIF']._serialized_start=1003
+  _globals['_SLROUTEV4NOTIF']._serialized_end=1332
+  _globals['_SLROUTEV4OPER']._serialized_start=1335
+  _globals['_SLROUTEV4OPER']._serialized_end=2255
 # @@protoc_insertion_point(module_scope)

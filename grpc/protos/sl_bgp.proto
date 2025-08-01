@@ -1,0 +1,395 @@
+// @file
+// @brief Server RPC proto file for BGP API.
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2024 by cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
+
+// @defgroup SLBgpApi
+// Defines RPC calls for BGP APIs.
+// Update and Delete the BGP Object Parameters
+// Supports only single client
+// @{
+service SLBgpApi {
+    //@addtogroup SlBgpApi
+    //@{
+    //;
+
+    // RPC supports 
+    // 1. BGP API capability
+    // 2. BGP object (eg. neighbor) parameters (eg. Link Bandwidth) setting.
+    // 3. Get and GetNext to retrieve objects programmed on the device by client 
+    rpc SLBgpOp(stream SLBgpApiMsg) returns (stream SLBgpApiMsgRsp);
+
+    //
+    //@}
+}
+
+// BGP API message encoding background and design
+// Multiple BGP speaker processes are supported on the device.
+// Each is identified by Instance name.
+// Each instance is configured with 
+//   1. Set of BGP neighbors. (A neighbor can be present only in single instance)
+//     1.1 A BGP neighbor can support multiple AFI/SAFI.
+//       1.1.1 Each AFI/SAFI requires number of individual parameters 
+//             (inbound/outbound link bandwidth etc) setting.
+//   2. Future extensions like set of BGP tables (ipv4 unicast, ipv6 unicast etc)
+//     2.1 Networks within each table
+// To reflect this hierarchy and reduce the message size between client and device,
+//   1. SL BGP API message is encoded in hierarchical manner.
+//   2. Term BGP Object refers to container entity like Neighbor, Global BGP table etc.
+//   3. Client encode in a message one or more BGP objects each identified by SLBgpApiObjectType 
+//       (example SL_BGP_API_NEIGHBOR_OBJECT_TYPE for neighbor Object) and 
+//       SLBgpApiObjectType specific key (exampls VrfName and Neighbor IP address).
+//   4. Each BGP object has Type specific value information.
+// Neighbor object encoding in a message
+//   1. Each neighbor object contains list AFI/SAFI being modified.
+//   2. Within each AFI/SAFI the actual parameters and values being updated are supplied
+//      1. Inbound bandwidth parameters
+//      2. Outbound bandwidth parameters
+//      3. Per Link Multipath Bkup address
+
+enum SLBgpBwUnit {
+    // Reserved
+    SL_BGP_UNIT_RESERVED = 0;
+    // Bps
+    SL_BGP_BYTES_PER_SEC = 1;
+    // Gbps
+    SL_BGP_GIGA_BITS_PER_SEC = 2;
+}
+
+enum SLBgpAfi {
+    // Reserved
+    SL_BGP_AFI_RESERVED = 0;
+    // IPv4
+    SL_BGP_AFI_IPV4 = 1;
+    // IPv6
+    SL_BGP_AFI_IPV6 = 2;
+}
+
+enum SLBgpSafi {
+    // Reserved
+    SL_BGP_SAFI_RESERVED = 0;
+    // Unicast SAFI
+    SL_BGP_SAFI_UNICAST = 1;
+}
+
+// BGP Object type like neighbors
+enum SLBgpApiObjectType {
+    // Reserved
+    SL_BGP_API_RESERVED_OBJECT_TYPE = 0;
+    // BGP Neighbor Object Type
+    SL_BGP_API_NEIGHBOR_OBJECT_TYPE = 1;
+}
+
+// enumeration of operation on BGP objects
+enum SLBgpApiObjectOp {
+    // Reserved
+    SL_BGP_OP_RESERVED = 0;
+    // Update operation on BGP API Objects
+    SL_BGP_OP_UPDATE = 1;
+    // Delete operation on BGP API Objects 
+    SL_BGP_OP_DELETE = 2;
+}
+
+// BGP object state on the device
+enum SLBgpApiStateType {
+    // BGP object like neighbors may not be configured on the device.
+    // Parameters under such object are forward referenced i.e. stored without usage on the device.
+    // Such parameters are used when objects are configured on the device.
+    // This could be state at BgpInstanceName, Neighbor, Neighbor AfiSafi hierarchy.
+    SL_BGP_API_FORWARD_REF = 0;
+    // Parameter under the BGP object are usable
+    SL_BGP_API_APPLIED = 1;
+    // Unknown state
+    SL_BGP_API_STATE_UNKNOWN = 2;
+}
+
+//Message structures
+// This is filled in response.
+message SLBgpApiStatus {
+    // Oper Status in response message
+    SLErrorStatus Status = 1;
+    // SL BGP API Neighbor or object parameter state on the Server
+    // When Status = SL_SUCCESS, check BgpStatus
+    // in the response 
+    SLBgpApiStateType State = 2;
+    // Operation ID on SLBgpApiObjectReq message that performed 
+    // last UPDATE on the parameter.
+    uint64 OperationId = 3;
+}
+
+// BGP AFI SAFI message
+message SLBgpAfiSafi {
+    // BGP AFI
+    SLBgpAfi Afi = 1;
+    // BGP SAFI
+    SLBgpSafi Safi = 2;
+}
+
+// FRR IP address parameter along with status
+message SLBgpFrrInfo {
+    oneof entry {
+        // IP Address
+        SLIpAddress Addr = 1;
+    }
+    // Status in response or notification
+    SLBgpApiStatus ObjectStatus = 2;
+}
+
+// BGP bandwidth-id message for neighbor AfiSafi
+message SLBgpBwId {
+    // Bandwidth-id number 1 to 8
+    uint32 BwId = 1;
+
+    // If BwUnit is encoded
+    // max accepted is 18446744065119617025 Bytes/sec
+    uint64 LinkBw = 2;
+
+    // Unit of bandwidth
+    // If encoded stored in device as Bytes/sec in 64 bit storage
+    SLBgpBwUnit BwUnit = 3;
+
+    // BGP ASN to be encoded in extended community
+    // local ASN is used if not provided
+    uint32 Asn = 4;
+
+    // Status in response or notification
+    SLBgpApiStatus ObjectStatus = 5;
+}
+
+// BGP neighbor AfiSafi tunable parameters
+message SLBgpNeighborSafiParam {
+    // List of outbound bandwidth-ids
+    repeated SLBgpBwId OutBwIds = 1;
+    // List of inbound bandwidth-ids
+    repeated SLBgpBwId InBwIds = 2;
+    // FRR info of PER Link ECMP backup
+    SLBgpFrrInfo PerLinkMpathBkup = 3;
+}
+
+// BGP neighbor AfiSafi message 
+message SLBgpNeighborSafiMsg {
+    // BGP AFI SAFI indetifier
+    SLBgpAfiSafi AfiSafi = 1;
+    // Set in the response and notification
+    // ObjectStatus.Status = SL_SUCCESS means all parameters under AfiSafi are successfully stored.
+    // ObjectStatus.Status = SL_SOME_ERR signifies that the operation failed for one or more
+    //                       parameters under AfiSafi. Examine individual parameter ObjectStatus 
+    //                       for exact error.
+    // ObjectStatus.State = SL_BGP_API_FORWARD_REF indicates neighbor AfiSafi
+    //                      and parameters are successfully forward referenced. 
+    //                      Please enable address family under neighbor configuration on the device.
+    // ObjectStatus.OperationID is n/a
+    SLBgpApiStatus ObjectStatus = 2;
+    oneof entry {
+        // BGP Neighbor SAFI parameters to be updated
+        SLBgpNeighborSafiParam SafiParam = 3;
+    }
+}
+
+// List of BGP neighbor AfiSafis under the neighbor
+message SLBgpNeighborSafiList {
+    // List of neighbor AFI/SAFI in the message
+    repeated SLBgpNeighborSafiMsg NeighborSafis = 1;
+}
+
+// BGP neighbor key
+message SLBgpNeighborKey {
+    // VRF name
+    string VrfName = 1;
+    // Neighbor IP Address
+    SLIpAddress Address = 2; 
+}
+
+// BGP neighbor message
+message SLBgpNeighborMsg {
+    // BGP neighbor identifier
+    SLBgpNeighborKey NeighborKey = 1;
+    // Set in the response
+    // ObjectStatus.Status = SL_SUCCESS means all parameters under each listed AfiSafi is successfully stored.
+    // ObjectStatus.Status = SL_SOME_ERR signifies that the operation failed for one or more
+    //                       parameters under one or more AfiSafi. Examine ObjectStatus of each NeighborSafiList 
+    //                       and individual parameter ObjectStatus under them for exact error.
+    // ObjectStatus.State =  SL_BGP_API_FORWARD_REF indicates neighbor and parameters 
+    //                       are successfully forward referenced.
+    // ObjectStatus.OperationID is n/a
+    SLBgpApiStatus ObjectStatus = 2;
+    oneof entry {
+        // SAFI list being updated under the BGP neighbor 
+        SLBgpNeighborSafiList NeighborSafiList = 3;
+    }
+}
+
+// BGP object message
+message SLBgpApiObject {
+    // SL BGP Object type on which operation is performed
+    SLBgpApiObjectType ObjectType = 1;
+    oneof entry {
+        // BGP neighbor being updated
+        SLBgpNeighborMsg Neighbor = 2;
+    }
+}
+
+// Response to BGP Object operation request
+message SLBgpApiObjectResp {
+    // BGP Instance Name
+    string BgpInstanceName = 1;
+    // Set in the response to indicate the summary of overall request:  
+    // ObjectStatus.Status = SL_SUCCESS means all parameters are successfully stored.
+    // ObjectStatus.Status = SL_SOME_ERR signifies that the operation failed for one or more
+    //                       BGP objects. BgpApiobjects holds the Status for each Object and parameters
+    //                       under it.
+    // ObjectStatus.State = SL_BGP_API_FORWARD_REF indicates BgpInstanceName and its
+    //                      parameters are forward referenced. Configure BgpInstanceName and BGP Objects
+    //                      on the device to use the parameters.
+    // ObjectStatus.OperationID is n/a
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous
+    SLBgpApiStatus StatusSummary = 2;
+
+    // SLBgpAPIobject on which operation is 
+    // performed with individual status 
+    repeated SLBgpApiObject BgpApiobjects = 3;
+}
+
+// Request to perform UPDATE and DELETE operation on BGP object parameters
+message SLBgpApiObjectReq {
+    // Operation ID of the bulk transaction that performs modification of BGP objects.
+    // This ID is generated by Client for each SLBgpApiObjectReq that can modify one or more BGP objects.
+    // Each parameter is stored in the Server with Last operation ID that modified it.
+    // This helps to track between Client and Server transactions that performed
+    // modification of BGP objects.
+    // The Server provide ID in response of BGP object Get requests. 
+    // It will also provide it in Async notification when supported by Server.
+    // This is separate from Correlator on streaming service for each client message
+    // As name suggest, Correlator is to match response messages corresponding to any 
+    // request type and not just BGP object DB operations.
+    uint64 OperationId = 1;
+
+    // Type of operation performed
+    // Oper = SL_BGP_OP_UPDATE
+    //     Update one or more parameters (OutBwIds, OutBwIds etc) under BGP objects (Neighbors).
+    //     Only the parameters in the current message are updated with new values.
+    //     Other parameters under BGP object that are not updated in current message
+    //     continue using last updated values.
+    //
+    // Oper = SL_BGP_OP_DELETE
+    //     Delete one or more parameters under BGP objects.
+    //     Device fallbacks to on device configuration parameters, if present.
+    SLBgpApiObjectOp Oper = 2;
+
+    // BGP Instance Name
+    string BgpInstanceName = 3;
+
+    // Actual objects on which operation is performed
+    repeated SLBgpApiObject BgpApiobjects = 4; 
+}
+
+// Get BGP Object response
+message SLBgpApiGetResp {
+    // BGP Instance Name
+    string BgpInstanceName = 1;
+
+    // End Of File.
+    // When set to True, it indicates that the server has returned M, where 
+    // M <= N, of the original N requested Entries.
+    bool Eof = 2;
+
+    // Status of the Get operation
+    SLErrorStatus ErrStatus = 3;
+
+    // Returned entries as requested in the Get operation.
+    // if ErrStatus is SL_SUCCESS, Entries contains the info requested
+    // SLBgpAPIobjects with OperationId that last
+    // performed operation on the object
+    repeated SLBgpApiObject BgpApiobjects = 4;
+}
+
+// Get and Get next of supplied ObjectType and Key
+// Case 1: if GetNext = FALSE 
+//         ObjectType and entry is required.
+//         Device will respond upto EntriesCount starting from exact ObjectType and entry.
+// Case 2: if GetNext = TRUE 
+//         ObjectType = 0 device responds from first object type stored in the device upto EntriesCount.
+//         ObjectType = valid value and key not specified. Device responds from the first object of the 
+//                      specified type stored in the device upto EntriesCount.
+//         ObjectType = valid value and entry specified. Device responds from next (Lexicographical)
+//                      Type/key stored in the device upto EntriesCount.
+// Client can use multiple GetNext request to retrieve all the objects by performing Getnext on the 
+// last responded object type and entry of the previous request. No ObjectType and key is required 
+// in first GetNext for full DB retrieval.
+message SLBgpApiGetReq {
+    // BGP Instance Name
+    string BgpInstanceName = 1;
+
+    // BGP Object Type being queried (example Neighbors)
+    SLBgpApiObjectType ObjectType = 2;
+    oneof entry {
+       // Object Key based on ObjectType 
+       SLBgpNeighborKey Neighbor = 3;
+    }
+
+    // Number of entries requested
+    uint32 EntriesCount = 4;
+
+    bool GetNext = 5;
+}
+
+// Response message to SLBgpApiCap request
+message SLBgpApiCapResp {
+}
+
+// Message to request SLBgpApi capability
+message SLBgpApiCapReq {
+    oneof entry {
+       // BGP Instance Name
+       string BgpInstanceName = 1;
+    }
+}
+
+// SL BGP API operations response
+message SLBgpApiMsgRsp {
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 1;
+
+    // Error Code
+    SLErrorStatus ErrStatus = 2;
+
+    // Response is corresponding to request message type
+    oneof entry {
+        // Capability Response to BgpApiCapReq
+        SLBgpApiCapResp BgpApiCapResp = 3;
+        // Get and Get next Response
+        SLBgpApiGetResp BgpApiGetResp = 4;
+        // BGP Objects Response
+        SLBgpApiObjectResp BgpApiObjectResp = 5;
+    }
+}
+
+// Message requested by client
+message SLBgpApiMsg {
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 1;
+    oneof entry {
+        // Request BGP API capabilities
+        SLBgpApiCapReq BgpApiCapReq = 2;
+        // Get and GetNext request to or from requested key
+        SLBgpApiGetReq BgpApiGetReq = 3;
+        // Request to UPDATE or DELETE parameters (example LinkBw) under BGP objects (example Neighbors)
+        SLBgpApiObjectReq BgpApiobjectReq = 4;
+    }
+}
+
+// @}

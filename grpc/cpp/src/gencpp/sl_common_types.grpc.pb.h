@@ -3,7 +3,7 @@
 // source: sl_common_types.proto
 // Original file comments:
 // @file
-// @brief Common definitions for all of the service layer proto files. 
+// @brief Common definitions for all of the service layer proto files.
 //
 // ---------------------------------------------------------------------
 // Copyright (c) 2019, 2024-2025 by Cisco Systems, Inc.

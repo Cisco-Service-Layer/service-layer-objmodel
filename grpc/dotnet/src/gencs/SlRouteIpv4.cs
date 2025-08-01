@@ -25,63 +25,62 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChNzbF9yb3V0ZV9pcHY0LnByb3RvEg1zZXJ2aWNlX2xheWVyGhVzbF9jb21t",
-            "b25fdHlwZXMucHJvdG8aFXNsX3JvdXRlX2NvbW1vbi5wcm90byLSAQoJU0xS",
+            "b25fdHlwZXMucHJvdG8aFXNsX3JvdXRlX2NvbW1vbi5wcm90byKPAQoJU0xS",
             "b3V0ZXY0Eg4KBlByZWZpeBgBIAEoDRIRCglQcmVmaXhMZW4YAiABKA0SMQoL",
             "Um91dGVDb21tb24YAyABKAsyHC5zZXJ2aWNlX2xheWVyLlNMUm91dGVDb21t",
             "b24SLAoIUGF0aExpc3QYBCADKAsyGi5zZXJ2aWNlX2xheWVyLlNMUm91dGVQ",
-            "YXRoEjgKDFBhdGhHcm91cEtleRgFIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xQ",
-            "YXRoR3JvdXBSZWZLZXlIAEIHCgVlbnRyeSKGAQoMU0xSb3V0ZXY0TXNnEicK",
-            "BE9wZXIYASABKA4yGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0T3ASEgoKQ29y",
-            "cmVsYXRvchgCIAEoBBIPCgdWcmZOYW1lGAMgASgJEigKBlJvdXRlcxgEIAMo",
-            "CzIYLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZXY0ImIKDFNMUm91dGV2NFJlcxIv",
-            "CglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0",
-            "dXMSDgoGUHJlZml4GAIgASgNEhEKCVByZWZpeExlbhgDIAEoDSKZAQoPU0xS",
-            "b3V0ZXY0TXNnUnNwEhIKCkNvcnJlbGF0b3IYASABKAQSDwoHVnJmTmFtZRgC",
-            "IAEoCRIzCg1TdGF0dXNTdW1tYXJ5GAMgASgLMhwuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzEiwKB1Jlc3VsdHMYBCADKAsyGy5zZXJ2aWNlX2xheWVy",
-            "LlNMUm91dGV2NFJlcyKAAQoPU0xSb3V0ZXY0R2V0TXNnEhIKCkNvcnJlbGF0",
-            "b3IYASABKAQSDwoHVnJmTmFtZRgCIAEoCRIOCgZQcmVmaXgYAyABKA0SEQoJ",
-            "UHJlZml4TGVuGAQgASgNEhQKDEVudHJpZXNDb3VudBgFIAEoDRIPCgdHZXRO",
-            "ZXh0GAYgASgIIqIBChJTTFJvdXRldjRHZXRNc2dSc3ASEgoKQ29ycmVsYXRv",
-            "chgBIAEoBBILCgNFb2YYAiABKAgSDwoHVnJmTmFtZRgDIAEoCRIvCglFcnJT",
-            "dGF0dXMYBCABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSKQoH",
-            "RW50cmllcxgFIAMoCzIYLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZXY0IlEKE1NM",
-            "Um91dGV2NE5vdGlmUm91dGUSDwoHVnJmTmFtZRgBIAEoCRIpCgdFbnRyaWVz",
-            "GAIgAygLMhguc2VydmljZV9sYXllci5TTFJvdXRldjQiyQIKDlNMUm91dGV2",
-            "NE5vdGlmEi0KCUV2ZW50VHlwZRgBIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xO",
-            "b3RpZlR5cGUSMQoJRXJyU3RhdHVzGAIgASgLMhwuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzSAASOAoLTm90aWZTdGF0dXMYAyABKAsyIS5zZXJ2aWNl",
-            "X2xheWVyLlNMUm91dGVOb3RpZlN0YXR1c0gAEjMKBVJvdXRlGAQgASgLMiIu",
-            "c2VydmljZV9sYXllci5TTFJvdXRldjROb3RpZlJvdXRlSAASMwoGTWFya2Vy",
-            "GAUgASgLMiEuc2VydmljZV9sYXllci5TTFJvdXRlTm90aWZNYXJrZXJIABIo",
-            "CgNWcmYYBiABKAsyGS5zZXJ2aWNlX2xheWVyLlNMVnJmTm90aWZIAEIHCgVF",
-            "dmVudDKYBwoNU0xSb3V0ZXY0T3BlchJiChNTTFJvdXRldjRHbG9iYWxzR2V0",
-            "EiMuc2VydmljZV9sYXllci5TTFJvdXRlR2xvYmFsc0dldE1zZxomLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xSb3V0ZUdsb2JhbHNHZXRNc2dSc3ASbgoXU0xSb3V0ZXY0",
-            "R2xvYmFsU3RhdHNHZXQSJy5zZXJ2aWNlX2xheWVyLlNMUm91dGVHbG9iYWxT",
-            "dGF0c0dldE1zZxoqLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZUdsb2JhbFN0YXRz",
-            "R2V0TXNnUnNwEk4KEVNMUm91dGV2NFZyZlJlZ09wEhouc2VydmljZV9sYXll",
-            "ci5TTFZyZlJlZ01zZxodLnNlcnZpY2VfbGF5ZXIuU0xWcmZSZWdNc2dSc3AS",
-            "VQoSU0xSb3V0ZXY0VnJmUmVnR2V0Eh0uc2VydmljZV9sYXllci5TTFZyZlJl",
-            "Z0dldE1zZxogLnNlcnZpY2VfbGF5ZXIuU0xWcmZSZWdHZXRNc2dSc3ASWQoU",
-            "U0xSb3V0ZXY0VnJmR2V0U3RhdHMSHS5zZXJ2aWNlX2xheWVyLlNMVnJmUmVn",
-            "R2V0TXNnGiIuc2VydmljZV9sYXllci5TTFZSRkdldFN0YXRzTXNnUnNwEkoK",
-            "C1NMUm91dGV2NE9wEhsuc2VydmljZV9sYXllci5TTFJvdXRldjRNc2caHi5z",
-            "ZXJ2aWNlX2xheWVyLlNMUm91dGV2NE1zZ1JzcBJRCgxTTFJvdXRldjRHZXQS",
-            "Hi5zZXJ2aWNlX2xheWVyLlNMUm91dGV2NEdldE1zZxohLnNlcnZpY2VfbGF5",
-            "ZXIuU0xSb3V0ZXY0R2V0TXNnUnNwElQKEVNMUm91dGV2NE9wU3RyZWFtEhsu",
-            "c2VydmljZV9sYXllci5TTFJvdXRldjRNc2caHi5zZXJ2aWNlX2xheWVyLlNM",
-            "Um91dGV2NE1zZ1JzcCgBMAESWwoSU0xSb3V0ZXY0R2V0U3RyZWFtEh4uc2Vy",
-            "dmljZV9sYXllci5TTFJvdXRldjRHZXRNc2caIS5zZXJ2aWNlX2xheWVyLlNM",
-            "Um91dGV2NEdldE1zZ1JzcCgBMAESXwoXU0xSb3V0ZXY0R2V0Tm90aWZTdHJl",
-            "YW0SIS5zZXJ2aWNlX2xheWVyLlNMUm91dGVHZXROb3RpZk1zZxodLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xSb3V0ZXY0Tm90aWYoATABQlFaT2dpdGh1Yi5jb20vQ2lz",
-            "Y28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMv",
-            "cHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "YXRoIoYBCgxTTFJvdXRldjRNc2cSJwoET3BlchgBIAEoDjIZLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xPYmplY3RPcBISCgpDb3JyZWxhdG9yGAIgASgEEg8KB1ZyZk5h",
+            "bWUYAyABKAkSKAoGUm91dGVzGAQgAygLMhguc2VydmljZV9sYXllci5TTFJv",
+            "dXRldjQiYgoMU0xSb3V0ZXY0UmVzEi8KCUVyclN0YXR1cxgBIAEoCzIcLnNl",
+            "cnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIOCgZQcmVmaXgYAiABKA0SEQoJ",
+            "UHJlZml4TGVuGAMgASgNIpkBCg9TTFJvdXRldjRNc2dSc3ASEgoKQ29ycmVs",
+            "YXRvchgBIAEoBBIPCgdWcmZOYW1lGAIgASgJEjMKDVN0YXR1c1N1bW1hcnkY",
+            "AyABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSLAoHUmVzdWx0",
+            "cxgEIAMoCzIbLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZXY0UmVzIoABCg9TTFJv",
+            "dXRldjRHZXRNc2cSEgoKQ29ycmVsYXRvchgBIAEoBBIPCgdWcmZOYW1lGAIg",
+            "ASgJEg4KBlByZWZpeBgDIAEoDRIRCglQcmVmaXhMZW4YBCABKA0SFAoMRW50",
+            "cmllc0NvdW50GAUgASgNEg8KB0dldE5leHQYBiABKAgiogEKElNMUm91dGV2",
+            "NEdldE1zZ1JzcBISCgpDb3JyZWxhdG9yGAEgASgEEgsKA0VvZhgCIAEoCBIP",
+            "CgdWcmZOYW1lGAMgASgJEi8KCUVyclN0YXR1cxgEIAEoCzIcLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xFcnJvclN0YXR1cxIpCgdFbnRyaWVzGAUgAygLMhguc2Vydmlj",
+            "ZV9sYXllci5TTFJvdXRldjQiUQoTU0xSb3V0ZXY0Tm90aWZSb3V0ZRIPCgdW",
+            "cmZOYW1lGAEgASgJEikKB0VudHJpZXMYAiADKAsyGC5zZXJ2aWNlX2xheWVy",
+            "LlNMUm91dGV2NCLJAgoOU0xSb3V0ZXY0Tm90aWYSLQoJRXZlbnRUeXBlGAEg",
+            "ASgOMhouc2VydmljZV9sYXllci5TTE5vdGlmVHlwZRIxCglFcnJTdGF0dXMY",
+            "AiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXNIABI4CgtOb3Rp",
+            "ZlN0YXR1cxgDIAEoCzIhLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZU5vdGlmU3Rh",
+            "dHVzSAASMwoFUm91dGUYBCABKAsyIi5zZXJ2aWNlX2xheWVyLlNMUm91dGV2",
+            "NE5vdGlmUm91dGVIABIzCgZNYXJrZXIYBSABKAsyIS5zZXJ2aWNlX2xheWVy",
+            "LlNMUm91dGVOb3RpZk1hcmtlckgAEigKA1ZyZhgGIAEoCzIZLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xWcmZOb3RpZkgAQgcKBUV2ZW50MpgHCg1TTFJvdXRldjRPcGVy",
+            "EmIKE1NMUm91dGV2NEdsb2JhbHNHZXQSIy5zZXJ2aWNlX2xheWVyLlNMUm91",
+            "dGVHbG9iYWxzR2V0TXNnGiYuc2VydmljZV9sYXllci5TTFJvdXRlR2xvYmFs",
+            "c0dldE1zZ1JzcBJuChdTTFJvdXRldjRHbG9iYWxTdGF0c0dldBInLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xSb3V0ZUdsb2JhbFN0YXRzR2V0TXNnGiouc2VydmljZV9s",
+            "YXllci5TTFJvdXRlR2xvYmFsU3RhdHNHZXRNc2dSc3ASTgoRU0xSb3V0ZXY0",
+            "VnJmUmVnT3ASGi5zZXJ2aWNlX2xheWVyLlNMVnJmUmVnTXNnGh0uc2Vydmlj",
+            "ZV9sYXllci5TTFZyZlJlZ01zZ1JzcBJVChJTTFJvdXRldjRWcmZSZWdHZXQS",
+            "HS5zZXJ2aWNlX2xheWVyLlNMVnJmUmVnR2V0TXNnGiAuc2VydmljZV9sYXll",
+            "ci5TTFZyZlJlZ0dldE1zZ1JzcBJZChRTTFJvdXRldjRWcmZHZXRTdGF0cxId",
+            "LnNlcnZpY2VfbGF5ZXIuU0xWcmZSZWdHZXRNc2caIi5zZXJ2aWNlX2xheWVy",
+            "LlNMVlJGR2V0U3RhdHNNc2dSc3ASSgoLU0xSb3V0ZXY0T3ASGy5zZXJ2aWNl",
+            "X2xheWVyLlNMUm91dGV2NE1zZxoeLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZXY0",
+            "TXNnUnNwElEKDFNMUm91dGV2NEdldBIeLnNlcnZpY2VfbGF5ZXIuU0xSb3V0",
+            "ZXY0R2V0TXNnGiEuc2VydmljZV9sYXllci5TTFJvdXRldjRHZXRNc2dSc3AS",
+            "VAoRU0xSb3V0ZXY0T3BTdHJlYW0SGy5zZXJ2aWNlX2xheWVyLlNMUm91dGV2",
+            "NE1zZxoeLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZXY0TXNnUnNwKAEwARJbChJT",
+            "TFJvdXRldjRHZXRTdHJlYW0SHi5zZXJ2aWNlX2xheWVyLlNMUm91dGV2NEdl",
+            "dE1zZxohLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZXY0R2V0TXNnUnNwKAEwARJf",
+            "ChdTTFJvdXRldjRHZXROb3RpZlN0cmVhbRIhLnNlcnZpY2VfbGF5ZXIuU0xS",
+            "b3V0ZUdldE5vdGlmTXNnGh0uc2VydmljZV9sYXllci5TTFJvdXRldjROb3Rp",
+            "ZigBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
+            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutev4), global::ServiceLayer.SLRoutev4.Parser, new[]{ "Prefix", "PrefixLen", "RouteCommon", "PathList", "PathGroupKey" }, new[]{ "Entry" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutev4), global::ServiceLayer.SLRoutev4.Parser, new[]{ "Prefix", "PrefixLen", "RouteCommon", "PathList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutev4Msg), global::ServiceLayer.SLRoutev4Msg.Parser, new[]{ "Oper", "Correlator", "VrfName", "Routes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutev4Res), global::ServiceLayer.SLRoutev4Res.Parser, new[]{ "ErrStatus", "Prefix", "PrefixLen" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutev4MsgRsp), global::ServiceLayer.SLRoutev4MsgRsp.Parser, new[]{ "Correlator", "VrfName", "StatusSummary", "Results" }, null, null, null, null),
@@ -136,12 +135,6 @@ namespace ServiceLayer {
       prefixLen_ = other.prefixLen_;
       routeCommon_ = other.routeCommon_ != null ? other.routeCommon_.Clone() : null;
       pathList_ = other.pathList_.Clone();
-      switch (other.EntryCase) {
-        case EntryOneofCase.PathGroupKey:
-          PathGroupKey = other.PathGroupKey.Clone();
-          break;
-      }
-
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -213,41 +206,6 @@ namespace ServiceLayer {
       get { return pathList_; }
     }
 
-    /// <summary>Field number for the "PathGroupKey" field.</summary>
-    public const int PathGroupKeyFieldNumber = 5;
-    /// <summary>
-    /// Path group reference key
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLPathGroupRefKey PathGroupKey {
-      get { return entryCase_ == EntryOneofCase.PathGroupKey ? (global::ServiceLayer.SLPathGroupRefKey) entry_ : null; }
-      set {
-        entry_ = value;
-        entryCase_ = value == null ? EntryOneofCase.None : EntryOneofCase.PathGroupKey;
-      }
-    }
-
-    private object entry_;
-    /// <summary>Enum of possible cases for the "entry" oneof.</summary>
-    public enum EntryOneofCase {
-      None = 0,
-      PathGroupKey = 5,
-    }
-    private EntryOneofCase entryCase_ = EntryOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EntryOneofCase EntryCase {
-      get { return entryCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearEntry() {
-      entryCase_ = EntryOneofCase.None;
-      entry_ = null;
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -267,8 +225,6 @@ namespace ServiceLayer {
       if (PrefixLen != other.PrefixLen) return false;
       if (!object.Equals(RouteCommon, other.RouteCommon)) return false;
       if(!pathList_.Equals(other.pathList_)) return false;
-      if (!object.Equals(PathGroupKey, other.PathGroupKey)) return false;
-      if (EntryCase != other.EntryCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -280,8 +236,6 @@ namespace ServiceLayer {
       if (PrefixLen != 0) hash ^= PrefixLen.GetHashCode();
       if (routeCommon_ != null) hash ^= RouteCommon.GetHashCode();
       hash ^= pathList_.GetHashCode();
-      if (entryCase_ == EntryOneofCase.PathGroupKey) hash ^= PathGroupKey.GetHashCode();
-      hash ^= (int) entryCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -313,10 +267,6 @@ namespace ServiceLayer {
         output.WriteMessage(RouteCommon);
       }
       pathList_.WriteTo(output, _repeated_pathList_codec);
-      if (entryCase_ == EntryOneofCase.PathGroupKey) {
-        output.WriteRawTag(42);
-        output.WriteMessage(PathGroupKey);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -340,10 +290,6 @@ namespace ServiceLayer {
         output.WriteMessage(RouteCommon);
       }
       pathList_.WriteTo(ref output, _repeated_pathList_codec);
-      if (entryCase_ == EntryOneofCase.PathGroupKey) {
-        output.WriteRawTag(42);
-        output.WriteMessage(PathGroupKey);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -364,9 +310,6 @@ namespace ServiceLayer {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(RouteCommon);
       }
       size += pathList_.CalculateSize(_repeated_pathList_codec);
-      if (entryCase_ == EntryOneofCase.PathGroupKey) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathGroupKey);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -392,15 +335,6 @@ namespace ServiceLayer {
         RouteCommon.MergeFrom(other.RouteCommon);
       }
       pathList_.Add(other.pathList_);
-      switch (other.EntryCase) {
-        case EntryOneofCase.PathGroupKey:
-          if (PathGroupKey == null) {
-            PathGroupKey = new global::ServiceLayer.SLPathGroupRefKey();
-          }
-          PathGroupKey.MergeFrom(other.PathGroupKey);
-          break;
-      }
-
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -435,15 +369,6 @@ namespace ServiceLayer {
             pathList_.AddEntriesFrom(input, _repeated_pathList_codec);
             break;
           }
-          case 42: {
-            global::ServiceLayer.SLPathGroupRefKey subBuilder = new global::ServiceLayer.SLPathGroupRefKey();
-            if (entryCase_ == EntryOneofCase.PathGroupKey) {
-              subBuilder.MergeFrom(PathGroupKey);
-            }
-            input.ReadMessage(subBuilder);
-            PathGroupKey = subBuilder;
-            break;
-          }
         }
       }
     #endif
@@ -476,15 +401,6 @@ namespace ServiceLayer {
           }
           case 34: {
             pathList_.AddEntriesFrom(ref input, _repeated_pathList_codec);
-            break;
-          }
-          case 42: {
-            global::ServiceLayer.SLPathGroupRefKey subBuilder = new global::ServiceLayer.SLPathGroupRefKey();
-            if (entryCase_ == EntryOneofCase.PathGroupKey) {
-              subBuilder.MergeFrom(PathGroupKey);
-            }
-            input.ReadMessage(subBuilder);
-            PathGroupKey = subBuilder;
             break;
           }
         }

@@ -126,6 +126,7 @@ namespace ServiceLayer {
 
       /// <summary>
       /// Get platform specific globals
+      /// Used to retrieve platform-specific capabilities and configuration limits.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -215,6 +216,7 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// Get platform specific globals
+      /// Used to retrieve platform-specific capabilities and configuration limits.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -228,6 +230,7 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// Get platform specific globals
+      /// Used to retrieve platform-specific capabilities and configuration limits.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -239,6 +242,7 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// Get platform specific globals
+      /// Used to retrieve platform-specific capabilities and configuration limits.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -252,6 +256,7 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// Get platform specific globals
+      /// Used to retrieve platform-specific capabilities and configuration limits.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>

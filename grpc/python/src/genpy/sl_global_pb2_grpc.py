@@ -66,6 +66,7 @@ class SLGlobalServicer(object):
 
     def SLGlobalsGet(self, request, context):
         """Get platform specific globals
+        Used to retrieve platform-specific capabilities and configuration limits.
         @}
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)

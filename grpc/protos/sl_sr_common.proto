@@ -14,6 +14,8 @@
 syntax = "proto3";
 package service_layer;
 
+import "sl_common_types.proto";
+
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 // @defgroup SLSrCommonTypes
@@ -364,6 +366,189 @@ message SLSrv6SidStruct {
 
     // Argument length in bits
     uint32 ArgLen = 4;
+}
+
+// SR dataplane.
+enum SLSrDataplane {
+    // Unspecified dataplane (invalid).
+    SL_SR_DATAPLANE_UNSPECIFIED = 0;
+
+    // MPLS dataplane.
+    SL_SR_DATAPLANE_MPLS = 1;
+
+    // SRv6 dataplane.
+    SL_SR_DATAPLANE_SRV6 = 2;
+}
+
+// Identifier of an SR Policy as defined in [section 2.1 of RFC 9256]
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.1).
+message SLSrPolicyKey {
+    // IPv4 or IPv6 Router-ID of the headend node.
+    // 
+    // The Router-ID of a node is advertised in BGP-LS TLV 1028 (IPv4) or 1029
+    // (IPv6) (see [section 5.3.1 of draft-ietf-idr-rfc7752bis]
+    // (https://datatracker.ietf.org/doc/html/draft-ietf-idr-rfc7752bis-16#section-5.3.1))
+    SLIpAddress headend = 1;
+
+    // Color is a non-zero value that associates the SR Policy with an
+    // intent or objective (e.g., low latency).
+    uint32 color = 2;
+
+    // IPv4 or IPv6 address of the policy endpoint.
+    // Null endpoint is a valid input.
+    // The null endpoint is 0.0.0.0 for IPv4 and :: for IPv6 (all bits set to the 0 value).
+    SLIpAddress endpoint = 3;
+}
+
+// Identifier of an SR Candidate Path in the context of an SR Policy, as
+// defined in [section 2.6 of RFC 9256]
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.6).
+message SLSrCandidatePathKey {
+    // Originator of the candidate path, as defined in [section 2.4 of RFC
+    // 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.4).
+    message Originator {
+        // Autonomous System Number (ASN)
+        // If 2-byte ASNs are in use, the low-order 16 bits MUST be used,
+        // and the high-order bits MUST be set to 0.
+        SLAutonomousSystemNumber asn = 1;
+
+        // Originator Node Address
+        SLIpAddress nodeID = 2;
+    }
+    Originator originator = 1;
+
+    // Discriminator of the candidate path, as defined in [section 2.5 of RFC
+    // 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.5).
+    uint32 discriminator = 3;
+}
+
+// SR Affinity constraints
+// Bit mask of administrative groups assigned by the
+// network administrator. Each set bit corresponds to one
+// administrative group assigned to the interface. By convention, the
+// least significant bit is referred to as group 0, and the
+// most significant bit is referred to as group 31. Each EAG bitmask
+// is represented in multiple of 4 bytes.
+// https://www.ietf.org/archive/id/draft-ietf-idr-bgp-ls-sr-policy-17.html#name-sr-affinity-constraint-sub-
+message SLSrAffinities {
+    // Affinity include any.
+    //
+    // Mapped from [section 6.2 of RFC 9350]
+    // (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.2).
+    repeated uint32 includeAny = 1;
+
+    // Affinity include all.
+    //
+    // Mapped from [section 6.3 of RFC 9350]
+    //(https://www.rfc-editor.org/rfc/rfc9350.html#section-6.3).
+    repeated uint32 includeAll = 2;
+
+    // Affinity exclude any.
+    //
+    // Mapped from [section 6.1 of RFC 9350]
+    // (https://www.rfc-editor.org/rfc/rfc9350.html#section-6.1).
+    repeated uint32 excludeAny = 3;
+}
+
+// Segment Rules related constraints to be used during the path computation.
+message SLSrSegmentRules {
+    // Algorithm to used for dynamic path calculation.
+    // Refer to Section 3.1.1 of [RFC8402]
+    // Value is a numeric identifier in the range 128-255 that is associated
+    // via configuration with the Flexible Algorithm Definition
+    optional uint32 sid_algo = 1;
+
+    // Protection type to be used for path segments
+    SLSrteProtectionType protection = 2;
+}
+
+// Upper-bound constraints on the computed dynamic path
+message SLSrUpperBoundConstraints {
+    // Maximum number of segments in any of the candidate path segment lists.
+    //
+    // When set to a non-zero value, this attribute replaces the headend MSD
+    // obtained from the link-state topology. When set to the default value (0),
+    // this attribute is ignored.
+    //
+    // Note: If the first segment in the segment list can be enforced by setting
+    // the outgoing interface on the headend node, it does not count towards this
+    // limit.
+    // Supported value is platform dependent. Server can choose to respond with an error
+    // if the value is not in the supported range.
+    uint32 maximum_sid_depth = 1;
+}
+
+enum SLSrteProtectionType {
+    // Protected segments are preferred over unprotected ones.
+    SL_SR_SEGMENT_PROTECTED_PREFERRED = 0;
+
+    // Segment list is made only of protected (i.e., FRR-protected) segments
+    SL_SR_SEGMENT_PROTECTED_ONLY = 1;
+
+    // Unprotected segments are preferred over protected ones.
+    SL_SR_SEGMENT_UNPROTECTED_PREFERRED = 2;
+
+    // Segment list is made only of unprotected (i.e., non FRR-protected) segments
+    SL_SR_SEGMENT_UNPROTECTED_ONLY = 3;
+}
+
+// SRv6 Segment Identifier(SID) Address as defined in [RFC8986].
+message SLSRv6SIDInfo {
+     // An IPv6 address explicitly associated with the segment.
+     SLIpv6Address sid_address = 1;
+     // Endpoint behavior associated with the SID.
+     uint32 behavior = 2;
+     // SID Structure of the specifed SID address.
+     // https://datatracker.ietf.org/doc/html/rfc9352#name-srv6-sid-structure-sub-sub-
+     SLSrv6SidStruct structure = 3;
+}
+
+// A segment descriptor.
+//
+// Segment descriptor types are defined in [section 4 of RFC
+// 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-4).
+message SLSrteSegment {
+    // Type A: SR-MPLS Label.
+    message TypeA {
+        uint32 label = 1;
+    }
+
+    // Type B: SRv6 SID.
+    message TypeB {
+        SLSRv6SIDInfo srv6_sid = 1;
+    }
+
+    // RFC9256 specifies more segment-types, following are currently supported types.
+    oneof segment {
+        TypeA type_a = 1;   // A segment descriptor of type A.
+        TypeB type_b = 2;   // A segment descriptor of type B.
+    }
+}
+
+// A (weighted) segment list.
+message SLSrSegmentList {
+    // Ordered list of segments.
+    repeated SLSrteSegment segments = 1;
+
+    // Load balancing weight factor.
+    //
+    // As per [RFC 9256](https://www.rfc-editor.org/rfc/rfc9256.html):
+    //
+    // - the default weight is 1; and
+    // - a segment list with a weight of 0 is invalid.
+    // Segment List weight can move to CP level when SL by reference is supported
+    optional uint32 weight = 2;
+
+    // Total path *cost*, i.e., the accumulated metric values along the path.
+    uint32 path_cost = 3;
+}
+
+// An error message.
+message SLSrStatus {
+    // Type of error.
+    SLErrorStatus type = 1;
+    // Text description of the error.
+    optional string description = 2;
 }
 
 // @}

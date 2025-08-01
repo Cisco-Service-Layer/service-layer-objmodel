@@ -75,6 +75,7 @@ class SLGlobal final {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLGlobalNotif>>(PrepareAsyncSLGlobalInitNotifRaw(context, request, cq));
     }
     // Get platform specific globals
+    // Used to retrieve platform-specific capabilities and configuration limits.
     virtual ::grpc::Status SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::service_layer::SLGlobalsGetMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLGlobalsGetMsgRsp>> AsyncSLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLGlobalsGetMsgRsp>>(AsyncSLGlobalsGetRaw(context, request, cq));
@@ -101,6 +102,7 @@ class SLGlobal final {
       //    Refer to SLGlobalNotif definition for further info.
       virtual void SLGlobalInitNotif(::grpc::ClientContext* context, const ::service_layer::SLInitMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLGlobalNotif>* reactor) = 0;
       // Get platform specific globals
+      // Used to retrieve platform-specific capabilities and configuration limits.
       virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // @}
@@ -180,6 +182,7 @@ class SLGlobal final {
     //    Refer to SLGlobalNotif definition for further info.
     virtual ::grpc::Status SLGlobalInitNotif(::grpc::ServerContext* context, const ::service_layer::SLInitMsg* request, ::grpc::ServerWriter< ::service_layer::SLGlobalNotif>* writer);
     // Get platform specific globals
+    // Used to retrieve platform-specific capabilities and configuration limits.
     virtual ::grpc::Status SLGlobalsGet(::grpc::ServerContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response);
     // @}
   };

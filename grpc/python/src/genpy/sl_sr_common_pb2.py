@@ -12,9 +12,10 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from . import sl_common_types_pb2 as sl__common__types__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12sl_sr_common.proto\x12\rservice_layer\" \n\x0fSLSrPolicyFlags\x12\r\n\x05\x46lags\x18\x01 \x01(\r\"@\n\x08SLSrBsid\x12\x12\n\x08MplsBsid\x18\x01 \x01(\rH\x00\x12\x12\n\x08Srv6Bsid\x18\x02 \x01(\x0cH\x00\x42\x0c\n\nBindingSid\"\x1a\n\nSLSrCpName\x12\x0c\n\x04Name\x18\x01 \x01(\t\"\xd8\x01\n\x0fSLSrSegmentDesc\x12\x11\n\tAlgorithm\x18\x01 \x01(\r\x12\x17\n\rIpv4LocalAddr\x18\x02 \x01(\x0cH\x00\x12\x17\n\rIpv6LocalAddr\x18\x03 \x01(\x0cH\x00\x12\x18\n\x0eIpv4RemoteAddr\x18\x04 \x01(\x0cH\x01\x12\x18\n\x0eIpv6RemoteAddr\x18\x05 \x01(\x0cH\x01\x12\x17\n\x0fLocalNodeIntfId\x18\x06 \x01(\r\x12\x18\n\x10RemoteNodeIntfId\x18\x07 \x01(\rB\x0b\n\tLocalNodeB\x0c\n\nRemoteNode\"\xa2\x02\n\x0bSLSrSegment\x12,\n\x04Type\x18\x01 \x01(\x0e\x32\x1e.service_layer.SLSrSegmentType\x12\r\n\x05\x46lags\x18\x02 \x01(\r\x12\x13\n\tMplsLabel\x18\x03 \x01(\rH\x00\x12\x11\n\x07Srv6Sid\x18\x04 \x01(\x0cH\x00\x12\x33\n\x0bSegmentDesc\x18\x05 \x01(\x0b\x32\x1e.service_layer.SLSrSegmentDesc\x12?\n\x10\x45ndPointBehavior\x18\x06 \x01(\x0b\x32%.service_layer.SLSrv6EndPointBehavior\x12\x31\n\tSidStruct\x18\x07 \x01(\x0b\x32\x1e.service_layer.SLSrv6SidStructB\x05\n\x03Sid\"\xba\x01\n\x10SLSrv6BindingSid\x12\r\n\x05\x46lags\x18\x01 \x01(\r\x12\x0c\n\x04\x42sid\x18\x02 \x01(\x0c\x12\x15\n\rSpecifiedBsid\x18\x03 \x01(\x0c\x12?\n\x10\x45ndPointBehavior\x18\x04 \x01(\x0b\x32%.service_layer.SLSrv6EndPointBehavior\x12\x31\n\tSidStruct\x18\x05 \x01(\x0b\x32\x1e.service_layer.SLSrv6SidStruct\"T\n\x16SLSrv6EndPointBehavior\x12\x18\n\x10\x45ndPointBehavior\x18\x01 \x01(\r\x12\r\n\x05\x46lags\x18\x02 \x01(\r\x12\x11\n\tAlgorithm\x18\x03 \x01(\r\"g\n\x0fSLSrv6SidStruct\x12\x17\n\x0fLocatorBlockLen\x18\x01 \x01(\r\x12\x16\n\x0eLocatorNodeLen\x18\x02 \x01(\r\x12\x13\n\x0b\x46unctionLen\x18\x03 \x01(\r\x12\x0e\n\x06\x41rgLen\x18\x04 \x01(\r*\x90\x03\n\x18SLSrPolicyProtocolOrigin\x12)\n%SL_SR_POLICY_PROTOCOL_ORIGIN_RESERVED\x10\x00\x12%\n!SL_SR_POLICY_PROTOCOL_ORIGIN_PCEP\x10\x01\x12.\n*SL_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY\x10\x02\x12\'\n#SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG\x10\x03\x12-\n)SL_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE\x10\n\x12\x36\n2SL_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE\x10\x14\x12/\n+SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE\x10\x1e\x12\x31\n,SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC\x10\xfb\x01*}\n\x12SLSrPolicyFlagsDef\x12\x1e\n\x1aSL_SR_POLICY_FLAG_RESERVED\x10\x00\x12\"\n\x1dSL_SR_POLICY_FLAG_ENDPOINT_V6\x10\x80\x01\x12#\n\x1fSL_SR_POLICY_FLAG_ORIGINATOR_V6\x10@*\x9b\x04\n\x0fSLSrSegmentType\x12\x1b\n\x17SL_SR_SEG_TYPE_RESERVED\x10\x00\x12\x1d\n\x19SL_SR_SEG_TYPE_MPLS_LABEL\x10\x01\x12\x1e\n\x1aSL_SR_SEG_TYPE_SRV6_SID_V6\x10\x02\x12\"\n\x1eSL_SR_SEG_TYPE_MPLS_PFX_SID_V4\x10\x03\x12\"\n\x1eSL_SR_SEG_TYPE_MPLS_PFX_SID_V6\x10\x04\x12\x33\n/SL_SR_SEG_TYPE_MPLS_ADJ_SID_V4_NODE_ADDR_LOC_ID\x10\x05\x12/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V4_LOC_REM_ADDR\x10\x06\x12\x36\n2SL_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_AND_ID\x10\x07\x12/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR\x10\x08\x12,\n(SL_SR_SEG_TYPE_SRV6_END_SID_V6_NODE_ADDR\x10\t\x12\x36\n2SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID\x10\n\x12/\n+SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR\x10\x0b*\x80\x02\n\x10SLSrSegmentFlags\x12\x1f\n\x1bSL_SR_SEGMENT_FLAG_RESERVED\x10\x00\x12$\n\x1eSL_SR_SEGMENT_FLAG_SID_PRESENT\x10\x80\x80\x02\x12\x31\n+SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIONED\x10\x80\x80\x01\x12$\n\x1fSL_SR_SEGMENT_FLAG_SID_VERIFIED\x10\x80@\x12$\n\x1fSL_SR_SEGMENT_FLAG_SID_RESOLVED\x10\x80 \x12&\n!SL_SR_SEGMENT_FLAG_SID_ALGO_VALID\x10\x80\x10*\x9b\x01\n\x15SLSrv6BindingSidFlags\x12\x1e\n\x1aSL_SRV6_BSID_FLAG_RESERVED\x10\x00\x12!\n\x1bSL_SRV6_BSID_FLAG_ALLOCATED\x10\x80\x80\x02\x12\x1f\n\x19SL_SRV6_BSID_FLAG_UNAVAIL\x10\x80\x80\x01\x12\x1e\n\x19SL_SRV6_BSID_FLAG_DYNAMIC\x10\x80@BQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12sl_sr_common.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\" \n\x0fSLSrPolicyFlags\x12\r\n\x05\x46lags\x18\x01 \x01(\r\"@\n\x08SLSrBsid\x12\x12\n\x08MplsBsid\x18\x01 \x01(\rH\x00\x12\x12\n\x08Srv6Bsid\x18\x02 \x01(\x0cH\x00\x42\x0c\n\nBindingSid\"\x1a\n\nSLSrCpName\x12\x0c\n\x04Name\x18\x01 \x01(\t\"\xd8\x01\n\x0fSLSrSegmentDesc\x12\x11\n\tAlgorithm\x18\x01 \x01(\r\x12\x17\n\rIpv4LocalAddr\x18\x02 \x01(\x0cH\x00\x12\x17\n\rIpv6LocalAddr\x18\x03 \x01(\x0cH\x00\x12\x18\n\x0eIpv4RemoteAddr\x18\x04 \x01(\x0cH\x01\x12\x18\n\x0eIpv6RemoteAddr\x18\x05 \x01(\x0cH\x01\x12\x17\n\x0fLocalNodeIntfId\x18\x06 \x01(\r\x12\x18\n\x10RemoteNodeIntfId\x18\x07 \x01(\rB\x0b\n\tLocalNodeB\x0c\n\nRemoteNode\"\xa2\x02\n\x0bSLSrSegment\x12,\n\x04Type\x18\x01 \x01(\x0e\x32\x1e.service_layer.SLSrSegmentType\x12\r\n\x05\x46lags\x18\x02 \x01(\r\x12\x13\n\tMplsLabel\x18\x03 \x01(\rH\x00\x12\x11\n\x07Srv6Sid\x18\x04 \x01(\x0cH\x00\x12\x33\n\x0bSegmentDesc\x18\x05 \x01(\x0b\x32\x1e.service_layer.SLSrSegmentDesc\x12?\n\x10\x45ndPointBehavior\x18\x06 \x01(\x0b\x32%.service_layer.SLSrv6EndPointBehavior\x12\x31\n\tSidStruct\x18\x07 \x01(\x0b\x32\x1e.service_layer.SLSrv6SidStructB\x05\n\x03Sid\"\xba\x01\n\x10SLSrv6BindingSid\x12\r\n\x05\x46lags\x18\x01 \x01(\r\x12\x0c\n\x04\x42sid\x18\x02 \x01(\x0c\x12\x15\n\rSpecifiedBsid\x18\x03 \x01(\x0c\x12?\n\x10\x45ndPointBehavior\x18\x04 \x01(\x0b\x32%.service_layer.SLSrv6EndPointBehavior\x12\x31\n\tSidStruct\x18\x05 \x01(\x0b\x32\x1e.service_layer.SLSrv6SidStruct\"T\n\x16SLSrv6EndPointBehavior\x12\x18\n\x10\x45ndPointBehavior\x18\x01 \x01(\r\x12\r\n\x05\x46lags\x18\x02 \x01(\r\x12\x11\n\tAlgorithm\x18\x03 \x01(\r\"g\n\x0fSLSrv6SidStruct\x12\x17\n\x0fLocatorBlockLen\x18\x01 \x01(\r\x12\x16\n\x0eLocatorNodeLen\x18\x02 \x01(\r\x12\x13\n\x0b\x46unctionLen\x18\x03 \x01(\r\x12\x0e\n\x06\x41rgLen\x18\x04 \x01(\r\"y\n\rSLSrPolicyKey\x12+\n\x07headend\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\r\n\x05\x63olor\x18\x02 \x01(\r\x12,\n\x08\x65ndpoint\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\"\xe1\x01\n\x14SLSrCandidatePathKey\x12\x42\n\noriginator\x18\x01 \x01(\x0b\x32..service_layer.SLSrCandidatePathKey.Originator\x12\x15\n\rdiscriminator\x18\x03 \x01(\r\x1an\n\nOriginator\x12\x34\n\x03\x61sn\x18\x01 \x01(\x0b\x32\'.service_layer.SLAutonomousSystemNumber\x12*\n\x06nodeID\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\"L\n\x0eSLSrAffinities\x12\x12\n\nincludeAny\x18\x01 \x03(\r\x12\x12\n\nincludeAll\x18\x02 \x03(\r\x12\x12\n\nexcludeAny\x18\x03 \x03(\r\"o\n\x10SLSrSegmentRules\x12\x15\n\x08sid_algo\x18\x01 \x01(\rH\x00\x88\x01\x01\x12\x37\n\nprotection\x18\x02 \x01(\x0e\x32#.service_layer.SLSrteProtectionTypeB\x0b\n\t_sid_algo\"6\n\x19SLSrUpperBoundConstraints\x12\x19\n\x11maximum_sid_depth\x18\x01 \x01(\r\"\x87\x01\n\rSLSRv6SIDInfo\x12\x31\n\x0bsid_address\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLIpv6Address\x12\x10\n\x08\x62\x65havior\x18\x02 \x01(\r\x12\x31\n\tstructure\x18\x03 \x01(\x0b\x32\x1e.service_layer.SLSrv6SidStruct\"\xd7\x01\n\rSLSrteSegment\x12\x34\n\x06type_a\x18\x01 \x01(\x0b\x32\".service_layer.SLSrteSegment.TypeAH\x00\x12\x34\n\x06type_b\x18\x02 \x01(\x0b\x32\".service_layer.SLSrteSegment.TypeBH\x00\x1a\x16\n\x05TypeA\x12\r\n\x05label\x18\x01 \x01(\r\x1a\x37\n\x05TypeB\x12.\n\x08srv6_sid\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLSRv6SIDInfoB\t\n\x07segment\"t\n\x0fSLSrSegmentList\x12.\n\x08segments\x18\x01 \x03(\x0b\x32\x1c.service_layer.SLSrteSegment\x12\x13\n\x06weight\x18\x02 \x01(\rH\x00\x88\x01\x01\x12\x11\n\tpath_cost\x18\x03 \x01(\rB\t\n\x07_weight\"b\n\nSLSrStatus\x12*\n\x04type\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0e\n\x0c_description*\x90\x03\n\x18SLSrPolicyProtocolOrigin\x12)\n%SL_SR_POLICY_PROTOCOL_ORIGIN_RESERVED\x10\x00\x12%\n!SL_SR_POLICY_PROTOCOL_ORIGIN_PCEP\x10\x01\x12.\n*SL_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY\x10\x02\x12\'\n#SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG\x10\x03\x12-\n)SL_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE\x10\n\x12\x36\n2SL_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE\x10\x14\x12/\n+SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE\x10\x1e\x12\x31\n,SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC\x10\xfb\x01*}\n\x12SLSrPolicyFlagsDef\x12\x1e\n\x1aSL_SR_POLICY_FLAG_RESERVED\x10\x00\x12\"\n\x1dSL_SR_POLICY_FLAG_ENDPOINT_V6\x10\x80\x01\x12#\n\x1fSL_SR_POLICY_FLAG_ORIGINATOR_V6\x10@*\x9b\x04\n\x0fSLSrSegmentType\x12\x1b\n\x17SL_SR_SEG_TYPE_RESERVED\x10\x00\x12\x1d\n\x19SL_SR_SEG_TYPE_MPLS_LABEL\x10\x01\x12\x1e\n\x1aSL_SR_SEG_TYPE_SRV6_SID_V6\x10\x02\x12\"\n\x1eSL_SR_SEG_TYPE_MPLS_PFX_SID_V4\x10\x03\x12\"\n\x1eSL_SR_SEG_TYPE_MPLS_PFX_SID_V6\x10\x04\x12\x33\n/SL_SR_SEG_TYPE_MPLS_ADJ_SID_V4_NODE_ADDR_LOC_ID\x10\x05\x12/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V4_LOC_REM_ADDR\x10\x06\x12\x36\n2SL_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_AND_ID\x10\x07\x12/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR\x10\x08\x12,\n(SL_SR_SEG_TYPE_SRV6_END_SID_V6_NODE_ADDR\x10\t\x12\x36\n2SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID\x10\n\x12/\n+SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR\x10\x0b*\x80\x02\n\x10SLSrSegmentFlags\x12\x1f\n\x1bSL_SR_SEGMENT_FLAG_RESERVED\x10\x00\x12$\n\x1eSL_SR_SEGMENT_FLAG_SID_PRESENT\x10\x80\x80\x02\x12\x31\n+SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIONED\x10\x80\x80\x01\x12$\n\x1fSL_SR_SEGMENT_FLAG_SID_VERIFIED\x10\x80@\x12$\n\x1fSL_SR_SEGMENT_FLAG_SID_RESOLVED\x10\x80 \x12&\n!SL_SR_SEGMENT_FLAG_SID_ALGO_VALID\x10\x80\x10*\x9b\x01\n\x15SLSrv6BindingSidFlags\x12\x1e\n\x1aSL_SRV6_BSID_FLAG_RESERVED\x10\x00\x12!\n\x1bSL_SRV6_BSID_FLAG_ALLOCATED\x10\x80\x80\x02\x12\x1f\n\x19SL_SRV6_BSID_FLAG_UNAVAIL\x10\x80\x80\x01\x12\x1e\n\x19SL_SRV6_BSID_FLAG_DYNAMIC\x10\x80@*d\n\rSLSrDataplane\x12\x1f\n\x1bSL_SR_DATAPLANE_UNSPECIFIED\x10\x00\x12\x18\n\x14SL_SR_DATAPLANE_MPLS\x10\x01\x12\x18\n\x14SL_SR_DATAPLANE_SRV6\x10\x02*\xac\x01\n\x14SLSrteProtectionType\x12%\n!SL_SR_SEGMENT_PROTECTED_PREFERRED\x10\x00\x12 \n\x1cSL_SR_SEGMENT_PROTECTED_ONLY\x10\x01\x12\'\n#SL_SR_SEGMENT_UNPROTECTED_PREFERRED\x10\x02\x12\"\n\x1eSL_SR_SEGMENT_UNPROTECTED_ONLY\x10\x03\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,30 +23,58 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'sl_sr_common_pb2', _globals
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer'
-  _globals['_SLSRPOLICYPROTOCOLORIGIN']._serialized_start=1058
-  _globals['_SLSRPOLICYPROTOCOLORIGIN']._serialized_end=1458
-  _globals['_SLSRPOLICYFLAGSDEF']._serialized_start=1460
-  _globals['_SLSRPOLICYFLAGSDEF']._serialized_end=1585
-  _globals['_SLSRSEGMENTTYPE']._serialized_start=1588
-  _globals['_SLSRSEGMENTTYPE']._serialized_end=2127
-  _globals['_SLSRSEGMENTFLAGS']._serialized_start=2130
-  _globals['_SLSRSEGMENTFLAGS']._serialized_end=2386
-  _globals['_SLSRV6BINDINGSIDFLAGS']._serialized_start=2389
-  _globals['_SLSRV6BINDINGSIDFLAGS']._serialized_end=2544
-  _globals['_SLSRPOLICYFLAGS']._serialized_start=37
-  _globals['_SLSRPOLICYFLAGS']._serialized_end=69
-  _globals['_SLSRBSID']._serialized_start=71
-  _globals['_SLSRBSID']._serialized_end=135
-  _globals['_SLSRCPNAME']._serialized_start=137
-  _globals['_SLSRCPNAME']._serialized_end=163
-  _globals['_SLSRSEGMENTDESC']._serialized_start=166
-  _globals['_SLSRSEGMENTDESC']._serialized_end=382
-  _globals['_SLSRSEGMENT']._serialized_start=385
-  _globals['_SLSRSEGMENT']._serialized_end=675
-  _globals['_SLSRV6BINDINGSID']._serialized_start=678
-  _globals['_SLSRV6BINDINGSID']._serialized_end=864
-  _globals['_SLSRV6ENDPOINTBEHAVIOR']._serialized_start=866
-  _globals['_SLSRV6ENDPOINTBEHAVIOR']._serialized_end=950
-  _globals['_SLSRV6SIDSTRUCT']._serialized_start=952
-  _globals['_SLSRV6SIDSTRUCT']._serialized_end=1055
+  _globals['_SLSRPOLICYPROTOCOLORIGIN']._serialized_start=2253
+  _globals['_SLSRPOLICYPROTOCOLORIGIN']._serialized_end=2653
+  _globals['_SLSRPOLICYFLAGSDEF']._serialized_start=2655
+  _globals['_SLSRPOLICYFLAGSDEF']._serialized_end=2780
+  _globals['_SLSRSEGMENTTYPE']._serialized_start=2783
+  _globals['_SLSRSEGMENTTYPE']._serialized_end=3322
+  _globals['_SLSRSEGMENTFLAGS']._serialized_start=3325
+  _globals['_SLSRSEGMENTFLAGS']._serialized_end=3581
+  _globals['_SLSRV6BINDINGSIDFLAGS']._serialized_start=3584
+  _globals['_SLSRV6BINDINGSIDFLAGS']._serialized_end=3739
+  _globals['_SLSRDATAPLANE']._serialized_start=3741
+  _globals['_SLSRDATAPLANE']._serialized_end=3841
+  _globals['_SLSRTEPROTECTIONTYPE']._serialized_start=3844
+  _globals['_SLSRTEPROTECTIONTYPE']._serialized_end=4016
+  _globals['_SLSRPOLICYFLAGS']._serialized_start=60
+  _globals['_SLSRPOLICYFLAGS']._serialized_end=92
+  _globals['_SLSRBSID']._serialized_start=94
+  _globals['_SLSRBSID']._serialized_end=158
+  _globals['_SLSRCPNAME']._serialized_start=160
+  _globals['_SLSRCPNAME']._serialized_end=186
+  _globals['_SLSRSEGMENTDESC']._serialized_start=189
+  _globals['_SLSRSEGMENTDESC']._serialized_end=405
+  _globals['_SLSRSEGMENT']._serialized_start=408
+  _globals['_SLSRSEGMENT']._serialized_end=698
+  _globals['_SLSRV6BINDINGSID']._serialized_start=701
+  _globals['_SLSRV6BINDINGSID']._serialized_end=887
+  _globals['_SLSRV6ENDPOINTBEHAVIOR']._serialized_start=889
+  _globals['_SLSRV6ENDPOINTBEHAVIOR']._serialized_end=973
+  _globals['_SLSRV6SIDSTRUCT']._serialized_start=975
+  _globals['_SLSRV6SIDSTRUCT']._serialized_end=1078
+  _globals['_SLSRPOLICYKEY']._serialized_start=1080
+  _globals['_SLSRPOLICYKEY']._serialized_end=1201
+  _globals['_SLSRCANDIDATEPATHKEY']._serialized_start=1204
+  _globals['_SLSRCANDIDATEPATHKEY']._serialized_end=1429
+  _globals['_SLSRCANDIDATEPATHKEY_ORIGINATOR']._serialized_start=1319
+  _globals['_SLSRCANDIDATEPATHKEY_ORIGINATOR']._serialized_end=1429
+  _globals['_SLSRAFFINITIES']._serialized_start=1431
+  _globals['_SLSRAFFINITIES']._serialized_end=1507
+  _globals['_SLSRSEGMENTRULES']._serialized_start=1509
+  _globals['_SLSRSEGMENTRULES']._serialized_end=1620
+  _globals['_SLSRUPPERBOUNDCONSTRAINTS']._serialized_start=1622
+  _globals['_SLSRUPPERBOUNDCONSTRAINTS']._serialized_end=1676
+  _globals['_SLSRV6SIDINFO']._serialized_start=1679
+  _globals['_SLSRV6SIDINFO']._serialized_end=1814
+  _globals['_SLSRTESEGMENT']._serialized_start=1817
+  _globals['_SLSRTESEGMENT']._serialized_end=2032
+  _globals['_SLSRTESEGMENT_TYPEA']._serialized_start=1942
+  _globals['_SLSRTESEGMENT_TYPEA']._serialized_end=1964
+  _globals['_SLSRTESEGMENT_TYPEB']._serialized_start=1966
+  _globals['_SLSRTESEGMENT_TYPEB']._serialized_end=2021
+  _globals['_SLSRSEGMENTLIST']._serialized_start=2034
+  _globals['_SLSRSEGMENTLIST']._serialized_end=2150
+  _globals['_SLSRSTATUS']._serialized_start=2152
+  _globals['_SLSRSTATUS']._serialized_end=2250
 # @@protoc_insertion_point(module_scope)
