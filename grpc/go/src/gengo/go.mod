@@ -1,8 +1,6 @@
 module foo
 
-go 1.23.0
-
-toolchain go1.23.8
+go 1.24.3
 
 require (
 	google.golang.org/grpc v1.56.3

@@ -1,8 +1,6 @@
 module tutorial
 
-go 1.23.0
-
-toolchain go1.23.8
+go 1.24.3
 
 require (
 	gengo v0.0.0-00010101000000-000000000000
