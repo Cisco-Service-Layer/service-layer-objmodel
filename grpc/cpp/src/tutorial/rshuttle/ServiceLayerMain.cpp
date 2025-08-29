@@ -216,7 +216,6 @@ printHelperSlRoutePath(SLAFRShuttle* slaf_route_shuttle, service_layer::SLRouteP
         }
         LOG(INFO) << "\t\t\t\tLoad Metric: " << path_object.loadmetric();
         LOG(INFO) << "\t\t\t\tVRF Name: " << path_object.vrfname();
-        LOG(INFO) << "\t\t\t\tMetric: " << path_object.metric();
         LOG(INFO) << "\t\t\t\tPath ID: " << path_object.pathid();
 
         for (int temp_index = 0; temp_index < path_object.protectedpathbitmap_size(); temp_index++) {
@@ -709,15 +708,15 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         LOG(INFO) << "Starting MPLS";
 
         // Populate MPLS DB
-        uint32_t local_label = env_data.local_label;
-        database.mpls_start_index = local_label;
+        uint32_t entry_key_label = env_data.entry_key_label;
+        database.mpls_start_index = entry_key_label;
         for(int i = 0; i < env_data.num_operations; i++){
             statusObject dummy;
             std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
-            database.db_mpls[local_label+i] = temp;
+            database.db_mpls[entry_key_label+i] = temp;
             database.db_count++;
         }
-        database.mpls_last_index = local_label+env_data.num_operations-1;
+        database.mpls_last_index = entry_key_label+env_data.num_operations-1;
 
         if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
@@ -1008,9 +1007,9 @@ void get_slaf(SLAFRShuttle* slaf_route_shuttle,
                         objs_to_search.ipv6_routes.push_back(std::make_pair(prefix, prefix_len));
                     }
                 } else if (slaf_obj.addr_family == service_layer::SL_MPLS_LABEL_TABLE) {
-                    uint32_t local_label = slaf_obj.start_mpls;
+                    uint32_t entry_key_label = slaf_obj.start_mpls;
                     for (int j = 0; j < slaf_obj.num_operations; j++){
-                        objs_to_search.mpls_labels.push_back(local_label+j);
+                        objs_to_search.mpls_labels.push_back(entry_key_label+j);
                     }
 
                 } else if (slaf_obj.addr_family == service_layer::SL_PATH_GROUP_TABLE) {
@@ -1144,7 +1143,7 @@ void try_notif_slaf(std::shared_ptr<grpc::Channel> channel,
                     delete slaf_route_shuttle;
                 }
             }
-            if (status.error_code() != grpc::StatusCode::UNAVAILABLE || status.error_code() != grpc::StatusCode::CANCELLED) {
+            if (status.error_code() != grpc::StatusCode::UNAVAILABLE) {
                 LOG(INFO) << "Cannot retry for status code: " << status.error_code();
                 attempts = maxAttempts + 1;
                 break;
@@ -1209,8 +1208,8 @@ int main(int argc, char** argv) {
         {"next_hop_ip_ipv6", required_argument, nullptr, 'l'},
         {"first_mpls_path_nhip", required_argument, nullptr, 'm'},
         {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
-        {"local_label", required_argument, nullptr, 'o'},
-        {"out_label", required_argument, nullptr, 'K'},
+        {"entry_key_label", required_argument, nullptr, 'o'},
+        {"label_stack", required_argument, nullptr, 'K'},
         {"num_paths", required_argument, nullptr, 'q'},
         {"create_path_group_for", required_argument, nullptr, 'r'},
         {"path_group_name", required_argument, nullptr, 'y'},
@@ -1329,10 +1328,10 @@ int main(int argc, char** argv) {
                 env_data.next_hop_interface_mpls = optarg;
                 break;
             case 'o':
-                env_data.local_label = stringToInt(optarg);
+                env_data.entry_key_label = stringToInt(optarg);
                 break;
             case 'K':
-                env_data.out_label = stringToInt(optarg);
+                env_data.label_stack = stringToInt(optarg);
                 break;
             case 'q':
                 env_data.num_paths = stringToInt(optarg);
@@ -1393,8 +1392,8 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "Programming MPLS Labels (table_type is set to mpls)";
                 LOG(INFO) << "| -m/--first_mpls_path_nhip        | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
                 LOG(INFO) << "| -n/--next_hop_interface_mpls     | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
-                LOG(INFO) << "| -o/--local_label                 | Configure the starting local label for this test for MPLS (default 12000) |";
-                LOG(INFO) << "| -K/--out_label                   | Configure the starting out label for this test for MPLS (default 20000) |";
+                LOG(INFO) << "| -o/--entry_key_label             | Configure the starting entry key label for this test for MPLS (default 12000) |";
+                LOG(INFO) << "| -K/--label_stack                 | Configure the starting label added to the label stack for this test for MPLS (default 20000) |";
                 LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1) |";
                 LOG(INFO) << "Programming PG (table_type is set to pg)";
                 LOG(INFO) << "| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4) |";

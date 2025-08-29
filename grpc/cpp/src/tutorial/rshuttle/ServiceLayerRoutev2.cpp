@@ -241,12 +241,12 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
         // Labels are incremented by 1
         while (mpls_index <= mpls_last) {
             auto db_label = mpls_index;
-            auto local_label = database.db_mpls[mpls_index].first.local_label;
-            auto out_label = database.db_mpls[mpls_index].first.out_label;
+            auto entry_key_label = database.db_mpls[mpls_index].first.entry_key_label;
+            auto label_stack = database.db_mpls[mpls_index].first.label_stack;
             auto next_hop_address = this->ipv4ToLong(database.db_mpls[mpls_index].first.first_mpls_path_nhip.c_str());
             this->insertAddBatchMPLS(db_label,
-                                local_label,
-                                out_label,
+                                entry_key_label,
+                                label_stack,
                                 database.db_mpls[mpls_index].first.num_paths,
                                 next_hop_address,
                                 database.db_mpls[mpls_index].first.next_hop_interface_mpls,
@@ -297,7 +297,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     route_path->mutable_nexthopaddress()->set_v4address(db_prefix);
                     route_path->mutable_nexthopinterface()->set_name(database.db_pg[pg_name].first.next_hop_interface_ipv4);
                     if (createPathGroupFor == service_layer::SL_MPLS_LABEL_TABLE) {
-                        route_path->add_labelstack(database.db_pg[pg_name].first.out_label);
+                        route_path->add_labelstack(database.db_pg[pg_name].first.label_stack);
                     }
                     route_count++;
                     ipv4_index++;
@@ -443,6 +443,7 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
 
     int read_count = 0;
     bool read_successful = true;
+    bool stop_listening = false;
 
     // Waits for response until stream closes, timeout occurs, or response is given
     while (read_successful = stream->Read(&resp_msg)) {
@@ -507,17 +508,22 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
         db_mutex.lock();
         // Signifies we have finished all reads
         if (read_count == database.db_count) {
-            // Notifies main thread to tell write to terminate stream
+            // Notifies main thread to tell write to stop sending
             std::unique_lock<std::mutex> lck(finish_m);
             read_finished = true;
             finish_read_cv.notify_all();
+            stop_listening = true;
         }
         db_mutex.unlock();
+
+        if (stop_listening) {
+            break;
+        }
     }
     db_mutex.lock();
     // Signifies we have closed stream due to abort or failure in write rpc. Thus signal main thread to wake up
     if (read_count != database.db_count) {
-        // In this instance telling main thread to tell write thread to end terminate stream doesn't matter
+        // In this instance telling main thread to tell write thread to stop sending but it doesn't matter
         std::unique_lock<std::mutex> lck(finish_m);
         read_finished = true;
         finish_read_cv.notify_all();
@@ -561,7 +567,7 @@ SLAFRShuttle::writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer
         // Send the write request
         check_stream_open = stream->Write(message);
     }
-    // Signifies the stream write is finished and stops stream
+    // Signifies the stream write is finished
    stream->WritesDone();
 }
 
@@ -649,10 +655,19 @@ SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_l
     total_routes = this->pushFromDB(true,routeOper,addrFamily,createPathGroupFor);
 
     stopStream(&reader,&writer);
+    /*
+     * Message specificstatus code errors are tracked within the db objects.
+     * Cancelled error code or going out of scope for stream variable (which closes channel)
+     * is the only way to end stream as server does not close the stream on its own.
+     */
+    context.TryCancel();
     status = stream->Finish();
+    LOG(INFO) << "Stream finished";
     if (!status.ok()) {
-        LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
-        throw(status);
+        if (status.error_code() != grpc::StatusCode::CANCELLED) {
+            LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
+            throw(status);
+        }
     }
     return total_routes;
 }
@@ -812,14 +827,21 @@ SLAFRShuttle::routeSLAFNotifStream(unsigned int batchSize, service_layer::SLNoti
 
     std::this_thread::sleep_for(std::chrono::seconds(notificationStreamDuration));
 
-    // WritesDone Will cause the stream read to return false and exit this program
    stream->WritesDone();
 
+   /*
+    * Cancelled error code or going out of scope for stream variable (which closes channel)
+    * is the only way to end stream as server does not close the stream on its own.
+    * This will also unblock the reader thread if it is waiting on a read.
+    */
+   context.TryCancel();
    reader.join();
    status = stream->Finish();
    if (!status.ok()) {
-        LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
-        throw(status);
+        if (status.error_code() != grpc::StatusCode::CANCELLED) {
+            LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
+            throw(status);
+        }
     }
     return responses;
 }
@@ -1353,7 +1375,7 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
 void
 SLAFRShuttle::insertAddBatchMPLS(uint32_t label,
                             uint32_t startLabel,
-                            uint32_t startOutLabel,
+                            uint32_t label_stack,
                             unsigned int numPaths,
                             uint32_t nextHopAddress,
                             std::string nextHopInterface,
@@ -1383,8 +1405,8 @@ SLAFRShuttle::insertAddBatchMPLS(uint32_t label,
                 sli_add->set_name(nextHopInterface);
             }
             if (startLabel > 0) {
-                int out_label = startOutLabel + (label-startLabel);
-                nhlfe->add_labelstack(out_label);
+                int temp_label_stack = label_stack + (label-startLabel);
+                nhlfe->add_labelstack(temp_label_stack);
             }
         }
     } else {

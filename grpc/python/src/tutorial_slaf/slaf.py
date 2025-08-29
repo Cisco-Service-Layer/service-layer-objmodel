@@ -350,7 +350,7 @@ def run_slaf_op_stream_request (channel, metadata, messages, total_operations, f
     def message_generator(ev):
         for message in messages:
             yield message
-        # If we exit this function it will call a done write, which will result in stream closure
+        # If we exit this function it will call a done write
         ev.wait()
 
     # Start listening for responses before writing messages
@@ -509,19 +509,18 @@ def run_slaf_notif_stream_request (channel, metadata, messages, notif_duration):
                 errMessage.append(f'RPC Error: {e}')
 
     # Create a generator that yields messages
-    def notif_message_generator(wait_seconds):
+    def notif_message_generator():
         for message in messages:
             yield message
-        # If we exit this function it will call a done write, which will result in stream closure
-        time.sleep(wait_seconds)
+        # If we exit this function it will call a done write
 
     # Start listening for responses before writing messages
-    responseIterator = stub.SLAFNotifStream(request_iterator = notif_message_generator(notif_duration,), timeout = Timeout, metadata = metadata)
+    responseIterator = stub.SLAFNotifStream(request_iterator = notif_message_generator(), timeout = Timeout, metadata = metadata)
     listenerThread = threading.Thread(target=listen_for_notif_responses, args=(responseIterator,))
     listenerThread.start()
 
     # Wait for the listener thread to finish
-    listenerThread.join()
+    listenerThread.join(timeout=notif_duration)
 
     # Concatenate the error messages
     with errorMessageLock:
@@ -650,10 +649,19 @@ def route_operation(channel, metadata, oper, route_flag,
         Oper = oper,
         VrfName = 'default',
     )
-
     # Populate a batch with batch_size routes each
     while setRoutes < num_routes:
 
+        # Only add route flag if user set it to valid flag
+        if route_flag != 0:
+            route_common = sl_route_common_pb2.SLRouteCommon(
+                AdminDistance=admin_distance,
+                RouteFlags=[route_flag]
+            )
+        else:
+            route_common = sl_route_common_pb2.SLRouteCommon(
+                AdminDistance=admin_distance
+            )
         # Populate the routes' attributes
         ipRoute = sl_af_pb2.SLAFIPRoute(
             IPRoutePrefix = sl_route_common_pb2.SLRoutePrefix(
@@ -661,10 +669,7 @@ def route_operation(channel, metadata, oper, route_flag,
                     V4Address = int(ipaddress.ip_address(prefixList[setRoutes]))),
                 PrefixLen = prefix_len
             ),
-            RouteCommon = sl_route_common_pb2.SLRouteCommon(
-                AdminDistance=admin_distance,
-                RouteFlags=[route_flag]
-            )
+            RouteCommon = route_common
         )
 
         # We don't need to setup the paths for DELETE
@@ -777,7 +782,7 @@ def route_operation(channel, metadata, oper, route_flag,
 #
 def mpls_operation(channel, metadata, oper, route_flag,
                     admin_distance, ack_type, ack_permit, ack_cadence,
-                    start_label, out_label, num_labels, num_paths,
+                    entry_key_label, label_stack, num_labels, num_paths,
                     batch_size, next_hop_ip, nexthop_interface,
                     auto_inc_nhip, stream_case):
     # Initialize variables for message stats
@@ -797,7 +802,7 @@ def mpls_operation(channel, metadata, oper, route_flag,
         logging.error(f'Invalid number of labels: {num_labels}')
         os._exit(0)
 
-    logging.debug(f'''Start Label: {start_label},
+    logging.debug(f'''Start Label: {entry_key_label},
         Number of Labels: {num_labels},
         Number of Paths: {num_paths},
         Batch Size: {batch_size}''')
@@ -808,7 +813,7 @@ def mpls_operation(channel, metadata, oper, route_flag,
     t0 = time.time()
 
     # Set the initial variables
-    label = start_label
+    label = entry_key_label
     numIlms = 1
     totalIlms = num_labels * numIlms
     # batch_size used for appending last message
@@ -857,14 +862,23 @@ def mpls_operation(channel, metadata, oper, route_flag,
 
             logging.debug(f"Interface: {nexthop_interface}")
 
-            # Setup message object attributes
-            ilm = sl_af_pb2.SLMplsEntry(
-                MplsKey = sl_af_pb2.SLMplsEntryKey(
-                    Label = label
-                ),
-                AdminDistance = admin_distance,
-                MplsFlags = [route_flag]
-            )
+            # Only add route flag if user set it to valid flag
+            if route_flag != 0:
+                # Setup message object attributes
+                ilm = sl_af_pb2.SLMplsEntry(
+                    MplsKey = sl_af_pb2.SLMplsEntryKey(
+                        Label = label
+                    ),
+                    AdminDistance = admin_distance,
+                    MplsFlags = [route_flag]
+                )
+            else:
+                ilm = sl_af_pb2.SLMplsEntry(
+                    MplsKey = sl_af_pb2.SLMplsEntryKey(
+                        Label = label
+                    ),
+                    AdminDistance = admin_distance
+                )
 
             for pathIdx in range(num_paths):
                 # Set the route path
@@ -886,9 +900,9 @@ def mpls_operation(channel, metadata, oper, route_flag,
                     )
                     nhlfe.NexthopInterface.CopyFrom(nexthopInterface)
 
-                if out_label > 0:
-                    outLabel = out_label + (label - start_label) * numElsps + elspIdx
-                    nhlfe.LabelStack.append(outLabel)
+                if label_stack > 0:
+                    tempLabel = label_stack + (label - entry_key_label) * numElsps + elspIdx
+                    nhlfe.LabelStack.append(tempLabel)
                 else:
                     logging.error("Invalid out label")
                     os._exit(0)
@@ -1027,14 +1041,25 @@ def pg_operation(channel, metadata, oper, route_flag,
             pathList.Paths.append(slPaths)
 
     # Populate the path group attributes
-    pathGroup = sl_af_pb2.SLPathGroup(
-        PathGroupId = sl_common_types_pb2.SLObjectId(
-            Name = pg_name
-        ),
-        AdminDistance = admin_distance,
-        PathList = pathList,
-        PgFlags = [route_flag]
-    )
+
+    # Only add route flag if user set it to valid flag
+    if route_flag != 0:
+        pathGroup = sl_af_pb2.SLPathGroup(
+            PathGroupId = sl_common_types_pb2.SLObjectId(
+                Name = pg_name
+            ),
+            AdminDistance = admin_distance,
+            PathList = pathList,
+            PgFlags = [route_flag]
+        )
+    else:
+        pathGroup = sl_af_pb2.SLPathGroup(
+            PathGroupId = sl_common_types_pb2.SLObjectId(
+                Name = pg_name
+            ),
+            AdminDistance = admin_distance,
+            PathList = pathList
+        )
 
     afObject = sl_af_pb2.SLAFObject(
         PathGroup = pathGroup

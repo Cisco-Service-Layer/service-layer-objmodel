@@ -18,6 +18,8 @@ import (
     "golang.org/x/net/context"
     "google.golang.org/grpc"
     "google.golang.org/grpc/metadata"
+    "google.golang.org/grpc/codes"
+    "google.golang.org/grpc/status"
 )
 
 var ClientID string = "521";
@@ -549,7 +551,9 @@ func runSlafNotifStreamRequest(conn *grpc.ClientConn, notifStreamDuration uint,
                         return
                 }
                 if errMsg != nil {
-                        log.Error(errMsg)
+                        if status.Code(errMsg) != codes.Canceled {
+                            log.Error(errMsg)
+                        }
                         errc <- errMsg
                         close(errc)
                         return
@@ -584,6 +588,7 @@ func runSlafNotifStreamRequest(conn *grpc.ClientConn, notifStreamDuration uint,
         // Keep stream alive for duration client specifies
         time.Sleep(time.Duration(notifStreamDuration) * time.Second)
         stream.CloseSend()
+        cancel()
         err = <-errc
 
         return err
@@ -629,6 +634,19 @@ func RouteOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     */
     for setRoutes = 1; setRoutes <= numRoutes; setRoutes, prefix = setRoutes+1, incrementIpv4Pfx(prefix, prefixLen) {
 
+        /* Flags cannot be set to 0 */
+        var routeCommon *pb.SLRouteCommon
+        if routeFlag != 0 {
+            routeCommon = &pb.SLRouteCommon{
+                AdminDistance: adminDistance,
+                RouteFlags: []pb.SLRouteFlags{routeFlag},
+            }
+        } else {
+            routeCommon = &pb.SLRouteCommon{
+                AdminDistance: adminDistance,
+            }
+        }
+
         /* Populate the routes' attributes */
         routeIpPtr := &pb.SLAFIPRoute {
             IPRoutePrefix: &pb.SLRoutePrefix{
@@ -639,10 +657,7 @@ func RouteOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
                 },
                 PrefixLen: prefixLen,
             },
-            RouteCommon: &pb.SLRouteCommon {
-                AdminDistance: adminDistance,
-                RouteFlags: []pb.SLRouteFlags{routeFlag,},
-            },
+            RouteCommon: routeCommon,
         }
 
         /* We dont need to setup the paths for DELETE*/
@@ -771,7 +786,7 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
                     mplsFlag pb.SLRouteFlags, adminDistance uint32,
                     ackType pb.SLRspACKType, ackPermit pb.SLRspACKPermit,
                     ackCadence pb.SLRspAckCadence,
-                    startLabel uint, startOutLabel uint, numLabels uint,
+                    entryKeyLabel uint, labelStack uint, numLabels uint,
                     numPaths uint, batchSize uint,
                     nextHopIP string, Interface string, maxIfIdx uint, autoIncNHIP bool,
                     streamCase bool, username string, password string) {
@@ -793,7 +808,7 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         log.Fatalf("Invalid batch size: %d", batchSize)
     }
 
-    log.Debug("Label: start label: ", startLabel,
+    log.Debug("Label: start label: ", entryKeyLabel,
               ", #labels: ", numLabels,
               ", #numPaths: ", numPaths,
               ", #batchSize: ", batchSize)
@@ -808,7 +823,7 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
-    label := startLabel
+    label := entryKeyLabel
     numIlms = 1
 
     totalIlms = numLabels * numIlms
@@ -861,10 +876,19 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
             log.Debug("Interface: ", nexthopInterface)
 
             /* Setup some of the message object attributes */
-            ilm := &pb.SLMplsEntry{
-                MplsKey: &pb.SLMplsEntryKey{Label: uint32(label),},
-                AdminDistance: adminDistance,
-                MplsFlags: []pb.SLRouteFlags{mplsFlag,},
+            /* Flags cannot be set to 0 */
+            var ilm *pb.SLMplsEntry
+            if mplsFlag != 0 {
+                ilm = &pb.SLMplsEntry{
+                    MplsKey: &pb.SLMplsEntryKey{Label: uint32(label),},
+                    AdminDistance: adminDistance,
+                    MplsFlags: []pb.SLRouteFlags{mplsFlag,},
+                }
+            } else {
+                ilm = &pb.SLMplsEntry{
+                    MplsKey: &pb.SLMplsEntryKey{Label: uint32(label),},
+                    AdminDistance: adminDistance,
+                }
             }
 
             for pathIdx = 0; pathIdx < numPaths; pathIdx++  {
@@ -883,10 +907,10 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
                     }
                 }
 
-                if startOutLabel > 0 {
-                    outLabel := startOutLabel +
-                                (label - startLabel) * numElsps + elspIdx
-                    nhlfe.LabelStack = append(nhlfe.LabelStack, uint32(outLabel))
+                if labelStack > 0 {
+                    tempLabel := labelStack +
+                                (label - entryKeyLabel) * numElsps + elspIdx
+                    nhlfe.LabelStack = append(nhlfe.LabelStack, uint32(tempLabel))
                 } else {
                     /* Need an out label for swap */
                     log.Fatalf("Invalid out label")
@@ -1040,7 +1064,11 @@ func PGOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         Entry: &pb.SLPathGroup_PathList {
             PathList: pathList,
         },
-        PgFlags: []pb.SLRouteFlags{pgFlag,},
+    }
+
+    /* Flags cannot be set to 0 */
+    if pgFlag != 0 {
+        pathGroup.PgFlags = []pb.SLRouteFlags{pgFlag,}
     }
 
     afObject := &pb.SLAFObject{
@@ -1348,7 +1376,9 @@ func NotifStreamOperation(conn *grpc.ClientConn, notifStreamDuration uint,
 
     err = runSlafNotifStreamRequest(conn, notifStreamDuration, messages, username, password)
     if err != nil {
-        log.Fatal(err)
+        if status.Code(err) != codes.Canceled {
+            log.Fatal(err)
+        }
     }
 
     t1 = time.Now()
