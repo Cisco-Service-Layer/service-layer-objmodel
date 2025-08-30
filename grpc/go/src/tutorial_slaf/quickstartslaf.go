@@ -87,11 +87,11 @@ var (
      */
     TestMpls        = flag.Bool("mpls", false, "Test MPLS vertical")
     EntryKeyLabel   = flag.Uint("entry_key_label", 12000, "The starting entry key label")
-    LabelStack      = flag.Uint("label_stack", 20000, "The starting label added to the label stack")
+    RemoteLabelStack      = flag.Uint("remote_label_stack", 20000, "The starting label added to the remote label stack")
     NumLabels       = flag.Uint("num_labels", 1000, "Number of labels")
     NumPaths        = flag.Uint("num_paths", 1, "Number of paths")
     MaxIfIdx        = flag.Uint("max_if_idx", 0,
-                        "Increment the last index of the interface name for each elsp up to this number")
+                        "Increment the last index of the interface name")
 
     /*
      *For Programming PG:
@@ -181,7 +181,7 @@ func testMPLSSlaf(conn *grpc.ClientConn, Username string, Password string) {
                                pb.SLRouteFlags(*SLRouteFlag), uint32(*AdminDistance),
                                pb.SLRspACKType(*AckType), pb.SLRspACKPermit(*AckPermit),
                                pb.SLRspAckCadence(*AckCadence), *EntryKeyLabel,
-                               *LabelStack, *NumLabels, *NumPaths,
+                               *RemoteLabelStack, *NumLabels, *NumPaths,
                                *BatchSize, *NextHopIP,
                                *Interface, *MaxIfIdx, *AutoIncNHIP,
                                *StreamCase, Username, Password)

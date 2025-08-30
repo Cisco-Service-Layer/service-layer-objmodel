@@ -1209,7 +1209,7 @@ int main(int argc, char** argv) {
         {"first_mpls_path_nhip", required_argument, nullptr, 'm'},
         {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
         {"entry_key_label", required_argument, nullptr, 'o'},
-        {"label_stack", required_argument, nullptr, 'K'},
+        {"remote_label_stack", required_argument, nullptr, 'K'},
         {"num_paths", required_argument, nullptr, 'q'},
         {"create_path_group_for", required_argument, nullptr, 'r'},
         {"path_group_name", required_argument, nullptr, 'y'},
@@ -1331,7 +1331,7 @@ int main(int argc, char** argv) {
                 env_data.entry_key_label = stringToInt(optarg);
                 break;
             case 'K':
-                env_data.label_stack = stringToInt(optarg);
+                env_data.remote_label_stack = stringToInt(optarg);
                 break;
             case 'q':
                 env_data.num_paths = stringToInt(optarg);
@@ -1393,7 +1393,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -m/--first_mpls_path_nhip        | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
                 LOG(INFO) << "| -n/--next_hop_interface_mpls     | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
                 LOG(INFO) << "| -o/--entry_key_label             | Configure the starting entry key label for this test for MPLS (default 12000) |";
-                LOG(INFO) << "| -K/--label_stack                 | Configure the starting label added to the label stack for this test for MPLS (default 20000) |";
+                LOG(INFO) << "| -K/--remote_label_stack          | Configure the starting label added to the remote label stack for this test for MPLS (default 20000) |";
                 LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1) |";
                 LOG(INFO) << "Programming PG (table_type is set to pg)";
                 LOG(INFO) << "| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4) |";

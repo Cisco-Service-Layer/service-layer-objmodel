@@ -107,11 +107,11 @@ First we will showcase the options the tutorial provides, and then show how to b
 
 | Argument | Description |
 | --- | --- |
-| --mpls            | Test MPLS vertical |
-| --entry_key_label | The starting entry key label (default 12000) |
-| --label_stack     | The starting label added to the label stack (default 20000) |
-| --num_labels      | Number of labels (default 1000) |
-| --num_paths       | Number of paths (default 1) |
+| --mpls                    | Test MPLS vertical |
+| --entry_key_label         | The starting entry key label (default 12000) |
+| --remote_label_stack      | The starting label added to the remote label stack (default 20000) |
+| --num_labels              | Number of labels (default 1000) |
+| --num_paths               | Number of paths (default 1) |
 
 ##### PG Testing (when --rpc 1 option is used)
 
@@ -221,7 +221,7 @@ MPLS Example:
     Deleting 35 labels with unary RPC. Print out any responses and debug messages:
     $ python3 quickstart.py -u username -p password --rpc 1 --mpls --route_oper 3 --vrf_reg_oper 1 --num_labels 35 --debug
     Adding 2 Label where the start label is 25000 and the label for label stack is 26000:
-    $ python3 quickstart.py -u username -p password --rpc 1 --mpls --route_oper 1 --vrf_reg_oper 1 --num_labels 2 --entry_key_label 25000 --label_stack 26000 --debug
+    $ python3 quickstart.py -u username -p password --rpc 1 --mpls --route_oper 1 --vrf_reg_oper 1 --num_labels 2 --entry_key_label 25000 --remote_label_stack 26000 --debug
 
 Path Group Example:  
 For purposes of this tutorial, we showcase how to create pg for ipv4 routes.  

@@ -143,7 +143,7 @@ For now, if you already have passed this setup step, follow this example:
 | -m/--first_mpls_path_nhip       | Configure the starting address for this test for MPLS (default "11.0.0.1") |
 | -n/--next_hop_interface_mpls    | Configure the next hop interface for MPLS (default "FourHundredGigE0/0/0/0") |
 | -o/--entry_key_label            | Configure the starting entry key label for this test for MPLS (default 12000) |
-| -K/--label_stack                | Configure the starting label added to the label stack for this test for MPLS (default 20000) |
+| -K/--remote_label_stack         | Configure the starting label added to the remote label stack for this test for MPLS (default 20000) |
 | -q/--num_paths                  | Configure the number of paths for MPLS labels (default 1) |
 
 ##### PG Testing

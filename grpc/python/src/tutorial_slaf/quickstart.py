@@ -127,7 +127,7 @@ if __name__ == '__main__':
     #   -mpls:      Enable MPLS testing. Used in conjunction with the route programming fields.
     rp_specific.add_argument('--mpls', action='store_true', help='Test MPLS vertical')
     rp_specific.add_argument('--entry_key_label', type=int, default=12000, help='The starting entry key label (default 12000)')
-    rp_specific.add_argument('--label_stack', type=int, default=20000, help='The starting label added to the label stack (default 20000)')
+    rp_specific.add_argument('--remote_label_stack', type=int, default=20000, help='The starting label added to the remote label stack (default 20000)')
     rp_specific.add_argument('--num_labels', type=int, default=1000, help='Number of labels (default 1000)')
     rp_specific.add_argument('--num_paths', type=int, default=1, help='Number of paths (default 1)')
 
@@ -262,7 +262,7 @@ if __name__ == '__main__':
                 print("Performing mpls operation")
                 slaf.mpls_operation(channel, metadata, args.route_oper, args.route_flag,
                     args.admin_distance, args.ack_type, args.ack_permit, args.ack_cadence,
-                    args.entry_key_label, args.label_stack, args.num_labels, args.num_paths,
+                    args.entry_key_label, args.remote_label_stack, args.num_labels, args.num_paths,
                     args.batch_size, args.next_hop_ip, args.next_hop_intf,
                     args.auto_inc_nhip, args.stream_case)
         if args.pg:

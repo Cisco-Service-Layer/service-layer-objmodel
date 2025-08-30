@@ -242,11 +242,11 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
         while (mpls_index <= mpls_last) {
             auto db_label = mpls_index;
             auto entry_key_label = database.db_mpls[mpls_index].first.entry_key_label;
-            auto label_stack = database.db_mpls[mpls_index].first.label_stack;
+            auto remote_label_stack = database.db_mpls[mpls_index].first.remote_label_stack;
             auto next_hop_address = this->ipv4ToLong(database.db_mpls[mpls_index].first.first_mpls_path_nhip.c_str());
             this->insertAddBatchMPLS(db_label,
                                 entry_key_label,
-                                label_stack,
+                                remote_label_stack,
                                 database.db_mpls[mpls_index].first.num_paths,
                                 next_hop_address,
                                 database.db_mpls[mpls_index].first.next_hop_interface_mpls,
@@ -297,7 +297,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     route_path->mutable_nexthopaddress()->set_v4address(db_prefix);
                     route_path->mutable_nexthopinterface()->set_name(database.db_pg[pg_name].first.next_hop_interface_ipv4);
                     if (createPathGroupFor == service_layer::SL_MPLS_LABEL_TABLE) {
-                        route_path->add_labelstack(database.db_pg[pg_name].first.label_stack);
+                        route_path->add_labelstack(database.db_pg[pg_name].first.remote_label_stack);
                     }
                     route_count++;
                     ipv4_index++;
@@ -1375,43 +1375,42 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
 void
 SLAFRShuttle::insertAddBatchMPLS(uint32_t label,
                             uint32_t startLabel,
-                            uint32_t label_stack,
+                            uint32_t remoteLabelStack,
                             unsigned int numPaths,
                             uint32_t nextHopAddress,
                             std::string nextHopInterface,
                             std::string pgName,
                             responseAcks responseAck) {
 
-    /* Create a new ilm entry, and the only way to do that with the current proto file
+    /* Create a new mpls_entry, and the only way to do that with the current proto file
             is to add a new oplist */
     service_layer::SLAFOpMsg* operation = route_msg.add_oplist();
     service_layer::SLAFObject* af_object = operation->mutable_afobject();
-    service_layer::SLMplsEntry* ilm = af_object->mutable_mplslabel();
-    service_layer::SLMplsEntryKey* ilm_key = ilm->mutable_mplskey();
+    service_layer::SLMplsEntry* mpls_entry = af_object->mutable_mplslabel();
+    service_layer::SLMplsEntryKey* mpls_entry_key = mpls_entry->mutable_mplskey();
 
     operation->set_operationid(database.operation_id++);
     this->responseAckSet(operation, responseAck);
-    ilm_key->set_label(label);
+    mpls_entry_key->set_label(label);
 
     if (pgName == "") {
         // Multiple path in entry
         for(int pathIdx = 0; pathIdx < numPaths; pathIdx++){
-            service_layer::SLRoutePath* nhlfe = ilm->add_pathlist();
-            service_layer::SLIpAddress* slip_add = nhlfe->mutable_nexthopaddress();
+            service_layer::SLRoutePath* path_list = mpls_entry->add_pathlist();
+            service_layer::SLIpAddress* slip_add = path_list->mutable_nexthopaddress();
             slip_add->set_v4address(nextHopAddress);
-            nhlfe->set_vrfname("default");
+            path_list->set_vrfname("default");
             if (nextHopInterface.length() != 0){
-                service_layer::SLInterface* sli_add = nhlfe->mutable_nexthopinterface();
+                service_layer::SLInterface* sli_add = path_list->mutable_nexthopinterface();
                 sli_add->set_name(nextHopInterface);
             }
             if (startLabel > 0) {
-                int temp_label_stack = label_stack + (label-startLabel);
-                nhlfe->add_labelstack(temp_label_stack);
+                path_list->add_labelstack(remoteLabelStack);
             }
         }
     } else {
-        service_layer::SLRoutePath* nhlfe = ilm->add_pathlist();
-        auto pathGroup = nhlfe->mutable_pathgroupkey();
+        service_layer::SLRoutePath* path_list = mpls_entry->add_pathlist();
+        auto pathGroup = path_list->mutable_pathgroupkey();
         pathGroup->set_vrfname("default");
         service_layer::SLObjectId* pgId = pathGroup->mutable_pathgroupid();
         pgId->set_name(pgName);

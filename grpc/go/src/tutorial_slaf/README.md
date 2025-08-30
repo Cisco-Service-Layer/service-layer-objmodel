@@ -95,12 +95,12 @@ First we will showcase the options the tutorial provides, and then show how to b
 
 | Argument | Description |
 | --- | --- |
-| mpls            | Test MPLS vertical (default false) |
-| entry_key_label | The starting entry key label (default 12000) |
-| label_stack     | The starting label added to the label stack (default 20000) |
-| num_labels      | Number of labels (default 1000) |
-| num_paths       | Number of paths (default 1) |
-| max_if_idx      | Increment the last index of the interface name for each elsp up to this number (default 0) |
+| mpls                  | Test MPLS vertical (default false) |
+| entry_key_label       | The starting entry key label (default 12000) |
+| remote_label_stack    | The starting label added to the remote label stack (default 20000) |
+| num_labels            | Number of labels (default 1000) |
+| num_paths             | Number of paths (default 1) |
+| max_if_idx            | Increment the last index of the interface name (default 0) |
 
 ##### PG Testing
 
@@ -213,7 +213,7 @@ MPLS Example:
     Deleting 35 labels with unary RPC. Print out any responses and debug messages:
     $ ./tutorial_slaf -mpls -num_labels 35 -route_oper 3 -vrf_reg_oper 1 -username username -password password -debug
     Adding 2 Label where the start label is 25000 and the label for label stack is 26000 and print out the debug messages:
-    $ ./tutorial_slaf -mpls -num_labels 2 -route_oper 1 -vrf_reg_oper 1 -entry_key_label 25000 -label_stack 26000 -username username -password password -debug
+    $ ./tutorial_slaf -mpls -num_labels 2 -route_oper 1 -vrf_reg_oper 1 -entry_key_label 25000 -remote_label_stack 26000 -username username -password password -debug
 
 Path Group Example:  
 For purposes of this tutorial, we showcase how to create pg for ipv4 routes.  
