@@ -26,7 +26,7 @@ var ClientID string = "521";
 var GlobalOperationID uint64 = 0
 
 var (
-    MplsMaxBatchSize uint32 = 1024
+    MaxMplsBatchSize uint32 = 1024
     MaxBatchSize uint32 = 1024
     MaxPrimaryPathPerEntry uint32 = 256
     MaxVrfNameLength uint32 = 33
@@ -130,7 +130,7 @@ func ClientInit(conn *grpc.ClientConn, username string, password string) (int) {
     fmt.Println("MaxNotifReqPerSLAFNotifReq: ", response.GetMaxNotifReqPerSLAFNotifReq())
     fmt.Println("MaxMatchFilterInBgplsTopoNotif: ", response.GetMaxMatchFilterInBgplsTopoNotif())
 
-    MplsMaxBatchSize = response.GetMaxAFOpsPerMsg()
+    MaxMplsBatchSize = response.GetMaxAFOpsPerMsg()
     MaxBatchSize = response.GetMaxAFOpsPerMsg()
     MaxPrimaryPathPerEntry = response.GetMaxPrimaryPathPerEntry()
     MaxVrfNameLength = response.GetMaxVrfNameLength()
@@ -811,8 +811,8 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
               ", #numPaths: ", numPaths,
               ", #batchSize: ", batchSize)
 
-    if batchSize > uint(MplsMaxBatchSize) {
-        batchSize = uint(MplsMaxBatchSize)
+    if batchSize > uint(MaxMplsBatchSize) {
+        batchSize = uint(MaxMplsBatchSize)
     }
 
     /* Initialize some path params */

@@ -519,7 +519,9 @@ def run_slaf_notif_stream_request (channel, metadata, messages, notif_duration):
     listenerThread = threading.Thread(target=listen_for_notif_responses, args=(responseIterator,))
     listenerThread.start()
 
-    # Wait for the listener thread to finish
+    # Wait for the listener thread to finish.
+    # Stop listening for responses after notif_duration has passed.
+    # Once the responseIterator goes out of scope the stream is closed
     listenerThread.join(timeout=notif_duration)
 
     # Concatenate the error messages
