@@ -18,13 +18,15 @@ import (
     "golang.org/x/net/context"
     "google.golang.org/grpc"
     "google.golang.org/grpc/metadata"
+    "google.golang.org/grpc/codes"
+    "google.golang.org/grpc/status"
 )
 
 var ClientID string = "521";
 var GlobalOperationID uint64 = 0
 
 var (
-    MaxIlmInBatch uint32 = 1024
+    MaxMplsBatchSize uint32 = 1024
     MaxBatchSize uint32 = 1024
     MaxPrimaryPathPerEntry uint32 = 256
     MaxVrfNameLength uint32 = 33
@@ -128,7 +130,7 @@ func ClientInit(conn *grpc.ClientConn, username string, password string) (int) {
     fmt.Println("MaxNotifReqPerSLAFNotifReq: ", response.GetMaxNotifReqPerSLAFNotifReq())
     fmt.Println("MaxMatchFilterInBgplsTopoNotif: ", response.GetMaxMatchFilterInBgplsTopoNotif())
 
-    MaxIlmInBatch = response.GetMaxAFOpsPerMsg()
+    MaxMplsBatchSize = response.GetMaxAFOpsPerMsg()
     MaxBatchSize = response.GetMaxAFOpsPerMsg()
     MaxPrimaryPathPerEntry = response.GetMaxPrimaryPathPerEntry()
     MaxVrfNameLength = response.GetMaxVrfNameLength()
@@ -549,7 +551,9 @@ func runSlafNotifStreamRequest(conn *grpc.ClientConn, notifStreamDuration uint,
                         return
                 }
                 if errMsg != nil {
-                        log.Error(errMsg)
+                        if status.Code(errMsg) != codes.Canceled {
+                            log.Error(errMsg)
+                        }
                         errc <- errMsg
                         close(errc)
                         return
@@ -584,6 +588,7 @@ func runSlafNotifStreamRequest(conn *grpc.ClientConn, notifStreamDuration uint,
         // Keep stream alive for duration client specifies
         time.Sleep(time.Duration(notifStreamDuration) * time.Second)
         stream.CloseSend()
+        cancel()
         err = <-errc
 
         return err
@@ -629,6 +634,19 @@ func RouteOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     */
     for setRoutes = 1; setRoutes <= numRoutes; setRoutes, prefix = setRoutes+1, incrementIpv4Pfx(prefix, prefixLen) {
 
+        /* Flags cannot be set to 0 */
+        var routeCommon *pb.SLRouteCommon
+        if routeFlag != 0 {
+            routeCommon = &pb.SLRouteCommon{
+                AdminDistance: adminDistance,
+                RouteFlags: []pb.SLRouteFlags{routeFlag},
+            }
+        } else {
+            routeCommon = &pb.SLRouteCommon{
+                AdminDistance: adminDistance,
+            }
+        }
+
         /* Populate the routes' attributes */
         routeIpPtr := &pb.SLAFIPRoute {
             IPRoutePrefix: &pb.SLRoutePrefix{
@@ -639,10 +657,7 @@ func RouteOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
                 },
                 PrefixLen: prefixLen,
             },
-            RouteCommon: &pb.SLRouteCommon {
-                AdminDistance: adminDistance,
-                RouteFlags: []pb.SLRouteFlags{routeFlag,},
-            },
+            RouteCommon: routeCommon,
         }
 
         /* We dont need to setup the paths for DELETE*/
@@ -771,18 +786,16 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
                     mplsFlag pb.SLRouteFlags, adminDistance uint32,
                     ackType pb.SLRspACKType, ackPermit pb.SLRspACKPermit,
                     ackCadence pb.SLRspAckCadence,
-                    startLabel uint, startOutLabel uint, numLabels uint,
+                    entryKeyLabel uint, remoteLabelStack uint, numLabels uint,
                     numPaths uint, batchSize uint,
                     nextHopIP string, Interface string, maxIfIdx uint, autoIncNHIP bool,
                     streamCase bool, username string, password string) {
 
     var err error = nil
-    var elspIdx, pathIdx, batchIndex uint
-    var numElsps uint = 0
-    var sentIlms uint = 0
-    var totalIlms uint = 0
-    var numIlms uint = 0
-    var ilmsInBatch uint = 0
+    var pathIdx, batchIndex uint
+    var sentEntries uint = 0
+    var totalEntries uint = 0
+    var mplsEntriesInBatch uint = 0
     var messages []*pb.SLAFMsg
     var message = &pb.SLAFMsg{
         Oper: oper,
@@ -793,13 +806,13 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         log.Fatalf("Invalid batch size: %d", batchSize)
     }
 
-    log.Debug("Label: start label: ", startLabel,
+    log.Debug("Label: start label: ", entryKeyLabel,
               ", #labels: ", numLabels,
               ", #numPaths: ", numPaths,
               ", #batchSize: ", batchSize)
 
-    if batchSize > uint(MaxIlmInBatch) {
-        batchSize = uint(MaxIlmInBatch)
+    if batchSize > uint(MaxMplsBatchSize) {
+        batchSize = uint(MaxMplsBatchSize)
     }
 
     /* Initialize some path params */
@@ -808,133 +821,123 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     /* Let's keep track of the preparation time it takes to create the messages */
     t0 := time.Now()
 
-    label := startLabel
-    numIlms = 1
+    label := entryKeyLabel
 
-    totalIlms = numLabels * numIlms
-    if batchSize > totalIlms {
-        batchSize = totalIlms
+    totalEntries = numLabels
+    if batchSize > totalEntries {
+        batchSize = totalEntries
     }
 
-    /*
-     * Slaf protos currently do not allow elsps to be configured.
-     * numElsps:  > 1 for ELSP, 0 otherwise (configured)
-     * totalIlms: numLabels * numElsps (calculated)
-     * batchSize: number of ilms per batch (configured)
-     * numIlms: number of ilms (1 for non ELSP, numElsps otherwise)
-     */
-    for sentIlms < totalIlms  {
+    for sentEntries < totalEntries  {
 
-        log.Debug("sentIlms ", sentIlms,
+        log.Debug("sentEntries ", sentEntries,
 		          " batchIndex ", batchIndex,
-		          " ilmsInBatch ", ilmsInBatch,
-		          " numIlms ", numIlms,
+		          " mplsEntriesInBatch ", mplsEntriesInBatch,
 		          " batchSize ", batchSize,
-		          " totalIlms ", totalIlms)
+		          " totalEntries ", totalEntries)
 
-        if ilmsInBatch + numIlms > batchSize && sentIlms != totalIlms {
+        if mplsEntriesInBatch + 1 > batchSize && sentEntries != totalEntries {
             batchIndex ++
 
             messages = append(messages, message)
 
-            ilmsInBatch = 0
+            mplsEntriesInBatch = 0
         }
 
-        if ilmsInBatch == 0  {
-            /* Create a new ILM batch */
+        if mplsEntriesInBatch == 0  {
+            /* Create a new message for a batch */
             message = &pb.SLAFMsg{
                 Oper: oper,
                 VrfName: "default",
             }
         }
 
-        /* If we are adding ELSP entries then loop and create as many
-         * using the same label. If numElsps is set to 0 we just add
-         * one ILM entry for that label.
-         */
+        log.Debug("label: ", label)
 
-        for elspIdx = 0; elspIdx < numIlms; elspIdx++   {
+        nexthopInterface := ifMunge(Interface, 0, maxIfIdx)
+        log.Debug("Interface: ", nexthopInterface)
 
-            log.Debug("label: ", label, " numIlms: ", numIlms)
-
-            nexthopInterface := ifMunge(Interface, elspIdx, maxIfIdx)
-            log.Debug("Interface: ", nexthopInterface)
-
-            /* Setup some of the message object attributes */
-            ilm := &pb.SLMplsEntry{
+        /* Setup some of the message object attributes */
+        /* Flags cannot be set to 0 */
+        var mplsEntry *pb.SLMplsEntry
+        if mplsFlag != 0 {
+            mplsEntry = &pb.SLMplsEntry{
                 MplsKey: &pb.SLMplsEntryKey{Label: uint32(label),},
                 AdminDistance: adminDistance,
                 MplsFlags: []pb.SLRouteFlags{mplsFlag,},
             }
-
-            for pathIdx = 0; pathIdx < numPaths; pathIdx++  {
-                nhlfe := &pb.SLRoutePath{
-                    NexthopAddress: &pb.SLIpAddress {
-                        Address: &pb.SLIpAddress_V4Address{
-                            V4Address: nexthop,
-                        },
-                    },
-                }
-                if len(nexthopInterface) != 0 {
-                    nhlfe.NexthopInterface = &pb.SLInterface{
-                        Interface: &pb.SLInterface_Name{
-                            Name: nexthopInterface,
-                        },
-                    }
-                }
-
-                if startOutLabel > 0 {
-                    outLabel := startOutLabel +
-                                (label - startLabel) * numElsps + elspIdx
-                    nhlfe.LabelStack = append(nhlfe.LabelStack, uint32(outLabel))
-                } else {
-                    /* Need an out label for swap */
-                    log.Fatalf("Invalid out label")
-                }
-
-                /* Append to route */
-                ilm.PathList = append(ilm.PathList, nhlfe)
-                if autoIncNHIP {
-                    nexthop = nexthop + 1
-                }
+        } else {
+            mplsEntry = &pb.SLMplsEntry{
+                MplsKey: &pb.SLMplsEntryKey{Label: uint32(label),},
+                AdminDistance: adminDistance,
             }
+        }
 
-            afObject := &pb.SLAFObject{
-                Entry: &pb.SLAFObject_MplsLabel{
-                    MplsLabel: ilm,
+        for pathIdx = 0; pathIdx < numPaths; pathIdx++  {
+            pathList := &pb.SLRoutePath{
+                NexthopAddress: &pb.SLIpAddress {
+                    Address: &pb.SLIpAddress_V4Address{
+                        V4Address: nexthop,
+                    },
                 },
             }
-
-            opMsg := &pb.SLAFOpMsg{
-                AFObject: afObject,
-                OperationID: GlobalOperationID,
-                AckType: ackType,
-                AckPermits: []pb.SLRspACKPermit{ackPermit,},
-                AckCadence: ackCadence,
+            if len(nexthopInterface) != 0 {
+                pathList.NexthopInterface = &pb.SLInterface{
+                    Interface: &pb.SLInterface_Name{
+                        Name: nexthopInterface,
+                    },
+                }
             }
-            GlobalOperationID += 1
-            /* Append Route to batch */
-            message.OpList = append(message.OpList, opMsg)
 
+            if remoteLabelStack > 0 {
+                pathList.LabelStack = append(pathList.LabelStack, uint32(remoteLabelStack))
+            } else {
+                /* Need an out label for swap */
+                log.Fatalf("Invalid out label")
+            }
+
+            /* Append to route */
+            mplsEntry.PathList = append(mplsEntry.PathList, pathList)
+            if autoIncNHIP {
+                nexthop = nexthop + 1
+            }
         }
-        sentIlms = sentIlms + numIlms
-        if sentIlms >= totalIlms {
+
+        afObject := &pb.SLAFObject{
+            Entry: &pb.SLAFObject_MplsLabel{
+                MplsLabel: mplsEntry,
+            },
+        }
+
+        opMsg := &pb.SLAFOpMsg{
+            AFObject: afObject,
+            OperationID: GlobalOperationID,
+            AckType: ackType,
+            AckPermits: []pb.SLRspACKPermit{ackPermit,},
+            AckCadence: ackCadence,
+        }
+        GlobalOperationID += 1
+        /* Append Route to batch */
+        message.OpList = append(message.OpList, opMsg)
+
+        sentEntries = sentEntries + 1
+        if sentEntries >= totalEntries {
             batchIndex ++
             messages = append(messages, message)
-            ilmsInBatch = 0
+            mplsEntriesInBatch = 0
         }
-        ilmsInBatch += numIlms
+        mplsEntriesInBatch += 1
         label++
     }
 
     t1 := time.Now()
 
-    fmt.Printf("%s Total Batches: %d, Ilms: %d, Preparation time: %v\n",
-        oper.String(), batchIndex, sentIlms, t1.Sub(t0))
+    fmt.Printf("%s Total Batches: %d, sentEntries: %d, Preparation time: %v\n",
+        oper.String(), batchIndex, sentEntries, t1.Sub(t0))
 
-    if (sentIlms > 0) {
+    if (sentEntries > 0) {
         var rate float64
-        rate = float64(sentIlms)/(t1.Sub(t0).Seconds())
+        rate = float64(sentEntries)/(t1.Sub(t0).Seconds())
         fmt.Printf("Preparation Rate: %f\n", rate)
     }
 
@@ -945,7 +948,7 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         if int(ackType) != 0 {
             fibCheck = true
         }
-        err = runSlafOpStreamRequest(conn, messages, sentIlms,
+        err = runSlafOpStreamRequest(conn, messages, sentEntries,
             fibCheck, pb.SLTableType_SL_MPLS_LABEL_TABLE, username, password)
     } else {
         err = runSlafOpRequest(conn, messages,
@@ -959,12 +962,12 @@ func LabelOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
     t1 = time.Now()
 
 
-    fmt.Printf("%s Total Batches: %d, Ilms: %d, ElapsedTime: %v\n",
-        oper.String(), batchIndex, sentIlms, t1.Sub(t0))
+    fmt.Printf("%s Total Batches: %d, sentEntries: %d, ElapsedTime: %v\n",
+        oper.String(), batchIndex, sentEntries, t1.Sub(t0))
 
-    if (sentIlms > 0) {
+    if (sentEntries > 0) {
         var rate float64
-        rate = float64(sentIlms)/(t1.Sub(t0).Seconds())
+        rate = float64(sentEntries)/(t1.Sub(t0).Seconds())
         fmt.Printf("Programming Rate: %f\n", rate)
     }
 }
@@ -1040,7 +1043,11 @@ func PGOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
         Entry: &pb.SLPathGroup_PathList {
             PathList: pathList,
         },
-        PgFlags: []pb.SLRouteFlags{pgFlag,},
+    }
+
+    /* Flags cannot be set to 0 */
+    if pgFlag != 0 {
+        pathGroup.PgFlags = []pb.SLRouteFlags{pgFlag,}
     }
 
     afObject := &pb.SLAFObject{
@@ -1348,7 +1355,9 @@ func NotifStreamOperation(conn *grpc.ClientConn, notifStreamDuration uint,
 
     err = runSlafNotifStreamRequest(conn, notifStreamDuration, messages, username, password)
     if err != nil {
-        log.Fatal(err)
+        if status.Code(err) != codes.Canceled {
+            log.Fatal(err)
+        }
     }
 
     t1 = time.Now()

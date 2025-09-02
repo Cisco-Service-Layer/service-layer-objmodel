@@ -62,7 +62,7 @@ var (
     VrfRegOper      = flag.Int("vrf_reg_oper", 0,
                         "VRF registration Operation: Reg(1), Unregister(2), EOF(3)")
     SLRouteFlag      = flag.Int("route_flag", 0,
-                        `Control programming of the route/PG to RIB: SL_ROUTE_FLAG_RESERVED(0), SL_ROUTE_FLAG_PREFER_OVER_LDP(1),
+                        `Control programming of the route/PG to RIB: SL_ROUTE_FLAG_PREFER_OVER_LDP(1),
                         SL_ROUTE_FLAG_DISABLE_LABEL_MERGE(2), SL_ROUTE_FLAG_VIABLE_PATHS_ONLY(3), SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH(4)`)
     /*
      * For Programming IPv4 routes:
@@ -86,12 +86,12 @@ var (
      *
      */
     TestMpls        = flag.Bool("mpls", false, "Test MPLS vertical")
-    StartLabel      = flag.Uint("start_label", 12000, "Starting label")
-    OutLabel        = flag.Uint("out_label", 20000, "Out label")
+    EntryKeyLabel   = flag.Uint("entry_key_label", 12000, "The starting entry key label")
+    RemoteLabelStack      = flag.Uint("remote_label_stack", 20000, "The starting label added to the remote label stack")
     NumLabels       = flag.Uint("num_labels", 1000, "Number of labels")
     NumPaths        = flag.Uint("num_paths", 1, "Number of paths")
     MaxIfIdx        = flag.Uint("max_if_idx", 0,
-                        "Increment the last index of the interface name for each elsp up to this number")
+                        "Increment the last index of the interface name")
 
     /*
      *For Programming PG:
@@ -180,8 +180,8 @@ func testMPLSSlaf(conn *grpc.ClientConn, Username string, Password string) {
     sl_api_slaf.LabelOperation(conn, pb.SLObjectOp(*RouteOper),
                                pb.SLRouteFlags(*SLRouteFlag), uint32(*AdminDistance),
                                pb.SLRspACKType(*AckType), pb.SLRspACKPermit(*AckPermit),
-                               pb.SLRspAckCadence(*AckCadence), *StartLabel,
-                               *OutLabel, *NumLabels, *NumPaths,
+                               pb.SLRspAckCadence(*AckCadence), *EntryKeyLabel,
+                               *RemoteLabelStack, *NumLabels, *NumPaths,
                                *BatchSize, *NextHopIP,
                                *Interface, *MaxIfIdx, *AutoIncNHIP,
                                *StreamCase, Username, Password)

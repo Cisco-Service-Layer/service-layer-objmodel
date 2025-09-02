@@ -118,8 +118,8 @@ public:
     // For MPLS
     std::string first_mpls_path_nhip = "11.0.0.1";
     std::string next_hop_interface_mpls = "FourHundredGigE0/0/0/0";
-    uint32_t local_label = 12000;
-    uint32_t out_label = 20000;
+    uint32_t entry_key_label = 12000;
+    uint32_t remote_label_stack = 20000;
     unsigned int num_label = 1000;
     unsigned int num_paths = 1;
 
