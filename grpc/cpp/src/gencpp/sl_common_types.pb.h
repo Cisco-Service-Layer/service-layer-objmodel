@@ -696,12 +696,13 @@ enum SLAFFibStatus : int {
   SL_FIB_FAILED = 2,
   SL_FIB_INELIGIBLE = 3,
   SL_FIB_INUSE_SUCCESS = 4,
+  SL_FIB_INUSE_FAILURE = 5,
   SLAFFibStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLAFFibStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLAFFibStatus_IsValid(int value);
 constexpr SLAFFibStatus SLAFFibStatus_MIN = SL_FIB_UNKNOWN;
-constexpr SLAFFibStatus SLAFFibStatus_MAX = SL_FIB_INUSE_SUCCESS;
+constexpr SLAFFibStatus SLAFFibStatus_MAX = SL_FIB_INUSE_FAILURE;
 constexpr int SLAFFibStatus_ARRAYSIZE = SLAFFibStatus_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLAFFibStatus_descriptor();
@@ -724,12 +725,13 @@ enum SLRspACKPermit : int {
   SL_PERMIT_FIB_FAILED = 2,
   SL_PERMIT_FIB_INELIGIBLE = 3,
   SL_PERMIT_FIB_INUSE_SUCCESS = 4,
+  SL_PERMIT_FIB_INUSE_FAILED = 5,
   SLRspACKPermit_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspACKPermit_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKPermit_IsValid(int value);
 constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_FIB_STATUS_ALL;
-constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_FIB_INUSE_SUCCESS;
+constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_FIB_INUSE_FAILED;
 constexpr int SLRspACKPermit_ARRAYSIZE = SLRspACKPermit_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKPermit_descriptor();
