@@ -71,7 +71,7 @@ message SLErrorStatus {
         SL_NO_SUCH_CLIENT = 0xf;
         // No entries found:
         // No entries are present matching the input parameters. 0x10
-        SL_ENOENT = 0x10;
+        SL_NO_ENTRIES_FOUND = 0x10;
 
         // !!! Error codes for Client INIT operations.
 

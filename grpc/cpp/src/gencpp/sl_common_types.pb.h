@@ -105,7 +105,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_AUTH_FAIL = 13,
   SLErrorStatus_SLErrno_SL_ACK_TYPE_NOT_SUPPORTED = 14,
   SLErrorStatus_SLErrno_SL_NO_SUCH_CLIENT = 15,
-  SLErrorStatus_SLErrno_SL_ENOENT = 16,
+  SLErrorStatus_SLErrno_SL_NO_ENTRIES_FOUND = 16,
   SLErrorStatus_SLErrno_SL_INIT_START_OFFSET = 1280,
   SLErrorStatus_SLErrno_SL_INIT_STATE_CLEAR = 1281,
   SLErrorStatus_SLErrno_SL_INIT_STATE_READY = 1282,
@@ -929,8 +929,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_ACK_TYPE_NOT_SUPPORTED;
   static constexpr SLErrno SL_NO_SUCH_CLIENT =
     SLErrorStatus_SLErrno_SL_NO_SUCH_CLIENT;
-  static constexpr SLErrno SL_ENOENT =
-    SLErrorStatus_SLErrno_SL_ENOENT;
+  static constexpr SLErrno SL_NO_ENTRIES_FOUND =
+    SLErrorStatus_SLErrno_SL_NO_ENTRIES_FOUND;
   static constexpr SLErrno SL_INIT_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INIT_START_OFFSET;
   static constexpr SLErrno SL_INIT_STATE_CLEAR =
