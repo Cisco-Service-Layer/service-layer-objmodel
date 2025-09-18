@@ -744,6 +744,12 @@ const (
 	SLErrorStatus_SL_AUTH_FAIL SLErrorStatus_SLErrno = 13
 	// Ack type not supported error. 0xe
 	SLErrorStatus_SL_ACK_TYPE_NOT_SUPPORTED SLErrorStatus_SLErrno = 14
+	// No such client:
+	// The specified client-id does not exist. 0xf
+	SLErrorStatus_SL_NO_SUCH_CLIENT SLErrorStatus_SLErrno = 15
+	// No entries found:
+	// No entries are present matching the input parameters. 0x10
+	SLErrorStatus_SL_ENOENT SLErrorStatus_SLErrno = 16
 	// Offset for INIT errors. 0x500
 	SLErrorStatus_SL_INIT_START_OFFSET SLErrorStatus_SLErrno = 1280
 	// Success, no errors detected - clear state.
@@ -1582,6 +1588,8 @@ var (
 		12:      "SL_NOTIF_TERM",
 		13:      "SL_AUTH_FAIL",
 		14:      "SL_ACK_TYPE_NOT_SUPPORTED",
+		15:      "SL_NO_SUCH_CLIENT",
+		16:      "SL_ENOENT",
 		1280:    "SL_INIT_START_OFFSET",
 		1281:    "SL_INIT_STATE_CLEAR",
 		1282:    "SL_INIT_STATE_READY",
@@ -1975,6 +1983,8 @@ var (
 		"SL_NOTIF_TERM":                             12,
 		"SL_AUTH_FAIL":                              13,
 		"SL_ACK_TYPE_NOT_SUPPORTED":                 14,
+		"SL_NO_SUCH_CLIENT":                         15,
+		"SL_ENOENT":                                 16,
 		"SL_INIT_START_OFFSET":                      1280,
 		"SL_INIT_STATE_CLEAR":                       1281,
 		"SL_INIT_STATE_READY":                       1282,
@@ -2823,9 +2833,9 @@ var File_sl_common_types_proto protoreflect.FileDescriptor
 
 const file_sl_common_types_proto_rawDesc = "" +
 	"\n" +
-	"\x15sl_common_types.proto\x12\rservice_layer\"\xb0h\n" +
+	"\x15sl_common_types.proto\x12\rservice_layer\"\xd6h\n" +
 	"\rSLErrorStatus\x12<\n" +
-	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\xe0g\n" +
+	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\x86h\n" +
 	"\aSLErrno\x12\x0e\n" +
 	"\n" +
 	"SL_SUCCESS\x10\x00\x12\x14\n" +
@@ -2845,7 +2855,9 @@ const file_sl_common_types_proto_rawDesc = "" +
 	"SL_TIMEOUT\x10\v\x12\x11\n" +
 	"\rSL_NOTIF_TERM\x10\f\x12\x10\n" +
 	"\fSL_AUTH_FAIL\x10\r\x12\x1d\n" +
-	"\x19SL_ACK_TYPE_NOT_SUPPORTED\x10\x0e\x12\x19\n" +
+	"\x19SL_ACK_TYPE_NOT_SUPPORTED\x10\x0e\x12\x15\n" +
+	"\x11SL_NO_SUCH_CLIENT\x10\x0f\x12\r\n" +
+	"\tSL_ENOENT\x10\x10\x12\x19\n" +
 	"\x14SL_INIT_START_OFFSET\x10\x80\n" +
 	"\x12\x18\n" +
 	"\x13SL_INIT_STATE_CLEAR\x10\x81\n" +

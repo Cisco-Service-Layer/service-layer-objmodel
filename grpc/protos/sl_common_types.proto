@@ -66,6 +66,13 @@ message SLErrorStatus {
         // Ack type not supported error. 0xe
         SL_ACK_TYPE_NOT_SUPPORTED = 0xe;
 
+        // No such client:
+        // The specified client-id does not exist. 0xf
+        SL_NO_SUCH_CLIENT = 0xf;
+        // No entries found:
+        // No entries are present matching the input parameters. 0x10
+        SL_ENOENT = 0x10;
+
         // !!! Error codes for Client INIT operations.
 
         // Offset for INIT errors. 0x500
