@@ -48,10 +48,10 @@
     SL_AUTH_FAIL = 0xd,\
     /* Ack type not supported error. 0xe */\
     SL_ACK_TYPE_NOT_SUPPORTED = 0xe,\
-    /* No such client: */\
+    /* No such client. */\
     /* The specified client-id does not exist. 0xf */\
     SL_NO_SUCH_CLIENT = 0xf,\
-    /* No entries found: */\
+    /* No entries found. */\
     /* No entries are present matching the input parameters. 0x10 */\
     SL_NO_ENTRIES_FOUND = 0x10,\
     /* !!! Error codes for Client INIT operations. */\
@@ -956,11 +956,11 @@
         " Ack type not supported error.  "\
         },\
     {SL_NO_SUCH_CLIENT ,\
-        " No such client: "\
+        " No such client. "\
         " The specified client-id does not exist.  "\
         },\
     {SL_NO_ENTRIES_FOUND ,\
-        " No entries found: "\
+        " No entries found. "\
         " No entries are present matching the input parameters.  "\
         },\
     {SL_INIT_START_OFFSET ,\

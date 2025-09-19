@@ -744,10 +744,10 @@ const (
 	SLErrorStatus_SL_AUTH_FAIL SLErrorStatus_SLErrno = 13
 	// Ack type not supported error. 0xe
 	SLErrorStatus_SL_ACK_TYPE_NOT_SUPPORTED SLErrorStatus_SLErrno = 14
-	// No such client:
+	// No such client.
 	// The specified client-id does not exist. 0xf
 	SLErrorStatus_SL_NO_SUCH_CLIENT SLErrorStatus_SLErrno = 15
-	// No entries found:
+	// No entries found.
 	// No entries are present matching the input parameters. 0x10
 	SLErrorStatus_SL_NO_ENTRIES_FOUND SLErrorStatus_SLErrno = 16
 	// Offset for INIT errors. 0x500

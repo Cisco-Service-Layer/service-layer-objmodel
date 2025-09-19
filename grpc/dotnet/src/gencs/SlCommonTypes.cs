@@ -956,12 +956,12 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ACK_TYPE_NOT_SUPPORTED")] SlAckTypeNotSupported = 14,
         /// <summary>
-        /// No such client:
+        /// No such client.
         /// The specified client-id does not exist. 0xf
         /// </summary>
         [pbr::OriginalName("SL_NO_SUCH_CLIENT")] SlNoSuchClient = 15,
         /// <summary>
-        /// No entries found:
+        /// No entries found.
         /// No entries are present matching the input parameters. 0x10
         /// </summary>
         [pbr::OriginalName("SL_NO_ENTRIES_FOUND")] SlNoEntriesFound = 16,

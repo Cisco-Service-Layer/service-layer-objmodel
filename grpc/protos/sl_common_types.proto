@@ -66,10 +66,10 @@ message SLErrorStatus {
         // Ack type not supported error. 0xe
         SL_ACK_TYPE_NOT_SUPPORTED = 0xe;
 
-        // No such client:
+        // No such client.
         // The specified client-id does not exist. 0xf
         SL_NO_SUCH_CLIENT = 0xf;
-        // No entries found:
+        // No entries found.
         // No entries are present matching the input parameters. 0x10
         SL_NO_ENTRIES_FOUND = 0x10;
 
