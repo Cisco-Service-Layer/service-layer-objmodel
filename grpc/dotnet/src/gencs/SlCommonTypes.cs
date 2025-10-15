@@ -344,19 +344,19 @@ namespace ServiceLayer {
             "ABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9ST1VURV9U",
             "QUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9QQVRIX0dS",
             "T1VQX1RBQkxFEAQqRwoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQABITCg9S",
-            "SUJfQU5EX0ZJQl9BQ0sQARIVChFSSUJfRklCX0lOVVNFX0FDSxACKpUBCg1T",
+            "SUJfQU5EX0ZJQl9BQ0sQARIVChFSSUJfRklCX0lOVVNFX0FDSxACKpQBCg1T",
             "TEFGRmliU3RhdHVzEhIKDlNMX0ZJQl9VTktOT1dOEAASEgoOU0xfRklCX1NV",
             "Q0NFU1MQARIRCg1TTF9GSUJfRkFJTEVEEAISFQoRU0xfRklCX0lORUxJR0lC",
-            "TEUQAxIYChRTTF9GSUJfSU5VU0VfU1VDQ0VTUxAEEhgKFFNMX0ZJQl9JTlVT",
-            "RV9GQUlMVVJFEAUqwgEKDlNMUnNwQUNLUGVybWl0EhwKGFNMX1BFUk1JVF9G",
-            "SUJfU1RBVFVTX0FMTBAAEhkKFVNMX1BFUk1JVF9GSUJfU1VDQ0VTUxABEhgK",
-            "FFNMX1BFUk1JVF9GSUJfRkFJTEVEEAISHAoYU0xfUEVSTUlUX0ZJQl9JTkVM",
-            "SUdJQkxFEAMSHwobU0xfUEVSTUlUX0ZJQl9JTlVTRV9TVUNDRVNTEAQSHgoa",
-            "U0xfUEVSTUlUX0ZJQl9JTlVTRV9GQUlMRUQQBSplCg9TTFJzcEFja0NhZGVu",
-            "Y2USFQoRU0xfUlNQX0NPTlRJTlVPVVMQABIUChBTTF9SU1BfSlVTVF9PTkNF",
-            "EAESFAoQU0xfUlNQX09OQ0VfRUFDSBACEg8KC1NMX1JTUF9OT05FEANCUVpP",
-            "Z2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXIt",
-            "b2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "TEUQAxIYChRTTF9GSUJfSU5VU0VfU1VDQ0VTUxAEEhcKE1NMX0ZJQl9JTlVT",
+            "RV9GQUlMRUQQBSrCAQoOU0xSc3BBQ0tQZXJtaXQSHAoYU0xfUEVSTUlUX0ZJ",
+            "Ql9TVEFUVVNfQUxMEAASGQoVU0xfUEVSTUlUX0ZJQl9TVUNDRVNTEAESGAoU",
+            "U0xfUEVSTUlUX0ZJQl9GQUlMRUQQAhIcChhTTF9QRVJNSVRfRklCX0lORUxJ",
+            "R0lCTEUQAxIfChtTTF9QRVJNSVRfRklCX0lOVVNFX1NVQ0NFU1MQBBIeChpT",
+            "TF9QRVJNSVRfRklCX0lOVVNFX0ZBSUxFRBAFKmUKD1NMUnNwQWNrQ2FkZW5j",
+            "ZRIVChFTTF9SU1BfQ09OVElOVU9VUxAAEhQKEFNMX1JTUF9KVVNUX09OQ0UQ",
+            "ARIUChBTTF9SU1BfT05DRV9FQUNIEAISDwoLU0xfUlNQX05PTkUQA0JRWk9n",
+            "aXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1v",
+            "Ymptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLAFFibStatus), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -585,11 +585,11 @@ namespace ServiceLayer {
     /// </summary>
     [pbr::OriginalName("SL_FIB_INUSE_SUCCESS")] SlFibInuseSuccess = 4,
     /// <summary>
-    /// The forwarding chain using this object is fully active in hardware
-    /// and is in-use by at least one referencing object that failed to be
+    /// The forwarding chain using this object is not active in hardware
+    /// as at least one referencing object failed to be
     /// programmed in hardware.
     /// </summary>
-    [pbr::OriginalName("SL_FIB_INUSE_FAILURE")] SlFibInuseFailure = 5,
+    [pbr::OriginalName("SL_FIB_INUSE_FAILED")] SlFibInuseFailed = 5,
   }
 
   /// <summary>

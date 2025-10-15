@@ -1177,10 +1177,10 @@ enum SLAFFibStatus {
     // programmed in hardware.
     SL_FIB_INUSE_SUCCESS = 4;
 
-    // The forwarding chain using this object is fully active in hardware
- 	// and is in-use by at least one referencing object that failed to be
+    // The forwarding chain using this object is not active in hardware
+ 	// as at least one referencing object failed to be
  	// programmed in hardware.
- 	SL_FIB_INUSE_FAILURE = 5;
+ 	SL_FIB_INUSE_FAILED = 5;
 }
 
 
