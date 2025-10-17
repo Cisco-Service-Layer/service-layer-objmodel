@@ -1168,12 +1168,10 @@ type isSLSrSrv6BindingSID_Type interface {
 }
 
 type SLSrSrv6BindingSID_Explicit struct {
-	// SRv6 explicit Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2.3)
 	Explicit *SLSRv6SIDInfo `protobuf:"bytes,1,opt,name=explicit,proto3,oneof"`
 }
 
 type SLSrSrv6BindingSID_Dynamic struct {
-	// SRv6 dynamic Binding SID (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.2.1)
 	Dynamic *SLSrSrv6DynamicBindingSID `protobuf:"bytes,2,opt,name=dynamic,proto3,oneof"`
 }
 
