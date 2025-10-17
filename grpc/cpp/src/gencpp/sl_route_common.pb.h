@@ -3037,8 +3037,6 @@ class SLRouteCommon final :
     kAdminDistanceFieldNumber = 1,
     kLocalLabelFieldNumber = 2,
     kTagFieldNumber = 3,
-    kMetricFieldNumber = 8,
-    kPriorityFieldNumber = 9,
   };
   // repeated .service_layer.SLRouteFlags RouteFlags = 7;
   int routeflags_size() const;
@@ -3112,24 +3110,6 @@ class SLRouteCommon final :
   void _internal_set_tag(uint32_t value);
   public:
 
-  // uint32 Metric = 8;
-  void clear_metric();
-  uint32_t metric() const;
-  void set_metric(uint32_t value);
-  private:
-  uint32_t _internal_metric() const;
-  void _internal_set_metric(uint32_t value);
-  public:
-
-  // .service_layer.SLUpdatePriority Priority = 9;
-  void clear_priority();
-  ::service_layer::SLUpdatePriority priority() const;
-  void set_priority(::service_layer::SLUpdatePriority value);
-  private:
-  ::service_layer::SLUpdatePriority _internal_priority() const;
-  void _internal_set_priority(::service_layer::SLUpdatePriority value);
-  public:
-
   // @@protoc_insertion_point(class_scope:service_layer.SLRouteCommon)
  private:
   class _Internal;
@@ -3144,8 +3124,6 @@ class SLRouteCommon final :
   uint32_t admindistance_;
   uint32_t locallabel_;
   uint32_t tag_;
-  uint32_t metric_;
-  int priority_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
 };
@@ -3506,6 +3484,7 @@ class SLRoutePath final :
     kNexthopInterfaceFieldNumber = 2,
     kVxLANPathFieldNumber = 12,
     kLoadMetricFieldNumber = 3,
+    kMetricFieldNumber = 5,
     kPathIdFieldNumber = 6,
     kEncapTypeFieldNumber = 10,
     kPathGroupKeyFieldNumber = 15,
@@ -3680,6 +3659,15 @@ class SLRoutePath final :
   void _internal_set_loadmetric(uint32_t value);
   public:
 
+  // uint32 Metric = 5;
+  void clear_metric();
+  uint32_t metric() const;
+  void set_metric(uint32_t value);
+  private:
+  uint32_t _internal_metric() const;
+  void _internal_set_metric(uint32_t value);
+  public:
+
   // uint32 PathId = 6;
   void clear_pathid();
   uint32_t pathid() const;
@@ -3742,6 +3730,7 @@ class SLRoutePath final :
   ::service_layer::SLInterface* nexthopinterface_;
   ::service_layer::SLVxLANPath* vxlanpath_;
   uint32_t loadmetric_;
+  uint32_t metric_;
   uint32_t pathid_;
   int encaptype_;
   union EntryUnion {
@@ -5792,46 +5781,6 @@ SLRouteCommon::mutable_routeflags() {
   return _internal_mutable_routeflags();
 }
 
-// uint32 Metric = 8;
-inline void SLRouteCommon::clear_metric() {
-  metric_ = 0u;
-}
-inline uint32_t SLRouteCommon::_internal_metric() const {
-  return metric_;
-}
-inline uint32_t SLRouteCommon::metric() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLRouteCommon.Metric)
-  return _internal_metric();
-}
-inline void SLRouteCommon::_internal_set_metric(uint32_t value) {
-  
-  metric_ = value;
-}
-inline void SLRouteCommon::set_metric(uint32_t value) {
-  _internal_set_metric(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLRouteCommon.Metric)
-}
-
-// .service_layer.SLUpdatePriority Priority = 9;
-inline void SLRouteCommon::clear_priority() {
-  priority_ = 0;
-}
-inline ::service_layer::SLUpdatePriority SLRouteCommon::_internal_priority() const {
-  return static_cast< ::service_layer::SLUpdatePriority >(priority_);
-}
-inline ::service_layer::SLUpdatePriority SLRouteCommon::priority() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLRouteCommon.Priority)
-  return _internal_priority();
-}
-inline void SLRouteCommon::_internal_set_priority(::service_layer::SLUpdatePriority value) {
-  
-  priority_ = value;
-}
-inline void SLRouteCommon::set_priority(::service_layer::SLUpdatePriority value) {
-  _internal_set_priority(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLRouteCommon.Priority)
-}
-
 // -------------------------------------------------------------------
 
 // SLVxLANPath
@@ -6375,6 +6324,26 @@ inline void SLRoutePath::set_allocated_vrfname(std::string* vrfname) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutePath.VrfName)
+}
+
+// uint32 Metric = 5;
+inline void SLRoutePath::clear_metric() {
+  metric_ = 0u;
+}
+inline uint32_t SLRoutePath::_internal_metric() const {
+  return metric_;
+}
+inline uint32_t SLRoutePath::metric() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRoutePath.Metric)
+  return _internal_metric();
+}
+inline void SLRoutePath::_internal_set_metric(uint32_t value) {
+  
+  metric_ = value;
+}
+inline void SLRoutePath::set_metric(uint32_t value) {
+  _internal_set_metric(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRoutePath.Metric)
 }
 
 // uint32 PathId = 6;

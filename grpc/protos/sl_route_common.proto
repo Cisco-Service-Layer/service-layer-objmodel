@@ -399,18 +399,6 @@ message SLRouteCommon {
     //
     // All others are reserved.
     repeated SLRouteFlags RouteFlags = 7;
-
-    // Route Metric.
-    // Range [0-4294967294]
-    // The metric is typically based on information like load, hop count,
-    // MTU, reliability of the path, etc.
-    // When routes from different protocols share the same admin distance, 
-    // RIB selects the route with the lowest value in this field.
-    uint32 Metric = 8;
-
-    // Each entry can have priority value, this priority value may be used
-    // in internal queuing of routes while programming the data-plane
-    SLUpdatePriority Priority = 9;
 }
 
 // Attributes for constructing VxLAN encapsulation for a IP packet.
@@ -444,8 +432,8 @@ message SLVxLANPath {
 // link down, BFD, etc.). Revertion is mainly timeout based. The timeout
 // value is platform specific and is not configurable.
 message SLRoutePath {
-    reserved 13, 5;
-    reserved "Flags", "Metric";
+    reserved 13;
+    reserved "Flags";
 
     // One of IPv4 or IPv6 address.
     // For ENCAP_VXLAN, this field is not supported and will be ignored.
@@ -469,6 +457,13 @@ message SLRoutePath {
     // the AF object containing this path is assumed. The client can set a
     // different VRF name for certain use cases such as VPN or VxLAN encapsulation.
     string VrfName = 4;
+
+    // Route Metric.
+    // The metric is typically based on information like load, hop count,
+    // MTU, reliability of the path, etc.
+    // If a non-zero metric value is set in the route, the value set will override
+    // any metric value in the associated SLRoutePath
+    uint32 Metric = 5;
 
     // Path identifier.
     // Path-id is used to uniquely identify a path when it comes to
