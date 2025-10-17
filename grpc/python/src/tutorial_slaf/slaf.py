@@ -350,7 +350,7 @@ def run_slaf_op_stream_request (channel, metadata, messages, total_operations, f
     def message_generator(ev):
         for message in messages:
             yield message
-        # If we exit this function it will call a done write, which will result in stream closure
+        # If we exit this function it will call a done write
         ev.wait()
 
     # Start listening for responses before writing messages
@@ -509,19 +509,20 @@ def run_slaf_notif_stream_request (channel, metadata, messages, notif_duration):
                 errMessage.append(f'RPC Error: {e}')
 
     # Create a generator that yields messages
-    def notif_message_generator(wait_seconds):
+    def notif_message_generator():
         for message in messages:
             yield message
-        # If we exit this function it will call a done write, which will result in stream closure
-        time.sleep(wait_seconds)
+        # If we exit this function it will call a done write
 
     # Start listening for responses before writing messages
-    responseIterator = stub.SLAFNotifStream(request_iterator = notif_message_generator(notif_duration,), timeout = Timeout, metadata = metadata)
+    responseIterator = stub.SLAFNotifStream(request_iterator = notif_message_generator(), timeout = Timeout, metadata = metadata)
     listenerThread = threading.Thread(target=listen_for_notif_responses, args=(responseIterator,))
     listenerThread.start()
 
-    # Wait for the listener thread to finish
-    listenerThread.join()
+    # Wait for the listener thread to finish.
+    # Stop listening for responses after notif_duration has passed.
+    # Once the responseIterator goes out of scope the stream is closed
+    listenerThread.join(timeout=notif_duration)
 
     # Concatenate the error messages
     with errorMessageLock:
@@ -650,10 +651,19 @@ def route_operation(channel, metadata, oper, route_flag,
         Oper = oper,
         VrfName = 'default',
     )
-
     # Populate a batch with batch_size routes each
     while setRoutes < num_routes:
 
+        # Only add route flag if user set it to valid flag
+        if route_flag != 0:
+            route_common = sl_route_common_pb2.SLRouteCommon(
+                AdminDistance=admin_distance,
+                RouteFlags=[route_flag]
+            )
+        else:
+            route_common = sl_route_common_pb2.SLRouteCommon(
+                AdminDistance=admin_distance
+            )
         # Populate the routes' attributes
         ipRoute = sl_af_pb2.SLAFIPRoute(
             IPRoutePrefix = sl_route_common_pb2.SLRoutePrefix(
@@ -661,10 +671,7 @@ def route_operation(channel, metadata, oper, route_flag,
                     V4Address = int(ipaddress.ip_address(prefixList[setRoutes]))),
                 PrefixLen = prefix_len
             ),
-            RouteCommon = sl_route_common_pb2.SLRouteCommon(
-                AdminDistance=admin_distance,
-                RouteFlags=[route_flag]
-            )
+            RouteCommon = route_common
         )
 
         # We don't need to setup the paths for DELETE
@@ -777,16 +784,14 @@ def route_operation(channel, metadata, oper, route_flag,
 #
 def mpls_operation(channel, metadata, oper, route_flag,
                     admin_distance, ack_type, ack_permit, ack_cadence,
-                    start_label, out_label, num_labels, num_paths,
+                    entry_key_label, remote_label_stack, num_labels, num_paths,
                     batch_size, next_hop_ip, nexthop_interface,
                     auto_inc_nhip, stream_case):
     # Initialize variables for message stats
-    elspIdx, pathIdx, batchIndex = 0,0,0
-    numElsps = 0
-    sentIlms = 0
-    totalIlms = 0
-    numIlms = 0
-    ilmsInBatch = 0
+    pathIdx, batchIndex = 0,0
+    sentEntries = 0
+    totalEntries = 0
+    entriesInBatch = 0
     messages = []
     global globalOperationID
 
@@ -797,7 +802,7 @@ def mpls_operation(channel, metadata, oper, route_flag,
         logging.error(f'Invalid number of labels: {num_labels}')
         os._exit(0)
 
-    logging.debug(f'''Start Label: {start_label},
+    logging.debug(f'''Start Label: {entry_key_label},
         Number of Labels: {num_labels},
         Number of Paths: {num_paths},
         Batch Size: {batch_size}''')
@@ -808,129 +813,123 @@ def mpls_operation(channel, metadata, oper, route_flag,
     t0 = time.time()
 
     # Set the initial variables
-    label = start_label
-    numIlms = 1
-    totalIlms = num_labels * numIlms
+    label = entry_key_label
+    totalEntries = num_labels
     # batch_size used for appending last message
-    if batch_size > totalIlms:
-        batch_size = totalIlms
+    if batch_size > totalEntries:
+        batch_size = totalEntries
 
     message = sl_af_pb2.SLAFMsg(
         Oper = oper,
         VrfName = 'default',
     )
 
-    #
-    # Slaf protos currently do not allow elsps to be configured.
-    # numElsps:  > 1 for ELSP, 0 otherwise (configured)
-    # totalIlms: numLabels * numElsps (calculated)
-    # batch_size: number of ilms per batch (configured)
-    # numIlms: number of ilms (1 for non ELSP, numElsps otherwise)
-    #
-    while sentIlms < totalIlms:
+    while sentEntries < totalEntries:
         logging.debug(f'''
-            sentIlms: {sentIlms},
+            sentEntries: {sentEntries},
             batchIndex: {batchIndex},
-            ilmsInBatch: {ilmsInBatch},
-            numIlms: {numIlms},
+            entriesInBatch: {entriesInBatch},
             batchSize: {batch_size},
-            totalIlms: {totalIlms}''')
+            totalEntries: {totalEntries}''')
 
-        if ilmsInBatch + numIlms > batch_size and sentIlms != 0:
+        if entriesInBatch + 1 > batch_size and sentEntries != 0:
             batchIndex += 1
             messages.append(message)
-            ilmsInBatch = 0
+            entriesInBatch = 0
 
-        if ilmsInBatch == 0:
-            # Create a new ILM batch
+        if entriesInBatch == 0:
+            # Create a new message for a batch
             message = sl_af_pb2.SLAFMsg(
                 Oper=oper,
                 VrfName="default"
             )
-        #
-        # If we are adding ELSP entries then loop and create as many
-        # using the same label. If numElsps is set to 0 we just add
-        # one ILM entry for that label.
-        #
-        for elspIdx in range(numIlms):
-            logging.debug(f"label: {label}, numIlms: {numIlms}")
 
-            logging.debug(f"Interface: {nexthop_interface}")
+        logging.debug(f"label: {label}")
 
+        logging.debug(f"Interface: {nexthop_interface}")
+
+        # Only add route flag if user set it to valid flag
+        if route_flag != 0:
             # Setup message object attributes
-            ilm = sl_af_pb2.SLMplsEntry(
+            mplsEntry = sl_af_pb2.SLMplsEntry(
                 MplsKey = sl_af_pb2.SLMplsEntryKey(
                     Label = label
                 ),
                 AdminDistance = admin_distance,
                 MplsFlags = [route_flag]
             )
-
-            for pathIdx in range(num_paths):
-                # Set the route path
-                nhlfe = sl_route_common_pb2.SLRoutePath()
-                if auto_inc_nhip:
-                    slipAddress = sl_common_types_pb2.SLIpAddress(
-                        V4Address = int(ipaddress.ip_address(nhList[sentIlms]))
-                    )
-                    nhlfe.NexthopAddress.CopyFrom(slipAddress)
-                else:
-                    slipAddress = sl_common_types_pb2.SLIpAddress(
-                        V4Address = int(ipaddress.ip_address(nhList[0]))
-                    )
-                    nhlfe.NexthopAddress.CopyFrom(slipAddress)
-
-                if nexthop_interface:
-                    nexthopInterface = sl_common_types_pb2.SLInterface(
-                            Name = nexthop_interface
-                    )
-                    nhlfe.NexthopInterface.CopyFrom(nexthopInterface)
-
-                if out_label > 0:
-                    outLabel = out_label + (label - start_label) * numElsps + elspIdx
-                    nhlfe.LabelStack.append(outLabel)
-                else:
-                    logging.error("Invalid out label")
-                    os._exit(0)
-
-                # Append to route
-                ilm.PathList.append(nhlfe)
-
-            afObject = sl_af_pb2.SLAFObject(
-                MplsLabel = ilm
+        else:
+            mplsEntry = sl_af_pb2.SLMplsEntry(
+                MplsKey = sl_af_pb2.SLMplsEntryKey(
+                    Label = label
+                ),
+                AdminDistance = admin_distance
             )
 
-            # Add all objects to the opMsg
-            opMsg = sl_af_pb2.SLAFOpMsg(
-                AFObject = afObject,
-                OperationID = globalOperationID,
-                AckType = ack_type,
-                AckPermits = [ack_permit],
-                AckCadence = ack_cadence
-            )
+        for pathIdx in range(num_paths):
+            # Set the route path
+            pathList = sl_route_common_pb2.SLRoutePath()
+            if auto_inc_nhip:
+                slipAddress = sl_common_types_pb2.SLIpAddress(
+                    V4Address = int(ipaddress.ip_address(nhList[sentEntries]))
+                )
+                pathList.NexthopAddress.CopyFrom(slipAddress)
+            else:
+                slipAddress = sl_common_types_pb2.SLIpAddress(
+                    V4Address = int(ipaddress.ip_address(nhList[0]))
+                )
+                pathList.NexthopAddress.CopyFrom(slipAddress)
 
-            globalOperationID += 1
-            # Append Label to batch
-            message.OpList.append(opMsg)
+            if nexthop_interface:
+                nexthopInterface = sl_common_types_pb2.SLInterface(
+                        Name = nexthop_interface
+                )
+                pathList.NexthopInterface.CopyFrom(nexthopInterface)
 
-        sentIlms += numIlms
+            if remote_label_stack > 0:
+                pathList.LabelStack.append(remote_label_stack)
+            else:
+                logging.error("Invalid out label")
+                os._exit(0)
+
+            # Append to route
+            mplsEntry.PathList.append(pathList)
+
+        afObject = sl_af_pb2.SLAFObject(
+            MplsLabel = mplsEntry
+        )
+
+        # Add all objects to the opMsg
+        opMsg = sl_af_pb2.SLAFOpMsg(
+            AFObject = afObject,
+            OperationID = globalOperationID,
+            AckType = ack_type,
+            AckPermits = [ack_permit],
+            AckCadence = ack_cadence
+        )
+
+        globalOperationID += 1
+        # Append Label to batch
+        message.OpList.append(opMsg)
+
+        sentEntries += 1
         # Append the last message
-        if sentIlms >= totalIlms:
+        if sentEntries >= totalEntries:
             batchIndex += 1
             logging.debug(f'Message: {message}')
             messages.append(message)
-            ilmsInBatch = 0
+            entriesInBatch = 0
 
-        ilmsInBatch += numIlms
+        entriesInBatch += 1
         label += 1
 
 
     t1 = time.time()
 
-    print(f'{oper} Total Batches: {batchIndex}, Ilms: {sentIlms}, Preparation Time: {t1 - t0}')
+    print(f'{oper} Total Batches: {batchIndex}, sentEntries: {sentEntries}, Preparation Time: {t1 - t0}')
 
-    if sentIlms > 0 and t1 != t0:
-        rate = sentIlms / (t1 - t0)
+    if sentEntries > 0 and t1 != t0:
+        rate = sentEntries / (t1 - t0)
         print(f'Preparation Rate: {rate}')
 
     t0 = time.time()
@@ -939,7 +938,7 @@ def mpls_operation(channel, metadata, oper, route_flag,
     if stream_case:
         fibCheck = int(ack_type) != 0
         err = run_slaf_op_stream_request(channel, metadata, messages,
-            sentIlms, fibCheck, sl_common_types_pb2.SL_MPLS_LABEL_TABLE)
+            sentEntries, fibCheck, sl_common_types_pb2.SL_MPLS_LABEL_TABLE)
     else:
         err = run_slaf_op_request(channel, metadata, messages,
             sl_common_types_pb2.SL_MPLS_LABEL_TABLE)
@@ -950,10 +949,10 @@ def mpls_operation(channel, metadata, oper, route_flag,
 
     t1 = time.time()
 
-    print(f'{oper} Total Batches: {batchIndex}, Ilms: {sentIlms}, ElapsedTime: {t1 - t0}')
+    print(f'{oper} Total Batches: {batchIndex}, sentEntries: {sentEntries}, ElapsedTime: {t1 - t0}')
 
-    if sentIlms > 0 and t1 != t0:
-        rate = sentIlms / (t1 - t0)
+    if sentEntries > 0 and t1 != t0:
+        rate = sentEntries / (t1 - t0)
         print(f'Programming Rate: {rate}')
 
 #
@@ -1027,14 +1026,25 @@ def pg_operation(channel, metadata, oper, route_flag,
             pathList.Paths.append(slPaths)
 
     # Populate the path group attributes
-    pathGroup = sl_af_pb2.SLPathGroup(
-        PathGroupId = sl_common_types_pb2.SLObjectId(
-            Name = pg_name
-        ),
-        AdminDistance = admin_distance,
-        PathList = pathList,
-        PgFlags = [route_flag]
-    )
+
+    # Only add route flag if user set it to valid flag
+    if route_flag != 0:
+        pathGroup = sl_af_pb2.SLPathGroup(
+            PathGroupId = sl_common_types_pb2.SLObjectId(
+                Name = pg_name
+            ),
+            AdminDistance = admin_distance,
+            PathList = pathList,
+            PgFlags = [route_flag]
+        )
+    else:
+        pathGroup = sl_af_pb2.SLPathGroup(
+            PathGroupId = sl_common_types_pb2.SLObjectId(
+                Name = pg_name
+            ),
+            AdminDistance = admin_distance,
+            PathList = pathList
+        )
 
     afObject = sl_af_pb2.SLAFObject(
         PathGroup = pathGroup

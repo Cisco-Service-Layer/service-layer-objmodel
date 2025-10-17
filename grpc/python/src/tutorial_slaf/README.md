@@ -107,11 +107,11 @@ First we will showcase the options the tutorial provides, and then show how to b
 
 | Argument | Description |
 | --- | --- |
-| --mpls        | Test MPLS vertical |
-| --start_label | Starting label (default 12000) |
-| --out_label   | Out label (default 20000) |
-| --num_labels  | Number of labels (default 1000) |
-| --num_paths   | Number of paths (default 1) |
+| --mpls                    | Test MPLS vertical |
+| --entry_key_label         | The starting entry key label (default 12000) |
+| --remote_label_stack      | The starting label added to the remote label stack (default 20000) |
+| --num_labels              | Number of labels (default 1000) |
+| --num_paths               | Number of paths (default 1) |
 
 ##### PG Testing (when --rpc 1 option is used)
 
@@ -136,7 +136,7 @@ First we will showcase the options the tutorial provides, and then show how to b
 | --ack_type        | Types of Acknowledgement agent expects: RIB_ACK(0), RIB_AND_FIB_ACK(1), RIB_FIB_INUSE_ACK(2) (default 0) |
 | --ack_permit      | Response types permitted: SL_PERMIT_FIB_STATUS_ALL(0), SL_PERMIT_FIB_SUCCESS(1), SL_PERMIT_FIB_FAILED(2), SL_PERMIT_FIB_INELIGIBLE(3), SL_PERMIT_FIB_INUSE_SUCCESS(4) (default 0) |
 | --ack_cadence     | Cadence of hw programming responses: SL_RSP_CONTINUOUS(0), SL_RSP_JUST_ONCE(1), SL_RSP_ONCE_EACH(2), SL_RSP_NONE(3) (default 0) |
-| --route_flag      | Control programming of the route/PG to RIB: SL_ROUTE_FLAG_RESERVED(0), SL_ROUTE_FLAG_PREFER_OVER_LDP(1), SL_ROUTE_FLAG_DISABLE_LABEL_MERGE(2), SL_ROUTE_FLAG_VIABLE_PATHS_ONLY(3), SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH(4) (default 0) |
+| --route_flag      | Control programming of the route/PG to RIB: SL_ROUTE_FLAG_PREFER_OVER_LDP(1), SL_ROUTE_FLAG_DISABLE_LABEL_MERGE(2), SL_ROUTE_FLAG_VIABLE_PATHS_ONLY(3), SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH(4) (default not set) |
 
 ##### Get Testing. When --rpc 2 option is used
 
@@ -220,8 +220,8 @@ MPLS Example:
     $ python3 quickstart.py -u username -p password --rpc 1 --mpls --route_oper 1 --vrf_reg_oper 1 --stream_case --next_hop_ip 11.0.0.0 --auto_inc_nhip --ack_type 1
     Deleting 35 labels with unary RPC. Print out any responses and debug messages:
     $ python3 quickstart.py -u username -p password --rpc 1 --mpls --route_oper 3 --vrf_reg_oper 1 --num_labels 35 --debug
-    Adding 2 Label where the start label is 25000 and the out label is 26000:
-    $ python3 quickstart.py -u username -p password --rpc 1 --mpls --route_oper 1 --vrf_reg_oper 1 --num_labels 2 --start_label 25000 --out_label 26000 --debug
+    Adding 2 Label where the start label is 25000 and the label for label stack is 26000:
+    $ python3 quickstart.py -u username -p password --rpc 1 --mpls --route_oper 1 --vrf_reg_oper 1 --num_labels 2 --entry_key_label 25000 --remote_label_stack 26000 --debug
 
 Path Group Example:  
 For purposes of this tutorial, we showcase how to create pg for ipv4 routes.  
