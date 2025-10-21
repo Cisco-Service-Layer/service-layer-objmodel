@@ -1155,13 +1155,13 @@ enum SLRspACKType {
 
     // When the ack type is RIB_FIB_INUSE_ACK, along with the behavior
     // explained above for RIB_AND_FIB_ACK, the client will receive an
-	// additional response of type SL_FIB_INUSE_SUCCESS or SL_FIB_INUSE_FAILED.
- 	// SL_FIB_INUSE_SUCCESS indicates that object has been successfully programmed in FIB and is
+    // additional response of type SL_FIB_INUSE_SUCCESS or SL_FIB_INUSE_FAILED.
+ 	// SL_FIB_INUSE_SUCCESS indicates that an object has been successfully programmed in FIB and is
  	// being actively used by one or more forwarding chains.
     // SL_FIB_INUSE_FAILED indicates that there was a failure in programming atleast one of the forwarding 
-    // chains this object is used in.
-    // *Note: SL_FIB_INUSE_FAILED is a terminal state for this object.
-    // This object has to be removed and reprogrammed to recover from the SL_FIB_INUSE_FAILED state.
+    // chains this object is part of.
+    // *Note: SL_FIB_INUSE_FAILED is a terminal state for an object; the object has to be removed and 
+    // reprogrammed to recover from the SL_FIB_INUSE_FAILED state.
     // // RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup.
     RIB_FIB_INUSE_ACK = 2;
 }
@@ -1189,7 +1189,7 @@ enum SLAFFibStatus {
     SL_FIB_INUSE_SUCCESS = 4;
 
     // The forwarding chain using this object is not active in hardware
- 	// as at least one referencing object failed to be
+    // as at least one referencing object failed to be
  	// programmed in hardware.
  	SL_FIB_INUSE_FAILED = 5;
 }
@@ -1223,7 +1223,7 @@ enum SLRspACKPermit {
     SL_PERMIT_FIB_INUSE_SUCCESS = 4;
 
     // Permits SL_FIB_INUSE_FAILED to be relayed to client
- 	SL_PERMIT_FIB_INUSE_FAILED = 5;
+    SL_PERMIT_FIB_INUSE_FAILED = 5;
 }
 
 // SLRspAckCadence controls the cadence of hardware programming responses.
