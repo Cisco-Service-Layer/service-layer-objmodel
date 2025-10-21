@@ -549,8 +549,12 @@ namespace ServiceLayer {
     /// When the ack type is RIB_FIB_INUSE_ACK, along with the behavior
     /// explained above for RIB_AND_FIB_ACK, the client will receive an
     /// additional response of type SL_FIB_INUSE_SUCCESS or SL_FIB_INUSE_FAILED.
-    /// RIB_FIB_INUSE_ACK indicates that object has been programmed in FIB and is
+    /// SL_FIB_INUSE_SUCCESS indicates that object has been successfully programmed in FIB and is
     /// being actively used by one or more forwarding chains.
+    /// SL_FIB_INUSE_FAILED indicates that there was a failure in programming atleast one of the forwarding 
+    /// chains this object is used in.
+    /// *Note: SL_FIB_INUSE_FAILED is a terminal state for this object.
+    /// This object has to be removed and reprogrammed to recover from the SL_FIB_INUSE_FAILED state.
     /// // RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup.
     /// </summary>
     [pbr::OriginalName("RIB_FIB_INUSE_ACK")] RibFibInuseAck = 2,
