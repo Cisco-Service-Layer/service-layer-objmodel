@@ -1193,7 +1193,7 @@ enum SLAFFibStatus {
     // The forwarding chain using this object is not active in hardware
     // as at least one referencing object failed to be
     // programmed in hardware.
- 	SL_FIB_INUSE_FAILED = 5;
+    SL_FIB_INUSE_FAILED = 5;
 }
 
 
