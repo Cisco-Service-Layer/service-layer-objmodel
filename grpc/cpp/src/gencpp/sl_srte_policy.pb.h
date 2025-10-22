@@ -1896,7 +1896,7 @@ class SLSrPolicyAttributes final :
       ::service_layer::SLSrMPLSBindingSID* mpls_bsid);
   ::service_layer::SLSrMPLSBindingSID* unsafe_arena_release_mpls_bsid();
 
-  // optional .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
+  // .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
   bool has_srv6_attrs() const;
   private:
   bool _internal_has_srv6_attrs() const;
@@ -1948,14 +1948,13 @@ class SLSrPolicyAttributes final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSrv6BindingSID > srv6_bsids_;
   ::service_layer::SLSrMPLSBindingSID* mpls_bsid_;
   ::service_layer::SLSrSrv6PolicyAttributes* srv6_attrs_;
   bool transit_eligible_;
   int dataplane_;
   uint32_t profile_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3348,11 +3347,7 @@ class SLSrSrv6PolicyAttributes final :
   enum : int {
     kInstallFinalNodeSidFieldNumber = 1,
   };
-  // optional bool install_final_node_sid = 1;
-  bool has_install_final_node_sid() const;
-  private:
-  bool _internal_has_install_final_node_sid() const;
-  public:
+  // bool install_final_node_sid = 1;
   void clear_install_final_node_sid();
   bool install_final_node_sid() const;
   void set_install_final_node_sid(bool value);
@@ -3368,9 +3363,8 @@ class SLSrSrv6PolicyAttributes final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   bool install_final_node_sid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
 // ===================================================================
@@ -4542,18 +4536,18 @@ inline void SLSrPolicyAttributes::set_profile_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrPolicyAttributes.profile_id)
 }
 
-// optional .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
+// .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
 inline bool SLSrPolicyAttributes::_internal_has_srv6_attrs() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || srv6_attrs_ != nullptr);
-  return value;
+  return this != internal_default_instance() && srv6_attrs_ != nullptr;
 }
 inline bool SLSrPolicyAttributes::has_srv6_attrs() const {
   return _internal_has_srv6_attrs();
 }
 inline void SLSrPolicyAttributes::clear_srv6_attrs() {
-  if (srv6_attrs_ != nullptr) srv6_attrs_->Clear();
-  _has_bits_[0] &= ~0x00000001u;
+  if (GetArenaForAllocation() == nullptr && srv6_attrs_ != nullptr) {
+    delete srv6_attrs_;
+  }
+  srv6_attrs_ = nullptr;
 }
 inline const ::service_layer::SLSrSrv6PolicyAttributes& SLSrPolicyAttributes::_internal_srv6_attrs() const {
   const ::service_layer::SLSrSrv6PolicyAttributes* p = srv6_attrs_;
@@ -4571,14 +4565,14 @@ inline void SLSrPolicyAttributes::unsafe_arena_set_allocated_srv6_attrs(
   }
   srv6_attrs_ = srv6_attrs;
   if (srv6_attrs) {
-    _has_bits_[0] |= 0x00000001u;
+    
   } else {
-    _has_bits_[0] &= ~0x00000001u;
+    
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrPolicyAttributes.srv6_attrs)
 }
 inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::release_srv6_attrs() {
-  _has_bits_[0] &= ~0x00000001u;
+  
   ::service_layer::SLSrSrv6PolicyAttributes* temp = srv6_attrs_;
   srv6_attrs_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -4594,13 +4588,13 @@ inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::release_
 }
 inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::unsafe_arena_release_srv6_attrs() {
   // @@protoc_insertion_point(field_release:service_layer.SLSrPolicyAttributes.srv6_attrs)
-  _has_bits_[0] &= ~0x00000001u;
+  
   ::service_layer::SLSrSrv6PolicyAttributes* temp = srv6_attrs_;
   srv6_attrs_ = nullptr;
   return temp;
 }
 inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::_internal_mutable_srv6_attrs() {
-  _has_bits_[0] |= 0x00000001u;
+  
   if (srv6_attrs_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrSrv6PolicyAttributes>(GetArenaForAllocation());
     srv6_attrs_ = p;
@@ -4624,9 +4618,9 @@ inline void SLSrPolicyAttributes::set_allocated_srv6_attrs(::service_layer::SLSr
       srv6_attrs = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, srv6_attrs, submessage_arena);
     }
-    _has_bits_[0] |= 0x00000001u;
+    
   } else {
-    _has_bits_[0] &= ~0x00000001u;
+    
   }
   srv6_attrs_ = srv6_attrs;
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicyAttributes.srv6_attrs)
@@ -5608,17 +5602,9 @@ inline void SLSrSrv6DynamicBindingSID::set_srv6_endpoint_behavior(uint32_t value
 
 // SLSrSrv6PolicyAttributes
 
-// optional bool install_final_node_sid = 1;
-inline bool SLSrSrv6PolicyAttributes::_internal_has_install_final_node_sid() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool SLSrSrv6PolicyAttributes::has_install_final_node_sid() const {
-  return _internal_has_install_final_node_sid();
-}
+// bool install_final_node_sid = 1;
 inline void SLSrSrv6PolicyAttributes::clear_install_final_node_sid() {
   install_final_node_sid_ = false;
-  _has_bits_[0] &= ~0x00000001u;
 }
 inline bool SLSrSrv6PolicyAttributes::_internal_install_final_node_sid() const {
   return install_final_node_sid_;
@@ -5628,7 +5614,7 @@ inline bool SLSrSrv6PolicyAttributes::install_final_node_sid() const {
   return _internal_install_final_node_sid();
 }
 inline void SLSrSrv6PolicyAttributes::_internal_set_install_final_node_sid(bool value) {
-  _has_bits_[0] |= 0x00000001u;
+  
   install_final_node_sid_ = value;
 }
 inline void SLSrSrv6PolicyAttributes::set_install_final_node_sid(bool value) {

@@ -685,7 +685,8 @@ type SLSrPolicyAttributes struct {
 	// explicit support by controller.
 	ProfileId uint32 `protobuf:"varint,6,opt,name=profile_id,json=profileId,proto3" json:"profile_id,omitempty"`
 	// Attributes specific to SRv6 policies.
-	Srv6Attrs     *SLSrSrv6PolicyAttributes `protobuf:"bytes,7,opt,name=srv6_attrs,json=srv6Attrs,proto3,oneof" json:"srv6_attrs,omitempty"`
+	// Request will be rejected if srv6_attrs is set for non-SRv6 dataplane.
+	Srv6Attrs     *SLSrSrv6PolicyAttributes `protobuf:"bytes,7,opt,name=srv6_attrs,json=srv6Attrs,proto3" json:"srv6_attrs,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1262,7 +1263,7 @@ type SLSrSrv6PolicyAttributes struct {
 	// When the final segment in a segment list is a node SID, it is suppressed
 	// by default unless this behavior is changed using global configuration.
 	// Set this to true to force installation of the final node SID.
-	InstallFinalNodeSid *bool `protobuf:"varint,1,opt,name=install_final_node_sid,json=installFinalNodeSid,proto3,oneof" json:"install_final_node_sid,omitempty"`
+	InstallFinalNodeSid bool `protobuf:"varint,1,opt,name=install_final_node_sid,json=installFinalNodeSid,proto3" json:"install_final_node_sid,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -1298,8 +1299,8 @@ func (*SLSrSrv6PolicyAttributes) Descriptor() ([]byte, []int) {
 }
 
 func (x *SLSrSrv6PolicyAttributes) GetInstallFinalNodeSid() bool {
-	if x != nil && x.InstallFinalNodeSid != nil {
-		return *x.InstallFinalNodeSid
+	if x != nil {
+		return x.InstallFinalNodeSid
 	}
 	return false
 }
@@ -1410,7 +1411,7 @@ const file_sl_srte_policy_proto_rawDesc = "" +
 	"\foperation_id\x18\x01 \x01(\x04R\voperationId\x12.\n" +
 	"\x03key\x18\x02 \x01(\v2\x1c.service_layer.SLSrPolicyKeyR\x03key\x129\n" +
 	"\x05attrs\x18\x03 \x01(\v2#.service_layer.SLSrPolicyAttributesR\x05attrs\x122\n" +
-	"\x03CPs\x18\x04 \x03(\v2 .service_layer.SLSrCandidatePathR\x03CPs\"\xfa\x02\n" +
+	"\x03CPs\x18\x04 \x03(\v2 .service_layer.SLSrCandidatePathR\x03CPs\"\xe6\x02\n" +
 	"\x14SLSrPolicyAttributes\x12)\n" +
 	"\x10transit_eligible\x18\x02 \x01(\bR\x0ftransitEligible\x12:\n" +
 	"\tdataplane\x18\x03 \x01(\x0e2\x1c.service_layer.SLSrDataplaneR\tdataplane\x12>\n" +
@@ -1418,10 +1419,9 @@ const file_sl_srte_policy_proto_rawDesc = "" +
 	"\n" +
 	"srv6_bsids\x18\x05 \x03(\v2!.service_layer.SLSrSrv6BindingSIDR\tsrv6Bsids\x12\x1d\n" +
 	"\n" +
-	"profile_id\x18\x06 \x01(\rR\tprofileId\x12K\n" +
+	"profile_id\x18\x06 \x01(\rR\tprofileId\x12F\n" +
 	"\n" +
-	"srv6_attrs\x18\a \x01(\v2'.service_layer.SLSrSrv6PolicyAttributesH\x00R\tsrv6Attrs\x88\x01\x01B\r\n" +
-	"\v_srv6_attrs\"\x8f\x02\n" +
+	"srv6_attrs\x18\a \x01(\v2'.service_layer.SLSrSrv6PolicyAttributesR\tsrv6Attrs\"\x8f\x02\n" +
 	"\x11SLSrCandidatePath\x125\n" +
 	"\x03key\x18\x02 \x01(\v2#.service_layer.SLSrCandidatePathKeyR\x03key\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12#\n" +
@@ -1456,10 +1456,9 @@ const file_sl_srte_policy_proto_rawDesc = "" +
 	"\n" +
 	"_mpls_bsid\"Q\n" +
 	"\x19SLSrSrv6DynamicBindingSID\x124\n" +
-	"\x16srv6_endpoint_behavior\x18\x01 \x01(\rR\x14srv6EndpointBehavior\"o\n" +
-	"\x18SLSrSrv6PolicyAttributes\x128\n" +
-	"\x16install_final_node_sid\x18\x01 \x01(\bH\x00R\x13installFinalNodeSid\x88\x01\x01B\x19\n" +
-	"\x17_install_final_node_sid2^\n" +
+	"\x16srv6_endpoint_behavior\x18\x01 \x01(\rR\x14srv6EndpointBehavior\"O\n" +
+	"\x18SLSrSrv6PolicyAttributes\x123\n" +
+	"\x16install_final_node_sid\x18\x01 \x01(\bR\x13installFinalNodeSid2^\n" +
 	"\fSLSrtePolicy\x12N\n" +
 	"\fSLSrPolicyOp\x12\x1c.service_layer.SLSrPolicyMsg\x1a\x1c.service_layer.SLSrPolicyRsp(\x010\x01BQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3"
 
@@ -1555,7 +1554,6 @@ func file_sl_srte_policy_proto_init() {
 		(*SLSrPolicyMsg_Open)(nil),
 		(*SLSrPolicyMsg_Requests)(nil),
 	}
-	file_sl_srte_policy_proto_msgTypes[8].OneofWrappers = []any{}
 	file_sl_srte_policy_proto_msgTypes[9].OneofWrappers = []any{
 		(*SLSrCandidatePath_Dynamic)(nil),
 		(*SLSrCandidatePath_Explicit)(nil),
@@ -1565,7 +1563,6 @@ func file_sl_srte_policy_proto_init() {
 		(*SLSrSrv6BindingSID_Dynamic)(nil),
 	}
 	file_sl_srte_policy_proto_msgTypes[14].OneofWrappers = []any{}
-	file_sl_srte_policy_proto_msgTypes[16].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

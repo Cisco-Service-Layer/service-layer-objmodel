@@ -47,39 +47,38 @@ namespace ServiceLayer {
             "GAIgASgLMhwuc2VydmljZV9sYXllci5TTFNyUG9saWN5S2V5EjIKBWF0dHJz",
             "GAMgASgLMiMuc2VydmljZV9sYXllci5TTFNyUG9saWN5QXR0cmlidXRlcxIt",
             "CgNDUHMYBCADKAsyIC5zZXJ2aWNlX2xheWVyLlNMU3JDYW5kaWRhdGVQYXRo",
-            "IrMCChRTTFNyUG9saWN5QXR0cmlidXRlcxIYChB0cmFuc2l0X2VsaWdpYmxl",
+            "Ip8CChRTTFNyUG9saWN5QXR0cmlidXRlcxIYChB0cmFuc2l0X2VsaWdpYmxl",
             "GAIgASgIEi8KCWRhdGFwbGFuZRgDIAEoDjIcLnNlcnZpY2VfbGF5ZXIuU0xT",
             "ckRhdGFwbGFuZRI0CgltcGxzX2JzaWQYBCABKAsyIS5zZXJ2aWNlX2xheWVy",
             "LlNMU3JNUExTQmluZGluZ1NJRBI1CgpzcnY2X2JzaWRzGAUgAygLMiEuc2Vy",
             "dmljZV9sYXllci5TTFNyU3J2NkJpbmRpbmdTSUQSEgoKcHJvZmlsZV9pZBgG",
-            "IAEoDRJACgpzcnY2X2F0dHJzGAcgASgLMicuc2VydmljZV9sYXllci5TTFNy",
-            "U3J2NlBvbGljeUF0dHJpYnV0ZXNIAIgBAUINCgtfc3J2Nl9hdHRycyLlAQoR",
-            "U0xTckNhbmRpZGF0ZVBhdGgSMAoDa2V5GAIgASgLMiMuc2VydmljZV9sYXll",
-            "ci5TTFNyQ2FuZGlkYXRlUGF0aEtleRIMCgRuYW1lGAMgASgJEhcKCnByZWZl",
-            "cmVuY2UYBCABKA1IAYgBARIvCgdkeW5hbWljGAUgASgLMhwuc2VydmljZV9s",
-            "YXllci5TTFNyRHluYW1pY0NQSAASMQoIZXhwbGljaXQYBiABKAsyHS5zZXJ2",
-            "aWNlX2xheWVyLlNMU3JFeHBsaWNpdENQSABCBAoCQ1BCDQoLX3ByZWZlcmVu",
-            "Y2UiWwoOU0xTckV4cGxpY2l0Q1ASNAoMc2VnbWVudF9saXN0GAEgAygLMh4u",
-            "c2VydmljZV9sYXllci5TTFNyU2VnbWVudExpc3QSEwoLbWV0cmljX3R5cGUY",
-            "AyABKA0iWQoNU0xTckR5bmFtaWNDUBITCgttZXRyaWNfdHlwZRgBIAEoDRIz",
-            "Cgtjb25zdHJhaW50cxgCIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTckNvbnN0",
-            "cmFpbnRzIrsBCg9TTFNyQ29uc3RyYWludHMSMQoKYWZmaW5pdGllcxgBIAEo",
-            "CzIdLnNlcnZpY2VfbGF5ZXIuU0xTckFmZmluaXRpZXMSNgoNc2VnbWVudF9y",
-            "dWxlcxgCIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xTclNlZ21lbnRSdWxlcxI9",
-            "Cgt1cHBlcl9ib3VuZBgDIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xTclVwcGVy",
-            "Qm91bmRDb25zdHJhaW50cyKLAQoSU0xTclNydjZCaW5kaW5nU0lEEjAKCGV4",
-            "cGxpY2l0GAEgASgLMhwuc2VydmljZV9sYXllci5TTFNSdjZTSURJbmZvSAAS",
-            "OwoHZHluYW1pYxgCIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xTclNydjZEeW5h",
-            "bWljQmluZGluZ1NJREgAQgYKBHR5cGUiOgoSU0xTck1QTFNCaW5kaW5nU0lE",
-            "EhYKCW1wbHNfYnNpZBgBIAEoDUgAiAEBQgwKCl9tcGxzX2JzaWQiOwoZU0xT",
-            "clNydjZEeW5hbWljQmluZGluZ1NJRBIeChZzcnY2X2VuZHBvaW50X2JlaGF2",
-            "aW9yGAEgASgNIloKGFNMU3JTcnY2UG9saWN5QXR0cmlidXRlcxIjChZpbnN0",
-            "YWxsX2ZpbmFsX25vZGVfc2lkGAEgASgISACIAQFCGQoXX2luc3RhbGxfZmlu",
-            "YWxfbm9kZV9zaWQyXgoMU0xTcnRlUG9saWN5Ek4KDFNMU3JQb2xpY3lPcBIc",
-            "LnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU1zZxocLnNlcnZpY2VfbGF5ZXIu",
-            "U0xTclBvbGljeVJzcCgBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNl",
-            "LWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vy",
-            "dmljZV9sYXllcmIGcHJvdG8z"));
+            "IAEoDRI7CgpzcnY2X2F0dHJzGAcgASgLMicuc2VydmljZV9sYXllci5TTFNy",
+            "U3J2NlBvbGljeUF0dHJpYnV0ZXMi5QEKEVNMU3JDYW5kaWRhdGVQYXRoEjAK",
+            "A2tleRgCIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xTckNhbmRpZGF0ZVBhdGhL",
+            "ZXkSDAoEbmFtZRgDIAEoCRIXCgpwcmVmZXJlbmNlGAQgASgNSAGIAQESLwoH",
+            "ZHluYW1pYxgFIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xTckR5bmFtaWNDUEgA",
+            "EjEKCGV4cGxpY2l0GAYgASgLMh0uc2VydmljZV9sYXllci5TTFNyRXhwbGlj",
+            "aXRDUEgAQgQKAkNQQg0KC19wcmVmZXJlbmNlIlsKDlNMU3JFeHBsaWNpdENQ",
+            "EjQKDHNlZ21lbnRfbGlzdBgBIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTclNl",
+            "Z21lbnRMaXN0EhMKC21ldHJpY190eXBlGAMgASgNIlkKDVNMU3JEeW5hbWlj",
+            "Q1ASEwoLbWV0cmljX3R5cGUYASABKA0SMwoLY29uc3RyYWludHMYAiABKAsy",
+            "Hi5zZXJ2aWNlX2xheWVyLlNMU3JDb25zdHJhaW50cyK7AQoPU0xTckNvbnN0",
+            "cmFpbnRzEjEKCmFmZmluaXRpZXMYASABKAsyHS5zZXJ2aWNlX2xheWVyLlNM",
+            "U3JBZmZpbml0aWVzEjYKDXNlZ21lbnRfcnVsZXMYAiABKAsyHy5zZXJ2aWNl",
+            "X2xheWVyLlNMU3JTZWdtZW50UnVsZXMSPQoLdXBwZXJfYm91bmQYAyABKAsy",
+            "KC5zZXJ2aWNlX2xheWVyLlNMU3JVcHBlckJvdW5kQ29uc3RyYWludHMiiwEK",
+            "ElNMU3JTcnY2QmluZGluZ1NJRBIwCghleHBsaWNpdBgBIAEoCzIcLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xTUnY2U0lESW5mb0gAEjsKB2R5bmFtaWMYAiABKAsyKC5z",
+            "ZXJ2aWNlX2xheWVyLlNMU3JTcnY2RHluYW1pY0JpbmRpbmdTSURIAEIGCgR0",
+            "eXBlIjoKElNMU3JNUExTQmluZGluZ1NJRBIWCgltcGxzX2JzaWQYASABKA1I",
+            "AIgBAUIMCgpfbXBsc19ic2lkIjsKGVNMU3JTcnY2RHluYW1pY0JpbmRpbmdT",
+            "SUQSHgoWc3J2Nl9lbmRwb2ludF9iZWhhdmlvchgBIAEoDSI6ChhTTFNyU3J2",
+            "NlBvbGljeUF0dHJpYnV0ZXMSHgoWaW5zdGFsbF9maW5hbF9ub2RlX3NpZBgB",
+            "IAEoCDJeCgxTTFNydGVQb2xpY3kSTgoMU0xTclBvbGljeU9wEhwuc2Vydmlj",
+            "ZV9sYXllci5TTFNyUG9saWN5TXNnGhwuc2VydmljZV9sYXllci5TTFNyUG9s",
+            "aWN5UnNwKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIv",
+            "c2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xh",
+            "eWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -91,7 +90,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrEndOfReplay), global::ServiceLayer.SLSrEndOfReplay.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrStartOfReplay), global::ServiceLayer.SLSrStartOfReplay.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicy), global::ServiceLayer.SLSrPolicy.Parser, new[]{ "OperationId", "Key", "Attrs", "CPs" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyAttributes), global::ServiceLayer.SLSrPolicyAttributes.Parser, new[]{ "TransitEligible", "Dataplane", "MplsBsid", "Srv6Bsids", "ProfileId", "Srv6Attrs" }, new[]{ "Srv6Attrs" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyAttributes), global::ServiceLayer.SLSrPolicyAttributes.Parser, new[]{ "TransitEligible", "Dataplane", "MplsBsid", "Srv6Bsids", "ProfileId", "Srv6Attrs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCandidatePath), global::ServiceLayer.SLSrCandidatePath.Parser, new[]{ "Key", "Name", "Preference", "Dynamic", "Explicit" }, new[]{ "CP", "Preference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList", "MetricType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "MetricType", "Constraints" }, null, null, null, null),
@@ -99,7 +98,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6BindingSID), global::ServiceLayer.SLSrSrv6BindingSID.Parser, new[]{ "Explicit", "Dynamic" }, new[]{ "Type" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrMPLSBindingSID), global::ServiceLayer.SLSrMPLSBindingSID.Parser, new[]{ "MplsBsid" }, new[]{ "MplsBsid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6DynamicBindingSID), global::ServiceLayer.SLSrSrv6DynamicBindingSID.Parser, new[]{ "Srv6EndpointBehavior" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6PolicyAttributes), global::ServiceLayer.SLSrSrv6PolicyAttributes.Parser, new[]{ "InstallFinalNodeSid" }, new[]{ "InstallFinalNodeSid" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSrv6PolicyAttributes), global::ServiceLayer.SLSrSrv6PolicyAttributes.Parser, new[]{ "InstallFinalNodeSid" }, null, null, null, null)
           }));
     }
     #endregion
@@ -2572,6 +2571,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLSrSrv6PolicyAttributes srv6Attrs_;
     /// <summary>
     /// Attributes specific to SRv6 policies.
+    /// Request will be rejected if srv6_attrs is set for non-SRv6 dataplane.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4867,7 +4867,6 @@ namespace ServiceLayer {
   {
     private static readonly pb::MessageParser<SLSrSrv6PolicyAttributes> _parser = new pb::MessageParser<SLSrSrv6PolicyAttributes>(() => new SLSrSrv6PolicyAttributes());
     private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SLSrSrv6PolicyAttributes> Parser { get { return _parser; } }
@@ -4895,7 +4894,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrSrv6PolicyAttributes(SLSrSrv6PolicyAttributes other) : this() {
-      _hasBits0 = other._hasBits0;
       installFinalNodeSid_ = other.installFinalNodeSid_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -4908,8 +4906,6 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "install_final_node_sid" field.</summary>
     public const int InstallFinalNodeSidFieldNumber = 1;
-    private readonly static bool InstallFinalNodeSidDefaultValue = false;
-
     private bool installFinalNodeSid_;
     /// <summary>
     /// When the final segment in a segment list is a node SID, it is suppressed
@@ -4919,23 +4915,10 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool InstallFinalNodeSid {
-      get { if ((_hasBits0 & 1) != 0) { return installFinalNodeSid_; } else { return InstallFinalNodeSidDefaultValue; } }
+      get { return installFinalNodeSid_; }
       set {
-        _hasBits0 |= 1;
         installFinalNodeSid_ = value;
       }
-    }
-    /// <summary>Gets whether the "install_final_node_sid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasInstallFinalNodeSid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "install_final_node_sid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearInstallFinalNodeSid() {
-      _hasBits0 &= ~1;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4961,7 +4944,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasInstallFinalNodeSid) hash ^= InstallFinalNodeSid.GetHashCode();
+      if (InstallFinalNodeSid != false) hash ^= InstallFinalNodeSid.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4980,7 +4963,7 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasInstallFinalNodeSid) {
+      if (InstallFinalNodeSid != false) {
         output.WriteRawTag(8);
         output.WriteBool(InstallFinalNodeSid);
       }
@@ -4994,7 +4977,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasInstallFinalNodeSid) {
+      if (InstallFinalNodeSid != false) {
         output.WriteRawTag(8);
         output.WriteBool(InstallFinalNodeSid);
       }
@@ -5008,7 +4991,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasInstallFinalNodeSid) {
+      if (InstallFinalNodeSid != false) {
         size += 1 + 1;
       }
       if (_unknownFields != null) {
@@ -5023,7 +5006,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.HasInstallFinalNodeSid) {
+      if (other.InstallFinalNodeSid != false) {
         InstallFinalNodeSid = other.InstallFinalNodeSid;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
