@@ -162,8 +162,6 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_ROUTE_DB_NOMEM = 16402,
   SLErrorStatus_SLErrno_SL_ROUTE_INVALID_LOCAL_LABEL = 16403,
   SLErrorStatus_SLErrno_SL_ROUTE_INVALID_FLAGS = 16404,
-  SLErrorStatus_SLErrno_SL_ROUTE_INVALID_PRIORITY = 16405,
-  SLErrorStatus_SLErrno_SL_ROUTE_INVALID_METRIC = 16406,
   SLErrorStatus_SLErrno_SL_PATH_START_OFFSET = 20480,
   SLErrorStatus_SLErrno_SL_PATH_NH_NO_TABLE = 20481,
   SLErrorStatus_SLErrno_SL_PATH_NH_INTF_NOT_FOUND = 20482,
@@ -1041,10 +1039,6 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_ROUTE_INVALID_LOCAL_LABEL;
   static constexpr SLErrno SL_ROUTE_INVALID_FLAGS =
     SLErrorStatus_SLErrno_SL_ROUTE_INVALID_FLAGS;
-  static constexpr SLErrno SL_ROUTE_INVALID_PRIORITY =
-    SLErrorStatus_SLErrno_SL_ROUTE_INVALID_PRIORITY;
-  static constexpr SLErrno SL_ROUTE_INVALID_METRIC =
-    SLErrorStatus_SLErrno_SL_ROUTE_INVALID_METRIC;
   static constexpr SLErrno SL_PATH_START_OFFSET =
     SLErrorStatus_SLErrno_SL_PATH_START_OFFSET;
   static constexpr SLErrno SL_PATH_NH_NO_TABLE =

@@ -419,10 +419,6 @@ message SLMplsEntry {
     //
     // Others - Reserved.
     repeated SLRouteFlags MplsFlags = 4;
-
-    // Each entry can have priority value, this priority value may be used
-    // in internal queuing of routes while programming the data-plane
-    SLUpdatePriority Priority = 5;
 }
 
 // SL IPv4 or IPv6 Unicast Route Object
