@@ -67,7 +67,7 @@ namespace ServiceLayer {
             "ZHJlc3MYAiABKAwSFgoORGVzdE1hY0FkZHJlc3MYAyABKAwSMAoMU3JjSXBB",
             "ZGRyZXNzGAQgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxIxCg1E",
             "ZXN0SXBBZGRyZXNzGAUgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVz",
-            "cyKhBAoLU0xSb3V0ZVBhdGgSMgoOTmV4dGhvcEFkZHJlc3MYASABKAsyGi5z",
+            "cyK2BAoLU0xSb3V0ZVBhdGgSMgoOTmV4dGhvcEFkZHJlc3MYASABKAsyGi5z",
             "ZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEjQKEE5leHRob3BJbnRlcmZhY2UY",
             "AiABKAsyGi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlEhIKCkxvYWRNZXRy",
             "aWMYAyABKA0SDwoHVnJmTmFtZRgEIAEoCRIOCgZQYXRoSWQYBiABKA0SGwoT",
@@ -78,22 +78,31 @@ namespace ServiceLayer {
             "ARItCglWeExBTlBhdGgYDCABKAsyGi5zZXJ2aWNlX2xheWVyLlNMVnhMQU5Q",
             "YXRoEi0KCVBhdGhGbGFncxgOIAMoDjIaLnNlcnZpY2VfbGF5ZXIuU0xQYXRo",
             "RmxhZ3MSOAoMUGF0aEdyb3VwS2V5GA8gASgLMiAuc2VydmljZV9sYXllci5T",
-            "TFBhdGhHcm91cFJlZktleUgAQgcKBWVudHJ5SgQIDRAOSgQIBRAGUgVGbGFn",
-            "c1IGTWV0cmljIk4KDVNMUm91dGVQcmVmaXgSKgoGUHJlZml4GAEgASgLMhou",
-            "c2VydmljZV9sYXllci5TTElwQWRkcmVzcxIRCglQcmVmaXhMZW4YAiABKA0q",
-            "ygEKC1NMTm90aWZUeXBlEhoKFlNMX0VWRU5UX1RZUEVfUkVTRVJWRUQQABIX",
-            "ChNTTF9FVkVOVF9UWVBFX0VSUk9SEAESGAoUU0xfRVZFTlRfVFlQRV9TVEFU",
-            "VVMQAhIXChNTTF9FVkVOVF9UWVBFX1JPVVRFEAMSHgoaU0xfRVZFTlRfVFlQ",
-            "RV9TVEFSVF9NQVJLRVIQBBIcChhTTF9FVkVOVF9UWVBFX0VORF9NQVJLRVIQ",
-            "BRIVChFTTF9FVkVOVF9UWVBFX1ZSRhAGKsIBCgxTTFJvdXRlRmxhZ3MSGgoW",
-            "U0xfUk9VVEVfRkxBR19SRVNFUlZFRBAAEiEKHVNMX1JPVVRFX0ZMQUdfUFJF",
-            "RkVSX09WRVJfTERQEAESJQohU0xfUk9VVEVfRkxBR19ESVNBQkxFX0xBQkVM",
-            "X01FUkdFEAISIwofU0xfUk9VVEVfRkxBR19WSUFCTEVfUEFUSFNfT05MWRAD",
-            "EicKI1NMX1JPVVRFX0ZMQUdfQUNUSVZFX09OX1ZJQUJMRV9QQVRIEAQqSgoL",
-            "U0xQYXRoRmxhZ3MSGQoVU0xfUEFUSF9GTEFHX1JFU0VSVkVEEAASIAocU0xf",
-            "UEFUSF9GTEFHX1NJTkdMRV9QQVRIX09QVBABQlFaT2dpdGh1Yi5jb20vQ2lz",
-            "Y28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMv",
-            "cHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "TFBhdGhHcm91cFJlZktleUgAEhMKC0JhY2t1cEluZGV4GBAgAygNQgcKBWVu",
+            "dHJ5SgQIDRAOSgQIBRAGUgVGbGFnc1IGTWV0cmljIroCCgtTTFBhdGhHcm91",
+            "cBIuCgtQYXRoR3JvdXBJZBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xPYmpl",
+            "Y3RJZBIVCg1BZG1pbkRpc3RhbmNlGAIgASgNEjkKCFBhdGhMaXN0GAMgASgL",
+            "MiUuc2VydmljZV9sYXllci5TTFBhdGhHcm91cC5TTFBhdGhMaXN0SAASLAoH",
+            "UGdGbGFncxgEIAMoDjIbLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZUZsYWdzGjIK",
+            "BlNMUGF0aBIoCgRQYXRoGAEgASgLMhouc2VydmljZV9sYXllci5TTFJvdXRl",
+            "UGF0aBo+CgpTTFBhdGhMaXN0EjAKBVBhdGhzGAEgAygLMiEuc2VydmljZV9s",
+            "YXllci5TTFBhdGhHcm91cC5TTFBhdGhCBwoFZW50cnkiTgoNU0xSb3V0ZVBy",
+            "ZWZpeBIqCgZQcmVmaXgYASABKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRy",
+            "ZXNzEhEKCVByZWZpeExlbhgCIAEoDSrKAQoLU0xOb3RpZlR5cGUSGgoWU0xf",
+            "RVZFTlRfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0VWRU5UX1RZUEVfRVJST1IQ",
+            "ARIYChRTTF9FVkVOVF9UWVBFX1NUQVRVUxACEhcKE1NMX0VWRU5UX1RZUEVf",
+            "Uk9VVEUQAxIeChpTTF9FVkVOVF9UWVBFX1NUQVJUX01BUktFUhAEEhwKGFNM",
+            "X0VWRU5UX1RZUEVfRU5EX01BUktFUhAFEhUKEVNMX0VWRU5UX1RZUEVfVlJG",
+            "EAYq4wEKDFNMUm91dGVGbGFncxIaChZTTF9ST1VURV9GTEFHX1JFU0VSVkVE",
+            "EAASIQodU0xfUk9VVEVfRkxBR19QUkVGRVJfT1ZFUl9MRFAQARIlCiFTTF9S",
+            "T1VURV9GTEFHX0RJU0FCTEVfTEFCRUxfTUVSR0UQAhIjCh9TTF9ST1VURV9G",
+            "TEFHX1ZJQUJMRV9QQVRIU19PTkxZEAMSJwojU0xfUk9VVEVfRkxBR19BQ1RJ",
+            "VkVfT05fVklBQkxFX1BBVEgQBBIfChtTTF9ST1VURV9GTEFHX0ZSUl9QQVRI",
+            "R1JPVVAQBSpjCgtTTFBhdGhGbGFncxIZChVTTF9QQVRIX0ZMQUdfUkVTRVJW",
+            "RUQQABIgChxTTF9QQVRIX0ZMQUdfU0lOR0xFX1BBVEhfT1BUEAESFwoTU0xf",
+            "UEFUSF9GTEFHX0JBQ0tVUBADQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2Vydmlj",
+            "ZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3Nl",
+            "cnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -115,7 +124,9 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVrfNotif), global::ServiceLayer.SLVrfNotif.Parser, new[]{ "VrfName", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteCommon), global::ServiceLayer.SLRouteCommon.Parser, new[]{ "AdminDistance", "LocalLabel", "Tag", "SrcProto", "SrcProtoTag", "RouteFlags", "Metric", "Priority" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVxLANPath), global::ServiceLayer.SLVxLANPath.Parser, new[]{ "VNI", "SourceMacAddress", "DestMacAddress", "SrcIpAddress", "DestIpAddress" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePath), global::ServiceLayer.SLRoutePath.Parser, new[]{ "NexthopAddress", "NexthopInterface", "LoadMetric", "VrfName", "PathId", "ProtectedPathBitmap", "LabelStack", "RemoteAddress", "EncapType", "VtepRouterMacAddress", "VxLANPath", "PathFlags", "PathGroupKey" }, new[]{ "Entry" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePath), global::ServiceLayer.SLRoutePath.Parser, new[]{ "NexthopAddress", "NexthopInterface", "LoadMetric", "VrfName", "PathId", "ProtectedPathBitmap", "LabelStack", "RemoteAddress", "EncapType", "VtepRouterMacAddress", "VxLANPath", "PathFlags", "PathGroupKey", "BackupIndex" }, new[]{ "Entry" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup), global::ServiceLayer.SLPathGroup.Parser, new[]{ "PathGroupId", "AdminDistance", "PathList", "PgFlags" }, new[]{ "Entry" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPath), global::ServiceLayer.SLPathGroup.Types.SLPath.Parser, new[]{ "Path" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPathList), global::ServiceLayer.SLPathGroup.Types.SLPathList.Parser, new[]{ "Paths" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePrefix), global::ServiceLayer.SLRoutePrefix.Parser, new[]{ "Prefix", "PrefixLen" }, null, null, null, null)
           }));
     }
@@ -164,7 +175,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Flags to control programming of the route and Path Group to 
+  /// Flags to control programming of the route and Path Group to
   /// Routing Information Base.
   /// Each flag is indicated as a bit field. Supported values are:
   /// </summary>
@@ -193,6 +204,11 @@ namespace ServiceLayer {
     /// See text in SLRoutecommon/PathGroup for more details.
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH")] SlRouteFlagActiveOnViablePath = 4,
+    /// <summary>
+    /// This flag is applicable only to SLPathGroup object-type and defines a pure backup
+    /// path-group for FRR applications.
+    /// </summary>
+    [pbr::OriginalName("SL_ROUTE_FLAG_FRR_PATHGROUP")] SlRouteFlagFrrPathgroup = 5,
   }
 
   /// <summary>
@@ -208,6 +224,10 @@ namespace ServiceLayer {
     /// Enables hardware optimization for single path VxLAN tunnels.
     /// </summary>
     [pbr::OriginalName("SL_PATH_FLAG_SINGLE_PATH_OPT")] InglePathOpt = 1,
+    /// <summary>
+    /// This path is a pure backup that's protecting another path
+    /// </summary>
+    [pbr::OriginalName("SL_PATH_FLAG_BACKUP")] SlPathFlagBackup = 3,
   }
 
   #endregion
@@ -5382,6 +5402,7 @@ namespace ServiceLayer {
       vtepRouterMacAddress_ = other.vtepRouterMacAddress_;
       vxLANPath_ = other.vxLANPath_ != null ? other.vxLANPath_.Clone() : null;
       pathFlags_ = other.pathFlags_.Clone();
+      backupIndex_ = other.backupIndex_.Clone();
       switch (other.EntryCase) {
         case EntryOneofCase.PathGroupKey:
           PathGroupKey = other.PathGroupKey.Clone();
@@ -5419,7 +5440,7 @@ namespace ServiceLayer {
     /// <summary>
     /// Outgoing interface name for the path.
     /// For ENCAP_VXLAN, this field is not supported and will be ignored.
-    /// The client should listen to interface state change API for create/delete 
+    /// The client should listen to interface state change API for create/delete
     /// and reprogram the route or PG.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5441,6 +5462,10 @@ namespace ServiceLayer {
     /// route, MPLS label or PathGroup must have a value of 0. For
     /// unequal cost load balancing, all paths must have non-zero value
     /// otherwise system defaults to equal cost load balancing.
+    /// Alternatively for unequal cost load balancing, paths that need to
+    /// take more load can be repeated as many times within the list, but in such
+    /// case the LoadMetric is recommended to be set to 1 for all paths in the
+    /// PathList for operational simplicity.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5660,6 +5685,37 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "BackupIndex" field.</summary>
+    public const int BackupIndexFieldNumber = 16;
+    private static readonly pb::FieldCodec<uint> _repeated_backupIndex_codec
+        = pb::FieldCodec.ForUInt32(130);
+    private readonly pbc::RepeatedField<uint> backupIndex_ = new pbc::RepeatedField<uint>();
+    /// <summary>
+    /// BackupIndex identifies the backup SLRoutePath object that is protecting this
+    /// SLRoutePath object. This object then becomes the "primary" path and the SLRoutePath
+    /// at index identified by BackupIndex is the "backup" to this SLRoutePath.
+    ///
+    /// BackupIndex is the position of the backup SLRoutePath object in the parent PathList that this object
+    /// is also part of.
+    /// The PathList indices start with 1 i.e. the first element is at index 1 and not 0 (0 is reserved).
+    ///
+    /// BackupIndex is supported only when the following objects reference the PathList
+    ///    SLPathGroup
+    ///    SLMplsEntry
+    ///    SLAFIPRoute
+    ///
+    /// Backup SLRoutePath referenced through BackupIndex object MUST be either
+    /// a) pure backup path with SL_PATH_FLAG_BACKUP set
+    /// b) pure backup PathGroup with SL_ROUTE_FLAG_FRR_PATHGROUP set
+    ///
+    /// We only support a maximum of one BackupIndex per SLRoutePath at this time.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> BackupIndex {
+      get { return backupIndex_; }
+    }
+
     private object entry_;
     /// <summary>Enum of possible cases for the "entry" oneof.</summary>
     public enum EntryOneofCase {
@@ -5708,6 +5764,7 @@ namespace ServiceLayer {
       if (!object.Equals(VxLANPath, other.VxLANPath)) return false;
       if(!pathFlags_.Equals(other.pathFlags_)) return false;
       if (!object.Equals(PathGroupKey, other.PathGroupKey)) return false;
+      if(!backupIndex_.Equals(other.backupIndex_)) return false;
       if (EntryCase != other.EntryCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -5729,6 +5786,7 @@ namespace ServiceLayer {
       if (vxLANPath_ != null) hash ^= VxLANPath.GetHashCode();
       hash ^= pathFlags_.GetHashCode();
       if (entryCase_ == EntryOneofCase.PathGroupKey) hash ^= PathGroupKey.GetHashCode();
+      hash ^= backupIndex_.GetHashCode();
       hash ^= (int) entryCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -5788,6 +5846,7 @@ namespace ServiceLayer {
         output.WriteRawTag(122);
         output.WriteMessage(PathGroupKey);
       }
+      backupIndex_.WriteTo(output, _repeated_backupIndex_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5838,6 +5897,7 @@ namespace ServiceLayer {
         output.WriteRawTag(122);
         output.WriteMessage(PathGroupKey);
       }
+      backupIndex_.WriteTo(ref output, _repeated_backupIndex_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5879,6 +5939,7 @@ namespace ServiceLayer {
       if (entryCase_ == EntryOneofCase.PathGroupKey) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathGroupKey);
       }
+      size += backupIndex_.CalculateSize(_repeated_backupIndex_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -5928,6 +5989,7 @@ namespace ServiceLayer {
         VxLANPath.MergeFrom(other.VxLANPath);
       }
       pathFlags_.Add(other.pathFlags_);
+      backupIndex_.Add(other.backupIndex_);
       switch (other.EntryCase) {
         case EntryOneofCase.PathGroupKey:
           if (PathGroupKey == null) {
@@ -6025,6 +6087,11 @@ namespace ServiceLayer {
             PathGroupKey = subBuilder;
             break;
           }
+          case 130:
+          case 128: {
+            backupIndex_.AddEntriesFrom(input, _repeated_backupIndex_codec);
+            break;
+          }
         }
       }
     #endif
@@ -6113,10 +6180,830 @@ namespace ServiceLayer {
             PathGroupKey = subBuilder;
             break;
           }
+          case 130:
+          case 128: {
+            backupIndex_.AddEntriesFrom(ref input, _repeated_backupIndex_codec);
+            break;
+          }
         }
       }
     }
     #endif
+
+  }
+
+  /// <summary>
+  /// Path Group definition.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SLPathGroup : pb::IMessage<SLPathGroup>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLPathGroup> _parser = new pb::MessageParser<SLPathGroup>(() => new SLPathGroup());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLPathGroup> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlRouteCommonReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLPathGroup() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLPathGroup(SLPathGroup other) : this() {
+      pathGroupId_ = other.pathGroupId_ != null ? other.pathGroupId_.Clone() : null;
+      adminDistance_ = other.adminDistance_;
+      pgFlags_ = other.pgFlags_.Clone();
+      switch (other.EntryCase) {
+        case EntryOneofCase.PathList:
+          PathList = other.PathList.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLPathGroup Clone() {
+      return new SLPathGroup(this);
+    }
+
+    /// <summary>Field number for the "PathGroupId" field.</summary>
+    public const int PathGroupIdFieldNumber = 1;
+    private global::ServiceLayer.SLObjectId pathGroupId_;
+    /// <summary>
+    /// Path Group ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLObjectId PathGroupId {
+      get { return pathGroupId_; }
+      set {
+        pathGroupId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AdminDistance" field.</summary>
+    public const int AdminDistanceFieldNumber = 2;
+    private uint adminDistance_;
+    /// <summary>
+    /// Administrative distance of the Path Group. [0-255].
+    /// RIB uses this field to break the tie when multiple
+    /// sources install the same Path Group.
+    /// Lower distance is preferred over higher distance.
+    /// The per path group object admin distance overrides the default admin
+    /// distance set at VRF registration. see SLVrfReg.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint AdminDistance {
+      get { return adminDistance_; }
+      set {
+        adminDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PathList" field.</summary>
+    public const int PathListFieldNumber = 3;
+    /// <summary>
+    /// Path List
+    /// Specifying more than one path is allowed for ECMP/UCMP/FRR cases.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLPathGroup.Types.SLPathList PathList {
+      get { return entryCase_ == EntryOneofCase.PathList ? (global::ServiceLayer.SLPathGroup.Types.SLPathList) entry_ : null; }
+      set {
+        entry_ = value;
+        entryCase_ = value == null ? EntryOneofCase.None : EntryOneofCase.PathList;
+      }
+    }
+
+    /// <summary>Field number for the "PgFlags" field.</summary>
+    public const int PgFlagsFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLRouteFlags> _repeated_pgFlags_codec
+        = pb::FieldCodec.ForEnum(34, x => (int) x, x => (global::ServiceLayer.SLRouteFlags) x);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLRouteFlags> pgFlags_ = new pbc::RepeatedField<global::ServiceLayer.SLRouteFlags>();
+    /// <summary>
+    /// Flags to control programming of the PathGroup to Routing
+    /// Information Base. See SLRouteFlags for flag enumerations.
+    /// Supported values are:
+    ///
+    /// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
+    /// - If the flag is not set, all paths in the PathList are installed in
+    ///   the PathGroup's load balance group, even if paths are unviable.
+    ///   The Network element does not automatically update the PathGroup's
+    ///   load balance group when path viability changes and
+    ///   expects the client to take corrective action.
+    ///
+    /// - If the flag is set, the network element only installs viable
+    ///   paths from the PathList in the PathGroup's load balance group.
+    ///   The Network element also automatically updates the PathGroup's
+    ///   load balance group when path viability changes.
+    ///
+    /// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH.
+    /// - If this flag is not set, routes and MPLS entries referencing
+    ///   this PathGroup are considered active if they are preferred
+    ///   based on their administrative distance. PathGroup's viability
+    ///   is not considered as a criterion to determine the routes' and
+    ///   MPLS entries' activeness. The network element does not automatically
+    ///   promote or demote the routes and MPLS entries as viability of the
+    ///   PathGroup changes.
+    ///
+    /// - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
+    ///   be set. The routes and MPLS entries referencing this PathGroup are
+    ///   considered active if they are preferred based
+    ///   on their administrative distance AND viability of the PathGroup.
+    ///   At least one path in the PathGroup must be viable for the
+    ///   PathGroup to be viable. The network element automatically promotes or
+    ///   demotes the routes and MPLS entries as viability of the PathGroup
+    ///   changes.
+    /// SL_ROUTE_FLAG_FRR_PATHGROUP
+    /// - If this flag is set, this PathGroup object provides backup path to one or more path/pathgroups.
+    ///   PathGroup with this flag set will be considered as pure backup.
+    ///
+    /// Others - Reserved.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLRouteFlags> PgFlags {
+      get { return pgFlags_; }
+    }
+
+    private object entry_;
+    /// <summary>Enum of possible cases for the "entry" oneof.</summary>
+    public enum EntryOneofCase {
+      None = 0,
+      PathList = 3,
+    }
+    private EntryOneofCase entryCase_ = EntryOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EntryOneofCase EntryCase {
+      get { return entryCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEntry() {
+      entryCase_ = EntryOneofCase.None;
+      entry_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLPathGroup);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLPathGroup other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(PathGroupId, other.PathGroupId)) return false;
+      if (AdminDistance != other.AdminDistance) return false;
+      if (!object.Equals(PathList, other.PathList)) return false;
+      if(!pgFlags_.Equals(other.pgFlags_)) return false;
+      if (EntryCase != other.EntryCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (pathGroupId_ != null) hash ^= PathGroupId.GetHashCode();
+      if (AdminDistance != 0) hash ^= AdminDistance.GetHashCode();
+      if (entryCase_ == EntryOneofCase.PathList) hash ^= PathList.GetHashCode();
+      hash ^= pgFlags_.GetHashCode();
+      hash ^= (int) entryCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (pathGroupId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(PathGroupId);
+      }
+      if (AdminDistance != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(AdminDistance);
+      }
+      if (entryCase_ == EntryOneofCase.PathList) {
+        output.WriteRawTag(26);
+        output.WriteMessage(PathList);
+      }
+      pgFlags_.WriteTo(output, _repeated_pgFlags_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (pathGroupId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(PathGroupId);
+      }
+      if (AdminDistance != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(AdminDistance);
+      }
+      if (entryCase_ == EntryOneofCase.PathList) {
+        output.WriteRawTag(26);
+        output.WriteMessage(PathList);
+      }
+      pgFlags_.WriteTo(ref output, _repeated_pgFlags_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (pathGroupId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathGroupId);
+      }
+      if (AdminDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AdminDistance);
+      }
+      if (entryCase_ == EntryOneofCase.PathList) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathList);
+      }
+      size += pgFlags_.CalculateSize(_repeated_pgFlags_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLPathGroup other) {
+      if (other == null) {
+        return;
+      }
+      if (other.pathGroupId_ != null) {
+        if (pathGroupId_ == null) {
+          PathGroupId = new global::ServiceLayer.SLObjectId();
+        }
+        PathGroupId.MergeFrom(other.PathGroupId);
+      }
+      if (other.AdminDistance != 0) {
+        AdminDistance = other.AdminDistance;
+      }
+      pgFlags_.Add(other.pgFlags_);
+      switch (other.EntryCase) {
+        case EntryOneofCase.PathList:
+          if (PathList == null) {
+            PathList = new global::ServiceLayer.SLPathGroup.Types.SLPathList();
+          }
+          PathList.MergeFrom(other.PathList);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (pathGroupId_ == null) {
+              PathGroupId = new global::ServiceLayer.SLObjectId();
+            }
+            input.ReadMessage(PathGroupId);
+            break;
+          }
+          case 16: {
+            AdminDistance = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLPathGroup.Types.SLPathList subBuilder = new global::ServiceLayer.SLPathGroup.Types.SLPathList();
+            if (entryCase_ == EntryOneofCase.PathList) {
+              subBuilder.MergeFrom(PathList);
+            }
+            input.ReadMessage(subBuilder);
+            PathList = subBuilder;
+            break;
+          }
+          case 34:
+          case 32: {
+            pgFlags_.AddEntriesFrom(input, _repeated_pgFlags_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (pathGroupId_ == null) {
+              PathGroupId = new global::ServiceLayer.SLObjectId();
+            }
+            input.ReadMessage(PathGroupId);
+            break;
+          }
+          case 16: {
+            AdminDistance = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLPathGroup.Types.SLPathList subBuilder = new global::ServiceLayer.SLPathGroup.Types.SLPathList();
+            if (entryCase_ == EntryOneofCase.PathList) {
+              subBuilder.MergeFrom(PathList);
+            }
+            input.ReadMessage(subBuilder);
+            PathList = subBuilder;
+            break;
+          }
+          case 34:
+          case 32: {
+            pgFlags_.AddEntriesFrom(ref input, _repeated_pgFlags_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the SLPathGroup message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+      public sealed partial class SLPath : pb::IMessage<SLPath>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<SLPath> _parser = new pb::MessageParser<SLPath>(() => new SLPath());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<SLPath> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::ServiceLayer.SLPathGroup.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLPath() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLPath(SLPath other) : this() {
+          path_ = other.path_ != null ? other.path_.Clone() : null;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLPath Clone() {
+          return new SLPath(this);
+        }
+
+        /// <summary>Field number for the "Path" field.</summary>
+        public const int PathFieldNumber = 1;
+        private global::ServiceLayer.SLRoutePath path_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::ServiceLayer.SLRoutePath Path {
+          get { return path_; }
+          set {
+            path_ = value;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as SLPath);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(SLPath other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (!object.Equals(Path, other.Path)) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (path_ != null) hash ^= Path.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (path_ != null) {
+            output.WriteRawTag(10);
+            output.WriteMessage(Path);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (path_ != null) {
+            output.WriteRawTag(10);
+            output.WriteMessage(Path);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (path_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Path);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(SLPath other) {
+          if (other == null) {
+            return;
+          }
+          if (other.path_ != null) {
+            if (path_ == null) {
+              Path = new global::ServiceLayer.SLRoutePath();
+            }
+            Path.MergeFrom(other.Path);
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                if (path_ == null) {
+                  Path = new global::ServiceLayer.SLRoutePath();
+                }
+                input.ReadMessage(Path);
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                if (path_ == null) {
+                  Path = new global::ServiceLayer.SLRoutePath();
+                }
+                input.ReadMessage(Path);
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+      /// <summary>
+      /// A list of SLPathList
+      /// </summary>
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+      public sealed partial class SLPathList : pb::IMessage<SLPathList>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<SLPathList> _parser = new pb::MessageParser<SLPathList>(() => new SLPathList());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<SLPathList> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::ServiceLayer.SLPathGroup.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLPathList() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLPathList(SLPathList other) : this() {
+          paths_ = other.paths_.Clone();
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLPathList Clone() {
+          return new SLPathList(this);
+        }
+
+        /// <summary>Field number for the "Paths" field.</summary>
+        public const int PathsFieldNumber = 1;
+        private static readonly pb::FieldCodec<global::ServiceLayer.SLPathGroup.Types.SLPath> _repeated_paths_codec
+            = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLPathGroup.Types.SLPath.Parser);
+        private readonly pbc::RepeatedField<global::ServiceLayer.SLPathGroup.Types.SLPath> paths_ = new pbc::RepeatedField<global::ServiceLayer.SLPathGroup.Types.SLPath>();
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public pbc::RepeatedField<global::ServiceLayer.SLPathGroup.Types.SLPath> Paths {
+          get { return paths_; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as SLPathList);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(SLPathList other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if(!paths_.Equals(other.paths_)) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          hash ^= paths_.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          paths_.WriteTo(output, _repeated_paths_codec);
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          paths_.WriteTo(ref output, _repeated_paths_codec);
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          size += paths_.CalculateSize(_repeated_paths_codec);
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(SLPathList other) {
+          if (other == null) {
+            return;
+          }
+          paths_.Add(other.paths_);
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                paths_.AddEntriesFrom(input, _repeated_paths_codec);
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                paths_.AddEntriesFrom(ref input, _repeated_paths_codec);
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+    }
+    #endregion
 
   }
 
@@ -6138,7 +7025,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlRouteCommonReflection.Descriptor.MessageTypes[19]; }
+      get { return global::ServiceLayer.SlRouteCommonReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -49,7 +49,7 @@ struct TableStruct_sl_5froute_5fcommon_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[23]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -57,6 +57,15 @@ struct TableStruct_sl_5froute_5fcommon_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto;
 namespace service_layer {
+class SLPathGroup;
+struct SLPathGroupDefaultTypeInternal;
+extern SLPathGroupDefaultTypeInternal _SLPathGroup_default_instance_;
+class SLPathGroup_SLPath;
+struct SLPathGroup_SLPathDefaultTypeInternal;
+extern SLPathGroup_SLPathDefaultTypeInternal _SLPathGroup_SLPath_default_instance_;
+class SLPathGroup_SLPathList;
+struct SLPathGroup_SLPathListDefaultTypeInternal;
+extern SLPathGroup_SLPathListDefaultTypeInternal _SLPathGroup_SLPathList_default_instance_;
 class SLRouteCommon;
 struct SLRouteCommonDefaultTypeInternal;
 extern SLRouteCommonDefaultTypeInternal _SLRouteCommon_default_instance_;
@@ -119,6 +128,9 @@ struct SLVxLANPathDefaultTypeInternal;
 extern SLVxLANPathDefaultTypeInternal _SLVxLANPath_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
+template<> ::service_layer::SLPathGroup* Arena::CreateMaybeMessage<::service_layer::SLPathGroup>(Arena*);
+template<> ::service_layer::SLPathGroup_SLPath* Arena::CreateMaybeMessage<::service_layer::SLPathGroup_SLPath>(Arena*);
+template<> ::service_layer::SLPathGroup_SLPathList* Arena::CreateMaybeMessage<::service_layer::SLPathGroup_SLPathList>(Arena*);
 template<> ::service_layer::SLRouteCommon* Arena::CreateMaybeMessage<::service_layer::SLRouteCommon>(Arena*);
 template<> ::service_layer::SLRouteGetNotifMsg* Arena::CreateMaybeMessage<::service_layer::SLRouteGetNotifMsg>(Arena*);
 template<> ::service_layer::SLRouteGlobalStatsGetMsg* Arena::CreateMaybeMessage<::service_layer::SLRouteGlobalStatsGetMsg>(Arena*);
@@ -178,12 +190,13 @@ enum SLRouteFlags : int {
   SL_ROUTE_FLAG_DISABLE_LABEL_MERGE = 2,
   SL_ROUTE_FLAG_VIABLE_PATHS_ONLY = 3,
   SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 4,
+  SL_ROUTE_FLAG_FRR_PATHGROUP = 5,
   SLRouteFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRouteFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRouteFlags_IsValid(int value);
 constexpr SLRouteFlags SLRouteFlags_MIN = SL_ROUTE_FLAG_RESERVED;
-constexpr SLRouteFlags SLRouteFlags_MAX = SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH;
+constexpr SLRouteFlags SLRouteFlags_MAX = SL_ROUTE_FLAG_FRR_PATHGROUP;
 constexpr int SLRouteFlags_ARRAYSIZE = SLRouteFlags_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRouteFlags_descriptor();
@@ -203,12 +216,13 @@ inline bool SLRouteFlags_Parse(
 enum SLPathFlags : int {
   SL_PATH_FLAG_RESERVED = 0,
   SL_PATH_FLAG_SINGLE_PATH_OPT = 1,
+  SL_PATH_FLAG_BACKUP = 3,
   SLPathFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLPathFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLPathFlags_IsValid(int value);
 constexpr SLPathFlags SLPathFlags_MIN = SL_PATH_FLAG_RESERVED;
-constexpr SLPathFlags SLPathFlags_MAX = SL_PATH_FLAG_SINGLE_PATH_OPT;
+constexpr SLPathFlags SLPathFlags_MAX = SL_PATH_FLAG_BACKUP;
 constexpr int SLPathFlags_ARRAYSIZE = SLPathFlags_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLPathFlags_descriptor();
@@ -3500,6 +3514,7 @@ class SLRoutePath final :
     kLabelStackFieldNumber = 8,
     kRemoteAddressFieldNumber = 9,
     kPathFlagsFieldNumber = 14,
+    kBackupIndexFieldNumber = 16,
     kVrfNameFieldNumber = 4,
     kVtepRouterMacAddressFieldNumber = 11,
     kNexthopAddressFieldNumber = 1,
@@ -3588,6 +3603,28 @@ class SLRoutePath final :
   void add_pathflags(::service_layer::SLPathFlags value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& pathflags() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_pathflags();
+
+  // repeated uint32 BackupIndex = 16;
+  int backupindex_size() const;
+  private:
+  int _internal_backupindex_size() const;
+  public:
+  void clear_backupindex();
+  private:
+  uint32_t _internal_backupindex(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_backupindex() const;
+  void _internal_add_backupindex(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_backupindex();
+  public:
+  uint32_t backupindex(int index) const;
+  void set_backupindex(int index, uint32_t value);
+  void add_backupindex(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      backupindex() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_backupindex();
 
   // string VrfName = 4;
   void clear_vrfname();
@@ -3736,6 +3773,8 @@ class SLRoutePath final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLIpAddress > remoteaddress_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> pathflags_;
   mutable std::atomic<int> _pathflags_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > backupindex_;
+  mutable std::atomic<int> _backupindex_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vteproutermacaddress_;
   ::service_layer::SLIpAddress* nexthopaddress_;
@@ -3748,6 +3787,542 @@ class SLRoutePath final :
     constexpr EntryUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
     ::service_layer::SLPathGroupRefKey* pathgroupkey_;
+  } entry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  uint32_t _oneof_case_[1];
+
+  friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLPathGroup_SLPath final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLPathGroup.SLPath) */ {
+ public:
+  inline SLPathGroup_SLPath() : SLPathGroup_SLPath(nullptr) {}
+  ~SLPathGroup_SLPath() override;
+  explicit constexpr SLPathGroup_SLPath(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLPathGroup_SLPath(const SLPathGroup_SLPath& from);
+  SLPathGroup_SLPath(SLPathGroup_SLPath&& from) noexcept
+    : SLPathGroup_SLPath() {
+    *this = ::std::move(from);
+  }
+
+  inline SLPathGroup_SLPath& operator=(const SLPathGroup_SLPath& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLPathGroup_SLPath& operator=(SLPathGroup_SLPath&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLPathGroup_SLPath& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLPathGroup_SLPath* internal_default_instance() {
+    return reinterpret_cast<const SLPathGroup_SLPath*>(
+               &_SLPathGroup_SLPath_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(SLPathGroup_SLPath& a, SLPathGroup_SLPath& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLPathGroup_SLPath* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLPathGroup_SLPath* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLPathGroup_SLPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLPathGroup_SLPath>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLPathGroup_SLPath& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLPathGroup_SLPath& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLPathGroup_SLPath* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLPathGroup.SLPath";
+  }
+  protected:
+  explicit SLPathGroup_SLPath(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathFieldNumber = 1,
+  };
+  // .service_layer.SLRoutePath Path = 1;
+  bool has_path() const;
+  private:
+  bool _internal_has_path() const;
+  public:
+  void clear_path();
+  const ::service_layer::SLRoutePath& path() const;
+  PROTOBUF_NODISCARD ::service_layer::SLRoutePath* release_path();
+  ::service_layer::SLRoutePath* mutable_path();
+  void set_allocated_path(::service_layer::SLRoutePath* path);
+  private:
+  const ::service_layer::SLRoutePath& _internal_path() const;
+  ::service_layer::SLRoutePath* _internal_mutable_path();
+  public:
+  void unsafe_arena_set_allocated_path(
+      ::service_layer::SLRoutePath* path);
+  ::service_layer::SLRoutePath* unsafe_arena_release_path();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLPathGroup.SLPath)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLRoutePath* path_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLPathGroup_SLPathList final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLPathGroup.SLPathList) */ {
+ public:
+  inline SLPathGroup_SLPathList() : SLPathGroup_SLPathList(nullptr) {}
+  ~SLPathGroup_SLPathList() override;
+  explicit constexpr SLPathGroup_SLPathList(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLPathGroup_SLPathList(const SLPathGroup_SLPathList& from);
+  SLPathGroup_SLPathList(SLPathGroup_SLPathList&& from) noexcept
+    : SLPathGroup_SLPathList() {
+    *this = ::std::move(from);
+  }
+
+  inline SLPathGroup_SLPathList& operator=(const SLPathGroup_SLPathList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLPathGroup_SLPathList& operator=(SLPathGroup_SLPathList&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLPathGroup_SLPathList& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLPathGroup_SLPathList* internal_default_instance() {
+    return reinterpret_cast<const SLPathGroup_SLPathList*>(
+               &_SLPathGroup_SLPathList_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(SLPathGroup_SLPathList& a, SLPathGroup_SLPathList& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLPathGroup_SLPathList* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLPathGroup_SLPathList* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLPathGroup_SLPathList* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLPathGroup_SLPathList>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLPathGroup_SLPathList& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLPathGroup_SLPathList& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLPathGroup_SLPathList* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLPathGroup.SLPathList";
+  }
+  protected:
+  explicit SLPathGroup_SLPathList(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathsFieldNumber = 1,
+  };
+  // repeated .service_layer.SLPathGroup.SLPath Paths = 1;
+  int paths_size() const;
+  private:
+  int _internal_paths_size() const;
+  public:
+  void clear_paths();
+  ::service_layer::SLPathGroup_SLPath* mutable_paths(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >*
+      mutable_paths();
+  private:
+  const ::service_layer::SLPathGroup_SLPath& _internal_paths(int index) const;
+  ::service_layer::SLPathGroup_SLPath* _internal_add_paths();
+  public:
+  const ::service_layer::SLPathGroup_SLPath& paths(int index) const;
+  ::service_layer::SLPathGroup_SLPath* add_paths();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >&
+      paths() const;
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLPathGroup.SLPathList)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath > paths_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLPathGroup final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLPathGroup) */ {
+ public:
+  inline SLPathGroup() : SLPathGroup(nullptr) {}
+  ~SLPathGroup() override;
+  explicit constexpr SLPathGroup(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLPathGroup(const SLPathGroup& from);
+  SLPathGroup(SLPathGroup&& from) noexcept
+    : SLPathGroup() {
+    *this = ::std::move(from);
+  }
+
+  inline SLPathGroup& operator=(const SLPathGroup& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLPathGroup& operator=(SLPathGroup&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLPathGroup& default_instance() {
+    return *internal_default_instance();
+  }
+  enum EntryCase {
+    kPathList = 3,
+    ENTRY_NOT_SET = 0,
+  };
+
+  static inline const SLPathGroup* internal_default_instance() {
+    return reinterpret_cast<const SLPathGroup*>(
+               &_SLPathGroup_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(SLPathGroup& a, SLPathGroup& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLPathGroup* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLPathGroup* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLPathGroup* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLPathGroup>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLPathGroup& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLPathGroup& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLPathGroup* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLPathGroup";
+  }
+  protected:
+  explicit SLPathGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef SLPathGroup_SLPath SLPath;
+  typedef SLPathGroup_SLPathList SLPathList;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPgFlagsFieldNumber = 4,
+    kPathGroupIdFieldNumber = 1,
+    kAdminDistanceFieldNumber = 2,
+    kPathListFieldNumber = 3,
+  };
+  // repeated .service_layer.SLRouteFlags PgFlags = 4;
+  int pgflags_size() const;
+  private:
+  int _internal_pgflags_size() const;
+  public:
+  void clear_pgflags();
+  private:
+  ::service_layer::SLRouteFlags _internal_pgflags(int index) const;
+  void _internal_add_pgflags(::service_layer::SLRouteFlags value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_pgflags();
+  public:
+  ::service_layer::SLRouteFlags pgflags(int index) const;
+  void set_pgflags(int index, ::service_layer::SLRouteFlags value);
+  void add_pgflags(::service_layer::SLRouteFlags value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& pgflags() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_pgflags();
+
+  // .service_layer.SLObjectId PathGroupId = 1;
+  bool has_pathgroupid() const;
+  private:
+  bool _internal_has_pathgroupid() const;
+  public:
+  void clear_pathgroupid();
+  const ::service_layer::SLObjectId& pathgroupid() const;
+  PROTOBUF_NODISCARD ::service_layer::SLObjectId* release_pathgroupid();
+  ::service_layer::SLObjectId* mutable_pathgroupid();
+  void set_allocated_pathgroupid(::service_layer::SLObjectId* pathgroupid);
+  private:
+  const ::service_layer::SLObjectId& _internal_pathgroupid() const;
+  ::service_layer::SLObjectId* _internal_mutable_pathgroupid();
+  public:
+  void unsafe_arena_set_allocated_pathgroupid(
+      ::service_layer::SLObjectId* pathgroupid);
+  ::service_layer::SLObjectId* unsafe_arena_release_pathgroupid();
+
+  // uint32 AdminDistance = 2;
+  void clear_admindistance();
+  uint32_t admindistance() const;
+  void set_admindistance(uint32_t value);
+  private:
+  uint32_t _internal_admindistance() const;
+  void _internal_set_admindistance(uint32_t value);
+  public:
+
+  // .service_layer.SLPathGroup.SLPathList PathList = 3;
+  bool has_pathlist() const;
+  private:
+  bool _internal_has_pathlist() const;
+  public:
+  void clear_pathlist();
+  const ::service_layer::SLPathGroup_SLPathList& pathlist() const;
+  PROTOBUF_NODISCARD ::service_layer::SLPathGroup_SLPathList* release_pathlist();
+  ::service_layer::SLPathGroup_SLPathList* mutable_pathlist();
+  void set_allocated_pathlist(::service_layer::SLPathGroup_SLPathList* pathlist);
+  private:
+  const ::service_layer::SLPathGroup_SLPathList& _internal_pathlist() const;
+  ::service_layer::SLPathGroup_SLPathList* _internal_mutable_pathlist();
+  public:
+  void unsafe_arena_set_allocated_pathlist(
+      ::service_layer::SLPathGroup_SLPathList* pathlist);
+  ::service_layer::SLPathGroup_SLPathList* unsafe_arena_release_pathlist();
+
+  void clear_entry();
+  EntryCase entry_case() const;
+  // @@protoc_insertion_point(class_scope:service_layer.SLPathGroup)
+ private:
+  class _Internal;
+  void set_has_pathlist();
+
+  inline bool has_entry() const;
+  inline void clear_has_entry();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> pgflags_;
+  mutable std::atomic<int> _pgflags_cached_byte_size_;
+  ::service_layer::SLObjectId* pathgroupid_;
+  uint32_t admindistance_;
+  union EntryUnion {
+    constexpr EntryUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::service_layer::SLPathGroup_SLPathList* pathlist_;
   } entry_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -3804,7 +4379,7 @@ class SLRoutePrefix final :
                &_SLRoutePrefix_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   friend void swap(SLRoutePrefix& a, SLRoutePrefix& b) {
     a.Swap(&b);
@@ -6798,6 +7373,53 @@ inline ::service_layer::SLPathGroupRefKey* SLRoutePath::mutable_pathgroupkey() {
   return _msg;
 }
 
+// repeated uint32 BackupIndex = 16;
+inline int SLRoutePath::_internal_backupindex_size() const {
+  return backupindex_.size();
+}
+inline int SLRoutePath::backupindex_size() const {
+  return _internal_backupindex_size();
+}
+inline void SLRoutePath::clear_backupindex() {
+  backupindex_.Clear();
+}
+inline uint32_t SLRoutePath::_internal_backupindex(int index) const {
+  return backupindex_.Get(index);
+}
+inline uint32_t SLRoutePath::backupindex(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRoutePath.BackupIndex)
+  return _internal_backupindex(index);
+}
+inline void SLRoutePath::set_backupindex(int index, uint32_t value) {
+  backupindex_.Set(index, value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRoutePath.BackupIndex)
+}
+inline void SLRoutePath::_internal_add_backupindex(uint32_t value) {
+  backupindex_.Add(value);
+}
+inline void SLRoutePath::add_backupindex(uint32_t value) {
+  _internal_add_backupindex(value);
+  // @@protoc_insertion_point(field_add:service_layer.SLRoutePath.BackupIndex)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+SLRoutePath::_internal_backupindex() const {
+  return backupindex_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+SLRoutePath::backupindex() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLRoutePath.BackupIndex)
+  return _internal_backupindex();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+SLRoutePath::_internal_mutable_backupindex() {
+  return &backupindex_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+SLRoutePath::mutable_backupindex() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLRoutePath.BackupIndex)
+  return _internal_mutable_backupindex();
+}
+
 inline bool SLRoutePath::has_entry() const {
   return entry_case() != ENTRY_NOT_SET;
 }
@@ -6806,6 +7428,380 @@ inline void SLRoutePath::clear_has_entry() {
 }
 inline SLRoutePath::EntryCase SLRoutePath::entry_case() const {
   return SLRoutePath::EntryCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// SLPathGroup_SLPath
+
+// .service_layer.SLRoutePath Path = 1;
+inline bool SLPathGroup_SLPath::_internal_has_path() const {
+  return this != internal_default_instance() && path_ != nullptr;
+}
+inline bool SLPathGroup_SLPath::has_path() const {
+  return _internal_has_path();
+}
+inline void SLPathGroup_SLPath::clear_path() {
+  if (GetArenaForAllocation() == nullptr && path_ != nullptr) {
+    delete path_;
+  }
+  path_ = nullptr;
+}
+inline const ::service_layer::SLRoutePath& SLPathGroup_SLPath::_internal_path() const {
+  const ::service_layer::SLRoutePath* p = path_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLRoutePath&>(
+      ::service_layer::_SLRoutePath_default_instance_);
+}
+inline const ::service_layer::SLRoutePath& SLPathGroup_SLPath::path() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.SLPath.Path)
+  return _internal_path();
+}
+inline void SLPathGroup_SLPath::unsafe_arena_set_allocated_path(
+    ::service_layer::SLRoutePath* path) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
+  }
+  path_ = path;
+  if (path) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLPathGroup.SLPath.Path)
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::release_path() {
+  
+  ::service_layer::SLRoutePath* temp = path_;
+  path_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroup.SLPath.Path)
+  
+  ::service_layer::SLRoutePath* temp = path_;
+  path_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::_internal_mutable_path() {
+  
+  if (path_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLRoutePath>(GetArenaForAllocation());
+    path_ = p;
+  }
+  return path_;
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::mutable_path() {
+  ::service_layer::SLRoutePath* _msg = _internal_mutable_path();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.SLPath.Path)
+  return _msg;
+}
+inline void SLPathGroup_SLPath::set_allocated_path(::service_layer::SLRoutePath* path) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete path_;
+  }
+  if (path) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLRoutePath>::GetOwningArena(path);
+    if (message_arena != submessage_arena) {
+      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, path, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  path_ = path;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLPathGroup.SLPath.Path)
+}
+
+// -------------------------------------------------------------------
+
+// SLPathGroup_SLPathList
+
+// repeated .service_layer.SLPathGroup.SLPath Paths = 1;
+inline int SLPathGroup_SLPathList::_internal_paths_size() const {
+  return paths_.size();
+}
+inline int SLPathGroup_SLPathList::paths_size() const {
+  return _internal_paths_size();
+}
+inline void SLPathGroup_SLPathList::clear_paths() {
+  paths_.Clear();
+}
+inline ::service_layer::SLPathGroup_SLPath* SLPathGroup_SLPathList::mutable_paths(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.SLPathList.Paths)
+  return paths_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >*
+SLPathGroup_SLPathList::mutable_paths() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLPathGroup.SLPathList.Paths)
+  return &paths_;
+}
+inline const ::service_layer::SLPathGroup_SLPath& SLPathGroup_SLPathList::_internal_paths(int index) const {
+  return paths_.Get(index);
+}
+inline const ::service_layer::SLPathGroup_SLPath& SLPathGroup_SLPathList::paths(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.SLPathList.Paths)
+  return _internal_paths(index);
+}
+inline ::service_layer::SLPathGroup_SLPath* SLPathGroup_SLPathList::_internal_add_paths() {
+  return paths_.Add();
+}
+inline ::service_layer::SLPathGroup_SLPath* SLPathGroup_SLPathList::add_paths() {
+  ::service_layer::SLPathGroup_SLPath* _add = _internal_add_paths();
+  // @@protoc_insertion_point(field_add:service_layer.SLPathGroup.SLPathList.Paths)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >&
+SLPathGroup_SLPathList::paths() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLPathGroup.SLPathList.Paths)
+  return paths_;
+}
+
+// -------------------------------------------------------------------
+
+// SLPathGroup
+
+// .service_layer.SLObjectId PathGroupId = 1;
+inline bool SLPathGroup::_internal_has_pathgroupid() const {
+  return this != internal_default_instance() && pathgroupid_ != nullptr;
+}
+inline bool SLPathGroup::has_pathgroupid() const {
+  return _internal_has_pathgroupid();
+}
+inline const ::service_layer::SLObjectId& SLPathGroup::_internal_pathgroupid() const {
+  const ::service_layer::SLObjectId* p = pathgroupid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLObjectId&>(
+      ::service_layer::_SLObjectId_default_instance_);
+}
+inline const ::service_layer::SLObjectId& SLPathGroup::pathgroupid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.PathGroupId)
+  return _internal_pathgroupid();
+}
+inline void SLPathGroup::unsafe_arena_set_allocated_pathgroupid(
+    ::service_layer::SLObjectId* pathgroupid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid_);
+  }
+  pathgroupid_ = pathgroupid;
+  if (pathgroupid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLPathGroup.PathGroupId)
+}
+inline ::service_layer::SLObjectId* SLPathGroup::release_pathgroupid() {
+  
+  ::service_layer::SLObjectId* temp = pathgroupid_;
+  pathgroupid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLObjectId* SLPathGroup::unsafe_arena_release_pathgroupid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroup.PathGroupId)
+  
+  ::service_layer::SLObjectId* temp = pathgroupid_;
+  pathgroupid_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLObjectId* SLPathGroup::_internal_mutable_pathgroupid() {
+  
+  if (pathgroupid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLObjectId>(GetArenaForAllocation());
+    pathgroupid_ = p;
+  }
+  return pathgroupid_;
+}
+inline ::service_layer::SLObjectId* SLPathGroup::mutable_pathgroupid() {
+  ::service_layer::SLObjectId* _msg = _internal_mutable_pathgroupid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.PathGroupId)
+  return _msg;
+}
+inline void SLPathGroup::set_allocated_pathgroupid(::service_layer::SLObjectId* pathgroupid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid_);
+  }
+  if (pathgroupid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid));
+    if (message_arena != submessage_arena) {
+      pathgroupid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pathgroupid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  pathgroupid_ = pathgroupid;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLPathGroup.PathGroupId)
+}
+
+// uint32 AdminDistance = 2;
+inline void SLPathGroup::clear_admindistance() {
+  admindistance_ = 0u;
+}
+inline uint32_t SLPathGroup::_internal_admindistance() const {
+  return admindistance_;
+}
+inline uint32_t SLPathGroup::admindistance() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.AdminDistance)
+  return _internal_admindistance();
+}
+inline void SLPathGroup::_internal_set_admindistance(uint32_t value) {
+  
+  admindistance_ = value;
+}
+inline void SLPathGroup::set_admindistance(uint32_t value) {
+  _internal_set_admindistance(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLPathGroup.AdminDistance)
+}
+
+// .service_layer.SLPathGroup.SLPathList PathList = 3;
+inline bool SLPathGroup::_internal_has_pathlist() const {
+  return entry_case() == kPathList;
+}
+inline bool SLPathGroup::has_pathlist() const {
+  return _internal_has_pathlist();
+}
+inline void SLPathGroup::set_has_pathlist() {
+  _oneof_case_[0] = kPathList;
+}
+inline void SLPathGroup::clear_pathlist() {
+  if (_internal_has_pathlist()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete entry_.pathlist_;
+    }
+    clear_has_entry();
+  }
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::release_pathlist() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroup.PathList)
+  if (_internal_has_pathlist()) {
+    clear_has_entry();
+      ::service_layer::SLPathGroup_SLPathList* temp = entry_.pathlist_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entry_.pathlist_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLPathGroup_SLPathList& SLPathGroup::_internal_pathlist() const {
+  return _internal_has_pathlist()
+      ? *entry_.pathlist_
+      : reinterpret_cast< ::service_layer::SLPathGroup_SLPathList&>(::service_layer::_SLPathGroup_SLPathList_default_instance_);
+}
+inline const ::service_layer::SLPathGroup_SLPathList& SLPathGroup::pathlist() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.PathList)
+  return _internal_pathlist();
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::unsafe_arena_release_pathlist() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLPathGroup.PathList)
+  if (_internal_has_pathlist()) {
+    clear_has_entry();
+    ::service_layer::SLPathGroup_SLPathList* temp = entry_.pathlist_;
+    entry_.pathlist_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLPathGroup::unsafe_arena_set_allocated_pathlist(::service_layer::SLPathGroup_SLPathList* pathlist) {
+  clear_entry();
+  if (pathlist) {
+    set_has_pathlist();
+    entry_.pathlist_ = pathlist;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLPathGroup.PathList)
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::_internal_mutable_pathlist() {
+  if (!_internal_has_pathlist()) {
+    clear_entry();
+    set_has_pathlist();
+    entry_.pathlist_ = CreateMaybeMessage< ::service_layer::SLPathGroup_SLPathList >(GetArenaForAllocation());
+  }
+  return entry_.pathlist_;
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::mutable_pathlist() {
+  ::service_layer::SLPathGroup_SLPathList* _msg = _internal_mutable_pathlist();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.PathList)
+  return _msg;
+}
+
+// repeated .service_layer.SLRouteFlags PgFlags = 4;
+inline int SLPathGroup::_internal_pgflags_size() const {
+  return pgflags_.size();
+}
+inline int SLPathGroup::pgflags_size() const {
+  return _internal_pgflags_size();
+}
+inline void SLPathGroup::clear_pgflags() {
+  pgflags_.Clear();
+}
+inline ::service_layer::SLRouteFlags SLPathGroup::_internal_pgflags(int index) const {
+  return static_cast< ::service_layer::SLRouteFlags >(pgflags_.Get(index));
+}
+inline ::service_layer::SLRouteFlags SLPathGroup::pgflags(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.PgFlags)
+  return _internal_pgflags(index);
+}
+inline void SLPathGroup::set_pgflags(int index, ::service_layer::SLRouteFlags value) {
+  pgflags_.Set(index, value);
+  // @@protoc_insertion_point(field_set:service_layer.SLPathGroup.PgFlags)
+}
+inline void SLPathGroup::_internal_add_pgflags(::service_layer::SLRouteFlags value) {
+  pgflags_.Add(value);
+}
+inline void SLPathGroup::add_pgflags(::service_layer::SLRouteFlags value) {
+  _internal_add_pgflags(value);
+  // @@protoc_insertion_point(field_add:service_layer.SLPathGroup.PgFlags)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+SLPathGroup::pgflags() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLPathGroup.PgFlags)
+  return pgflags_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+SLPathGroup::_internal_mutable_pgflags() {
+  return &pgflags_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+SLPathGroup::mutable_pgflags() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLPathGroup.PgFlags)
+  return _internal_mutable_pgflags();
+}
+
+inline bool SLPathGroup::has_entry() const {
+  return entry_case() != ENTRY_NOT_SET;
+}
+inline void SLPathGroup::clear_has_entry() {
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+inline SLPathGroup::EntryCase SLPathGroup::entry_case() const {
+  return SLPathGroup::EntryCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
@@ -6920,6 +7916,12 @@ inline void SLRoutePrefix::set_prefixlen(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
