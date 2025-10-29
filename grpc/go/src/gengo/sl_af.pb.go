@@ -404,143 +404,6 @@ func (x *SLAFVrfRegGetMsgRsp) GetEntries() []*SLVrfReg {
 	return nil
 }
 
-// Path Group definition.
-type SLPathGroup struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Path Group ID
-	PathGroupId *SLObjectId `protobuf:"bytes,1,opt,name=PathGroupId,proto3" json:"PathGroupId,omitempty"`
-	// Administrative distance of the Path Group. [0-255].
-	// RIB uses this field to break the tie when multiple
-	// sources install the same Path Group.
-	// Lower distance is preferred over higher distance.
-	// The per path group object admin distance overrides the default admin
-	// distance set at VRF registration. see SLVrfReg.
-	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
-	// Description of paths in the PathGroup.
-	// Oneof is used here for future extensibility.
-	//
-	// Types that are valid to be assigned to Entry:
-	//
-	//	*SLPathGroup_PathList
-	Entry isSLPathGroup_Entry `protobuf_oneof:"entry"`
-	// Flags to control programming of the PathGroup to Routing
-	// Information Base. See SLRouteFlags for flag enumerations.
-	// Supported values are:
-	//
-	// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
-	//   - If the flag is not set, all paths in the PathList are installed in
-	//     the PathGroup's load balance group, even if paths are unviable.
-	//     The Network element does not automatically update the PathGroup's
-	//     load balance group when path viability changes and
-	//     expects the client to take corrective action.
-	//
-	//   - If the flag is set, the network element only installs viable
-	//     paths from the PathList in the PathGroup's load balance group.
-	//     The Network element also automatically updates the PathGroup's
-	//     load balance group when path viability changes.
-	//
-	// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH.
-	//   - If this flag is not set, routes and MPLS entries referencing
-	//     this PathGroup are considered active if they are preferred
-	//     based on their administrative distance. PathGroup's viability
-	//     is not considered as a criterion to determine the routes' and
-	//     MPLS entries' activeness. The network element does not automatically
-	//     promote or demote the routes and MPLS entries as viability of the
-	//     PathGroup changes.
-	//
-	//   - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
-	//     be set. The routes and MPLS entries referencing this PathGroup are
-	//     considered active if they are preferred based
-	//     on their administrative distance AND viability of the PathGroup.
-	//     At least one path in the PathGroup must be viable for the
-	//     PathGroup to be viable. The network element automatically promotes or
-	//     demotes the routes and MPLS entries as viability of the PathGroup
-	//     changes.
-	//
-	// Others - Reserved.
-	PgFlags       []SLRouteFlags `protobuf:"varint,4,rep,packed,name=PgFlags,proto3,enum=service_layer.SLRouteFlags" json:"PgFlags,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SLPathGroup) Reset() {
-	*x = SLPathGroup{}
-	mi := &file_sl_af_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SLPathGroup) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SLPathGroup) ProtoMessage() {}
-
-func (x *SLPathGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SLPathGroup.ProtoReflect.Descriptor instead.
-func (*SLPathGroup) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *SLPathGroup) GetPathGroupId() *SLObjectId {
-	if x != nil {
-		return x.PathGroupId
-	}
-	return nil
-}
-
-func (x *SLPathGroup) GetAdminDistance() uint32 {
-	if x != nil {
-		return x.AdminDistance
-	}
-	return 0
-}
-
-func (x *SLPathGroup) GetEntry() isSLPathGroup_Entry {
-	if x != nil {
-		return x.Entry
-	}
-	return nil
-}
-
-func (x *SLPathGroup) GetPathList() *SLPathGroup_SLPathList {
-	if x != nil {
-		if x, ok := x.Entry.(*SLPathGroup_PathList); ok {
-			return x.PathList
-		}
-	}
-	return nil
-}
-
-func (x *SLPathGroup) GetPgFlags() []SLRouteFlags {
-	if x != nil {
-		return x.PgFlags
-	}
-	return nil
-}
-
-type isSLPathGroup_Entry interface {
-	isSLPathGroup_Entry()
-}
-
-type SLPathGroup_PathList struct {
-	// Path List
-	PathList *SLPathGroup_SLPathList `protobuf:"bytes,3,opt,name=PathList,proto3,oneof"`
-}
-
-func (*SLPathGroup_PathList) isSLPathGroup_Entry() {}
-
 // Key for a MPLS label entry
 type SLMplsEntryKey struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -552,7 +415,7 @@ type SLMplsEntryKey struct {
 
 func (x *SLMplsEntryKey) Reset() {
 	*x = SLMplsEntryKey{}
-	mi := &file_sl_af_proto_msgTypes[7]
+	mi := &file_sl_af_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -564,7 +427,7 @@ func (x *SLMplsEntryKey) String() string {
 func (*SLMplsEntryKey) ProtoMessage() {}
 
 func (x *SLMplsEntryKey) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[7]
+	mi := &file_sl_af_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -577,7 +440,7 @@ func (x *SLMplsEntryKey) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLMplsEntryKey.ProtoReflect.Descriptor instead.
 func (*SLMplsEntryKey) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{7}
+	return file_sl_af_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *SLMplsEntryKey) GetLabel() uint32 {
@@ -601,7 +464,7 @@ type SLMplsEntry struct {
 	// see SLVrfReg.
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// List of paths for this MPLS label entry.
-	// Specifying more than one path is allowed for ECMP/UCMP cases.
+	// Specifying more than one path is allowed for ECMP/UCMP/FRR cases.
 	PathList []*SLRoutePath `protobuf:"bytes,3,rep,name=PathList,proto3" json:"PathList,omitempty"`
 	// Flags to control programming of the MPLS Entry to Routing
 	// Information Base. See SLRouteFlags for flag enumerations.
@@ -658,7 +521,7 @@ type SLMplsEntry struct {
 
 func (x *SLMplsEntry) Reset() {
 	*x = SLMplsEntry{}
-	mi := &file_sl_af_proto_msgTypes[8]
+	mi := &file_sl_af_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -670,7 +533,7 @@ func (x *SLMplsEntry) String() string {
 func (*SLMplsEntry) ProtoMessage() {}
 
 func (x *SLMplsEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[8]
+	mi := &file_sl_af_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -683,7 +546,7 @@ func (x *SLMplsEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLMplsEntry.ProtoReflect.Descriptor instead.
 func (*SLMplsEntry) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{8}
+	return file_sl_af_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *SLMplsEntry) GetMplsKey() *SLMplsEntryKey {
@@ -729,7 +592,7 @@ type SLAFIPRoute struct {
 	// Common route attributes
 	RouteCommon *SLRouteCommon `protobuf:"bytes,2,opt,name=RouteCommon,proto3" json:"RouteCommon,omitempty"`
 	// List of route paths for this route.
-	// Specifying more than one path is allowed for ECMP/UCMP cases.
+	// Specifying more than one path is allowed for ECMP/UCMP/FRR cases.
 	PathList      []*SLRoutePath `protobuf:"bytes,3,rep,name=PathList,proto3" json:"PathList,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -737,7 +600,7 @@ type SLAFIPRoute struct {
 
 func (x *SLAFIPRoute) Reset() {
 	*x = SLAFIPRoute{}
-	mi := &file_sl_af_proto_msgTypes[9]
+	mi := &file_sl_af_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -749,7 +612,7 @@ func (x *SLAFIPRoute) String() string {
 func (*SLAFIPRoute) ProtoMessage() {}
 
 func (x *SLAFIPRoute) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[9]
+	mi := &file_sl_af_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -762,7 +625,7 @@ func (x *SLAFIPRoute) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFIPRoute.ProtoReflect.Descriptor instead.
 func (*SLAFIPRoute) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{9}
+	return file_sl_af_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SLAFIPRoute) GetIPRoutePrefix() *SLRoutePrefix {
@@ -801,7 +664,7 @@ type SLAFObject struct {
 
 func (x *SLAFObject) Reset() {
 	*x = SLAFObject{}
-	mi := &file_sl_af_proto_msgTypes[10]
+	mi := &file_sl_af_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -813,7 +676,7 @@ func (x *SLAFObject) String() string {
 func (*SLAFObject) ProtoMessage() {}
 
 func (x *SLAFObject) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[10]
+	mi := &file_sl_af_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -826,7 +689,7 @@ func (x *SLAFObject) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFObject.ProtoReflect.Descriptor instead.
 func (*SLAFObject) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{10}
+	return file_sl_af_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *SLAFObject) GetEntry() isSLAFObject_Entry {
@@ -918,7 +781,7 @@ type SLAFOpMsg struct {
 
 func (x *SLAFOpMsg) Reset() {
 	*x = SLAFOpMsg{}
-	mi := &file_sl_af_proto_msgTypes[11]
+	mi := &file_sl_af_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -930,7 +793,7 @@ func (x *SLAFOpMsg) String() string {
 func (*SLAFOpMsg) ProtoMessage() {}
 
 func (x *SLAFOpMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[11]
+	mi := &file_sl_af_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -943,7 +806,7 @@ func (x *SLAFOpMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFOpMsg.ProtoReflect.Descriptor instead.
 func (*SLAFOpMsg) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{11}
+	return file_sl_af_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SLAFOpMsg) GetAFObject() *SLAFObject {
@@ -992,7 +855,7 @@ type SLAFClientIDList struct {
 
 func (x *SLAFClientIDList) Reset() {
 	*x = SLAFClientIDList{}
-	mi := &file_sl_af_proto_msgTypes[12]
+	mi := &file_sl_af_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1004,7 +867,7 @@ func (x *SLAFClientIDList) String() string {
 func (*SLAFClientIDList) ProtoMessage() {}
 
 func (x *SLAFClientIDList) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[12]
+	mi := &file_sl_af_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1017,7 +880,7 @@ func (x *SLAFClientIDList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFClientIDList.ProtoReflect.Descriptor instead.
 func (*SLAFClientIDList) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{12}
+	return file_sl_af_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *SLAFClientIDList) GetClientIDList() []uint64 {
@@ -1038,7 +901,7 @@ type SLTableTypeList struct {
 
 func (x *SLTableTypeList) Reset() {
 	*x = SLTableTypeList{}
-	mi := &file_sl_af_proto_msgTypes[13]
+	mi := &file_sl_af_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1050,7 +913,7 @@ func (x *SLTableTypeList) String() string {
 func (*SLTableTypeList) ProtoMessage() {}
 
 func (x *SLTableTypeList) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[13]
+	mi := &file_sl_af_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1063,7 +926,7 @@ func (x *SLTableTypeList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLTableTypeList.ProtoReflect.Descriptor instead.
 func (*SLTableTypeList) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{13}
+	return file_sl_af_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *SLTableTypeList) GetTable() []SLTableType {
@@ -1088,7 +951,7 @@ type SLAFObjectKey struct {
 
 func (x *SLAFObjectKey) Reset() {
 	*x = SLAFObjectKey{}
-	mi := &file_sl_af_proto_msgTypes[14]
+	mi := &file_sl_af_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1100,7 +963,7 @@ func (x *SLAFObjectKey) String() string {
 func (*SLAFObjectKey) ProtoMessage() {}
 
 func (x *SLAFObjectKey) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[14]
+	mi := &file_sl_af_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1113,7 +976,7 @@ func (x *SLAFObjectKey) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFObjectKey.ProtoReflect.Descriptor instead.
 func (*SLAFObjectKey) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{14}
+	return file_sl_af_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *SLAFObjectKey) GetKey() isSLAFObjectKey_Key {
@@ -1193,7 +1056,7 @@ type SLAFGetMatch struct {
 
 func (x *SLAFGetMatch) Reset() {
 	*x = SLAFGetMatch{}
-	mi := &file_sl_af_proto_msgTypes[15]
+	mi := &file_sl_af_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1205,7 +1068,7 @@ func (x *SLAFGetMatch) String() string {
 func (*SLAFGetMatch) ProtoMessage() {}
 
 func (x *SLAFGetMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[15]
+	mi := &file_sl_af_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1218,7 +1081,7 @@ func (x *SLAFGetMatch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFGetMatch.ProtoReflect.Descriptor instead.
 func (*SLAFGetMatch) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{15}
+	return file_sl_af_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *SLAFGetMatch) GetEntry() isSLAFGetMatch_Entry {
@@ -1292,7 +1155,7 @@ type SLAFGetMatchList struct {
 
 func (x *SLAFGetMatchList) Reset() {
 	*x = SLAFGetMatchList{}
-	mi := &file_sl_af_proto_msgTypes[16]
+	mi := &file_sl_af_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1304,7 +1167,7 @@ func (x *SLAFGetMatchList) String() string {
 func (*SLAFGetMatchList) ProtoMessage() {}
 
 func (x *SLAFGetMatchList) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[16]
+	mi := &file_sl_af_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1317,7 +1180,7 @@ func (x *SLAFGetMatchList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFGetMatchList.ProtoReflect.Descriptor instead.
 func (*SLAFGetMatchList) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{16}
+	return file_sl_af_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *SLAFGetMatchList) GetMatch() []*SLAFGetMatch {
@@ -1359,7 +1222,7 @@ type SLAFGetMsg struct {
 
 func (x *SLAFGetMsg) Reset() {
 	*x = SLAFGetMsg{}
-	mi := &file_sl_af_proto_msgTypes[17]
+	mi := &file_sl_af_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1371,7 +1234,7 @@ func (x *SLAFGetMsg) String() string {
 func (*SLAFGetMsg) ProtoMessage() {}
 
 func (x *SLAFGetMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[17]
+	mi := &file_sl_af_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1384,7 +1247,7 @@ func (x *SLAFGetMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFGetMsg.ProtoReflect.Descriptor instead.
 func (*SLAFGetMsg) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{17}
+	return file_sl_af_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *SLAFGetMsg) GetVrfName() string {
@@ -1497,7 +1360,7 @@ type SLAFGetMsgRspEntry struct {
 
 func (x *SLAFGetMsgRspEntry) Reset() {
 	*x = SLAFGetMsgRspEntry{}
-	mi := &file_sl_af_proto_msgTypes[18]
+	mi := &file_sl_af_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1509,7 +1372,7 @@ func (x *SLAFGetMsgRspEntry) String() string {
 func (*SLAFGetMsgRspEntry) ProtoMessage() {}
 
 func (x *SLAFGetMsgRspEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[18]
+	mi := &file_sl_af_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1522,7 +1385,7 @@ func (x *SLAFGetMsgRspEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFGetMsgRspEntry.ProtoReflect.Descriptor instead.
 func (*SLAFGetMsgRspEntry) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{18}
+	return file_sl_af_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *SLAFGetMsgRspEntry) GetAFOpMsg() *SLAFOpMsg {
@@ -1565,7 +1428,7 @@ type SLAFGetMsgRsp struct {
 
 func (x *SLAFGetMsgRsp) Reset() {
 	*x = SLAFGetMsgRsp{}
-	mi := &file_sl_af_proto_msgTypes[19]
+	mi := &file_sl_af_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1577,7 +1440,7 @@ func (x *SLAFGetMsgRsp) String() string {
 func (*SLAFGetMsgRsp) ProtoMessage() {}
 
 func (x *SLAFGetMsgRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[19]
+	mi := &file_sl_af_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1590,7 +1453,7 @@ func (x *SLAFGetMsgRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFGetMsgRsp.ProtoReflect.Descriptor instead.
 func (*SLAFGetMsgRsp) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{19}
+	return file_sl_af_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SLAFGetMsgRsp) GetErrStatus() *SLErrorStatus {
@@ -1644,7 +1507,7 @@ type SLAFMsg struct {
 
 func (x *SLAFMsg) Reset() {
 	*x = SLAFMsg{}
-	mi := &file_sl_af_proto_msgTypes[20]
+	mi := &file_sl_af_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1656,7 +1519,7 @@ func (x *SLAFMsg) String() string {
 func (*SLAFMsg) ProtoMessage() {}
 
 func (x *SLAFMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[20]
+	mi := &file_sl_af_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1669,7 +1532,7 @@ func (x *SLAFMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFMsg.ProtoReflect.Descriptor instead.
 func (*SLAFMsg) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{20}
+	return file_sl_af_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *SLAFMsg) GetOper() SLObjectOp {
@@ -1722,7 +1585,7 @@ type SLAFRes struct {
 
 func (x *SLAFRes) Reset() {
 	*x = SLAFRes{}
-	mi := &file_sl_af_proto_msgTypes[21]
+	mi := &file_sl_af_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1734,7 +1597,7 @@ func (x *SLAFRes) String() string {
 func (*SLAFRes) ProtoMessage() {}
 
 func (x *SLAFRes) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[21]
+	mi := &file_sl_af_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1747,7 +1610,7 @@ func (x *SLAFRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFRes.ProtoReflect.Descriptor instead.
 func (*SLAFRes) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{21}
+	return file_sl_af_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *SLAFRes) GetStatus() *SLErrorStatus {
@@ -1799,7 +1662,7 @@ type SLAFMsgRsp struct {
 
 func (x *SLAFMsgRsp) Reset() {
 	*x = SLAFMsgRsp{}
-	mi := &file_sl_af_proto_msgTypes[22]
+	mi := &file_sl_af_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1811,7 +1674,7 @@ func (x *SLAFMsgRsp) String() string {
 func (*SLAFMsgRsp) ProtoMessage() {}
 
 func (x *SLAFMsgRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[22]
+	mi := &file_sl_af_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1824,7 +1687,7 @@ func (x *SLAFMsgRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFMsgRsp.ProtoReflect.Descriptor instead.
 func (*SLAFMsgRsp) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{22}
+	return file_sl_af_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *SLAFMsgRsp) GetVrfName() string {
@@ -1863,7 +1726,7 @@ type SLAFRedistRegMsg struct {
 
 func (x *SLAFRedistRegMsg) Reset() {
 	*x = SLAFRedistRegMsg{}
-	mi := &file_sl_af_proto_msgTypes[23]
+	mi := &file_sl_af_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1875,7 +1738,7 @@ func (x *SLAFRedistRegMsg) String() string {
 func (*SLAFRedistRegMsg) ProtoMessage() {}
 
 func (x *SLAFRedistRegMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[23]
+	mi := &file_sl_af_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1888,7 +1751,7 @@ func (x *SLAFRedistRegMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFRedistRegMsg.ProtoReflect.Descriptor instead.
 func (*SLAFRedistRegMsg) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{23}
+	return file_sl_af_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SLAFRedistRegMsg) GetSrcProto() string {
@@ -1927,7 +1790,7 @@ type SLAFNextHopRegKey struct {
 
 func (x *SLAFNextHopRegKey) Reset() {
 	*x = SLAFNextHopRegKey{}
-	mi := &file_sl_af_proto_msgTypes[24]
+	mi := &file_sl_af_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1939,7 +1802,7 @@ func (x *SLAFNextHopRegKey) String() string {
 func (*SLAFNextHopRegKey) ProtoMessage() {}
 
 func (x *SLAFNextHopRegKey) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[24]
+	mi := &file_sl_af_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1952,7 +1815,7 @@ func (x *SLAFNextHopRegKey) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNextHopRegKey.ProtoReflect.Descriptor instead.
 func (*SLAFNextHopRegKey) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{24}
+	return file_sl_af_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *SLAFNextHopRegKey) GetNexthopkey() isSLAFNextHopRegKey_Nexthopkey {
@@ -1993,7 +1856,7 @@ type SLAFNextHopRegMsg struct {
 
 func (x *SLAFNextHopRegMsg) Reset() {
 	*x = SLAFNextHopRegMsg{}
-	mi := &file_sl_af_proto_msgTypes[25]
+	mi := &file_sl_af_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2005,7 +1868,7 @@ func (x *SLAFNextHopRegMsg) String() string {
 func (*SLAFNextHopRegMsg) ProtoMessage() {}
 
 func (x *SLAFNextHopRegMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[25]
+	mi := &file_sl_af_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2018,7 +1881,7 @@ func (x *SLAFNextHopRegMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNextHopRegMsg.ProtoReflect.Descriptor instead.
 func (*SLAFNextHopRegMsg) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{25}
+	return file_sl_af_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *SLAFNextHopRegMsg) GetNextHopKey() *SLAFNextHopRegKey {
@@ -2051,7 +1914,7 @@ type SLAFNotifRegReq struct {
 
 func (x *SLAFNotifRegReq) Reset() {
 	*x = SLAFNotifRegReq{}
-	mi := &file_sl_af_proto_msgTypes[26]
+	mi := &file_sl_af_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2063,7 +1926,7 @@ func (x *SLAFNotifRegReq) String() string {
 func (*SLAFNotifRegReq) ProtoMessage() {}
 
 func (x *SLAFNotifRegReq) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[26]
+	mi := &file_sl_af_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2076,7 +1939,7 @@ func (x *SLAFNotifRegReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNotifRegReq.ProtoReflect.Descriptor instead.
 func (*SLAFNotifRegReq) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{26}
+	return file_sl_af_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *SLAFNotifRegReq) GetRequest() isSLAFNotifRegReq_Request {
@@ -2164,7 +2027,7 @@ type SLAFNotifReq struct {
 
 func (x *SLAFNotifReq) Reset() {
 	*x = SLAFNotifReq{}
-	mi := &file_sl_af_proto_msgTypes[27]
+	mi := &file_sl_af_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2176,7 +2039,7 @@ func (x *SLAFNotifReq) String() string {
 func (*SLAFNotifReq) ProtoMessage() {}
 
 func (x *SLAFNotifReq) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[27]
+	mi := &file_sl_af_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2189,7 +2052,7 @@ func (x *SLAFNotifReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNotifReq.ProtoReflect.Descriptor instead.
 func (*SLAFNotifReq) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{27}
+	return file_sl_af_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *SLAFNotifReq) GetOper() SLNotifOp {
@@ -2228,7 +2091,7 @@ type SLAFNotifRsp struct {
 
 func (x *SLAFNotifRsp) Reset() {
 	*x = SLAFNotifRsp{}
-	mi := &file_sl_af_proto_msgTypes[28]
+	mi := &file_sl_af_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2240,7 +2103,7 @@ func (x *SLAFNotifRsp) String() string {
 func (*SLAFNotifRsp) ProtoMessage() {}
 
 func (x *SLAFNotifRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[28]
+	mi := &file_sl_af_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2253,7 +2116,7 @@ func (x *SLAFNotifRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNotifRsp.ProtoReflect.Descriptor instead.
 func (*SLAFNotifRsp) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{28}
+	return file_sl_af_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *SLAFNotifRsp) GetNotifReq() *SLAFNotifRegReq {
@@ -2307,7 +2170,7 @@ type SLNextHop struct {
 
 func (x *SLNextHop) Reset() {
 	*x = SLNextHop{}
-	mi := &file_sl_af_proto_msgTypes[29]
+	mi := &file_sl_af_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2319,7 +2182,7 @@ func (x *SLNextHop) String() string {
 func (*SLNextHop) ProtoMessage() {}
 
 func (x *SLNextHop) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[29]
+	mi := &file_sl_af_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2332,7 +2195,7 @@ func (x *SLNextHop) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLNextHop.ProtoReflect.Descriptor instead.
 func (*SLNextHop) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{29}
+	return file_sl_af_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SLNextHop) GetNextHopKey() *SLAFNextHopRegKey {
@@ -2401,7 +2264,7 @@ type SLAFNotif struct {
 
 func (x *SLAFNotif) Reset() {
 	*x = SLAFNotif{}
-	mi := &file_sl_af_proto_msgTypes[30]
+	mi := &file_sl_af_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2413,7 +2276,7 @@ func (x *SLAFNotif) String() string {
 func (*SLAFNotif) ProtoMessage() {}
 
 func (x *SLAFNotif) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[30]
+	mi := &file_sl_af_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2426,7 +2289,7 @@ func (x *SLAFNotif) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNotif.ProtoReflect.Descriptor instead.
 func (*SLAFNotif) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{30}
+	return file_sl_af_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *SLAFNotif) GetEvent() isSLAFNotif_Event {
@@ -2562,7 +2425,7 @@ type SLAFNotifMsg struct {
 
 func (x *SLAFNotifMsg) Reset() {
 	*x = SLAFNotifMsg{}
-	mi := &file_sl_af_proto_msgTypes[31]
+	mi := &file_sl_af_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2574,7 +2437,7 @@ func (x *SLAFNotifMsg) String() string {
 func (*SLAFNotifMsg) ProtoMessage() {}
 
 func (x *SLAFNotifMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[31]
+	mi := &file_sl_af_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2587,7 +2450,7 @@ func (x *SLAFNotifMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNotifMsg.ProtoReflect.Descriptor instead.
 func (*SLAFNotifMsg) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{31}
+	return file_sl_af_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SLAFNotifMsg) GetVrfName() string {
@@ -2600,96 +2463,6 @@ func (x *SLAFNotifMsg) GetVrfName() string {
 func (x *SLAFNotifMsg) GetAFNotifs() []*SLAFNotif {
 	if x != nil {
 		return x.AFNotifs
-	}
-	return nil
-}
-
-type SLPathGroup_SLPath struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Primary path
-	Path          *SLRoutePath `protobuf:"bytes,1,opt,name=Path,proto3" json:"Path,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SLPathGroup_SLPath) Reset() {
-	*x = SLPathGroup_SLPath{}
-	mi := &file_sl_af_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SLPathGroup_SLPath) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SLPathGroup_SLPath) ProtoMessage() {}
-
-func (x *SLPathGroup_SLPath) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SLPathGroup_SLPath.ProtoReflect.Descriptor instead.
-func (*SLPathGroup_SLPath) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{6, 0}
-}
-
-func (x *SLPathGroup_SLPath) GetPath() *SLRoutePath {
-	if x != nil {
-		return x.Path
-	}
-	return nil
-}
-
-// A list of SLPathList
-type SLPathGroup_SLPathList struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Paths         []*SLPathGroup_SLPath  `protobuf:"bytes,1,rep,name=Paths,proto3" json:"Paths,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SLPathGroup_SLPathList) Reset() {
-	*x = SLPathGroup_SLPathList{}
-	mi := &file_sl_af_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SLPathGroup_SLPathList) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SLPathGroup_SLPathList) ProtoMessage() {}
-
-func (x *SLPathGroup_SLPathList) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SLPathGroup_SLPathList.ProtoReflect.Descriptor instead.
-func (*SLPathGroup_SLPathList) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{6, 1}
-}
-
-func (x *SLPathGroup_SLPathList) GetPaths() []*SLPathGroup_SLPath {
-	if x != nil {
-		return x.Paths
 	}
 	return nil
 }
@@ -2714,7 +2487,7 @@ type SLAFNextHopRegKey_SLNextHopKey struct {
 
 func (x *SLAFNextHopRegKey_SLNextHopKey) Reset() {
 	*x = SLAFNextHopRegKey_SLNextHopKey{}
-	mi := &file_sl_af_proto_msgTypes[34]
+	mi := &file_sl_af_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2726,7 +2499,7 @@ func (x *SLAFNextHopRegKey_SLNextHopKey) String() string {
 func (*SLAFNextHopRegKey_SLNextHopKey) ProtoMessage() {}
 
 func (x *SLAFNextHopRegKey_SLNextHopKey) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[34]
+	mi := &file_sl_af_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2739,7 +2512,7 @@ func (x *SLAFNextHopRegKey_SLNextHopKey) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNextHopRegKey_SLNextHopKey.ProtoReflect.Descriptor instead.
 func (*SLAFNextHopRegKey_SLNextHopKey) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{24, 0}
+	return file_sl_af_proto_rawDescGZIP(), []int{23, 0}
 }
 
 func (x *SLAFNextHopRegKey_SLNextHopKey) GetNextHopIP() *SLRoutePrefix {
@@ -2781,7 +2554,7 @@ type SLAFNotif_SLRedistMarker struct {
 
 func (x *SLAFNotif_SLRedistMarker) Reset() {
 	*x = SLAFNotif_SLRedistMarker{}
-	mi := &file_sl_af_proto_msgTypes[35]
+	mi := &file_sl_af_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2793,7 +2566,7 @@ func (x *SLAFNotif_SLRedistMarker) String() string {
 func (*SLAFNotif_SLRedistMarker) ProtoMessage() {}
 
 func (x *SLAFNotif_SLRedistMarker) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[35]
+	mi := &file_sl_af_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2806,7 +2579,7 @@ func (x *SLAFNotif_SLRedistMarker) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SLAFNotif_SLRedistMarker.ProtoReflect.Descriptor instead.
 func (*SLAFNotif_SLRedistMarker) Descriptor() ([]byte, []int) {
-	return file_sl_af_proto_rawDescGZIP(), []int{30, 0}
+	return file_sl_af_proto_rawDescGZIP(), []int{29, 0}
 }
 
 func (x *SLAFNotif_SLRedistMarker) GetTable() SLTableType {
@@ -2843,18 +2616,7 @@ const file_sl_af_proto_rawDesc = "" +
 	"\tErrStatus\x18\x01 \x01(\v2\x1c.service_layer.SLErrorStatusR\tErrStatus\x12\x1a\n" +
 	"\bClientID\x18\x02 \x01(\x04R\bClientID\x120\n" +
 	"\x05Table\x18\x03 \x01(\x0e2\x1a.service_layer.SLTableTypeR\x05Table\x121\n" +
-	"\aEntries\x18\x04 \x03(\v2\x17.service_layer.SLVrfRegR\aEntries\"\xf6\x02\n" +
-	"\vSLPathGroup\x12;\n" +
-	"\vPathGroupId\x18\x01 \x01(\v2\x19.service_layer.SLObjectIdR\vPathGroupId\x12$\n" +
-	"\rAdminDistance\x18\x02 \x01(\rR\rAdminDistance\x12C\n" +
-	"\bPathList\x18\x03 \x01(\v2%.service_layer.SLPathGroup.SLPathListH\x00R\bPathList\x125\n" +
-	"\aPgFlags\x18\x04 \x03(\x0e2\x1b.service_layer.SLRouteFlagsR\aPgFlags\x1a8\n" +
-	"\x06SLPath\x12.\n" +
-	"\x04Path\x18\x01 \x01(\v2\x1a.service_layer.SLRoutePathR\x04Path\x1aE\n" +
-	"\n" +
-	"SLPathList\x127\n" +
-	"\x05Paths\x18\x01 \x03(\v2!.service_layer.SLPathGroup.SLPathR\x05PathsB\a\n" +
-	"\x05entry\"&\n" +
+	"\aEntries\x18\x04 \x03(\v2\x17.service_layer.SLVrfRegR\aEntries\"&\n" +
 	"\x0eSLMplsEntryKey\x12\x14\n" +
 	"\x05Label\x18\x01 \x01(\rR\x05Label\"\x9c\x02\n" +
 	"\vSLMplsEntry\x127\n" +
@@ -3009,7 +2771,7 @@ func file_sl_af_proto_rawDescGZIP() []byte {
 	return file_sl_af_proto_rawDescData
 }
 
-var file_sl_af_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
+var file_sl_af_proto_msgTypes = make([]protoimpl.MessageInfo, 33)
 var file_sl_af_proto_goTypes = []any{
 	(*SLAFVrfReg)(nil),                     // 0: service_layer.SLAFVrfReg
 	(*SLAFVrfRegMsg)(nil),                  // 1: service_layer.SLAFVrfRegMsg
@@ -3017,140 +2779,133 @@ var file_sl_af_proto_goTypes = []any{
 	(*SLAFVrfRegMsgRsp)(nil),               // 3: service_layer.SLAFVrfRegMsgRsp
 	(*SLAFVrfRegGetMsg)(nil),               // 4: service_layer.SLAFVrfRegGetMsg
 	(*SLAFVrfRegGetMsgRsp)(nil),            // 5: service_layer.SLAFVrfRegGetMsgRsp
-	(*SLPathGroup)(nil),                    // 6: service_layer.SLPathGroup
-	(*SLMplsEntryKey)(nil),                 // 7: service_layer.SLMplsEntryKey
-	(*SLMplsEntry)(nil),                    // 8: service_layer.SLMplsEntry
-	(*SLAFIPRoute)(nil),                    // 9: service_layer.SLAFIPRoute
-	(*SLAFObject)(nil),                     // 10: service_layer.SLAFObject
-	(*SLAFOpMsg)(nil),                      // 11: service_layer.SLAFOpMsg
-	(*SLAFClientIDList)(nil),               // 12: service_layer.SLAFClientIDList
-	(*SLTableTypeList)(nil),                // 13: service_layer.SLTableTypeList
-	(*SLAFObjectKey)(nil),                  // 14: service_layer.SLAFObjectKey
-	(*SLAFGetMatch)(nil),                   // 15: service_layer.SLAFGetMatch
-	(*SLAFGetMatchList)(nil),               // 16: service_layer.SLAFGetMatchList
-	(*SLAFGetMsg)(nil),                     // 17: service_layer.SLAFGetMsg
-	(*SLAFGetMsgRspEntry)(nil),             // 18: service_layer.SLAFGetMsgRspEntry
-	(*SLAFGetMsgRsp)(nil),                  // 19: service_layer.SLAFGetMsgRsp
-	(*SLAFMsg)(nil),                        // 20: service_layer.SLAFMsg
-	(*SLAFRes)(nil),                        // 21: service_layer.SLAFRes
-	(*SLAFMsgRsp)(nil),                     // 22: service_layer.SLAFMsgRsp
-	(*SLAFRedistRegMsg)(nil),               // 23: service_layer.SLAFRedistRegMsg
-	(*SLAFNextHopRegKey)(nil),              // 24: service_layer.SLAFNextHopRegKey
-	(*SLAFNextHopRegMsg)(nil),              // 25: service_layer.SLAFNextHopRegMsg
-	(*SLAFNotifRegReq)(nil),                // 26: service_layer.SLAFNotifRegReq
-	(*SLAFNotifReq)(nil),                   // 27: service_layer.SLAFNotifReq
-	(*SLAFNotifRsp)(nil),                   // 28: service_layer.SLAFNotifRsp
-	(*SLNextHop)(nil),                      // 29: service_layer.SLNextHop
-	(*SLAFNotif)(nil),                      // 30: service_layer.SLAFNotif
-	(*SLAFNotifMsg)(nil),                   // 31: service_layer.SLAFNotifMsg
-	(*SLPathGroup_SLPath)(nil),             // 32: service_layer.SLPathGroup.SLPath
-	(*SLPathGroup_SLPathList)(nil),         // 33: service_layer.SLPathGroup.SLPathList
-	(*SLAFNextHopRegKey_SLNextHopKey)(nil), // 34: service_layer.SLAFNextHopRegKey.SLNextHopKey
-	(*SLAFNotif_SLRedistMarker)(nil),       // 35: service_layer.SLAFNotif.SLRedistMarker
-	(SLTableType)(0),                       // 36: service_layer.SLTableType
-	(*SLVrfReg)(nil),                       // 37: service_layer.SLVrfReg
-	(SLRegOp)(0),                           // 38: service_layer.SLRegOp
-	(*SLErrorStatus)(nil),                  // 39: service_layer.SLErrorStatus
-	(*SLObjectId)(nil),                     // 40: service_layer.SLObjectId
-	(SLRouteFlags)(0),                      // 41: service_layer.SLRouteFlags
-	(*SLRoutePath)(nil),                    // 42: service_layer.SLRoutePath
-	(SLUpdatePriority)(0),                  // 43: service_layer.SLUpdatePriority
-	(*SLRoutePrefix)(nil),                  // 44: service_layer.SLRoutePrefix
-	(*SLRouteCommon)(nil),                  // 45: service_layer.SLRouteCommon
-	(SLRspACKType)(0),                      // 46: service_layer.SLRspACKType
-	(SLRspACKPermit)(0),                    // 47: service_layer.SLRspACKPermit
-	(SLRspAckCadence)(0),                   // 48: service_layer.SLRspAckCadence
-	(SLAFFibStatus)(0),                     // 49: service_layer.SLAFFibStatus
-	(SLObjectOp)(0),                        // 50: service_layer.SLObjectOp
-	(SLNotifOp)(0),                         // 51: service_layer.SLNotifOp
+	(*SLMplsEntryKey)(nil),                 // 6: service_layer.SLMplsEntryKey
+	(*SLMplsEntry)(nil),                    // 7: service_layer.SLMplsEntry
+	(*SLAFIPRoute)(nil),                    // 8: service_layer.SLAFIPRoute
+	(*SLAFObject)(nil),                     // 9: service_layer.SLAFObject
+	(*SLAFOpMsg)(nil),                      // 10: service_layer.SLAFOpMsg
+	(*SLAFClientIDList)(nil),               // 11: service_layer.SLAFClientIDList
+	(*SLTableTypeList)(nil),                // 12: service_layer.SLTableTypeList
+	(*SLAFObjectKey)(nil),                  // 13: service_layer.SLAFObjectKey
+	(*SLAFGetMatch)(nil),                   // 14: service_layer.SLAFGetMatch
+	(*SLAFGetMatchList)(nil),               // 15: service_layer.SLAFGetMatchList
+	(*SLAFGetMsg)(nil),                     // 16: service_layer.SLAFGetMsg
+	(*SLAFGetMsgRspEntry)(nil),             // 17: service_layer.SLAFGetMsgRspEntry
+	(*SLAFGetMsgRsp)(nil),                  // 18: service_layer.SLAFGetMsgRsp
+	(*SLAFMsg)(nil),                        // 19: service_layer.SLAFMsg
+	(*SLAFRes)(nil),                        // 20: service_layer.SLAFRes
+	(*SLAFMsgRsp)(nil),                     // 21: service_layer.SLAFMsgRsp
+	(*SLAFRedistRegMsg)(nil),               // 22: service_layer.SLAFRedistRegMsg
+	(*SLAFNextHopRegKey)(nil),              // 23: service_layer.SLAFNextHopRegKey
+	(*SLAFNextHopRegMsg)(nil),              // 24: service_layer.SLAFNextHopRegMsg
+	(*SLAFNotifRegReq)(nil),                // 25: service_layer.SLAFNotifRegReq
+	(*SLAFNotifReq)(nil),                   // 26: service_layer.SLAFNotifReq
+	(*SLAFNotifRsp)(nil),                   // 27: service_layer.SLAFNotifRsp
+	(*SLNextHop)(nil),                      // 28: service_layer.SLNextHop
+	(*SLAFNotif)(nil),                      // 29: service_layer.SLAFNotif
+	(*SLAFNotifMsg)(nil),                   // 30: service_layer.SLAFNotifMsg
+	(*SLAFNextHopRegKey_SLNextHopKey)(nil), // 31: service_layer.SLAFNextHopRegKey.SLNextHopKey
+	(*SLAFNotif_SLRedistMarker)(nil),       // 32: service_layer.SLAFNotif.SLRedistMarker
+	(SLTableType)(0),                       // 33: service_layer.SLTableType
+	(*SLVrfReg)(nil),                       // 34: service_layer.SLVrfReg
+	(SLRegOp)(0),                           // 35: service_layer.SLRegOp
+	(*SLErrorStatus)(nil),                  // 36: service_layer.SLErrorStatus
+	(*SLRoutePath)(nil),                    // 37: service_layer.SLRoutePath
+	(SLRouteFlags)(0),                      // 38: service_layer.SLRouteFlags
+	(SLUpdatePriority)(0),                  // 39: service_layer.SLUpdatePriority
+	(*SLRoutePrefix)(nil),                  // 40: service_layer.SLRoutePrefix
+	(*SLRouteCommon)(nil),                  // 41: service_layer.SLRouteCommon
+	(*SLPathGroup)(nil),                    // 42: service_layer.SLPathGroup
+	(SLRspACKType)(0),                      // 43: service_layer.SLRspACKType
+	(SLRspACKPermit)(0),                    // 44: service_layer.SLRspACKPermit
+	(SLRspAckCadence)(0),                   // 45: service_layer.SLRspAckCadence
+	(*SLObjectId)(nil),                     // 46: service_layer.SLObjectId
+	(SLAFFibStatus)(0),                     // 47: service_layer.SLAFFibStatus
+	(SLObjectOp)(0),                        // 48: service_layer.SLObjectOp
+	(SLNotifOp)(0),                         // 49: service_layer.SLNotifOp
 }
 var file_sl_af_proto_depIdxs = []int32{
-	36, // 0: service_layer.SLAFVrfReg.Table:type_name -> service_layer.SLTableType
-	37, // 1: service_layer.SLAFVrfReg.VrfReg:type_name -> service_layer.SLVrfReg
-	38, // 2: service_layer.SLAFVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
+	33, // 0: service_layer.SLAFVrfReg.Table:type_name -> service_layer.SLTableType
+	34, // 1: service_layer.SLAFVrfReg.VrfReg:type_name -> service_layer.SLVrfReg
+	35, // 2: service_layer.SLAFVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
 	0,  // 3: service_layer.SLAFVrfRegMsg.VrfRegMsgs:type_name -> service_layer.SLAFVrfReg
-	39, // 4: service_layer.SLAFVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
-	36, // 5: service_layer.SLAFVrfRegMsgRes.Table:type_name -> service_layer.SLTableType
-	39, // 6: service_layer.SLAFVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
+	36, // 4: service_layer.SLAFVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
+	33, // 5: service_layer.SLAFVrfRegMsgRes.Table:type_name -> service_layer.SLTableType
+	36, // 6: service_layer.SLAFVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
 	2,  // 7: service_layer.SLAFVrfRegMsgRsp.Results:type_name -> service_layer.SLAFVrfRegMsgRes
-	39, // 8: service_layer.SLAFVrfRegGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	36, // 9: service_layer.SLAFVrfRegGetMsgRsp.Table:type_name -> service_layer.SLTableType
-	37, // 10: service_layer.SLAFVrfRegGetMsgRsp.Entries:type_name -> service_layer.SLVrfReg
-	40, // 11: service_layer.SLPathGroup.PathGroupId:type_name -> service_layer.SLObjectId
-	33, // 12: service_layer.SLPathGroup.PathList:type_name -> service_layer.SLPathGroup.SLPathList
-	41, // 13: service_layer.SLPathGroup.PgFlags:type_name -> service_layer.SLRouteFlags
-	7,  // 14: service_layer.SLMplsEntry.MplsKey:type_name -> service_layer.SLMplsEntryKey
-	42, // 15: service_layer.SLMplsEntry.PathList:type_name -> service_layer.SLRoutePath
-	41, // 16: service_layer.SLMplsEntry.MplsFlags:type_name -> service_layer.SLRouteFlags
-	43, // 17: service_layer.SLMplsEntry.Priority:type_name -> service_layer.SLUpdatePriority
-	44, // 18: service_layer.SLAFIPRoute.IPRoutePrefix:type_name -> service_layer.SLRoutePrefix
-	45, // 19: service_layer.SLAFIPRoute.RouteCommon:type_name -> service_layer.SLRouteCommon
-	42, // 20: service_layer.SLAFIPRoute.PathList:type_name -> service_layer.SLRoutePath
-	9,  // 21: service_layer.SLAFObject.IPRoute:type_name -> service_layer.SLAFIPRoute
-	8,  // 22: service_layer.SLAFObject.MplsLabel:type_name -> service_layer.SLMplsEntry
-	6,  // 23: service_layer.SLAFObject.PathGroup:type_name -> service_layer.SLPathGroup
-	10, // 24: service_layer.SLAFOpMsg.AFObject:type_name -> service_layer.SLAFObject
-	46, // 25: service_layer.SLAFOpMsg.AckType:type_name -> service_layer.SLRspACKType
-	47, // 26: service_layer.SLAFOpMsg.AckPermits:type_name -> service_layer.SLRspACKPermit
-	48, // 27: service_layer.SLAFOpMsg.AckCadence:type_name -> service_layer.SLRspAckCadence
-	36, // 28: service_layer.SLTableTypeList.Table:type_name -> service_layer.SLTableType
-	44, // 29: service_layer.SLAFObjectKey.IPRoutePrefix:type_name -> service_layer.SLRoutePrefix
-	7,  // 30: service_layer.SLAFObjectKey.MplsLabel:type_name -> service_layer.SLMplsEntryKey
-	40, // 31: service_layer.SLAFObjectKey.PathGroupId:type_name -> service_layer.SLObjectId
-	14, // 32: service_layer.SLAFGetMatch.Key:type_name -> service_layer.SLAFObjectKey
-	15, // 33: service_layer.SLAFGetMatchList.Match:type_name -> service_layer.SLAFGetMatch
-	12, // 34: service_layer.SLAFGetMsg.ClientIDList:type_name -> service_layer.SLAFClientIDList
-	13, // 35: service_layer.SLAFGetMsg.TableList:type_name -> service_layer.SLTableTypeList
-	16, // 36: service_layer.SLAFGetMsg.RouteMatchList:type_name -> service_layer.SLAFGetMatchList
-	11, // 37: service_layer.SLAFGetMsgRspEntry.AFOpMsg:type_name -> service_layer.SLAFOpMsg
-	49, // 38: service_layer.SLAFGetMsgRspEntry.FIBStatus:type_name -> service_layer.SLAFFibStatus
-	39, // 39: service_layer.SLAFGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	18, // 40: service_layer.SLAFGetMsgRsp.AFList:type_name -> service_layer.SLAFGetMsgRspEntry
-	50, // 41: service_layer.SLAFMsg.Oper:type_name -> service_layer.SLObjectOp
-	11, // 42: service_layer.SLAFMsg.OpList:type_name -> service_layer.SLAFOpMsg
-	39, // 43: service_layer.SLAFRes.Status:type_name -> service_layer.SLErrorStatus
-	14, // 44: service_layer.SLAFRes.Key:type_name -> service_layer.SLAFObjectKey
-	49, // 45: service_layer.SLAFRes.FIBStatus:type_name -> service_layer.SLAFFibStatus
-	21, // 46: service_layer.SLAFMsgRsp.Results:type_name -> service_layer.SLAFRes
-	36, // 47: service_layer.SLAFRedistRegMsg.Table:type_name -> service_layer.SLTableType
-	34, // 48: service_layer.SLAFNextHopRegKey.NextHop:type_name -> service_layer.SLAFNextHopRegKey.SLNextHopKey
-	24, // 49: service_layer.SLAFNextHopRegMsg.NextHopKey:type_name -> service_layer.SLAFNextHopRegKey
-	23, // 50: service_layer.SLAFNotifRegReq.RedistReq:type_name -> service_layer.SLAFRedistRegMsg
-	25, // 51: service_layer.SLAFNotifRegReq.NextHopReq:type_name -> service_layer.SLAFNextHopRegMsg
-	51, // 52: service_layer.SLAFNotifReq.Oper:type_name -> service_layer.SLNotifOp
-	26, // 53: service_layer.SLAFNotifReq.NotifReq:type_name -> service_layer.SLAFNotifRegReq
-	26, // 54: service_layer.SLAFNotifRsp.NotifReq:type_name -> service_layer.SLAFNotifRegReq
-	39, // 55: service_layer.SLAFNotifRsp.NotifStatus:type_name -> service_layer.SLErrorStatus
-	24, // 56: service_layer.SLNextHop.NextHopKey:type_name -> service_layer.SLAFNextHopRegKey
-	44, // 57: service_layer.SLNextHop.ResolvingPrefix:type_name -> service_layer.SLRoutePrefix
-	42, // 58: service_layer.SLNextHop.Paths:type_name -> service_layer.SLRoutePath
-	28, // 59: service_layer.SLAFNotif.NotifStatus:type_name -> service_layer.SLAFNotifRsp
-	35, // 60: service_layer.SLAFNotif.StartMarker:type_name -> service_layer.SLAFNotif.SLRedistMarker
-	35, // 61: service_layer.SLAFNotif.EndMarker:type_name -> service_layer.SLAFNotif.SLRedistMarker
-	10, // 62: service_layer.SLAFNotif.RedistObject:type_name -> service_layer.SLAFObject
-	29, // 63: service_layer.SLAFNotif.NextHop:type_name -> service_layer.SLNextHop
-	30, // 64: service_layer.SLAFNotifMsg.AFNotifs:type_name -> service_layer.SLAFNotif
-	42, // 65: service_layer.SLPathGroup.SLPath.Path:type_name -> service_layer.SLRoutePath
-	32, // 66: service_layer.SLPathGroup.SLPathList.Paths:type_name -> service_layer.SLPathGroup.SLPath
-	44, // 67: service_layer.SLAFNextHopRegKey.SLNextHopKey.NextHopIP:type_name -> service_layer.SLRoutePrefix
-	36, // 68: service_layer.SLAFNotif.SLRedistMarker.Table:type_name -> service_layer.SLTableType
-	1,  // 69: service_layer.SLAF.SLAFVrfRegOp:input_type -> service_layer.SLAFVrfRegMsg
-	4,  // 70: service_layer.SLAF.SLAFVrfRegGet:input_type -> service_layer.SLAFVrfRegGetMsg
-	20, // 71: service_layer.SLAF.SLAFOp:input_type -> service_layer.SLAFMsg
-	20, // 72: service_layer.SLAF.SLAFOpStream:input_type -> service_layer.SLAFMsg
-	17, // 73: service_layer.SLAF.SLAFGet:input_type -> service_layer.SLAFGetMsg
-	27, // 74: service_layer.SLAF.SLAFNotifStream:input_type -> service_layer.SLAFNotifReq
-	3,  // 75: service_layer.SLAF.SLAFVrfRegOp:output_type -> service_layer.SLAFVrfRegMsgRsp
-	5,  // 76: service_layer.SLAF.SLAFVrfRegGet:output_type -> service_layer.SLAFVrfRegGetMsgRsp
-	22, // 77: service_layer.SLAF.SLAFOp:output_type -> service_layer.SLAFMsgRsp
-	22, // 78: service_layer.SLAF.SLAFOpStream:output_type -> service_layer.SLAFMsgRsp
-	19, // 79: service_layer.SLAF.SLAFGet:output_type -> service_layer.SLAFGetMsgRsp
-	31, // 80: service_layer.SLAF.SLAFNotifStream:output_type -> service_layer.SLAFNotifMsg
-	75, // [75:81] is the sub-list for method output_type
-	69, // [69:75] is the sub-list for method input_type
-	69, // [69:69] is the sub-list for extension type_name
-	69, // [69:69] is the sub-list for extension extendee
-	0,  // [0:69] is the sub-list for field type_name
+	36, // 8: service_layer.SLAFVrfRegGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	33, // 9: service_layer.SLAFVrfRegGetMsgRsp.Table:type_name -> service_layer.SLTableType
+	34, // 10: service_layer.SLAFVrfRegGetMsgRsp.Entries:type_name -> service_layer.SLVrfReg
+	6,  // 11: service_layer.SLMplsEntry.MplsKey:type_name -> service_layer.SLMplsEntryKey
+	37, // 12: service_layer.SLMplsEntry.PathList:type_name -> service_layer.SLRoutePath
+	38, // 13: service_layer.SLMplsEntry.MplsFlags:type_name -> service_layer.SLRouteFlags
+	39, // 14: service_layer.SLMplsEntry.Priority:type_name -> service_layer.SLUpdatePriority
+	40, // 15: service_layer.SLAFIPRoute.IPRoutePrefix:type_name -> service_layer.SLRoutePrefix
+	41, // 16: service_layer.SLAFIPRoute.RouteCommon:type_name -> service_layer.SLRouteCommon
+	37, // 17: service_layer.SLAFIPRoute.PathList:type_name -> service_layer.SLRoutePath
+	8,  // 18: service_layer.SLAFObject.IPRoute:type_name -> service_layer.SLAFIPRoute
+	7,  // 19: service_layer.SLAFObject.MplsLabel:type_name -> service_layer.SLMplsEntry
+	42, // 20: service_layer.SLAFObject.PathGroup:type_name -> service_layer.SLPathGroup
+	9,  // 21: service_layer.SLAFOpMsg.AFObject:type_name -> service_layer.SLAFObject
+	43, // 22: service_layer.SLAFOpMsg.AckType:type_name -> service_layer.SLRspACKType
+	44, // 23: service_layer.SLAFOpMsg.AckPermits:type_name -> service_layer.SLRspACKPermit
+	45, // 24: service_layer.SLAFOpMsg.AckCadence:type_name -> service_layer.SLRspAckCadence
+	33, // 25: service_layer.SLTableTypeList.Table:type_name -> service_layer.SLTableType
+	40, // 26: service_layer.SLAFObjectKey.IPRoutePrefix:type_name -> service_layer.SLRoutePrefix
+	6,  // 27: service_layer.SLAFObjectKey.MplsLabel:type_name -> service_layer.SLMplsEntryKey
+	46, // 28: service_layer.SLAFObjectKey.PathGroupId:type_name -> service_layer.SLObjectId
+	13, // 29: service_layer.SLAFGetMatch.Key:type_name -> service_layer.SLAFObjectKey
+	14, // 30: service_layer.SLAFGetMatchList.Match:type_name -> service_layer.SLAFGetMatch
+	11, // 31: service_layer.SLAFGetMsg.ClientIDList:type_name -> service_layer.SLAFClientIDList
+	12, // 32: service_layer.SLAFGetMsg.TableList:type_name -> service_layer.SLTableTypeList
+	15, // 33: service_layer.SLAFGetMsg.RouteMatchList:type_name -> service_layer.SLAFGetMatchList
+	10, // 34: service_layer.SLAFGetMsgRspEntry.AFOpMsg:type_name -> service_layer.SLAFOpMsg
+	47, // 35: service_layer.SLAFGetMsgRspEntry.FIBStatus:type_name -> service_layer.SLAFFibStatus
+	36, // 36: service_layer.SLAFGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	17, // 37: service_layer.SLAFGetMsgRsp.AFList:type_name -> service_layer.SLAFGetMsgRspEntry
+	48, // 38: service_layer.SLAFMsg.Oper:type_name -> service_layer.SLObjectOp
+	10, // 39: service_layer.SLAFMsg.OpList:type_name -> service_layer.SLAFOpMsg
+	36, // 40: service_layer.SLAFRes.Status:type_name -> service_layer.SLErrorStatus
+	13, // 41: service_layer.SLAFRes.Key:type_name -> service_layer.SLAFObjectKey
+	47, // 42: service_layer.SLAFRes.FIBStatus:type_name -> service_layer.SLAFFibStatus
+	20, // 43: service_layer.SLAFMsgRsp.Results:type_name -> service_layer.SLAFRes
+	33, // 44: service_layer.SLAFRedistRegMsg.Table:type_name -> service_layer.SLTableType
+	31, // 45: service_layer.SLAFNextHopRegKey.NextHop:type_name -> service_layer.SLAFNextHopRegKey.SLNextHopKey
+	23, // 46: service_layer.SLAFNextHopRegMsg.NextHopKey:type_name -> service_layer.SLAFNextHopRegKey
+	22, // 47: service_layer.SLAFNotifRegReq.RedistReq:type_name -> service_layer.SLAFRedistRegMsg
+	24, // 48: service_layer.SLAFNotifRegReq.NextHopReq:type_name -> service_layer.SLAFNextHopRegMsg
+	49, // 49: service_layer.SLAFNotifReq.Oper:type_name -> service_layer.SLNotifOp
+	25, // 50: service_layer.SLAFNotifReq.NotifReq:type_name -> service_layer.SLAFNotifRegReq
+	25, // 51: service_layer.SLAFNotifRsp.NotifReq:type_name -> service_layer.SLAFNotifRegReq
+	36, // 52: service_layer.SLAFNotifRsp.NotifStatus:type_name -> service_layer.SLErrorStatus
+	23, // 53: service_layer.SLNextHop.NextHopKey:type_name -> service_layer.SLAFNextHopRegKey
+	40, // 54: service_layer.SLNextHop.ResolvingPrefix:type_name -> service_layer.SLRoutePrefix
+	37, // 55: service_layer.SLNextHop.Paths:type_name -> service_layer.SLRoutePath
+	27, // 56: service_layer.SLAFNotif.NotifStatus:type_name -> service_layer.SLAFNotifRsp
+	32, // 57: service_layer.SLAFNotif.StartMarker:type_name -> service_layer.SLAFNotif.SLRedistMarker
+	32, // 58: service_layer.SLAFNotif.EndMarker:type_name -> service_layer.SLAFNotif.SLRedistMarker
+	9,  // 59: service_layer.SLAFNotif.RedistObject:type_name -> service_layer.SLAFObject
+	28, // 60: service_layer.SLAFNotif.NextHop:type_name -> service_layer.SLNextHop
+	29, // 61: service_layer.SLAFNotifMsg.AFNotifs:type_name -> service_layer.SLAFNotif
+	40, // 62: service_layer.SLAFNextHopRegKey.SLNextHopKey.NextHopIP:type_name -> service_layer.SLRoutePrefix
+	33, // 63: service_layer.SLAFNotif.SLRedistMarker.Table:type_name -> service_layer.SLTableType
+	1,  // 64: service_layer.SLAF.SLAFVrfRegOp:input_type -> service_layer.SLAFVrfRegMsg
+	4,  // 65: service_layer.SLAF.SLAFVrfRegGet:input_type -> service_layer.SLAFVrfRegGetMsg
+	19, // 66: service_layer.SLAF.SLAFOp:input_type -> service_layer.SLAFMsg
+	19, // 67: service_layer.SLAF.SLAFOpStream:input_type -> service_layer.SLAFMsg
+	16, // 68: service_layer.SLAF.SLAFGet:input_type -> service_layer.SLAFGetMsg
+	26, // 69: service_layer.SLAF.SLAFNotifStream:input_type -> service_layer.SLAFNotifReq
+	3,  // 70: service_layer.SLAF.SLAFVrfRegOp:output_type -> service_layer.SLAFVrfRegMsgRsp
+	5,  // 71: service_layer.SLAF.SLAFVrfRegGet:output_type -> service_layer.SLAFVrfRegGetMsgRsp
+	21, // 72: service_layer.SLAF.SLAFOp:output_type -> service_layer.SLAFMsgRsp
+	21, // 73: service_layer.SLAF.SLAFOpStream:output_type -> service_layer.SLAFMsgRsp
+	18, // 74: service_layer.SLAF.SLAFGet:output_type -> service_layer.SLAFGetMsgRsp
+	30, // 75: service_layer.SLAF.SLAFNotifStream:output_type -> service_layer.SLAFNotifMsg
+	70, // [70:76] is the sub-list for method output_type
+	64, // [64:70] is the sub-list for method input_type
+	64, // [64:64] is the sub-list for extension type_name
+	64, // [64:64] is the sub-list for extension extendee
+	0,  // [0:64] is the sub-list for field type_name
 }
 
 func init() { file_sl_af_proto_init() }
@@ -3160,38 +2915,35 @@ func file_sl_af_proto_init() {
 	}
 	file_sl_common_types_proto_init()
 	file_sl_route_common_proto_init()
-	file_sl_af_proto_msgTypes[6].OneofWrappers = []any{
-		(*SLPathGroup_PathList)(nil),
-	}
-	file_sl_af_proto_msgTypes[10].OneofWrappers = []any{
+	file_sl_af_proto_msgTypes[9].OneofWrappers = []any{
 		(*SLAFObject_IPRoute)(nil),
 		(*SLAFObject_MplsLabel)(nil),
 		(*SLAFObject_PathGroup)(nil),
 	}
-	file_sl_af_proto_msgTypes[14].OneofWrappers = []any{
+	file_sl_af_proto_msgTypes[13].OneofWrappers = []any{
 		(*SLAFObjectKey_IPRoutePrefix)(nil),
 		(*SLAFObjectKey_MplsLabel)(nil),
 		(*SLAFObjectKey_PathGroupId)(nil),
 	}
-	file_sl_af_proto_msgTypes[15].OneofWrappers = []any{
+	file_sl_af_proto_msgTypes[14].OneofWrappers = []any{
 		(*SLAFGetMatch_Key)(nil),
 		(*SLAFGetMatch_PathGroupRegex)(nil),
 		(*SLAFGetMatch_VxlanVniId)(nil),
 	}
-	file_sl_af_proto_msgTypes[17].OneofWrappers = []any{
+	file_sl_af_proto_msgTypes[16].OneofWrappers = []any{
 		(*SLAFGetMsg_ClientIDList)(nil),
 		(*SLAFGetMsg_AllClients)(nil),
 		(*SLAFGetMsg_TableList)(nil),
 		(*SLAFGetMsg_RouteMatchList)(nil),
 	}
-	file_sl_af_proto_msgTypes[24].OneofWrappers = []any{
+	file_sl_af_proto_msgTypes[23].OneofWrappers = []any{
 		(*SLAFNextHopRegKey_NextHop)(nil),
 	}
-	file_sl_af_proto_msgTypes[26].OneofWrappers = []any{
+	file_sl_af_proto_msgTypes[25].OneofWrappers = []any{
 		(*SLAFNotifRegReq_RedistReq)(nil),
 		(*SLAFNotifRegReq_NextHopReq)(nil),
 	}
-	file_sl_af_proto_msgTypes[30].OneofWrappers = []any{
+	file_sl_af_proto_msgTypes[29].OneofWrappers = []any{
 		(*SLAFNotif_NotifStatus)(nil),
 		(*SLAFNotif_StartMarker)(nil),
 		(*SLAFNotif_EndMarker)(nil),
@@ -3204,7 +2956,7 @@ func file_sl_af_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_sl_af_proto_rawDesc), len(file_sl_af_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   36,
+			NumMessages:   33,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

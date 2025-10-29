@@ -280,73 +280,6 @@ message SLAFVrfRegGetMsgRsp {
     repeated SLVrfReg Entries = 4;
 }
 
-// Path Group definition.
-message SLPathGroup {
-    message SLPath {
-        // Primary path
-        SLRoutePath Path = 1;
-    }
-
-    // A list of SLPathList
-    message SLPathList {
-        repeated SLPath Paths = 1;
-    }
-
-    // Path Group ID
-    SLObjectId PathGroupId = 1;
-
-    // Administrative distance of the Path Group. [0-255].
-    // RIB uses this field to break the tie when multiple
-    // sources install the same Path Group.
-    // Lower distance is preferred over higher distance.
-    // The per path group object admin distance overrides the default admin
-    // distance set at VRF registration. see SLVrfReg.
-    uint32 AdminDistance = 2;
-
-    // Description of paths in the PathGroup.
-    // Oneof is used here for future extensibility.
-    oneof entry {
-        // Path List
-        SLPathList PathList = 3;
-    }
-
-    // Flags to control programming of the PathGroup to Routing
-    // Information Base. See SLRouteFlags for flag enumerations.
-    // Supported values are:
-    //
-    // SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
-    // - If the flag is not set, all paths in the PathList are installed in
-    //   the PathGroup's load balance group, even if paths are unviable.
-    //   The Network element does not automatically update the PathGroup's
-    //   load balance group when path viability changes and
-    //   expects the client to take corrective action.
-    //
-    // - If the flag is set, the network element only installs viable
-    //   paths from the PathList in the PathGroup's load balance group.
-    //   The Network element also automatically updates the PathGroup's
-    //   load balance group when path viability changes.
-    //
-    // SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH.
-    // - If this flag is not set, routes and MPLS entries referencing
-    //   this PathGroup are considered active if they are preferred
-    //   based on their administrative distance. PathGroup's viability
-    //   is not considered as a criterion to determine the routes' and
-    //   MPLS entries' activeness. The network element does not automatically
-    //   promote or demote the routes and MPLS entries as viability of the
-    //   PathGroup changes.
-    //
-    // - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
-    //   be set. The routes and MPLS entries referencing this PathGroup are
-    //   considered active if they are preferred based
-    //   on their administrative distance AND viability of the PathGroup.
-    //   At least one path in the PathGroup must be viable for the
-    //   PathGroup to be viable. The network element automatically promotes or
-    //   demotes the routes and MPLS entries as viability of the PathGroup
-    //   changes.
-    //
-    // Others - Reserved.
-    repeated SLRouteFlags PgFlags = 4;
-}
 
 // Key for a MPLS label entry
 message SLMplsEntryKey {
@@ -372,7 +305,7 @@ message SLMplsEntry {
     // must be specified. For DELETE, PathList is ignored.
 
     // List of paths for this MPLS label entry.
-    // Specifying more than one path is allowed for ECMP/UCMP cases.
+    // Specifying more than one path is allowed for ECMP/UCMP/FRR cases.
     repeated SLRoutePath PathList = 3;
 
     // Flags to control programming of the MPLS Entry to Routing
@@ -436,7 +369,7 @@ message SLAFIPRoute {
     SLRouteCommon RouteCommon = 2;
 
     // List of route paths for this route.
-    // Specifying more than one path is allowed for ECMP/UCMP cases.
+    // Specifying more than one path is allowed for ECMP/UCMP/FRR cases.
     repeated SLRoutePath PathList = 3;
 }
 
