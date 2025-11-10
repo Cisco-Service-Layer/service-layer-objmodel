@@ -423,10 +423,16 @@ const (
 	SLRspACKType_RIB_AND_FIB_ACK SLRspACKType = 1
 	// When the ack type is RIB_FIB_INUSE_ACK, along with the behavior
 	// explained above for RIB_AND_FIB_ACK, the client will receive an
-	// additional response of type SL_FIB_INUSE_SUCCESS. RIB_FIB_INUSE_ACK
-	// indicates that object has been programmed in FIB and is being actively
-	// used by one or more forwarding chains.
-	// // RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup.
+	// additional response of type SL_FIB_INUSE_SUCCESS or SL_FIB_INUSE_FAILED.
+	// SL_FIB_INUSE_SUCCESS indicates that an object has been successfully
+	// programmed in FIB and is being actively used by one or more forwarding
+	// chains.
+	// SL_FIB_INUSE_FAILED indicates that there was a failure in programming at
+	// least one of the forwarding chains this object is part of.
+	// *Note: SL_FIB_INUSE_FAILED is a terminal state for an object; the object
+	// has to be removed and reprogrammed to recover from the
+	// SL_FIB_INUSE_FAILED state.
+	// RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup.
 	SLRspACKType_RIB_FIB_INUSE_ACK SLRspACKType = 2
 )
 
@@ -490,6 +496,10 @@ const (
 	// and is in-use by at least one referencing object that is also
 	// programmed in hardware.
 	SLAFFibStatus_SL_FIB_INUSE_SUCCESS SLAFFibStatus = 4
+	// The forwarding chain using this object is not active in hardware
+	// as at least one referencing object failed to be
+	// programmed in hardware.
+	SLAFFibStatus_SL_FIB_INUSE_FAILED SLAFFibStatus = 5
 )
 
 // Enum value maps for SLAFFibStatus.
@@ -500,6 +510,7 @@ var (
 		2: "SL_FIB_FAILED",
 		3: "SL_FIB_INELIGIBLE",
 		4: "SL_FIB_INUSE_SUCCESS",
+		5: "SL_FIB_INUSE_FAILED",
 	}
 	SLAFFibStatus_value = map[string]int32{
 		"SL_FIB_UNKNOWN":       0,
@@ -507,6 +518,7 @@ var (
 		"SL_FIB_FAILED":        2,
 		"SL_FIB_INELIGIBLE":    3,
 		"SL_FIB_INUSE_SUCCESS": 4,
+		"SL_FIB_INUSE_FAILED":  5,
 	}
 )
 
@@ -561,6 +573,8 @@ const (
 	SLRspACKPermit_SL_PERMIT_FIB_INELIGIBLE SLRspACKPermit = 3
 	// Permits SL_FIB_INUSE_SUCCESS to be relayed to client
 	SLRspACKPermit_SL_PERMIT_FIB_INUSE_SUCCESS SLRspACKPermit = 4
+	// Permits SL_FIB_INUSE_FAILED to be relayed to client
+	SLRspACKPermit_SL_PERMIT_FIB_INUSE_FAILED SLRspACKPermit = 5
 )
 
 // Enum value maps for SLRspACKPermit.
@@ -571,6 +585,7 @@ var (
 		2: "SL_PERMIT_FIB_FAILED",
 		3: "SL_PERMIT_FIB_INELIGIBLE",
 		4: "SL_PERMIT_FIB_INUSE_SUCCESS",
+		5: "SL_PERMIT_FIB_INUSE_FAILED",
 	}
 	SLRspACKPermit_value = map[string]int32{
 		"SL_PERMIT_FIB_STATUS_ALL":    0,
@@ -578,6 +593,7 @@ var (
 		"SL_PERMIT_FIB_FAILED":        2,
 		"SL_PERMIT_FIB_INELIGIBLE":    3,
 		"SL_PERMIT_FIB_INUSE_SUCCESS": 4,
+		"SL_PERMIT_FIB_INUSE_FAILED":  5,
 	}
 )
 
@@ -3293,19 +3309,21 @@ const file_sl_common_types_proto_rawDesc = "" +
 	"\fSLRspACKType\x12\v\n" +
 	"\aRIB_ACK\x10\x00\x12\x13\n" +
 	"\x0fRIB_AND_FIB_ACK\x10\x01\x12\x15\n" +
-	"\x11RIB_FIB_INUSE_ACK\x10\x02*{\n" +
+	"\x11RIB_FIB_INUSE_ACK\x10\x02*\x94\x01\n" +
 	"\rSLAFFibStatus\x12\x12\n" +
 	"\x0eSL_FIB_UNKNOWN\x10\x00\x12\x12\n" +
 	"\x0eSL_FIB_SUCCESS\x10\x01\x12\x11\n" +
 	"\rSL_FIB_FAILED\x10\x02\x12\x15\n" +
 	"\x11SL_FIB_INELIGIBLE\x10\x03\x12\x18\n" +
-	"\x14SL_FIB_INUSE_SUCCESS\x10\x04*\xa2\x01\n" +
+	"\x14SL_FIB_INUSE_SUCCESS\x10\x04\x12\x17\n" +
+	"\x13SL_FIB_INUSE_FAILED\x10\x05*\xc2\x01\n" +
 	"\x0eSLRspACKPermit\x12\x1c\n" +
 	"\x18SL_PERMIT_FIB_STATUS_ALL\x10\x00\x12\x19\n" +
 	"\x15SL_PERMIT_FIB_SUCCESS\x10\x01\x12\x18\n" +
 	"\x14SL_PERMIT_FIB_FAILED\x10\x02\x12\x1c\n" +
 	"\x18SL_PERMIT_FIB_INELIGIBLE\x10\x03\x12\x1f\n" +
-	"\x1bSL_PERMIT_FIB_INUSE_SUCCESS\x10\x04*e\n" +
+	"\x1bSL_PERMIT_FIB_INUSE_SUCCESS\x10\x04\x12\x1e\n" +
+	"\x1aSL_PERMIT_FIB_INUSE_FAILED\x10\x05*e\n" +
 	"\x0fSLRspAckCadence\x12\x15\n" +
 	"\x11SL_RSP_CONTINUOUS\x10\x00\x12\x14\n" +
 	"\x10SL_RSP_JUST_ONCE\x10\x01\x12\x14\n" +

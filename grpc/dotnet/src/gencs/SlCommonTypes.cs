@@ -345,18 +345,19 @@ namespace ServiceLayer {
             "RUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9ST1VU",
             "RV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9QQVRI",
             "X0dST1VQX1RBQkxFEAQqRwoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQABIT",
-            "Cg9SSUJfQU5EX0ZJQl9BQ0sQARIVChFSSUJfRklCX0lOVVNFX0FDSxACKnsK",
-            "DVNMQUZGaWJTdGF0dXMSEgoOU0xfRklCX1VOS05PV04QABISCg5TTF9GSUJf",
-            "U1VDQ0VTUxABEhEKDVNMX0ZJQl9GQUlMRUQQAhIVChFTTF9GSUJfSU5FTElH",
-            "SUJMRRADEhgKFFNMX0ZJQl9JTlVTRV9TVUNDRVNTEAQqogEKDlNMUnNwQUNL",
-            "UGVybWl0EhwKGFNMX1BFUk1JVF9GSUJfU1RBVFVTX0FMTBAAEhkKFVNMX1BF",
-            "Uk1JVF9GSUJfU1VDQ0VTUxABEhgKFFNMX1BFUk1JVF9GSUJfRkFJTEVEEAIS",
-            "HAoYU0xfUEVSTUlUX0ZJQl9JTkVMSUdJQkxFEAMSHwobU0xfUEVSTUlUX0ZJ",
-            "Ql9JTlVTRV9TVUNDRVNTEAQqZQoPU0xSc3BBY2tDYWRlbmNlEhUKEVNMX1JT",
-            "UF9DT05USU5VT1VTEAASFAoQU0xfUlNQX0pVU1RfT05DRRABEhQKEFNMX1JT",
-            "UF9PTkNFX0VBQ0gQAhIPCgtTTF9SU1BfTk9ORRADQlFaT2dpdGh1Yi5jb20v",
-            "Q2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dy",
-            "cGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "Cg9SSUJfQU5EX0ZJQl9BQ0sQARIVChFSSUJfRklCX0lOVVNFX0FDSxACKpQB",
+            "Cg1TTEFGRmliU3RhdHVzEhIKDlNMX0ZJQl9VTktOT1dOEAASEgoOU0xfRklC",
+            "X1NVQ0NFU1MQARIRCg1TTF9GSUJfRkFJTEVEEAISFQoRU0xfRklCX0lORUxJ",
+            "R0lCTEUQAxIYChRTTF9GSUJfSU5VU0VfU1VDQ0VTUxAEEhcKE1NMX0ZJQl9J",
+            "TlVTRV9GQUlMRUQQBSrCAQoOU0xSc3BBQ0tQZXJtaXQSHAoYU0xfUEVSTUlU",
+            "X0ZJQl9TVEFUVVNfQUxMEAASGQoVU0xfUEVSTUlUX0ZJQl9TVUNDRVNTEAES",
+            "GAoUU0xfUEVSTUlUX0ZJQl9GQUlMRUQQAhIcChhTTF9QRVJNSVRfRklCX0lO",
+            "RUxJR0lCTEUQAxIfChtTTF9QRVJNSVRfRklCX0lOVVNFX1NVQ0NFU1MQBBIe",
+            "ChpTTF9QRVJNSVRfRklCX0lOVVNFX0ZBSUxFRBAFKmUKD1NMUnNwQWNrQ2Fk",
+            "ZW5jZRIVChFTTF9SU1BfQ09OVElOVU9VUxAAEhQKEFNMX1JTUF9KVVNUX09O",
+            "Q0UQARIUChBTTF9SU1BfT05DRV9FQUNIEAISDwoLU0xfUlNQX05PTkUQA0JR",
+            "Wk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXll",
+            "ci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLAFFibStatus), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -547,10 +548,16 @@ namespace ServiceLayer {
     /// <summary>
     /// When the ack type is RIB_FIB_INUSE_ACK, along with the behavior
     /// explained above for RIB_AND_FIB_ACK, the client will receive an
-    /// additional response of type SL_FIB_INUSE_SUCCESS. RIB_FIB_INUSE_ACK
-    /// indicates that object has been programmed in FIB and is being actively
-    /// used by one or more forwarding chains.
-    /// // RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup.
+    /// additional response of type SL_FIB_INUSE_SUCCESS or SL_FIB_INUSE_FAILED.
+    /// SL_FIB_INUSE_SUCCESS indicates that an object has been successfully 
+    /// programmed in FIB and is being actively used by one or more forwarding
+    /// chains.
+    /// SL_FIB_INUSE_FAILED indicates that there was a failure in programming at
+    /// least one of the forwarding chains this object is part of.
+    /// *Note: SL_FIB_INUSE_FAILED is a terminal state for an object; the object 
+    /// has to be removed and reprogrammed to recover from the 
+    /// SL_FIB_INUSE_FAILED state.
+    /// RIB_FIB_INUSE_ACK is supported only for object of type SLPathGroup.
     /// </summary>
     [pbr::OriginalName("RIB_FIB_INUSE_ACK")] RibFibInuseAck = 2,
   }
@@ -584,6 +591,12 @@ namespace ServiceLayer {
     /// programmed in hardware.
     /// </summary>
     [pbr::OriginalName("SL_FIB_INUSE_SUCCESS")] SlFibInuseSuccess = 4,
+    /// <summary>
+    /// The forwarding chain using this object is not active in hardware
+    /// as at least one referencing object failed to be
+    /// programmed in hardware.
+    /// </summary>
+    [pbr::OriginalName("SL_FIB_INUSE_FAILED")] SlFibInuseFailed = 5,
   }
 
   /// <summary>
@@ -620,6 +633,10 @@ namespace ServiceLayer {
     /// Permits SL_FIB_INUSE_SUCCESS to be relayed to client
     /// </summary>
     [pbr::OriginalName("SL_PERMIT_FIB_INUSE_SUCCESS")] SlPermitFibInuseSuccess = 4,
+    /// <summary>
+    /// Permits SL_FIB_INUSE_FAILED to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_FIB_INUSE_FAILED")] SlPermitFibInuseFailed = 5,
   }
 
   /// <summary>

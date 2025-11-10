@@ -548,23 +548,24 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "LE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE\020\003\022\027\n\023SL_PATH"
   "_GROUP_TABLE\020\004*G\n\014SLRspACKType\022\013\n\007RIB_AC"
   "K\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001\022\025\n\021RIB_FIB_INUS"
-  "E_ACK\020\002*{\n\rSLAFFibStatus\022\022\n\016SL_FIB_UNKNO"
-  "WN\020\000\022\022\n\016SL_FIB_SUCCESS\020\001\022\021\n\rSL_FIB_FAILE"
-  "D\020\002\022\025\n\021SL_FIB_INELIGIBLE\020\003\022\030\n\024SL_FIB_INU"
-  "SE_SUCCESS\020\004*\242\001\n\016SLRspACKPermit\022\034\n\030SL_PE"
-  "RMIT_FIB_STATUS_ALL\020\000\022\031\n\025SL_PERMIT_FIB_S"
-  "UCCESS\020\001\022\030\n\024SL_PERMIT_FIB_FAILED\020\002\022\034\n\030SL"
-  "_PERMIT_FIB_INELIGIBLE\020\003\022\037\n\033SL_PERMIT_FI"
-  "B_INUSE_SUCCESS\020\004*e\n\017SLRspAckCadence\022\025\n\021"
-  "SL_RSP_CONTINUOUS\020\000\022\024\n\020SL_RSP_JUST_ONCE\020"
-  "\001\022\024\n\020SL_RSP_ONCE_EACH\020\002\022\017\n\013SL_RSP_NONE\020\003"
-  "BQZOgithub.com/Cisco-service-layer/servi"
-  "ce-layer-objmodel/grpc/protos;service_la"
-  "yerb\006proto3"
+  "E_ACK\020\002*\224\001\n\rSLAFFibStatus\022\022\n\016SL_FIB_UNKN"
+  "OWN\020\000\022\022\n\016SL_FIB_SUCCESS\020\001\022\021\n\rSL_FIB_FAIL"
+  "ED\020\002\022\025\n\021SL_FIB_INELIGIBLE\020\003\022\030\n\024SL_FIB_IN"
+  "USE_SUCCESS\020\004\022\027\n\023SL_FIB_INUSE_FAILED\020\005*\302"
+  "\001\n\016SLRspACKPermit\022\034\n\030SL_PERMIT_FIB_STATU"
+  "S_ALL\020\000\022\031\n\025SL_PERMIT_FIB_SUCCESS\020\001\022\030\n\024SL"
+  "_PERMIT_FIB_FAILED\020\002\022\034\n\030SL_PERMIT_FIB_IN"
+  "ELIGIBLE\020\003\022\037\n\033SL_PERMIT_FIB_INUSE_SUCCES"
+  "S\020\004\022\036\n\032SL_PERMIT_FIB_INUSE_FAILED\020\005*e\n\017S"
+  "LRspAckCadence\022\025\n\021SL_RSP_CONTINUOUS\020\000\022\024\n"
+  "\020SL_RSP_JUST_ONCE\020\001\022\024\n\020SL_RSP_ONCE_EACH\020"
+  "\002\022\017\n\013SL_RSP_NONE\020\003BQZOgithub.com/Cisco-s"
+  "ervice-layer/service-layer-objmodel/grpc"
+  "/protos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 14971, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 15029, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 7,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -1501,6 +1502,7 @@ bool SLAFFibStatus_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
       return true;
     default:
       return false;
@@ -1518,6 +1520,7 @@ bool SLRspACKPermit_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
       return true;
     default:
       return false;
