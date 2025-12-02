@@ -683,7 +683,10 @@ type SLSrPolicyAttributes struct {
 	// candidate-path (CP) attributes. The profile-ID feature allows usage of
 	// vendor/implementation specific functionality per policy without requiring
 	// explicit support by controller.
-	ProfileId     uint32 `protobuf:"varint,6,opt,name=profile_id,json=profileId,proto3" json:"profile_id,omitempty"`
+	ProfileId uint32 `protobuf:"varint,6,opt,name=profile_id,json=profileId,proto3" json:"profile_id,omitempty"`
+	// Attributes specific to SRv6 policies.
+	// Request will be rejected if srv6_attrs is set for non-SRv6 dataplane.
+	Srv6Attrs     *SLSrSrv6PolicyAttributes `protobuf:"bytes,7,opt,name=srv6_attrs,json=srv6Attrs,proto3" json:"srv6_attrs,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -751,6 +754,13 @@ func (x *SLSrPolicyAttributes) GetProfileId() uint32 {
 		return x.ProfileId
 	}
 	return 0
+}
+
+func (x *SLSrPolicyAttributes) GetSrv6Attrs() *SLSrSrv6PolicyAttributes {
+	if x != nil {
+		return x.Srv6Attrs
+	}
+	return nil
 }
 
 // SR Candidate Path in the context of an SR Policy, as defined in
@@ -1247,6 +1257,54 @@ func (x *SLSrSrv6DynamicBindingSID) GetSrv6EndpointBehavior() uint32 {
 	return 0
 }
 
+// SRv6 policy attributes
+type SLSrSrv6PolicyAttributes struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// When the final segment in a segment list is a node SID, it is suppressed
+	// by default unless this behavior is changed using global configuration.
+	// Set this to true to force installation of the final node SID.
+	InstallFinalNodeSid bool `protobuf:"varint,1,opt,name=install_final_node_sid,json=installFinalNodeSid,proto3" json:"install_final_node_sid,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *SLSrSrv6PolicyAttributes) Reset() {
+	*x = SLSrSrv6PolicyAttributes{}
+	mi := &file_sl_srte_policy_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SLSrSrv6PolicyAttributes) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SLSrSrv6PolicyAttributes) ProtoMessage() {}
+
+func (x *SLSrSrv6PolicyAttributes) ProtoReflect() protoreflect.Message {
+	mi := &file_sl_srte_policy_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SLSrSrv6PolicyAttributes.ProtoReflect.Descriptor instead.
+func (*SLSrSrv6PolicyAttributes) Descriptor() ([]byte, []int) {
+	return file_sl_srte_policy_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *SLSrSrv6PolicyAttributes) GetInstallFinalNodeSid() bool {
+	if x != nil {
+		return x.InstallFinalNodeSid
+	}
+	return false
+}
+
 type SLSrPolicyRsp_PolicyRsp struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Operation ID of the request for which response is being sent by the server.
@@ -1262,7 +1320,7 @@ type SLSrPolicyRsp_PolicyRsp struct {
 
 func (x *SLSrPolicyRsp_PolicyRsp) Reset() {
 	*x = SLSrPolicyRsp_PolicyRsp{}
-	mi := &file_sl_srte_policy_proto_msgTypes[16]
+	mi := &file_sl_srte_policy_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1274,7 +1332,7 @@ func (x *SLSrPolicyRsp_PolicyRsp) String() string {
 func (*SLSrPolicyRsp_PolicyRsp) ProtoMessage() {}
 
 func (x *SLSrPolicyRsp_PolicyRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_srte_policy_proto_msgTypes[16]
+	mi := &file_sl_srte_policy_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1353,7 +1411,7 @@ const file_sl_srte_policy_proto_rawDesc = "" +
 	"\foperation_id\x18\x01 \x01(\x04R\voperationId\x12.\n" +
 	"\x03key\x18\x02 \x01(\v2\x1c.service_layer.SLSrPolicyKeyR\x03key\x129\n" +
 	"\x05attrs\x18\x03 \x01(\v2#.service_layer.SLSrPolicyAttributesR\x05attrs\x122\n" +
-	"\x03CPs\x18\x04 \x03(\v2 .service_layer.SLSrCandidatePathR\x03CPs\"\x9e\x02\n" +
+	"\x03CPs\x18\x04 \x03(\v2 .service_layer.SLSrCandidatePathR\x03CPs\"\xe6\x02\n" +
 	"\x14SLSrPolicyAttributes\x12)\n" +
 	"\x10transit_eligible\x18\x02 \x01(\bR\x0ftransitEligible\x12:\n" +
 	"\tdataplane\x18\x03 \x01(\x0e2\x1c.service_layer.SLSrDataplaneR\tdataplane\x12>\n" +
@@ -1361,7 +1419,9 @@ const file_sl_srte_policy_proto_rawDesc = "" +
 	"\n" +
 	"srv6_bsids\x18\x05 \x03(\v2!.service_layer.SLSrSrv6BindingSIDR\tsrv6Bsids\x12\x1d\n" +
 	"\n" +
-	"profile_id\x18\x06 \x01(\rR\tprofileId\"\x8f\x02\n" +
+	"profile_id\x18\x06 \x01(\rR\tprofileId\x12F\n" +
+	"\n" +
+	"srv6_attrs\x18\a \x01(\v2'.service_layer.SLSrSrv6PolicyAttributesR\tsrv6Attrs\"\x8f\x02\n" +
 	"\x11SLSrCandidatePath\x125\n" +
 	"\x03key\x18\x02 \x01(\v2#.service_layer.SLSrCandidatePathKeyR\x03key\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12#\n" +
@@ -1396,7 +1456,9 @@ const file_sl_srte_policy_proto_rawDesc = "" +
 	"\n" +
 	"_mpls_bsid\"Q\n" +
 	"\x19SLSrSrv6DynamicBindingSID\x124\n" +
-	"\x16srv6_endpoint_behavior\x18\x01 \x01(\rR\x14srv6EndpointBehavior2^\n" +
+	"\x16srv6_endpoint_behavior\x18\x01 \x01(\rR\x14srv6EndpointBehavior\"O\n" +
+	"\x18SLSrSrv6PolicyAttributes\x123\n" +
+	"\x16install_final_node_sid\x18\x01 \x01(\bR\x13installFinalNodeSid2^\n" +
 	"\fSLSrtePolicy\x12N\n" +
 	"\fSLSrPolicyOp\x12\x1c.service_layer.SLSrPolicyMsg\x1a\x1c.service_layer.SLSrPolicyRsp(\x010\x01BQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3"
 
@@ -1413,7 +1475,7 @@ func file_sl_srte_policy_proto_rawDescGZIP() []byte {
 }
 
 var file_sl_srte_policy_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_sl_srte_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_sl_srte_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
 var file_sl_srte_policy_proto_goTypes = []any{
 	(SLSrPolicyOpen_SLSrPersistenceMode)(0), // 0: service_layer.SLSrPolicyOpen.SLSrPersistenceMode
 	(SLSrPolicyReq_SLSrOp)(0),               // 1: service_layer.SLSrPolicyReq.SLSrOp
@@ -1433,51 +1495,53 @@ var file_sl_srte_policy_proto_goTypes = []any{
 	(*SLSrSrv6BindingSID)(nil),              // 15: service_layer.SLSrSrv6BindingSID
 	(*SLSrMPLSBindingSID)(nil),              // 16: service_layer.SLSrMPLSBindingSID
 	(*SLSrSrv6DynamicBindingSID)(nil),       // 17: service_layer.SLSrSrv6DynamicBindingSID
-	(*SLSrPolicyRsp_PolicyRsp)(nil),         // 18: service_layer.SLSrPolicyRsp.PolicyRsp
-	(*SLSrStatus)(nil),                      // 19: service_layer.SLSrStatus
-	(*SLSrPolicyKey)(nil),                   // 20: service_layer.SLSrPolicyKey
-	(SLSrDataplane)(0),                      // 21: service_layer.SLSrDataplane
-	(*SLSrCandidatePathKey)(nil),            // 22: service_layer.SLSrCandidatePathKey
-	(*SLSrSegmentList)(nil),                 // 23: service_layer.SLSrSegmentList
-	(*SLSrAffinities)(nil),                  // 24: service_layer.SLSrAffinities
-	(*SLSrSegmentRules)(nil),                // 25: service_layer.SLSrSegmentRules
-	(*SLSrUpperBoundConstraints)(nil),       // 26: service_layer.SLSrUpperBoundConstraints
-	(*SLSRv6SIDInfo)(nil),                   // 27: service_layer.SLSRv6SIDInfo
+	(*SLSrSrv6PolicyAttributes)(nil),        // 18: service_layer.SLSrSrv6PolicyAttributes
+	(*SLSrPolicyRsp_PolicyRsp)(nil),         // 19: service_layer.SLSrPolicyRsp.PolicyRsp
+	(*SLSrStatus)(nil),                      // 20: service_layer.SLSrStatus
+	(*SLSrPolicyKey)(nil),                   // 21: service_layer.SLSrPolicyKey
+	(SLSrDataplane)(0),                      // 22: service_layer.SLSrDataplane
+	(*SLSrCandidatePathKey)(nil),            // 23: service_layer.SLSrCandidatePathKey
+	(*SLSrSegmentList)(nil),                 // 24: service_layer.SLSrSegmentList
+	(*SLSrAffinities)(nil),                  // 25: service_layer.SLSrAffinities
+	(*SLSrSegmentRules)(nil),                // 26: service_layer.SLSrSegmentRules
+	(*SLSrUpperBoundConstraints)(nil),       // 27: service_layer.SLSrUpperBoundConstraints
+	(*SLSRv6SIDInfo)(nil),                   // 28: service_layer.SLSRv6SIDInfo
 }
 var file_sl_srte_policy_proto_depIdxs = []int32{
 	4,  // 0: service_layer.SLSrPolicyMsg.open:type_name -> service_layer.SLSrPolicyOpen
 	5,  // 1: service_layer.SLSrPolicyMsg.requests:type_name -> service_layer.SLSrPolicyRequests
-	18, // 2: service_layer.SLSrPolicyRsp.responses:type_name -> service_layer.SLSrPolicyRsp.PolicyRsp
-	19, // 3: service_layer.SLSrPolicyRsp.status:type_name -> service_layer.SLSrStatus
+	19, // 2: service_layer.SLSrPolicyRsp.responses:type_name -> service_layer.SLSrPolicyRsp.PolicyRsp
+	20, // 3: service_layer.SLSrPolicyRsp.status:type_name -> service_layer.SLSrStatus
 	0,  // 4: service_layer.SLSrPolicyOpen.mode:type_name -> service_layer.SLSrPolicyOpen.SLSrPersistenceMode
 	6,  // 5: service_layer.SLSrPolicyRequests.request:type_name -> service_layer.SLSrPolicyReq
 	1,  // 6: service_layer.SLSrPolicyReq.operation:type_name -> service_layer.SLSrPolicyReq.SLSrOp
 	9,  // 7: service_layer.SLSrPolicyReq.policy:type_name -> service_layer.SLSrPolicy
-	20, // 8: service_layer.SLSrPolicy.key:type_name -> service_layer.SLSrPolicyKey
+	21, // 8: service_layer.SLSrPolicy.key:type_name -> service_layer.SLSrPolicyKey
 	10, // 9: service_layer.SLSrPolicy.attrs:type_name -> service_layer.SLSrPolicyAttributes
 	11, // 10: service_layer.SLSrPolicy.CPs:type_name -> service_layer.SLSrCandidatePath
-	21, // 11: service_layer.SLSrPolicyAttributes.dataplane:type_name -> service_layer.SLSrDataplane
+	22, // 11: service_layer.SLSrPolicyAttributes.dataplane:type_name -> service_layer.SLSrDataplane
 	16, // 12: service_layer.SLSrPolicyAttributes.mpls_bsid:type_name -> service_layer.SLSrMPLSBindingSID
 	15, // 13: service_layer.SLSrPolicyAttributes.srv6_bsids:type_name -> service_layer.SLSrSrv6BindingSID
-	22, // 14: service_layer.SLSrCandidatePath.key:type_name -> service_layer.SLSrCandidatePathKey
-	13, // 15: service_layer.SLSrCandidatePath.dynamic:type_name -> service_layer.SLSrDynamicCP
-	12, // 16: service_layer.SLSrCandidatePath.explicit:type_name -> service_layer.SLSrExplicitCP
-	23, // 17: service_layer.SLSrExplicitCP.segment_list:type_name -> service_layer.SLSrSegmentList
-	14, // 18: service_layer.SLSrDynamicCP.constraints:type_name -> service_layer.SLSrConstraints
-	24, // 19: service_layer.SLSrConstraints.affinities:type_name -> service_layer.SLSrAffinities
-	25, // 20: service_layer.SLSrConstraints.segment_rules:type_name -> service_layer.SLSrSegmentRules
-	26, // 21: service_layer.SLSrConstraints.upper_bound:type_name -> service_layer.SLSrUpperBoundConstraints
-	27, // 22: service_layer.SLSrSrv6BindingSID.explicit:type_name -> service_layer.SLSRv6SIDInfo
-	17, // 23: service_layer.SLSrSrv6BindingSID.dynamic:type_name -> service_layer.SLSrSrv6DynamicBindingSID
-	20, // 24: service_layer.SLSrPolicyRsp.PolicyRsp.key:type_name -> service_layer.SLSrPolicyKey
-	19, // 25: service_layer.SLSrPolicyRsp.PolicyRsp.status:type_name -> service_layer.SLSrStatus
-	2,  // 26: service_layer.SLSrtePolicy.SLSrPolicyOp:input_type -> service_layer.SLSrPolicyMsg
-	3,  // 27: service_layer.SLSrtePolicy.SLSrPolicyOp:output_type -> service_layer.SLSrPolicyRsp
-	27, // [27:28] is the sub-list for method output_type
-	26, // [26:27] is the sub-list for method input_type
-	26, // [26:26] is the sub-list for extension type_name
-	26, // [26:26] is the sub-list for extension extendee
-	0,  // [0:26] is the sub-list for field type_name
+	18, // 14: service_layer.SLSrPolicyAttributes.srv6_attrs:type_name -> service_layer.SLSrSrv6PolicyAttributes
+	23, // 15: service_layer.SLSrCandidatePath.key:type_name -> service_layer.SLSrCandidatePathKey
+	13, // 16: service_layer.SLSrCandidatePath.dynamic:type_name -> service_layer.SLSrDynamicCP
+	12, // 17: service_layer.SLSrCandidatePath.explicit:type_name -> service_layer.SLSrExplicitCP
+	24, // 18: service_layer.SLSrExplicitCP.segment_list:type_name -> service_layer.SLSrSegmentList
+	14, // 19: service_layer.SLSrDynamicCP.constraints:type_name -> service_layer.SLSrConstraints
+	25, // 20: service_layer.SLSrConstraints.affinities:type_name -> service_layer.SLSrAffinities
+	26, // 21: service_layer.SLSrConstraints.segment_rules:type_name -> service_layer.SLSrSegmentRules
+	27, // 22: service_layer.SLSrConstraints.upper_bound:type_name -> service_layer.SLSrUpperBoundConstraints
+	28, // 23: service_layer.SLSrSrv6BindingSID.explicit:type_name -> service_layer.SLSRv6SIDInfo
+	17, // 24: service_layer.SLSrSrv6BindingSID.dynamic:type_name -> service_layer.SLSrSrv6DynamicBindingSID
+	21, // 25: service_layer.SLSrPolicyRsp.PolicyRsp.key:type_name -> service_layer.SLSrPolicyKey
+	20, // 26: service_layer.SLSrPolicyRsp.PolicyRsp.status:type_name -> service_layer.SLSrStatus
+	2,  // 27: service_layer.SLSrtePolicy.SLSrPolicyOp:input_type -> service_layer.SLSrPolicyMsg
+	3,  // 28: service_layer.SLSrtePolicy.SLSrPolicyOp:output_type -> service_layer.SLSrPolicyRsp
+	28, // [28:29] is the sub-list for method output_type
+	27, // [27:28] is the sub-list for method input_type
+	27, // [27:27] is the sub-list for extension type_name
+	27, // [27:27] is the sub-list for extension extendee
+	0,  // [0:27] is the sub-list for field type_name
 }
 
 func init() { file_sl_srte_policy_proto_init() }
@@ -1505,7 +1569,7 @@ func file_sl_srte_policy_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_sl_srte_policy_proto_rawDesc), len(file_sl_srte_policy_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   17,
+			NumMessages:   18,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

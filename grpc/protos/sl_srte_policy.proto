@@ -242,6 +242,10 @@ message SLSrPolicyAttributes {
     // vendor/implementation specific functionality per policy without requiring
     // explicit support by controller.
     uint32 profile_id = 6;
+
+    // Attributes specific to SRv6 policies.
+    // Request will be rejected if srv6_attrs is set for non-SRv6 dataplane.
+    SLSrSrv6PolicyAttributes srv6_attrs = 7;
 }
 
 // SR Candidate Path in the context of an SR Policy, as defined in
@@ -352,6 +356,14 @@ message SLSrMPLSBindingSID {
 message SLSrSrv6DynamicBindingSID {
     // If not set, server will use default platform behavior
     uint32 srv6_endpoint_behavior = 1;
+}
+
+// SRv6 policy attributes
+message SLSrSrv6PolicyAttributes {
+    // When the final segment in a segment list is a node SID, it is suppressed
+    // by default unless this behavior is changed using global configuration.
+    // Set this to true to force installation of the final node SID.
+    bool install_final_node_sid = 1;
 }
 
 //@}

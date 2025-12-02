@@ -49,7 +49,7 @@ struct TableStruct_sl_5fsrte_5fpolicy_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -105,6 +105,9 @@ extern SLSrSrv6BindingSIDDefaultTypeInternal _SLSrSrv6BindingSID_default_instanc
 class SLSrSrv6DynamicBindingSID;
 struct SLSrSrv6DynamicBindingSIDDefaultTypeInternal;
 extern SLSrSrv6DynamicBindingSIDDefaultTypeInternal _SLSrSrv6DynamicBindingSID_default_instance_;
+class SLSrSrv6PolicyAttributes;
+struct SLSrSrv6PolicyAttributesDefaultTypeInternal;
+extern SLSrSrv6PolicyAttributesDefaultTypeInternal _SLSrSrv6PolicyAttributes_default_instance_;
 class SLSrStartOfReplay;
 struct SLSrStartOfReplayDefaultTypeInternal;
 extern SLSrStartOfReplayDefaultTypeInternal _SLSrStartOfReplay_default_instance_;
@@ -126,6 +129,7 @@ template<> ::service_layer::SLSrPolicyRsp* Arena::CreateMaybeMessage<::service_l
 template<> ::service_layer::SLSrPolicyRsp_PolicyRsp* Arena::CreateMaybeMessage<::service_layer::SLSrPolicyRsp_PolicyRsp>(Arena*);
 template<> ::service_layer::SLSrSrv6BindingSID* Arena::CreateMaybeMessage<::service_layer::SLSrSrv6BindingSID>(Arena*);
 template<> ::service_layer::SLSrSrv6DynamicBindingSID* Arena::CreateMaybeMessage<::service_layer::SLSrSrv6DynamicBindingSID>(Arena*);
+template<> ::service_layer::SLSrSrv6PolicyAttributes* Arena::CreateMaybeMessage<::service_layer::SLSrSrv6PolicyAttributes>(Arena*);
 template<> ::service_layer::SLSrStartOfReplay* Arena::CreateMaybeMessage<::service_layer::SLSrStartOfReplay>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
@@ -1851,6 +1855,7 @@ class SLSrPolicyAttributes final :
   enum : int {
     kSrv6BsidsFieldNumber = 5,
     kMplsBsidFieldNumber = 4,
+    kSrv6AttrsFieldNumber = 7,
     kTransitEligibleFieldNumber = 2,
     kDataplaneFieldNumber = 3,
     kProfileIdFieldNumber = 6,
@@ -1891,6 +1896,24 @@ class SLSrPolicyAttributes final :
       ::service_layer::SLSrMPLSBindingSID* mpls_bsid);
   ::service_layer::SLSrMPLSBindingSID* unsafe_arena_release_mpls_bsid();
 
+  // .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
+  bool has_srv6_attrs() const;
+  private:
+  bool _internal_has_srv6_attrs() const;
+  public:
+  void clear_srv6_attrs();
+  const ::service_layer::SLSrSrv6PolicyAttributes& srv6_attrs() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrSrv6PolicyAttributes* release_srv6_attrs();
+  ::service_layer::SLSrSrv6PolicyAttributes* mutable_srv6_attrs();
+  void set_allocated_srv6_attrs(::service_layer::SLSrSrv6PolicyAttributes* srv6_attrs);
+  private:
+  const ::service_layer::SLSrSrv6PolicyAttributes& _internal_srv6_attrs() const;
+  ::service_layer::SLSrSrv6PolicyAttributes* _internal_mutable_srv6_attrs();
+  public:
+  void unsafe_arena_set_allocated_srv6_attrs(
+      ::service_layer::SLSrSrv6PolicyAttributes* srv6_attrs);
+  ::service_layer::SLSrSrv6PolicyAttributes* unsafe_arena_release_srv6_attrs();
+
   // bool transit_eligible = 2;
   void clear_transit_eligible();
   bool transit_eligible() const;
@@ -1927,6 +1950,7 @@ class SLSrPolicyAttributes final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSrv6BindingSID > srv6_bsids_;
   ::service_layer::SLSrMPLSBindingSID* mpls_bsid_;
+  ::service_layer::SLSrSrv6PolicyAttributes* srv6_attrs_;
   bool transit_eligible_;
   int dataplane_;
   uint32_t profile_id_;
@@ -3197,6 +3221,152 @@ class SLSrSrv6DynamicBindingSID final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
+// -------------------------------------------------------------------
+
+class SLSrSrv6PolicyAttributes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrSrv6PolicyAttributes) */ {
+ public:
+  inline SLSrSrv6PolicyAttributes() : SLSrSrv6PolicyAttributes(nullptr) {}
+  ~SLSrSrv6PolicyAttributes() override;
+  explicit constexpr SLSrSrv6PolicyAttributes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLSrSrv6PolicyAttributes(const SLSrSrv6PolicyAttributes& from);
+  SLSrSrv6PolicyAttributes(SLSrSrv6PolicyAttributes&& from) noexcept
+    : SLSrSrv6PolicyAttributes() {
+    *this = ::std::move(from);
+  }
+
+  inline SLSrSrv6PolicyAttributes& operator=(const SLSrSrv6PolicyAttributes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLSrSrv6PolicyAttributes& operator=(SLSrSrv6PolicyAttributes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLSrSrv6PolicyAttributes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLSrSrv6PolicyAttributes* internal_default_instance() {
+    return reinterpret_cast<const SLSrSrv6PolicyAttributes*>(
+               &_SLSrSrv6PolicyAttributes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(SLSrSrv6PolicyAttributes& a, SLSrSrv6PolicyAttributes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLSrSrv6PolicyAttributes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLSrSrv6PolicyAttributes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLSrSrv6PolicyAttributes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrSrv6PolicyAttributes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLSrSrv6PolicyAttributes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLSrSrv6PolicyAttributes& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLSrSrv6PolicyAttributes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLSrSrv6PolicyAttributes";
+  }
+  protected:
+  explicit SLSrSrv6PolicyAttributes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kInstallFinalNodeSidFieldNumber = 1,
+  };
+  // bool install_final_node_sid = 1;
+  void clear_install_final_node_sid();
+  bool install_final_node_sid() const;
+  void set_install_final_node_sid(bool value);
+  private:
+  bool _internal_install_final_node_sid() const;
+  void _internal_set_install_final_node_sid(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrSrv6PolicyAttributes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  bool install_final_node_sid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
+};
 // ===================================================================
 
 
@@ -4366,6 +4536,96 @@ inline void SLSrPolicyAttributes::set_profile_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrPolicyAttributes.profile_id)
 }
 
+// .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
+inline bool SLSrPolicyAttributes::_internal_has_srv6_attrs() const {
+  return this != internal_default_instance() && srv6_attrs_ != nullptr;
+}
+inline bool SLSrPolicyAttributes::has_srv6_attrs() const {
+  return _internal_has_srv6_attrs();
+}
+inline void SLSrPolicyAttributes::clear_srv6_attrs() {
+  if (GetArenaForAllocation() == nullptr && srv6_attrs_ != nullptr) {
+    delete srv6_attrs_;
+  }
+  srv6_attrs_ = nullptr;
+}
+inline const ::service_layer::SLSrSrv6PolicyAttributes& SLSrPolicyAttributes::_internal_srv6_attrs() const {
+  const ::service_layer::SLSrSrv6PolicyAttributes* p = srv6_attrs_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrSrv6PolicyAttributes&>(
+      ::service_layer::_SLSrSrv6PolicyAttributes_default_instance_);
+}
+inline const ::service_layer::SLSrSrv6PolicyAttributes& SLSrPolicyAttributes::srv6_attrs() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyAttributes.srv6_attrs)
+  return _internal_srv6_attrs();
+}
+inline void SLSrPolicyAttributes::unsafe_arena_set_allocated_srv6_attrs(
+    ::service_layer::SLSrSrv6PolicyAttributes* srv6_attrs) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(srv6_attrs_);
+  }
+  srv6_attrs_ = srv6_attrs;
+  if (srv6_attrs) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrPolicyAttributes.srv6_attrs)
+}
+inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::release_srv6_attrs() {
+  
+  ::service_layer::SLSrSrv6PolicyAttributes* temp = srv6_attrs_;
+  srv6_attrs_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::unsafe_arena_release_srv6_attrs() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrPolicyAttributes.srv6_attrs)
+  
+  ::service_layer::SLSrSrv6PolicyAttributes* temp = srv6_attrs_;
+  srv6_attrs_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::_internal_mutable_srv6_attrs() {
+  
+  if (srv6_attrs_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLSrSrv6PolicyAttributes>(GetArenaForAllocation());
+    srv6_attrs_ = p;
+  }
+  return srv6_attrs_;
+}
+inline ::service_layer::SLSrSrv6PolicyAttributes* SLSrPolicyAttributes::mutable_srv6_attrs() {
+  ::service_layer::SLSrSrv6PolicyAttributes* _msg = _internal_mutable_srv6_attrs();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyAttributes.srv6_attrs)
+  return _msg;
+}
+inline void SLSrPolicyAttributes::set_allocated_srv6_attrs(::service_layer::SLSrSrv6PolicyAttributes* srv6_attrs) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete srv6_attrs_;
+  }
+  if (srv6_attrs) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrSrv6PolicyAttributes>::GetOwningArena(srv6_attrs);
+    if (message_arena != submessage_arena) {
+      srv6_attrs = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, srv6_attrs, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  srv6_attrs_ = srv6_attrs;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicyAttributes.srv6_attrs)
+}
+
 // -------------------------------------------------------------------
 
 // SLSrCandidatePath
@@ -5338,9 +5598,35 @@ inline void SLSrSrv6DynamicBindingSID::set_srv6_endpoint_behavior(uint32_t value
   // @@protoc_insertion_point(field_set:service_layer.SLSrSrv6DynamicBindingSID.srv6_endpoint_behavior)
 }
 
+// -------------------------------------------------------------------
+
+// SLSrSrv6PolicyAttributes
+
+// bool install_final_node_sid = 1;
+inline void SLSrSrv6PolicyAttributes::clear_install_final_node_sid() {
+  install_final_node_sid_ = false;
+}
+inline bool SLSrSrv6PolicyAttributes::_internal_install_final_node_sid() const {
+  return install_final_node_sid_;
+}
+inline bool SLSrSrv6PolicyAttributes::install_final_node_sid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSrv6PolicyAttributes.install_final_node_sid)
+  return _internal_install_final_node_sid();
+}
+inline void SLSrSrv6PolicyAttributes::_internal_set_install_final_node_sid(bool value) {
+  
+  install_final_node_sid_ = value;
+}
+inline void SLSrSrv6PolicyAttributes::set_install_final_node_sid(bool value) {
+  _internal_set_install_final_node_sid(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrSrv6PolicyAttributes.install_final_node_sid)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
