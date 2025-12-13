@@ -5,7 +5,10 @@ This module provides pre-generated bindings:
 - Go protobuf bindings (grpc/go/src/gengo/)  
 - Python protobuf bindings (grpc/python/src/genpy/)
 
-Note: Proto files are NOT compiled by this module. Bindings are pre-generated and committed.
+Note: 
+- Proto files are NOT compiled by this module
+- Bindings are pre-generated and committed
+- Dependencies (rules_go, rules_python) are provided by the consuming workspace (IOS-XR)
 
 Source: https://gh-xr.scm.engit.cisco.com/xr/service-layer-objmodel
 """
@@ -15,9 +18,4 @@ module(
     version = "0.11.0-iosxr.0",
 )
 
-# Minimal dependencies - only what's needed to build the generated code
-bazel_dep(name = "rules_go", version = "0.59.0")
-bazel_dep(name = "rules_python", version = "1.1.0")
-
-# Go dependencies are satisfied via go.mod in grpc/go/src/gengo/
-# External Go dependencies (grpc, protobuf) are resolved at link time by XR
+# No bazel_dep declarations - dependencies provided by XR workspace
