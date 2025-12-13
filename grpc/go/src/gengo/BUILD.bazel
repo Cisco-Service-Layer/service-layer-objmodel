@@ -1,0 +1,34 @@
+# Copyright (c) 2025 by Cisco Systems, Inc.
+# All rights reserved.
+
+"""
+Service Layer Go Protobuf Bindings
+
+Generated Go code from Service Layer proto files.
+Contains both protobuf messages and gRPC service stubs.
+"""
+
+load("@rules_go//go:def.bzl", "go_library")
+
+# Main library exposing all Service Layer Go bindings
+go_library(
+    name = "slpb",
+    srcs = glob(
+        ["*.go"],
+        exclude = [
+            "*_test.go",
+            "go.mod",
+            "go.sum",
+        ],
+    ),
+    importpath = "github.com/Cisco-Service-Layer/service-layer-objmodel/grpc/go/src/gengo",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@org_golang_google_grpc//:grpc",
+        "@org_golang_google_grpc//codes",
+        "@org_golang_google_grpc//status",
+        "@org_golang_google_protobuf//reflect/protoreflect",
+        "@org_golang_google_protobuf//runtime/protoimpl",
+    ],
+)
+

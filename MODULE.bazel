@@ -1,0 +1,47 @@
+"""
+Service Layer Object Model - Protobuf definitions and generated bindings
+for IOS-XR Service Layer API
+
+This module provides:
+- Go protobuf bindings (grpc/go/src/gengo/)
+- Python protobuf bindings (grpc/python/src/genpy/)
+
+Source: https://gh-xr.scm.engit.cisco.com/xr/service-layer-objmodel
+"""
+
+module(
+    name = "service_layer_objmodel",
+    version = "0.11.0-iosxr.0",
+)
+
+# Go support
+bazel_dep(name = "rules_go", version = "0.59.0")
+bazel_dep(name = "gazelle", version = "0.31.1")
+
+# Python support
+bazel_dep(name = "rules_python", version = "1.1.0")
+
+# Protobuf support
+bazel_dep(name = "protobuf", version = "29.3")
+bazel_dep(name = "rules_proto", version = "7.1.0")
+
+# gRPC support - needed for generated gRPC code
+# Note: Version should match what XR uses
+# bazel_dep(name = "grpc", version = "1.x.x")
+
+# Go protobuf dependencies (versions from grpc/go/src/gengo/go.mod)
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+go_deps.module(
+    path = "google.golang.org/grpc",
+    version = "v1.72.2",
+)
+go_deps.module(
+    path = "google.golang.org/protobuf",
+    version = "v1.36.6",
+)
+use_repo(
+    go_deps,
+    "org_golang_google_grpc",
+    "org_golang_google_protobuf",
+)
+
