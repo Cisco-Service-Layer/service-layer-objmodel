@@ -8,8 +8,13 @@ Generated Go code from Service Layer proto files.
 Exported as raw source files for consumption by XR build system.
 """
 
-# Export generated Go source files
-# XR build will create go_library using its own rules_go
+# Export all individual .go files for direct consumption
+exports_files(
+    glob(["*.go"], exclude = ["*_test.go"]),
+    visibility = ["//visibility:public"],
+)
+
+# Export generated Go source files as a filegroup (for convenience)
 filegroup(
     name = "slpb_srcs",
     srcs = glob(
