@@ -5,18 +5,13 @@
 Service Layer Python Protobuf Bindings
 
 Generated Python code from Service Layer proto files.
-Contains both protobuf messages and gRPC service stubs.
+Exported as raw source files for consumption by XR build system.
 """
 
-load("@rules_python//python:defs.bzl", "py_library")
-
-# Main library exposing all Service Layer Python bindings
-py_library(
-    name = "genpy",
-    srcs = glob([
-        "*.py",
-    ]),
+# Export generated Python source files
+# XR build will create py_library using its own rules_python
+filegroup(
+    name = "genpy_srcs",
+    srcs = glob(["*.py"]),
     visibility = ["//visibility:public"],
-    imports = ["."],
 )
-
