@@ -8,8 +8,13 @@ Generated Python code from Service Layer proto files.
 Exported as raw source files for consumption by XR build system.
 """
 
-# Export generated Python source files
-# XR build will create py_library using its own rules_python
+# Export all individual .py files for direct consumption
+exports_files(
+    glob(["*.py"]),
+    visibility = ["//visibility:public"],
+)
+
+# Export generated Python source files as a filegroup (for convenience)
 filegroup(
     name = "genpy_srcs",
     srcs = glob(["*.py"]),
