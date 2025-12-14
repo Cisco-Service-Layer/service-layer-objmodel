@@ -19,7 +19,14 @@ go_library(
     ),
     importpath = "github.com/Cisco-Service-Layer/service-layer-objmodel/grpc/go/src/gengo",
     visibility = ["//visibility:public"],
-    # Runtime dependencies are automatically resolved from go.mod via gazelle
+    # Runtime dependencies provided by XR workspace
+    deps = [
+        "@org_golang_google_grpc//:go_default_library",
+        "@org_golang_google_grpc//codes:go_default_library",
+        "@org_golang_google_grpc//status:go_default_library",
+        "@org_golang_google_protobuf//reflect/protoreflect:go_default_library",
+        "@org_golang_google_protobuf//runtime/protoimpl:go_default_library",
+    ],
 )
 
 # Export go.mod for dependency information
