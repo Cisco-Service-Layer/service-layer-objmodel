@@ -5,10 +5,20 @@
 Service Layer Go Protobuf Bindings
 
 Generated Go code from Service Layer proto files.
-Exported as filegroup - XR shell component wraps in xr_go_library.
+Exported as individual files - XR shell component wraps in xr_go_library.
 """
 
-# Export generated Go source files as filegroup
+# Export all generated Go source files individually
+# This allows XR shell component to reference them in xr_go_library srcs
+exports_files(
+    glob(
+        ["*.go"],
+        exclude = ["*_test.go"],
+    ),
+    visibility = ["//visibility:public"],
+)
+
+# Also export as filegroup for convenience
 filegroup(
     name = "slpb_srcs",
     srcs = glob(
