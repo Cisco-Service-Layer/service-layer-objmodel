@@ -5,28 +5,17 @@
 Service Layer Go Protobuf Bindings
 
 Generated Go code from Service Layer proto files.
-Packaged as a proper go_library for consumption by XR build system.
+Exported as filegroup - XR shell component wraps in xr_go_library.
 """
 
-load("@rules_go//go:def.bzl", "go_library")
-
-# Main Go library containing all generated protobuf bindings
-go_library(
-    name = "slpb",
+# Export generated Go source files as filegroup
+filegroup(
+    name = "slpb_srcs",
     srcs = glob(
         ["*.go"],
         exclude = ["*_test.go"],
     ),
-    importpath = "github.com/Cisco-Service-Layer/service-layer-objmodel/grpc/go/src/gengo",
     visibility = ["//visibility:public"],
-    # Runtime dependencies provided by XR workspace
-    deps = [
-        "@org_golang_google_grpc//:go_default_library",
-        "@org_golang_google_grpc//codes:go_default_library",
-        "@org_golang_google_grpc//status:go_default_library",
-        "@org_golang_google_protobuf//reflect/protoreflect:go_default_library",
-        "@org_golang_google_protobuf//runtime/protoimpl:go_default_library",
-    ],
 )
 
 # Export go.mod for dependency information

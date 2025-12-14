@@ -8,7 +8,7 @@ This module provides pre-generated bindings:
 Note: 
 - Proto files are NOT compiled by this module
 - Bindings are pre-generated and committed (via 'make bindings')
-- Runtime dependencies (grpc, protobuf) provided by consuming workspace (XR)
+- Exported as filegroups - XR shell component wraps them in proper libraries
 
 Source: https://gh-xr.scm.engit.cisco.com/xr/service-layer-objmodel
 """
@@ -18,5 +18,4 @@ module(
     version = "0.11.0-iosxr.0",
 )
 
-# Required for go_library rule
-bazel_dep(name = "rules_go", version = "0.59.0")
+# No Bazel dependencies needed - only exports filegroups
