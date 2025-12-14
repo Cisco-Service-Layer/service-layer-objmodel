@@ -7,8 +7,8 @@ This module provides pre-generated bindings:
 
 Note: 
 - Proto files are NOT compiled by this module
-- Bindings are pre-generated and committed
-- Dependencies (rules_go, rules_python) are provided by the consuming workspace (IOS-XR)
+- Bindings are pre-generated and committed (via 'make bindings')
+- This module only packages the generated code
 
 Source: https://gh-xr.scm.engit.cisco.com/xr/service-layer-objmodel
 """
@@ -18,4 +18,20 @@ module(
     version = "0.11.0-iosxr.0",
 )
 
-# No bazel_dep declarations - dependencies provided by XR workspace
+# Required for go_library rule
+bazel_dep(name = "rules_go", version = "0.59.0")
+
+# Required for Go dependency management
+bazel_dep(name = "gazelle", version = "0.47.0.iosxr.0")
+
+# Configure Go module dependencies (grpc, protobuf runtime libs)
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+
+go_deps.config(
+    go_env = {
+        "GOPROXY": "https://engci-maven.cisco.com/artifactory/xr-bazel-go",
+    },
+)
+
+# Import Go dependencies from go.mod (grpc, protobuf)
+go_deps.from_file(go_mod = "//grpc/go/src/gengo:go.mod")
