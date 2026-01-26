@@ -4279,7 +4279,7 @@ class SLPathGroup final :
     kPgFlagsFieldNumber = 4,
     kPathGroupIdFieldNumber = 1,
     kAdminDistanceFieldNumber = 2,
-    kUnderlayLevelsFieldNumber = 5,
+    kUnderlayLevelFieldNumber = 5,
     kPathListFieldNumber = 3,
   };
   // repeated .service_layer.SLRouteFlags PgFlags = 4;
@@ -4326,17 +4326,17 @@ class SLPathGroup final :
   void _internal_set_admindistance(uint32_t value);
   public:
 
-  // optional .service_layer.SLUnderlayLevels UnderlayLevels = 5;
-  bool has_underlaylevels() const;
+  // optional .service_layer.SLUnderlayLevels UnderlayLevel = 5;
+  bool has_underlaylevel() const;
   private:
-  bool _internal_has_underlaylevels() const;
+  bool _internal_has_underlaylevel() const;
   public:
-  void clear_underlaylevels();
-  ::service_layer::SLUnderlayLevels underlaylevels() const;
-  void set_underlaylevels(::service_layer::SLUnderlayLevels value);
+  void clear_underlaylevel();
+  ::service_layer::SLUnderlayLevels underlaylevel() const;
+  void set_underlaylevel(::service_layer::SLUnderlayLevels value);
   private:
-  ::service_layer::SLUnderlayLevels _internal_underlaylevels() const;
-  void _internal_set_underlaylevels(::service_layer::SLUnderlayLevels value);
+  ::service_layer::SLUnderlayLevels _internal_underlaylevel() const;
+  void _internal_set_underlaylevel(::service_layer::SLUnderlayLevels value);
   public:
 
   // .service_layer.SLPathGroup.SLPathList PathList = 3;
@@ -4376,7 +4376,7 @@ class SLPathGroup final :
   mutable std::atomic<int> _pgflags_cached_byte_size_;
   ::service_layer::SLObjectId* pathgroupid_;
   uint32_t admindistance_;
-  int underlaylevels_;
+  int underlaylevel_;
   union EntryUnion {
     constexpr EntryUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -7879,32 +7879,32 @@ SLPathGroup::mutable_pgflags() {
   return _internal_mutable_pgflags();
 }
 
-// optional .service_layer.SLUnderlayLevels UnderlayLevels = 5;
-inline bool SLPathGroup::_internal_has_underlaylevels() const {
+// optional .service_layer.SLUnderlayLevels UnderlayLevel = 5;
+inline bool SLPathGroup::_internal_has_underlaylevel() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool SLPathGroup::has_underlaylevels() const {
-  return _internal_has_underlaylevels();
+inline bool SLPathGroup::has_underlaylevel() const {
+  return _internal_has_underlaylevel();
 }
-inline void SLPathGroup::clear_underlaylevels() {
-  underlaylevels_ = 0;
+inline void SLPathGroup::clear_underlaylevel() {
+  underlaylevel_ = 0;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::service_layer::SLUnderlayLevels SLPathGroup::_internal_underlaylevels() const {
-  return static_cast< ::service_layer::SLUnderlayLevels >(underlaylevels_);
+inline ::service_layer::SLUnderlayLevels SLPathGroup::_internal_underlaylevel() const {
+  return static_cast< ::service_layer::SLUnderlayLevels >(underlaylevel_);
 }
-inline ::service_layer::SLUnderlayLevels SLPathGroup::underlaylevels() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.UnderlayLevels)
-  return _internal_underlaylevels();
+inline ::service_layer::SLUnderlayLevels SLPathGroup::underlaylevel() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.UnderlayLevel)
+  return _internal_underlaylevel();
 }
-inline void SLPathGroup::_internal_set_underlaylevels(::service_layer::SLUnderlayLevels value) {
+inline void SLPathGroup::_internal_set_underlaylevel(::service_layer::SLUnderlayLevels value) {
   _has_bits_[0] |= 0x00000001u;
-  underlaylevels_ = value;
+  underlaylevel_ = value;
 }
-inline void SLPathGroup::set_underlaylevels(::service_layer::SLUnderlayLevels value) {
-  _internal_set_underlaylevels(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLPathGroup.UnderlayLevels)
+inline void SLPathGroup::set_underlaylevel(::service_layer::SLUnderlayLevels value) {
+  _internal_set_underlaylevel(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLPathGroup.UnderlayLevel)
 }
 
 inline bool SLPathGroup::has_entry() const {

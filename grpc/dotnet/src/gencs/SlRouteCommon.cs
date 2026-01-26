@@ -80,34 +80,34 @@ namespace ServiceLayer {
             "RmxhZ3MSOAoMUGF0aEdyb3VwS2V5GA8gASgLMiAuc2VydmljZV9sYXllci5T",
             "TFBhdGhHcm91cFJlZktleUgAEhMKC0JhY2t1cEluZGV4GBAgAygNEiAKE01p",
             "blJlc29sdXRpb25MZW5ndGgYESABKA1IAYgBAUIHCgVlbnRyeUIWChRfTWlu",
-            "UmVzb2x1dGlvbkxlbmd0aEoECA0QDkoECAUQBlIFRmxhZ3NSBk1ldHJpYyKL",
+            "UmVzb2x1dGlvbkxlbmd0aEoECA0QDkoECAUQBlIFRmxhZ3NSBk1ldHJpYyKJ",
             "AwoLU0xQYXRoR3JvdXASLgoLUGF0aEdyb3VwSWQYASABKAsyGS5zZXJ2aWNl",
             "X2xheWVyLlNMT2JqZWN0SWQSFQoNQWRtaW5EaXN0YW5jZRgCIAEoDRI5CghQ",
             "YXRoTGlzdBgDIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xQYXRoR3JvdXAuU0xQ",
             "YXRoTGlzdEgAEiwKB1BnRmxhZ3MYBCADKA4yGy5zZXJ2aWNlX2xheWVyLlNM",
-            "Um91dGVGbGFncxI8Cg5VbmRlcmxheUxldmVscxgFIAEoDjIfLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xVbmRlcmxheUxldmVsc0gBiAEBGjIKBlNMUGF0aBIoCgRQYXRo",
-            "GAEgASgLMhouc2VydmljZV9sYXllci5TTFJvdXRlUGF0aBo+CgpTTFBhdGhM",
-            "aXN0EjAKBVBhdGhzGAEgAygLMiEuc2VydmljZV9sYXllci5TTFBhdGhHcm91",
-            "cC5TTFBhdGhCBwoFZW50cnlCEQoPX1VuZGVybGF5TGV2ZWxzIk4KDVNMUm91",
-            "dGVQcmVmaXgSKgoGUHJlZml4GAEgASgLMhouc2VydmljZV9sYXllci5TTElw",
-            "QWRkcmVzcxIRCglQcmVmaXhMZW4YAiABKA0qygEKC1NMTm90aWZUeXBlEhoK",
-            "FlNMX0VWRU5UX1RZUEVfUkVTRVJWRUQQABIXChNTTF9FVkVOVF9UWVBFX0VS",
-            "Uk9SEAESGAoUU0xfRVZFTlRfVFlQRV9TVEFUVVMQAhIXChNTTF9FVkVOVF9U",
-            "WVBFX1JPVVRFEAMSHgoaU0xfRVZFTlRfVFlQRV9TVEFSVF9NQVJLRVIQBBIc",
-            "ChhTTF9FVkVOVF9UWVBFX0VORF9NQVJLRVIQBRIVChFTTF9FVkVOVF9UWVBF",
-            "X1ZSRhAGKuMBCgxTTFJvdXRlRmxhZ3MSGgoWU0xfUk9VVEVfRkxBR19SRVNF",
-            "UlZFRBAAEiEKHVNMX1JPVVRFX0ZMQUdfUFJFRkVSX09WRVJfTERQEAESJQoh",
-            "U0xfUk9VVEVfRkxBR19ESVNBQkxFX0xBQkVMX01FUkdFEAISIwofU0xfUk9V",
-            "VEVfRkxBR19WSUFCTEVfUEFUSFNfT05MWRADEicKI1NMX1JPVVRFX0ZMQUdf",
-            "QUNUSVZFX09OX1ZJQUJMRV9QQVRIEAQSHwobU0xfUk9VVEVfRkxBR19GUlJf",
-            "UEFUSEdST1VQEAUqYwoLU0xQYXRoRmxhZ3MSGQoVU0xfUEFUSF9GTEFHX1JF",
-            "U0VSVkVEEAASIAocU0xfUEFUSF9GTEFHX1NJTkdMRV9QQVRIX09QVBABEhcK",
-            "E1NMX1BBVEhfRkxBR19CQUNLVVAQAypWChBTTFVuZGVybGF5TGV2ZWxzEh0K",
-            "GVNMX1VOREVSTEFZX0xFVkVMX0RFRkFVTFQQABIjCh9TTF9VTkRFUkxBWV9M",
-            "RVZFTF9OT19GTEFUVEVOSU5HEAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2",
-            "aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7",
-            "c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "Um91dGVGbGFncxI7Cg1VbmRlcmxheUxldmVsGAUgASgOMh8uc2VydmljZV9s",
+            "YXllci5TTFVuZGVybGF5TGV2ZWxzSAGIAQEaMgoGU0xQYXRoEigKBFBhdGgY",
+            "ASABKAsyGi5zZXJ2aWNlX2xheWVyLlNMUm91dGVQYXRoGj4KClNMUGF0aExp",
+            "c3QSMAoFUGF0aHMYASADKAsyIS5zZXJ2aWNlX2xheWVyLlNMUGF0aEdyb3Vw",
+            "LlNMUGF0aEIHCgVlbnRyeUIQCg5fVW5kZXJsYXlMZXZlbCJOCg1TTFJvdXRl",
+            "UHJlZml4EioKBlByZWZpeBgBIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFk",
+            "ZHJlc3MSEQoJUHJlZml4TGVuGAIgASgNKsoBCgtTTE5vdGlmVHlwZRIaChZT",
+            "TF9FVkVOVF9UWVBFX1JFU0VSVkVEEAASFwoTU0xfRVZFTlRfVFlQRV9FUlJP",
+            "UhABEhgKFFNMX0VWRU5UX1RZUEVfU1RBVFVTEAISFwoTU0xfRVZFTlRfVFlQ",
+            "RV9ST1VURRADEh4KGlNMX0VWRU5UX1RZUEVfU1RBUlRfTUFSS0VSEAQSHAoY",
+            "U0xfRVZFTlRfVFlQRV9FTkRfTUFSS0VSEAUSFQoRU0xfRVZFTlRfVFlQRV9W",
+            "UkYQBirjAQoMU0xSb3V0ZUZsYWdzEhoKFlNMX1JPVVRFX0ZMQUdfUkVTRVJW",
+            "RUQQABIhCh1TTF9ST1VURV9GTEFHX1BSRUZFUl9PVkVSX0xEUBABEiUKIVNM",
+            "X1JPVVRFX0ZMQUdfRElTQUJMRV9MQUJFTF9NRVJHRRACEiMKH1NMX1JPVVRF",
+            "X0ZMQUdfVklBQkxFX1BBVEhTX09OTFkQAxInCiNTTF9ST1VURV9GTEFHX0FD",
+            "VElWRV9PTl9WSUFCTEVfUEFUSBAEEh8KG1NMX1JPVVRFX0ZMQUdfRlJSX1BB",
+            "VEhHUk9VUBAFKmMKC1NMUGF0aEZsYWdzEhkKFVNMX1BBVEhfRkxBR19SRVNF",
+            "UlZFRBAAEiAKHFNMX1BBVEhfRkxBR19TSU5HTEVfUEFUSF9PUFQQARIXChNT",
+            "TF9QQVRIX0ZMQUdfQkFDS1VQEAMqVgoQU0xVbmRlcmxheUxldmVscxIdChlT",
+            "TF9VTkRFUkxBWV9MRVZFTF9ERUZBVUxUEAASIwofU0xfVU5ERVJMQVlfTEVW",
+            "RUxfTk9fRkxBVFRFTklORxABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2Vydmlj",
+            "ZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3Nl",
+            "cnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), typeof(global::ServiceLayer.SLUnderlayLevels), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -130,7 +130,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteCommon), global::ServiceLayer.SLRouteCommon.Parser, new[]{ "AdminDistance", "LocalLabel", "Tag", "SrcProto", "SrcProtoTag", "RouteFlags", "Metric", "Priority" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVxLANPath), global::ServiceLayer.SLVxLANPath.Parser, new[]{ "VNI", "SourceMacAddress", "DestMacAddress", "SrcIpAddress", "DestIpAddress" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePath), global::ServiceLayer.SLRoutePath.Parser, new[]{ "NexthopAddress", "NexthopInterface", "LoadMetric", "VrfName", "PathId", "ProtectedPathBitmap", "LabelStack", "RemoteAddress", "EncapType", "VtepRouterMacAddress", "VxLANPath", "PathFlags", "PathGroupKey", "BackupIndex", "MinResolutionLength" }, new[]{ "Entry", "MinResolutionLength" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup), global::ServiceLayer.SLPathGroup.Parser, new[]{ "PathGroupId", "AdminDistance", "PathList", "PgFlags", "UnderlayLevels" }, new[]{ "Entry", "UnderlayLevels" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPath), global::ServiceLayer.SLPathGroup.Types.SLPath.Parser, new[]{ "Path" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup), global::ServiceLayer.SLPathGroup.Parser, new[]{ "PathGroupId", "AdminDistance", "PathList", "PgFlags", "UnderlayLevel" }, new[]{ "Entry", "UnderlayLevel" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPath), global::ServiceLayer.SLPathGroup.Types.SLPath.Parser, new[]{ "Path" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPathList), global::ServiceLayer.SLPathGroup.Types.SLPathList.Parser, new[]{ "Paths" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePrefix), global::ServiceLayer.SLRoutePrefix.Parser, new[]{ "Prefix", "PrefixLen" }, null, null, null, null)
           }));
@@ -6314,7 +6314,7 @@ namespace ServiceLayer {
       pathGroupId_ = other.pathGroupId_ != null ? other.pathGroupId_.Clone() : null;
       adminDistance_ = other.adminDistance_;
       pgFlags_ = other.pgFlags_.Clone();
-      underlayLevels_ = other.underlayLevels_;
+      underlayLevel_ = other.underlayLevel_;
       switch (other.EntryCase) {
         case EntryOneofCase.PathList:
           PathList = other.PathList.Clone();
@@ -6432,33 +6432,33 @@ namespace ServiceLayer {
       get { return pgFlags_; }
     }
 
-    /// <summary>Field number for the "UnderlayLevels" field.</summary>
-    public const int UnderlayLevelsFieldNumber = 5;
-    private readonly static global::ServiceLayer.SLUnderlayLevels UnderlayLevelsDefaultValue = global::ServiceLayer.SLUnderlayLevels.SlUnderlayLevelDefault;
+    /// <summary>Field number for the "UnderlayLevel" field.</summary>
+    public const int UnderlayLevelFieldNumber = 5;
+    private readonly static global::ServiceLayer.SLUnderlayLevels UnderlayLevelDefaultValue = global::ServiceLayer.SLUnderlayLevels.SlUnderlayLevelDefault;
 
-    private global::ServiceLayer.SLUnderlayLevels underlayLevels_;
+    private global::ServiceLayer.SLUnderlayLevels underlayLevel_;
     /// <summary>
     ///UnderlayLevels set will prevent flattening the route hierarchy into individual paths.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLUnderlayLevels UnderlayLevels {
-      get { if ((_hasBits0 & 1) != 0) { return underlayLevels_; } else { return UnderlayLevelsDefaultValue; } }
+    public global::ServiceLayer.SLUnderlayLevels UnderlayLevel {
+      get { if ((_hasBits0 & 1) != 0) { return underlayLevel_; } else { return UnderlayLevelDefaultValue; } }
       set {
         _hasBits0 |= 1;
-        underlayLevels_ = value;
+        underlayLevel_ = value;
       }
     }
-    /// <summary>Gets whether the "UnderlayLevels" field is set</summary>
+    /// <summary>Gets whether the "UnderlayLevel" field is set</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasUnderlayLevels {
+    public bool HasUnderlayLevel {
       get { return (_hasBits0 & 1) != 0; }
     }
-    /// <summary>Clears the value of the "UnderlayLevels" field</summary>
+    /// <summary>Clears the value of the "UnderlayLevel" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearUnderlayLevels() {
+    public void ClearUnderlayLevel() {
       _hasBits0 &= ~1;
     }
 
@@ -6501,7 +6501,7 @@ namespace ServiceLayer {
       if (AdminDistance != other.AdminDistance) return false;
       if (!object.Equals(PathList, other.PathList)) return false;
       if(!pgFlags_.Equals(other.pgFlags_)) return false;
-      if (UnderlayLevels != other.UnderlayLevels) return false;
+      if (UnderlayLevel != other.UnderlayLevel) return false;
       if (EntryCase != other.EntryCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -6514,7 +6514,7 @@ namespace ServiceLayer {
       if (AdminDistance != 0) hash ^= AdminDistance.GetHashCode();
       if (entryCase_ == EntryOneofCase.PathList) hash ^= PathList.GetHashCode();
       hash ^= pgFlags_.GetHashCode();
-      if (HasUnderlayLevels) hash ^= UnderlayLevels.GetHashCode();
+      if (HasUnderlayLevel) hash ^= UnderlayLevel.GetHashCode();
       hash ^= (int) entryCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -6547,9 +6547,9 @@ namespace ServiceLayer {
         output.WriteMessage(PathList);
       }
       pgFlags_.WriteTo(output, _repeated_pgFlags_codec);
-      if (HasUnderlayLevels) {
+      if (HasUnderlayLevel) {
         output.WriteRawTag(40);
-        output.WriteEnum((int) UnderlayLevels);
+        output.WriteEnum((int) UnderlayLevel);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -6574,9 +6574,9 @@ namespace ServiceLayer {
         output.WriteMessage(PathList);
       }
       pgFlags_.WriteTo(ref output, _repeated_pgFlags_codec);
-      if (HasUnderlayLevels) {
+      if (HasUnderlayLevel) {
         output.WriteRawTag(40);
-        output.WriteEnum((int) UnderlayLevels);
+        output.WriteEnum((int) UnderlayLevel);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -6598,8 +6598,8 @@ namespace ServiceLayer {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathList);
       }
       size += pgFlags_.CalculateSize(_repeated_pgFlags_codec);
-      if (HasUnderlayLevels) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) UnderlayLevels);
+      if (HasUnderlayLevel) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) UnderlayLevel);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -6623,8 +6623,8 @@ namespace ServiceLayer {
         AdminDistance = other.AdminDistance;
       }
       pgFlags_.Add(other.pgFlags_);
-      if (other.HasUnderlayLevels) {
-        UnderlayLevels = other.UnderlayLevels;
+      if (other.HasUnderlayLevel) {
+        UnderlayLevel = other.UnderlayLevel;
       }
       switch (other.EntryCase) {
         case EntryOneofCase.PathList:
@@ -6680,7 +6680,7 @@ namespace ServiceLayer {
             break;
           }
           case 40: {
-            UnderlayLevels = (global::ServiceLayer.SLUnderlayLevels) input.ReadEnum();
+            UnderlayLevel = (global::ServiceLayer.SLUnderlayLevels) input.ReadEnum();
             break;
           }
         }
@@ -6728,7 +6728,7 @@ namespace ServiceLayer {
             break;
           }
           case 40: {
-            UnderlayLevels = (global::ServiceLayer.SLUnderlayLevels) input.ReadEnum();
+            UnderlayLevel = (global::ServiceLayer.SLUnderlayLevels) input.ReadEnum();
             break;
           }
         }

@@ -680,7 +680,7 @@ message SLPathGroup {
     repeated SLRouteFlags PgFlags = 4;
 
     //UnderlayLevels set will prevent flattening the route hierarchy into individual paths.
-    optional SLUnderlayLevels UnderlayLevels = 5;
+    optional SLUnderlayLevels UnderlayLevel = 5;
 }
 // IP Route Prefix and Prefix Length
 message SLRoutePrefix {
