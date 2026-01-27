@@ -37,7 +37,7 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // named "iosxr-slapi-clientid" with a numeric string holding a
 // number between 0 and 65535. Additionally, an optional gRPC metadata key
 // named "iosxr-slapi-clientname" with a string of printable ASCII characters
-// (maximum length 128 characters) may be specified.
+// (maximum length 64 characters) may be specified.
 //
 // Each client application MUST use a unique client ID identifying itself
 // that is separate from other clients programming the server. If there
