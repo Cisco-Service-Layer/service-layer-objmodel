@@ -1545,7 +1545,8 @@ type SLRoutePath struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// One of IPv4 or IPv6 address.
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
-	// For a non-connected nexthop, only NexthopAddress will be specified.
+	// Nexthop is considered non-connected when only NexthopAddress is
+	// specified and NexthopInterface is not specified.
 	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Outgoing interface name for the path.
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
@@ -1899,7 +1900,8 @@ type SLPathGroup struct {
 	//
 	// Others - Reserved.
 	PgFlags []SLRouteFlags `protobuf:"varint,4,rep,packed,name=PgFlags,proto3,enum=service_layer.SLRouteFlags" json:"PgFlags,omitempty"`
-	// UnderlayLevels set will prevent flattening the route hierarchy into individual paths.
+	// SLUnderlayLevels indicates the lookup stage at which the path group
+	// is programmed. This is relevant only when hierarchical lookup is required.
 	UnderlayLevel *SLUnderlayLevels `protobuf:"varint,5,opt,name=UnderlayLevel,proto3,enum=service_layer.SLUnderlayLevels,oneof" json:"UnderlayLevel,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

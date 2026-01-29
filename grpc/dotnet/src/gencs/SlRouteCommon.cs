@@ -237,7 +237,6 @@ namespace ServiceLayer {
 
   /// <summary>
   /// Underlay Levels.
-  /// Each level is indicated as a bit field. Supported values are:
   /// </summary>
   public enum SLUnderlayLevels {
     /// <summary>
@@ -5447,7 +5446,8 @@ namespace ServiceLayer {
     /// <summary>
     /// One of IPv4 or IPv6 address.
     /// For ENCAP_VXLAN, this field is not supported and will be ignored.
-    /// For a non-connected nexthop, only NexthopAddress will be specified.
+    /// Nexthop is considered non-connected when only NexthopAddress is
+    /// specified and NexthopInterface is not specified.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6438,7 +6438,8 @@ namespace ServiceLayer {
 
     private global::ServiceLayer.SLUnderlayLevels underlayLevel_;
     /// <summary>
-    ///UnderlayLevels set will prevent flattening the route hierarchy into individual paths.
+    /// SLUnderlayLevels indicates the lookup stage at which the path group
+    /// is programmed. This is relevant only when hierarchical lookup is required.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

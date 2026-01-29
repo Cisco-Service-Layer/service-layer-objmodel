@@ -55,11 +55,12 @@ namespace service_layer {
 // If there are multiple clients intending to program the network
 // element using this API, the clients initiating a programming or get
 // RPC MUST pass a gRPC-context metadata identifying themselves.
+// Metadata supports the following key-value pairs:
+// "iosxr-slapi-clientid" : <numeric string number between 0 and 65535>
+// "iosxr-slapi-clientname": <printable ASCII client name of max length 64 characters>
 // The client application MUST set the gRPC metadata key
-// named "iosxr-slapi-clientid" with a numeric string holding a
-// number between 0 and 65535. Additionally, an optional gRPC metadata key
-// named "iosxr-slapi-clientname" with a string of printable ASCII characters
-// (maximum length 128 characters) may be specified.
+// "iosxr-slapi-clientid" which is mandatory. The optional gRPC metadata key
+// "iosxr-slapi-clientname" may be specified to enable operational visibility.
 //
 // Each client application MUST use a unique client ID identifying itself
 // that is separate from other clients programming the server. If there
