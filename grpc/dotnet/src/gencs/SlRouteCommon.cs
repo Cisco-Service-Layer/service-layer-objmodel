@@ -5446,8 +5446,6 @@ namespace ServiceLayer {
     /// <summary>
     /// One of IPv4 or IPv6 address.
     /// For ENCAP_VXLAN, this field is not supported and will be ignored.
-    /// Nexthop is considered non-connected when only NexthopAddress is
-    /// specified and NexthopInterface is not specified.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5463,6 +5461,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLInterface nexthopInterface_;
     /// <summary>
     /// Outgoing interface name for the path.
+    /// When this field is not set, the next hop is considered non-connected.
     /// For ENCAP_VXLAN, this field is not supported and will be ignored.
     /// The client should listen to interface state change API for create/delete
     /// and reprogram the route or PG.
@@ -5746,8 +5745,8 @@ namespace ServiceLayer {
 
     private uint minResolutionLength_;
     /// <summary>
-    /// MinResolutionLength is for the paths to resolve via prefix of this length.
-    /// This is an optional field and only valid if NexthopAddress is set.
+    /// When set, this field dictates the minimum prefix length required for next hop resolution.
+    /// For example, if this field is set to 24, only /24 and larger prefixes would be considered.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

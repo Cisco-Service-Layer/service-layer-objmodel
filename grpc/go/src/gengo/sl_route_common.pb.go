@@ -1545,10 +1545,9 @@ type SLRoutePath struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// One of IPv4 or IPv6 address.
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
-	// Nexthop is considered non-connected when only NexthopAddress is
-	// specified and NexthopInterface is not specified.
 	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Outgoing interface name for the path.
+	// When this field is not set, the next hop is considered non-connected.
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
 	// The client should listen to interface state change API for create/delete
 	// and reprogram the route or PG.
@@ -1677,8 +1676,8 @@ type SLRoutePath struct {
 	//
 	// We only support a maximum of one BackupIndex per SLRoutePath at this time.
 	BackupIndex []uint32 `protobuf:"varint,16,rep,packed,name=BackupIndex,proto3" json:"BackupIndex,omitempty"`
-	// MinResolutionLength is for the paths to resolve via prefix of this length.
-	// This is an optional field and only valid if NexthopAddress is set.
+	// When set, this field dictates the minimum prefix length required for next hop resolution.
+	// For example, if this field is set to 24, only /24 and larger prefixes would be considered.
 	MinResolutionLength *uint32 `protobuf:"varint,17,opt,name=MinResolutionLength,proto3,oneof" json:"MinResolutionLength,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
