@@ -593,9 +593,10 @@ message SLRoutePath {
    // We only support a maximum of one BackupIndex per SLRoutePath at this time.
    repeated uint32 BackupIndex = 16;
 
+    // MinResolutionLength is an optional filed.
     // When set, this field dictates the minimum prefix length required for next hop resolution.
     // For example, if this field is set to 24, only /24 and larger prefixes would be considered.
-    optional uint32 MinResolutionLength = 17;
+    uint32 MinResolutionLength = 17;
 }
 
 enum SLUnderlayLevels {
@@ -680,7 +681,8 @@ message SLPathGroup {
 
     // SLUnderlayLevels indicates the lookup stage at which the path group
     // is programmed. This is relevant only when hierarchical lookup is required.
-    optional SLUnderlayLevels UnderlayLevel = 5;
+    // This is an optional field.
+    SLUnderlayLevels UnderlayLevel = 5;
 }
 // IP Route Prefix and Prefix Length
 message SLRoutePrefix {

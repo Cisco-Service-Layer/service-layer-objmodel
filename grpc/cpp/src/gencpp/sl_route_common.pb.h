@@ -3761,11 +3761,7 @@ class SLRoutePath final :
   void _internal_set_encaptype(::service_layer::SLEncapType value);
   public:
 
-  // optional uint32 MinResolutionLength = 17;
-  bool has_minresolutionlength() const;
-  private:
-  bool _internal_has_minresolutionlength() const;
-  public:
+  // uint32 MinResolutionLength = 17;
   void clear_minresolutionlength();
   uint32_t minresolutionlength() const;
   void set_minresolutionlength(uint32_t value);
@@ -3805,8 +3801,6 @@ class SLRoutePath final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > protectedpathbitmap_;
   mutable std::atomic<int> _protectedpathbitmap_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > labelstack_;
@@ -3830,6 +3824,7 @@ class SLRoutePath final :
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
     ::service_layer::SLPathGroupRefKey* pathgroupkey_;
   } entry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
 
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
@@ -4326,11 +4321,7 @@ class SLPathGroup final :
   void _internal_set_admindistance(uint32_t value);
   public:
 
-  // optional .service_layer.SLUnderlayLevels UnderlayLevel = 5;
-  bool has_underlaylevel() const;
-  private:
-  bool _internal_has_underlaylevel() const;
-  public:
+  // .service_layer.SLUnderlayLevels UnderlayLevel = 5;
   void clear_underlaylevel();
   ::service_layer::SLUnderlayLevels underlaylevel() const;
   void set_underlaylevel(::service_layer::SLUnderlayLevels value);
@@ -4370,8 +4361,6 @@ class SLPathGroup final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> pgflags_;
   mutable std::atomic<int> _pgflags_cached_byte_size_;
   ::service_layer::SLObjectId* pathgroupid_;
@@ -4382,6 +4371,7 @@ class SLPathGroup final :
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
     ::service_layer::SLPathGroup_SLPathList* pathlist_;
   } entry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
 
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
@@ -7477,17 +7467,9 @@ SLRoutePath::mutable_backupindex() {
   return _internal_mutable_backupindex();
 }
 
-// optional uint32 MinResolutionLength = 17;
-inline bool SLRoutePath::_internal_has_minresolutionlength() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool SLRoutePath::has_minresolutionlength() const {
-  return _internal_has_minresolutionlength();
-}
+// uint32 MinResolutionLength = 17;
 inline void SLRoutePath::clear_minresolutionlength() {
   minresolutionlength_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t SLRoutePath::_internal_minresolutionlength() const {
   return minresolutionlength_;
@@ -7497,7 +7479,7 @@ inline uint32_t SLRoutePath::minresolutionlength() const {
   return _internal_minresolutionlength();
 }
 inline void SLRoutePath::_internal_set_minresolutionlength(uint32_t value) {
-  _has_bits_[0] |= 0x00000001u;
+  
   minresolutionlength_ = value;
 }
 inline void SLRoutePath::set_minresolutionlength(uint32_t value) {
@@ -7879,17 +7861,9 @@ SLPathGroup::mutable_pgflags() {
   return _internal_mutable_pgflags();
 }
 
-// optional .service_layer.SLUnderlayLevels UnderlayLevel = 5;
-inline bool SLPathGroup::_internal_has_underlaylevel() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool SLPathGroup::has_underlaylevel() const {
-  return _internal_has_underlaylevel();
-}
+// .service_layer.SLUnderlayLevels UnderlayLevel = 5;
 inline void SLPathGroup::clear_underlaylevel() {
   underlaylevel_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::service_layer::SLUnderlayLevels SLPathGroup::_internal_underlaylevel() const {
   return static_cast< ::service_layer::SLUnderlayLevels >(underlaylevel_);
@@ -7899,7 +7873,7 @@ inline ::service_layer::SLUnderlayLevels SLPathGroup::underlaylevel() const {
   return _internal_underlaylevel();
 }
 inline void SLPathGroup::_internal_set_underlaylevel(::service_layer::SLUnderlayLevels value) {
-  _has_bits_[0] |= 0x00000001u;
+  
   underlaylevel_ = value;
 }
 inline void SLPathGroup::set_underlaylevel(::service_layer::SLUnderlayLevels value) {

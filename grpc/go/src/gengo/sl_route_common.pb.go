@@ -1676,9 +1676,10 @@ type SLRoutePath struct {
 	//
 	// We only support a maximum of one BackupIndex per SLRoutePath at this time.
 	BackupIndex []uint32 `protobuf:"varint,16,rep,packed,name=BackupIndex,proto3" json:"BackupIndex,omitempty"`
+	// MinResolutionLength is an optional filed.
 	// When set, this field dictates the minimum prefix length required for next hop resolution.
 	// For example, if this field is set to 24, only /24 and larger prefixes would be considered.
-	MinResolutionLength *uint32 `protobuf:"varint,17,opt,name=MinResolutionLength,proto3,oneof" json:"MinResolutionLength,omitempty"`
+	MinResolutionLength uint32 `protobuf:"varint,17,opt,name=MinResolutionLength,proto3" json:"MinResolutionLength,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -1823,8 +1824,8 @@ func (x *SLRoutePath) GetBackupIndex() []uint32 {
 }
 
 func (x *SLRoutePath) GetMinResolutionLength() uint32 {
-	if x != nil && x.MinResolutionLength != nil {
-		return *x.MinResolutionLength
+	if x != nil {
+		return x.MinResolutionLength
 	}
 	return 0
 }
@@ -1901,7 +1902,8 @@ type SLPathGroup struct {
 	PgFlags []SLRouteFlags `protobuf:"varint,4,rep,packed,name=PgFlags,proto3,enum=service_layer.SLRouteFlags" json:"PgFlags,omitempty"`
 	// SLUnderlayLevels indicates the lookup stage at which the path group
 	// is programmed. This is relevant only when hierarchical lookup is required.
-	UnderlayLevel *SLUnderlayLevels `protobuf:"varint,5,opt,name=UnderlayLevel,proto3,enum=service_layer.SLUnderlayLevels,oneof" json:"UnderlayLevel,omitempty"`
+	// This is an optional field.
+	UnderlayLevel SLUnderlayLevels `protobuf:"varint,5,opt,name=UnderlayLevel,proto3,enum=service_layer.SLUnderlayLevels" json:"UnderlayLevel,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1974,8 +1976,8 @@ func (x *SLPathGroup) GetPgFlags() []SLRouteFlags {
 }
 
 func (x *SLPathGroup) GetUnderlayLevel() SLUnderlayLevels {
-	if x != nil && x.UnderlayLevel != nil {
-		return *x.UnderlayLevel
+	if x != nil {
+		return x.UnderlayLevel
 	}
 	return SLUnderlayLevels_SL_UNDERLAY_LEVEL_DEFAULT
 }
@@ -2223,7 +2225,7 @@ const file_sl_route_common_proto_rawDesc = "" +
 	"\x10SourceMacAddress\x18\x02 \x01(\fR\x10SourceMacAddress\x12&\n" +
 	"\x0eDestMacAddress\x18\x03 \x01(\fR\x0eDestMacAddress\x12>\n" +
 	"\fSrcIpAddress\x18\x04 \x01(\v2\x1a.service_layer.SLIpAddressR\fSrcIpAddress\x12@\n" +
-	"\rDestIpAddress\x18\x05 \x01(\v2\x1a.service_layer.SLIpAddressR\rDestIpAddress\"\xc6\x06\n" +
+	"\rDestIpAddress\x18\x05 \x01(\v2\x1a.service_layer.SLIpAddressR\rDestIpAddress\"\xa9\x06\n" +
 	"\vSLRoutePath\x12B\n" +
 	"\x0eNexthopAddress\x18\x01 \x01(\v2\x1a.service_layer.SLIpAddressR\x0eNexthopAddress\x12F\n" +
 	"\x10NexthopInterface\x18\x02 \x01(\v2\x1a.service_layer.SLInterfaceR\x10NexthopInterface\x12\x1e\n" +
@@ -2243,23 +2245,21 @@ const file_sl_route_common_proto_rawDesc = "" +
 	"\tVxLANPath\x18\f \x01(\v2\x1a.service_layer.SLVxLANPathR\tVxLANPath\x128\n" +
 	"\tPathFlags\x18\x0e \x03(\x0e2\x1a.service_layer.SLPathFlagsR\tPathFlags\x12F\n" +
 	"\fPathGroupKey\x18\x0f \x01(\v2 .service_layer.SLPathGroupRefKeyH\x00R\fPathGroupKey\x12 \n" +
-	"\vBackupIndex\x18\x10 \x03(\rR\vBackupIndex\x125\n" +
-	"\x13MinResolutionLength\x18\x11 \x01(\rH\x01R\x13MinResolutionLength\x88\x01\x01B\a\n" +
-	"\x05entryB\x16\n" +
-	"\x14_MinResolutionLengthJ\x04\b\r\x10\x0eJ\x04\b\x05\x10\x06R\x05FlagsR\x06Metric\"\xd4\x03\n" +
+	"\vBackupIndex\x18\x10 \x03(\rR\vBackupIndex\x120\n" +
+	"\x13MinResolutionLength\x18\x11 \x01(\rR\x13MinResolutionLengthB\a\n" +
+	"\x05entryJ\x04\b\r\x10\x0eJ\x04\b\x05\x10\x06R\x05FlagsR\x06Metric\"\xbd\x03\n" +
 	"\vSLPathGroup\x12;\n" +
 	"\vPathGroupId\x18\x01 \x01(\v2\x19.service_layer.SLObjectIdR\vPathGroupId\x12$\n" +
 	"\rAdminDistance\x18\x02 \x01(\rR\rAdminDistance\x12C\n" +
 	"\bPathList\x18\x03 \x01(\v2%.service_layer.SLPathGroup.SLPathListH\x00R\bPathList\x125\n" +
-	"\aPgFlags\x18\x04 \x03(\x0e2\x1b.service_layer.SLRouteFlagsR\aPgFlags\x12J\n" +
-	"\rUnderlayLevel\x18\x05 \x01(\x0e2\x1f.service_layer.SLUnderlayLevelsH\x01R\rUnderlayLevel\x88\x01\x01\x1a8\n" +
+	"\aPgFlags\x18\x04 \x03(\x0e2\x1b.service_layer.SLRouteFlagsR\aPgFlags\x12E\n" +
+	"\rUnderlayLevel\x18\x05 \x01(\x0e2\x1f.service_layer.SLUnderlayLevelsR\rUnderlayLevel\x1a8\n" +
 	"\x06SLPath\x12.\n" +
 	"\x04Path\x18\x01 \x01(\v2\x1a.service_layer.SLRoutePathR\x04Path\x1aE\n" +
 	"\n" +
 	"SLPathList\x127\n" +
 	"\x05Paths\x18\x01 \x03(\v2!.service_layer.SLPathGroup.SLPathR\x05PathsB\a\n" +
-	"\x05entryB\x10\n" +
-	"\x0e_UnderlayLevel\"a\n" +
+	"\x05entry\"a\n" +
 	"\rSLRoutePrefix\x122\n" +
 	"\x06Prefix\x18\x01 \x01(\v2\x1a.service_layer.SLIpAddressR\x06Prefix\x12\x1c\n" +
 	"\tPrefixLen\x18\x02 \x01(\rR\tPrefixLen*\xca\x01\n" +

@@ -520,7 +520,7 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, destmacaddress_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, srcipaddress_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, destipaddress_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, _has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, _oneof_case_[0]),
@@ -542,21 +542,6 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, backupindex_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, minresolutionlength_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, entry_),
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup_SLPath, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -571,7 +556,7 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup_SLPathList, paths_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, _has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, _oneof_case_[0]),
@@ -583,11 +568,6 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, pgflags_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, underlaylevel_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup, entry_),
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePrefix, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -616,11 +596,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 125, -1, -1, sizeof(::service_layer::SLVrfNotif)},
   { 133, -1, -1, sizeof(::service_layer::SLRouteCommon)},
   { 147, -1, -1, sizeof(::service_layer::SLVxLANPath)},
-  { 158, 180, -1, sizeof(::service_layer::SLRoutePath)},
-  { 195, -1, -1, sizeof(::service_layer::SLPathGroup_SLPath)},
-  { 202, -1, -1, sizeof(::service_layer::SLPathGroup_SLPathList)},
-  { 209, 221, -1, sizeof(::service_layer::SLPathGroup)},
-  { 226, -1, -1, sizeof(::service_layer::SLRoutePrefix)},
+  { 158, -1, -1, sizeof(::service_layer::SLRoutePath)},
+  { 180, -1, -1, sizeof(::service_layer::SLPathGroup_SLPath)},
+  { 187, -1, -1, sizeof(::service_layer::SLPathGroup_SLPathList)},
+  { 194, -1, -1, sizeof(::service_layer::SLPathGroup)},
+  { 206, -1, -1, sizeof(::service_layer::SLRoutePrefix)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -698,7 +678,7 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "dress\030\002 \001(\014\022\026\n\016DestMacAddress\030\003 \001(\014\0220\n\014S"
   "rcIpAddress\030\004 \001(\0132\032.service_layer.SLIpAd"
   "dress\0221\n\rDestIpAddress\030\005 \001(\0132\032.service_l"
-  "ayer.SLIpAddress\"\360\004\n\013SLRoutePath\0222\n\016Next"
+  "ayer.SLIpAddress\"\323\004\n\013SLRoutePath\0222\n\016Next"
   "hopAddress\030\001 \001(\0132\032.service_layer.SLIpAdd"
   "ress\0224\n\020NexthopInterface\030\002 \001(\0132\032.service"
   "_layer.SLInterface\022\022\n\nLoadMetric\030\003 \001(\r\022\017"
@@ -711,46 +691,45 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "rvice_layer.SLVxLANPath\022-\n\tPathFlags\030\016 \003"
   "(\0162\032.service_layer.SLPathFlags\0228\n\014PathGr"
   "oupKey\030\017 \001(\0132 .service_layer.SLPathGroup"
-  "RefKeyH\000\022\023\n\013BackupIndex\030\020 \003(\r\022 \n\023MinReso"
-  "lutionLength\030\021 \001(\rH\001\210\001\001B\007\n\005entryB\026\n\024_Min"
-  "ResolutionLengthJ\004\010\r\020\016J\004\010\005\020\006R\005FlagsR\006Met"
-  "ric\"\211\003\n\013SLPathGroup\022.\n\013PathGroupId\030\001 \001(\013"
-  "2\031.service_layer.SLObjectId\022\025\n\rAdminDist"
-  "ance\030\002 \001(\r\0229\n\010PathList\030\003 \001(\0132%.service_l"
-  "ayer.SLPathGroup.SLPathListH\000\022,\n\007PgFlags"
-  "\030\004 \003(\0162\033.service_layer.SLRouteFlags\022;\n\rU"
-  "nderlayLevel\030\005 \001(\0162\037.service_layer.SLUnd"
-  "erlayLevelsH\001\210\001\001\0322\n\006SLPath\022(\n\004Path\030\001 \001(\013"
-  "2\032.service_layer.SLRoutePath\032>\n\nSLPathLi"
-  "st\0220\n\005Paths\030\001 \003(\0132!.service_layer.SLPath"
-  "Group.SLPathB\007\n\005entryB\020\n\016_UnderlayLevel\""
-  "N\n\rSLRoutePrefix\022*\n\006Prefix\030\001 \001(\0132\032.servi"
-  "ce_layer.SLIpAddress\022\021\n\tPrefixLen\030\002 \001(\r*"
-  "\312\001\n\013SLNotifType\022\032\n\026SL_EVENT_TYPE_RESERVE"
-  "D\020\000\022\027\n\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024SL_EVENT"
-  "_TYPE_STATUS\020\002\022\027\n\023SL_EVENT_TYPE_ROUTE\020\003\022"
-  "\036\n\032SL_EVENT_TYPE_START_MARKER\020\004\022\034\n\030SL_EV"
-  "ENT_TYPE_END_MARKER\020\005\022\025\n\021SL_EVENT_TYPE_V"
-  "RF\020\006*\343\001\n\014SLRouteFlags\022\032\n\026SL_ROUTE_FLAG_R"
-  "ESERVED\020\000\022!\n\035SL_ROUTE_FLAG_PREFER_OVER_L"
-  "DP\020\001\022%\n!SL_ROUTE_FLAG_DISABLE_LABEL_MERG"
-  "E\020\002\022#\n\037SL_ROUTE_FLAG_VIABLE_PATHS_ONLY\020\003"
-  "\022\'\n#SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH\020"
-  "\004\022\037\n\033SL_ROUTE_FLAG_FRR_PATHGROUP\020\005*c\n\013SL"
-  "PathFlags\022\031\n\025SL_PATH_FLAG_RESERVED\020\000\022 \n\034"
-  "SL_PATH_FLAG_SINGLE_PATH_OPT\020\001\022\027\n\023SL_PAT"
-  "H_FLAG_BACKUP\020\003*V\n\020SLUnderlayLevels\022\035\n\031S"
-  "L_UNDERLAY_LEVEL_DEFAULT\020\000\022#\n\037SL_UNDERLA"
-  "Y_LEVEL_NO_FLATTENING\020\001BQZOgithub.com/Ci"
-  "sco-service-layer/service-layer-objmodel"
-  "/grpc/protos;service_layerb\006proto3"
+  "RefKeyH\000\022\023\n\013BackupIndex\030\020 \003(\r\022\033\n\023MinReso"
+  "lutionLength\030\021 \001(\rB\007\n\005entryJ\004\010\r\020\016J\004\010\005\020\006R"
+  "\005FlagsR\006Metric\"\362\002\n\013SLPathGroup\022.\n\013PathGr"
+  "oupId\030\001 \001(\0132\031.service_layer.SLObjectId\022\025"
+  "\n\rAdminDistance\030\002 \001(\r\0229\n\010PathList\030\003 \001(\0132"
+  "%.service_layer.SLPathGroup.SLPathListH\000"
+  "\022,\n\007PgFlags\030\004 \003(\0162\033.service_layer.SLRout"
+  "eFlags\0226\n\rUnderlayLevel\030\005 \001(\0162\037.service_"
+  "layer.SLUnderlayLevels\0322\n\006SLPath\022(\n\004Path"
+  "\030\001 \001(\0132\032.service_layer.SLRoutePath\032>\n\nSL"
+  "PathList\0220\n\005Paths\030\001 \003(\0132!.service_layer."
+  "SLPathGroup.SLPathB\007\n\005entry\"N\n\rSLRoutePr"
+  "efix\022*\n\006Prefix\030\001 \001(\0132\032.service_layer.SLI"
+  "pAddress\022\021\n\tPrefixLen\030\002 \001(\r*\312\001\n\013SLNotifT"
+  "ype\022\032\n\026SL_EVENT_TYPE_RESERVED\020\000\022\027\n\023SL_EV"
+  "ENT_TYPE_ERROR\020\001\022\030\n\024SL_EVENT_TYPE_STATUS"
+  "\020\002\022\027\n\023SL_EVENT_TYPE_ROUTE\020\003\022\036\n\032SL_EVENT_"
+  "TYPE_START_MARKER\020\004\022\034\n\030SL_EVENT_TYPE_END"
+  "_MARKER\020\005\022\025\n\021SL_EVENT_TYPE_VRF\020\006*\343\001\n\014SLR"
+  "outeFlags\022\032\n\026SL_ROUTE_FLAG_RESERVED\020\000\022!\n"
+  "\035SL_ROUTE_FLAG_PREFER_OVER_LDP\020\001\022%\n!SL_R"
+  "OUTE_FLAG_DISABLE_LABEL_MERGE\020\002\022#\n\037SL_RO"
+  "UTE_FLAG_VIABLE_PATHS_ONLY\020\003\022\'\n#SL_ROUTE"
+  "_FLAG_ACTIVE_ON_VIABLE_PATH\020\004\022\037\n\033SL_ROUT"
+  "E_FLAG_FRR_PATHGROUP\020\005*c\n\013SLPathFlags\022\031\n"
+  "\025SL_PATH_FLAG_RESERVED\020\000\022 \n\034SL_PATH_FLAG"
+  "_SINGLE_PATH_OPT\020\001\022\027\n\023SL_PATH_FLAG_BACKU"
+  "P\020\003*V\n\020SLUnderlayLevels\022\035\n\031SL_UNDERLAY_L"
+  "EVEL_DEFAULT\020\000\022#\n\037SL_UNDERLAY_LEVEL_NO_F"
+  "LATTENING\020\001BQZOgithub.com/Cisco-service-"
+  "layer/service-layer-objmodel/grpc/protos"
+  ";service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, 3754, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
+  false, false, 3702, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
   &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 23,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
@@ -5294,14 +5273,10 @@ void SLVxLANPath::InternalSwap(SLVxLANPath* other) {
 
 class SLRoutePath::_Internal {
  public:
-  using HasBits = decltype(std::declval<SLRoutePath>()._has_bits_);
   static const ::service_layer::SLIpAddress& nexthopaddress(const SLRoutePath* msg);
   static const ::service_layer::SLInterface& nexthopinterface(const SLRoutePath* msg);
   static const ::service_layer::SLVxLANPath& vxlanpath(const SLRoutePath* msg);
   static const ::service_layer::SLPathGroupRefKey& pathgroupkey(const SLRoutePath* msg);
-  static void set_has_minresolutionlength(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
 };
 
 const ::service_layer::SLIpAddress&
@@ -5376,7 +5351,6 @@ SLRoutePath::SLRoutePath(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 SLRoutePath::SLRoutePath(const SLRoutePath& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
       protectedpathbitmap_(from.protectedpathbitmap_),
       labelstack_(from.labelstack_),
       remoteaddress_(from.remoteaddress_),
@@ -5518,17 +5492,14 @@ void SLRoutePath::Clear() {
   }
   vxlanpath_ = nullptr;
   ::memset(&loadmetric_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&encaptype_) -
-      reinterpret_cast<char*>(&loadmetric_)) + sizeof(encaptype_));
-  minresolutionlength_ = 0u;
+      reinterpret_cast<char*>(&minresolutionlength_) -
+      reinterpret_cast<char*>(&loadmetric_)) + sizeof(minresolutionlength_));
   clear_entry();
-  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SLRoutePath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5667,10 +5638,9 @@ const char* SLRoutePath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 MinResolutionLength = 17;
+      // uint32 MinResolutionLength = 17;
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
-          _Internal::set_has_minresolutionlength(&has_bits);
           minresolutionlength_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -5692,7 +5662,6 @@ const char* SLRoutePath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -5817,8 +5786,8 @@ uint8_t* SLRoutePath::_InternalSerialize(
     }
   }
 
-  // optional uint32 MinResolutionLength = 17;
-  if (_internal_has_minresolutionlength()) {
+  // uint32 MinResolutionLength = 17;
+  if (this->_internal_minresolutionlength() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_minresolutionlength(), target);
   }
@@ -5960,9 +5929,8 @@ size_t SLRoutePath::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_encaptype());
   }
 
-  // optional uint32 MinResolutionLength = 17;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
+  // uint32 MinResolutionLength = 17;
+  if (this->_internal_minresolutionlength() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_minresolutionlength());
@@ -6031,7 +5999,7 @@ void SLRoutePath::MergeFrom(const SLRoutePath& from) {
   if (from._internal_encaptype() != 0) {
     _internal_set_encaptype(from._internal_encaptype());
   }
-  if (from._internal_has_minresolutionlength()) {
+  if (from._internal_minresolutionlength() != 0) {
     _internal_set_minresolutionlength(from._internal_minresolutionlength());
   }
   switch (from.entry_case()) {
@@ -6062,7 +6030,6 @@ void SLRoutePath::InternalSwap(SLRoutePath* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   protectedpathbitmap_.InternalSwap(&other->protectedpathbitmap_);
   labelstack_.InternalSwap(&other->labelstack_);
   remoteaddress_.InternalSwap(&other->remoteaddress_);
@@ -6478,12 +6445,8 @@ void SLPathGroup_SLPathList::InternalSwap(SLPathGroup_SLPathList* other) {
 
 class SLPathGroup::_Internal {
  public:
-  using HasBits = decltype(std::declval<SLPathGroup>()._has_bits_);
   static const ::service_layer::SLObjectId& pathgroupid(const SLPathGroup* msg);
   static const ::service_layer::SLPathGroup_SLPathList& pathlist(const SLPathGroup* msg);
-  static void set_has_underlaylevel(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
 };
 
 const ::service_layer::SLObjectId&
@@ -6527,7 +6490,6 @@ SLPathGroup::SLPathGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 SLPathGroup::SLPathGroup(const SLPathGroup& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
       pgflags_(from.pgflags_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_pathgroupid()) {
@@ -6612,16 +6574,15 @@ void SLPathGroup::Clear() {
     delete pathgroupid_;
   }
   pathgroupid_ = nullptr;
-  admindistance_ = 0u;
-  underlaylevel_ = 0;
+  ::memset(&admindistance_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&underlaylevel_) -
+      reinterpret_cast<char*>(&admindistance_)) + sizeof(underlaylevel_));
   clear_entry();
-  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SLPathGroup::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6662,7 +6623,7 @@ const char* SLPathGroup::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         } else
           goto handle_unusual;
         continue;
-      // optional .service_layer.SLUnderlayLevels UnderlayLevel = 5;
+      // .service_layer.SLUnderlayLevels UnderlayLevel = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6687,7 +6648,6 @@ const char* SLPathGroup::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -6732,8 +6692,8 @@ uint8_t* SLPathGroup::_InternalSerialize(
     }
   }
 
-  // optional .service_layer.SLUnderlayLevels UnderlayLevel = 5;
-  if (_internal_has_underlaylevel()) {
+  // .service_layer.SLUnderlayLevels UnderlayLevel = 5;
+  if (this->_internal_underlaylevel() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       5, this->_internal_underlaylevel(), target);
@@ -6785,9 +6745,8 @@ size_t SLPathGroup::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admindistance());
   }
 
-  // optional .service_layer.SLUnderlayLevels UnderlayLevel = 5;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
+  // .service_layer.SLUnderlayLevels UnderlayLevel = 5;
+  if (this->_internal_underlaylevel() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_underlaylevel());
   }
@@ -6833,7 +6792,7 @@ void SLPathGroup::MergeFrom(const SLPathGroup& from) {
   if (from._internal_admindistance() != 0) {
     _internal_set_admindistance(from._internal_admindistance());
   }
-  if (from._internal_has_underlaylevel()) {
+  if (from._internal_underlaylevel() != 0) {
     _internal_set_underlaylevel(from._internal_underlaylevel());
   }
   switch (from.entry_case()) {
@@ -6862,7 +6821,6 @@ bool SLPathGroup::IsInitialized() const {
 void SLPathGroup::InternalSwap(SLPathGroup* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   pgflags_.InternalSwap(&other->pgflags_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLPathGroup, underlaylevel_)
