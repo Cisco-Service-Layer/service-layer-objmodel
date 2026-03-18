@@ -40,7 +40,7 @@ class SLAFStub(object):
     "iosxr-slapi-clientname": <UTF-8 encoded printable client name of max
     length 32 characters>
     The client application MUST set the gRPC metadata key
-    "iosxr-slapi-clientid" which is mandatory. The optional gRPC metadata key
+    "iosxr-slapi-clientid" which is mandatory. An optional gRPC metadata key
     "iosxr-slapi-clientname" may be specified to enable operational visibility.
 
     Each client application MUST use a unique client ID identifying itself
@@ -133,7 +133,7 @@ class SLAFServicer(object):
     "iosxr-slapi-clientname": <UTF-8 encoded printable client name of max
     length 32 characters>
     The client application MUST set the gRPC metadata key
-    "iosxr-slapi-clientid" which is mandatory. The optional gRPC metadata key
+    "iosxr-slapi-clientid" which is mandatory. An optional gRPC metadata key
     "iosxr-slapi-clientname" may be specified to enable operational visibility.
 
     Each client application MUST use a unique client ID identifying itself
@@ -380,7 +380,7 @@ class SLAF(object):
     "iosxr-slapi-clientname": <UTF-8 encoded printable client name of max
     length 32 characters>
     The client application MUST set the gRPC metadata key
-    "iosxr-slapi-clientid" which is mandatory. The optional gRPC metadata key
+    "iosxr-slapi-clientid" which is mandatory. An optional gRPC metadata key
     "iosxr-slapi-clientname" may be specified to enable operational visibility.
 
     Each client application MUST use a unique client ID identifying itself
