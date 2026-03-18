@@ -239,6 +239,31 @@ inline bool SLPathFlags_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLPathFlags>(
     SLPathFlags_descriptor(), name, value);
 }
+enum SLUnderlayLevels : int {
+  SL_UNDERLAY_LEVEL_DEFAULT = 0,
+  SL_UNDERLAY_LEVEL_NO_FLATTENING = 1,
+  SLUnderlayLevels_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLUnderlayLevels_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLUnderlayLevels_IsValid(int value);
+constexpr SLUnderlayLevels SLUnderlayLevels_MIN = SL_UNDERLAY_LEVEL_DEFAULT;
+constexpr SLUnderlayLevels SLUnderlayLevels_MAX = SL_UNDERLAY_LEVEL_NO_FLATTENING;
+constexpr int SLUnderlayLevels_ARRAYSIZE = SLUnderlayLevels_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLUnderlayLevels_descriptor();
+template<typename T>
+inline const std::string& SLUnderlayLevels_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLUnderlayLevels>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLUnderlayLevels_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLUnderlayLevels_descriptor(), enum_t_value);
+}
+inline bool SLUnderlayLevels_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLUnderlayLevels* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLUnderlayLevels>(
+    SLUnderlayLevels_descriptor(), name, value);
+}
 // ===================================================================
 
 class SLRouteGlobalsGetMsg final :
@@ -3523,6 +3548,7 @@ class SLRoutePath final :
     kLoadMetricFieldNumber = 3,
     kPathIdFieldNumber = 6,
     kEncapTypeFieldNumber = 10,
+    kMinResolutionLengthFieldNumber = 17,
     kPathGroupKeyFieldNumber = 15,
   };
   // repeated uint64 ProtectedPathBitmap = 7;
@@ -3735,6 +3761,15 @@ class SLRoutePath final :
   void _internal_set_encaptype(::service_layer::SLEncapType value);
   public:
 
+  // uint32 MinResolutionLength = 17;
+  void clear_minresolutionlength();
+  uint32_t minresolutionlength() const;
+  void set_minresolutionlength(uint32_t value);
+  private:
+  uint32_t _internal_minresolutionlength() const;
+  void _internal_set_minresolutionlength(uint32_t value);
+  public:
+
   // .service_layer.SLPathGroupRefKey PathGroupKey = 15;
   bool has_pathgroupkey() const;
   private:
@@ -3783,6 +3818,7 @@ class SLRoutePath final :
   uint32_t loadmetric_;
   uint32_t pathid_;
   int encaptype_;
+  uint32_t minresolutionlength_;
   union EntryUnion {
     constexpr EntryUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -4238,6 +4274,7 @@ class SLPathGroup final :
     kPgFlagsFieldNumber = 4,
     kPathGroupIdFieldNumber = 1,
     kAdminDistanceFieldNumber = 2,
+    kUnderlayLevelFieldNumber = 5,
     kPathListFieldNumber = 3,
   };
   // repeated .service_layer.SLRouteFlags PgFlags = 4;
@@ -4284,6 +4321,15 @@ class SLPathGroup final :
   void _internal_set_admindistance(uint32_t value);
   public:
 
+  // .service_layer.SLUnderlayLevels UnderlayLevel = 5;
+  void clear_underlaylevel();
+  ::service_layer::SLUnderlayLevels underlaylevel() const;
+  void set_underlaylevel(::service_layer::SLUnderlayLevels value);
+  private:
+  ::service_layer::SLUnderlayLevels _internal_underlaylevel() const;
+  void _internal_set_underlaylevel(::service_layer::SLUnderlayLevels value);
+  public:
+
   // .service_layer.SLPathGroup.SLPathList PathList = 3;
   bool has_pathlist() const;
   private:
@@ -4319,6 +4365,7 @@ class SLPathGroup final :
   mutable std::atomic<int> _pgflags_cached_byte_size_;
   ::service_layer::SLObjectId* pathgroupid_;
   uint32_t admindistance_;
+  int underlaylevel_;
   union EntryUnion {
     constexpr EntryUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -7420,6 +7467,26 @@ SLRoutePath::mutable_backupindex() {
   return _internal_mutable_backupindex();
 }
 
+// uint32 MinResolutionLength = 17;
+inline void SLRoutePath::clear_minresolutionlength() {
+  minresolutionlength_ = 0u;
+}
+inline uint32_t SLRoutePath::_internal_minresolutionlength() const {
+  return minresolutionlength_;
+}
+inline uint32_t SLRoutePath::minresolutionlength() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRoutePath.MinResolutionLength)
+  return _internal_minresolutionlength();
+}
+inline void SLRoutePath::_internal_set_minresolutionlength(uint32_t value) {
+  
+  minresolutionlength_ = value;
+}
+inline void SLRoutePath::set_minresolutionlength(uint32_t value) {
+  _internal_set_minresolutionlength(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRoutePath.MinResolutionLength)
+}
+
 inline bool SLRoutePath::has_entry() const {
   return entry_case() != ENTRY_NOT_SET;
 }
@@ -7794,6 +7861,26 @@ SLPathGroup::mutable_pgflags() {
   return _internal_mutable_pgflags();
 }
 
+// .service_layer.SLUnderlayLevels UnderlayLevel = 5;
+inline void SLPathGroup::clear_underlaylevel() {
+  underlaylevel_ = 0;
+}
+inline ::service_layer::SLUnderlayLevels SLPathGroup::_internal_underlaylevel() const {
+  return static_cast< ::service_layer::SLUnderlayLevels >(underlaylevel_);
+}
+inline ::service_layer::SLUnderlayLevels SLPathGroup::underlaylevel() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.UnderlayLevel)
+  return _internal_underlaylevel();
+}
+inline void SLPathGroup::_internal_set_underlaylevel(::service_layer::SLUnderlayLevels value) {
+  
+  underlaylevel_ = value;
+}
+inline void SLPathGroup::set_underlaylevel(::service_layer::SLUnderlayLevels value) {
+  _internal_set_underlaylevel(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLPathGroup.UnderlayLevel)
+}
+
 inline bool SLPathGroup::has_entry() const {
   return entry_case() != ENTRY_NOT_SET;
 }
@@ -7981,6 +8068,11 @@ template <> struct is_proto_enum< ::service_layer::SLPathFlags> : ::std::true_ty
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLPathFlags>() {
   return ::service_layer::SLPathFlags_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLUnderlayLevels> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLUnderlayLevels>() {
+  return ::service_layer::SLUnderlayLevels_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

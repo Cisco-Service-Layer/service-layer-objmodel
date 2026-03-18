@@ -230,6 +230,54 @@ func (SLPathFlags) EnumDescriptor() ([]byte, []int) {
 	return file_sl_route_common_proto_rawDescGZIP(), []int{2}
 }
 
+type SLUnderlayLevels int32
+
+const (
+	// NHG placement is decided by the system.
+	SLUnderlayLevels_SL_UNDERLAY_LEVEL_DEFAULT SLUnderlayLevels = 0
+	// NHG will be programmed at a different stage to prevent flattening.
+	SLUnderlayLevels_SL_UNDERLAY_LEVEL_NO_FLATTENING SLUnderlayLevels = 1
+)
+
+// Enum value maps for SLUnderlayLevels.
+var (
+	SLUnderlayLevels_name = map[int32]string{
+		0: "SL_UNDERLAY_LEVEL_DEFAULT",
+		1: "SL_UNDERLAY_LEVEL_NO_FLATTENING",
+	}
+	SLUnderlayLevels_value = map[string]int32{
+		"SL_UNDERLAY_LEVEL_DEFAULT":       0,
+		"SL_UNDERLAY_LEVEL_NO_FLATTENING": 1,
+	}
+)
+
+func (x SLUnderlayLevels) Enum() *SLUnderlayLevels {
+	p := new(SLUnderlayLevels)
+	*p = x
+	return p
+}
+
+func (x SLUnderlayLevels) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SLUnderlayLevels) Descriptor() protoreflect.EnumDescriptor {
+	return file_sl_route_common_proto_enumTypes[3].Descriptor()
+}
+
+func (SLUnderlayLevels) Type() protoreflect.EnumType {
+	return &file_sl_route_common_proto_enumTypes[3]
+}
+
+func (x SLUnderlayLevels) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use SLUnderlayLevels.Descriptor instead.
+func (SLUnderlayLevels) EnumDescriptor() ([]byte, []int) {
+	return file_sl_route_common_proto_rawDescGZIP(), []int{3}
+}
+
 // Route Globals Get Message
 type SLRouteGlobalsGetMsg struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -1499,6 +1547,7 @@ type SLRoutePath struct {
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
 	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Outgoing interface name for the path.
+	// When this field is not set, the next hop is considered non-connected.
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
 	// The client should listen to interface state change API for create/delete
 	// and reprogram the route or PG.
@@ -1626,9 +1675,13 @@ type SLRoutePath struct {
 	// b) pure backup PathGroup with SL_ROUTE_FLAG_FRR_PATHGROUP set
 	//
 	// We only support a maximum of one BackupIndex per SLRoutePath at this time.
-	BackupIndex   []uint32 `protobuf:"varint,16,rep,packed,name=BackupIndex,proto3" json:"BackupIndex,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	BackupIndex []uint32 `protobuf:"varint,16,rep,packed,name=BackupIndex,proto3" json:"BackupIndex,omitempty"`
+	// MinResolutionLength is an optional filed.
+	// When set, this field dictates the minimum prefix length required for next hop resolution.
+	// For example, if this field is set to 24, only /24 and larger prefixes would be considered.
+	MinResolutionLength uint32 `protobuf:"varint,17,opt,name=MinResolutionLength,proto3" json:"MinResolutionLength,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *SLRoutePath) Reset() {
@@ -1770,6 +1823,13 @@ func (x *SLRoutePath) GetBackupIndex() []uint32 {
 	return nil
 }
 
+func (x *SLRoutePath) GetMinResolutionLength() uint32 {
+	if x != nil {
+		return x.MinResolutionLength
+	}
+	return 0
+}
+
 type isSLRoutePath_Entry interface {
 	isSLRoutePath_Entry()
 }
@@ -1839,7 +1899,11 @@ type SLPathGroup struct {
 	//     PathGroup with this flag set will be considered as pure backup.
 	//
 	// Others - Reserved.
-	PgFlags       []SLRouteFlags `protobuf:"varint,4,rep,packed,name=PgFlags,proto3,enum=service_layer.SLRouteFlags" json:"PgFlags,omitempty"`
+	PgFlags []SLRouteFlags `protobuf:"varint,4,rep,packed,name=PgFlags,proto3,enum=service_layer.SLRouteFlags" json:"PgFlags,omitempty"`
+	// SLUnderlayLevels indicates the lookup stage at which the path group
+	// is programmed. This is relevant only when hierarchical lookup is required.
+	// This is an optional field.
+	UnderlayLevel SLUnderlayLevels `protobuf:"varint,5,opt,name=UnderlayLevel,proto3,enum=service_layer.SLUnderlayLevels" json:"UnderlayLevel,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1909,6 +1973,13 @@ func (x *SLPathGroup) GetPgFlags() []SLRouteFlags {
 		return x.PgFlags
 	}
 	return nil
+}
+
+func (x *SLPathGroup) GetUnderlayLevel() SLUnderlayLevels {
+	if x != nil {
+		return x.UnderlayLevel
+	}
+	return SLUnderlayLevels_SL_UNDERLAY_LEVEL_DEFAULT
 }
 
 type isSLPathGroup_Entry interface {
@@ -2154,7 +2225,7 @@ const file_sl_route_common_proto_rawDesc = "" +
 	"\x10SourceMacAddress\x18\x02 \x01(\fR\x10SourceMacAddress\x12&\n" +
 	"\x0eDestMacAddress\x18\x03 \x01(\fR\x0eDestMacAddress\x12>\n" +
 	"\fSrcIpAddress\x18\x04 \x01(\v2\x1a.service_layer.SLIpAddressR\fSrcIpAddress\x12@\n" +
-	"\rDestIpAddress\x18\x05 \x01(\v2\x1a.service_layer.SLIpAddressR\rDestIpAddress\"\xf7\x05\n" +
+	"\rDestIpAddress\x18\x05 \x01(\v2\x1a.service_layer.SLIpAddressR\rDestIpAddress\"\xa9\x06\n" +
 	"\vSLRoutePath\x12B\n" +
 	"\x0eNexthopAddress\x18\x01 \x01(\v2\x1a.service_layer.SLIpAddressR\x0eNexthopAddress\x12F\n" +
 	"\x10NexthopInterface\x18\x02 \x01(\v2\x1a.service_layer.SLInterfaceR\x10NexthopInterface\x12\x1e\n" +
@@ -2174,13 +2245,15 @@ const file_sl_route_common_proto_rawDesc = "" +
 	"\tVxLANPath\x18\f \x01(\v2\x1a.service_layer.SLVxLANPathR\tVxLANPath\x128\n" +
 	"\tPathFlags\x18\x0e \x03(\x0e2\x1a.service_layer.SLPathFlagsR\tPathFlags\x12F\n" +
 	"\fPathGroupKey\x18\x0f \x01(\v2 .service_layer.SLPathGroupRefKeyH\x00R\fPathGroupKey\x12 \n" +
-	"\vBackupIndex\x18\x10 \x03(\rR\vBackupIndexB\a\n" +
-	"\x05entryJ\x04\b\r\x10\x0eJ\x04\b\x05\x10\x06R\x05FlagsR\x06Metric\"\xf6\x02\n" +
+	"\vBackupIndex\x18\x10 \x03(\rR\vBackupIndex\x120\n" +
+	"\x13MinResolutionLength\x18\x11 \x01(\rR\x13MinResolutionLengthB\a\n" +
+	"\x05entryJ\x04\b\r\x10\x0eJ\x04\b\x05\x10\x06R\x05FlagsR\x06Metric\"\xbd\x03\n" +
 	"\vSLPathGroup\x12;\n" +
 	"\vPathGroupId\x18\x01 \x01(\v2\x19.service_layer.SLObjectIdR\vPathGroupId\x12$\n" +
 	"\rAdminDistance\x18\x02 \x01(\rR\rAdminDistance\x12C\n" +
 	"\bPathList\x18\x03 \x01(\v2%.service_layer.SLPathGroup.SLPathListH\x00R\bPathList\x125\n" +
-	"\aPgFlags\x18\x04 \x03(\x0e2\x1b.service_layer.SLRouteFlagsR\aPgFlags\x1a8\n" +
+	"\aPgFlags\x18\x04 \x03(\x0e2\x1b.service_layer.SLRouteFlagsR\aPgFlags\x12E\n" +
+	"\rUnderlayLevel\x18\x05 \x01(\x0e2\x1f.service_layer.SLUnderlayLevelsR\rUnderlayLevel\x1a8\n" +
 	"\x06SLPath\x12.\n" +
 	"\x04Path\x18\x01 \x01(\v2\x1a.service_layer.SLRoutePathR\x04Path\x1aE\n" +
 	"\n" +
@@ -2208,7 +2281,10 @@ const file_sl_route_common_proto_rawDesc = "" +
 	"\vSLPathFlags\x12\x19\n" +
 	"\x15SL_PATH_FLAG_RESERVED\x10\x00\x12 \n" +
 	"\x1cSL_PATH_FLAG_SINGLE_PATH_OPT\x10\x01\x12\x17\n" +
-	"\x13SL_PATH_FLAG_BACKUP\x10\x03BQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3"
+	"\x13SL_PATH_FLAG_BACKUP\x10\x03*V\n" +
+	"\x10SLUnderlayLevels\x12\x1d\n" +
+	"\x19SL_UNDERLAY_LEVEL_DEFAULT\x10\x00\x12#\n" +
+	"\x1fSL_UNDERLAY_LEVEL_NO_FLATTENING\x10\x01BQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3"
 
 var (
 	file_sl_route_common_proto_rawDescOnce sync.Once
@@ -2222,83 +2298,85 @@ func file_sl_route_common_proto_rawDescGZIP() []byte {
 	return file_sl_route_common_proto_rawDescData
 }
 
-var file_sl_route_common_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_sl_route_common_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_sl_route_common_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_sl_route_common_proto_goTypes = []any{
 	(SLNotifType)(0),                    // 0: service_layer.SLNotifType
 	(SLRouteFlags)(0),                   // 1: service_layer.SLRouteFlags
 	(SLPathFlags)(0),                    // 2: service_layer.SLPathFlags
-	(*SLRouteGlobalsGetMsg)(nil),        // 3: service_layer.SLRouteGlobalsGetMsg
-	(*SLRouteGlobalsGetMsgRsp)(nil),     // 4: service_layer.SLRouteGlobalsGetMsgRsp
-	(*SLRouteGlobalStatsGetMsg)(nil),    // 5: service_layer.SLRouteGlobalStatsGetMsg
-	(*SLRouteGlobalStatsGetMsgRsp)(nil), // 6: service_layer.SLRouteGlobalStatsGetMsgRsp
-	(*SLVrfReg)(nil),                    // 7: service_layer.SLVrfReg
-	(*SLVrfRegMsg)(nil),                 // 8: service_layer.SLVrfRegMsg
-	(*SLVrfRegMsgRes)(nil),              // 9: service_layer.SLVrfRegMsgRes
-	(*SLVrfRegMsgRsp)(nil),              // 10: service_layer.SLVrfRegMsgRsp
-	(*SLVrfRegGetMsg)(nil),              // 11: service_layer.SLVrfRegGetMsg
-	(*SLVrfRegGetMsgRsp)(nil),           // 12: service_layer.SLVrfRegGetMsgRsp
-	(*SLVRFGetStatsMsgRes)(nil),         // 13: service_layer.SLVRFGetStatsMsgRes
-	(*SLVRFGetStatsMsgRsp)(nil),         // 14: service_layer.SLVRFGetStatsMsgRsp
-	(*SLRouteGetNotifMsg)(nil),          // 15: service_layer.SLRouteGetNotifMsg
-	(*SLRouteNotifStatus)(nil),          // 16: service_layer.SLRouteNotifStatus
-	(*SLRouteNotifMarker)(nil),          // 17: service_layer.SLRouteNotifMarker
-	(*SLVrfNotif)(nil),                  // 18: service_layer.SLVrfNotif
-	(*SLRouteCommon)(nil),               // 19: service_layer.SLRouteCommon
-	(*SLVxLANPath)(nil),                 // 20: service_layer.SLVxLANPath
-	(*SLRoutePath)(nil),                 // 21: service_layer.SLRoutePath
-	(*SLPathGroup)(nil),                 // 22: service_layer.SLPathGroup
-	(*SLRoutePrefix)(nil),               // 23: service_layer.SLRoutePrefix
-	(*SLPathGroup_SLPath)(nil),          // 24: service_layer.SLPathGroup.SLPath
-	(*SLPathGroup_SLPathList)(nil),      // 25: service_layer.SLPathGroup.SLPathList
-	(*SLErrorStatus)(nil),               // 26: service_layer.SLErrorStatus
-	(SLRegOp)(0),                        // 27: service_layer.SLRegOp
-	(SLNotifOp)(0),                      // 28: service_layer.SLNotifOp
-	(SLObjectOp)(0),                     // 29: service_layer.SLObjectOp
-	(SLUpdatePriority)(0),               // 30: service_layer.SLUpdatePriority
-	(*SLIpAddress)(nil),                 // 31: service_layer.SLIpAddress
-	(*SLInterface)(nil),                 // 32: service_layer.SLInterface
-	(SLEncapType)(0),                    // 33: service_layer.SLEncapType
-	(*SLPathGroupRefKey)(nil),           // 34: service_layer.SLPathGroupRefKey
-	(*SLObjectId)(nil),                  // 35: service_layer.SLObjectId
+	(SLUnderlayLevels)(0),               // 3: service_layer.SLUnderlayLevels
+	(*SLRouteGlobalsGetMsg)(nil),        // 4: service_layer.SLRouteGlobalsGetMsg
+	(*SLRouteGlobalsGetMsgRsp)(nil),     // 5: service_layer.SLRouteGlobalsGetMsgRsp
+	(*SLRouteGlobalStatsGetMsg)(nil),    // 6: service_layer.SLRouteGlobalStatsGetMsg
+	(*SLRouteGlobalStatsGetMsgRsp)(nil), // 7: service_layer.SLRouteGlobalStatsGetMsgRsp
+	(*SLVrfReg)(nil),                    // 8: service_layer.SLVrfReg
+	(*SLVrfRegMsg)(nil),                 // 9: service_layer.SLVrfRegMsg
+	(*SLVrfRegMsgRes)(nil),              // 10: service_layer.SLVrfRegMsgRes
+	(*SLVrfRegMsgRsp)(nil),              // 11: service_layer.SLVrfRegMsgRsp
+	(*SLVrfRegGetMsg)(nil),              // 12: service_layer.SLVrfRegGetMsg
+	(*SLVrfRegGetMsgRsp)(nil),           // 13: service_layer.SLVrfRegGetMsgRsp
+	(*SLVRFGetStatsMsgRes)(nil),         // 14: service_layer.SLVRFGetStatsMsgRes
+	(*SLVRFGetStatsMsgRsp)(nil),         // 15: service_layer.SLVRFGetStatsMsgRsp
+	(*SLRouteGetNotifMsg)(nil),          // 16: service_layer.SLRouteGetNotifMsg
+	(*SLRouteNotifStatus)(nil),          // 17: service_layer.SLRouteNotifStatus
+	(*SLRouteNotifMarker)(nil),          // 18: service_layer.SLRouteNotifMarker
+	(*SLVrfNotif)(nil),                  // 19: service_layer.SLVrfNotif
+	(*SLRouteCommon)(nil),               // 20: service_layer.SLRouteCommon
+	(*SLVxLANPath)(nil),                 // 21: service_layer.SLVxLANPath
+	(*SLRoutePath)(nil),                 // 22: service_layer.SLRoutePath
+	(*SLPathGroup)(nil),                 // 23: service_layer.SLPathGroup
+	(*SLRoutePrefix)(nil),               // 24: service_layer.SLRoutePrefix
+	(*SLPathGroup_SLPath)(nil),          // 25: service_layer.SLPathGroup.SLPath
+	(*SLPathGroup_SLPathList)(nil),      // 26: service_layer.SLPathGroup.SLPathList
+	(*SLErrorStatus)(nil),               // 27: service_layer.SLErrorStatus
+	(SLRegOp)(0),                        // 28: service_layer.SLRegOp
+	(SLNotifOp)(0),                      // 29: service_layer.SLNotifOp
+	(SLObjectOp)(0),                     // 30: service_layer.SLObjectOp
+	(SLUpdatePriority)(0),               // 31: service_layer.SLUpdatePriority
+	(*SLIpAddress)(nil),                 // 32: service_layer.SLIpAddress
+	(*SLInterface)(nil),                 // 33: service_layer.SLInterface
+	(SLEncapType)(0),                    // 34: service_layer.SLEncapType
+	(*SLPathGroupRefKey)(nil),           // 35: service_layer.SLPathGroupRefKey
+	(*SLObjectId)(nil),                  // 36: service_layer.SLObjectId
 }
 var file_sl_route_common_proto_depIdxs = []int32{
-	26, // 0: service_layer.SLRouteGlobalsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	26, // 1: service_layer.SLRouteGlobalStatsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	27, // 2: service_layer.SLVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
-	7,  // 3: service_layer.SLVrfRegMsg.VrfRegMsgs:type_name -> service_layer.SLVrfReg
-	26, // 4: service_layer.SLVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
-	26, // 5: service_layer.SLVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
-	9,  // 6: service_layer.SLVrfRegMsgRsp.Results:type_name -> service_layer.SLVrfRegMsgRes
-	26, // 7: service_layer.SLVrfRegGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	7,  // 8: service_layer.SLVrfRegGetMsgRsp.Entries:type_name -> service_layer.SLVrfReg
-	26, // 9: service_layer.SLVRFGetStatsMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	13, // 10: service_layer.SLVRFGetStatsMsgRsp.Entries:type_name -> service_layer.SLVRFGetStatsMsgRes
-	28, // 11: service_layer.SLRouteGetNotifMsg.Oper:type_name -> service_layer.SLNotifOp
-	26, // 12: service_layer.SLRouteNotifStatus.NotifStatus:type_name -> service_layer.SLErrorStatus
-	29, // 13: service_layer.SLVrfNotif.Status:type_name -> service_layer.SLObjectOp
+	27, // 0: service_layer.SLRouteGlobalsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	27, // 1: service_layer.SLRouteGlobalStatsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	28, // 2: service_layer.SLVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
+	8,  // 3: service_layer.SLVrfRegMsg.VrfRegMsgs:type_name -> service_layer.SLVrfReg
+	27, // 4: service_layer.SLVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
+	27, // 5: service_layer.SLVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
+	10, // 6: service_layer.SLVrfRegMsgRsp.Results:type_name -> service_layer.SLVrfRegMsgRes
+	27, // 7: service_layer.SLVrfRegGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	8,  // 8: service_layer.SLVrfRegGetMsgRsp.Entries:type_name -> service_layer.SLVrfReg
+	27, // 9: service_layer.SLVRFGetStatsMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	14, // 10: service_layer.SLVRFGetStatsMsgRsp.Entries:type_name -> service_layer.SLVRFGetStatsMsgRes
+	29, // 11: service_layer.SLRouteGetNotifMsg.Oper:type_name -> service_layer.SLNotifOp
+	27, // 12: service_layer.SLRouteNotifStatus.NotifStatus:type_name -> service_layer.SLErrorStatus
+	30, // 13: service_layer.SLVrfNotif.Status:type_name -> service_layer.SLObjectOp
 	1,  // 14: service_layer.SLRouteCommon.RouteFlags:type_name -> service_layer.SLRouteFlags
-	30, // 15: service_layer.SLRouteCommon.Priority:type_name -> service_layer.SLUpdatePriority
-	31, // 16: service_layer.SLVxLANPath.SrcIpAddress:type_name -> service_layer.SLIpAddress
-	31, // 17: service_layer.SLVxLANPath.DestIpAddress:type_name -> service_layer.SLIpAddress
-	31, // 18: service_layer.SLRoutePath.NexthopAddress:type_name -> service_layer.SLIpAddress
-	32, // 19: service_layer.SLRoutePath.NexthopInterface:type_name -> service_layer.SLInterface
-	31, // 20: service_layer.SLRoutePath.RemoteAddress:type_name -> service_layer.SLIpAddress
-	33, // 21: service_layer.SLRoutePath.EncapType:type_name -> service_layer.SLEncapType
-	20, // 22: service_layer.SLRoutePath.VxLANPath:type_name -> service_layer.SLVxLANPath
+	31, // 15: service_layer.SLRouteCommon.Priority:type_name -> service_layer.SLUpdatePriority
+	32, // 16: service_layer.SLVxLANPath.SrcIpAddress:type_name -> service_layer.SLIpAddress
+	32, // 17: service_layer.SLVxLANPath.DestIpAddress:type_name -> service_layer.SLIpAddress
+	32, // 18: service_layer.SLRoutePath.NexthopAddress:type_name -> service_layer.SLIpAddress
+	33, // 19: service_layer.SLRoutePath.NexthopInterface:type_name -> service_layer.SLInterface
+	32, // 20: service_layer.SLRoutePath.RemoteAddress:type_name -> service_layer.SLIpAddress
+	34, // 21: service_layer.SLRoutePath.EncapType:type_name -> service_layer.SLEncapType
+	21, // 22: service_layer.SLRoutePath.VxLANPath:type_name -> service_layer.SLVxLANPath
 	2,  // 23: service_layer.SLRoutePath.PathFlags:type_name -> service_layer.SLPathFlags
-	34, // 24: service_layer.SLRoutePath.PathGroupKey:type_name -> service_layer.SLPathGroupRefKey
-	35, // 25: service_layer.SLPathGroup.PathGroupId:type_name -> service_layer.SLObjectId
-	25, // 26: service_layer.SLPathGroup.PathList:type_name -> service_layer.SLPathGroup.SLPathList
+	35, // 24: service_layer.SLRoutePath.PathGroupKey:type_name -> service_layer.SLPathGroupRefKey
+	36, // 25: service_layer.SLPathGroup.PathGroupId:type_name -> service_layer.SLObjectId
+	26, // 26: service_layer.SLPathGroup.PathList:type_name -> service_layer.SLPathGroup.SLPathList
 	1,  // 27: service_layer.SLPathGroup.PgFlags:type_name -> service_layer.SLRouteFlags
-	31, // 28: service_layer.SLRoutePrefix.Prefix:type_name -> service_layer.SLIpAddress
-	21, // 29: service_layer.SLPathGroup.SLPath.Path:type_name -> service_layer.SLRoutePath
-	24, // 30: service_layer.SLPathGroup.SLPathList.Paths:type_name -> service_layer.SLPathGroup.SLPath
-	31, // [31:31] is the sub-list for method output_type
-	31, // [31:31] is the sub-list for method input_type
-	31, // [31:31] is the sub-list for extension type_name
-	31, // [31:31] is the sub-list for extension extendee
-	0,  // [0:31] is the sub-list for field type_name
+	3,  // 28: service_layer.SLPathGroup.UnderlayLevel:type_name -> service_layer.SLUnderlayLevels
+	32, // 29: service_layer.SLRoutePrefix.Prefix:type_name -> service_layer.SLIpAddress
+	22, // 30: service_layer.SLPathGroup.SLPath.Path:type_name -> service_layer.SLRoutePath
+	25, // 31: service_layer.SLPathGroup.SLPathList.Paths:type_name -> service_layer.SLPathGroup.SLPath
+	32, // [32:32] is the sub-list for method output_type
+	32, // [32:32] is the sub-list for method input_type
+	32, // [32:32] is the sub-list for extension type_name
+	32, // [32:32] is the sub-list for extension extendee
+	0,  // [0:32] is the sub-list for field type_name
 }
 
 func init() { file_sl_route_common_proto_init() }
@@ -2318,7 +2396,7 @@ func file_sl_route_common_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_sl_route_common_proto_rawDesc), len(file_sl_route_common_proto_rawDesc)),
-			NumEnums:      3,
+			NumEnums:      4,
 			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   0,
