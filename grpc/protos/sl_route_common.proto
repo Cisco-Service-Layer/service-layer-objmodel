@@ -459,6 +459,7 @@ message SLRoutePath {
     SLIpAddress NexthopAddress = 1;
 
     // Outgoing interface name for the path.
+    // When this field is not set, the next hop is considered non-connected.
     // For ENCAP_VXLAN, this field is not supported and will be ignored.
     // The client should listen to interface state change API for create/delete
     // and reprogram the route or PG.
@@ -591,6 +592,21 @@ message SLRoutePath {
    //
    // We only support a maximum of one BackupIndex per SLRoutePath at this time.
    repeated uint32 BackupIndex = 16;
+
+    // MinResolutionLength is an optional filed.
+    // When set, this field dictates the minimum prefix length required for next hop resolution.
+    // For example, if this field is set to 24, only /24 and larger prefixes would be considered.
+    uint32 MinResolutionLength = 17;
+}
+
+enum SLUnderlayLevels {
+    // Underlay Levels.
+
+    // NHG placement is decided by the system.
+    SL_UNDERLAY_LEVEL_DEFAULT = 0;
+
+    // NHG will be programmed at a different stage to prevent flattening.
+    SL_UNDERLAY_LEVEL_NO_FLATTENING  = 1;
 }
 
 // Path Group definition.
@@ -662,6 +678,11 @@ message SLPathGroup {
     //
     // Others - Reserved.
     repeated SLRouteFlags PgFlags = 4;
+
+    // SLUnderlayLevels indicates the lookup stage at which the path group
+    // is programmed. This is relevant only when hierarchical lookup is required.
+    // This is an optional field.
+    SLUnderlayLevels UnderlayLevel = 5;
 }
 // IP Route Prefix and Prefix Length
 message SLRoutePrefix {
