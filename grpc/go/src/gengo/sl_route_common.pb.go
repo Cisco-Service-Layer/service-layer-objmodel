@@ -129,9 +129,9 @@ const (
 	// This flag is applicable only to SLPathGroup object-type and defines a pure backup
 	// path-group for FRR applications.
 	SLRouteFlags_SL_ROUTE_FLAG_FRR_PATHGROUP SLRouteFlags = 5
-	// When set, the NHG is automatically created from the object's PathList.
-	// This flag is applicable to SLAFIPRoute and SLMplsEntry for lossless NHG programming.
-	SLRouteFlags_SL_ROUTE_FLAG_LOSSLESS_NHG SLRouteFlags = 6
+	// This flag is set for lossless programming.
+	// This flag is applicable to SLAFIPRoute and SLMplsEntry.
+	SLRouteFlags_SL_ROUTE_FLAG_LOSSLESS SLRouteFlags = 6
 )
 
 // Enum value maps for SLRouteFlags.
@@ -143,7 +143,7 @@ var (
 		3: "SL_ROUTE_FLAG_VIABLE_PATHS_ONLY",
 		4: "SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH",
 		5: "SL_ROUTE_FLAG_FRR_PATHGROUP",
-		6: "SL_ROUTE_FLAG_LOSSLESS_NHG",
+		6: "SL_ROUTE_FLAG_LOSSLESS",
 	}
 	SLRouteFlags_value = map[string]int32{
 		"SL_ROUTE_FLAG_RESERVED":              0,
@@ -152,7 +152,7 @@ var (
 		"SL_ROUTE_FLAG_VIABLE_PATHS_ONLY":     3,
 		"SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH": 4,
 		"SL_ROUTE_FLAG_FRR_PATHGROUP":         5,
-		"SL_ROUTE_FLAG_LOSSLESS_NHG":          6,
+		"SL_ROUTE_FLAG_LOSSLESS":              6,
 	}
 )
 
@@ -2275,15 +2275,15 @@ const file_sl_route_common_proto_rawDesc = "" +
 	"\x13SL_EVENT_TYPE_ROUTE\x10\x03\x12\x1e\n" +
 	"\x1aSL_EVENT_TYPE_START_MARKER\x10\x04\x12\x1c\n" +
 	"\x18SL_EVENT_TYPE_END_MARKER\x10\x05\x12\x15\n" +
-	"\x11SL_EVENT_TYPE_VRF\x10\x06*\x83\x02\n" +
+	"\x11SL_EVENT_TYPE_VRF\x10\x06*\xff\x01\n" +
 	"\fSLRouteFlags\x12\x1a\n" +
 	"\x16SL_ROUTE_FLAG_RESERVED\x10\x00\x12!\n" +
 	"\x1dSL_ROUTE_FLAG_PREFER_OVER_LDP\x10\x01\x12%\n" +
 	"!SL_ROUTE_FLAG_DISABLE_LABEL_MERGE\x10\x02\x12#\n" +
 	"\x1fSL_ROUTE_FLAG_VIABLE_PATHS_ONLY\x10\x03\x12'\n" +
 	"#SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH\x10\x04\x12\x1f\n" +
-	"\x1bSL_ROUTE_FLAG_FRR_PATHGROUP\x10\x05\x12\x1e\n" +
-	"\x1aSL_ROUTE_FLAG_LOSSLESS_NHG\x10\x06*c\n" +
+	"\x1bSL_ROUTE_FLAG_FRR_PATHGROUP\x10\x05\x12\x1a\n" +
+	"\x16SL_ROUTE_FLAG_LOSSLESS\x10\x06*c\n" +
 	"\vSLPathFlags\x12\x19\n" +
 	"\x15SL_PATH_FLAG_RESERVED\x10\x00\x12 \n" +
 	"\x1cSL_PATH_FLAG_SINGLE_PATH_OPT\x10\x01\x12\x17\n" +

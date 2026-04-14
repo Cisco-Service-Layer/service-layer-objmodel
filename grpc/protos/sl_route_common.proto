@@ -232,9 +232,9 @@ enum SLRouteFlags {
     // path-group for FRR applications.
     SL_ROUTE_FLAG_FRR_PATHGROUP = 5;
 
-    // When set, the NHG is automatically created from the object's PathList.
-    // This flag is applicable to SLAFIPRoute and SLMplsEntry for lossless NHG programming.
-    SL_ROUTE_FLAG_LOSSLESS_NHG = 6;
+    // This flag is set for lossless programming.
+    // This flag is applicable to SLAFIPRoute and SLMplsEntry.
+    SL_ROUTE_FLAG_LOSSLESS = 6;
 
     // All others are reserved.
 }

@@ -94,19 +94,19 @@ namespace ServiceLayer {
             "X1RZUEVfUkVTRVJWRUQQABIXChNTTF9FVkVOVF9UWVBFX0VSUk9SEAESGAoU",
             "U0xfRVZFTlRfVFlQRV9TVEFUVVMQAhIXChNTTF9FVkVOVF9UWVBFX1JPVVRF",
             "EAMSHgoaU0xfRVZFTlRfVFlQRV9TVEFSVF9NQVJLRVIQBBIcChhTTF9FVkVO",
-            "VF9UWVBFX0VORF9NQVJLRVIQBRIVChFTTF9FVkVOVF9UWVBFX1ZSRhAGKoMC",
+            "VF9UWVBFX0VORF9NQVJLRVIQBRIVChFTTF9FVkVOVF9UWVBFX1ZSRhAGKv8B",
             "CgxTTFJvdXRlRmxhZ3MSGgoWU0xfUk9VVEVfRkxBR19SRVNFUlZFRBAAEiEK",
             "HVNMX1JPVVRFX0ZMQUdfUFJFRkVSX09WRVJfTERQEAESJQohU0xfUk9VVEVf",
             "RkxBR19ESVNBQkxFX0xBQkVMX01FUkdFEAISIwofU0xfUk9VVEVfRkxBR19W",
             "SUFCTEVfUEFUSFNfT05MWRADEicKI1NMX1JPVVRFX0ZMQUdfQUNUSVZFX09O",
             "X1ZJQUJMRV9QQVRIEAQSHwobU0xfUk9VVEVfRkxBR19GUlJfUEFUSEdST1VQ",
-            "EAUSHgoaU0xfUk9VVEVfRkxBR19MT1NTTEVTU19OSEcQBipjCgtTTFBhdGhG",
-            "bGFncxIZChVTTF9QQVRIX0ZMQUdfUkVTRVJWRUQQABIgChxTTF9QQVRIX0ZM",
-            "QUdfU0lOR0xFX1BBVEhfT1BUEAESFwoTU0xfUEFUSF9GTEFHX0JBQ0tVUBAD",
-            "KlYKEFNMVW5kZXJsYXlMZXZlbHMSHQoZU0xfVU5ERVJMQVlfTEVWRUxfREVG",
-            "QVVMVBAAEiMKH1NMX1VOREVSTEFZX0xFVkVMX05PX0ZMQVRURU5JTkcQAUJR",
-            "Wk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXll",
-            "ci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "EAUSGgoWU0xfUk9VVEVfRkxBR19MT1NTTEVTUxAGKmMKC1NMUGF0aEZsYWdz",
+            "EhkKFVNMX1BBVEhfRkxBR19SRVNFUlZFRBAAEiAKHFNMX1BBVEhfRkxBR19T",
+            "SU5HTEVfUEFUSF9PUFQQARIXChNTTF9QQVRIX0ZMQUdfQkFDS1VQEAMqVgoQ",
+            "U0xVbmRlcmxheUxldmVscxIdChlTTF9VTkRFUkxBWV9MRVZFTF9ERUZBVUxU",
+            "EAASIwofU0xfVU5ERVJMQVlfTEVWRUxfTk9fRkxBVFRFTklORxABQlFaT2dp",
+            "dGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9i",
+            "am1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), typeof(global::ServiceLayer.SLUnderlayLevels), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -214,10 +214,10 @@ namespace ServiceLayer {
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_FRR_PATHGROUP")] SlRouteFlagFrrPathgroup = 5,
     /// <summary>
-    /// When set, the NHG is automatically created from the object's PathList.
-    /// This flag is applicable to SLAFIPRoute and SLMplsEntry for lossless NHG programming.
+    /// This flag is set for lossless programming.
+    /// This flag is applicable to SLAFIPRoute and SLMplsEntry.
     /// </summary>
-    [pbr::OriginalName("SL_ROUTE_FLAG_LOSSLESS_NHG")] SlRouteFlagLosslessNhg = 6,
+    [pbr::OriginalName("SL_ROUTE_FLAG_LOSSLESS")] SlRouteFlagLossless = 6,
   }
 
   /// <summary>
