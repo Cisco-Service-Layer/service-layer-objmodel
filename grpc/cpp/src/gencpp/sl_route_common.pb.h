@@ -191,12 +191,13 @@ enum SLRouteFlags : int {
   SL_ROUTE_FLAG_VIABLE_PATHS_ONLY = 3,
   SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 4,
   SL_ROUTE_FLAG_FRR_PATHGROUP = 5,
+  SL_ROUTE_FLAG_LOSSLESS_NHG = 6,
   SLRouteFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRouteFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRouteFlags_IsValid(int value);
 constexpr SLRouteFlags SLRouteFlags_MIN = SL_ROUTE_FLAG_RESERVED;
-constexpr SLRouteFlags SLRouteFlags_MAX = SL_ROUTE_FLAG_FRR_PATHGROUP;
+constexpr SLRouteFlags SLRouteFlags_MAX = SL_ROUTE_FLAG_LOSSLESS_NHG;
 constexpr int SLRouteFlags_ARRAYSIZE = SLRouteFlags_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRouteFlags_descriptor();
