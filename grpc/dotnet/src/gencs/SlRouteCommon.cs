@@ -214,8 +214,11 @@ namespace ServiceLayer {
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_FRR_PATHGROUP")] SlRouteFlagFrrPathgroup = 5,
     /// <summary>
-    /// This flag is set for lossless programming.
-    /// This flag is applicable to SLAFIPRoute and SLMplsEntry.
+    /// This flag is set for lossless programming. Use this flag when the client
+    /// requires the route to
+    /// - Have lossless update behavior and make-before-break (MBB) handling.
+    /// - Require HW-ACK tracking when forwarding truth is split across objects.
+    /// This flag is applicable to SLAFIPRoute, SLMplsEntry.
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_LOSSLESS")] SlRouteFlagLossless = 6,
   }

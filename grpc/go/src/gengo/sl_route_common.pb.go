@@ -129,8 +129,11 @@ const (
 	// This flag is applicable only to SLPathGroup object-type and defines a pure backup
 	// path-group for FRR applications.
 	SLRouteFlags_SL_ROUTE_FLAG_FRR_PATHGROUP SLRouteFlags = 5
-	// This flag is set for lossless programming.
-	// This flag is applicable to SLAFIPRoute and SLMplsEntry.
+	// This flag is set for lossless programming. Use this flag when the client
+	// requires the route to
+	// - Have lossless update behavior and make-before-break (MBB) handling.
+	// - Require HW-ACK tracking when forwarding truth is split across objects.
+	// This flag is applicable to SLAFIPRoute, SLMplsEntry.
 	SLRouteFlags_SL_ROUTE_FLAG_LOSSLESS SLRouteFlags = 6
 )
 
