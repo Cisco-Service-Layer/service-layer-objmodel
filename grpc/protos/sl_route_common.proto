@@ -232,12 +232,11 @@ enum SLRouteFlags {
     // path-group for FRR applications.
     SL_ROUTE_FLAG_FRR_PATHGROUP = 5;
 
-    // This flag is set for lossless programming. Use this flag when the client
-    // requires the route to
-    // - Have lossless update behavior and make-before-break (MBB) handling.
-    // - Require HW-ACK tracking when forwarding truth is split across objects.
-    // This flag is applicable to SLAFIPRoute, SLMplsEntry.
-    SL_ROUTE_FLAG_LOSSLESS = 6;
+    // Setting this flag for an object enables:
+    // - Lossless updates and make-before-break (MBB) behavior.
+    // - HW-ACK tracking for the entire forwarding chain.
+    // This flag is applicable to SLAFIPRoute and SLMplsEntry objects.
+    SL_ROUTE_FLAG_LOSSLESS_UPDATE = 6;
 
     // All others are reserved.
 }
