@@ -1,4 +1,4 @@
-module foo
+module github.com/Cisco-Service-Layer/service-layer-objmodel/grpc/go/src/gengo
 
 go 1.24.3
 

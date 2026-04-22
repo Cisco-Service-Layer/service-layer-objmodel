@@ -94,6 +94,19 @@ grpc/python/src/genpy
 grpc/cpp/src/gencpp
 grpc/dotnet/src/gencs
 ```
+### Go Module Identity
+
+The generated Go bindings under `grpc/go/src/gengo` are intended to behave as a
+normal Go module. The module path is:
+
+```
+github.com/Cisco-Service-Layer/service-layer-objmodel/grpc/go/src/gengo
+```
+
+This allows the generated bindings to participate more cleanly in TPS and
+future XR Go dependency workflows. The generated package name remains
+`service_layer`.
+
 The bindings can also be generated manually using protoc in an environment with the correct toolchain versions. The toolchain versions in the Dockerfile:
 * GO_VER: Go version
 * GRPC_VER: gRPC version
