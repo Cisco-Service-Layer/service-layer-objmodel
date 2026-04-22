@@ -5,7 +5,7 @@
 // default route status for a route object.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016, 2023, 2024 by Cisco Systems, Inc.
+//  Copyright (c) 2016, 2023, 2024, 2026 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -231,6 +231,12 @@ enum SLRouteFlags {
     // This flag is applicable only to SLPathGroup object-type and defines a pure backup
     // path-group for FRR applications.
     SL_ROUTE_FLAG_FRR_PATHGROUP = 5;
+
+    // Setting this flag for an object enables:
+    // - Lossless updates and make-before-break (MBB) behavior.
+    // - HW-ACK tracking for the entire forwarding chain.
+    // This flag is applicable to SLAFIPRoute and SLMplsEntry objects.
+    SL_ROUTE_FLAG_LOSSLESS_UPDATE = 6;
 
     // All others are reserved.
 }
