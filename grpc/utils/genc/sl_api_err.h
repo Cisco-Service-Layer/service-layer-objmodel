@@ -124,6 +124,9 @@
     /* IPv6 routes in VRF were played to Routing Information Base */\
     /* on a process restart or connection re-establishment. 0x2013 */\
     SL_VRF_V6_ROUTE_REPLAY_OK = 0x2013,\
+    /* Client Name specified in VRF message does not match current */\
+    /* name used for this client. 0x2014 */\
+    SL_VRF_TABLE_CLIENT_NAME_MISMATCH = 0x2014,\
     /* !!! Error codes for Route operations. */\
     /* Offset for Route operation errors. 0x3000 */\
     SL_RPC_ROUTE_START_OFFSET = 0x3000,\
@@ -1053,6 +1056,10 @@
     {SL_VRF_V6_ROUTE_REPLAY_OK ,\
         " IPv6 routes in VRF were played to Routing Information Base "\
         " on a process restart or connection re-establishment.  "\
+        },\
+    {SL_VRF_TABLE_CLIENT_NAME_MISMATCH ,\
+        " Client Name specified in VRF message does not match current "\
+        " name used for this client.  "\
         },\
     {SL_RPC_ROUTE_START_OFFSET ,\
         " Offset for Route operation errors.  "\
