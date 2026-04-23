@@ -130,6 +130,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR = 8209,
   SLErrorStatus_SLErrno_SL_VRF_V4_ROUTE_REPLAY_OK = 8210,
   SLErrorStatus_SLErrno_SL_VRF_V6_ROUTE_REPLAY_OK = 8211,
+  SLErrorStatus_SLErrno_SL_VRF_TABLE_CLIENT_NAME_MISMATCH = 8212,
   SLErrorStatus_SLErrno_SL_RPC_ROUTE_START_OFFSET = 12288,
   SLErrorStatus_SLErrno_SL_RPC_ROUTE_TOO_MANY_ROUTES = 12289,
   SLErrorStatus_SLErrno_SL_RPC_ROUTE_VRF_NAME_TOOLONG = 12290,
@@ -981,6 +982,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_VRF_V4_ROUTE_REPLAY_OK;
   static constexpr SLErrno SL_VRF_V6_ROUTE_REPLAY_OK =
     SLErrorStatus_SLErrno_SL_VRF_V6_ROUTE_REPLAY_OK;
+  static constexpr SLErrno SL_VRF_TABLE_CLIENT_NAME_MISMATCH =
+    SLErrorStatus_SLErrno_SL_VRF_TABLE_CLIENT_NAME_MISMATCH;
   static constexpr SLErrno SL_RPC_ROUTE_START_OFFSET =
     SLErrorStatus_SLErrno_SL_RPC_ROUTE_START_OFFSET;
   static constexpr SLErrno SL_RPC_ROUTE_TOO_MANY_ROUTES =

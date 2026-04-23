@@ -148,6 +148,9 @@ message SLErrorStatus {
         // IPv6 routes in VRF were played to Routing Information Base
         // on a process restart or connection re-establishment. 0x2013
         SL_VRF_V6_ROUTE_REPLAY_OK = 0x2013;
+        // Client Name specified in VRF message does not match current
+        // name used for this client. 0x2014
+        SL_VRF_TABLE_CLIENT_NAME_MISMATCH = 0x2014;
 
         // !!! Error codes for Route operations.
 
