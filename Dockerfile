@@ -29,6 +29,13 @@ RUN wget -qO- https://golang.org/dl/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - 
 #Ensure PATH has GO binary path
 ENV PATH="${PATH}:/usr/local/go/bin"
 
+# Allow callers to override Go module proxy and checksum settings, while
+# providing sane defaults for public environments.
+ARG GOPROXY=https://proxy.golang.org,direct
+ARG GOSUMDB=sum.golang.org
+ENV GOPROXY="${GOPROXY}"
+ENV GOSUMDB="${GOSUMDB}"
+
 # Avoid timezone prompts
 ENV DEBIAN_FRONTEND=noninteractive
 

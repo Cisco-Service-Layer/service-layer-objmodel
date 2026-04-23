@@ -15,4 +15,8 @@ protoc -I ./ *.proto --go-grpc_out=../go/src/gengo/ --go_out=../go/src/gengo
 cd ../go/src/gengo
 cp github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos/* .
 rm -rf github.com
+
+# Keep Go module metadata aligned with the regenerated bindings.
+go mod tidy
+
 echo "Done"
