@@ -833,6 +833,9 @@ const (
 	// IPv6 routes in VRF were played to Routing Information Base
 	// on a process restart or connection re-establishment. 0x2013
 	SLErrorStatus_SL_VRF_V6_ROUTE_REPLAY_OK SLErrorStatus_SLErrno = 8211
+	// Client Name specified in VRF message does not match current
+	// name used for this client. 0x2014
+	SLErrorStatus_SL_VRF_TABLE_CLIENT_NAME_MISMATCH SLErrorStatus_SLErrno = 8212
 	// Offset for Route operation errors. 0x3000
 	SLErrorStatus_SL_RPC_ROUTE_START_OFFSET SLErrorStatus_SLErrno = 12288
 	// Operation rejected for ALL routes due to too many routes in the
@@ -1630,6 +1633,7 @@ var (
 		8209:    "SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR",
 		8210:    "SL_VRF_V4_ROUTE_REPLAY_OK",
 		8211:    "SL_VRF_V6_ROUTE_REPLAY_OK",
+		8212:    "SL_VRF_TABLE_CLIENT_NAME_MISMATCH",
 		12288:   "SL_RPC_ROUTE_START_OFFSET",
 		12289:   "SL_RPC_ROUTE_TOO_MANY_ROUTES",
 		12290:   "SL_RPC_ROUTE_VRF_NAME_TOOLONG",
@@ -2025,6 +2029,7 @@ var (
 		"SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR":        8209,
 		"SL_VRF_V4_ROUTE_REPLAY_OK":                 8210,
 		"SL_VRF_V6_ROUTE_REPLAY_OK":                 8211,
+		"SL_VRF_TABLE_CLIENT_NAME_MISMATCH":         8212,
 		"SL_RPC_ROUTE_START_OFFSET":                 12288,
 		"SL_RPC_ROUTE_TOO_MANY_ROUTES":              12289,
 		"SL_RPC_ROUTE_VRF_NAME_TOOLONG":             12290,
@@ -2849,9 +2854,9 @@ var File_sl_common_types_proto protoreflect.FileDescriptor
 
 const file_sl_common_types_proto_rawDesc = "" +
 	"\n" +
-	"\x15sl_common_types.proto\x12\rservice_layer\"\xe0h\n" +
+	"\x15sl_common_types.proto\x12\rservice_layer\"\x88i\n" +
 	"\rSLErrorStatus\x12<\n" +
-	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\x90h\n" +
+	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\xb8h\n" +
 	"\aSLErrno\x12\x0e\n" +
 	"\n" +
 	"SL_SUCCESS\x10\x00\x12\x14\n" +
@@ -2903,7 +2908,8 @@ const file_sl_common_types_proto_rawDesc = "" +
 	"\"SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR\x10\x90@\x12'\n" +
 	"\"SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR\x10\x91@\x12\x1e\n" +
 	"\x19SL_VRF_V4_ROUTE_REPLAY_OK\x10\x92@\x12\x1e\n" +
-	"\x19SL_VRF_V6_ROUTE_REPLAY_OK\x10\x93@\x12\x1e\n" +
+	"\x19SL_VRF_V6_ROUTE_REPLAY_OK\x10\x93@\x12&\n" +
+	"!SL_VRF_TABLE_CLIENT_NAME_MISMATCH\x10\x94@\x12\x1e\n" +
 	"\x19SL_RPC_ROUTE_START_OFFSET\x10\x80`\x12!\n" +
 	"\x1cSL_RPC_ROUTE_TOO_MANY_ROUTES\x10\x81`\x12\"\n" +
 	"\x1dSL_RPC_ROUTE_VRF_NAME_TOOLONG\x10\x82`\x12\x1f\n" +
