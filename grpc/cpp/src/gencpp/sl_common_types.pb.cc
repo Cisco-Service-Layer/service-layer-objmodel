@@ -186,9 +186,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025sl_common_types.proto\022\rservice_layer\"\330"
-  "h\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-  "ce_layer.SLErrorStatus.SLErrno\"\220h\n\007SLErr"
+  "\n\025sl_common_types.proto\022\rservice_layer\"\200"
+  "i\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
+  "ce_layer.SLErrorStatus.SLErrno\"\270h\n\007SLErr"
   "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
   "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
   "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -217,7 +217,8 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "AY_FATAL_ERROR\020\220@\022\'\n\"SL_VRF_V6_ROUTE_REP"
   "LAY_FATAL_ERROR\020\221@\022\036\n\031SL_VRF_V4_ROUTE_RE"
   "PLAY_OK\020\222@\022\036\n\031SL_VRF_V6_ROUTE_REPLAY_OK\020"
-  "\223@\022\036\n\031SL_RPC_ROUTE_START_OFFSET\020\200`\022!\n\034SL"
+  "\223@\022&\n!SL_VRF_TABLE_CLIENT_NAME_MISMATCH\020"
+  "\224@\022\036\n\031SL_RPC_ROUTE_START_OFFSET\020\200`\022!\n\034SL"
   "_RPC_ROUTE_TOO_MANY_ROUTES\020\201`\022\"\n\035SL_RPC_"
   "ROUTE_VRF_NAME_TOOLONG\020\202`\022\037\n\032SL_RPC_ROUT"
   "E_VRF_NOT_FOUND\020\203`\022\036\n\031SL_RPC_ROUTE_VRF_N"
@@ -565,7 +566,7 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 15029, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 15069, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 7,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -624,6 +625,7 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 8209:
     case 8210:
     case 8211:
+    case 8212:
     case 12288:
     case 12289:
     case 12290:
@@ -1024,6 +1026,7 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_V4_ROUTE_REPLAY_FATAL_ERRO
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_V4_ROUTE_REPLAY_OK;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_V6_ROUTE_REPLAY_OK;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_TABLE_CLIENT_NAME_MISMATCH;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_ROUTE_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_ROUTE_TOO_MANY_ROUTES;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_ROUTE_VRF_NAME_TOOLONG;
