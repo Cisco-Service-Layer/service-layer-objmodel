@@ -124,7 +124,7 @@
     /* IPv6 routes in VRF were played to Routing Information Base */\
     /* on a process restart or connection re-establishment. 0x2013 */\
     SL_VRF_V6_ROUTE_REPLAY_OK = 0x2013,\
-    /* Client Name specified in VRF message does not match current */\
+    /* Client Name specified in message does not match current */\
     /* name used for this client. 0x2014 */\
     SL_VRF_TABLE_CLIENT_NAME_MISMATCH = 0x2014,\
     /* !!! Error codes for Route operations. */\
@@ -275,6 +275,9 @@
     /* Path Encap type attribute does not match specified encapsulation. */\
     /* 0x501c */\
     SL_PATH_ENCAP_TYPE_MISMATCH = 0x501c,\
+    /* Path list mixes incompatible bitmap-FRR and index-FRR evidence. */\
+    /* 0x501d */\
+    SL_PATH_INVALID_PATH_LIST_MODEL = 0x501d,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -1058,7 +1061,7 @@
         " on a process restart or connection re-establishment.  "\
         },\
     {SL_VRF_TABLE_CLIENT_NAME_MISMATCH ,\
-        " Client Name specified in VRF message does not match current "\
+        " Client Name specified in message does not match current "\
         " name used for this client.  "\
         },\
     {SL_RPC_ROUTE_START_OFFSET ,\
@@ -1269,6 +1272,10 @@
         },\
     {SL_PATH_ENCAP_TYPE_MISMATCH ,\
         " Path Encap type attribute does not match specified encapsulation. "\
+        "  "\
+        },\
+    {SL_PATH_INVALID_PATH_LIST_MODEL ,\
+        " Path list mixes incompatible bitmap-FRR and index-FRR evidence. "\
         "  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\

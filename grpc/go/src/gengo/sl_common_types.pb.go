@@ -833,7 +833,7 @@ const (
 	// IPv6 routes in VRF were played to Routing Information Base
 	// on a process restart or connection re-establishment. 0x2013
 	SLErrorStatus_SL_VRF_V6_ROUTE_REPLAY_OK SLErrorStatus_SLErrno = 8211
-	// Client Name specified in VRF message does not match current
+	// Client Name specified in message does not match current
 	// name used for this client. 0x2014
 	SLErrorStatus_SL_VRF_TABLE_CLIENT_NAME_MISMATCH SLErrorStatus_SLErrno = 8212
 	// Offset for Route operation errors. 0x3000
@@ -981,6 +981,9 @@ const (
 	// Path Encap type attribute does not match specified encapsulation.
 	// 0x501c
 	SLErrorStatus_SL_PATH_ENCAP_TYPE_MISMATCH SLErrorStatus_SLErrno = 20508
+	// Path list mixes incompatible bitmap-FRR and index-FRR evidence.
+	// 0x501d
+	SLErrorStatus_SL_PATH_INVALID_PATH_LIST_MODEL SLErrorStatus_SLErrno = 20509
 	// Offset for BFD operation errors. 0x6000
 	SLErrorStatus_SL_RPC_BFD_START_OFFSET SLErrorStatus_SLErrno = 24576
 	// BFD Operation rejected for ALL Sessions as the BFD Session count
@@ -1699,6 +1702,7 @@ var (
 		20506:   "SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH",
 		20507:   "SL_PATH_RTR_MAC_NOSUP",
 		20508:   "SL_PATH_ENCAP_TYPE_MISMATCH",
+		20509:   "SL_PATH_INVALID_PATH_LIST_MODEL",
 		24576:   "SL_RPC_BFD_START_OFFSET",
 		24577:   "SL_RPC_BFD_TOO_MANY_BFD_SESSIONS",
 		24578:   "SL_RPC_BFD_API_BAD_PARAMETER",
@@ -2095,6 +2099,7 @@ var (
 		"SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH":        20506,
 		"SL_PATH_RTR_MAC_NOSUP":                     20507,
 		"SL_PATH_ENCAP_TYPE_MISMATCH":               20508,
+		"SL_PATH_INVALID_PATH_LIST_MODEL":           20509,
 		"SL_RPC_BFD_START_OFFSET":                   24576,
 		"SL_RPC_BFD_TOO_MANY_BFD_SESSIONS":          24577,
 		"SL_RPC_BFD_API_BAD_PARAMETER":              24578,
@@ -2854,9 +2859,9 @@ var File_sl_common_types_proto protoreflect.FileDescriptor
 
 const file_sl_common_types_proto_rawDesc = "" +
 	"\n" +
-	"\x15sl_common_types.proto\x12\rservice_layer\"\x88i\n" +
+	"\x15sl_common_types.proto\x12\rservice_layer\"\xafi\n" +
 	"\rSLErrorStatus\x12<\n" +
-	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\xb8h\n" +
+	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\xdfh\n" +
 	"\aSLErrno\x12\x0e\n" +
 	"\n" +
 	"SL_SUCCESS\x10\x00\x12\x14\n" +
@@ -2974,7 +2979,8 @@ const file_sl_common_types_proto_rawDesc = "" +
 	"\x1aSL_PATH_INVALID_ENCAP_ADDR\x10\x99\xa0\x01\x12(\n" +
 	"\"SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH\x10\x9a\xa0\x01\x12\x1b\n" +
 	"\x15SL_PATH_RTR_MAC_NOSUP\x10\x9b\xa0\x01\x12!\n" +
-	"\x1bSL_PATH_ENCAP_TYPE_MISMATCH\x10\x9c\xa0\x01\x12\x1d\n" +
+	"\x1bSL_PATH_ENCAP_TYPE_MISMATCH\x10\x9c\xa0\x01\x12%\n" +
+	"\x1fSL_PATH_INVALID_PATH_LIST_MODEL\x10\x9d\xa0\x01\x12\x1d\n" +
 	"\x17SL_RPC_BFD_START_OFFSET\x10\x80\xc0\x01\x12&\n" +
 	" SL_RPC_BFD_TOO_MANY_BFD_SESSIONS\x10\x81\xc0\x01\x12\"\n" +
 	"\x1cSL_RPC_BFD_API_BAD_PARAMETER\x10\x82\xc0\x01\x12*\n" +
