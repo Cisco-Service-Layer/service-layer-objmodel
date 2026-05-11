@@ -278,19 +278,23 @@
     /* Path list mixes incompatible bitmap-FRR and index-FRR evidence. */\
     /* 0x501d */\
     SL_PATH_INVALID_PATH_LIST_MODEL = 0x501d,\
-    /* Duplicate path_index across index-FRR paths in the same route. */\
+    /* Duplicate path_index specified in the path list of a route. */\
     /* 0x501e */\
     SL_PATH_PRIMARY_INDEX_REPEATED = 0x501e,\
-    /* A path_index value exceeds the maximum supported path-id range. */\
+    /* A path index value exceeds the maximum supported path-id range. */\
     /* 0x501f */\
     SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE = 0x501f,\
-    /* A backup_index value exceeds the maximum supported path-id range. */\
+    /* A backup index value exceeds the maximum supported path-id range. */\
     /* 0x5020 */\
     SL_PATH_BACKUP_INDEX_OUT_OF_RANGE = 0x5020,\
-    /* A path with pure backup flag set is not referenced by any */\
-    /* other path's backup_indexes in the same route. */\
+    /* A path with pure backup flag set is not referenced by as a */\
+    /* backup by any other path in the same route. */\
     /* 0x5021 */\
     SL_PATH_BACKUP_FLAGGED_UNREFERENCED = 0x5021,\
+    /* A backup index in a path's backup index list equals the path's */\
+    /* own path_index (self-reference). */\
+    /* 0x5022 */\
+    SL_PATH_BACKUP_INDEX_SELF_REFERENCE = 0x5022,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -1292,20 +1296,25 @@
         "  "\
         },\
     {SL_PATH_PRIMARY_INDEX_REPEATED ,\
-        " Duplicate path_index across index-FRR paths in the same route. "\
+        " Duplicate path_index specified in the path list of a route. "\
         "  "\
         },\
     {SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE ,\
-        " A path_index value exceeds the maximum supported path-id range. "\
+        " A path index value exceeds the maximum supported path-id range. "\
         "  "\
         },\
     {SL_PATH_BACKUP_INDEX_OUT_OF_RANGE ,\
-        " A backup_index value exceeds the maximum supported path-id range. "\
+        " A backup index value exceeds the maximum supported path-id range. "\
         "  "\
         },\
     {SL_PATH_BACKUP_FLAGGED_UNREFERENCED ,\
-        " A path with pure backup flag set is not referenced by any "\
-        " other path's backup_indexes in the same route. "\
+        " A path with pure backup flag set is not referenced by as a "\
+        " backup by any other path in the same route. "\
+        "  "\
+        },\
+    {SL_PATH_BACKUP_INDEX_SELF_REFERENCE ,\
+        " A backup index in a path's backup index list equals the path's "\
+        " own path_index (self-reference). "\
         "  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
