@@ -281,7 +281,7 @@
     /* Duplicate path_index across index-FRR paths in the same route. */\
     /* 0x501e */\
     SL_PATH_PRIMARY_INDEX_REPEATED = 0x501e,\
-    /* A path_index value exceeds the maximum supported RIB path-id range. */\
+    /* A path_index value exceeds the maximum supported path-id range. */\
     /* 0x501f */\
     SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE = 0x501f,\
     /* A backup_index value exceeds the maximum supported path-id range. */\
@@ -1296,7 +1296,7 @@
         "  "\
         },\
     {SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE ,\
-        " A path_index value exceeds the maximum supported RIB path-id range. "\
+        " A path_index value exceeds the maximum supported path-id range. "\
         "  "\
         },\
     {SL_PATH_BACKUP_INDEX_OUT_OF_RANGE ,\

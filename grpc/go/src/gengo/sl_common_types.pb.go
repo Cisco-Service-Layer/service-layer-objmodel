@@ -987,7 +987,7 @@ const (
 	// Duplicate path_index across index-FRR paths in the same route.
 	// 0x501e
 	SLErrorStatus_SL_PATH_PRIMARY_INDEX_REPEATED SLErrorStatus_SLErrno = 20510
-	// A path_index value exceeds the maximum supported RIB path-id range.
+	// A path_index value exceeds the maximum supported path-id range.
 	// 0x501f
 	SLErrorStatus_SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE SLErrorStatus_SLErrno = 20511
 	// A backup_index value exceeds the maximum supported path-id range.

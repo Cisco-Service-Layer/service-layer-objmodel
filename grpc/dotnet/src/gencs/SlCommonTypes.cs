@@ -1394,7 +1394,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_PATH_PRIMARY_INDEX_REPEATED")] SlPathPrimaryIndexRepeated = 20510,
         /// <summary>
-        /// A path_index value exceeds the maximum supported RIB path-id range.
+        /// A path_index value exceeds the maximum supported path-id range.
         /// 0x501f
         /// </summary>
         [pbr::OriginalName("SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE")] SlPathPrimaryIndexOutOfRange = 20511,
