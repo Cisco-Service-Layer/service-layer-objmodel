@@ -5735,8 +5735,6 @@ namespace ServiceLayer {
     /// Backup SLRoutePath referenced through BackupIndex object MUST be either
     /// a) pure backup path with SL_PATH_FLAG_BACKUP set
     /// b) pure backup PathGroup with SL_ROUTE_FLAG_FRR_PATHGROUP set
-    ///
-    /// We only support a maximum of one BackupIndex per SLRoutePath at this time.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
