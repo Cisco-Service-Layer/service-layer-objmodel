@@ -1677,9 +1677,10 @@ type SLRoutePath struct {
 	//	SLMplsEntry
 	//	SLAFIPRoute
 	//
-	// Backup SLRoutePath referenced through BackupIndex object MUST be either
+	// Backup SLRoutePath referenced through BackupIndex object MUST be either a
 	// a) pure backup path with SL_PATH_FLAG_BACKUP set
 	// b) pure backup PathGroup with SL_ROUTE_FLAG_FRR_PATHGROUP set
+	// c) ECMP backup path (SL_PATH_FLAG_BACKUP is not set)
 	BackupIndex []uint32 `protobuf:"varint,16,rep,packed,name=BackupIndex,proto3" json:"BackupIndex,omitempty"`
 	// MinResolutionLength is an optional filed.
 	// When set, this field dictates the minimum prefix length required for next hop resolution.

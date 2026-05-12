@@ -5732,9 +5732,10 @@ namespace ServiceLayer {
     ///    SLMplsEntry
     ///    SLAFIPRoute
     ///
-    /// Backup SLRoutePath referenced through BackupIndex object MUST be either
+    /// Backup SLRoutePath referenced through BackupIndex object MUST be either a
     /// a) pure backup path with SL_PATH_FLAG_BACKUP set
     /// b) pure backup PathGroup with SL_ROUTE_FLAG_FRR_PATHGROUP set
+    /// c) ECMP backup path (SL_PATH_FLAG_BACKUP is not set)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
