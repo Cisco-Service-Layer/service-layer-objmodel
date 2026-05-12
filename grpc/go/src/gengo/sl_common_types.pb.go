@@ -984,6 +984,23 @@ const (
 	// Path list mixes incompatible bitmap-FRR and index-FRR evidence.
 	// 0x501d
 	SLErrorStatus_SL_PATH_INVALID_PATH_LIST_MODEL SLErrorStatus_SLErrno = 20509
+	// Duplicate path_index specified in the path list of a route.
+	// 0x501e
+	SLErrorStatus_SL_PATH_PRIMARY_INDEX_REPEATED SLErrorStatus_SLErrno = 20510
+	// A path index value exceeds the maximum supported path-id range.
+	// 0x501f
+	SLErrorStatus_SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE SLErrorStatus_SLErrno = 20511
+	// A backup index value exceeds the maximum supported path-id range.
+	// 0x5020
+	SLErrorStatus_SL_PATH_BACKUP_INDEX_OUT_OF_RANGE SLErrorStatus_SLErrno = 20512
+	// A path with pure backup flag set is not referenced by as a
+	// backup by any other path in the same route.
+	// 0x5021
+	SLErrorStatus_SL_PATH_BACKUP_FLAGGED_UNREFERENCED SLErrorStatus_SLErrno = 20513
+	// A backup index in a path's backup index list equals the path's
+	// own path_index (self-reference).
+	// 0x5022
+	SLErrorStatus_SL_PATH_BACKUP_INDEX_SELF_REFERENCE SLErrorStatus_SLErrno = 20514
 	// Offset for BFD operation errors. 0x6000
 	SLErrorStatus_SL_RPC_BFD_START_OFFSET SLErrorStatus_SLErrno = 24576
 	// BFD Operation rejected for ALL Sessions as the BFD Session count
@@ -1703,6 +1720,11 @@ var (
 		20507:   "SL_PATH_RTR_MAC_NOSUP",
 		20508:   "SL_PATH_ENCAP_TYPE_MISMATCH",
 		20509:   "SL_PATH_INVALID_PATH_LIST_MODEL",
+		20510:   "SL_PATH_PRIMARY_INDEX_REPEATED",
+		20511:   "SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE",
+		20512:   "SL_PATH_BACKUP_INDEX_OUT_OF_RANGE",
+		20513:   "SL_PATH_BACKUP_FLAGGED_UNREFERENCED",
+		20514:   "SL_PATH_BACKUP_INDEX_SELF_REFERENCE",
 		24576:   "SL_RPC_BFD_START_OFFSET",
 		24577:   "SL_RPC_BFD_TOO_MANY_BFD_SESSIONS",
 		24578:   "SL_RPC_BFD_API_BAD_PARAMETER",
@@ -2100,6 +2122,11 @@ var (
 		"SL_PATH_RTR_MAC_NOSUP":                     20507,
 		"SL_PATH_ENCAP_TYPE_MISMATCH":               20508,
 		"SL_PATH_INVALID_PATH_LIST_MODEL":           20509,
+		"SL_PATH_PRIMARY_INDEX_REPEATED":            20510,
+		"SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE":        20511,
+		"SL_PATH_BACKUP_INDEX_OUT_OF_RANGE":         20512,
+		"SL_PATH_BACKUP_FLAGGED_UNREFERENCED":       20513,
+		"SL_PATH_BACKUP_INDEX_SELF_REFERENCE":       20514,
 		"SL_RPC_BFD_START_OFFSET":                   24576,
 		"SL_RPC_BFD_TOO_MANY_BFD_SESSIONS":          24577,
 		"SL_RPC_BFD_API_BAD_PARAMETER":              24578,
@@ -2859,9 +2886,9 @@ var File_sl_common_types_proto protoreflect.FileDescriptor
 
 const file_sl_common_types_proto_rawDesc = "" +
 	"\n" +
-	"\x15sl_common_types.proto\x12\rservice_layer\"\xafi\n" +
+	"\x15sl_common_types.proto\x12\rservice_layer\"\xfej\n" +
 	"\rSLErrorStatus\x12<\n" +
-	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\xdfh\n" +
+	"\x06Status\x18\x01 \x01(\x0e2$.service_layer.SLErrorStatus.SLErrnoR\x06Status\"\xaej\n" +
 	"\aSLErrno\x12\x0e\n" +
 	"\n" +
 	"SL_SUCCESS\x10\x00\x12\x14\n" +
@@ -2980,7 +3007,12 @@ const file_sl_common_types_proto_rawDesc = "" +
 	"\"SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH\x10\x9a\xa0\x01\x12\x1b\n" +
 	"\x15SL_PATH_RTR_MAC_NOSUP\x10\x9b\xa0\x01\x12!\n" +
 	"\x1bSL_PATH_ENCAP_TYPE_MISMATCH\x10\x9c\xa0\x01\x12%\n" +
-	"\x1fSL_PATH_INVALID_PATH_LIST_MODEL\x10\x9d\xa0\x01\x12\x1d\n" +
+	"\x1fSL_PATH_INVALID_PATH_LIST_MODEL\x10\x9d\xa0\x01\x12$\n" +
+	"\x1eSL_PATH_PRIMARY_INDEX_REPEATED\x10\x9e\xa0\x01\x12(\n" +
+	"\"SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE\x10\x9f\xa0\x01\x12'\n" +
+	"!SL_PATH_BACKUP_INDEX_OUT_OF_RANGE\x10\xa0\xa0\x01\x12)\n" +
+	"#SL_PATH_BACKUP_FLAGGED_UNREFERENCED\x10\xa1\xa0\x01\x12)\n" +
+	"#SL_PATH_BACKUP_INDEX_SELF_REFERENCE\x10\xa2\xa0\x01\x12\x1d\n" +
 	"\x17SL_RPC_BFD_START_OFFSET\x10\x80\xc0\x01\x12&\n" +
 	" SL_RPC_BFD_TOO_MANY_BFD_SESSIONS\x10\x81\xc0\x01\x12\"\n" +
 	"\x1cSL_RPC_BFD_API_BAD_PARAMETER\x10\x82\xc0\x01\x12*\n" +

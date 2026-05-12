@@ -592,11 +592,10 @@ message SLRoutePath {
    //    SLMplsEntry
    //    SLAFIPRoute
    //
-   // Backup SLRoutePath referenced through BackupIndex object MUST be either
+   // Backup SLRoutePath referenced through BackupIndex object MUST be either a
    // a) pure backup path with SL_PATH_FLAG_BACKUP set
    // b) pure backup PathGroup with SL_ROUTE_FLAG_FRR_PATHGROUP set
-   //
-   // We only support a maximum of one BackupIndex per SLRoutePath at this time.
+   // c) ECMP backup path (SL_PATH_FLAG_BACKUP is not set)
    repeated uint32 BackupIndex = 16;
 
     // MinResolutionLength is an optional filed.
