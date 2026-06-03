@@ -14,21 +14,55 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 
 //@defgroup Performance
 //@brief Performance monitoring service definitions.
-//Defines the RPC for getting performance status(es).
+//Defines the RPC for programming performance-measurement sessions and
+//receiving notifications for those sessions.
 //@{
 service SLPerfMeasOper {
     //@addtogroup Performance
     //@{
     //
-    // This service can be used to receive performance state change notifications.
+    // SLPerfMeasNotifStream is a single bidirectional stream that carries
+    // BOTH programming requests (create / delete / get-stats / get-info /
+    // flush-max-rtt, selected via SLPerfMeasReqMsgEntry.MsgType) AND
+    // asynchronous notifications (per-session UP/DOWN state changes,
+    // operation responses, and the SL_PERF_MEAS_SESSION_ALL_DOWN event).
     //
-
-    // This call is used to get a stream of performance notifications.
-    // The caller must maintain the GRPC channel as long as
-    // there is interest in performance notifications.
-    // This call can be used to get "push" notifications for performance info.
-    // It is advised that the caller register for notifications before any
-    // monitoring is started to avoid any loss of notifications.
+    // Lifecycle / ownership contract:
+    //
+    // 1. Session ownership.
+    //    A session created on a stream is owned by that stream. A given
+    //    server instance allows only one active SLPerfMeasNotifStream
+    //    client at a time; a second client connecting will be rejected.
+    //    Sessions are not shared across streams.
+    //
+    // 2. Subscribe-before-program.
+    //    Clients SHOULD open the stream before issuing any create
+    //    request, so that no UP/DOWN notifications are lost between
+    //    create and the first read on the stream.
+    //
+    // 3. Stream disconnect (client side).
+    //    On client disconnect or transport failure, the server sweeps
+    //    all sessions owned by that stream. On reconnect the client
+    //    MUST recreate any sessions it needs; nothing is preserved
+    //    across the disconnect.
+    //
+    // 4. PM (perf_meas) process disconnect.
+    //    If the underlying perf_meas process disconnects from the
+    //    server, the server emits SL_PERF_MEAS_SESSION_ALL_DOWN. Local
+    //    session state is retained; when PM reconnects, the server
+    //    replays all sessions to PM and resumes per-session UP/DOWN
+    //    notifications. No client action is required.
+    //
+    // 5. Server (emsd) restart / failover.
+    //    Sessions are NOT preserved across a server restart or HA
+    //    switchover. After the gRPC stream re-establishes, the client
+    //    MUST treat all previously created sessions as gone and
+    //    recreate them.
+    //
+    // 6. Reconciliation.
+    //    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
+    //    wait for per-session UP notifications (no recreate needed).
+    //
     rpc SLPerfMeasNotifStream(stream SLPerfMeasReqMsg) returns (stream SLPerfMeasRespMsg);
 
     //@}
@@ -83,28 +117,28 @@ enum SLPerfMeasSessionState {
 // An error response will be sent if any parameter is missing
 message SLPerfMeasMonitor {
     // Perf Session Name
-    string PerfSessionName = 1;
-    
+    optional string PerfSessionName = 1;
+
     // Source IP address
     SLIpAddress Source = 2;
-    
+
     // Destination IP address
     SLIpAddress Destination = 3;
-    
-    // MPLS Label Stack
+
+    // MPLS Label Stack. Must not be empty.
     repeated uint32 LabelStack = 4;
-    
+
     // Probe interval in microseconds
-    uint64 ProbeInterval = 5;
-    
+    optional uint64 ProbeInterval = 5;
+
     // Total packet loss count before declaring session down
-    uint32 TimeoutCount = 6;
-    
+    optional uint32 TimeoutCount = 6;
+
     // Interface info.
     SLInterface InterfaceInfo = 7;
 
     // DSCP
-    uint32 DscpValue = 8;
+    optional uint32 DscpValue = 8;
 
     // Next Hop IP
     SLIpAddress NextHop = 9;
@@ -192,8 +226,9 @@ message SLPerfMeasRespStateMsgEntry {
     // Type of response
     SLPerfMeasSessionState State = 1;
 
-    // Perf Session Name
-    string PerfSessionName = 2;
+    // Perf Session Name. Unset for global states
+    // (SL_PERF_MEAS_SESSION_ALL_DOWN, SL_PERF_MEAS_SESSION_ALL_DELETED).
+    optional string PerfSessionName = 2;
 }
 
 // Performance Measurement response message

@@ -1099,40 +1099,40 @@ message SLErrorStatus {
         // PM rejected: session name missing in message
         SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_SESS_NAME_MISSING = 0x1c02f;
         // PM rejected: liveness state missing in message
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_LIVENESS_STATE_MISSING = 0x1c031;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_LIVENESS_STATE_MISSING = 0x1c030;
         // PM Server-level errors
         // PM internal: system in inconsistent state
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_SYSTEM_INCONSISTENT = 0x1c032;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_SYSTEM_INCONSISTENT = 0x1c031;
         // PM Session create notification errors
         // PM create failed: invalid parameters
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_INVALID_PARAMS = 0x1c033;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_INVALID_PARAMS = 0x1c032;
         // PM create failed: interface handle (IFH) lookup failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_IM_IFH_GET_FAILED = 0x1c034;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_IM_IFH_GET_FAILED = 0x1c033;
         // PM create failed: MAC address invalid
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_MAC_ADDR_INVALID = 0x1c035;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_MAC_ADDR_INVALID = 0x1c034;
         // PM create failed: delay-measurement DR create failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_CREATE_FAILED = 0x1c036;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_CREATE_FAILED = 0x1c035;
         // PM create failed: delay-measurement DR update failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_UPDATE_FAILED = 0x1c037;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_UPDATE_FAILED = 0x1c036;
         // PM create failed: no memory for DR session
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_NOMEM = 0x1c038;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_NOMEM = 0x1c037;
         // PM create failed: DR session insert failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_INSERT_FAILED = 0x1c039;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_INSERT_FAILED = 0x1c038;
         // PM create failed: NPU offload failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_NPU_OFFLOAD_FAILED = 0x1c03a;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_NPU_OFFLOAD_FAILED = 0x1c039;
         // PM create failed: CPU session create failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_CPU_CREATE_FAILED = 0x1c03b;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_CPU_CREATE_FAILED = 0x1c03a;
         // PM create failed: session setup failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_SESSION_SETUP_FAILED = 0x1c03c;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_SESSION_SETUP_FAILED = 0x1c03b;
         // PM Session get/flush notification errors
         // PM get/flush failed: interface not found
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_INTF_NOT_FOUND = 0x1c03d;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_INTF_NOT_FOUND = 0x1c03c;
         // PM get/flush failed: SCB (session control block) not found
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_SCB_NOT_FOUND = 0x1c03e;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_SCB_NOT_FOUND = 0x1c03d;
         // PM get/flush failed: liveness session not found
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_LIVENESS_NOT_FOUND = 0x1c03f;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_LIVENESS_NOT_FOUND = 0x1c03e;
         // PM get/flush failed: counter update failed
-        SL_PERF_MEAS_PM_INTERNAL_ERROR_COUNTER_UPDATE_FAILED = 0x1c040;
+        SL_PERF_MEAS_PM_INTERNAL_ERROR_COUNTER_UPDATE_FAILED = 0x1c03f;
 
         // !!! Error codes Reserved for internal errors.
 
