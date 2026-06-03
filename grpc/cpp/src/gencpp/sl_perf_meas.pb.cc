@@ -157,7 +157,7 @@ static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptor
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fperf_5fmeas_2eproto = nullptr;
 
 const uint32_t TableStruct_sl_5fperf_5fmeas_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasMonitor, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasMonitor, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -172,6 +172,15 @@ const uint32_t TableStruct_sl_5fperf_5fmeas_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasMonitor, interfaceinfo_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasMonitor, dscpvalue_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasMonitor, nexthop_),
+  0,
+  ~0u,
+  ~0u,
+  ~0u,
+  1,
+  2,
+  ~0u,
+  3,
+  ~0u,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasStats, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -223,7 +232,7 @@ const uint32_t TableStruct_sl_5fperf_5fmeas_2eproto::offsets[] PROTOBUF_SECTION_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasRespDataMsgEntry, Data_),
-  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasRespStateMsgEntry, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasRespStateMsgEntry, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -231,6 +240,8 @@ const uint32_t TableStruct_sl_5fperf_5fmeas_2eproto::offsets[] PROTOBUF_SECTION_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasRespStateMsgEntry, state_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasRespStateMsgEntry, perfsessionname_),
+  ~0u,
+  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasRespMsgEntry, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -250,15 +261,15 @@ const uint32_t TableStruct_sl_5fperf_5fmeas_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPerfMeasRespMsg, entries_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::service_layer::SLPerfMeasMonitor)},
-  { 15, -1, -1, sizeof(::service_layer::SLPerfMeasStats)},
-  { 27, -1, -1, sizeof(::service_layer::SLPerfMeasReqMsgEntry)},
-  { 38, -1, -1, sizeof(::service_layer::SLPerfMeasReqMsg)},
-  { 45, -1, -1, sizeof(::service_layer::SLPerfMeasRespErrMsgEntry)},
-  { 54, -1, -1, sizeof(::service_layer::SLPerfMeasRespDataMsgEntry)},
-  { 66, -1, -1, sizeof(::service_layer::SLPerfMeasRespStateMsgEntry)},
-  { 74, -1, -1, sizeof(::service_layer::SLPerfMeasRespMsgEntry)},
-  { 84, -1, -1, sizeof(::service_layer::SLPerfMeasRespMsg)},
+  { 0, 15, -1, sizeof(::service_layer::SLPerfMeasMonitor)},
+  { 24, -1, -1, sizeof(::service_layer::SLPerfMeasStats)},
+  { 36, -1, -1, sizeof(::service_layer::SLPerfMeasReqMsgEntry)},
+  { 47, -1, -1, sizeof(::service_layer::SLPerfMeasReqMsg)},
+  { 54, -1, -1, sizeof(::service_layer::SLPerfMeasRespErrMsgEntry)},
+  { 63, -1, -1, sizeof(::service_layer::SLPerfMeasRespDataMsgEntry)},
+  { 75, 83, -1, sizeof(::service_layer::SLPerfMeasRespStateMsgEntry)},
+  { 85, -1, -1, sizeof(::service_layer::SLPerfMeasRespMsgEntry)},
+  { 95, -1, -1, sizeof(::service_layer::SLPerfMeasRespMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -275,67 +286,70 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_sl_5fperf_5fmeas_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022sl_perf_meas.proto\022\rservice_layer\032\025sl_"
-  "common_types.proto\"\275\002\n\021SLPerfMeasMonitor"
-  "\022\027\n\017PerfSessionName\030\001 \001(\t\022*\n\006Source\030\002 \001("
-  "\0132\032.service_layer.SLIpAddress\022/\n\013Destina"
-  "tion\030\003 \001(\0132\032.service_layer.SLIpAddress\022\022"
-  "\n\nLabelStack\030\004 \003(\r\022\025\n\rProbeInterval\030\005 \001("
-  "\004\022\024\n\014TimeoutCount\030\006 \001(\r\0221\n\rInterfaceInfo"
-  "\030\007 \001(\0132\032.service_layer.SLInterface\022\021\n\tDs"
-  "cpValue\030\010 \001(\r\022+\n\007NextHop\030\t \001(\0132\032.service"
-  "_layer.SLIpAddress\"\243\001\n\017SLPerfMeasStats\0224"
-  "\n\005State\030\001 \001(\0162%.service_layer.SLPerfMeas"
-  "SessionState\022\022\n\nProbesSent\030\002 \001(\004\022\026\n\016Prob"
-  "esReceived\030\003 \001(\004\022\016\n\006MinRtt\030\004 \001(\004\022\016\n\006MaxR"
-  "tt\030\005 \001(\004\022\016\n\006AvgRtt\030\006 \001(\004\"\273\001\n\025SLPerfMeasR"
-  "eqMsgEntry\022\023\n\013OperationId\030\001 \001(\004\0221\n\007MsgTy"
-  "pe\030\002 \001(\0162 .service_layer.SLPerfMeasMsgTy"
-  "pe\022\031\n\017PerfSessionName\030\003 \001(\tH\000\0226\n\nParamet"
-  "ers\030\004 \001(\0132 .service_layer.SLPerfMeasMoni"
-  "torH\000B\007\n\005Value\"I\n\020SLPerfMeasReqMsg\0225\n\007En"
-  "tries\030\001 \003(\0132$.service_layer.SLPerfMeasRe"
-  "qMsgEntry\"z\n\031SLPerfMeasRespErrMsgEntry\022\023"
-  "\n\013OperationId\030\001 \001(\004\022/\n\tErrStatus\030\002 \001(\0132\034"
-  ".service_layer.SLErrorStatus\022\027\n\017PerfSess"
-  "ionName\030\003 \001(\t\"\350\001\n\032SLPerfMeasRespDataMsgE"
-  "ntry\0221\n\007MsgType\030\001 \001(\0162 .service_layer.SL"
-  "PerfMeasMsgType\022\027\n\017PerfSessionName\030\002 \001(\t"
-  "\022\023\n\013OperationId\030\003 \001(\004\022/\n\005Stats\030\004 \001(\0132\036.s"
-  "ervice_layer.SLPerfMeasStatsH\000\0220\n\004Info\030\005"
-  " \001(\0132 .service_layer.SLPerfMeasMonitorH\000"
-  "B\006\n\004Data\"l\n\033SLPerfMeasRespStateMsgEntry\022"
-  "4\n\005State\030\001 \001(\0162%.service_layer.SLPerfMea"
-  "sSessionState\022\027\n\017PerfSessionName\030\002 \001(\t\"\344"
-  "\001\n\026SLPerfMeasRespMsgEntry\0229\n\005Error\030\001 \001(\013"
-  "2(.service_layer.SLPerfMeasRespErrMsgEnt"
-  "ryH\000\022B\n\rSessionDetail\030\002 \001(\0132).service_la"
-  "yer.SLPerfMeasRespDataMsgEntryH\000\022B\n\014Sess"
-  "ionState\030\003 \001(\0132*.service_layer.SLPerfMea"
-  "sRespStateMsgEntryH\000B\007\n\005Event\"K\n\021SLPerfM"
-  "easRespMsg\0226\n\007Entries\030\001 \003(\0132%.service_la"
-  "yer.SLPerfMeasRespMsgEntry*\313\001\n\021SLPerfMea"
-  "sMsgType\022\035\n\031SL_PERF_MEAS_MSG_RESERVED\020\000\022"
-  "\037\n\033SL_PERF_MEAS_CREATE_SESSION\020\001\022\037\n\033SL_P"
-  "ERF_MEAS_DELETE_SESSION\020\002\022\032\n\026SL_PERF_MEA"
-  "S_GET_STATS\020\003\022\031\n\025SL_PERF_MEAS_GET_INFO\020\004"
-  "\022\036\n\032SL_PERF_MEAS_FLUSH_MAX_RTT\020\005*\276\001\n\026SLP"
-  "erfMeasSessionState\022\037\n\033SL_PERF_MEAS_STAT"
-  "E_RESERVED\020\000\022\035\n\031SL_PERF_MEAS_SESSION_DOW"
-  "N\020\001\022\033\n\027SL_PERF_MEAS_SESSION_UP\020\002\022!\n\035SL_P"
-  "ERF_MEAS_SESSION_ALL_DOWN\020\003\022$\n SL_PERF_M"
-  "EAS_SESSION_ALL_DELETED\020\0042p\n\016SLPerfMeasO"
-  "per\022^\n\025SLPerfMeasNotifStream\022\037.service_l"
-  "ayer.SLPerfMeasReqMsg\032 .service_layer.SL"
-  "PerfMeasRespMsg(\0010\001BQZOgithub.com/Cisco-"
-  "service-layer/service-layer-objmodel/grp"
-  "c/protos;service_layerb\006proto3"
+  "common_types.proto\"\226\003\n\021SLPerfMeasMonitor"
+  "\022\034\n\017PerfSessionName\030\001 \001(\tH\000\210\001\001\022*\n\006Source"
+  "\030\002 \001(\0132\032.service_layer.SLIpAddress\022/\n\013De"
+  "stination\030\003 \001(\0132\032.service_layer.SLIpAddr"
+  "ess\022\022\n\nLabelStack\030\004 \003(\r\022\032\n\rProbeInterval"
+  "\030\005 \001(\004H\001\210\001\001\022\031\n\014TimeoutCount\030\006 \001(\rH\002\210\001\001\0221"
+  "\n\rInterfaceInfo\030\007 \001(\0132\032.service_layer.SL"
+  "Interface\022\026\n\tDscpValue\030\010 \001(\rH\003\210\001\001\022+\n\007Nex"
+  "tHop\030\t \001(\0132\032.service_layer.SLIpAddressB\022"
+  "\n\020_PerfSessionNameB\020\n\016_ProbeIntervalB\017\n\r"
+  "_TimeoutCountB\014\n\n_DscpValue\"\243\001\n\017SLPerfMe"
+  "asStats\0224\n\005State\030\001 \001(\0162%.service_layer.S"
+  "LPerfMeasSessionState\022\022\n\nProbesSent\030\002 \001("
+  "\004\022\026\n\016ProbesReceived\030\003 \001(\004\022\016\n\006MinRtt\030\004 \001("
+  "\004\022\016\n\006MaxRtt\030\005 \001(\004\022\016\n\006AvgRtt\030\006 \001(\004\"\273\001\n\025SL"
+  "PerfMeasReqMsgEntry\022\023\n\013OperationId\030\001 \001(\004"
+  "\0221\n\007MsgType\030\002 \001(\0162 .service_layer.SLPerf"
+  "MeasMsgType\022\031\n\017PerfSessionName\030\003 \001(\tH\000\0226"
+  "\n\nParameters\030\004 \001(\0132 .service_layer.SLPer"
+  "fMeasMonitorH\000B\007\n\005Value\"I\n\020SLPerfMeasReq"
+  "Msg\0225\n\007Entries\030\001 \003(\0132$.service_layer.SLP"
+  "erfMeasReqMsgEntry\"z\n\031SLPerfMeasRespErrM"
+  "sgEntry\022\023\n\013OperationId\030\001 \001(\004\022/\n\tErrStatu"
+  "s\030\002 \001(\0132\034.service_layer.SLErrorStatus\022\027\n"
+  "\017PerfSessionName\030\003 \001(\t\"\350\001\n\032SLPerfMeasRes"
+  "pDataMsgEntry\0221\n\007MsgType\030\001 \001(\0162 .service"
+  "_layer.SLPerfMeasMsgType\022\027\n\017PerfSessionN"
+  "ame\030\002 \001(\t\022\023\n\013OperationId\030\003 \001(\004\022/\n\005Stats\030"
+  "\004 \001(\0132\036.service_layer.SLPerfMeasStatsH\000\022"
+  "0\n\004Info\030\005 \001(\0132 .service_layer.SLPerfMeas"
+  "MonitorH\000B\006\n\004Data\"\205\001\n\033SLPerfMeasRespStat"
+  "eMsgEntry\0224\n\005State\030\001 \001(\0162%.service_layer"
+  ".SLPerfMeasSessionState\022\034\n\017PerfSessionNa"
+  "me\030\002 \001(\tH\000\210\001\001B\022\n\020_PerfSessionName\"\344\001\n\026SL"
+  "PerfMeasRespMsgEntry\0229\n\005Error\030\001 \001(\0132(.se"
+  "rvice_layer.SLPerfMeasRespErrMsgEntryH\000\022"
+  "B\n\rSessionDetail\030\002 \001(\0132).service_layer.S"
+  "LPerfMeasRespDataMsgEntryH\000\022B\n\014SessionSt"
+  "ate\030\003 \001(\0132*.service_layer.SLPerfMeasResp"
+  "StateMsgEntryH\000B\007\n\005Event\"K\n\021SLPerfMeasRe"
+  "spMsg\0226\n\007Entries\030\001 \003(\0132%.service_layer.S"
+  "LPerfMeasRespMsgEntry*\313\001\n\021SLPerfMeasMsgT"
+  "ype\022\035\n\031SL_PERF_MEAS_MSG_RESERVED\020\000\022\037\n\033SL"
+  "_PERF_MEAS_CREATE_SESSION\020\001\022\037\n\033SL_PERF_M"
+  "EAS_DELETE_SESSION\020\002\022\032\n\026SL_PERF_MEAS_GET"
+  "_STATS\020\003\022\031\n\025SL_PERF_MEAS_GET_INFO\020\004\022\036\n\032S"
+  "L_PERF_MEAS_FLUSH_MAX_RTT\020\005*\276\001\n\026SLPerfMe"
+  "asSessionState\022\037\n\033SL_PERF_MEAS_STATE_RES"
+  "ERVED\020\000\022\035\n\031SL_PERF_MEAS_SESSION_DOWN\020\001\022\033"
+  "\n\027SL_PERF_MEAS_SESSION_UP\020\002\022!\n\035SL_PERF_M"
+  "EAS_SESSION_ALL_DOWN\020\003\022$\n SL_PERF_MEAS_S"
+  "ESSION_ALL_DELETED\020\0042p\n\016SLPerfMeasOper\022^"
+  "\n\025SLPerfMeasNotifStream\022\037.service_layer."
+  "SLPerfMeasReqMsg\032 .service_layer.SLPerfM"
+  "easRespMsg(\0010\001BQZOgithub.com/Cisco-servi"
+  "ce-layer/service-layer-objmodel/grpc/pro"
+  "tos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fperf_5fmeas_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fperf_5fmeas_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fperf_5fmeas_2eproto = {
-  false, false, 2190, descriptor_table_protodef_sl_5fperf_5fmeas_2eproto, "sl_perf_meas.proto", 
+  false, false, 2305, descriptor_table_protodef_sl_5fperf_5fmeas_2eproto, "sl_perf_meas.proto", 
   &descriptor_table_sl_5fperf_5fmeas_2eproto_once, descriptor_table_sl_5fperf_5fmeas_2eproto_deps, 1, 9,
   schemas, file_default_instances, TableStruct_sl_5fperf_5fmeas_2eproto::offsets,
   file_level_metadata_sl_5fperf_5fmeas_2eproto, file_level_enum_descriptors_sl_5fperf_5fmeas_2eproto, file_level_service_descriptors_sl_5fperf_5fmeas_2eproto,
@@ -387,9 +401,22 @@ bool SLPerfMeasSessionState_IsValid(int value) {
 
 class SLPerfMeasMonitor::_Internal {
  public:
+  using HasBits = decltype(std::declval<SLPerfMeasMonitor>()._has_bits_);
+  static void set_has_perfsessionname(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
   static const ::service_layer::SLIpAddress& source(const SLPerfMeasMonitor* msg);
   static const ::service_layer::SLIpAddress& destination(const SLPerfMeasMonitor* msg);
+  static void set_has_probeinterval(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_timeoutcount(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
   static const ::service_layer::SLInterface& interfaceinfo(const SLPerfMeasMonitor* msg);
+  static void set_has_dscpvalue(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
   static const ::service_layer::SLIpAddress& nexthop(const SLPerfMeasMonitor* msg);
 };
 
@@ -445,13 +472,14 @@ SLPerfMeasMonitor::SLPerfMeasMonitor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 SLPerfMeasMonitor::SLPerfMeasMonitor(const SLPerfMeasMonitor& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
       labelstack_(from.labelstack_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   perfsessionname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     perfsessionname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_perfsessionname().empty()) {
+  if (from._internal_has_perfsessionname()) {
     perfsessionname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_perfsessionname(), 
       GetArenaForAllocation());
   }
@@ -525,7 +553,10 @@ void SLPerfMeasMonitor::Clear() {
   (void) cached_has_bits;
 
   labelstack_.Clear();
-  perfsessionname_.ClearToEmpty();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    perfsessionname_.ClearNonDefaultToEmpty();
+  }
   if (GetArenaForAllocation() == nullptr && source_ != nullptr) {
     delete source_;
   }
@@ -542,19 +573,23 @@ void SLPerfMeasMonitor::Clear() {
     delete nexthop_;
   }
   nexthop_ = nullptr;
-  ::memset(&probeinterval_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&dscpvalue_) -
-      reinterpret_cast<char*>(&probeinterval_)) + sizeof(dscpvalue_));
+  if (cached_has_bits & 0x0000000eu) {
+    ::memset(&probeinterval_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&dscpvalue_) -
+        reinterpret_cast<char*>(&probeinterval_)) + sizeof(dscpvalue_));
+  }
+  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SLPerfMeasMonitor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string PerfSessionName = 1;
+      // optional string PerfSessionName = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_perfsessionname();
@@ -591,17 +626,19 @@ const char* SLPerfMeasMonitor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         } else
           goto handle_unusual;
         continue;
-      // uint64 ProbeInterval = 5;
+      // optional uint64 ProbeInterval = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_probeinterval(&has_bits);
           probeinterval_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 TimeoutCount = 6;
+      // optional uint32 TimeoutCount = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _Internal::set_has_timeoutcount(&has_bits);
           timeoutcount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -615,9 +652,10 @@ const char* SLPerfMeasMonitor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         } else
           goto handle_unusual;
         continue;
-      // uint32 DscpValue = 8;
+      // optional uint32 DscpValue = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _Internal::set_has_dscpvalue(&has_bits);
           dscpvalue_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -647,6 +685,7 @@ const char* SLPerfMeasMonitor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -660,8 +699,8 @@ uint8_t* SLPerfMeasMonitor::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string PerfSessionName = 1;
-  if (!this->_internal_perfsessionname().empty()) {
+  // optional string PerfSessionName = 1;
+  if (_internal_has_perfsessionname()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_perfsessionname().data(), static_cast<int>(this->_internal_perfsessionname().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -695,14 +734,14 @@ uint8_t* SLPerfMeasMonitor::_InternalSerialize(
     }
   }
 
-  // uint64 ProbeInterval = 5;
-  if (this->_internal_probeinterval() != 0) {
+  // optional uint64 ProbeInterval = 5;
+  if (_internal_has_probeinterval()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_probeinterval(), target);
   }
 
-  // uint32 TimeoutCount = 6;
-  if (this->_internal_timeoutcount() != 0) {
+  // optional uint32 TimeoutCount = 6;
+  if (_internal_has_timeoutcount()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_timeoutcount(), target);
   }
@@ -715,8 +754,8 @@ uint8_t* SLPerfMeasMonitor::_InternalSerialize(
         7, _Internal::interfaceinfo(this), target, stream);
   }
 
-  // uint32 DscpValue = 8;
-  if (this->_internal_dscpvalue() != 0) {
+  // optional uint32 DscpValue = 8;
+  if (_internal_has_dscpvalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_dscpvalue(), target);
   }
@@ -760,8 +799,9 @@ size_t SLPerfMeasMonitor::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // string PerfSessionName = 1;
-  if (!this->_internal_perfsessionname().empty()) {
+  // optional string PerfSessionName = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_perfsessionname());
@@ -795,21 +835,23 @@ size_t SLPerfMeasMonitor::ByteSizeLong() const {
         *nexthop_);
   }
 
-  // uint64 ProbeInterval = 5;
-  if (this->_internal_probeinterval() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_probeinterval());
-  }
+  if (cached_has_bits & 0x0000000eu) {
+    // optional uint64 ProbeInterval = 5;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_probeinterval());
+    }
 
-  // uint32 TimeoutCount = 6;
-  if (this->_internal_timeoutcount() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_timeoutcount());
-  }
+    // optional uint32 TimeoutCount = 6;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_timeoutcount());
+    }
 
-  // uint32 DscpValue = 8;
-  if (this->_internal_dscpvalue() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_dscpvalue());
-  }
+    // optional uint32 DscpValue = 8;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_dscpvalue());
+    }
 
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -833,7 +875,7 @@ void SLPerfMeasMonitor::MergeFrom(const SLPerfMeasMonitor& from) {
   (void) cached_has_bits;
 
   labelstack_.MergeFrom(from.labelstack_);
-  if (!from._internal_perfsessionname().empty()) {
+  if (from._internal_has_perfsessionname()) {
     _internal_set_perfsessionname(from._internal_perfsessionname());
   }
   if (from._internal_has_source()) {
@@ -848,14 +890,18 @@ void SLPerfMeasMonitor::MergeFrom(const SLPerfMeasMonitor& from) {
   if (from._internal_has_nexthop()) {
     _internal_mutable_nexthop()->::service_layer::SLIpAddress::MergeFrom(from._internal_nexthop());
   }
-  if (from._internal_probeinterval() != 0) {
-    _internal_set_probeinterval(from._internal_probeinterval());
-  }
-  if (from._internal_timeoutcount() != 0) {
-    _internal_set_timeoutcount(from._internal_timeoutcount());
-  }
-  if (from._internal_dscpvalue() != 0) {
-    _internal_set_dscpvalue(from._internal_dscpvalue());
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000eu) {
+    if (cached_has_bits & 0x00000002u) {
+      probeinterval_ = from.probeinterval_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      timeoutcount_ = from.timeoutcount_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      dscpvalue_ = from.dscpvalue_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -876,6 +922,7 @@ void SLPerfMeasMonitor::InternalSwap(SLPerfMeasMonitor* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   labelstack_.InternalSwap(&other->labelstack_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
@@ -2431,6 +2478,10 @@ void SLPerfMeasRespDataMsgEntry::InternalSwap(SLPerfMeasRespDataMsgEntry* other)
 
 class SLPerfMeasRespStateMsgEntry::_Internal {
  public:
+  using HasBits = decltype(std::declval<SLPerfMeasRespStateMsgEntry>()._has_bits_);
+  static void set_has_perfsessionname(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
 SLPerfMeasRespStateMsgEntry::SLPerfMeasRespStateMsgEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -2443,13 +2494,14 @@ SLPerfMeasRespStateMsgEntry::SLPerfMeasRespStateMsgEntry(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(arena_constructor:service_layer.SLPerfMeasRespStateMsgEntry)
 }
 SLPerfMeasRespStateMsgEntry::SLPerfMeasRespStateMsgEntry(const SLPerfMeasRespStateMsgEntry& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   perfsessionname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     perfsessionname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_perfsessionname().empty()) {
+  if (from._internal_has_perfsessionname()) {
     perfsessionname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_perfsessionname(), 
       GetArenaForAllocation());
   }
@@ -2493,13 +2545,18 @@ void SLPerfMeasRespStateMsgEntry::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  perfsessionname_.ClearToEmpty();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    perfsessionname_.ClearNonDefaultToEmpty();
+  }
   state_ = 0;
+  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SLPerfMeasRespStateMsgEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2513,7 +2570,7 @@ const char* SLPerfMeasRespStateMsgEntry::_InternalParse(const char* ptr, ::PROTO
         } else
           goto handle_unusual;
         continue;
-      // string PerfSessionName = 2;
+      // optional string PerfSessionName = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_perfsessionname();
@@ -2539,6 +2596,7 @@ const char* SLPerfMeasRespStateMsgEntry::_InternalParse(const char* ptr, ::PROTO
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -2559,8 +2617,8 @@ uint8_t* SLPerfMeasRespStateMsgEntry::_InternalSerialize(
       1, this->_internal_state(), target);
   }
 
-  // string PerfSessionName = 2;
-  if (!this->_internal_perfsessionname().empty()) {
+  // optional string PerfSessionName = 2;
+  if (_internal_has_perfsessionname()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_perfsessionname().data(), static_cast<int>(this->_internal_perfsessionname().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -2585,8 +2643,9 @@ size_t SLPerfMeasRespStateMsgEntry::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string PerfSessionName = 2;
-  if (!this->_internal_perfsessionname().empty()) {
+  // optional string PerfSessionName = 2;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_perfsessionname());
@@ -2620,7 +2679,7 @@ void SLPerfMeasRespStateMsgEntry::MergeFrom(const SLPerfMeasRespStateMsgEntry& f
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_perfsessionname().empty()) {
+  if (from._internal_has_perfsessionname()) {
     _internal_set_perfsessionname(from._internal_perfsessionname());
   }
   if (from._internal_state() != 0) {
@@ -2645,6 +2704,7 @@ void SLPerfMeasRespStateMsgEntry::InternalSwap(SLPerfMeasRespStateMsgEntry* othe
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &perfsessionname_, lhs_arena,

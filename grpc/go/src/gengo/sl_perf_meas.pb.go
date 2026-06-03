@@ -166,21 +166,21 @@ func (SLPerfMeasSessionState) EnumDescriptor() ([]byte, []int) {
 type SLPerfMeasMonitor struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Perf Session Name
-	PerfSessionName string `protobuf:"bytes,1,opt,name=PerfSessionName,proto3" json:"PerfSessionName,omitempty"`
+	PerfSessionName *string `protobuf:"bytes,1,opt,name=PerfSessionName,proto3,oneof" json:"PerfSessionName,omitempty"`
 	// Source IP address
 	Source *SLIpAddress `protobuf:"bytes,2,opt,name=Source,proto3" json:"Source,omitempty"`
 	// Destination IP address
 	Destination *SLIpAddress `protobuf:"bytes,3,opt,name=Destination,proto3" json:"Destination,omitempty"`
-	// MPLS Label Stack
+	// MPLS Label Stack. Must not be empty.
 	LabelStack []uint32 `protobuf:"varint,4,rep,packed,name=LabelStack,proto3" json:"LabelStack,omitempty"`
 	// Probe interval in microseconds
-	ProbeInterval uint64 `protobuf:"varint,5,opt,name=ProbeInterval,proto3" json:"ProbeInterval,omitempty"`
+	ProbeInterval *uint64 `protobuf:"varint,5,opt,name=ProbeInterval,proto3,oneof" json:"ProbeInterval,omitempty"`
 	// Total packet loss count before declaring session down
-	TimeoutCount uint32 `protobuf:"varint,6,opt,name=TimeoutCount,proto3" json:"TimeoutCount,omitempty"`
+	TimeoutCount *uint32 `protobuf:"varint,6,opt,name=TimeoutCount,proto3,oneof" json:"TimeoutCount,omitempty"`
 	// Interface info.
 	InterfaceInfo *SLInterface `protobuf:"bytes,7,opt,name=InterfaceInfo,proto3" json:"InterfaceInfo,omitempty"`
 	// DSCP
-	DscpValue uint32 `protobuf:"varint,8,opt,name=DscpValue,proto3" json:"DscpValue,omitempty"`
+	DscpValue *uint32 `protobuf:"varint,8,opt,name=DscpValue,proto3,oneof" json:"DscpValue,omitempty"`
 	// Next Hop IP
 	NextHop       *SLIpAddress `protobuf:"bytes,9,opt,name=NextHop,proto3" json:"NextHop,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -218,8 +218,8 @@ func (*SLPerfMeasMonitor) Descriptor() ([]byte, []int) {
 }
 
 func (x *SLPerfMeasMonitor) GetPerfSessionName() string {
-	if x != nil {
-		return x.PerfSessionName
+	if x != nil && x.PerfSessionName != nil {
+		return *x.PerfSessionName
 	}
 	return ""
 }
@@ -246,15 +246,15 @@ func (x *SLPerfMeasMonitor) GetLabelStack() []uint32 {
 }
 
 func (x *SLPerfMeasMonitor) GetProbeInterval() uint64 {
-	if x != nil {
-		return x.ProbeInterval
+	if x != nil && x.ProbeInterval != nil {
+		return *x.ProbeInterval
 	}
 	return 0
 }
 
 func (x *SLPerfMeasMonitor) GetTimeoutCount() uint32 {
-	if x != nil {
-		return x.TimeoutCount
+	if x != nil && x.TimeoutCount != nil {
+		return *x.TimeoutCount
 	}
 	return 0
 }
@@ -267,8 +267,8 @@ func (x *SLPerfMeasMonitor) GetInterfaceInfo() *SLInterface {
 }
 
 func (x *SLPerfMeasMonitor) GetDscpValue() uint32 {
-	if x != nil {
-		return x.DscpValue
+	if x != nil && x.DscpValue != nil {
+		return *x.DscpValue
 	}
 	return 0
 }
@@ -703,8 +703,9 @@ type SLPerfMeasRespStateMsgEntry struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Type of response
 	State SLPerfMeasSessionState `protobuf:"varint,1,opt,name=State,proto3,enum=service_layer.SLPerfMeasSessionState" json:"State,omitempty"`
-	// Perf Session Name
-	PerfSessionName string `protobuf:"bytes,2,opt,name=PerfSessionName,proto3" json:"PerfSessionName,omitempty"`
+	// Perf Session Name. Unset for global states
+	// (SL_PERF_MEAS_SESSION_ALL_DOWN, SL_PERF_MEAS_SESSION_ALL_DELETED).
+	PerfSessionName *string `protobuf:"bytes,2,opt,name=PerfSessionName,proto3,oneof" json:"PerfSessionName,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -747,8 +748,8 @@ func (x *SLPerfMeasRespStateMsgEntry) GetState() SLPerfMeasSessionState {
 }
 
 func (x *SLPerfMeasRespStateMsgEntry) GetPerfSessionName() string {
-	if x != nil {
-		return x.PerfSessionName
+	if x != nil && x.PerfSessionName != nil {
+		return *x.PerfSessionName
 	}
 	return ""
 }
@@ -906,19 +907,24 @@ var File_sl_perf_meas_proto protoreflect.FileDescriptor
 
 const file_sl_perf_meas_proto_rawDesc = "" +
 	"\n" +
-	"\x12sl_perf_meas.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\xaf\x03\n" +
-	"\x11SLPerfMeasMonitor\x12(\n" +
-	"\x0fPerfSessionName\x18\x01 \x01(\tR\x0fPerfSessionName\x122\n" +
+	"\x12sl_perf_meas.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x88\x04\n" +
+	"\x11SLPerfMeasMonitor\x12-\n" +
+	"\x0fPerfSessionName\x18\x01 \x01(\tH\x00R\x0fPerfSessionName\x88\x01\x01\x122\n" +
 	"\x06Source\x18\x02 \x01(\v2\x1a.service_layer.SLIpAddressR\x06Source\x12<\n" +
 	"\vDestination\x18\x03 \x01(\v2\x1a.service_layer.SLIpAddressR\vDestination\x12\x1e\n" +
 	"\n" +
 	"LabelStack\x18\x04 \x03(\rR\n" +
-	"LabelStack\x12$\n" +
-	"\rProbeInterval\x18\x05 \x01(\x04R\rProbeInterval\x12\"\n" +
-	"\fTimeoutCount\x18\x06 \x01(\rR\fTimeoutCount\x12@\n" +
-	"\rInterfaceInfo\x18\a \x01(\v2\x1a.service_layer.SLInterfaceR\rInterfaceInfo\x12\x1c\n" +
-	"\tDscpValue\x18\b \x01(\rR\tDscpValue\x124\n" +
-	"\aNextHop\x18\t \x01(\v2\x1a.service_layer.SLIpAddressR\aNextHop\"\xde\x01\n" +
+	"LabelStack\x12)\n" +
+	"\rProbeInterval\x18\x05 \x01(\x04H\x01R\rProbeInterval\x88\x01\x01\x12'\n" +
+	"\fTimeoutCount\x18\x06 \x01(\rH\x02R\fTimeoutCount\x88\x01\x01\x12@\n" +
+	"\rInterfaceInfo\x18\a \x01(\v2\x1a.service_layer.SLInterfaceR\rInterfaceInfo\x12!\n" +
+	"\tDscpValue\x18\b \x01(\rH\x03R\tDscpValue\x88\x01\x01\x124\n" +
+	"\aNextHop\x18\t \x01(\v2\x1a.service_layer.SLIpAddressR\aNextHopB\x12\n" +
+	"\x10_PerfSessionNameB\x10\n" +
+	"\x0e_ProbeIntervalB\x0f\n" +
+	"\r_TimeoutCountB\f\n" +
+	"\n" +
+	"_DscpValue\"\xde\x01\n" +
 	"\x0fSLPerfMeasStats\x12;\n" +
 	"\x05State\x18\x01 \x01(\x0e2%.service_layer.SLPerfMeasSessionStateR\x05State\x12\x1e\n" +
 	"\n" +
@@ -948,10 +954,11 @@ const file_sl_perf_meas_proto_rawDesc = "" +
 	"\vOperationId\x18\x03 \x01(\x04R\vOperationId\x126\n" +
 	"\x05Stats\x18\x04 \x01(\v2\x1e.service_layer.SLPerfMeasStatsH\x00R\x05Stats\x126\n" +
 	"\x04Info\x18\x05 \x01(\v2 .service_layer.SLPerfMeasMonitorH\x00R\x04InfoB\x06\n" +
-	"\x04Data\"\x84\x01\n" +
+	"\x04Data\"\x9d\x01\n" +
 	"\x1bSLPerfMeasRespStateMsgEntry\x12;\n" +
-	"\x05State\x18\x01 \x01(\x0e2%.service_layer.SLPerfMeasSessionStateR\x05State\x12(\n" +
-	"\x0fPerfSessionName\x18\x02 \x01(\tR\x0fPerfSessionName\"\x88\x02\n" +
+	"\x05State\x18\x01 \x01(\x0e2%.service_layer.SLPerfMeasSessionStateR\x05State\x12-\n" +
+	"\x0fPerfSessionName\x18\x02 \x01(\tH\x00R\x0fPerfSessionName\x88\x01\x01B\x12\n" +
+	"\x10_PerfSessionName\"\x88\x02\n" +
 	"\x16SLPerfMeasRespMsgEntry\x12@\n" +
 	"\x05Error\x18\x01 \x01(\v2(.service_layer.SLPerfMeasRespErrMsgEntryH\x00R\x05Error\x12Q\n" +
 	"\rSessionDetail\x18\x02 \x01(\v2).service_layer.SLPerfMeasRespDataMsgEntryH\x00R\rSessionDetail\x12P\n" +
@@ -1038,6 +1045,7 @@ func file_sl_perf_meas_proto_init() {
 		return
 	}
 	file_sl_common_types_proto_init()
+	file_sl_perf_meas_proto_msgTypes[0].OneofWrappers = []any{}
 	file_sl_perf_meas_proto_msgTypes[2].OneofWrappers = []any{
 		(*SLPerfMeasReqMsgEntry_PerfSessionName)(nil),
 		(*SLPerfMeasReqMsgEntry_Parameters)(nil),
@@ -1046,6 +1054,7 @@ func file_sl_perf_meas_proto_init() {
 		(*SLPerfMeasRespDataMsgEntry_Stats)(nil),
 		(*SLPerfMeasRespDataMsgEntry_Info)(nil),
 	}
+	file_sl_perf_meas_proto_msgTypes[6].OneofWrappers = []any{}
 	file_sl_perf_meas_proto_msgTypes[7].OneofWrappers = []any{
 		(*SLPerfMeasRespMsgEntry_Error)(nil),
 		(*SLPerfMeasRespMsgEntry_SessionDetail)(nil),

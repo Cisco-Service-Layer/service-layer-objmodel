@@ -25,64 +25,67 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJzbF9wZXJmX21lYXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIaFXNsX2NvbW1v",
-            "bl90eXBlcy5wcm90byK9AgoRU0xQZXJmTWVhc01vbml0b3ISFwoPUGVyZlNl",
-            "c3Npb25OYW1lGAEgASgJEioKBlNvdXJjZRgCIAEoCzIaLnNlcnZpY2VfbGF5",
-            "ZXIuU0xJcEFkZHJlc3MSLwoLRGVzdGluYXRpb24YAyABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMSXBBZGRyZXNzEhIKCkxhYmVsU3RhY2sYBCADKA0SFQoNUHJv",
-            "YmVJbnRlcnZhbBgFIAEoBBIUCgxUaW1lb3V0Q291bnQYBiABKA0SMQoNSW50",
-            "ZXJmYWNlSW5mbxgHIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJbnRlcmZhY2US",
-            "EQoJRHNjcFZhbHVlGAggASgNEisKB05leHRIb3AYCSABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMSXBBZGRyZXNzIqMBCg9TTFBlcmZNZWFzU3RhdHMSNAoFU3Rh",
-            "dGUYASABKA4yJS5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNTZXNzaW9uU3Rh",
-            "dGUSEgoKUHJvYmVzU2VudBgCIAEoBBIWCg5Qcm9iZXNSZWNlaXZlZBgDIAEo",
-            "BBIOCgZNaW5SdHQYBCABKAQSDgoGTWF4UnR0GAUgASgEEg4KBkF2Z1J0dBgG",
-            "IAEoBCK7AQoVU0xQZXJmTWVhc1JlcU1zZ0VudHJ5EhMKC09wZXJhdGlvbklk",
-            "GAEgASgEEjEKB01zZ1R5cGUYAiABKA4yIC5zZXJ2aWNlX2xheWVyLlNMUGVy",
-            "Zk1lYXNNc2dUeXBlEhkKD1BlcmZTZXNzaW9uTmFtZRgDIAEoCUgAEjYKClBh",
-            "cmFtZXRlcnMYBCABKAsyIC5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNNb25p",
-            "dG9ySABCBwoFVmFsdWUiSQoQU0xQZXJmTWVhc1JlcU1zZxI1CgdFbnRyaWVz",
-            "GAEgAygLMiQuc2VydmljZV9sYXllci5TTFBlcmZNZWFzUmVxTXNnRW50cnki",
-            "egoZU0xQZXJmTWVhc1Jlc3BFcnJNc2dFbnRyeRITCgtPcGVyYXRpb25JZBgB",
-            "IAEoBBIvCglFcnJTdGF0dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJy",
-            "b3JTdGF0dXMSFwoPUGVyZlNlc3Npb25OYW1lGAMgASgJIugBChpTTFBlcmZN",
-            "ZWFzUmVzcERhdGFNc2dFbnRyeRIxCgdNc2dUeXBlGAEgASgOMiAuc2Vydmlj",
-            "ZV9sYXllci5TTFBlcmZNZWFzTXNnVHlwZRIXCg9QZXJmU2Vzc2lvbk5hbWUY",
-            "AiABKAkSEwoLT3BlcmF0aW9uSWQYAyABKAQSLwoFU3RhdHMYBCABKAsyHi5z",
-            "ZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNTdGF0c0gAEjAKBEluZm8YBSABKAsy",
-            "IC5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNNb25pdG9ySABCBgoERGF0YSJs",
+            "bl90eXBlcy5wcm90byKWAwoRU0xQZXJmTWVhc01vbml0b3ISHAoPUGVyZlNl",
+            "c3Npb25OYW1lGAEgASgJSACIAQESKgoGU291cmNlGAIgASgLMhouc2Vydmlj",
+            "ZV9sYXllci5TTElwQWRkcmVzcxIvCgtEZXN0aW5hdGlvbhgDIAEoCzIaLnNl",
+            "cnZpY2VfbGF5ZXIuU0xJcEFkZHJlc3MSEgoKTGFiZWxTdGFjaxgEIAMoDRIa",
+            "Cg1Qcm9iZUludGVydmFsGAUgASgESAGIAQESGQoMVGltZW91dENvdW50GAYg",
+            "ASgNSAKIAQESMQoNSW50ZXJmYWNlSW5mbxgHIAEoCzIaLnNlcnZpY2VfbGF5",
+            "ZXIuU0xJbnRlcmZhY2USFgoJRHNjcFZhbHVlGAggASgNSAOIAQESKwoHTmV4",
+            "dEhvcBgJIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJlc3NCEgoQX1Bl",
+            "cmZTZXNzaW9uTmFtZUIQCg5fUHJvYmVJbnRlcnZhbEIPCg1fVGltZW91dENv",
+            "dW50QgwKCl9Ec2NwVmFsdWUiowEKD1NMUGVyZk1lYXNTdGF0cxI0CgVTdGF0",
+            "ZRgBIAEoDjIlLnNlcnZpY2VfbGF5ZXIuU0xQZXJmTWVhc1Nlc3Npb25TdGF0",
+            "ZRISCgpQcm9iZXNTZW50GAIgASgEEhYKDlByb2Jlc1JlY2VpdmVkGAMgASgE",
+            "Eg4KBk1pblJ0dBgEIAEoBBIOCgZNYXhSdHQYBSABKAQSDgoGQXZnUnR0GAYg",
+            "ASgEIrsBChVTTFBlcmZNZWFzUmVxTXNnRW50cnkSEwoLT3BlcmF0aW9uSWQY",
+            "ASABKAQSMQoHTXNnVHlwZRgCIAEoDjIgLnNlcnZpY2VfbGF5ZXIuU0xQZXJm",
+            "TWVhc01zZ1R5cGUSGQoPUGVyZlNlc3Npb25OYW1lGAMgASgJSAASNgoKUGFy",
+            "YW1ldGVycxgEIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xQZXJmTWVhc01vbml0",
+            "b3JIAEIHCgVWYWx1ZSJJChBTTFBlcmZNZWFzUmVxTXNnEjUKB0VudHJpZXMY",
+            "ASADKAsyJC5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNSZXFNc2dFbnRyeSJ6",
+            "ChlTTFBlcmZNZWFzUmVzcEVyck1zZ0VudHJ5EhMKC09wZXJhdGlvbklkGAEg",
+            "ASgEEi8KCUVyclN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJv",
+            "clN0YXR1cxIXCg9QZXJmU2Vzc2lvbk5hbWUYAyABKAki6AEKGlNMUGVyZk1l",
+            "YXNSZXNwRGF0YU1zZ0VudHJ5EjEKB01zZ1R5cGUYASABKA4yIC5zZXJ2aWNl",
+            "X2xheWVyLlNMUGVyZk1lYXNNc2dUeXBlEhcKD1BlcmZTZXNzaW9uTmFtZRgC",
+            "IAEoCRITCgtPcGVyYXRpb25JZBgDIAEoBBIvCgVTdGF0cxgEIAEoCzIeLnNl",
+            "cnZpY2VfbGF5ZXIuU0xQZXJmTWVhc1N0YXRzSAASMAoESW5mbxgFIAEoCzIg",
+            "LnNlcnZpY2VfbGF5ZXIuU0xQZXJmTWVhc01vbml0b3JIAEIGCgREYXRhIoUB",
             "ChtTTFBlcmZNZWFzUmVzcFN0YXRlTXNnRW50cnkSNAoFU3RhdGUYASABKA4y",
-            "JS5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNTZXNzaW9uU3RhdGUSFwoPUGVy",
-            "ZlNlc3Npb25OYW1lGAIgASgJIuQBChZTTFBlcmZNZWFzUmVzcE1zZ0VudHJ5",
-            "EjkKBUVycm9yGAEgASgLMiguc2VydmljZV9sYXllci5TTFBlcmZNZWFzUmVz",
-            "cEVyck1zZ0VudHJ5SAASQgoNU2Vzc2lvbkRldGFpbBgCIAEoCzIpLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xQZXJmTWVhc1Jlc3BEYXRhTXNnRW50cnlIABJCCgxTZXNz",
-            "aW9uU3RhdGUYAyABKAsyKi5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNSZXNw",
-            "U3RhdGVNc2dFbnRyeUgAQgcKBUV2ZW50IksKEVNMUGVyZk1lYXNSZXNwTXNn",
-            "EjYKB0VudHJpZXMYASADKAsyJS5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNS",
-            "ZXNwTXNnRW50cnkqywEKEVNMUGVyZk1lYXNNc2dUeXBlEh0KGVNMX1BFUkZf",
-            "TUVBU19NU0dfUkVTRVJWRUQQABIfChtTTF9QRVJGX01FQVNfQ1JFQVRFX1NF",
-            "U1NJT04QARIfChtTTF9QRVJGX01FQVNfREVMRVRFX1NFU1NJT04QAhIaChZT",
-            "TF9QRVJGX01FQVNfR0VUX1NUQVRTEAMSGQoVU0xfUEVSRl9NRUFTX0dFVF9J",
-            "TkZPEAQSHgoaU0xfUEVSRl9NRUFTX0ZMVVNIX01BWF9SVFQQBSq+AQoWU0xQ",
-            "ZXJmTWVhc1Nlc3Npb25TdGF0ZRIfChtTTF9QRVJGX01FQVNfU1RBVEVfUkVT",
-            "RVJWRUQQABIdChlTTF9QRVJGX01FQVNfU0VTU0lPTl9ET1dOEAESGwoXU0xf",
-            "UEVSRl9NRUFTX1NFU1NJT05fVVAQAhIhCh1TTF9QRVJGX01FQVNfU0VTU0lP",
-            "Tl9BTExfRE9XThADEiQKIFNMX1BFUkZfTUVBU19TRVNTSU9OX0FMTF9ERUxF",
-            "VEVEEAQycAoOU0xQZXJmTWVhc09wZXISXgoVU0xQZXJmTWVhc05vdGlmU3Ry",
-            "ZWFtEh8uc2VydmljZV9sYXllci5TTFBlcmZNZWFzUmVxTXNnGiAuc2Vydmlj",
-            "ZV9sYXllci5TTFBlcmZNZWFzUmVzcE1zZygBMAFCUVpPZ2l0aHViLmNvbS9D",
-            "aXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3Jw",
-            "Yy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "JS5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNTZXNzaW9uU3RhdGUSHAoPUGVy",
+            "ZlNlc3Npb25OYW1lGAIgASgJSACIAQFCEgoQX1BlcmZTZXNzaW9uTmFtZSLk",
+            "AQoWU0xQZXJmTWVhc1Jlc3BNc2dFbnRyeRI5CgVFcnJvchgBIAEoCzIoLnNl",
+            "cnZpY2VfbGF5ZXIuU0xQZXJmTWVhc1Jlc3BFcnJNc2dFbnRyeUgAEkIKDVNl",
+            "c3Npb25EZXRhaWwYAiABKAsyKS5zZXJ2aWNlX2xheWVyLlNMUGVyZk1lYXNS",
+            "ZXNwRGF0YU1zZ0VudHJ5SAASQgoMU2Vzc2lvblN0YXRlGAMgASgLMiouc2Vy",
+            "dmljZV9sYXllci5TTFBlcmZNZWFzUmVzcFN0YXRlTXNnRW50cnlIAEIHCgVF",
+            "dmVudCJLChFTTFBlcmZNZWFzUmVzcE1zZxI2CgdFbnRyaWVzGAEgAygLMiUu",
+            "c2VydmljZV9sYXllci5TTFBlcmZNZWFzUmVzcE1zZ0VudHJ5KssBChFTTFBl",
+            "cmZNZWFzTXNnVHlwZRIdChlTTF9QRVJGX01FQVNfTVNHX1JFU0VSVkVEEAAS",
+            "HwobU0xfUEVSRl9NRUFTX0NSRUFURV9TRVNTSU9OEAESHwobU0xfUEVSRl9N",
+            "RUFTX0RFTEVURV9TRVNTSU9OEAISGgoWU0xfUEVSRl9NRUFTX0dFVF9TVEFU",
+            "UxADEhkKFVNMX1BFUkZfTUVBU19HRVRfSU5GTxAEEh4KGlNMX1BFUkZfTUVB",
+            "U19GTFVTSF9NQVhfUlRUEAUqvgEKFlNMUGVyZk1lYXNTZXNzaW9uU3RhdGUS",
+            "HwobU0xfUEVSRl9NRUFTX1NUQVRFX1JFU0VSVkVEEAASHQoZU0xfUEVSRl9N",
+            "RUFTX1NFU1NJT05fRE9XThABEhsKF1NMX1BFUkZfTUVBU19TRVNTSU9OX1VQ",
+            "EAISIQodU0xfUEVSRl9NRUFTX1NFU1NJT05fQUxMX0RPV04QAxIkCiBTTF9Q",
+            "RVJGX01FQVNfU0VTU0lPTl9BTExfREVMRVRFRBAEMnAKDlNMUGVyZk1lYXNP",
+            "cGVyEl4KFVNMUGVyZk1lYXNOb3RpZlN0cmVhbRIfLnNlcnZpY2VfbGF5ZXIu",
+            "U0xQZXJmTWVhc1JlcU1zZxogLnNlcnZpY2VfbGF5ZXIuU0xQZXJmTWVhc1Jl",
+            "c3BNc2coATABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9z",
+            "ZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5",
+            "ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLPerfMeasMsgType), typeof(global::ServiceLayer.SLPerfMeasSessionState), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasMonitor), global::ServiceLayer.SLPerfMeasMonitor.Parser, new[]{ "PerfSessionName", "Source", "Destination", "LabelStack", "ProbeInterval", "TimeoutCount", "InterfaceInfo", "DscpValue", "NextHop" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasMonitor), global::ServiceLayer.SLPerfMeasMonitor.Parser, new[]{ "PerfSessionName", "Source", "Destination", "LabelStack", "ProbeInterval", "TimeoutCount", "InterfaceInfo", "DscpValue", "NextHop" }, new[]{ "PerfSessionName", "ProbeInterval", "TimeoutCount", "DscpValue" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasStats), global::ServiceLayer.SLPerfMeasStats.Parser, new[]{ "State", "ProbesSent", "ProbesReceived", "MinRtt", "MaxRtt", "AvgRtt" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasReqMsgEntry), global::ServiceLayer.SLPerfMeasReqMsgEntry.Parser, new[]{ "OperationId", "MsgType", "PerfSessionName", "Parameters" }, new[]{ "Value" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasReqMsg), global::ServiceLayer.SLPerfMeasReqMsg.Parser, new[]{ "Entries" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasRespErrMsgEntry), global::ServiceLayer.SLPerfMeasRespErrMsgEntry.Parser, new[]{ "OperationId", "ErrStatus", "PerfSessionName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasRespDataMsgEntry), global::ServiceLayer.SLPerfMeasRespDataMsgEntry.Parser, new[]{ "MsgType", "PerfSessionName", "OperationId", "Stats", "Info" }, new[]{ "Data" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasRespStateMsgEntry), global::ServiceLayer.SLPerfMeasRespStateMsgEntry.Parser, new[]{ "State", "PerfSessionName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasRespStateMsgEntry), global::ServiceLayer.SLPerfMeasRespStateMsgEntry.Parser, new[]{ "State", "PerfSessionName" }, new[]{ "PerfSessionName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasRespMsgEntry), global::ServiceLayer.SLPerfMeasRespMsgEntry.Parser, new[]{ "Error", "SessionDetail", "SessionState" }, new[]{ "Event" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPerfMeasRespMsg), global::ServiceLayer.SLPerfMeasRespMsg.Parser, new[]{ "Entries" }, null, null, null, null)
           }));
@@ -168,6 +171,7 @@ namespace ServiceLayer {
   {
     private static readonly pb::MessageParser<SLPerfMeasMonitor> _parser = new pb::MessageParser<SLPerfMeasMonitor>(() => new SLPerfMeasMonitor());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SLPerfMeasMonitor> Parser { get { return _parser; } }
@@ -195,6 +199,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLPerfMeasMonitor(SLPerfMeasMonitor other) : this() {
+      _hasBits0 = other._hasBits0;
       perfSessionName_ = other.perfSessionName_;
       source_ = other.source_ != null ? other.source_.Clone() : null;
       destination_ = other.destination_ != null ? other.destination_.Clone() : null;
@@ -215,17 +220,31 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "PerfSessionName" field.</summary>
     public const int PerfSessionNameFieldNumber = 1;
-    private string perfSessionName_ = "";
+    private readonly static string PerfSessionNameDefaultValue = "";
+
+    private string perfSessionName_;
     /// <summary>
     /// Perf Session Name
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string PerfSessionName {
-      get { return perfSessionName_; }
+      get { return perfSessionName_ ?? PerfSessionNameDefaultValue; }
       set {
         perfSessionName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+    /// <summary>Gets whether the "PerfSessionName" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPerfSessionName {
+      get { return perfSessionName_ != null; }
+    }
+    /// <summary>Clears the value of the "PerfSessionName" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPerfSessionName() {
+      perfSessionName_ = null;
     }
 
     /// <summary>Field number for the "Source" field.</summary>
@@ -264,7 +283,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForUInt32(34);
     private readonly pbc::RepeatedField<uint> labelStack_ = new pbc::RepeatedField<uint>();
     /// <summary>
-    /// MPLS Label Stack
+    /// MPLS Label Stack. Must not be empty.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -274,6 +293,8 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "ProbeInterval" field.</summary>
     public const int ProbeIntervalFieldNumber = 5;
+    private readonly static ulong ProbeIntervalDefaultValue = 0UL;
+
     private ulong probeInterval_;
     /// <summary>
     /// Probe interval in microseconds
@@ -281,14 +302,29 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong ProbeInterval {
-      get { return probeInterval_; }
+      get { if ((_hasBits0 & 1) != 0) { return probeInterval_; } else { return ProbeIntervalDefaultValue; } }
       set {
+        _hasBits0 |= 1;
         probeInterval_ = value;
       }
+    }
+    /// <summary>Gets whether the "ProbeInterval" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasProbeInterval {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "ProbeInterval" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearProbeInterval() {
+      _hasBits0 &= ~1;
     }
 
     /// <summary>Field number for the "TimeoutCount" field.</summary>
     public const int TimeoutCountFieldNumber = 6;
+    private readonly static uint TimeoutCountDefaultValue = 0;
+
     private uint timeoutCount_;
     /// <summary>
     /// Total packet loss count before declaring session down
@@ -296,10 +332,23 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint TimeoutCount {
-      get { return timeoutCount_; }
+      get { if ((_hasBits0 & 2) != 0) { return timeoutCount_; } else { return TimeoutCountDefaultValue; } }
       set {
+        _hasBits0 |= 2;
         timeoutCount_ = value;
       }
+    }
+    /// <summary>Gets whether the "TimeoutCount" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTimeoutCount {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "TimeoutCount" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTimeoutCount() {
+      _hasBits0 &= ~2;
     }
 
     /// <summary>Field number for the "InterfaceInfo" field.</summary>
@@ -319,6 +368,8 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "DscpValue" field.</summary>
     public const int DscpValueFieldNumber = 8;
+    private readonly static uint DscpValueDefaultValue = 0;
+
     private uint dscpValue_;
     /// <summary>
     /// DSCP
@@ -326,10 +377,23 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint DscpValue {
-      get { return dscpValue_; }
+      get { if ((_hasBits0 & 4) != 0) { return dscpValue_; } else { return DscpValueDefaultValue; } }
       set {
+        _hasBits0 |= 4;
         dscpValue_ = value;
       }
+    }
+    /// <summary>Gets whether the "DscpValue" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDscpValue {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "DscpValue" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDscpValue() {
+      _hasBits0 &= ~4;
     }
 
     /// <summary>Field number for the "NextHop" field.</summary>
@@ -378,14 +442,14 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (PerfSessionName.Length != 0) hash ^= PerfSessionName.GetHashCode();
+      if (HasPerfSessionName) hash ^= PerfSessionName.GetHashCode();
       if (source_ != null) hash ^= Source.GetHashCode();
       if (destination_ != null) hash ^= Destination.GetHashCode();
       hash ^= labelStack_.GetHashCode();
-      if (ProbeInterval != 0UL) hash ^= ProbeInterval.GetHashCode();
-      if (TimeoutCount != 0) hash ^= TimeoutCount.GetHashCode();
+      if (HasProbeInterval) hash ^= ProbeInterval.GetHashCode();
+      if (HasTimeoutCount) hash ^= TimeoutCount.GetHashCode();
       if (interfaceInfo_ != null) hash ^= InterfaceInfo.GetHashCode();
-      if (DscpValue != 0) hash ^= DscpValue.GetHashCode();
+      if (HasDscpValue) hash ^= DscpValue.GetHashCode();
       if (nextHop_ != null) hash ^= NextHop.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -405,7 +469,7 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (PerfSessionName.Length != 0) {
+      if (HasPerfSessionName) {
         output.WriteRawTag(10);
         output.WriteString(PerfSessionName);
       }
@@ -418,11 +482,11 @@ namespace ServiceLayer {
         output.WriteMessage(Destination);
       }
       labelStack_.WriteTo(output, _repeated_labelStack_codec);
-      if (ProbeInterval != 0UL) {
+      if (HasProbeInterval) {
         output.WriteRawTag(40);
         output.WriteUInt64(ProbeInterval);
       }
-      if (TimeoutCount != 0) {
+      if (HasTimeoutCount) {
         output.WriteRawTag(48);
         output.WriteUInt32(TimeoutCount);
       }
@@ -430,7 +494,7 @@ namespace ServiceLayer {
         output.WriteRawTag(58);
         output.WriteMessage(InterfaceInfo);
       }
-      if (DscpValue != 0) {
+      if (HasDscpValue) {
         output.WriteRawTag(64);
         output.WriteUInt32(DscpValue);
       }
@@ -448,7 +512,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PerfSessionName.Length != 0) {
+      if (HasPerfSessionName) {
         output.WriteRawTag(10);
         output.WriteString(PerfSessionName);
       }
@@ -461,11 +525,11 @@ namespace ServiceLayer {
         output.WriteMessage(Destination);
       }
       labelStack_.WriteTo(ref output, _repeated_labelStack_codec);
-      if (ProbeInterval != 0UL) {
+      if (HasProbeInterval) {
         output.WriteRawTag(40);
         output.WriteUInt64(ProbeInterval);
       }
-      if (TimeoutCount != 0) {
+      if (HasTimeoutCount) {
         output.WriteRawTag(48);
         output.WriteUInt32(TimeoutCount);
       }
@@ -473,7 +537,7 @@ namespace ServiceLayer {
         output.WriteRawTag(58);
         output.WriteMessage(InterfaceInfo);
       }
-      if (DscpValue != 0) {
+      if (HasDscpValue) {
         output.WriteRawTag(64);
         output.WriteUInt32(DscpValue);
       }
@@ -491,7 +555,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (PerfSessionName.Length != 0) {
+      if (HasPerfSessionName) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PerfSessionName);
       }
       if (source_ != null) {
@@ -501,16 +565,16 @@ namespace ServiceLayer {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Destination);
       }
       size += labelStack_.CalculateSize(_repeated_labelStack_codec);
-      if (ProbeInterval != 0UL) {
+      if (HasProbeInterval) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ProbeInterval);
       }
-      if (TimeoutCount != 0) {
+      if (HasTimeoutCount) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TimeoutCount);
       }
       if (interfaceInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(InterfaceInfo);
       }
-      if (DscpValue != 0) {
+      if (HasDscpValue) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DscpValue);
       }
       if (nextHop_ != null) {
@@ -528,7 +592,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.PerfSessionName.Length != 0) {
+      if (other.HasPerfSessionName) {
         PerfSessionName = other.PerfSessionName;
       }
       if (other.source_ != null) {
@@ -544,10 +608,10 @@ namespace ServiceLayer {
         Destination.MergeFrom(other.Destination);
       }
       labelStack_.Add(other.labelStack_);
-      if (other.ProbeInterval != 0UL) {
+      if (other.HasProbeInterval) {
         ProbeInterval = other.ProbeInterval;
       }
-      if (other.TimeoutCount != 0) {
+      if (other.HasTimeoutCount) {
         TimeoutCount = other.TimeoutCount;
       }
       if (other.interfaceInfo_ != null) {
@@ -556,7 +620,7 @@ namespace ServiceLayer {
         }
         InterfaceInfo.MergeFrom(other.InterfaceInfo);
       }
-      if (other.DscpValue != 0) {
+      if (other.HasDscpValue) {
         DscpValue = other.DscpValue;
       }
       if (other.nextHop_ != null) {
@@ -2471,17 +2535,32 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "PerfSessionName" field.</summary>
     public const int PerfSessionNameFieldNumber = 2;
-    private string perfSessionName_ = "";
+    private readonly static string PerfSessionNameDefaultValue = "";
+
+    private string perfSessionName_;
     /// <summary>
-    /// Perf Session Name
+    /// Perf Session Name. Unset for global states
+    /// (SL_PERF_MEAS_SESSION_ALL_DOWN, SL_PERF_MEAS_SESSION_ALL_DELETED).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string PerfSessionName {
-      get { return perfSessionName_; }
+      get { return perfSessionName_ ?? PerfSessionNameDefaultValue; }
       set {
         perfSessionName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+    /// <summary>Gets whether the "PerfSessionName" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPerfSessionName {
+      get { return perfSessionName_ != null; }
+    }
+    /// <summary>Clears the value of the "PerfSessionName" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPerfSessionName() {
+      perfSessionName_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2509,7 +2588,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (State != global::ServiceLayer.SLPerfMeasSessionState.SlPerfMeasStateReserved) hash ^= State.GetHashCode();
-      if (PerfSessionName.Length != 0) hash ^= PerfSessionName.GetHashCode();
+      if (HasPerfSessionName) hash ^= PerfSessionName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2532,7 +2611,7 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteEnum((int) State);
       }
-      if (PerfSessionName.Length != 0) {
+      if (HasPerfSessionName) {
         output.WriteRawTag(18);
         output.WriteString(PerfSessionName);
       }
@@ -2550,7 +2629,7 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteEnum((int) State);
       }
-      if (PerfSessionName.Length != 0) {
+      if (HasPerfSessionName) {
         output.WriteRawTag(18);
         output.WriteString(PerfSessionName);
       }
@@ -2567,7 +2646,7 @@ namespace ServiceLayer {
       if (State != global::ServiceLayer.SLPerfMeasSessionState.SlPerfMeasStateReserved) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
       }
-      if (PerfSessionName.Length != 0) {
+      if (HasPerfSessionName) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PerfSessionName);
       }
       if (_unknownFields != null) {
@@ -2585,7 +2664,7 @@ namespace ServiceLayer {
       if (other.State != global::ServiceLayer.SLPerfMeasSessionState.SlPerfMeasStateReserved) {
         State = other.State;
       }
-      if (other.PerfSessionName.Length != 0) {
+      if (other.HasPerfSessionName) {
         PerfSessionName = other.PerfSessionName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);

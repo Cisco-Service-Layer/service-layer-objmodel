@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from . import sl_common_types_pb2 as sl__common__types__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12sl_perf_meas.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\xbd\x02\n\x11SLPerfMeasMonitor\x12\x17\n\x0fPerfSessionName\x18\x01 \x01(\t\x12*\n\x06Source\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12/\n\x0b\x44\x65stination\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x12\n\nLabelStack\x18\x04 \x03(\r\x12\x15\n\rProbeInterval\x18\x05 \x01(\x04\x12\x14\n\x0cTimeoutCount\x18\x06 \x01(\r\x12\x31\n\rInterfaceInfo\x18\x07 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x11\n\tDscpValue\x18\x08 \x01(\r\x12+\n\x07NextHop\x18\t \x01(\x0b\x32\x1a.service_layer.SLIpAddress\"\xa3\x01\n\x0fSLPerfMeasStats\x12\x34\n\x05State\x18\x01 \x01(\x0e\x32%.service_layer.SLPerfMeasSessionState\x12\x12\n\nProbesSent\x18\x02 \x01(\x04\x12\x16\n\x0eProbesReceived\x18\x03 \x01(\x04\x12\x0e\n\x06MinRtt\x18\x04 \x01(\x04\x12\x0e\n\x06MaxRtt\x18\x05 \x01(\x04\x12\x0e\n\x06\x41vgRtt\x18\x06 \x01(\x04\"\xbb\x01\n\x15SLPerfMeasReqMsgEntry\x12\x13\n\x0bOperationId\x18\x01 \x01(\x04\x12\x31\n\x07MsgType\x18\x02 \x01(\x0e\x32 .service_layer.SLPerfMeasMsgType\x12\x19\n\x0fPerfSessionName\x18\x03 \x01(\tH\x00\x12\x36\n\nParameters\x18\x04 \x01(\x0b\x32 .service_layer.SLPerfMeasMonitorH\x00\x42\x07\n\x05Value\"I\n\x10SLPerfMeasReqMsg\x12\x35\n\x07\x45ntries\x18\x01 \x03(\x0b\x32$.service_layer.SLPerfMeasReqMsgEntry\"z\n\x19SLPerfMeasRespErrMsgEntry\x12\x13\n\x0bOperationId\x18\x01 \x01(\x04\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x17\n\x0fPerfSessionName\x18\x03 \x01(\t\"\xe8\x01\n\x1aSLPerfMeasRespDataMsgEntry\x12\x31\n\x07MsgType\x18\x01 \x01(\x0e\x32 .service_layer.SLPerfMeasMsgType\x12\x17\n\x0fPerfSessionName\x18\x02 \x01(\t\x12\x13\n\x0bOperationId\x18\x03 \x01(\x04\x12/\n\x05Stats\x18\x04 \x01(\x0b\x32\x1e.service_layer.SLPerfMeasStatsH\x00\x12\x30\n\x04Info\x18\x05 \x01(\x0b\x32 .service_layer.SLPerfMeasMonitorH\x00\x42\x06\n\x04\x44\x61ta\"l\n\x1bSLPerfMeasRespStateMsgEntry\x12\x34\n\x05State\x18\x01 \x01(\x0e\x32%.service_layer.SLPerfMeasSessionState\x12\x17\n\x0fPerfSessionName\x18\x02 \x01(\t\"\xe4\x01\n\x16SLPerfMeasRespMsgEntry\x12\x39\n\x05\x45rror\x18\x01 \x01(\x0b\x32(.service_layer.SLPerfMeasRespErrMsgEntryH\x00\x12\x42\n\rSessionDetail\x18\x02 \x01(\x0b\x32).service_layer.SLPerfMeasRespDataMsgEntryH\x00\x12\x42\n\x0cSessionState\x18\x03 \x01(\x0b\x32*.service_layer.SLPerfMeasRespStateMsgEntryH\x00\x42\x07\n\x05\x45vent\"K\n\x11SLPerfMeasRespMsg\x12\x36\n\x07\x45ntries\x18\x01 \x03(\x0b\x32%.service_layer.SLPerfMeasRespMsgEntry*\xcb\x01\n\x11SLPerfMeasMsgType\x12\x1d\n\x19SL_PERF_MEAS_MSG_RESERVED\x10\x00\x12\x1f\n\x1bSL_PERF_MEAS_CREATE_SESSION\x10\x01\x12\x1f\n\x1bSL_PERF_MEAS_DELETE_SESSION\x10\x02\x12\x1a\n\x16SL_PERF_MEAS_GET_STATS\x10\x03\x12\x19\n\x15SL_PERF_MEAS_GET_INFO\x10\x04\x12\x1e\n\x1aSL_PERF_MEAS_FLUSH_MAX_RTT\x10\x05*\xbe\x01\n\x16SLPerfMeasSessionState\x12\x1f\n\x1bSL_PERF_MEAS_STATE_RESERVED\x10\x00\x12\x1d\n\x19SL_PERF_MEAS_SESSION_DOWN\x10\x01\x12\x1b\n\x17SL_PERF_MEAS_SESSION_UP\x10\x02\x12!\n\x1dSL_PERF_MEAS_SESSION_ALL_DOWN\x10\x03\x12$\n SL_PERF_MEAS_SESSION_ALL_DELETED\x10\x04\x32p\n\x0eSLPerfMeasOper\x12^\n\x15SLPerfMeasNotifStream\x12\x1f.service_layer.SLPerfMeasReqMsg\x1a .service_layer.SLPerfMeasRespMsg(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12sl_perf_meas.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x96\x03\n\x11SLPerfMeasMonitor\x12\x1c\n\x0fPerfSessionName\x18\x01 \x01(\tH\x00\x88\x01\x01\x12*\n\x06Source\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12/\n\x0b\x44\x65stination\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x12\n\nLabelStack\x18\x04 \x03(\r\x12\x1a\n\rProbeInterval\x18\x05 \x01(\x04H\x01\x88\x01\x01\x12\x19\n\x0cTimeoutCount\x18\x06 \x01(\rH\x02\x88\x01\x01\x12\x31\n\rInterfaceInfo\x18\x07 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x16\n\tDscpValue\x18\x08 \x01(\rH\x03\x88\x01\x01\x12+\n\x07NextHop\x18\t \x01(\x0b\x32\x1a.service_layer.SLIpAddressB\x12\n\x10_PerfSessionNameB\x10\n\x0e_ProbeIntervalB\x0f\n\r_TimeoutCountB\x0c\n\n_DscpValue\"\xa3\x01\n\x0fSLPerfMeasStats\x12\x34\n\x05State\x18\x01 \x01(\x0e\x32%.service_layer.SLPerfMeasSessionState\x12\x12\n\nProbesSent\x18\x02 \x01(\x04\x12\x16\n\x0eProbesReceived\x18\x03 \x01(\x04\x12\x0e\n\x06MinRtt\x18\x04 \x01(\x04\x12\x0e\n\x06MaxRtt\x18\x05 \x01(\x04\x12\x0e\n\x06\x41vgRtt\x18\x06 \x01(\x04\"\xbb\x01\n\x15SLPerfMeasReqMsgEntry\x12\x13\n\x0bOperationId\x18\x01 \x01(\x04\x12\x31\n\x07MsgType\x18\x02 \x01(\x0e\x32 .service_layer.SLPerfMeasMsgType\x12\x19\n\x0fPerfSessionName\x18\x03 \x01(\tH\x00\x12\x36\n\nParameters\x18\x04 \x01(\x0b\x32 .service_layer.SLPerfMeasMonitorH\x00\x42\x07\n\x05Value\"I\n\x10SLPerfMeasReqMsg\x12\x35\n\x07\x45ntries\x18\x01 \x03(\x0b\x32$.service_layer.SLPerfMeasReqMsgEntry\"z\n\x19SLPerfMeasRespErrMsgEntry\x12\x13\n\x0bOperationId\x18\x01 \x01(\x04\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x17\n\x0fPerfSessionName\x18\x03 \x01(\t\"\xe8\x01\n\x1aSLPerfMeasRespDataMsgEntry\x12\x31\n\x07MsgType\x18\x01 \x01(\x0e\x32 .service_layer.SLPerfMeasMsgType\x12\x17\n\x0fPerfSessionName\x18\x02 \x01(\t\x12\x13\n\x0bOperationId\x18\x03 \x01(\x04\x12/\n\x05Stats\x18\x04 \x01(\x0b\x32\x1e.service_layer.SLPerfMeasStatsH\x00\x12\x30\n\x04Info\x18\x05 \x01(\x0b\x32 .service_layer.SLPerfMeasMonitorH\x00\x42\x06\n\x04\x44\x61ta\"\x85\x01\n\x1bSLPerfMeasRespStateMsgEntry\x12\x34\n\x05State\x18\x01 \x01(\x0e\x32%.service_layer.SLPerfMeasSessionState\x12\x1c\n\x0fPerfSessionName\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x12\n\x10_PerfSessionName\"\xe4\x01\n\x16SLPerfMeasRespMsgEntry\x12\x39\n\x05\x45rror\x18\x01 \x01(\x0b\x32(.service_layer.SLPerfMeasRespErrMsgEntryH\x00\x12\x42\n\rSessionDetail\x18\x02 \x01(\x0b\x32).service_layer.SLPerfMeasRespDataMsgEntryH\x00\x12\x42\n\x0cSessionState\x18\x03 \x01(\x0b\x32*.service_layer.SLPerfMeasRespStateMsgEntryH\x00\x42\x07\n\x05\x45vent\"K\n\x11SLPerfMeasRespMsg\x12\x36\n\x07\x45ntries\x18\x01 \x03(\x0b\x32%.service_layer.SLPerfMeasRespMsgEntry*\xcb\x01\n\x11SLPerfMeasMsgType\x12\x1d\n\x19SL_PERF_MEAS_MSG_RESERVED\x10\x00\x12\x1f\n\x1bSL_PERF_MEAS_CREATE_SESSION\x10\x01\x12\x1f\n\x1bSL_PERF_MEAS_DELETE_SESSION\x10\x02\x12\x1a\n\x16SL_PERF_MEAS_GET_STATS\x10\x03\x12\x19\n\x15SL_PERF_MEAS_GET_INFO\x10\x04\x12\x1e\n\x1aSL_PERF_MEAS_FLUSH_MAX_RTT\x10\x05*\xbe\x01\n\x16SLPerfMeasSessionState\x12\x1f\n\x1bSL_PERF_MEAS_STATE_RESERVED\x10\x00\x12\x1d\n\x19SL_PERF_MEAS_SESSION_DOWN\x10\x01\x12\x1b\n\x17SL_PERF_MEAS_SESSION_UP\x10\x02\x12!\n\x1dSL_PERF_MEAS_SESSION_ALL_DOWN\x10\x03\x12$\n SL_PERF_MEAS_SESSION_ALL_DELETED\x10\x04\x32p\n\x0eSLPerfMeasOper\x12^\n\x15SLPerfMeasNotifStream\x12\x1f.service_layer.SLPerfMeasReqMsg\x1a .service_layer.SLPerfMeasRespMsg(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,28 +33,28 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'sl_perf_meas_pb2', _globals
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer'
-  _globals['_SLPERFMEASMSGTYPE']._serialized_start=1589
-  _globals['_SLPERFMEASMSGTYPE']._serialized_end=1792
-  _globals['_SLPERFMEASSESSIONSTATE']._serialized_start=1795
-  _globals['_SLPERFMEASSESSIONSTATE']._serialized_end=1985
+  _globals['_SLPERFMEASMSGTYPE']._serialized_start=1704
+  _globals['_SLPERFMEASMSGTYPE']._serialized_end=1907
+  _globals['_SLPERFMEASSESSIONSTATE']._serialized_start=1910
+  _globals['_SLPERFMEASSESSIONSTATE']._serialized_end=2100
   _globals['_SLPERFMEASMONITOR']._serialized_start=61
-  _globals['_SLPERFMEASMONITOR']._serialized_end=378
-  _globals['_SLPERFMEASSTATS']._serialized_start=381
-  _globals['_SLPERFMEASSTATS']._serialized_end=544
-  _globals['_SLPERFMEASREQMSGENTRY']._serialized_start=547
-  _globals['_SLPERFMEASREQMSGENTRY']._serialized_end=734
-  _globals['_SLPERFMEASREQMSG']._serialized_start=736
-  _globals['_SLPERFMEASREQMSG']._serialized_end=809
-  _globals['_SLPERFMEASRESPERRMSGENTRY']._serialized_start=811
-  _globals['_SLPERFMEASRESPERRMSGENTRY']._serialized_end=933
-  _globals['_SLPERFMEASRESPDATAMSGENTRY']._serialized_start=936
-  _globals['_SLPERFMEASRESPDATAMSGENTRY']._serialized_end=1168
-  _globals['_SLPERFMEASRESPSTATEMSGENTRY']._serialized_start=1170
-  _globals['_SLPERFMEASRESPSTATEMSGENTRY']._serialized_end=1278
-  _globals['_SLPERFMEASRESPMSGENTRY']._serialized_start=1281
-  _globals['_SLPERFMEASRESPMSGENTRY']._serialized_end=1509
-  _globals['_SLPERFMEASRESPMSG']._serialized_start=1511
-  _globals['_SLPERFMEASRESPMSG']._serialized_end=1586
-  _globals['_SLPERFMEASOPER']._serialized_start=1987
-  _globals['_SLPERFMEASOPER']._serialized_end=2099
+  _globals['_SLPERFMEASMONITOR']._serialized_end=467
+  _globals['_SLPERFMEASSTATS']._serialized_start=470
+  _globals['_SLPERFMEASSTATS']._serialized_end=633
+  _globals['_SLPERFMEASREQMSGENTRY']._serialized_start=636
+  _globals['_SLPERFMEASREQMSGENTRY']._serialized_end=823
+  _globals['_SLPERFMEASREQMSG']._serialized_start=825
+  _globals['_SLPERFMEASREQMSG']._serialized_end=898
+  _globals['_SLPERFMEASRESPERRMSGENTRY']._serialized_start=900
+  _globals['_SLPERFMEASRESPERRMSGENTRY']._serialized_end=1022
+  _globals['_SLPERFMEASRESPDATAMSGENTRY']._serialized_start=1025
+  _globals['_SLPERFMEASRESPDATAMSGENTRY']._serialized_end=1257
+  _globals['_SLPERFMEASRESPSTATEMSGENTRY']._serialized_start=1260
+  _globals['_SLPERFMEASRESPSTATEMSGENTRY']._serialized_end=1393
+  _globals['_SLPERFMEASRESPMSGENTRY']._serialized_start=1396
+  _globals['_SLPERFMEASRESPMSGENTRY']._serialized_end=1624
+  _globals['_SLPERFMEASRESPMSG']._serialized_start=1626
+  _globals['_SLPERFMEASRESPMSG']._serialized_end=1701
+  _globals['_SLPERFMEASOPER']._serialized_start=2102
+  _globals['_SLPERFMEASOPER']._serialized_end=2214
 # @@protoc_insertion_point(module_scope)

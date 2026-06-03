@@ -28,13 +28,9 @@ if _version_not_supported:
 class SLPerfMeasOperStub(object):
     """@defgroup Performance
     @brief Performance monitoring service definitions.
-    Defines the RPC for getting performance status(es).
+    Defines the RPC for programming performance-measurement sessions and
+    receiving notifications for those sessions.
     @{
-    @addtogroup Performance
-    @{
-
-    This service can be used to receive performance state change notifications.
-
     """
 
     def __init__(self, channel):
@@ -53,22 +49,57 @@ class SLPerfMeasOperStub(object):
 class SLPerfMeasOperServicer(object):
     """@defgroup Performance
     @brief Performance monitoring service definitions.
-    Defines the RPC for getting performance status(es).
+    Defines the RPC for programming performance-measurement sessions and
+    receiving notifications for those sessions.
     @{
-    @addtogroup Performance
-    @{
-
-    This service can be used to receive performance state change notifications.
-
     """
 
     def SLPerfMeasNotifStream(self, request_iterator, context):
-        """This call is used to get a stream of performance notifications.
-        The caller must maintain the GRPC channel as long as
-        there is interest in performance notifications.
-        This call can be used to get "push" notifications for performance info.
-        It is advised that the caller register for notifications before any
-        monitoring is started to avoid any loss of notifications.
+        """@addtogroup Performance
+        @{
+
+        SLPerfMeasNotifStream is a single bidirectional stream that carries
+        BOTH programming requests (create / delete / get-stats / get-info /
+        flush-max-rtt, selected via SLPerfMeasReqMsgEntry.MsgType) AND
+        asynchronous notifications (per-session UP/DOWN state changes,
+        operation responses, and the SL_PERF_MEAS_SESSION_ALL_DOWN event).
+
+        Lifecycle / ownership contract:
+
+        1. Session ownership.
+        A session created on a stream is owned by that stream. A given
+        server instance allows only one active SLPerfMeasNotifStream
+        client at a time; a second client connecting will be rejected.
+        Sessions are not shared across streams.
+
+        2. Subscribe-before-program.
+        Clients SHOULD open the stream before issuing any create
+        request, so that no UP/DOWN notifications are lost between
+        create and the first read on the stream.
+
+        3. Stream disconnect (client side).
+        On client disconnect or transport failure, the server sweeps
+        all sessions owned by that stream. On reconnect the client
+        MUST recreate any sessions it needs; nothing is preserved
+        across the disconnect.
+
+        4. PM (perf_meas) process disconnect.
+        If the underlying perf_meas process disconnects from the
+        server, the server emits SL_PERF_MEAS_SESSION_ALL_DOWN. Local
+        session state is retained; when PM reconnects, the server
+        replays all sessions to PM and resumes per-session UP/DOWN
+        notifications. No client action is required.
+
+        5. Server (emsd) restart / failover.
+        Sessions are NOT preserved across a server restart or HA
+        switchover. After the gRPC stream re-establishes, the client
+        MUST treat all previously created sessions as gone and
+        recreate them.
+
+        6. Reconciliation.
+        On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
+        wait for per-session UP notifications (no recreate needed).
+
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -93,13 +124,9 @@ def add_SLPerfMeasOperServicer_to_server(servicer, server):
 class SLPerfMeasOper(object):
     """@defgroup Performance
     @brief Performance monitoring service definitions.
-    Defines the RPC for getting performance status(es).
+    Defines the RPC for programming performance-measurement sessions and
+    receiving notifications for those sessions.
     @{
-    @addtogroup Performance
-    @{
-
-    This service can be used to receive performance state change notifications.
-
     """
 
     @staticmethod

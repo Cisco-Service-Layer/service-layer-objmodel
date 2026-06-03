@@ -39,7 +39,7 @@ type SLVersion int32
 const (
 	SLVersion_SL_VERSION_UNUSED SLVersion = 0
 	SLVersion_SL_MAJOR_VERSION  SLVersion = 0
-	SLVersion_SL_MINOR_VERSION  SLVersion = 11
+	SLVersion_SL_MINOR_VERSION  SLVersion = 12
 	SLVersion_SL_SUB_VERSION    SLVersion = 0
 )
 
@@ -48,13 +48,13 @@ var (
 	SLVersion_name = map[int32]string{
 		0: "SL_VERSION_UNUSED",
 		// Duplicate value: 0: "SL_MAJOR_VERSION",
-		11: "SL_MINOR_VERSION",
+		12: "SL_MINOR_VERSION",
 		// Duplicate value: 0: "SL_SUB_VERSION",
 	}
 	SLVersion_value = map[string]int32{
 		"SL_VERSION_UNUSED": 0,
 		"SL_MAJOR_VERSION":  0,
-		"SL_MINOR_VERSION":  11,
+		"SL_MINOR_VERSION":  12,
 		"SL_SUB_VERSION":    0,
 	}
 )
@@ -94,7 +94,7 @@ const file_sl_version_proto_rawDesc = "" +
 	"\tSLVersion\x12\x15\n" +
 	"\x11SL_VERSION_UNUSED\x10\x00\x12\x14\n" +
 	"\x10SL_MAJOR_VERSION\x10\x00\x12\x14\n" +
-	"\x10SL_MINOR_VERSION\x10\v\x12\x12\n" +
+	"\x10SL_MINOR_VERSION\x10\f\x12\x12\n" +
 	"\x0eSL_SUB_VERSION\x10\x00\x1a\x02\x10\x01BQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3"
 
 var (
