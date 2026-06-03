@@ -1,0 +1,258 @@
+// @file
+// @brief Server RPC proto file for Performance monitoring probing.
+// Declares an RPC that gets performance monitoring details.
+// ----------------------------------------------------------------
+//  Copyright (c) 2026 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
+
+//@defgroup Performance
+//@brief Performance monitoring service definitions.
+//Defines the RPC for programming performance-measurement sessions and
+//receiving notifications for those sessions.
+//@{
+service SLPerfMeasOper {
+    //@addtogroup Performance
+    //@{
+    //
+    // SLPerfMeasNotifStream is a single bidirectional stream that carries
+    // BOTH programming requests (create / delete / get-stats / get-info /
+    // flush-max-rtt, selected via SLPerfMeasReqMsgEntry.MsgType) AND
+    // asynchronous notifications (per-session UP/DOWN state changes,
+    // operation responses, and the SL_PERF_MEAS_SESSION_ALL_DOWN event).
+    //
+    // Lifecycle / ownership contract:
+    //
+    // 1. Session ownership.
+    //    A session created on a stream is owned by that stream. A given
+    //    server instance allows only one active SLPerfMeasNotifStream
+    //    client at a time; a second client connecting will be rejected.
+    //    Sessions are not shared across streams.
+    //
+    // 2. Subscribe-before-program.
+    //    Clients SHOULD open the stream before issuing any create
+    //    request, so that no UP/DOWN notifications are lost between
+    //    create and the first read on the stream.
+    //
+    // 3. Stream disconnect (client side).
+    //    On client disconnect or transport failure, the server sweeps
+    //    all sessions owned by that stream. On reconnect the client
+    //    MUST recreate any sessions it needs; nothing is preserved
+    //    across the disconnect.
+    //
+    // 4. PM (perf_meas) process disconnect.
+    //    If the underlying perf_meas process disconnects from the
+    //    server, the server emits SL_PERF_MEAS_SESSION_ALL_DOWN. Local
+    //    session state is retained; when PM reconnects, the server
+    //    replays all sessions to PM and resumes per-session UP/DOWN
+    //    notifications. No client action is required.
+    //
+    // 5. Server (emsd) restart / failover.
+    //    Sessions are NOT preserved across a server restart or HA
+    //    switchover. After the gRPC stream re-establishes, the client
+    //    MUST treat all previously created sessions as gone and
+    //    recreate them.
+    //
+    // 6. Reconciliation.
+    //    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
+    //    wait for per-session UP notifications (no recreate needed).
+    //    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+    //    sessions have been removed; the client MUST create a fresh
+    //    set of sessions (no replay/UP notifications will follow).
+    //
+    rpc SLPerfMeasNotifStream(stream SLPerfMeasReqMsg) returns (stream SLPerfMeasRespMsg);
+
+    //@}
+}
+
+// Message type for request and response
+enum SLPerfMeasMsgType {
+    // Reserved message type
+    SL_PERF_MEAS_MSG_RESERVED = 0;
+
+    // Request: Create a new session
+    // Response: Perf session creation success
+    SL_PERF_MEAS_CREATE_SESSION = 1;
+
+    // Request: Delete an existing session
+    // Response: Perf session deletion success
+    SL_PERF_MEAS_DELETE_SESSION = 2;
+
+    // Request: Get stats about a created session
+    // Response: Perf session get stats success
+    SL_PERF_MEAS_GET_STATS = 3;
+
+    // Request: Get info about a created session
+    // Response: Perf session get info success
+    SL_PERF_MEAS_GET_INFO = 4;
+
+    // Request: Flush MaxRtt from server
+    // Response: Perf Session flush MaxRtt success
+    SL_PERF_MEAS_FLUSH_MAX_RTT = 5;
+}
+
+// State (UP/DOWN) notification for session
+enum SLPerfMeasSessionState {
+    // Reserved  message type
+    SL_PERF_MEAS_STATE_RESERVED = 0;
+
+    // Perf session went down
+    SL_PERF_MEAS_SESSION_DOWN = 1;
+
+    // Perf session went up
+    SL_PERF_MEAS_SESSION_UP = 2;
+
+    // All perf session down (connection to perf_meas process down)
+    SL_PERF_MEAS_SESSION_ALL_DOWN = 3;
+
+    // All perf session deleted by perf_meas process
+    SL_PERF_MEAS_SESSION_ALL_DELETED = 4;
+}
+
+// Defines the parameters for a performance measurement session
+// All fields must be explicitly populated by the client, as no default values are assumed
+// An error response will be sent if any parameter is missing
+message SLPerfMeasMonitor {
+    // Perf Session Name
+    optional string PerfSessionName = 1;
+
+    // Source IP address
+    SLIpAddress Source = 2;
+
+    // Destination IP address
+    SLIpAddress Destination = 3;
+
+    // MPLS Label Stack. Must not be empty.
+    repeated uint32 LabelStack = 4;
+
+    // Probe interval in microseconds
+    optional uint64 ProbeInterval = 5;
+
+    // Total packet loss count before declaring session down
+    optional uint32 TimeoutCount = 6;
+
+    // Interface info.
+    SLInterface InterfaceInfo = 7;
+
+    // DSCP
+    optional uint32 DscpValue = 8;
+
+    // Next Hop IP
+    SLIpAddress NextHop = 9;
+}
+
+// Performance measurement statistics
+message SLPerfMeasStats {
+    // Current state of the session
+    SLPerfMeasSessionState State = 1;
+
+    // Number of probes sent
+    uint64 ProbesSent = 2;
+
+    // Number of responses received
+    uint64 ProbesReceived = 3;
+
+    // Minimum RTT in nanoseconds
+    uint64 MinRtt = 4;
+
+    // Maximum RTT in nanoseconds
+    uint64 MaxRtt = 5;
+
+    // Avg RTT in nanoseconds
+    uint64 AvgRtt = 6;
+}
+
+// Message entry sent from client
+message SLPerfMeasReqMsgEntry {
+    // OperationId. This can be used to correlate replies with requests.
+    uint64 OperationId = 1;
+
+    // The request type sent by client
+    SLPerfMeasMsgType MsgType = 2;
+
+    oneof Value {
+        // For get, flush Max RTT and delete only session name is required
+        string PerfSessionName = 3;
+
+        // Parameter details for session creation
+        SLPerfMeasMonitor Parameters = 4;
+    }
+}
+
+// Message request sent from client
+message SLPerfMeasReqMsg {
+    // Request entries
+    repeated SLPerfMeasReqMsgEntry Entries = 1;
+}
+
+// Performance Measurement Notification error response message entry
+message SLPerfMeasRespErrMsgEntry {
+    // OperationId for correlation
+    uint64 OperationId = 1;
+
+    // Error status
+    SLErrorStatus ErrStatus = 2;
+
+    // Perf Session Name
+    string PerfSessionName = 3;
+}
+
+// Performance Measurement Create, Delete, Get Info/Stats response message
+message SLPerfMeasRespDataMsgEntry {
+    // Type of response
+    SLPerfMeasMsgType MsgType = 1;
+
+    // Perf Session Name
+    string PerfSessionName = 2;
+
+    // The field is used to reflect the original OperationId set by the client
+    uint64 OperationId = 3;
+
+    // For get info/stats msg type
+    oneof Data {
+        // Stats of the session
+        SLPerfMeasStats Stats = 4;
+
+        // Info of the session
+        SLPerfMeasMonitor Info = 5;
+    }
+}
+
+// Performance Measurement UP/DOWN state change notification message
+message SLPerfMeasRespStateMsgEntry {
+    // Type of response
+    SLPerfMeasSessionState State = 1;
+
+    // Perf Session Name. Unset for global states
+    // (SL_PERF_MEAS_SESSION_ALL_DOWN, SL_PERF_MEAS_SESSION_ALL_DELETED).
+    optional string PerfSessionName = 2;
+}
+
+// Performance Measurement response message
+message SLPerfMeasRespMsgEntry {
+    oneof Event {
+        // This field carries error info, if any error occurs
+        // during request processing
+        SLPerfMeasRespErrMsgEntry Error = 1;
+
+        // This field carries the session related details
+        SLPerfMeasRespDataMsgEntry SessionDetail = 2;
+
+        // This field notifies state changes for PM Probe sessions
+        SLPerfMeasRespStateMsgEntry SessionState = 3;
+    }
+}
+
+// Message response sent from server
+message SLPerfMeasRespMsg {
+    // Response entries
+    repeated SLPerfMeasRespMsgEntry Entries = 1;
+}
+
+//@}
