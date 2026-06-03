@@ -84,6 +84,9 @@ type SLPerfMeasOperClient interface {
 	//  6. Reconciliation.
 	//     On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
 	//     wait for per-session UP notifications (no recreate needed).
+	//     On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+	//     sessions have been removed; the client MUST create a fresh
+	//     set of sessions (no replay/UP notifications will follow).
 	SLPerfMeasNotifStream(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[SLPerfMeasReqMsg, SLPerfMeasRespMsg], error)
 }
 
@@ -162,6 +165,9 @@ type SLPerfMeasOperServer interface {
 	//  6. Reconciliation.
 	//     On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
 	//     wait for per-session UP notifications (no recreate needed).
+	//     On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+	//     sessions have been removed; the client MUST create a fresh
+	//     set of sessions (no replay/UP notifications will follow).
 	SLPerfMeasNotifStream(grpc.BidiStreamingServer[SLPerfMeasReqMsg, SLPerfMeasRespMsg]) error
 	mustEmbedUnimplementedSLPerfMeasOperServer()
 }

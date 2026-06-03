@@ -922,7 +922,7 @@
     SL_SRTE_POLICY_EXCEED_MSG_SIZE = 0x1b008,\
     /* !!! Error codes for Performance Measurement objects. */\
     /* Performance Measurement session error */\
-    SL_PERF_MEAS_START_OFFSET = 0x1c000, \
+    SL_PERF_MEAS_START_OFFSET = 0x1c000,\
     /* Performance Measurement session creation failure */\
     SL_PERF_MEAS_SESSION_CREATE_FAILED = 0x1c001,\
     /* Performance Measurement session deletion failure */\

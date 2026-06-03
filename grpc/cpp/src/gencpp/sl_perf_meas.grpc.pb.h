@@ -93,6 +93,9 @@ class SLPerfMeasOper final {
     // 6. Reconciliation.
     //    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
     //    wait for per-session UP notifications (no recreate needed).
+    //    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+    //    sessions have been removed; the client MUST create a fresh
+    //    set of sessions (no replay/UP notifications will follow).
     //
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLPerfMeasReqMsg, ::service_layer::SLPerfMeasRespMsg>> SLPerfMeasNotifStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLPerfMeasReqMsg, ::service_layer::SLPerfMeasRespMsg>>(SLPerfMeasNotifStreamRaw(context));
@@ -150,6 +153,9 @@ class SLPerfMeasOper final {
       // 6. Reconciliation.
       //    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
       //    wait for per-session UP notifications (no recreate needed).
+      //    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+      //    sessions have been removed; the client MUST create a fresh
+      //    set of sessions (no replay/UP notifications will follow).
       //
       virtual void SLPerfMeasNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLPerfMeasReqMsg,::service_layer::SLPerfMeasRespMsg>* reactor) = 0;
     };
@@ -243,6 +249,9 @@ class SLPerfMeasOper final {
     // 6. Reconciliation.
     //    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
     //    wait for per-session UP notifications (no recreate needed).
+    //    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+    //    sessions have been removed; the client MUST create a fresh
+    //    set of sessions (no replay/UP notifications will follow).
     //
     virtual ::grpc::Status SLPerfMeasNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLPerfMeasRespMsg, ::service_layer::SLPerfMeasReqMsg>* stream);
   };

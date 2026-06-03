@@ -129,6 +129,9 @@ namespace ServiceLayer {
       /// 6. Reconciliation.
       ///    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
       ///    wait for per-session UP notifications (no recreate needed).
+      ///    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+      ///    sessions have been removed; the client MUST create a fresh
+      ///    set of sessions (no replay/UP notifications will follow).
       /// </summary>
       /// <param name="requestStream">Used for reading requests from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
@@ -214,6 +217,9 @@ namespace ServiceLayer {
       /// 6. Reconciliation.
       ///    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
       ///    wait for per-session UP notifications (no recreate needed).
+      ///    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+      ///    sessions have been removed; the client MUST create a fresh
+      ///    set of sessions (no replay/UP notifications will follow).
       /// </summary>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
@@ -269,6 +275,9 @@ namespace ServiceLayer {
       /// 6. Reconciliation.
       ///    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
       ///    wait for per-session UP notifications (no recreate needed).
+      ///    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+      ///    sessions have been removed; the client MUST create a fresh
+      ///    set of sessions (no replay/UP notifications will follow).
       /// </summary>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>

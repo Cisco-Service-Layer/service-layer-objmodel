@@ -62,6 +62,9 @@ service SLPerfMeasOper {
     // 6. Reconciliation.
     //    On receiving SL_PERF_MEAS_SESSION_ALL_DOWN the client should
     //    wait for per-session UP notifications (no recreate needed).
+    //    On receiving SL_PERF_MEAS_SESSION_ALL_DELETED all SL API-side
+    //    sessions have been removed; the client MUST create a fresh
+    //    set of sessions (no replay/UP notifications will follow).
     //
     rpc SLPerfMeasNotifStream(stream SLPerfMeasReqMsg) returns (stream SLPerfMeasRespMsg);
 
@@ -151,10 +154,10 @@ message SLPerfMeasStats {
 
     // Number of probes sent
     uint64 ProbesSent = 2;
-    
+
     // Number of responses received
     uint64 ProbesReceived = 3;
-    
+
     // Minimum RTT in nanoseconds
     uint64 MinRtt = 4;
 
@@ -253,4 +256,3 @@ message SLPerfMeasRespMsg {
 }
 
 //@}
-
