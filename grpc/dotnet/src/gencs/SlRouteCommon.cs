@@ -252,6 +252,8 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_UNDERLAY_LEVEL_DEFAULT")] SlUnderlayLevelDefault = 0,
     /// <summary>
     /// NHG will be programmed at a different stage to prevent flattening.
+    /// Every path in the PathList using this level must be connected (NexthopInterface must be set).
+    /// Non-connected paths are rejected.
     /// </summary>
     [pbr::OriginalName("SL_UNDERLAY_LEVEL_NO_FLATTENING")] SlUnderlayLevelNoFlattening = 1,
   }
@@ -5467,6 +5469,9 @@ namespace ServiceLayer {
     /// <summary>
     /// Outgoing interface name for the path.
     /// When this field is not set, the next hop is considered non-connected.
+    /// When the containing PathGroup has UnderlayLevel set to
+    /// SL_UNDERLAY_LEVEL_NO_FLATTENING, this field must be set on every path
+    /// in the PathList. The operation is rejected if any path is non-connected.
     /// For ENCAP_VXLAN, this field is not supported and will be ignored.
     /// The client should listen to interface state change API for create/delete
     /// and reprogram the route or PG.
@@ -6425,6 +6430,8 @@ namespace ServiceLayer {
     /// <summary>
     /// SLUnderlayLevels indicates the lookup stage at which the path group
     /// is programmed. This is relevant only when hierarchical lookup is required.
+    /// When set to SL_UNDERLAY_LEVEL_NO_FLATTENING, every path in the PathList
+    /// must include NexthopInterface.
     /// This is an optional field.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
