@@ -5467,6 +5467,8 @@ namespace ServiceLayer {
     /// <summary>
     /// Outgoing interface name for the path.
     /// When this field is not set, the next hop is considered non-connected.
+    /// See SLPathGroup.UnderlayLevel for the connected-path requirement when
+    /// SL_UNDERLAY_LEVEL_NO_FLATTENING is used.
     /// For ENCAP_VXLAN, this field is not supported and will be ignored.
     /// The client should listen to interface state change API for create/delete
     /// and reprogram the route or PG.
@@ -6425,6 +6427,8 @@ namespace ServiceLayer {
     /// <summary>
     /// SLUnderlayLevels indicates the lookup stage at which the path group
     /// is programmed. This is relevant only when hierarchical lookup is required.
+    /// If underlay level is set to SL_UNDERLAY_LEVEL_NO_FLATTENING, all paths
+    /// in the PathList must be connected next hops (NexthopInterface must be set).
     /// This is an optional field.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

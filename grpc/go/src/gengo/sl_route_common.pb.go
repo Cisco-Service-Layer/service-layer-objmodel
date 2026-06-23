@@ -1555,6 +1555,8 @@ type SLRoutePath struct {
 	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Outgoing interface name for the path.
 	// When this field is not set, the next hop is considered non-connected.
+	// See SLPathGroup.UnderlayLevel for the connected-path requirement when
+	// SL_UNDERLAY_LEVEL_NO_FLATTENING is used.
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
 	// The client should listen to interface state change API for create/delete
 	// and reprogram the route or PG.
@@ -1908,6 +1910,8 @@ type SLPathGroup struct {
 	PgFlags []SLRouteFlags `protobuf:"varint,4,rep,packed,name=PgFlags,proto3,enum=service_layer.SLRouteFlags" json:"PgFlags,omitempty"`
 	// SLUnderlayLevels indicates the lookup stage at which the path group
 	// is programmed. This is relevant only when hierarchical lookup is required.
+	// If underlay level is set to SL_UNDERLAY_LEVEL_NO_FLATTENING, all paths
+	// in the PathList must be connected next hops (NexthopInterface must be set).
 	// This is an optional field.
 	UnderlayLevel SLUnderlayLevels `protobuf:"varint,5,opt,name=UnderlayLevel,proto3,enum=service_layer.SLUnderlayLevels" json:"UnderlayLevel,omitempty"`
 	unknownFields protoimpl.UnknownFields
