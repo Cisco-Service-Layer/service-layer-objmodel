@@ -1,0 +1,21 @@
+"""
+Service Layer Object Model - Generated protobuf bindings for IOS-XR Service Layer API
+
+This module provides pre-generated bindings:
+- Go protobuf bindings (grpc/go/src/gengo/)  
+- Python protobuf bindings (grpc/python/src/genpy/)
+
+Note: 
+- Proto files are NOT compiled by this module
+- Bindings are pre-generated and committed (via 'make bindings')
+- Exported as filegroups - XR shell component wraps them in proper libraries
+
+Source: https://gh-xr.scm.engit.cisco.com/xr/service-layer-objmodel
+"""
+
+module(
+    name = "service_layer_objmodel",
+    version = "0.11.0-iosxr.0",
+)
+
+# No Bazel dependencies needed - only exports filegroups

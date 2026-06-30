@@ -48,6 +48,12 @@
     SL_AUTH_FAIL = 0xd,\
     /* Ack type not supported error. 0xe */\
     SL_ACK_TYPE_NOT_SUPPORTED = 0xe,\
+    /* No such client. */\
+    /* The specified client-id does not exist. 0xf */\
+    SL_NO_SUCH_CLIENT = 0xf,\
+    /* No entries found. */\
+    /* No entries are present matching the input parameters. 0x10 */\
+    SL_NO_ENTRIES_FOUND = 0x10,\
     /* !!! Error codes for Client INIT operations. */\
     /* Offset for INIT errors. 0x500 */\
     SL_INIT_START_OFFSET = 0x500,\
@@ -118,6 +124,9 @@
     /* IPv6 routes in VRF were played to Routing Information Base */\
     /* on a process restart or connection re-establishment. 0x2013 */\
     SL_VRF_V6_ROUTE_REPLAY_OK = 0x2013,\
+    /* Client Name specified in message does not match current */\
+    /* name used for this client. 0x2014 */\
+    SL_VRF_TABLE_CLIENT_NAME_MISMATCH = 0x2014,\
     /* !!! Error codes for Route operations. */\
     /* Offset for Route operation errors. 0x3000 */\
     SL_RPC_ROUTE_START_OFFSET = 0x3000,\
@@ -202,6 +211,8 @@
     SL_ROUTE_INVALID_FLAGS = 0x4014,\
     /* Invalid route priority. 0x4015 */\
     SL_ROUTE_INVALID_PRIORITY = 0x4015,\
+    /* Invalid route metric. 0x4016 */\
+    SL_ROUTE_INVALID_METRIC = 0x4016,\
     /* !!! Error codes for route path objects. */\
     /* Offset for route path errors. 0x5000 */\
     SL_PATH_START_OFFSET = 0x5000,\
@@ -264,6 +275,26 @@
     /* Path Encap type attribute does not match specified encapsulation. */\
     /* 0x501c */\
     SL_PATH_ENCAP_TYPE_MISMATCH = 0x501c,\
+    /* Path list mixes incompatible bitmap-FRR and index-FRR evidence. */\
+    /* 0x501d */\
+    SL_PATH_INVALID_PATH_LIST_MODEL = 0x501d,\
+    /* Duplicate path_index specified in the path list of a route. */\
+    /* 0x501e */\
+    SL_PATH_PRIMARY_INDEX_REPEATED = 0x501e,\
+    /* A path index value exceeds the maximum supported path-id range. */\
+    /* 0x501f */\
+    SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE = 0x501f,\
+    /* A backup index value exceeds the maximum supported path-id range. */\
+    /* 0x5020 */\
+    SL_PATH_BACKUP_INDEX_OUT_OF_RANGE = 0x5020,\
+    /* A path with pure backup flag set is not referenced by as a */\
+    /* backup by any other path in the same route. */\
+    /* 0x5021 */\
+    SL_PATH_BACKUP_FLAGGED_UNREFERENCED = 0x5021,\
+    /* A backup index in a path's backup index list equals the path's */\
+    /* own path_index (self-reference). */\
+    /* 0x5022 */\
+    SL_PATH_BACKUP_INDEX_SELF_REFERENCE = 0x5022,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -889,6 +920,140 @@
     SL_SRTE_POLICY_SERVICE_NOT_UP = 0x1b007,\
     /* Request message bigger than supported size. 0x1b008 */\
     SL_SRTE_POLICY_EXCEED_MSG_SIZE = 0x1b008,\
+    /* !!! Error codes for Performance Measurement objects. */\
+    /* Performance Measurement session error */\
+    SL_PERF_MEAS_START_OFFSET = 0x1c000,\
+    /* Performance Measurement session creation failure */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED = 0x1c001,\
+    /* Performance Measurement session deletion failure */\
+    SL_PERF_MEAS_SESSION_DELETE_FAILED = 0x1c002,\
+    /* Performance Measurement session get stats failure */\
+    SL_PERF_MEAS_SESSION_GET_STATS_FAILED = 0x1c003,\
+    /* Performance Measurement session get info failure */\
+    SL_PERF_MEAS_SESSION_GET_INFO_FAILED = 0x1c004,\
+    /* Request sent is not a valid request type */\
+    SL_PERF_MEAS_INVALID_REQUEST = 0x1c005,\
+    /* Performance Measurement session flush Max Rtt failure */\
+    SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED = 0x1c006,\
+    /* Performance Measurement session creation failed due to invalid source IP */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_SOURCE_IP = 0x1c007,\
+    /* Performance Measurement session creation failed due to invalid destination IP */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_DEST_IP = 0x1c008,\
+    /* Performance Measurement session creation failed due to invalid nexthop IP */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_NEXTHOP_IP = 0x1c009,\
+    /* Performance Measurement session creation failed due to invalid label stack */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_LABEL_STACK = 0x1c00a,\
+    /* Performance Measurement session creation failed due to invalid probe interval */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_PROBE_INTERVAL = 0x1c00b,\
+    /* Performance Measurement session creation failed due to invalid timeout count */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_TIMEOUT_COUNT = 0x1c00c,\
+    /* Performance Measurement session creation failed due to invalid DSCP */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_DSCP = 0x1c00d,\
+    /* Performance Measurement session creation failed due to invalid interface */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_INTERFACE = 0x1c00e,\
+    /* Performance Measurement session creation failed to send request to perf_meas process */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_PM_SEND_FAILED = 0x1c00f,\
+    /* Performance Measurement session creation failed due to internal error */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INTERNAL_ERROR = 0x1c010,\
+    /* Performance Measurement session deletion failed to send request to perf_meas process */\
+    SL_PERF_MEAS_SESSION_DELETE_FAILED_PM_SEND_FAILED = 0x1c011,\
+    /* Performance Measurement session deletion failed due to internal error */\
+    SL_PERF_MEAS_SESSION_DELETE_FAILED_INTERNAL_ERROR = 0x1c012,\
+    /* Performance Measurement session get stats failed to send request to perf_meas process */\
+    SL_PERF_MEAS_SESSION_GET_STATS_FAILED_PM_SEND_FAILED = 0x1c013,\
+    /* Performance Measurement session get stats failed due to internal error */\
+    SL_PERF_MEAS_SESSION_GET_STATS_FAILED_INTERNAL_ERROR = 0x1c014,\
+    /* Performance Measurement session get info failed to send request to perf_meas process */\
+    SL_PERF_MEAS_SESSION_GET_INFO_FAILED_PM_SEND_FAILED = 0x1c015,\
+    /* Performance Measurement session get info failed due to internal error */\
+    SL_PERF_MEAS_SESSION_GET_INFO_FAILED_INTERNAL_ERROR = 0x1c016,\
+    /* Performance Measurement flush max RTT failed to send request to perf_meas process */\
+    SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED_PM_SEND_FAILED = 0x1c017,\
+    /* Performance Measurement flush max RTT failed due to internal error */\
+    SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED_INTERNAL_ERROR = 0x1c018,\
+    /* Performance Measurement session not found for delete operation. 0x1c019 */\
+    SL_PERF_MEAS_SESSION_DELETE_FAILED_SESSION_NOT_FOUND = 0x1c019,\
+    /* Performance Measurement session not found for get stats operation. 0x1c01a */\
+    SL_PERF_MEAS_SESSION_GET_STATS_FAILED_SESSION_NOT_FOUND = 0x1c01a,\
+    /* Performance Measurement session not found for get info operation. 0x1c01b */\
+    SL_PERF_MEAS_SESSION_GET_INFO_FAILED_SESSION_NOT_FOUND = 0x1c01b,\
+    /* Performance Measurement session not found for flush operation. 0x1c01c */\
+    SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED_SESSION_NOT_FOUND = 0x1c01c,\
+    /* Performance Measurement session creation failed due to invalid session name. 0x1c01d */\
+    SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_SESSION_NAME = 0x1c01d,\
+    /* PM notification server not initialized */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_SERVER_NOT_INITIALIZED = 0x1c01e,\
+    /* PM notification client not found */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_CLIENT_NOT_FOUND = 0x1c01f,\
+    /* PM notification client not connected */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_CLIENT_NOT_CONNECTED = 0x1c020,\
+    /* PM message allocation failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_ALLOC_FAILED = 0x1c021,\
+    /* PM Parameter validation errors (returned by PM during session create) */\
+    /* PM rejected: session name invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_SESS_NAME_INVALID = 0x1c022,\
+    /* PM rejected: probe interval invalid (e.g., CPU session < 50ms) */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_PROBE_INTERVAL_INVALID = 0x1c023,\
+    /* PM rejected: timeout count invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_TIMEOUT_COUNT_INVALID = 0x1c024,\
+    /* PM rejected: TOS/DSCP value invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_TOS_DSCP_INVALID = 0x1c025,\
+    /* PM rejected: number of labels invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_NUM_LABELS_INVALID = 0x1c026,\
+    /* PM rejected: source address not found */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_SRC_ADDR_NOT_FOUND = 0x1c027,\
+    /* PM rejected: destination address not found */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_DEST_ADDR_NOT_FOUND = 0x1c028,\
+    /* PM rejected: nexthop not found */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_NEXTHOP_NOT_FOUND = 0x1c029,\
+    /* PM rejected: source address invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_SRC_ADDR_INVALID = 0x1c02a,\
+    /* PM rejected: destination address invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_DEST_ADDR_INVALID = 0x1c02b,\
+    /* PM rejected: nexthop address invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_NEXTHOP_INVALID = 0x1c02c,\
+    /* PM rejected: address type mismatch (src/dst/nexthop not same AF) */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_ADDR_TYPE_MISMATCH = 0x1c02d,\
+    /* PM rejected: output interface name invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_OUT_INTF_NAME_INVALID = 0x1c02e,\
+    /* PM Message validation errors */\
+    /* PM rejected: session name missing in message */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_SESS_NAME_MISSING = 0x1c02f,\
+    /* PM rejected: liveness state missing in message */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_LIVENESS_STATE_MISSING = 0x1c030,\
+    /* PM Server-level errors */\
+    /* PM internal: system in inconsistent state */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_SYSTEM_INCONSISTENT = 0x1c031,\
+    /* PM Session create notification errors */\
+    /* PM create failed: invalid parameters */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_INVALID_PARAMS = 0x1c032,\
+    /* PM create failed: interface handle (IFH) lookup failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_IM_IFH_GET_FAILED = 0x1c033,\
+    /* PM create failed: MAC address invalid */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_MAC_ADDR_INVALID = 0x1c034,\
+    /* PM create failed: delay-measurement DR create failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_CREATE_FAILED = 0x1c035,\
+    /* PM create failed: delay-measurement DR update failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_UPDATE_FAILED = 0x1c036,\
+    /* PM create failed: no memory for DR session */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_NOMEM = 0x1c037,\
+    /* PM create failed: DR session insert failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_INSERT_FAILED = 0x1c038,\
+    /* PM create failed: NPU offload failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_NPU_OFFLOAD_FAILED = 0x1c039,\
+    /* PM create failed: CPU session create failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_CPU_CREATE_FAILED = 0x1c03a,\
+    /* PM create failed: session setup failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_SESSION_SETUP_FAILED = 0x1c03b,\
+    /* PM Session get/flush notification errors */\
+    /* PM get/flush failed: interface not found */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_INTF_NOT_FOUND = 0x1c03c,\
+    /* PM get/flush failed: SCB (session control block) not found */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_SCB_NOT_FOUND = 0x1c03d,\
+    /* PM get/flush failed: liveness session not found */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_LIVENESS_NOT_FOUND = 0x1c03e,\
+    /* PM get/flush failed: counter update failed */\
+    SL_PERF_MEAS_PM_INTERNAL_ERROR_COUNTER_UPDATE_FAILED = 0x1c03f,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -946,6 +1111,14 @@
         },\
     {SL_ACK_TYPE_NOT_SUPPORTED ,\
         " Ack type not supported error.  "\
+        },\
+    {SL_NO_SUCH_CLIENT ,\
+        " No such client. "\
+        " The specified client-id does not exist.  "\
+        },\
+    {SL_NO_ENTRIES_FOUND ,\
+        " No entries found. "\
+        " No entries are present matching the input parameters.  "\
         },\
     {SL_INIT_START_OFFSET ,\
         " Offset for INIT errors.  "\
@@ -1037,6 +1210,10 @@
     {SL_VRF_V6_ROUTE_REPLAY_OK ,\
         " IPv6 routes in VRF were played to Routing Information Base "\
         " on a process restart or connection re-establishment.  "\
+        },\
+    {SL_VRF_TABLE_CLIENT_NAME_MISMATCH ,\
+        " Client Name specified in message does not match current "\
+        " name used for this client.  "\
         },\
     {SL_RPC_ROUTE_START_OFFSET ,\
         " Offset for Route operation errors.  "\
@@ -1155,6 +1332,9 @@
     {SL_ROUTE_INVALID_PRIORITY ,\
         " Invalid route priority.  "\
         },\
+    {SL_ROUTE_INVALID_METRIC ,\
+        " Invalid route metric.  "\
+        },\
     {SL_PATH_START_OFFSET ,\
         " Offset for route path errors.  "\
         },\
@@ -1243,6 +1423,32 @@
         },\
     {SL_PATH_ENCAP_TYPE_MISMATCH ,\
         " Path Encap type attribute does not match specified encapsulation. "\
+        "  "\
+        },\
+    {SL_PATH_INVALID_PATH_LIST_MODEL ,\
+        " Path list mixes incompatible bitmap-FRR and index-FRR evidence. "\
+        "  "\
+        },\
+    {SL_PATH_PRIMARY_INDEX_REPEATED ,\
+        " Duplicate path_index specified in the path list of a route. "\
+        "  "\
+        },\
+    {SL_PATH_PRIMARY_INDEX_OUT_OF_RANGE ,\
+        " A path index value exceeds the maximum supported path-id range. "\
+        "  "\
+        },\
+    {SL_PATH_BACKUP_INDEX_OUT_OF_RANGE ,\
+        " A backup index value exceeds the maximum supported path-id range. "\
+        "  "\
+        },\
+    {SL_PATH_BACKUP_FLAGGED_UNREFERENCED ,\
+        " A path with pure backup flag set is not referenced by as a "\
+        " backup by any other path in the same route. "\
+        "  "\
+        },\
+    {SL_PATH_BACKUP_INDEX_SELF_REFERENCE ,\
+        " A backup index in a path's backup index list equals the path's "\
+        " own path_index (self-reference). "\
         "  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
@@ -2134,6 +2340,203 @@
         },\
     {SL_SRTE_POLICY_EXCEED_MSG_SIZE ,\
         " Request message bigger than supported size.  "\
+        },\
+    {SL_PERF_MEAS_START_OFFSET ,\
+        " Performance Measurement session error "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED ,\
+        " Performance Measurement session creation failure "\
+        },\
+    {SL_PERF_MEAS_SESSION_DELETE_FAILED ,\
+        " Performance Measurement session deletion failure "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_STATS_FAILED ,\
+        " Performance Measurement session get stats failure "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_INFO_FAILED ,\
+        " Performance Measurement session get info failure "\
+        },\
+    {SL_PERF_MEAS_INVALID_REQUEST ,\
+        " Request sent is not a valid request type "\
+        },\
+    {SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED ,\
+        " Performance Measurement session flush Max Rtt failure "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_SOURCE_IP ,\
+        " Performance Measurement session creation failed due to invalid source IP "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_DEST_IP ,\
+        " Performance Measurement session creation failed due to invalid destination IP "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_NEXTHOP_IP ,\
+        " Performance Measurement session creation failed due to invalid nexthop IP "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_LABEL_STACK ,\
+        " Performance Measurement session creation failed due to invalid label stack "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_PROBE_INTERVAL ,\
+        " Performance Measurement session creation failed due to invalid probe interval "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_TIMEOUT_COUNT ,\
+        " Performance Measurement session creation failed due to invalid timeout count "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_DSCP ,\
+        " Performance Measurement session creation failed due to invalid DSCP "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_INTERFACE ,\
+        " Performance Measurement session creation failed due to invalid interface "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_PM_SEND_FAILED ,\
+        " Performance Measurement session creation failed to send request to perf_meas process "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INTERNAL_ERROR ,\
+        " Performance Measurement session creation failed due to internal error "\
+        },\
+    {SL_PERF_MEAS_SESSION_DELETE_FAILED_PM_SEND_FAILED ,\
+        " Performance Measurement session deletion failed to send request to perf_meas process "\
+        },\
+    {SL_PERF_MEAS_SESSION_DELETE_FAILED_INTERNAL_ERROR ,\
+        " Performance Measurement session deletion failed due to internal error "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_STATS_FAILED_PM_SEND_FAILED ,\
+        " Performance Measurement session get stats failed to send request to perf_meas process "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_STATS_FAILED_INTERNAL_ERROR ,\
+        " Performance Measurement session get stats failed due to internal error "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_INFO_FAILED_PM_SEND_FAILED ,\
+        " Performance Measurement session get info failed to send request to perf_meas process "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_INFO_FAILED_INTERNAL_ERROR ,\
+        " Performance Measurement session get info failed due to internal error "\
+        },\
+    {SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED_PM_SEND_FAILED ,\
+        " Performance Measurement flush max RTT failed to send request to perf_meas process "\
+        },\
+    {SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED_INTERNAL_ERROR ,\
+        " Performance Measurement flush max RTT failed due to internal error "\
+        },\
+    {SL_PERF_MEAS_SESSION_DELETE_FAILED_SESSION_NOT_FOUND ,\
+        " Performance Measurement session not found for delete operation.  "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_STATS_FAILED_SESSION_NOT_FOUND ,\
+        " Performance Measurement session not found for get stats operation.  "\
+        },\
+    {SL_PERF_MEAS_SESSION_GET_INFO_FAILED_SESSION_NOT_FOUND ,\
+        " Performance Measurement session not found for get info operation.  "\
+        },\
+    {SL_PERF_MEAS_FLUSH_MAX_RTT_FAILED_SESSION_NOT_FOUND ,\
+        " Performance Measurement session not found for flush operation.  "\
+        },\
+    {SL_PERF_MEAS_SESSION_CREATE_FAILED_INVALID_SESSION_NAME ,\
+        " Performance Measurement session creation failed due to invalid session name.  "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_SERVER_NOT_INITIALIZED ,\
+        " PM notification server not initialized "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_CLIENT_NOT_FOUND ,\
+        " PM notification client not found "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_CLIENT_NOT_CONNECTED ,\
+        " PM notification client not connected "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_ALLOC_FAILED ,\
+        " PM message allocation failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_SESS_NAME_INVALID ,\
+        " PM Parameter validation errors (returned by PM during session create) "\
+        " PM rejected: session name invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_PROBE_INTERVAL_INVALID ,\
+        " PM rejected: probe interval invalid (e.g., CPU session < 50ms) "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_TIMEOUT_COUNT_INVALID ,\
+        " PM rejected: timeout count invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_TOS_DSCP_INVALID ,\
+        " PM rejected: TOS/DSCP value invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_NUM_LABELS_INVALID ,\
+        " PM rejected: number of labels invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_SRC_ADDR_NOT_FOUND ,\
+        " PM rejected: source address not found "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_DEST_ADDR_NOT_FOUND ,\
+        " PM rejected: destination address not found "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_NEXTHOP_NOT_FOUND ,\
+        " PM rejected: nexthop not found "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_SRC_ADDR_INVALID ,\
+        " PM rejected: source address invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_DEST_ADDR_INVALID ,\
+        " PM rejected: destination address invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_NEXTHOP_INVALID ,\
+        " PM rejected: nexthop address invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_ADDR_TYPE_MISMATCH ,\
+        " PM rejected: address type mismatch (src/dst/nexthop not same AF) "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_PARAM_OUT_INTF_NAME_INVALID ,\
+        " PM rejected: output interface name invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_SESS_NAME_MISSING ,\
+        " PM Message validation errors "\
+        " PM rejected: session name missing in message "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_MSG_LIVENESS_STATE_MISSING ,\
+        " PM rejected: liveness state missing in message "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_SYSTEM_INCONSISTENT ,\
+        " PM Server-level errors "\
+        " PM internal: system in inconsistent state "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_INVALID_PARAMS ,\
+        " PM Session create notification errors "\
+        " PM create failed: invalid parameters "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_IM_IFH_GET_FAILED ,\
+        " PM create failed: interface handle (IFH) lookup failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_MAC_ADDR_INVALID ,\
+        " PM create failed: MAC address invalid "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_CREATE_FAILED ,\
+        " PM create failed: delay-measurement DR create failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_UPDATE_FAILED ,\
+        " PM create failed: delay-measurement DR update failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_NOMEM ,\
+        " PM create failed: no memory for DR session "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_DR_SESSION_INSERT_FAILED ,\
+        " PM create failed: DR session insert failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_NPU_OFFLOAD_FAILED ,\
+        " PM create failed: NPU offload failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_CPU_CREATE_FAILED ,\
+        " PM create failed: CPU session create failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_SESSION_SETUP_FAILED ,\
+        " PM create failed: session setup failed "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_INTF_NOT_FOUND ,\
+        " PM Session get/flush notification errors "\
+        " PM get/flush failed: interface not found "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_SCB_NOT_FOUND ,\
+        " PM get/flush failed: SCB (session control block) not found "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_LIVENESS_NOT_FOUND ,\
+        " PM get/flush failed: liveness session not found "\
+        },\
+    {SL_PERF_MEAS_PM_INTERNAL_ERROR_COUNTER_UPDATE_FAILED ,\
+        " PM get/flush failed: counter update failed "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

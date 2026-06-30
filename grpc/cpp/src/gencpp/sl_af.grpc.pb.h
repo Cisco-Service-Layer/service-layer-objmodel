@@ -55,9 +55,13 @@ namespace service_layer {
 // If there are multiple clients intending to program the network
 // element using this API, the clients initiating a programming or get
 // RPC MUST pass a gRPC-context metadata identifying themselves.
+// Metadata supports the following key-value pairs:
+// "iosxr-slapi-clientid" : <numeric string number between 0 and 65535>
+// "iosxr-slapi-clientname": <UTF-8 encoded printable client name of max
+// length 32 characters>
 // The client application MUST set the gRPC metadata key
-// named "iosxr-slapi-clientid" with a numeric string holding a
-// number between 0 and 65535.
+// "iosxr-slapi-clientid" which is mandatory. The optional gRPC metadata key
+// "iosxr-slapi-clientname" may be specified to enable operational visibility.
 //
 // Each client application MUST use a unique client ID identifying itself
 // that is separate from other clients programming the server. If there
@@ -67,6 +71,7 @@ namespace service_layer {
 // If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
 // a default client id of 0 for that RPC invocation and associates
 // objects programmed by that RPC with the default client id of 0.
+// "iosxr-slapi-clientname" gRPC metadata is optional.
 //
 // The co-ordination of the ClientId amongst these instances is outside
 // the scope of this specification.
@@ -194,8 +199,10 @@ class SLAF final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>>(PrepareAsyncSLAFOpRaw(context, request, cq));
     }
     //
-    // Stream object operations
+    // Stream object operations.
     //
+    // The client MUST keep it's receive and send side of the stream up as long as there is
+    // interest in the responses.
     //
     // SLAFMsg.Oper = SL_OBJOP_ADD:
     //     Object add. Fails if the objects already exists and is not stale.
@@ -236,7 +243,7 @@ class SLAF final {
     // notifications are scoped to the RPC. On a RPC disconnection,
     // the client should re-establish the RPC and re-program
     // the notification requests.
-    // The caller MUST keep the RPC up as long as there is
+    // The client MUST keep it's receive and send side of the stream up as long as there is
     // interest in the notifications.
     //
     // For route redistribution, this call is used to get a stream
@@ -342,8 +349,10 @@ class SLAF final {
       virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       //
-      // Stream object operations
+      // Stream object operations.
       //
+      // The client MUST keep it's receive and send side of the stream up as long as there is
+      // interest in the responses.
       //
       // SLAFMsg.Oper = SL_OBJOP_ADD:
       //     Object add. Fails if the objects already exists and is not stale.
@@ -368,7 +377,7 @@ class SLAF final {
       // notifications are scoped to the RPC. On a RPC disconnection,
       // the client should re-establish the RPC and re-program
       // the notification requests.
-      // The caller MUST keep the RPC up as long as there is
+      // The client MUST keep it's receive and send side of the stream up as long as there is
       // interest in the notifications.
       //
       // For route redistribution, this call is used to get a stream
@@ -587,8 +596,10 @@ class SLAF final {
     //     Delete of a non-existant object is returned as success.
     virtual ::grpc::Status SLAFOp(::grpc::ServerContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response);
     //
-    // Stream object operations
+    // Stream object operations.
     //
+    // The client MUST keep it's receive and send side of the stream up as long as there is
+    // interest in the responses.
     //
     // SLAFMsg.Oper = SL_OBJOP_ADD:
     //     Object add. Fails if the objects already exists and is not stale.
@@ -613,7 +624,7 @@ class SLAF final {
     // notifications are scoped to the RPC. On a RPC disconnection,
     // the client should re-establish the RPC and re-program
     // the notification requests.
-    // The caller MUST keep the RPC up as long as there is
+    // The client MUST keep it's receive and send side of the stream up as long as there is
     // interest in the notifications.
     //
     // For route redistribution, this call is used to get a stream

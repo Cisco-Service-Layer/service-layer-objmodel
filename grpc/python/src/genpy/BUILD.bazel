@@ -1,0 +1,23 @@
+# Copyright (c) 2025 by Cisco Systems, Inc.
+# All rights reserved.
+
+"""
+Service Layer Python Protobuf Bindings
+
+Generated Python code from Service Layer proto files.
+Exported as raw source files for consumption by XR build system.
+"""
+
+# Export all individual .py files for direct consumption
+exports_files(
+    glob(["*.py"]),
+    visibility = ["//visibility:public"],
+)
+
+# Export generated Python source files as a filegroup (for convenience)
+filegroup(
+    name = "genpy_srcs",
+    srcs = glob(["*.py"]),
+    visibility = ["//visibility:public"],
+)
+

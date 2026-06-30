@@ -17,17 +17,24 @@ RUN . /opt/venv/bin/activate
 COPY grpc/python/requirements.txt /tmp
 RUN pip3 install -r /tmp/requirements.txt
 
-ARG GO_VER=1.19
+ARG GO_VER=1.24.3
 ARG WS=/ws
 RUN mkdir -p ${WS}
 WORKDIR ${WS}
-ARG PROTOC_VER=3.18.3
+ARG PROTOC_VER=32.0
 
 # Install GO binary https://go.dev/doc/install
 RUN wget -qO- https://golang.org/dl/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
 
 #Ensure PATH has GO binary path
 ENV PATH="${PATH}:/usr/local/go/bin"
+
+# Allow callers to override Go module proxy and checksum settings, while
+# providing sane defaults for public environments.
+ARG GOPROXY=https://proxy.golang.org,direct
+ARG GOSUMDB=sum.golang.org
+ENV GOPROXY="${GOPROXY}"
+ENV GOSUMDB="${GOSUMDB}"
 
 # Avoid timezone prompts
 ENV DEBIAN_FRONTEND=noninteractive
@@ -49,8 +56,8 @@ RUN unzip protoc-${PROTOC_VER}-linux-x86_64.zip -d /usr/local
 # Install protoc-gen-go and protoc-gen-go-grpc
 # Reference https://grpc.io/docs/languages/go/quickstart
 
-RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
-RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.7
+RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1
 
 # Above were installed in $HOME/go, since this is running as root
 ENV PATH="${PATH}:/root/go/bin"

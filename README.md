@@ -94,6 +94,19 @@ grpc/python/src/genpy
 grpc/cpp/src/gencpp
 grpc/dotnet/src/gencs
 ```
+### Go Module Identity
+
+The generated Go bindings under `grpc/go/src/gengo` are intended to behave as a
+normal Go module. The module path is:
+
+```
+github.com/Cisco-Service-Layer/service-layer-objmodel/grpc/go/src/gengo
+```
+
+This allows the generated bindings to participate more cleanly in TPS and
+future XR Go dependency workflows. The generated package name remains
+`service_layer`.
+
 The bindings can also be generated manually using protoc in an environment with the correct toolchain versions. The toolchain versions in the Dockerfile:
 * GO_VER: Go version
 * GRPC_VER: gRPC version
@@ -200,3 +213,10 @@ This will generate html documentation in grpc/dotnet/docs/html/
 
 We hope that the above was useful quick overview about the Service Layer API. We recommend that the reader go over the Python quick tutorial first and then go over the .proto files under grpc/protos (or look at the generated .html pages - these are not kept in this repo, but can be auto-generated from this repo).
 
+## Notes
+
+In proto3, if the message field is implicit, and it is set to its default value, proto3 will not serialize this field and it will be omitted from the message payload. This is standard behavior due to the proto3 serialization rules and does not require any special handling in client applications. For more information, see the official documentation: <https://protobuf.dev/programming-guides/proto3/>
+
+For example, in the context of `SLAFGetMsgRsp` [grpc/protos/sl_af.proto](grpc/protos/sl_af.proto), if the `ClientID` field is set to 0, the `ClientID` field will not appear in the serialized response message. For any other client ID value, the field will be included in the response.
+
+Please note, this is a feature of the underlying technology (gRPC/proto3) and not specific to the SL-API. This note is included for clarity.

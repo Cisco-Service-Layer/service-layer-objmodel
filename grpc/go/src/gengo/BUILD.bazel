@@ -1,0 +1,36 @@
+# Copyright (c) 2025 by Cisco Systems, Inc.
+# All rights reserved.
+
+"""
+Service Layer Go Protobuf Bindings
+
+Generated Go code from Service Layer proto files.
+Exported as individual files - XR shell component wraps in xr_go_library.
+"""
+
+# Export all generated Go source files individually
+# This allows XR shell component to reference them in xr_go_library srcs
+exports_files(
+    glob(
+        ["*.go"],
+        exclude = ["*_test.go"],
+    ),
+    visibility = ["//visibility:public"],
+)
+
+# Also export as filegroup for convenience
+filegroup(
+    name = "slpb_srcs",
+    srcs = glob(
+        ["*.go"],
+        exclude = ["*_test.go"],
+    ),
+    visibility = ["//visibility:public"],
+)
+
+# Export go.mod for dependency information
+exports_files(
+    ["go.mod", "go.sum"],
+    visibility = ["//visibility:public"],
+)
+

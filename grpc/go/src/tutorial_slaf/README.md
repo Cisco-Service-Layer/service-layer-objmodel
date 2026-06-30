@@ -95,12 +95,12 @@ First we will showcase the options the tutorial provides, and then show how to b
 
 | Argument | Description |
 | --- | --- |
-| mpls            | Test MPLS vertical (default false) |
-| start_label     | Starting label (default 12000) |
-| out_label       | Out label (default 20000) |
-| num_labels      | Number of labels (default 1000) |
-| num_paths       | Number of paths (default 1) |
-| max_if_idx      | Increment the last index of the interface name for each elsp up to this number (default 0) |
+| mpls                  | Test MPLS vertical (default false) |
+| entry_key_label       | The starting entry key label (default 12000) |
+| remote_label_stack    | The starting label added to the remote label stack (default 20000) |
+| num_labels            | Number of labels (default 1000) |
+| num_paths             | Number of paths (default 1) |
+| max_if_idx            | Increment the last index of the interface name (default 0) |
 
 ##### PG Testing
 
@@ -125,7 +125,7 @@ First we will showcase the options the tutorial provides, and then show how to b
 | ack_cadence       | Cadence of hw programming responses: SL_RSP_CONTINUOUS(0), SL_RSP_JUST_ONCE(1), SL_RSP_ONCE_EACH(2), SL_RSP_NONE(3) (default ) |
 | route_oper        | Route Operation: Add(1), Update(2), Delete(3) (default 0) |
 | vrf_reg_oper      | VRF registration Operation: Reg(1), Unregister(2), EOF(3) (default 0) |
-| route_flag        | Control programming of the route/PG to RIB: SL_ROUTE_FLAG_RESERVED(0), SL_ROUTE_FLAG_PREFER_OVER_LDP(1), SL_ROUTE_FLAG_DISABLE_LABEL_MERGE(2), SL_ROUTE_FLAG_VIABLE_PATHS_ONLY(3), SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH(4) (default 0) |
+| route_flag        | Control programming of the route/PG to RIB: SL_ROUTE_FLAG_PREFER_OVER_LDP(1), SL_ROUTE_FLAG_DISABLE_LABEL_MERGE(2), SL_ROUTE_FLAG_VIABLE_PATHS_ONLY(3), SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH(4) (default not set) |
 
 ##### Get Testing
 
@@ -212,8 +212,8 @@ MPLS Example:
     $ ./tutorial_slaf -mpls -num_labels 1000 -route_oper 1 -vrf_reg_oper 1 -username username -password password -stream_case -next_hop_ip 11.0.0.0 -auto_inc_nhip -ack_type 1
     Deleting 35 labels with unary RPC. Print out any responses and debug messages:
     $ ./tutorial_slaf -mpls -num_labels 35 -route_oper 3 -vrf_reg_oper 1 -username username -password password -debug
-    Adding 2 Label where the start label is 25000 and the out label is 26000 and print out the debug messages:
-    $ ./tutorial_slaf -mpls -num_labels 2 -route_oper 1 -vrf_reg_oper 1 -start_label 25000 -out_label 26000 -username username -password password -debug
+    Adding 2 Label where the start label is 25000 and the label for label stack is 26000 and print out the debug messages:
+    $ ./tutorial_slaf -mpls -num_labels 2 -route_oper 1 -vrf_reg_oper 1 -entry_key_label 25000 -remote_label_stack 26000 -username username -password password -debug
 
 Path Group Example:  
 For purposes of this tutorial, we showcase how to create pg for ipv4 routes.  

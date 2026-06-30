@@ -137,6 +137,7 @@ constexpr SLSrPolicyAttributes::SLSrPolicyAttributes(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : srv6_bsids_()
   , mpls_bsid_(nullptr)
+  , srv6_attrs_(nullptr)
   , transit_eligible_(false)
   , dataplane_(0)
 
@@ -241,8 +242,20 @@ struct SLSrSrv6DynamicBindingSIDDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrSrv6DynamicBindingSIDDefaultTypeInternal _SLSrSrv6DynamicBindingSID_default_instance_;
+constexpr SLSrSrv6PolicyAttributes::SLSrSrv6PolicyAttributes(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : install_final_node_sid_(false){}
+struct SLSrSrv6PolicyAttributesDefaultTypeInternal {
+  constexpr SLSrSrv6PolicyAttributesDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLSrSrv6PolicyAttributesDefaultTypeInternal() {}
+  union {
+    SLSrSrv6PolicyAttributes _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrSrv6PolicyAttributesDefaultTypeInternal _SLSrSrv6PolicyAttributes_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fsrte_5fpolicy_2eproto[17];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fsrte_5fpolicy_2eproto[18];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto = nullptr;
 
@@ -329,6 +342,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyAttributes, mpls_bsid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyAttributes, srv6_bsids_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyAttributes, profile_id_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyAttributes, srv6_attrs_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrCandidatePath, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrCandidatePath, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -378,6 +392,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6BindingSID, type_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrMPLSBindingSID, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrMPLSBindingSID, _internal_metadata_),
@@ -394,6 +409,13 @@ const uint32_t TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6DynamicBindingSID, srv6_endpoint_behavior_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6PolicyAttributes, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSrv6PolicyAttributes, install_final_node_sid_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::service_layer::SLSrPolicyMsg)},
@@ -406,13 +428,14 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 55, -1, -1, sizeof(::service_layer::SLSrStartOfReplay)},
   { 61, -1, -1, sizeof(::service_layer::SLSrPolicy)},
   { 71, -1, -1, sizeof(::service_layer::SLSrPolicyAttributes)},
-  { 82, 94, -1, sizeof(::service_layer::SLSrCandidatePath)},
-  { 99, -1, -1, sizeof(::service_layer::SLSrExplicitCP)},
-  { 107, -1, -1, sizeof(::service_layer::SLSrDynamicCP)},
-  { 115, -1, -1, sizeof(::service_layer::SLSrConstraints)},
-  { 124, -1, -1, sizeof(::service_layer::SLSrSrv6BindingSID)},
-  { 132, 139, -1, sizeof(::service_layer::SLSrMPLSBindingSID)},
-  { 140, -1, -1, sizeof(::service_layer::SLSrSrv6DynamicBindingSID)},
+  { 83, 95, -1, sizeof(::service_layer::SLSrCandidatePath)},
+  { 100, -1, -1, sizeof(::service_layer::SLSrExplicitCP)},
+  { 108, -1, -1, sizeof(::service_layer::SLSrDynamicCP)},
+  { 116, -1, -1, sizeof(::service_layer::SLSrConstraints)},
+  { 125, -1, -1, sizeof(::service_layer::SLSrSrv6BindingSID)},
+  { 134, 141, -1, sizeof(::service_layer::SLSrMPLSBindingSID)},
+  { 142, -1, -1, sizeof(::service_layer::SLSrSrv6DynamicBindingSID)},
+  { 149, -1, -1, sizeof(::service_layer::SLSrSrv6PolicyAttributes)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -433,6 +456,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrSrv6BindingSID_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrMPLSBindingSID_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrSrv6DynamicBindingSID_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrSrv6PolicyAttributes_default_instance_),
 };
 
 const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -461,46 +485,51 @@ const char descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto[] PROTOBUF_SECTI
   "tion_id\030\001 \001(\004\022)\n\003key\030\002 \001(\0132\034.service_lay"
   "er.SLSrPolicyKey\0222\n\005attrs\030\003 \001(\0132#.servic"
   "e_layer.SLSrPolicyAttributes\022-\n\003CPs\030\004 \003("
-  "\0132 .service_layer.SLSrCandidatePath\"\342\001\n\024"
+  "\0132 .service_layer.SLSrCandidatePath\"\237\002\n\024"
   "SLSrPolicyAttributes\022\030\n\020transit_eligible"
   "\030\002 \001(\010\022/\n\tdataplane\030\003 \001(\0162\034.service_laye"
   "r.SLSrDataplane\0224\n\tmpls_bsid\030\004 \001(\0132!.ser"
   "vice_layer.SLSrMPLSBindingSID\0225\n\nsrv6_bs"
   "ids\030\005 \003(\0132!.service_layer.SLSrSrv6Bindin"
-  "gSID\022\022\n\nprofile_id\030\006 \001(\r\"\345\001\n\021SLSrCandida"
-  "tePath\0220\n\003key\030\002 \001(\0132#.service_layer.SLSr"
-  "CandidatePathKey\022\014\n\004name\030\003 \001(\t\022\027\n\nprefer"
-  "ence\030\004 \001(\rH\001\210\001\001\022/\n\007dynamic\030\005 \001(\0132\034.servi"
-  "ce_layer.SLSrDynamicCPH\000\0221\n\010explicit\030\006 \001"
-  "(\0132\035.service_layer.SLSrExplicitCPH\000B\004\n\002C"
-  "PB\r\n\013_preference\"[\n\016SLSrExplicitCP\0224\n\014se"
-  "gment_list\030\001 \003(\0132\036.service_layer.SLSrSeg"
-  "mentList\022\023\n\013metric_type\030\003 \001(\r\"Y\n\rSLSrDyn"
-  "amicCP\022\023\n\013metric_type\030\001 \001(\r\0223\n\013constrain"
-  "ts\030\002 \001(\0132\036.service_layer.SLSrConstraints"
-  "\"\273\001\n\017SLSrConstraints\0221\n\naffinities\030\001 \001(\013"
-  "2\035.service_layer.SLSrAffinities\0226\n\rsegme"
-  "nt_rules\030\002 \001(\0132\037.service_layer.SLSrSegme"
-  "ntRules\022=\n\013upper_bound\030\003 \001(\0132(.service_l"
-  "ayer.SLSrUpperBoundConstraints\"Y\n\022SLSrSr"
-  "v6BindingSID\022;\n\007dynamic\030\002 \001(\0132(.service_"
-  "layer.SLSrSrv6DynamicBindingSIDH\000B\006\n\004typ"
-  "e\":\n\022SLSrMPLSBindingSID\022\026\n\tmpls_bsid\030\001 \001"
-  "(\rH\000\210\001\001B\014\n\n_mpls_bsid\";\n\031SLSrSrv6Dynamic"
-  "BindingSID\022\036\n\026srv6_endpoint_behavior\030\001 \001"
-  "(\r2^\n\014SLSrtePolicy\022N\n\014SLSrPolicyOp\022\034.ser"
-  "vice_layer.SLSrPolicyMsg\032\034.service_layer"
-  ".SLSrPolicyRsp(\0010\001BQZOgithub.com/Cisco-s"
-  "ervice-layer/service-layer-objmodel/grpc"
-  "/protos;service_layerb\006proto3"
+  "gSID\022\022\n\nprofile_id\030\006 \001(\r\022;\n\nsrv6_attrs\030\007"
+  " \001(\0132\'.service_layer.SLSrSrv6PolicyAttri"
+  "butes\"\345\001\n\021SLSrCandidatePath\0220\n\003key\030\002 \001(\013"
+  "2#.service_layer.SLSrCandidatePathKey\022\014\n"
+  "\004name\030\003 \001(\t\022\027\n\npreference\030\004 \001(\rH\001\210\001\001\022/\n\007"
+  "dynamic\030\005 \001(\0132\034.service_layer.SLSrDynami"
+  "cCPH\000\0221\n\010explicit\030\006 \001(\0132\035.service_layer."
+  "SLSrExplicitCPH\000B\004\n\002CPB\r\n\013_preference\"[\n"
+  "\016SLSrExplicitCP\0224\n\014segment_list\030\001 \003(\0132\036."
+  "service_layer.SLSrSegmentList\022\023\n\013metric_"
+  "type\030\003 \001(\r\"Y\n\rSLSrDynamicCP\022\023\n\013metric_ty"
+  "pe\030\001 \001(\r\0223\n\013constraints\030\002 \001(\0132\036.service_"
+  "layer.SLSrConstraints\"\273\001\n\017SLSrConstraint"
+  "s\0221\n\naffinities\030\001 \001(\0132\035.service_layer.SL"
+  "SrAffinities\0226\n\rsegment_rules\030\002 \001(\0132\037.se"
+  "rvice_layer.SLSrSegmentRules\022=\n\013upper_bo"
+  "und\030\003 \001(\0132(.service_layer.SLSrUpperBound"
+  "Constraints\"\213\001\n\022SLSrSrv6BindingSID\0220\n\010ex"
+  "plicit\030\001 \001(\0132\034.service_layer.SLSRv6SIDIn"
+  "foH\000\022;\n\007dynamic\030\002 \001(\0132(.service_layer.SL"
+  "SrSrv6DynamicBindingSIDH\000B\006\n\004type\":\n\022SLS"
+  "rMPLSBindingSID\022\026\n\tmpls_bsid\030\001 \001(\rH\000\210\001\001B"
+  "\014\n\n_mpls_bsid\";\n\031SLSrSrv6DynamicBindingS"
+  "ID\022\036\n\026srv6_endpoint_behavior\030\001 \001(\r\":\n\030SL"
+  "SrSrv6PolicyAttributes\022\036\n\026install_final_"
+  "node_sid\030\001 \001(\0102^\n\014SLSrtePolicy\022N\n\014SLSrPo"
+  "licyOp\022\034.service_layer.SLSrPolicyMsg\032\034.s"
+  "ervice_layer.SLSrPolicyRsp(\0010\001BQZOgithub"
+  ".com/Cisco-service-layer/service-layer-o"
+  "bjmodel/grpc/protos;service_layerb\006proto"
+  "3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps[1] = {
   &::descriptor_table_sl_5fsr_5fcommon_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpolicy_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpolicy_2eproto = {
-  false, false, 2269, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
-  &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 1, 17,
+  false, false, 2441, descriptor_table_protodef_sl_5fsrte_5fpolicy_2eproto, "sl_srte_policy.proto", 
+  &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once, descriptor_table_sl_5fsrte_5fpolicy_2eproto_deps, 1, 18,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpolicy_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpolicy_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpolicy_2eproto, file_level_service_descriptors_sl_5fsrte_5fpolicy_2eproto,
 };
@@ -2407,11 +2436,16 @@ void SLSrPolicy::InternalSwap(SLSrPolicy* other) {
 class SLSrPolicyAttributes::_Internal {
  public:
   static const ::service_layer::SLSrMPLSBindingSID& mpls_bsid(const SLSrPolicyAttributes* msg);
+  static const ::service_layer::SLSrSrv6PolicyAttributes& srv6_attrs(const SLSrPolicyAttributes* msg);
 };
 
 const ::service_layer::SLSrMPLSBindingSID&
 SLSrPolicyAttributes::_Internal::mpls_bsid(const SLSrPolicyAttributes* msg) {
   return *msg->mpls_bsid_;
+}
+const ::service_layer::SLSrSrv6PolicyAttributes&
+SLSrPolicyAttributes::_Internal::srv6_attrs(const SLSrPolicyAttributes* msg) {
+  return *msg->srv6_attrs_;
 }
 SLSrPolicyAttributes::SLSrPolicyAttributes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -2431,6 +2465,11 @@ SLSrPolicyAttributes::SLSrPolicyAttributes(const SLSrPolicyAttributes& from)
     mpls_bsid_ = new ::service_layer::SLSrMPLSBindingSID(*from.mpls_bsid_);
   } else {
     mpls_bsid_ = nullptr;
+  }
+  if (from._internal_has_srv6_attrs()) {
+    srv6_attrs_ = new ::service_layer::SLSrSrv6PolicyAttributes(*from.srv6_attrs_);
+  } else {
+    srv6_attrs_ = nullptr;
   }
   ::memcpy(&transit_eligible_, &from.transit_eligible_,
     static_cast<size_t>(reinterpret_cast<char*>(&profile_id_) -
@@ -2455,6 +2494,7 @@ SLSrPolicyAttributes::~SLSrPolicyAttributes() {
 inline void SLSrPolicyAttributes::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete mpls_bsid_;
+  if (this != internal_default_instance()) delete srv6_attrs_;
 }
 
 void SLSrPolicyAttributes::ArenaDtor(void* object) {
@@ -2478,6 +2518,10 @@ void SLSrPolicyAttributes::Clear() {
     delete mpls_bsid_;
   }
   mpls_bsid_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && srv6_attrs_ != nullptr) {
+    delete srv6_attrs_;
+  }
+  srv6_attrs_ = nullptr;
   ::memset(&transit_eligible_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&profile_id_) -
       reinterpret_cast<char*>(&transit_eligible_)) + sizeof(profile_id_));
@@ -2532,6 +2576,14 @@ const char* SLSrPolicyAttributes::_InternalParse(const char* ptr, ::PROTOBUF_NAM
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           profile_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_srv6_attrs(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2600,6 +2652,14 @@ uint8_t* SLSrPolicyAttributes::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_profile_id(), target);
   }
 
+  // .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
+  if (this->_internal_has_srv6_attrs()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::srv6_attrs(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2628,6 +2688,13 @@ size_t SLSrPolicyAttributes::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *mpls_bsid_);
+  }
+
+  // .service_layer.SLSrSrv6PolicyAttributes srv6_attrs = 7;
+  if (this->_internal_has_srv6_attrs()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *srv6_attrs_);
   }
 
   // bool transit_eligible = 2;
@@ -2671,6 +2738,9 @@ void SLSrPolicyAttributes::MergeFrom(const SLSrPolicyAttributes& from) {
   srv6_bsids_.MergeFrom(from.srv6_bsids_);
   if (from._internal_has_mpls_bsid()) {
     _internal_mutable_mpls_bsid()->::service_layer::SLSrMPLSBindingSID::MergeFrom(from._internal_mpls_bsid());
+  }
+  if (from._internal_has_srv6_attrs()) {
+    _internal_mutable_srv6_attrs()->::service_layer::SLSrSrv6PolicyAttributes::MergeFrom(from._internal_srv6_attrs());
   }
   if (from._internal_transit_eligible() != 0) {
     _internal_set_transit_eligible(from._internal_transit_eligible());
@@ -3904,12 +3974,42 @@ void SLSrConstraints::InternalSwap(SLSrConstraints* other) {
 
 class SLSrSrv6BindingSID::_Internal {
  public:
+  static const ::service_layer::SLSRv6SIDInfo& explicit_(const SLSrSrv6BindingSID* msg);
   static const ::service_layer::SLSrSrv6DynamicBindingSID& dynamic(const SLSrSrv6BindingSID* msg);
 };
 
+const ::service_layer::SLSRv6SIDInfo&
+SLSrSrv6BindingSID::_Internal::explicit_(const SLSrSrv6BindingSID* msg) {
+  return *msg->type_.explicit__;
+}
 const ::service_layer::SLSrSrv6DynamicBindingSID&
 SLSrSrv6BindingSID::_Internal::dynamic(const SLSrSrv6BindingSID* msg) {
   return *msg->type_.dynamic_;
+}
+void SLSrSrv6BindingSID::set_allocated_explicit_(::service_layer::SLSRv6SIDInfo* explicit_) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_type();
+  if (explicit_) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(explicit_));
+    if (message_arena != submessage_arena) {
+      explicit_ = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, explicit_, submessage_arena);
+    }
+    set_has_explicit_();
+    type_.explicit__ = explicit_;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSrv6BindingSID.explicit)
+}
+void SLSrSrv6BindingSID::clear_explicit_() {
+  if (_internal_has_explicit_()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete type_.explicit__;
+    }
+    clear_has_type();
+  }
 }
 void SLSrSrv6BindingSID::set_allocated_dynamic(::service_layer::SLSrSrv6DynamicBindingSID* dynamic) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -3940,6 +4040,10 @@ SLSrSrv6BindingSID::SLSrSrv6BindingSID(const SLSrSrv6BindingSID& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_type();
   switch (from.type_case()) {
+    case kExplicit: {
+      _internal_mutable_explicit_()->::service_layer::SLSRv6SIDInfo::MergeFrom(from._internal_explicit_());
+      break;
+    }
     case kDynamic: {
       _internal_mutable_dynamic()->::service_layer::SLSrSrv6DynamicBindingSID::MergeFrom(from._internal_dynamic());
       break;
@@ -3982,6 +4086,12 @@ void SLSrSrv6BindingSID::SetCachedSize(int size) const {
 void SLSrSrv6BindingSID::clear_type() {
 // @@protoc_insertion_point(one_of_clear_start:service_layer.SLSrSrv6BindingSID)
   switch (type_case()) {
+    case kExplicit: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete type_.explicit__;
+      }
+      break;
+    }
     case kDynamic: {
       if (GetArenaForAllocation() == nullptr) {
         delete type_.dynamic_;
@@ -4012,6 +4122,14 @@ const char* SLSrSrv6BindingSID::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
+      // .service_layer.SLSRv6SIDInfo explicit = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_explicit_(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
@@ -4049,6 +4167,14 @@ uint8_t* SLSrSrv6BindingSID::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  // .service_layer.SLSRv6SIDInfo explicit = 1;
+  if (_internal_has_explicit_()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::explicit_(this), target, stream);
+  }
+
   // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
   if (_internal_has_dynamic()) {
     target = stream->EnsureSpace(target);
@@ -4074,6 +4200,13 @@ size_t SLSrSrv6BindingSID::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (type_case()) {
+    // .service_layer.SLSRv6SIDInfo explicit = 1;
+    case kExplicit: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *type_.explicit__);
+      break;
+    }
     // .service_layer.SLSrSrv6DynamicBindingSID dynamic = 2;
     case kDynamic: {
       total_size += 1 +
@@ -4108,6 +4241,10 @@ void SLSrSrv6BindingSID::MergeFrom(const SLSrSrv6BindingSID& from) {
   (void) cached_has_bits;
 
   switch (from.type_case()) {
+    case kExplicit: {
+      _internal_mutable_explicit_()->::service_layer::SLSRv6SIDInfo::MergeFrom(from._internal_explicit_());
+      break;
+    }
     case kDynamic: {
       _internal_mutable_dynamic()->::service_layer::SLSrSrv6DynamicBindingSID::MergeFrom(from._internal_dynamic());
       break;
@@ -4510,6 +4647,184 @@ void SLSrSrv6DynamicBindingSID::InternalSwap(SLSrSrv6DynamicBindingSID* other) {
       file_level_metadata_sl_5fsrte_5fpolicy_2eproto[16]);
 }
 
+// ===================================================================
+
+class SLSrSrv6PolicyAttributes::_Internal {
+ public:
+};
+
+SLSrSrv6PolicyAttributes::SLSrSrv6PolicyAttributes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLSrSrv6PolicyAttributes)
+}
+SLSrSrv6PolicyAttributes::SLSrSrv6PolicyAttributes(const SLSrSrv6PolicyAttributes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  install_final_node_sid_ = from.install_final_node_sid_;
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLSrSrv6PolicyAttributes)
+}
+
+inline void SLSrSrv6PolicyAttributes::SharedCtor() {
+install_final_node_sid_ = false;
+}
+
+SLSrSrv6PolicyAttributes::~SLSrSrv6PolicyAttributes() {
+  // @@protoc_insertion_point(destructor:service_layer.SLSrSrv6PolicyAttributes)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLSrSrv6PolicyAttributes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLSrSrv6PolicyAttributes::ArenaDtor(void* object) {
+  SLSrSrv6PolicyAttributes* _this = reinterpret_cast< SLSrSrv6PolicyAttributes* >(object);
+  (void)_this;
+}
+void SLSrSrv6PolicyAttributes::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLSrSrv6PolicyAttributes::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLSrSrv6PolicyAttributes::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLSrSrv6PolicyAttributes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  install_final_node_sid_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLSrSrv6PolicyAttributes::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // bool install_final_node_sid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          install_final_node_sid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLSrSrv6PolicyAttributes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLSrSrv6PolicyAttributes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool install_final_node_sid = 1;
+  if (this->_internal_install_final_node_sid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_install_final_node_sid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLSrSrv6PolicyAttributes)
+  return target;
+}
+
+size_t SLSrSrv6PolicyAttributes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLSrSrv6PolicyAttributes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool install_final_node_sid = 1;
+  if (this->_internal_install_final_node_sid() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLSrSrv6PolicyAttributes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLSrSrv6PolicyAttributes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLSrSrv6PolicyAttributes::GetClassData() const { return &_class_data_; }
+
+void SLSrSrv6PolicyAttributes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLSrSrv6PolicyAttributes *>(to)->MergeFrom(
+      static_cast<const SLSrSrv6PolicyAttributes &>(from));
+}
+
+
+void SLSrSrv6PolicyAttributes::MergeFrom(const SLSrSrv6PolicyAttributes& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLSrSrv6PolicyAttributes)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_install_final_node_sid() != 0) {
+    _internal_set_install_final_node_sid(from._internal_install_final_node_sid());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLSrSrv6PolicyAttributes::CopyFrom(const SLSrSrv6PolicyAttributes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLSrSrv6PolicyAttributes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLSrSrv6PolicyAttributes::IsInitialized() const {
+  return true;
+}
+
+void SLSrSrv6PolicyAttributes::InternalSwap(SLSrSrv6PolicyAttributes* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(install_final_node_sid_, other->install_final_node_sid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLSrSrv6PolicyAttributes::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fsrte_5fpolicy_2eproto_getter, &descriptor_table_sl_5fsrte_5fpolicy_2eproto_once,
+      file_level_metadata_sl_5fsrte_5fpolicy_2eproto[17]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
@@ -4563,6 +4878,9 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLSrMPLSBindingSID* Arena::CreateM
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLSrSrv6DynamicBindingSID* Arena::CreateMaybeMessage< ::service_layer::SLSrSrv6DynamicBindingSID >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLSrSrv6DynamicBindingSID >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLSrSrv6PolicyAttributes* Arena::CreateMaybeMessage< ::service_layer::SLSrSrv6PolicyAttributes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLSrSrv6PolicyAttributes >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

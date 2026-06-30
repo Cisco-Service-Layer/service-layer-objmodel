@@ -1,0 +1,21 @@
+# Copyright (c) 2025 by Cisco Systems, Inc.
+# All rights reserved.
+
+"""
+Service Layer Object Model - Root BUILD file
+
+This module provides pre-generated protobuf bindings for IOS-XR Service Layer API.
+
+The actual bindings are exported from subdirectories:
+- grpc/go/src/gengo/BUILD.bazel - Go protobuf bindings
+- grpc/python/src/genpy/BUILD.bazel - Python protobuf bindings
+
+Source: https://gh-xr.scm.engit.cisco.com/xr/service-layer-objmodel
+"""
+
+# Empty exports - actual targets are in subdirectories
+exports_files(
+    ["MODULE.bazel"],
+    visibility = ["//visibility:public"],
+)
+

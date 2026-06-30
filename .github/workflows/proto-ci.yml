@@ -1,0 +1,100 @@
+name: Proto CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+  push:
+    branches:
+      - main
+  merge_group:
+    types:
+      - checks_requested
+
+permissions:
+  contents: read
+
+concurrency:
+  group: proto-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  proto-lint:
+    name: proto-lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Run Buf lint
+        uses: bufbuild/buf-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_comment: false
+          lint: true
+          breaking: false
+          format: false
+          push: false
+          archive: false
+
+  proto-breaking:
+    name: proto-breaking
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Run Buf breaking check
+        uses: bufbuild/buf-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_comment: false
+          lint: false
+          breaking: true
+          format: false
+          push: false
+          archive: false
+
+  generated-bindings-up-to-date:
+    name: generated-bindings-up-to-date
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Regenerate bindings in Docker
+        shell: bash
+        run: |
+          set -euo pipefail
+          make clean
+          make bindings
+
+      - name: Verify generated bindings are committed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git diff --exit-code
+
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "::error::Generated bindings are not up to date. Run 'make clean && make bindings' locally and commit the result."
+            git status --short
+            exit 1
+          fi

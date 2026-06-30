@@ -5,7 +5,7 @@
 // default route status for a route object.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016, 2023, 2024 by Cisco Systems, Inc.
+//  Copyright (c) 2016, 2023, 2024, 2026 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -205,7 +205,7 @@ enum SLNotifType {
 }
 
 enum SLRouteFlags {
-    // Flags to control programming of the route and Path Group to 
+    // Flags to control programming of the route and Path Group to
     // Routing Information Base.
     // Each flag is indicated as a bit field. Supported values are:
 
@@ -228,6 +228,16 @@ enum SLRouteFlags {
     // See text in SLRoutecommon/PathGroup for more details.
     SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 4;
 
+    // This flag is applicable only to SLPathGroup object-type and defines a pure backup
+    // path-group for FRR applications.
+    SL_ROUTE_FLAG_FRR_PATHGROUP = 5;
+
+    // Setting this flag for an object enables:
+    // - Lossless updates and make-before-break (MBB) behavior.
+    // - HW-ACK tracking for the entire forwarding chain.
+    // This flag is applicable to SLAFIPRoute and SLMplsEntry objects.
+    SL_ROUTE_FLAG_LOSSLESS_UPDATE = 6;
+
     // All others are reserved.
 }
 
@@ -240,6 +250,9 @@ enum SLPathFlags {
 
     // Enables hardware optimization for single path VxLAN tunnels.
     SL_PATH_FLAG_SINGLE_PATH_OPT  = 1;
+
+    // This path is a pure backup that's protecting another path
+    SL_PATH_FLAG_BACKUP = 3;
 }
 
 // Common Get Notifications message
@@ -401,6 +414,7 @@ message SLRouteCommon {
     repeated SLRouteFlags RouteFlags = 7;
 
     // Route Metric.
+    // Range [0-4294967294]
     // The metric is typically based on information like load, hop count,
     // MTU, reliability of the path, etc.
     // When routes from different protocols share the same admin distance, 
@@ -451,8 +465,11 @@ message SLRoutePath {
     SLIpAddress NexthopAddress = 1;
 
     // Outgoing interface name for the path.
+    // When this field is not set, the next hop is considered non-connected.
+    // See SLPathGroup.UnderlayLevel for the connected-path requirement when
+    // SL_UNDERLAY_LEVEL_NO_FLATTENING is used.
     // For ENCAP_VXLAN, this field is not supported and will be ignored.
-    // The client should listen to interface state change API for create/delete 
+    // The client should listen to interface state change API for create/delete
     // and reprogram the route or PG.
     SLInterface NexthopInterface = 2;
 
@@ -462,6 +479,10 @@ message SLRoutePath {
     // route, MPLS label or PathGroup must have a value of 0. For
     // unequal cost load balancing, all paths must have non-zero value
     // otherwise system defaults to equal cost load balancing.
+    // Alternatively for unequal cost load balancing, paths that need to
+    // take more load can be repeated as many times within the list, but in such
+    // case the LoadMetric is recommended to be set to 1 for all paths in the
+    // PathList for operational simplicity.
     uint32 LoadMetric = 3;
 
     // Path VRF name. This field is optional and if not specified, VRF of
@@ -560,8 +581,118 @@ message SLRoutePath {
         // Path group reference key
         SLPathGroupRefKey PathGroupKey = 15;
    }
+   // BackupIndex identifies the backup SLRoutePath object that is protecting this
+   // SLRoutePath object. This object then becomes the "primary" path and the SLRoutePath
+   // at index identified by BackupIndex is the "backup" to this SLRoutePath.
+   //
+   // BackupIndex is the position of the backup SLRoutePath object in the parent PathList that this object
+   // is also part of.
+   // The PathList indices start with 1 i.e. the first element is at index 1 and not 0 (0 is reserved).
+   //
+   // BackupIndex is supported only when the following objects reference the PathList
+   //    SLPathGroup
+   //    SLMplsEntry
+   //    SLAFIPRoute
+   //
+   // Backup SLRoutePath referenced through BackupIndex object MUST be either a
+   // a) pure backup path with SL_PATH_FLAG_BACKUP set
+   // b) pure backup PathGroup with SL_ROUTE_FLAG_FRR_PATHGROUP set
+   // c) ECMP backup path (SL_PATH_FLAG_BACKUP is not set)
+   repeated uint32 BackupIndex = 16;
+
+    // MinResolutionLength is an optional filed.
+    // When set, this field dictates the minimum prefix length required for next hop resolution.
+    // For example, if this field is set to 24, only /24 and larger prefixes would be considered.
+    uint32 MinResolutionLength = 17;
 }
 
+enum SLUnderlayLevels {
+    // Underlay Levels.
+
+    // NHG placement is decided by the system.
+    SL_UNDERLAY_LEVEL_DEFAULT = 0;
+
+    // NHG will be programmed at a different stage to prevent flattening.
+    SL_UNDERLAY_LEVEL_NO_FLATTENING  = 1;
+}
+
+// Path Group definition.
+message SLPathGroup {
+    message SLPath {
+        SLRoutePath Path = 1;
+    }
+
+    // A list of SLPathList
+    message SLPathList {
+        repeated SLPath Paths = 1;
+    }
+
+    // Path Group ID
+    SLObjectId PathGroupId = 1;
+
+    // Administrative distance of the Path Group. [0-255].
+    // RIB uses this field to break the tie when multiple
+    // sources install the same Path Group.
+    // Lower distance is preferred over higher distance.
+    // The per path group object admin distance overrides the default admin
+    // distance set at VRF registration. see SLVrfReg.
+    uint32 AdminDistance = 2;
+
+    // Description of paths in the PathGroup.
+    // Oneof is used here for future extensibility.
+    oneof entry {
+        // Path List
+        // Specifying more than one path is allowed for ECMP/UCMP/FRR cases.
+        SLPathList PathList = 3;
+    }
+
+    // Flags to control programming of the PathGroup to Routing
+    // Information Base. See SLRouteFlags for flag enumerations.
+    // Supported values are:
+    //
+    // SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
+    // - If the flag is not set, all paths in the PathList are installed in
+    //   the PathGroup's load balance group, even if paths are unviable.
+    //   The Network element does not automatically update the PathGroup's
+    //   load balance group when path viability changes and
+    //   expects the client to take corrective action.
+    //
+    // - If the flag is set, the network element only installs viable
+    //   paths from the PathList in the PathGroup's load balance group.
+    //   The Network element also automatically updates the PathGroup's
+    //   load balance group when path viability changes.
+    //
+    // SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH.
+    // - If this flag is not set, routes and MPLS entries referencing
+    //   this PathGroup are considered active if they are preferred
+    //   based on their administrative distance. PathGroup's viability
+    //   is not considered as a criterion to determine the routes' and
+    //   MPLS entries' activeness. The network element does not automatically
+    //   promote or demote the routes and MPLS entries as viability of the
+    //   PathGroup changes.
+    //
+    // - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
+    //   be set. The routes and MPLS entries referencing this PathGroup are
+    //   considered active if they are preferred based
+    //   on their administrative distance AND viability of the PathGroup.
+    //   At least one path in the PathGroup must be viable for the
+    //   PathGroup to be viable. The network element automatically promotes or
+    //   demotes the routes and MPLS entries as viability of the PathGroup
+    //   changes.
+    // SL_ROUTE_FLAG_FRR_PATHGROUP
+    // - If this flag is set, this PathGroup object provides backup path to one or more path/pathgroups.
+    //   PathGroup with this flag set will be considered as pure backup.
+    //
+    // Others - Reserved.
+    repeated SLRouteFlags PgFlags = 4;
+
+    // SLUnderlayLevels indicates the lookup stage at which the path group
+    // is programmed. This is relevant only when hierarchical lookup is required.
+    // If underlay level is set to SL_UNDERLAY_LEVEL_NO_FLATTENING, all paths
+    // in the PathList must be connected next hops (NexthopInterface must be set).
+    // This is an optional field.
+    SLUnderlayLevels UnderlayLevel = 5;
+}
 // IP Route Prefix and Prefix Length
 message SLRoutePrefix {
     // IPv4 or IPv6 address
