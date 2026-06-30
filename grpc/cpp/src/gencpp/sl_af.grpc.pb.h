@@ -58,7 +58,7 @@ namespace service_layer {
 // Metadata supports the following key-value pairs:
 // "iosxr-slapi-clientid" : <numeric string number between 0 and 65535>
 // "iosxr-slapi-clientname": <UTF-8 encoded printable client name of max
-// length 64 characters>
+// length 32 characters>
 // The client application MUST set the gRPC metadata key
 // "iosxr-slapi-clientid" which is mandatory. The optional gRPC metadata key
 // "iosxr-slapi-clientname" may be specified to enable operational visibility.
